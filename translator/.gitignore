@@ -1,0 +1,9 @@
+tmp/**
+temp/**
+venv/**
+.idea
+*.pyc
+**.log
+**.bak
+ltrans/dictionaries/**
+ltrans.egg*

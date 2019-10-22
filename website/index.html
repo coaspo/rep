@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Christos</title>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <style>
+      body {font-size:24px;}
+      td   {vertical-align:}
+      p    {margin-left: 25px; margin-top: 5px; margin-bottom: 5px;}
+    </style>
+  </head>
+  <body>
+    <div class="w3-container">
+      <div class="w3-bar w3-white">
+        <button class="w3-bar-item w3-button tablink w3-blue" onclick="opencontName(event, 'Util')">Util</button>
+        <button class="w3-bar-item w3-button tablink"         onclick="opencontName(event, 'Projects')">Proj</button>
+        <button class="w3-bar-item w3-button tablink"         onclick="opencontName(event, 'Tools')">Tool</button>
+        <button class="w3-bar-item w3-button tablink"         onclick="opencontName(event, 'Misc')">Misc</button>
+      </div>
+      <!--======================================== Util ======================================-->
+      <div id="Util" class="w3-container contName" >
+        <table>
+          <!-- class="w3-table"-->
+          <tr>
+            <td>
+		      <!--music--><a href="https://www.wqxr.org">Music</a><br/><br/>
+              <!--cartoons--><a href="https://www.gocomics.com/comics/trending">cartoons</a><br/><br/>
+              <!--npr--><a href="https://www.npr.org">NPR</a><br/><br/>
+              <!--recipes--><a href="./recipes/index.html">recipes </a><br/><br/>
+              <!--traffic--><a href="https://www.google.com/maps/@42.4765179,-71.1097046,12z/data=!5m1!1e1?hl=en">Traffic</a> <br/><br/>
+              <!--weather--><a href="http://forecast.weather.gov/MapClick.php?lat=42.482&amp;lon=-71.0973&amp;unit=0&amp;lg=english&amp;FcstType=graphical">Weather</a>&nbsp;&nbsp;&nbsp;<br/><br/>
+		    </td>
+            <td>
+              <input type="text" id="inputText" style="width:205px">
+              <p><button onclick="defineWord();"  style="width:180px; text-align: left;" >define</button>
+              <p><button onclick="duckDuckGo();"  style="width:180px; text-align: left;" >&lt;duck duck&gt;</button>
+              <p><button onclick="findAcronym();" style="width:180px; text-align: left;" >Acronym</button>
+              <p><button onclick="mayoclinic();"  style="width:180px; text-align: left;" >mayoclinic</button>
+              <p><button onclick="podCasts();"    style="width:180px; text-align: left;" >podcast</button>
+              <p><button onclick="wikipedia();"   style="width:180px; text-align: left;" >Wikipedia</button>
+              <p><button onclick="σταΕλληνικά();" style="width:180px; text-align: left;" >Ελληνικά</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+      <!--======================================== Projects ======================================-->
+      <div id="Projects" class="w3-container contName" style="display:none">
+        <table class="w3-striped">
+          <tr>
+            <td>
+              <a href="https://github.com/chantzis" >github</a>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+              <a href="https://app.netlify.com/teams/c-hantzis/sites" >netlify</a><br />
+            </td>
+            <td>
+              <a href="https://github.com/chantzis/chrepo/tree/master/translator">tranlator</a><br />
+              <a href="https://github.com/chantzis/chrepo/tree/master/website"   >website</a><br />
+            </td>
+          </tr>
+        </table>
+      </div>
+      <!--======================================== Tools ======================================-->
+      <div id="Tools" class="w3-container contName" style="display:none" >
+        <table>
+          <!-- class="w3-table"-->
+          <tr>
+            <td class="w3-pale-blue">
+              <!--vogella tuto.--><a href="https://www.vogella.com/tutorials/java.html">Java tutorials</a><br/>
+              <!--quizlet--><a href="https://quizlet.com/">quizlet</a><br/><br/>
+              <!--Pluralsight--><a href="https://app.pluralsight.com/paths"  target="_blank">     <SPAN class="yeb">Pluralsight</SPAN></a><br />
+              <!--flowchart tuto.--><a href="http://creately.com/blog/diagrams/flowchart-guide-flowchart-tutorial/">flowchart tutorial</a><br/>
+              <!--crystal rpt tuto.--><a href="https://wiki.scn.sap.com/wiki/display/BOBJ/Tutorials+-+SAP+Crystal+Reports+2011%2C+2013%2C+2016">crystal rpt tuto.</a><br/>
+              <a href="chrome://net-internals">chrome://net-internals</a><br /> <br />
+            <td>
+              <!--SQL Format--><a href="http://sqlformat.org/">SQL Format</a><br/>
+              <a href="http://www.dpriver.com/pp/sqlformat.htm">SQL Format2</a><br/>
+              <!--JMeter--><a href="http://jmeter.apache.org/index.html">JMeter</a><br/>
+              <!--HTML valid.--><a href="http://validator.w3.org/#validate_by_input">HTML valid.</a><br />
+              <!--HTML format--><a href="http://www.freeformatter.com/html-formatter.html">HTML format</a><br />
+          </tr>
+        </table>
+      </div>
+      <!--======================================== Misc ======================================-->
+      <div id="Misc" class="w3-container contName" style="display:none" >
+        <table>
+          <!-- class="w3-table"-->
+          <tr>
+            <td  class="w3-pale-yellow" >
+              <a href="./notes/git.html">git</a> <br />
+              <a href="./notes/windows.html">windows</a> <br />
+              <a href="./notes/misc.html">misc</a> <br />
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <script>
+      function opencontName(evt, tabName) {
+         var i;
+         var x = document.getElementsByClassName("contName");
+         for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+         }
+         document.getElementById(tabName).style.display = "block";
+         //
+         tablinks = document.getElementsByClassName("tablink");
+         for (i = 0; i < x.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" w3-blue", "yellow");
+         }
+         evt.currentTarget.className += " w3-blue";
+       }
+      function findAcronym() {
+        var acronym = document.getElementById('inputText').value;
+        var url = "https://www.acronymfinder.com/" + acronym + ".html";
+        var win = window.open(url, "_self");
+        win.focus();
+      }
+      function σταΕλληνικά() {
+        var englishWord = document.getElementById('inputText').value;
+        var url = "https://translate.google.com/#en/el/" + englishWord;
+        var win = window.open(url, "_self");
+        win.focus();
+      }
+      function defineWord() {
+        var word = document.getElementById('inputText').value;
+        var url = "https://www.dictionary.com/browse/" + word + "?s=t";
+        var win = window.open(url, "_self");
+        win.focus();
+      }
+      function wikipedia() {
+        var word = document.getElementById('inputText').value;
+        var url = "https://en.wikipedia.org/wiki/" + word;
+        var win = window.open(url, "_self");
+        win.focus();
+      }
+      function mayoclinic() {
+        var word = document.getElementById('inputText').value;
+        var url = "https://www.mayoclinic.org/search/search-results?q=" + word;
+        var win = window.open(url, "_self");
+        win.focus();
+	    }
+      function duckDuckGo() {
+        var word = document.getElementById('inputText').value;
+        var url = "https://duckduckgo.com/?q=" + word + "&t=hk&ia=web";
+        var win = window.open(url, "_self");
+        win.focus();
+	    }
+      function podCasts() {
+        var word = document.getElementById('inputText').value;
+        var url = "https://www.listennotes.com/search/?q=" + word + "&sort_by_date=0&scope=episode&offset=0&language=Any%20language&len_min=0";
+        var win = window.open(url, "_self");
+        win.focus();
+	    }
+	  if (document.URL.startsWith('file')) {
+	    document.body.style.background = "lightyellow"
+	  }
+    document.getElementById('inputText').addEventListener('keypress', function (e) {
+    var key = e.which || e.keyCode;
+    if (key === 13) { // 13 is enter
+      duckDuckGo() 
+    }
+});
+
+    </script>
+  </body>
+</html>
