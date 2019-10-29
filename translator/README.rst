@@ -10,6 +10,9 @@ a local json file to improve performance.
 
 Run app
 -------
+|  Install python 3 and add it to path
+|  (Optional) Update pip:
+|  `python -m pip install --upgrade pip``
 |  From project dir, run:
 |  ``pip install -r requirements.txt``
 |  then
@@ -26,9 +29,10 @@ Notes
 |  ``pip freeze > requirements.txt``
 
 
-|  If not in a Pychram, use virtual env:
+|  If not in a Pychram, may use virtual env:
 
-|  Create virtual env:
+|  Create virtual env (``c:\..\translator\venv``):
+|    ``pip install virtualenv``
 |    ``virtualenv venv``
 |    Activate venv (adds bin to ``%PATH%``)
 |    ``source venv/bin/activate``

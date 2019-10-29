@@ -4,5 +4,5 @@
 "ERR_LOG_FILE_NAME":"word-translator-ERR-log.txt",
 "MAX_TRANSLATION_HISTORY_COUNT":"32",
 "DICTIONARY_DIR":"./dictionaries",
-"LOG_DIR": "./logs",
+"LOG_DIR": "./logs"
 }
