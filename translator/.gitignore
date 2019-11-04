@@ -7,3 +7,4 @@ venv/**
 **.bak
 ltrans/dictionaries/**
 ltrans.egg*
+a.py

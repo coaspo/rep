@@ -1,6 +1,6 @@
 import tkinter.scrolledtext
 import tkinter.ttk
-
+import tkinter.font
 
 class View:
 
@@ -30,36 +30,35 @@ class View:
                                                  values=self.language_names, state='readonly')
         self.destination_language = tkinter.ttk.Combobox(root, width=20, height=1, font=("Arial", 9),
                                                          values=self.language_names, state='readonly')
-        self.trans_bt = tkinter.Button(root, text="  Translate  ", state=tkinter.DISABLED)
+        self.swap_languages_bt = tkinter.Button(root, text="  ⇆  ", height = 1, width = 2)
         self.is_add_src = tkinter.IntVar()
-        add_source_check_button = tkinter.Checkbutton(root, text="Source", bg="white", variable=self.is_add_src)
-        self.is_add_pronunciation = tkinter.IntVar()
-        add_pronunciation_check_button = tkinter.Checkbutton(root, text="Pronunciation", bg="white",
-                                                               variable=self.is_add_pronunciation)
-        self.clear_bt = tkinter.Button(root, text="  Clear  ")
-        self.status_label = tkinter.Label(root, bg="white",
+        self.add_source_check_button = tkinter.Checkbutton(root, text="Add source", bg="white", variable=self.is_add_src)
+        self.is_add_transliteration = tkinter.IntVar()
+        self.add_transliteration_check_button = tkinter.Checkbutton(root, text="Transliterate", bg="white",
+                                              variable=self.is_add_transliteration, state=tkinter.DISABLED)
+        self.trans_bt = tkinter.Button(root, text="  Translate  ", state=tkinter.DISABLED)
+        self.status_label = tkinter.Label(root, bg="#ccffcc", fg='black',
                                           text="Enter text on left panel & exit panel to translate it")
+        self.clear_bt = tkinter.Button(root, text="  Clear  ")
 
         self.src_language.pack(side=tkinter.LEFT, padx=5, pady=2)
-        arrow_label = tkinter.Label(root, bg="white", font=("Arial", 12), text="→")
-        arrow_label.pack(side=tkinter.LEFT, padx=2, pady=2)
+        self.swap_languages_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
         self.destination_language.pack(side=tkinter.LEFT, padx=5, pady=2)
+        self.add_source_check_button.pack(side=tkinter.LEFT, pady=2)
+        self.add_transliteration_check_button.pack(side=tkinter.LEFT, pady=2)
         self.trans_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
-        add_label = tkinter.Label(root, bg="white", text="   Add:")
-        add_label.pack(side=tkinter.LEFT, padx=5, pady=2)
-        add_source_check_button.pack(side=tkinter.LEFT, pady=2)
-        add_pronunciation_check_button.pack(side=tkinter.LEFT, pady=2)
-        self.clear_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
         self.status_label.pack(side=tkinter.LEFT, padx=5, pady=2)
+        self.clear_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
 
     def bind_controls(self, controller, model):
         self.clear_bt.bind("<Button-1>", controller.clear_input)
         self.input_frame.bind("<Leave>", controller.find_src_language)
         self.destination_language.bind("<KeyRelease>", controller.set_dest_language)
         self.trans_bt.bind("<Button-1>", controller.translate_text)
+        self.swap_languages_bt.bind("<Button-1>", controller.swap_languages)
         self.root.protocol("WM_DELETE_WINDOW", controller.on_closing)
         self.txt_frame.bind("<Key>", controller.txt_frame_key_press)
-        print('Connroller bound to view')
+        print('Controller bound to view')
 
     def start(self):
         self.root.mainloop()

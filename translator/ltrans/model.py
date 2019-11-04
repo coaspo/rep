@@ -5,6 +5,8 @@ import ltrans.reference
 import os.path
 import logging
 import ltrans.util
+import transliterate
+import random
 
 LOG = logging.getLogger(__name__)
 
@@ -15,10 +17,10 @@ class Model:
         self._config = config
         self._translator = google_translator
 
-    def translate(self, text, src_language, dest_language, is_add_source, is_add_pronunciation):
+    def translate(self, text, src_language, dest_language, is_add_source, is_add_transliteration):
         if self._dictionary is None or src_language != self._dictionary.src_language or dest_language != self._dictionary.dest_language:
             self._dictionary = Dictionary(self._config, src_language, dest_language)
-        user_input = UserInput(text, src_language, dest_language, is_add_source)
+        user_input = UserInput(text, src_language, dest_language, is_add_source, is_add_transliteration)
         if __debug__:
             LOG.debug(user_input)
         translated_text = translate_text(user_input, self._dictionary, self._translator)
@@ -30,11 +32,12 @@ class Model:
 
 
 class UserInput:
-    def __init__(self, text_lines, src_language, dest_language, is_add_src):
+    def __init__(self, text_lines, src_language, dest_language, is_add_src, is_add_transliteration):
         self._text_lines = text_lines
         self._src_language = src_language
         self._dest_language = dest_language
         self._is_add_src = is_add_src
+        self._is_add_transliteration = is_add_transliteration
 
     @property
     def text_lines(self):
@@ -52,8 +55,9 @@ class UserInput:
     def is_add_src(self):
         return self._is_add_src
 
-    def __repr__(self):
-        return f'{self.__class__.__name__}: src_language={self._src_language}, dest_language={self._dest_language}, is_add_src={self._is_add_src}, \ntext_lines=\n {self._text_lines}'
+    @property
+    def is_add_transliteration(self):
+        return self._is_add_transliteration
 
 
 def translate_text(user_input, dictionary, translator):
@@ -61,11 +65,44 @@ def translate_text(user_input, dictionary, translator):
         LOG.debug(f'user_input={user_input}, dictionary={str(dictionary)}')
     input_lines = user_input.text_lines.split('\n')
     translated_lines = [translate_line(line, dictionary, translator) for line in input_lines]
-
-    trans_text = '\n'.join(translated_lines)
+    translated_lines = possibly_add_extra_lines(input_lines, translated_lines, user_input)
+    trans_text = '\n'.join(translated_lines).strip()
     if __debug__:
         LOG.debug(f'trans_text={trans_text}')
     return trans_text
+
+def possibly_add_extra_lines(input_lines, translated_lines, user_input):
+    output_lines = None
+    if user_input.is_add_src:
+        output_lines = input_lines.copy()
+        if user_input.is_add_transliteration:
+            trasliteration_lines = transliterate_lines(input_lines, user_input.src_language)
+            if trasliteration_lines is not None:
+                output_lines = [a + '\n' + b for a, b in zip(output_lines, trasliteration_lines)]
+
+    if output_lines is None:
+        output_lines = translated_lines
+    else:
+        output_lines = [a + '\n' + b for a, b in zip(output_lines, translated_lines)]
+
+    if user_input.is_add_transliteration:
+        trasliteration_lines = transliterate_lines(translated_lines, user_input.dest_language)
+        if trasliteration_lines is not None:
+            output_lines = [a + '\n' + b for a, b in zip(output_lines, trasliteration_lines)]
+
+    if output_lines != translated_lines:
+        output_lines = [line + '\n' for line  in output_lines]
+    return output_lines
+
+
+
+def transliterate_lines(lines, lines_language):
+    if __debug__:
+        LOG.debug(f'  lines_language={lines_language}')
+    if lines_language == 'English' or lines_language not in ltrans.reference.TRANSLITERATE_LANGUAGE_NAMES:
+        return
+    lang_abbr = ltrans.reference.LANGUAGE_NAMES_ABBRS[lines_language]
+    return [transliterate.translit(line, lang_abbr, reversed=True) for line in lines]
 
 
 def translate_line(line, dictionary, translator):
@@ -78,10 +115,7 @@ def translate_line(line, dictionary, translator):
     new_translated_words = None
     for word in words:
         translated_word = translate_word(word, dictionary, translator)
-        trans_display = translated_word
-        if word[0:1].isupper():
-            trans_display = trans_display[0:1].upper() + trans_display[1:]
-        trans_line = re.sub(word, trans_display, trans_line, 1)
+        trans_line = re.sub(word, translated_word, trans_line, 1)
     if __debug__:
         LOG.debug(f'   trans_line={trans_line}')
     return trans_line
@@ -107,13 +141,14 @@ def translate_word(word, dictionary, translator):
         translated_word = translation.text
         if word != translated_word:
             dictionary[word] = translated_word
-        # translation.pronunciation is always none , need google account?
-        # if pronunciation is None and dest_language_abbr in transliterate.get_available_language_codes():
-        #     pronunciation = transliterate.translit(translated_word, dest_language_abbr, reversed=True)
+        # translation.transliteration is always none , need google account?
+    if word[0:1].isupper():
+        print(translated_word[0:1],'----', translated_word[1:])
+        w = translated_word[0:1].upper() + translated_word[1:]
+        translated_word = w  # to avoid repeating firstr ltr (?)
+    print('----', translated_word)
     if __debug__:
         LOG.debug(f'     translated_word={translated_word}')
-    if word[0:1].isupper():
-        translated_word = translated_word[0:1].upper() + translated_word[1:]
     return translated_word
 
 
@@ -126,39 +161,29 @@ class Dictionary(dict):
     def __init__(self, config, src_language, dest_language):
         self._src_language = src_language
         self._dest_language = dest_language
-        langs = [src_language, dest_language]
-        langs.sort()
-        self._is_reversed = langs[0] != src_language
         self._set_file_path(config, src_language, dest_language)
 
         if os.path.isfile(self._dict_file_path):
             with open(self._dict_file_path, "r", encoding='utf8') as f:
                 dictionary = json.load(f)
-            if self._is_reversed:
-                reverse_dictionary = {v: k for k, v in dictionary.items()}
-                super(Dictionary, self).__init__(reverse_dictionary)
-            else:
-                super(Dictionary, self).__init__(dictionary)
         else:
-            super(Dictionary, self).__init__({})
+            dictionary = {}
+        super(Dictionary, self).__init__(dictionary)
 
-        self._initial_len = len(self)
+        self._initial_len = len(self.keys())
 
     def _set_file_path(self, config, src_language, dest_language):
         if config == None or config.get('DICTIONARY_DIR') == None:
             raise Exception('config missing config parameter "DICTIONARY_DIR"')
-        dict_dir = config['DICTIONARY_DIR']
+        dictionary_dir = config['DICTIONARY_DIR']
 
-        if dict_dir.startswith("./"):
-            dict_dir = os.path.dirname(__file__) + dict_dir[1:]
-            print('---', dict_dir)
-            if not os.path.exists(dict_dir):
-                os.mkdir(dict_dir, 0o755);
-        elif not os.path.isdir(dict_dir):
-            raise Exception(f'config parameter DICTIONARY_DIR={dict_dir} is and invalid directory')
-        langs = [src_language, dest_language]
-        langs.sort()
-        self._dict_file_path = dict_dir + '/' + langs[0] + langs[1] + '-dict.json'
+        if dictionary_dir.startswith("./"):
+            dictionary_dir = os.path.dirname(__file__) + dictionary_dir[1:]
+            if not os.path.exists(dictionary_dir):
+                os.mkdir(dictionary_dir, 0o755);
+        elif not os.path.isdir(dictionary_dir):
+            raise Exception(f'config parameter DICTIONARY_DIR={dictionary_dir} is and invalid directory')
+        self._dict_file_path = dictionary_dir + '/' + src_language + dest_language+ '-dict.json'
         if __debug__:
             LOG.debug(f'dict_file_path={self._dict_file_path}')
 
@@ -178,16 +203,13 @@ class Dictionary(dict):
         return {k: v for k, v in self.items()}
 
     def save(self):
-        len_diff = len(self) - self._initial_len
+        current_len = len(self.keys())
+        len_diff = current_len - self._initial_len
         if len_diff > 0:
-            dict_save = self.copy()
-            if self._is_reversed:
-                dict_save = {v: k for k, v in dict_save.items()}
-
             with open(self._dict_file_path, "w", encoding='utf8') as f:
-                json.dump(dict_save, f, ensure_ascii=False, sort_keys=True, indent=0)
+                json.dump(self, f, ensure_ascii=False, sort_keys=True, indent=0)
             if __debug__:
-                LOG.debug('4 sample words saved:', {k: dict_save[k] for k in list(dict_save)[:4]})
+                sample_words = random.sample(self.items(), 2)
+                LOG.debug(f'initial/current word count: {self._initial_len}/{current_len}  2-word random sample: {sample_words}')
+            self._initial_len = len(self.keys())
 
-    def __repr__(self):
-        return f' src_languaget={self._src_language} dest_language={self._dest_language} is_reversed={self._is_reversed}'

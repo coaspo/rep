@@ -29,20 +29,24 @@ class Config(dict):
             raise Exception('missing constructor arg - use file path or dict arg\'s')
 
 
-def set_logger(level, config):
+def set_logger(config):
     if config == None or config.get('LOG_DIR') == None:
-        raise Exception('config missing config parameter "LOG_DIR"')
+        raise Exception('config missing config parameter "log_dir"')
     if is_logget_set:
         return
-    log_dir = config.get('LOG_DIR')
+    log_dir = config['LOG_DIR']
+    log_level_config = config.get('LOG_LEVEL')
+    log_levels = {'CRITICAL': 50, 'ERROR': 40, 'WARNING': 30 , 'INFO': 20, 'DEBUG': 10, 'NOTSET':0 }
+    LOG_LEVEL = log_levels.get(log_level_config)
     is_log_dir_created = False
+    if LOG_LEVEL is None:
+       raise Exception(f'Invalid log flag: {log_level_config} in config_trans.json, use one of: '+ str(log_levels.keys()))
     if not os.path.isdir(log_dir):
         os.mkdir(log_dir)
         is_log_dir_created = True
-
     year_month = str(datetime.datetime.today())[:7]
     root = logging.getLogger()
-    root.setLevel(os.environ.get("LOGLEVEL", level))
+    root.setLevel(os.environ.get("LOGLEVEL", LOG_LEVEL))
     logFormatter = logging.Formatter("%(asctime)s %(filename)s:%(lineno)s - %(funcName)s() - %(message)s")
     global log_file_path
     log_file_path = log_dir + "/translator-" + year_month + ".log"
@@ -54,6 +58,6 @@ def set_logger(level, config):
     consoleHandler.setFormatter(logFormatter)
     root.addHandler(consoleHandler)
     if is_log_dir_created:
-        LOG.info(f'created LOG_DIR: {log_dir}')
+        LOG.info(f'created log_dir: {log_dir}')
     is_logger_set = True
 

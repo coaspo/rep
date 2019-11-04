@@ -13,8 +13,8 @@ import logging
 
 log = logging.getLogger(__name__)
 
-class Controller():
 
+class Controller():
     def __init__(self, config_trans, view, model):
         self._config_trans = config_trans
         self.view = view
@@ -41,8 +41,8 @@ class Controller():
         self.view.src_language.set('')
         self.view.destination_language.set('')
         self.view.trans_bt.config(state=tkinter.DISABLED)
-        self.view.add_source_check_box.deselect()
-        self.view.add_pronunciation_check_box.deselect()
+        self.view.add_transliteration_check_button.config(state=tkinter.DISABLED)
+        self.view.add_source_check_button.deselect()
         self.view.status_label.config(fg='black', text='Enter text on left panel')
 
     def find_src_language(self, event):
@@ -61,8 +61,11 @@ class Controller():
                 for index, lang_name in enumerate(self.view.language_names):
                     if src_language == lang_name:
                         self.view.src_language.current(index)
+                        if src_language in ltrans.reference.TRANSLITERATE_LANGUAGE_NAMES:
+                            self.view.add_transliteration_check_button.configure(state=NORMAL)
                         break
                 self._possibly_recommend_dest_language(src_language)
+            self.model.save_dictionary()
             self.view.status_label.config(fg='black', text='Click Translate button')
         except Exception as e:
             self._handle_error('', e)
@@ -71,11 +74,14 @@ class Controller():
         dest_language = self.view.destination_language.get()
         if len(dest_language) == 0:
             try:
-                primary_language = self.config_trans.get('PRIMARY_DESTINATION_LANGUAGE')
-                index = self.view.language_names.index(primary_language)
-                if src_language == primary_language:
+                PRIMARY_DESTINATION_LANGUAGE = self.config_trans.get('PRIMARY_DESTINATION_LANGUAGE')
+                index = self.view.language_names.index(PRIMARY_DESTINATION_LANGUAGE)
+                if src_language == PRIMARY_DESTINATION_LANGUAGE:
                     index = self.view.language_names.index(self.config_trans.get('SECONDARY_DESTINATION_LANGUAGE'))
                 self.view.destination_language.current(index)
+                dest_language = self.view.destination_language.get()
+                if dest_language in ltrans.reference.TRANSLITERATE_LANGUAGE_NAMES:
+                    self.view.add_transliteration_check_button.configure(state=tkinter.NORMAL)
                 self.view.trans_bt.config(state=tkinter.NORMAL)
             except Exception as e:
                 self._handle_error('src_language=' + src_language, e)
@@ -92,9 +98,33 @@ class Controller():
             for index, lang_name in enumerate(self.view.language_names):
                 if lang_name.startswith(self.keys_typed):
                     self.view.destination_language.current(index)
+                    #if  ltrans.reference.LANGUAGE_ABBRS_NAMES[lang_name] in
                     break
+
+            self.model.save_dictionary()
         except Exception as e:
             self._handle_error(' keys_typed= ' + self.keys_typed, e)
+
+    def swap_languages(self, event):
+        src_language = self.view.src_language.get()
+        dest_language = self.view.destination_language.get()
+
+        for index, lang_name in enumerate(self.view.language_names):
+            if lang_name == src_language:
+                self.view.destination_language.current(index)
+                break
+
+        for index, lang_name in enumerate(self.view.language_names):
+            if lang_name == dest_language:
+                self.view.src_language.current(index)
+                break
+
+        src_text = self.view.input_frame.get("1.0", tkinter.END).strip()
+        dest_text = self.view.output_frame.get("1.0", tkinter.END).strip()
+        self.view.input_frame.delete('1.0', tkinter.END)
+        self.view.output_frame.delete('1.0', tkinter.END)
+        self.view.input_frame.insert(tkinter.INSERT, dest_text)
+        self.view.output_frame.insert(tkinter.INSERT, src_text)
 
     def translate_text(self, event):
         if self.view.trans_bt['state'] == 'normal':
@@ -104,9 +134,9 @@ class Controller():
                 src_language = self.view.src_language.get()
                 dest_language = self.view.destination_language.get()
                 is_add_source = self.view.is_add_src.get()
-                is_add_pronunciation = self.view.is_add_pronunciation.get()
+                is_add_transliteration = self.view.is_add_transliteration.get()
                 trans_text = self.model.translate(text, src_language, dest_language, is_add_source,
-                                                  is_add_pronunciation)
+                                                  is_add_transliteration)
                 self.view.output_frame.insert(tkinter.END, trans_text)
                 self.view.status_label.config(fg='green', text='translation done')
             except Exception as e:
@@ -126,21 +156,20 @@ class Controller():
 
 
 def main():
-    print('wd=====', os.getcwd())
-    print('filepath======', os.path.abspath(os.path.dirname(__file__)))
     try:
         with open(os.path.dirname(__file__) + "/config_trans.json") as f:
             config = json.load(f)
-        ltrans.util.set_logger("DEBUG", config)
+        ltrans.util.set_logger(config)
         if __debug__:
-            log.debug('acive....')
+            log.debug('active....')
+
         language_names = [v for v, _ in ltrans.reference.LANGUAGE_NAMES_ABBRS.items()]
         v = View(language_names)
         google_translator = googletrans.Translator()
         m = Model(config, google_translator)
         c = Controller(config, v, m)
         v.bind_controls(c, m)
-        log.info('Starting Tranlator APP')
+        log.info('Starting Translator APP')
         c.view.start()
     except Exception as exc:
         exc_trace = str(exc) + '\n\t' + traceback.format_exc()

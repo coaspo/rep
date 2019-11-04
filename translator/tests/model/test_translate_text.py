@@ -14,7 +14,7 @@ ltrans.util.set_logger('DEBUG', CONFIG)
 
 def test_multiple_lines():
     text_lines = 'Today is a fine day.\nIs today a fine day?'
-    user_input = ltrans.model.UserInput(text_lines, 'English',  'French', is_add_src=False)
+    user_input = ltrans.model.UserInput(text_lines, 'English',  'French', is_add_src=False, is_add_transliteration=False)
     dictionary = english_french_dict()
     trans_text = ltrans.model.translate_text(user_input, dictionary, translator=None)
     assert trans_text == "Aujourd'hui est une bien journée.\nEst Aujourd'hui une bien journée?"
