@@ -40,9 +40,14 @@ def set_logger(config):
     LOG_LEVEL = log_levels.get(log_level_config)
     is_log_dir_created = False
     if LOG_LEVEL is None:
-       raise Exception(f'Invalid log flag: {log_level_config} in config_trans.json, use one of: '+ str(log_levels.keys()))
+       raise Exception(f'Invalid LOG_LEVEL="{log_level_config}" in config_trans.json, use one of: '+ str(log_levels.keys()))
     if not os.path.isdir(log_dir):
-        os.mkdir(log_dir)
+        try:
+            os.mkdir(log_dir)
+        except Exception as exc:
+            exc_trace = str(exc) + '\n\t' + traceback.format_exc()
+            log.error(exc_trace)
+
         is_log_dir_created = True
     year_month = str(datetime.datetime.today())[:7]
     root = logging.getLogger()

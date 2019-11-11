@@ -1,15 +1,15 @@
-import tkinter
-import tkinter.ttk
+from ltrans.model import Model
+from ltrans.view import View
 import googletrans
 import json
 import langdetect
-import os
-import traceback
-import ltrans.reference
-from ltrans.model import Model
-from ltrans.view import View
-import ltrans.util
 import logging
+import ltrans.reference
+import ltrans.util
+import os
+import tkinter
+import tkinter.ttk
+import traceback
 
 log = logging.getLogger(__name__)
 
@@ -140,7 +140,8 @@ class Controller():
                 self.view.output_frame.insert(tkinter.END, trans_text)
                 self.view.status_label.config(fg='green', text='translation done')
             except Exception as e:
-                self._handle_error('', e)
+                s
+                elf._handle_error('', e)
 
     def phoneticize_and_tranlate(self, event):
         self.view.input_frame.delete('1.0', tkinter.END)

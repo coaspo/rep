@@ -2,14 +2,14 @@ import ltrans
 import os
 import shutil
 
-CONFIG = {'LOG_DIR': '../../../tmp', 'DICTIONARY_DIR': '../../../tmp'}
+CONFIG = {'LOG_DIR': '../../../tmp', 'DICTIONARY_DIR': '../../../tmp', 'LOG_LEVEL': 'DEBUG'}
 try:
     if os.path.isdir('../../../tmp'):
         shutil.rmtree('../../../tmp')
 except:
     print('a file in tmp is use - did not remove tmp directory')
 
-ltrans.util.set_logger('DEBUG', CONFIG)
+ltrans.util.set_logger(CONFIG)
 
 
 def test_multiple_lines():
@@ -18,6 +18,13 @@ def test_multiple_lines():
     dictionary = english_french_dict()
     trans_text = ltrans.model.translate_text(user_input, dictionary, translator=None)
     assert trans_text == "Aujourd'hui est une bien journée.\nEst Aujourd'hui une bien journée?"
+
+def test_empty_lines():
+    text_lines = 'Today\n\nfine'
+    user_input = ltrans.model.UserInput(text_lines, 'English',  'French', is_add_src=False, is_add_transliteration=False)
+    dictionary = english_french_dict()
+    trans_text = ltrans.model.translate_text(user_input, dictionary, translator=None)
+    assert trans_text == "Aujourd'hui\nbien?"
 
 
 def english_french_dict():

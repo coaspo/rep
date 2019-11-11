@@ -1,12 +1,14 @@
+import glob
 import json
-import unicodedata
-import re
-import ltrans.reference
-import os.path
 import logging
+import ltrans.reference
 import ltrans.util
-import transliterate
+import os.path
 import random
+import re
+import traceback
+import transliterate
+import unicodedata
 
 LOG = logging.getLogger(__name__)
 
@@ -23,6 +25,10 @@ class Model:
         user_input = UserInput(text, src_language, dest_language, is_add_source, is_add_transliteration)
         if __debug__:
             LOG.debug(user_input)
+        print('------', user_input)
+        print('------', is_add_source)
+        print('------', is_add_transliteration)
+        print('------', text)
         translated_text = translate_text(user_input, self._dictionary, self._translator)
         return translated_text
 
@@ -30,6 +36,9 @@ class Model:
         if self._dictionary is not None:
             self._dictionary.save()
 
+    def save_translation(self, user_input, trans_text):
+        if __debug__:
+            LOG.debug(f'user_input={user_input}, trans_text={str(trans_text)}')
 
 class UserInput:
     def __init__(self, text_lines, src_language, dest_language, is_add_src, is_add_transliteration):
@@ -64,12 +73,14 @@ def translate_text(user_input, dictionary, translator):
     if __debug__:
         LOG.debug(f'user_input={user_input}, dictionary={str(dictionary)}')
     input_lines = user_input.text_lines.split('\n')
+    input_lines = [x for x in input_lines if len(x) != 0]
     translated_lines = [translate_line(line, dictionary, translator) for line in input_lines]
     translated_lines = possibly_add_extra_lines(input_lines, translated_lines, user_input)
     trans_text = '\n'.join(translated_lines).strip()
     if __debug__:
         LOG.debug(f'trans_text={trans_text}')
     return trans_text
+
 
 def possibly_add_extra_lines(input_lines, translated_lines, user_input):
     output_lines = None
@@ -195,10 +206,6 @@ class Dictionary(dict):
     def dest_language(self):
         return self._dest_language
 
-    def is_Source_Target(self, src_language, dest_language):
-        return self._src_language == src_language and \
-               self._dest_language == dest_language
-
     def words(self):
         return {k: v for k, v in self.items()}
 
@@ -213,3 +220,95 @@ class Dictionary(dict):
                 LOG.debug(f'initial/current word count: {self._initial_len}/{current_len}  2-word random sample: {sample_words}')
             self._initial_len = len(self.keys())
 
+
+class SavedTranslations():
+    def __init__(self, config):
+        self._save_dir, self._err_msg = self._get_save_dir(config)
+        if self._err_msg is None:
+            self._translation_number, self._files_paths = self._get_filepaths(self._save_dir)
+            self._file_path_index = len(self._files_paths) - 1
+
+    def _get_save_dir(self, config):
+        if config == None or config.get('SAVED_TRANSLATIONS_DIR') == None:
+            return None, 'config missing parameter "SAVED_TRANSLATIONS_DIR"'
+        save_dir = config['SAVED_TRANSLATIONS_DIR']
+        if save_dir.startswith("./"):
+            save_dir = os.path.dirname(__file__) + save_dir[1:]
+        save_dir = os.path.abspath(save_dir)
+        if __debug__:
+            LOG.debug(f'dict_file_path={save_dir}')
+
+        if not os.path.exists(save_dir):
+            try:
+                os.mkdir(save_dir, 0o777);
+                LOG.info(f'Created dir ' + save_dir)
+            except Exception as e:
+                trace = str(e) + '\n\t' + traceback.format_exc()
+                LOG.error(trace)
+                return None, str(e)
+        return save_dir, None
+
+    def _get_filepaths(self, save_dir):
+            filepaths = glob.glob(save_dir + '/*.json')
+            if len(filepaths) == 0:
+                return 0, []
+
+            trans_nums = []
+            translation_filepaths = []
+            for filepath in filepaths:
+                x = filepath.split('.')
+                if len(x) > 0 and x[1].isnumeric():
+                    trans_nums.append(int(x[1]))
+                    translation_filepaths.append(filepath)
+
+            if len(trans_nums) == 0:
+                latest_trans_num = 0
+            else:
+                latest_trans_num = max(trans_nums)
+            return latest_trans_num, translation_filepaths
+
+    def write(self, user_input, translated_text):
+        if self._err_msg is not None:
+            raise Exception('cannot save file - ' + self._err_msg)
+        self._translation_number += 1;
+        filepath = self._save_dir + '/' + user_input.src_language + '-' + user_input.dest_language \
+                   + '.' + str(self._translation_number) + '.json'
+        translation = {'text_lines': user_input.text_lines,
+                       'src_language': user_input.src_language,
+                       'dest_language': user_input.dest_language,
+                       'is_add_src': user_input.is_add_src,
+                       'is_add_transliteration': user_input.is_add_transliteration,
+                       'translated_text': translated_text
+                       }
+        with open(filepath, "w", encoding='utf8') as f:
+            json.dump(translation, f, ensure_ascii=False, sort_keys=False, indent=0)
+        self._files_paths.append(filepath)
+        if __debug__:
+            LOG.debug(f'filepath={filepath}')
+        return 'Translation saved in: ' + filepath
+
+    def read_next(self):
+        if self._err_msg is not None:
+            raise Exception('cannot read any files - ' + self._err_msg)
+        if len(self._files_paths) == 0:
+            raise Exception(f'There are no translation files in: {self._save_dir}')
+        if self._file_path_index != len(self._files_paths) - 1:
+            self._file_path_index += 1
+        return self._read_translation()
+
+    def read_prev(self):
+        if self._err_msg is not None:
+            raise Exception('cannot read any files - ' + self._err_msg)
+        if len(self._files_paths) == 0:
+            raise Exception(f'There are no translation files in: {self._save_dir}')
+        if self._file_path_index != 0:
+            self._file_path_index -= 1
+        return self._read_translation()
+
+    def _read_translation(self):
+        filepath = self._files_paths[self._file_path_index]
+        with open(filepath, "r", encoding='utf8') as f:
+            translation = json.load(f)
+        if __debug__:
+            LOG.debug(f'filepath={filepath}\ntranslation=\n{translation}')
+        return translation

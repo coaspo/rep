@@ -1,8 +1,8 @@
 import ltrans
 import os
 
-CONFIG = {'LOG_DIR': '../../../tmp', 'DICTIONARY_DIR': '../../../tmp'}
-ltrans.util.set_logger('DEBUG', CONFIG)
+CONFIG = {'LOG_DIR': '../../../tmp', 'DICTIONARY_DIR': '../../../tmp', 'LOG_LEVEL': 'DEBUG'}
+ltrans.util.set_logger(CONFIG)
 
 def test_dict_file_path():
     dict_file_path = '../../../tmp/KlingonEnglish-dict.json'

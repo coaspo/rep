@@ -6,7 +6,7 @@ import re
 
 def test_set_logger():
     config = {'LOG_DIR': '../../tmp'}
-    ltrans.util.set_logger('DEBUG', config)
+    ltrans.util.set_logger(config)
     LOG = logging.getLogger(__name__)
     ts = str(datetime.datetime.now())
     LOG.debug(f'This is a test {ts}')
