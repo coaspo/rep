@@ -19,7 +19,7 @@ class Controller():
         self._config_trans = config_trans
         self.view = view
         self.model = model
-        self.keys_typed = ''
+        self.destination_lang_keys_typed = ''
 
     @property
     def config_trans(self):
@@ -30,7 +30,7 @@ class Controller():
             log.error(msg)
             self.view.status_label.config(fg='red', text=msg)
         else:
-            msg_exc =  msg + ' ' + str(exc)
+            msg_exc = msg + ' ' + str(exc)
             msg_trace = msg_exc + '\n\t' + traceback.format_exc()
             log.error(msg + '\n\t' + msg_trace)
             self.view.status_label.config(fg='red', text=msg_exc)
@@ -43,7 +43,7 @@ class Controller():
         self.view.trans_bt.config(state=tkinter.DISABLED)
         self.view.add_transliteration_check_button.config(state=tkinter.DISABLED)
         self.view.add_source_check_button.deselect()
-        self.view.status_label.config(fg='black', text='Enter text on left panel')
+        self.view.status_label.config(fg='black', text=ltrans.util.Config.INSTRUCTIONS)
 
     def find_src_language(self, event):
         self.view.status_label.config(fg='black', text='Wait ... determining source language')
@@ -74,9 +74,9 @@ class Controller():
         dest_language = self.view.destination_language.get()
         if len(dest_language) == 0:
             try:
-                PRIMARY_DESTINATION_LANGUAGE = self.config_trans.get('PRIMARY_DESTINATION_LANGUAGE')
-                index = self.view.language_names.index(PRIMARY_DESTINATION_LANGUAGE)
-                if src_language == PRIMARY_DESTINATION_LANGUAGE:
+                primary_destination_language = self.config_trans.get('PRIMARY_DESTINATION_LANGUAGE')
+                index = self.view.language_names.index(primary_destination_language)
+                if src_language == primary_destination_language:
                     index = self.view.language_names.index(self.config_trans.get('SECONDARY_DESTINATION_LANGUAGE'))
                 self.view.destination_language.current(index)
                 dest_language = self.view.destination_language.get()
@@ -87,23 +87,26 @@ class Controller():
                 self._handle_error('src_language=' + src_language, e)
 
     def set_dest_language(self, event):
+        self.destination_lang_keys_typed = \
+            self.set_language(event, self.destination_lang_keys_typed, self.view.destination_language)
+
+    def set_language(self, event, keys_typed, combobox):
         try:
             keypress = event.char
             is_not_return_key = not keypress.encode(encoding='UTF-8', errors='strict') == b'\r'
             if is_not_return_key:
-                self.keys_typed += keypress
-                self.keys_typed = self.keys_typed.title()
+                keys_typed += keypress
+                keys_typed = keys_typed.title()
             else:
-                self.keys_typed = ''
+                keys_typed = ''
             for index, lang_name in enumerate(self.view.language_names):
-                if lang_name.startswith(self.keys_typed):
-                    self.view.destination_language.current(index)
-                    #if  ltrans.reference.LANGUAGE_ABBRS_NAMES[lang_name] in
+                if lang_name.startswith(keys_typed):
+                    combobox.current(index)
+                    # if  ltrans.reference.LANGUAGE_ABBRS_NAMES[lang_name] in
                     break
-
-            self.model.save_dictionary()
+            return keys_typed
         except Exception as e:
-            self._handle_error(' keys_typed= ' + self.keys_typed, e)
+            self._handle_error(' keys_typed= ' + keys_typed, e)
 
     def swap_languages(self, event):
         src_language = self.view.src_language.get()
@@ -145,7 +148,7 @@ class Controller():
 
     def phoneticize_and_tranlate(self, event):
         self.view.input_frame.delete('1.0', tkinter.END)
-        self.view.status_label.config(text='Enter text on left panel')
+        self.view.status_label.config(text=ltrans.util.Config.INSTRUCTIONS)
 
     def txt_frame_key_press(self, event):
         kp = repr(event.char)
@@ -156,6 +159,12 @@ class Controller():
         self.view.stop()
 
 
+def language_names(config):
+    lang_names = [v for v, _ in ltrans.reference.LANGUAGE_NAMES_ABBRS.items()]
+    favorites = config.get('FAVORITE_LANGUAGES').split(',')
+    return favorites + [x for x in lang_names if x not in favorites]
+
+
 def main():
     try:
         with open(os.path.dirname(__file__) + "/config_trans.json") as f:
@@ -164,8 +173,8 @@ def main():
         if __debug__:
             log.debug('active....')
 
-        language_names = [v for v, _ in ltrans.reference.LANGUAGE_NAMES_ABBRS.items()]
-        v = View(language_names)
+        lang_names = language_names(config)
+        v = View(lang_names, ltrans.util.Config.INSTRUCTIONS)
         google_translator = googletrans.Translator()
         m = Model(config, google_translator)
         c = Controller(config, v, m)

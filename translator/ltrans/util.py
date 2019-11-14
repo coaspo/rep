@@ -13,6 +13,10 @@ non_ltrs_regex = '\'|[0-9]+' + non_ltrs_regex
 is_logget_set = False
 
 class Config(dict):
+    INSTRUCTIONS = 'Enter text on left panel - language will be auto-detected. \
+    To change "From / to" language, click on a combobox and type a language name. \
+    Hit enter to clear the typed language name.'
+
     def __init__(self, config_file_path = None, **kw):
         if config_file_path is not None and kw != {}:
             raise Exception('ambiguous constructor arg - use file path or dict arg\'s')

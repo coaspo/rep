@@ -221,11 +221,11 @@ class Dictionary(dict):
             self._initial_len = len(self.keys())
 
 
-class SavedTranslations():
+class Persistence():
     def __init__(self, config):
         self._save_dir, self._err_msg = self._get_save_dir(config)
         if self._err_msg is None:
-            self._translation_number, self._files_paths = self._get_filepaths(self._save_dir)
+            self._latest_trans_number, self._files_paths = self._get_filepaths(self._save_dir)
             self._file_path_index = len(self._files_paths) - 1
 
     def _get_save_dir(self, config):
@@ -264,15 +264,26 @@ class SavedTranslations():
             if len(trans_nums) == 0:
                 latest_trans_num = 0
             else:
-                latest_trans_num = max(trans_nums)
-            return latest_trans_num, translation_filepaths
+                latest_trans_number = max(trans_nums)
+            return latest_trans_number, translation_filepaths
 
-    def write(self, user_input, translated_text):
+    def save_tranlation(self, user_input, translated_text):
+        filepath = self._write(user_input, translated_text, is_replace_saved_file=False)
+        return 'Saved transation in: ' + filepath
+
+    def replace_tranlation(self, user_input, translated_text):
+        filepath = self._write(user_input, translated_text, is_replace_saved_file=True)
+        return 'Replaced translation rin: ' + filepath
+
+    def _write(self, user_input, translated_text, is_replace_saved_file):
         if self._err_msg is not None:
             raise Exception('cannot save file - ' + self._err_msg)
-        self._translation_number += 1;
-        filepath = self._save_dir + '/' + user_input.src_language + '-' + user_input.dest_language \
-                   + '.' + str(self._translation_number) + '.json'
+        if not is_replace_saved_file:
+            self._latest_trans_number += 1;
+            filepath = self._save_dir + '/' + user_input.src_language + '-' + user_input.dest_language \
+                       + '.' + str(self._latest_trans_number) + '.json'
+            self._files_paths.append(filepath)
+        filepath = self._files_paths[self._latest_trans_number]
         translation = {'text_lines': user_input.text_lines,
                        'src_language': user_input.src_language,
                        'dest_language': user_input.dest_language,
@@ -282,10 +293,9 @@ class SavedTranslations():
                        }
         with open(filepath, "w", encoding='utf8') as f:
             json.dump(translation, f, ensure_ascii=False, sort_keys=False, indent=0)
-        self._files_paths.append(filepath)
         if __debug__:
             LOG.debug(f'filepath={filepath}')
-        return 'Translation saved in: ' + filepath
+        return filepath
 
     def read_next(self):
         if self._err_msg is not None:
