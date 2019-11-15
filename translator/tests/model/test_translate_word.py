@@ -5,7 +5,7 @@ import shutil
 
 TRANSLATOR = googletrans.Translator()
 
-CONFIG = {'LOG_DIR': '../../../tmp', 'DICTIONARY_DIR': '../../../tmp', 'LOG_LEVEL': 'DEBUG'}
+CONFIG = {'LOG_DIR': '../../../tmp', 'DICTIONARY_DIR': '../../../tmp', 'LOG_LEVEL': 'INFO'}
 try:
     if os.path.isdir('../../../tmp'):
         shutil.rmtree('../../../tmp')

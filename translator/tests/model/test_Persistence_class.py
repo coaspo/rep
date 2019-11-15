@@ -2,7 +2,7 @@ import shutil
 import ltrans
 import os
 
-CONFIG = {'LOG_DIR': 'tmp', 'LOG_LEVEL': 'DEBUG', 'SAVED_TRANSLATIONS_DIR': 'tmp'}
+CONFIG = {'LOG_DIR': 'tmp', 'SAVED_TRANSLATIONS_DIR': 'tmp', 'LOG_LEVEL': 'INFO'}
 try:
     if os.path.isdir('tmp'):
         shutil.rmtree('tmp')
@@ -45,10 +45,10 @@ def test_save_tranlation():
     persistence = ltrans.model.Persistence(CONFIG)
     user_input = ltrans.model.UserInput('This is\na test', 'English', 'French', 0, 1)
     translated_text = 'This is\nCette est\n\na test\nune tester'
-    msg = persistence.save_tranlation(user_input, translated_text)
-    assert msg.startswith('Translation saved in:') and msg.endswith('English-French.4.json')
+    msg = persistence.save_translation(user_input, translated_text)
+    assert msg.startswith('Saved translation in:') and msg.endswith('English-French.4.json')
     assert persistence._latest_trans_number == 4
-    assert persistence._file_path_index == 1
+    assert persistence._file_path_index == 2
     assert len(persistence._files_paths) == 3
 
 def test_read_next_and_prev():
@@ -84,5 +84,5 @@ def test_filepath():
     persistence = ltrans.model.Persistence(CONFIG)
     user_input = ltrans.model.UserInput('This is\na test', 'English', 'French', 0, 1)
     translated_text = 'This is\nCette est\n\na test\nune tester'
-    msg = persistence.save_tranlation(user_input, translated_text)
-    assert msg.startswith('Translation saved in:') and msg.endswith('English-French.4.json')
+    msg = persistence.save_translation(user_input, translated_text)
+    assert msg.startswith('Saved translation in:') and msg.endswith('English-French.5.json')

@@ -19,6 +19,7 @@ class Controller():
         self._config_trans = config_trans
         self.view = view
         self.model = model
+        self.source_lang_keys_typed = ''
         self.destination_lang_keys_typed = ''
 
     @property
@@ -62,7 +63,7 @@ class Controller():
                     if src_language == lang_name:
                         self.view.src_language.current(index)
                         if src_language in ltrans.reference.TRANSLITERATE_LANGUAGE_NAMES:
-                            self.view.add_transliteration_check_button.configure(state=NORMAL)
+                            self.view.add_transliteration_check_button.configure(state=tkinter.NORMAL)
                         break
                 self._possibly_recommend_dest_language(src_language)
             self.model.save_dictionary()
@@ -86,11 +87,15 @@ class Controller():
             except Exception as e:
                 self._handle_error('src_language=' + src_language, e)
 
+    def set_source_language(self, event):
+        self.source_lang_keys_typed = \
+            self._update_typed_keys(event, self.source_lang_keys_typed, self.view.source_language)
+
     def set_dest_language(self, event):
         self.destination_lang_keys_typed = \
-            self.set_language(event, self.destination_lang_keys_typed, self.view.destination_language)
+            self._update_typed_keys(event, self.destination_lang_keys_typed, self.view.destination_language)
 
-    def set_language(self, event, keys_typed, combobox):
+    def _update_typed_keys(self, event, keys_typed, combobox):
         try:
             keypress = event.char
             is_not_return_key = not keypress.encode(encoding='UTF-8', errors='strict') == b'\r'
@@ -106,7 +111,7 @@ class Controller():
                     break
             return keys_typed
         except Exception as e:
-            self._handle_error(' keys_typed= ' + keys_typed, e)
+            self._handle_error(f' keys_typed= {keys_typed}', e)
 
     def swap_languages(self, event):
         src_language = self.view.src_language.get()
@@ -133,26 +138,38 @@ class Controller():
         if self.view.trans_bt['state'] == 'normal':
             self.view.output_frame.delete('1.0', tkinter.END)
             try:
-                text = self.view.input_frame.get("1.0", tkinter.END)
-                src_language = self.view.src_language.get()
-                dest_language = self.view.destination_language.get()
-                is_add_source = self.view.is_add_src.get()
-                is_add_transliteration = self.view.is_add_transliteration.get()
-                trans_text = self.model.translate(text, src_language, dest_language, is_add_source,
-                                                  is_add_transliteration)
+                user_input = self._get_user_input()
+                trans_text = self.model.translate(user_input)
                 self.view.output_frame.insert(tkinter.END, trans_text)
                 self.view.status_label.config(fg='green', text='translation done')
             except Exception as e:
-                s
-                elf._handle_error('', e)
+                self._handle_error('', e)
+
+    def _get_user_input(self):
+        text = self.view.input_frame.get("1.0", tkinter.END)
+        src_language = self.view.src_language.get()
+        dest_language = self.view.destination_language.get()
+        is_add_source = self.view.is_add_src.get()
+        is_add_transliteration = self.view.is_add_transliteration.get()
+        return ltrans.model.UserInput(text, src_language, dest_language, is_add_source, is_add_transliteration)
+
 
     def phoneticize_and_tranlate(self, event):
         self.view.input_frame.delete('1.0', tkinter.END)
         self.view.status_label.config(text=ltrans.util.Config.INSTRUCTIONS)
 
-    def txt_frame_key_press(self, event):
-        kp = repr(event.char)
-        print("pressed", kp)  # repr(event.char))
+    def save_translation(self, event):
+        user_input, trans_text
+        self.model.save_translation()
+
+    def next_translation(self, event):
+        self.model.next_translation()
+
+    def previous_translation(self, event):
+        self.model.previous_translation()
+
+    def delete_translation(self, event):
+        self.model.delete_translation()
 
     def on_closing(self):
         self.model.save_dictionary()
@@ -161,8 +178,8 @@ class Controller():
 
 def language_names(config):
     lang_names = [v for v, _ in ltrans.reference.LANGUAGE_NAMES_ABBRS.items()]
-    favorites = config.get('FAVORITE_LANGUAGES').split(',')
-    return favorites + [x for x in lang_names if x not in favorites]
+    top_of_list = config.get('TOP_OF_LIST_LANGUAGES').split(',')
+    return top_of_list + [x for x in lang_names if x not in top_of_list]
 
 
 def main():

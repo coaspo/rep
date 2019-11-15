@@ -92,8 +92,13 @@ class View:
         self.destination_language.bind("<KeyRelease>", controller.set_dest_language)
         self.trans_bt.bind("<Button-1>", controller.translate_text)
         self.swap_languages_bt.bind("<Button-1>", controller.swap_languages)
+
+        self.save_bt.bind("<Button-1>", controller.save_translation)
+        self.next_bt.bind("<Button-1>", controller.next_translation)
+        self.previous_bt.bind("<Button-1>", controller.previous_translation)
+        self.delete_bt.bind("<Button-1>", controller.delete_translation)
+
         self.root.protocol("WM_DELETE_WINDOW", controller.on_closing)
-        self.txt_frame.bind("<Key>", controller.txt_frame_key_press)
         print('Controller bound to view')
 
     def start(self):
@@ -101,11 +106,10 @@ class View:
 
     def stop(self):
         self.root.destroy()
-        print('s        ssss   sss')
 
 if __name__ == '__main__':
-    v = View(['French', 'Spanish'], 'Manually testing layout')
+    v = View(['English', 'Spanish'], 'This is a manual layout test')
+    print('start')
     v.start()
-    v.stop()
     print('done')
 

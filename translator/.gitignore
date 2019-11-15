@@ -5,6 +5,8 @@ temp/
 venv/**
 .idea
 *.pyc
+# *.trn are translation files - user input & tranalkted text
+*.trn
 **.log
 **.bak
 ltrans/dictionaries/**

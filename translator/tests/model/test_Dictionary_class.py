@@ -1,7 +1,7 @@
 import ltrans
 import os
 
-CONFIG = {'LOG_DIR': '../../../tmp', 'DICTIONARY_DIR': '../../../tmp', 'LOG_LEVEL': 'DEBUG'}
+CONFIG = {'LOG_DIR': '../../../tmp', 'DICTIONARY_DIR': '../../../tmp', 'LOG_LEVEL': 'INFO'}
 ltrans.util.set_logger(CONFIG)
 
 def test_dict_file_path():

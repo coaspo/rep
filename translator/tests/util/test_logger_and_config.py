@@ -5,11 +5,11 @@ import re
 
 
 def test_set_logger():
-    config = {'LOG_DIR': '../../tmp'}
-    ltrans.util.set_logger(config)
+    config = {'LOG_DIR': '../../tmp', 'LOG_LEVEL': 'INFO'}
+    ltrans.util.set_logger(config, )
     LOG = logging.getLogger(__name__)
-    ts = str(datetime.datetime.now())
-    LOG.debug(f'This is a test {ts}')
+    ts = str(datetime.datetime.now())[:14]
+    LOG.info(f'This is a test {ts}')
 
     with open(ltrans.util.log_file_path) as f:
         file_txt = f.read()

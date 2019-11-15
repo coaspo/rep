@@ -2,7 +2,7 @@ import ltrans
 import os
 import shutil
 
-CONFIG = {'LOG_DIR': '../../../tmp', 'DICTIONARY_DIR': '../../../tmp', 'LOG_LEVEL': 'DEBUG'}
+CONFIG = {'LOG_DIR': '../../../tmp', 'DICTIONARY_DIR': '../../../tmp', 'LOG_LEVEL': 'INFO'}
 try:
     if os.path.isdir('../../../tmp'):
         shutil.rmtree('../../../tmp')
@@ -24,7 +24,7 @@ def test_empty_lines():
     user_input = ltrans.model.UserInput(text_lines, 'English',  'French', is_add_src=False, is_add_transliteration=False)
     dictionary = english_french_dict()
     trans_text = ltrans.model.translate_text(user_input, dictionary, translator=None)
-    assert trans_text == "Aujourd'hui\nbien?"
+    assert trans_text == "Aujourd'hui\nbien"
 
 
 def english_french_dict():

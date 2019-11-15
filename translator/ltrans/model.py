@@ -15,20 +15,18 @@ LOG = logging.getLogger(__name__)
 
 class Model:
     def __init__(self, config, google_translator):
-        self._dictionary = None
         self._config = config
+        self._persistence = Persistence(config)
+        self._dictionary = None
         self._translator = google_translator
 
-    def translate(self, text, src_language, dest_language, is_add_source, is_add_transliteration):
-        if self._dictionary is None or src_language != self._dictionary.src_language or dest_language != self._dictionary.dest_language:
-            self._dictionary = Dictionary(self._config, src_language, dest_language)
-        user_input = UserInput(text, src_language, dest_language, is_add_source, is_add_transliteration)
+    def translate(self, user_input):
+        if self._dictionary is None \
+                or user_input.src_language != self._dictionary.src_language \
+                or user_input.dest_language != self._dictionary.dest_language:
+            self._dictionary = Dictionary(self._config, user_input.src_language, user_input.dest_language)
         if __debug__:
             LOG.debug(user_input)
-        print('------', user_input)
-        print('------', is_add_source)
-        print('------', is_add_transliteration)
-        print('------', text)
         translated_text = translate_text(user_input, self._dictionary, self._translator)
         return translated_text
 
@@ -39,6 +37,22 @@ class Model:
     def save_translation(self, user_input, trans_text):
         if __debug__:
             LOG.debug(f'user_input={user_input}, trans_text={str(trans_text)}')
+
+
+    def previous_translation(self):
+        if __debug__:
+            LOG.debug(f'user_input={user_input}, trans_text={str(trans_text)}')
+
+
+    def next_translation(self):
+        if __debug__:
+            LOG.debug(f'user_input={user_input}, trans_text={str(trans_text)}')
+
+
+    def delete_translation(self):
+        if __debug__:
+            LOG.debug(f'user_input={user_input}, trans_text={str(trans_text)}')
+
 
 class UserInput:
     def __init__(self, text_lines, src_language, dest_language, is_add_src, is_add_transliteration):
@@ -267,11 +281,11 @@ class Persistence():
                 latest_trans_number = max(trans_nums)
             return latest_trans_number, translation_filepaths
 
-    def save_tranlation(self, user_input, translated_text):
+    def save_translation(self, user_input, translated_text):
         filepath = self._write(user_input, translated_text, is_replace_saved_file=False)
-        return 'Saved transation in: ' + filepath
+        return 'Saved translation in: ' + filepath
 
-    def replace_tranlation(self, user_input, translated_text):
+    def replace_translation(self, user_input, translated_text):
         filepath = self._write(user_input, translated_text, is_replace_saved_file=True)
         return 'Replaced translation rin: ' + filepath
 
@@ -279,11 +293,14 @@ class Persistence():
         if self._err_msg is not None:
             raise Exception('cannot save file - ' + self._err_msg)
         if not is_replace_saved_file:
-            self._latest_trans_number += 1;
+            self._latest_trans_number += 1
+            self._file_path_index += 1
             filepath = self._save_dir + '/' + user_input.src_language + '-' + user_input.dest_language \
                        + '.' + str(self._latest_trans_number) + '.json'
             self._files_paths.append(filepath)
-        filepath = self._files_paths[self._latest_trans_number]
+        if self._file_path_index > (len(self._files_paths) - 1):
+            raise Exception(f'Index Error:  _file_path_index= {self._file_path_index} > (len(_files_paths)={len(self._files_paths)}-1)')
+        filepath = self._files_paths[self._file_path_index]
         translation = {'text_lines': user_input.text_lines,
                        'src_language': user_input.src_language,
                        'dest_language': user_input.dest_language,
@@ -321,4 +338,13 @@ class Persistence():
             translation = json.load(f)
         if __debug__:
             LOG.debug(f'filepath={filepath}\ntranslation=\n{translation}')
+        return translation
+
+    def delete_translation(self):
+        filepath = self._files_paths[self._file_path_index]
+        os.remove(filepath)
+        del self._files_paths[self._file_path_index]
+        self._file_path_index -= 1;
+        if __debug__:
+            LOG.debug(f'filepath={filepath}')
         return translation
