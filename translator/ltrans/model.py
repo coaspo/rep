@@ -19,39 +19,25 @@ class Model:
         self._persistence = Persistence(config)
         self._dictionary = None
         self._translator = google_translator
+        self._last_translated_text = None
+
+    @property
+    def persistence(self):
+        return self._persistence
 
     def translate(self, user_input):
         if self._dictionary is None \
                 or user_input.src_language != self._dictionary.src_language \
                 or user_input.dest_language != self._dictionary.dest_language:
             self._dictionary = Dictionary(self._config, user_input.src_language, user_input.dest_language)
-        if __debug__:
+        if LOG.isEnabledFor(logging.DEBUG):
             LOG.debug(user_input)
-        translated_text = translate_text(user_input, self._dictionary, self._translator)
-        return translated_text
+        self._last_translated_text = translate_text(user_input, self._dictionary, self._translator)
+        return self._last_translated_text
 
     def save_dictionary(self):
         if self._dictionary is not None:
             self._dictionary.save()
-
-    def save_translation(self, user_input, trans_text):
-        if __debug__:
-            LOG.debug(f'user_input={user_input}, trans_text={str(trans_text)}')
-
-
-    def previous_translation(self):
-        if __debug__:
-            LOG.debug(f'user_input={user_input}, trans_text={str(trans_text)}')
-
-
-    def next_translation(self):
-        if __debug__:
-            LOG.debug(f'user_input={user_input}, trans_text={str(trans_text)}')
-
-
-    def delete_translation(self):
-        if __debug__:
-            LOG.debug(f'user_input={user_input}, trans_text={str(trans_text)}')
 
 
 class UserInput:
@@ -84,14 +70,14 @@ class UserInput:
 
 
 def translate_text(user_input, dictionary, translator):
-    if __debug__:
+    if LOG.isEnabledFor(logging.DEBUG):
         LOG.debug(f'user_input={user_input}, dictionary={str(dictionary)}')
     input_lines = user_input.text_lines.split('\n')
     input_lines = [x for x in input_lines if len(x) != 0]
     translated_lines = [translate_line(line, dictionary, translator) for line in input_lines]
     translated_lines = possibly_add_extra_lines(input_lines, translated_lines, user_input)
     trans_text = '\n'.join(translated_lines).strip()
-    if __debug__:
+    if LOG.isEnabledFor(logging.DEBUG):
         LOG.debug(f'trans_text={trans_text}')
     return trans_text
 
@@ -116,13 +102,12 @@ def possibly_add_extra_lines(input_lines, translated_lines, user_input):
             output_lines = [a + '\n' + b for a, b in zip(output_lines, trasliteration_lines)]
 
     if output_lines != translated_lines:
-        output_lines = [line + '\n' for line  in output_lines]
+        output_lines = [line + '\n' for line in output_lines]
     return output_lines
 
 
-
 def transliterate_lines(lines, lines_language):
-    if __debug__:
+    if LOG.isEnabledFor(logging.DEBUG):
         LOG.debug(f'  lines_language={lines_language}')
     if lines_language == 'English' or lines_language not in ltrans.reference.TRANSLITERATE_LANGUAGE_NAMES:
         return
@@ -131,25 +116,25 @@ def transliterate_lines(lines, lines_language):
 
 
 def translate_line(line, dictionary, translator):
-    if __debug__:
+    if LOG.isEnabledFor(logging.DEBUG):
         LOG.debug(f'  line={line}, translator={str(translator)}')
-    line_w_lrs_and_spaces = re.sub(ltrans.util.non_ltrs_regex, '', line.rstrip())
+    line_w_lrs_and_spaces = re.sub(ltrans.util.NON_LETTERS_REGEX, '', line.rstrip())
     words = line_w_lrs_and_spaces.split()
     words = [x for x in words if len(x) > 0]
     trans_line = re.sub("'([^ ]+)", r'\1', line)
-    new_translated_words = None
     for word in words:
         translated_word = translate_word(word, dictionary, translator)
         trans_line = re.sub(word, translated_word, trans_line, 1)
-    if __debug__:
+    if LOG.isEnabledFor(logging.DEBUG):
         LOG.debug(f'   trans_line={trans_line}')
     return trans_line
 
 
 def translate_word(word, dictionary, translator):
-    if __debug__:
+    if LOG.isEnabledFor(logging.DEBUG):
         LOG.debug(
-            f'    word={word}, src_language={dictionary.src_language}, dest_language={dictionary.dest_language}, translator={str(translator)}')
+            f'    word={word}, src_language={dictionary.src_language}, dest_language={dictionary.dest_language},\
+translator={str(translator)}')
     no_accent_word = strip_accents(word)
     translated_word = dictionary.get(no_accent_word)
     if translated_word is None:
@@ -157,22 +142,20 @@ def translate_word(word, dictionary, translator):
     if translated_word is None:
         translated_word = dictionary.get(no_accent_word[0:1].lower() + no_accent_word[1:])
     if translated_word is None:
-        is_new_word = True
         src_language_abbr = ltrans.reference.LANGUAGE_NAMES_ABBRS[dictionary.src_language]
         dest_language_abbr = ltrans.reference.LANGUAGE_NAMES_ABBRS[dictionary.dest_language]
         translation = translator.translate(word, src=src_language_abbr, dest=dest_language_abbr)
-        if __debug__:
+        if LOG.isEnabledFor(logging.DEBUG):
             LOG.debug(f'      translation={translation}')
         translated_word = translation.text
         if word != translated_word:
             dictionary[word] = translated_word
         # translation.transliteration is always none , need google account?
     if word[0:1].isupper():
-        print(translated_word[0:1],'----', translated_word[1:])
+        print(translated_word[0:1], '----', translated_word[1:])
         w = translated_word[0:1].upper() + translated_word[1:]
         translated_word = w  # to avoid repeating firstr ltr (?)
-    print('----', translated_word)
-    if __debug__:
+    if LOG.isEnabledFor(logging.DEBUG):
         LOG.debug(f'     translated_word={translated_word}')
     return translated_word
 
@@ -198,18 +181,18 @@ class Dictionary(dict):
         self._initial_len = len(self.keys())
 
     def _set_file_path(self, config, src_language, dest_language):
-        if config == None or config.get('DICTIONARY_DIR') == None:
+        if config is None or config.get('DICTIONARY_DIR') is None:
             raise Exception('config missing config parameter "DICTIONARY_DIR"')
         dictionary_dir = config['DICTIONARY_DIR']
 
         if dictionary_dir.startswith("./"):
             dictionary_dir = os.path.dirname(__file__) + dictionary_dir[1:]
             if not os.path.exists(dictionary_dir):
-                os.mkdir(dictionary_dir, 0o755);
+                os.mkdir(dictionary_dir, 0o755)
         elif not os.path.isdir(dictionary_dir):
             raise Exception(f'config parameter DICTIONARY_DIR={dictionary_dir} is and invalid directory')
-        self._dict_file_path = dictionary_dir + '/' + src_language + dest_language+ '-dict.json'
-        if __debug__:
+        self._dict_file_path = dictionary_dir + '/' + src_language + dest_language + '-dict.json'
+        if LOG.isEnabledFor(logging.DEBUG):
             LOG.debug(f'dict_file_path={self._dict_file_path}')
 
     @property
@@ -229,32 +212,35 @@ class Dictionary(dict):
         if len_diff > 0:
             with open(self._dict_file_path, "w", encoding='utf8') as f:
                 json.dump(self, f, ensure_ascii=False, sort_keys=True, indent=0)
-            if __debug__:
+            if LOG.isEnabledFor(logging.DEBUG):
                 sample_words = random.sample(self.items(), 2)
-                LOG.debug(f'initial/current word count: {self._initial_len}/{current_len}  2-word random sample: {sample_words}')
+                LOG.debug(
+                    f'initial/current word count: {self._initial_len}/{current_len}\
+2-word random sample: {sample_words}')
             self._initial_len = len(self.keys())
 
 
-class Persistence():
+class Persistence:
     def __init__(self, config):
-        self._save_dir, self._err_msg = self._get_save_dir(config)
+        self._save_dir, self._err_msg = Persistence._get_save_dir(config)
         if self._err_msg is None:
-            self._latest_trans_number, self._files_paths = self._get_filepaths(self._save_dir)
+            self._latest_trans_number, self._files_paths = Persistence._get_filepaths(self._save_dir)
             self._file_path_index = len(self._files_paths) - 1
 
-    def _get_save_dir(self, config):
-        if config == None or config.get('SAVED_TRANSLATIONS_DIR') == None:
+    @staticmethod
+    def _get_save_dir(config):
+        if config is None or config.get('SAVED_TRANSLATIONS_DIR') is None:
             return None, 'config missing parameter "SAVED_TRANSLATIONS_DIR"'
         save_dir = config['SAVED_TRANSLATIONS_DIR']
         if save_dir.startswith("./"):
             save_dir = os.path.dirname(__file__) + save_dir[1:]
         save_dir = os.path.abspath(save_dir)
-        if __debug__:
+        if LOG.isEnabledFor(logging.DEBUG):
             LOG.debug(f'dict_file_path={save_dir}')
 
         if not os.path.exists(save_dir):
             try:
-                os.mkdir(save_dir, 0o777);
+                os.mkdir(save_dir, 0o777)
                 LOG.info(f'Created dir ' + save_dir)
             except Exception as e:
                 trace = str(e) + '\n\t' + traceback.format_exc()
@@ -262,24 +248,25 @@ class Persistence():
                 return None, str(e)
         return save_dir, None
 
-    def _get_filepaths(self, save_dir):
-            filepaths = glob.glob(save_dir + '/*.json')
-            if len(filepaths) == 0:
-                return 0, []
+    @staticmethod
+    def _get_filepaths(save_dir):
+        filepaths = glob.glob(save_dir + '/*.json')
+        if len(filepaths) == 0:
+            return 0, []
 
-            trans_nums = []
-            translation_filepaths = []
-            for filepath in filepaths:
-                x = filepath.split('.')
-                if len(x) > 0 and x[1].isnumeric():
-                    trans_nums.append(int(x[1]))
-                    translation_filepaths.append(filepath)
+        trans_nums = []
+        translation_filepaths = []
+        for filepath in filepaths:
+            x = filepath.split('.')
+            if len(x) > 0 and x[1].isnumeric():
+                trans_nums.append(int(x[1]))
+                translation_filepaths.append(filepath)
 
-            if len(trans_nums) == 0:
-                latest_trans_num = 0
-            else:
-                latest_trans_number = max(trans_nums)
-            return latest_trans_number, translation_filepaths
+        if len(trans_nums) == 0:
+            latest_trans_number = 0
+        else:
+            latest_trans_number = max(trans_nums)
+        return latest_trans_number, translation_filepaths
 
     def save_translation(self, user_input, translated_text):
         filepath = self._write(user_input, translated_text, is_replace_saved_file=False)
@@ -295,11 +282,13 @@ class Persistence():
         if not is_replace_saved_file:
             self._latest_trans_number += 1
             self._file_path_index += 1
-            filepath = self._save_dir + '/' + user_input.src_language + '-' + user_input.dest_language \
-                       + '.' + str(self._latest_trans_number) + '.json'
+            filepath = self._save_dir + '/' + user_input.src_language + '-' + user_input.dest_language + '.' + str(
+                self._latest_trans_number) + '.json'
             self._files_paths.append(filepath)
         if self._file_path_index > (len(self._files_paths) - 1):
-            raise Exception(f'Index Error:  _file_path_index= {self._file_path_index} > (len(_files_paths)={len(self._files_paths)}-1)')
+            raise Exception(
+                f'Index Error:  _file_path_index= {self._file_path_index}\
+> (len(_files_paths)={len(self._files_paths)}-1)')
         filepath = self._files_paths[self._file_path_index]
         translation = {'text_lines': user_input.text_lines,
                        'src_language': user_input.src_language,
@@ -310,7 +299,7 @@ class Persistence():
                        }
         with open(filepath, "w", encoding='utf8') as f:
             json.dump(translation, f, ensure_ascii=False, sort_keys=False, indent=0)
-        if __debug__:
+        if LOG.isEnabledFor(logging.DEBUG):
             LOG.debug(f'filepath={filepath}')
         return filepath
 
@@ -336,7 +325,7 @@ class Persistence():
         filepath = self._files_paths[self._file_path_index]
         with open(filepath, "r", encoding='utf8') as f:
             translation = json.load(f)
-        if __debug__:
+        if LOG.isEnabledFor(logging.DEBUG):
             LOG.debug(f'filepath={filepath}\ntranslation=\n{translation}')
         return translation
 
@@ -344,7 +333,7 @@ class Persistence():
         filepath = self._files_paths[self._file_path_index]
         os.remove(filepath)
         del self._files_paths[self._file_path_index]
-        self._file_path_index -= 1;
-        if __debug__:
+        self._file_path_index -= 1
+        if LOG.isEnabledFor(logging.DEBUG):
             LOG.debug(f'filepath={filepath}')
-        return translation
+        return filepath

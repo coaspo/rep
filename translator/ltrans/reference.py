@@ -135,12 +135,12 @@ LANGUAGE_NAMES_ABBRS = {"Abkhazian": "ab",
                         "Xhosa": "xh",
                         "Yiddish": "ji",
                         "Yoruba": "yo",
-                        "Zulu" : "zu"
+                        "Zulu": "zu"
                         }
 
 LANGUAGE_ABBRS_NAMES = {v: k for k, v in LANGUAGE_NAMES_ABBRS.items()}
 
 
-TRANSLITERATE_LANGUAGE_NAMES = [LANGUAGE_ABBRS_NAMES.get(abbr) if LANGUAGE_ABBRS_NAMES.get(abbr) != None else abbr
+TRANSLITERATE_LANGUAGE_NAMES = [LANGUAGE_ABBRS_NAMES.get(abbr) if LANGUAGE_ABBRS_NAMES.get(abbr) is not None else abbr
                                 for abbr in transliterate.get_available_language_codes()]
-print ("Transliterate languages: ", TRANSLITERATE_LANGUAGE_NAMES)
+print("Transliterate languages: ", TRANSLITERATE_LANGUAGE_NAMES)

@@ -3,7 +3,8 @@ translator
 Project illustrates MVC in python.
 
 It uses **googletranslate** and saves translated words into
-a local json file to improve performance.
+a local json file.
+User input and translation may be saved and viewed later.
 
 .. contents:: Contents:
 
@@ -22,8 +23,8 @@ Run tests
 ---------
 |  **In Pycharm:**
 |   >File >Settings >Tools >Python-Integrated-Tools,
-|   change >Default-test-runner to pytest
-|   select a test and >"run pytest"
+|   change >Default-test-runner to ``pytest``
+|   select a test and > "run pytest"
 |
 |  **Outside pycharm:**
 |   Follow **Work outside pycharm:** labeled instructions below,
@@ -59,5 +60,6 @@ Problems/Solutions
 | change >Default-test-runner to pytest
 |
 | ``E   ModuleNotFoundError: No module named 'googletrans'``
-| Click on ``import googletrans`` and slect fix
-| Cause(?) venv created before running  ``pip install -r requirements.txt``
+| **FIX:** Click on ``import googletrans`` and slect fix
+| Cause(?): ``venv`` created before running:
+|   ``pip install -r requirements.txt``

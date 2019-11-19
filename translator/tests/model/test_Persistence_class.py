@@ -1,6 +1,6 @@
-import shutil
 import ltrans
 import os
+import shutil
 
 CONFIG = {'LOG_DIR': 'tmp', 'SAVED_TRANSLATIONS_DIR': 'tmp', 'LOG_LEVEL': 'INFO'}
 try:

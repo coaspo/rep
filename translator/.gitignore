@@ -10,5 +10,6 @@ venv/**
 **.log
 **.bak
 ltrans/dictionaries/**
+ltrans/saved-translations/**
 ltrans.egg*
 a.py
