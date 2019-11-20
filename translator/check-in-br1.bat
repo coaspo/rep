@@ -11,9 +11,11 @@ if ERRORLEVEL 1 (
 	pause
 	exit 1
 )
+@echo on
 git add *
 git status
 echo.
 set /p msg=Enter commit msg: 
-git commit -m %msg%
+git commit -m "%msg%"
+git push origin br1
 pause
