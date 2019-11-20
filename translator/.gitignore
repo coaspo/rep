@@ -1,7 +1,5 @@
 tmp/**
-tmp/
-temp/**
-temp/
+tmp*
 venv/**
 .idea
 *.pyc
@@ -12,4 +10,4 @@ venv/**
 ltrans/dictionaries/**
 ltrans/saved-translations/**
 ltrans.egg*
-a.py
+a.py*

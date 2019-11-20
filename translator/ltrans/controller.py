@@ -51,7 +51,7 @@ class Controller:
         self.view.status_label.insert(0, text)
 
     def find_src_language(self, _):
-        self.update_status('Wait ... determining source language')
+        self.update_status('Determining source language')
         src_text = self.view.input_frame.get('1.0', tkinter.END).strip()
         if len(src_text) == 0:
             self.update_status('No source text - language not detected')
@@ -71,6 +71,7 @@ class Controller:
                         break
                 self._possibly_recommend_dest_language(src_language)
             self.model.save_dictionary()
+            self.update_status('May change source language or click "Translate"')
         except Exception as e:
             self._handle_error('', e)
 

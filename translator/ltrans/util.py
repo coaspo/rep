@@ -9,7 +9,6 @@ LOG = logging.getLogger(__name__)
 non_letters_regex = ''.join(['|\\' + x for x in r'[\^$.|?*+()'])  # regex special char's
 non_letters_regex = non_letters_regex + ''.join(['|\\' + x for x in ',!@#$%&-_=:;"?<>/{}]]'])  # other non-ltr char's
 NON_LETTERS_REGEX = '\'|[0-9]+' + non_letters_regex
-is_logger_set = False
 
 
 class Config(dict):
@@ -37,9 +36,6 @@ class Config(dict):
 def set_logger(config):
     if config is None or config.get('LOG_DIR') is None:
         raise Exception('config missing config parameter "log_dir"')
-    global is_logger_set
-    if is_logger_set:
-        return
     log_dir = config['LOG_DIR']
     log_level_config = config.get('LOG_LEVEL')
     log_levels = {'CRITICAL': 50, 'ERROR': 40, 'WARNING': 30, 'INFO': 20, 'DEBUG': 10, 'NOTSET': 0}
@@ -68,6 +64,4 @@ def set_logger(config):
     console_handler = logging.StreamHandler()
     console_handler.setFormatter(log_formatter)
     root.addHandler(console_handler)
-    if is_log_dir_created:
-        LOG.info(f'created log_dir: {log_dir}')
-    is_logger_set = True
+    LOG.info(f'created log_dir: {log_dir}')

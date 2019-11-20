@@ -1,14 +1,10 @@
 import ltrans
 import os
 import shutil
+import tests.t_util
 
-CONFIG = {'LOG_DIR': '../../../tmp', 'DICTIONARY_DIR': '../../../tmp', 'LOG_LEVEL': 'INFO'}
-try:
-    if os.path.isdir('../../../tmp'):
-        shutil.rmtree('../../../tmp')
-except:
-    print('a file in tmp is use - did not remove tmp directory')
-
+TMP_DIR = tests.t_util.recreate_tmp_dir(__file__)
+CONFIG = {'LOG_DIR': TMP_DIR, 'DICTIONARY_DIR': TMP_DIR, 'LOG_LEVEL': 'INFO'}
 ltrans.util.set_logger(CONFIG)
 
 

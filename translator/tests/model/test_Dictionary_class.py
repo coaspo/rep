@@ -1,11 +1,13 @@
 import ltrans
 import os
+import tests.t_util
 
-CONFIG = {'LOG_DIR': '../../../tmp', 'DICTIONARY_DIR': '../../../tmp', 'LOG_LEVEL': 'INFO'}
+TMP_DIR = tests.t_util.recreate_tmp_dir(__file__)
+CONFIG = {'LOG_DIR': TMP_DIR, 'DICTIONARY_DIR': TMP_DIR, 'LOG_LEVEL': 'INFO'}
 ltrans.util.set_logger(CONFIG)
 
 def test_dict_file_path():
-    dict_file_path = '../../../tmp/KlingonEnglish-dict.json'
+    dict_file_path = TMP_DIR +'/KlingonEnglish-dict.json'
     if os.path.isfile(dict_file_path):
         os.remove(dict_file_path)
     dicti = ltrans.model.Dictionary(CONFIG, 'Klingon', 'English')

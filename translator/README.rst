@@ -27,11 +27,8 @@ Run tests
 |   select a test and > "run pytest"
 |
 |  **Outside pycharm:**
-|   Follow **Work outside pycharm:** labeled instructions below,
-    and run:
-|   ``set PYTHONPATH=.``
-|   ``pytest tests/``
-
+|   Double click ``c:\..\translator\run-tests.bat``
+|
 Notes
 -----
 |  **Best practice**, create virtual env:
@@ -63,3 +60,6 @@ Problems/Solutions
 | **FIX:** Click on ``import googletrans`` and slect fix
 | Cause(?): ``venv`` created before running:
 |   ``pip install -r requirements.txt``
+|
+| on running pytest: ``found = cls._search_paths(context.pattern, context.path) AttributeError: 'str' object has no attribute 'pattern'``
+| **FIX:** from project dir, run ``./venv/Scripts/activate.bat``

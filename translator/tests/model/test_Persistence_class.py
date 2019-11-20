@@ -1,13 +1,8 @@
 import ltrans
-import os
-import shutil
+import tests.t_util
 
-CONFIG = {'LOG_DIR': 'tmp', 'SAVED_TRANSLATIONS_DIR': 'tmp', 'LOG_LEVEL': 'INFO'}
-try:
-    if os.path.isdir('tmp'):
-        shutil.rmtree('tmp')
-except:
-    print('a file in tmp is use - did not remove tmp directory')
+TMP_DIR = tests.t_util.recreate_tmp_dir(__file__)
+CONFIG = {'LOG_DIR': TMP_DIR, 'SAVED_TRANSLATIONS_DIR': TMP_DIR, 'LOG_LEVEL': 'INFO'}
 ltrans.util.set_logger(CONFIG)
 
 def test_invalid_directories():
@@ -25,7 +20,7 @@ def test_invalid_directories():
 
 def test_obj_attrs():
     persistence = ltrans.model.Persistence(CONFIG)
-    assert persistence._save_dir.endswith('tmp')
+    assert 'tmp' in persistence._save_dir
     assert persistence._err_msg is None
     assert persistence._latest_trans_number == 0
     assert persistence._file_path_index == -1
