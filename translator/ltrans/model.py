@@ -1,12 +1,14 @@
-import glob
+from ltrans.persistence import Persistence
+from ltrans.reference import LANGUAGE_NAMES_ABBRS
+from ltrans.reference import TRANSLITERATE_LANGUAGE_NAMES
+from ltrans.util import NON_LETTERS_REGEX
+from ltrans.userinput import UserInput
+import googletrans
 import json
 import logging
-import ltrans.reference
-import ltrans.util
 import os.path
 import random
 import re
-import traceback
 import transliterate
 import unicodedata
 
@@ -14,7 +16,7 @@ LOG = logging.getLogger(__name__)
 
 
 class Model:
-    def __init__(self, config, google_translator):
+    def __init__(self, config: dict, google_translator: googletrans.client.Translator):
         self._config = config
         self._persistence = Persistence(config)
         self._dictionary = None
@@ -22,10 +24,10 @@ class Model:
         self._last_translated_text = None
 
     @property
-    def persistence(self):
+    def persistence(self) -> Persistence:
         return self._persistence
 
-    def translate(self, user_input):
+    def translate(self, user_input: Persistence) -> str:
         if self._dictionary is None \
                 or user_input.src_language != self._dictionary.src_language \
                 or user_input.dest_language != self._dictionary.dest_language:
@@ -40,36 +42,7 @@ class Model:
             self._dictionary.save()
 
 
-class UserInput:
-    def __init__(self, text_lines, src_language, dest_language, is_add_src, is_add_transliteration):
-        self._text_lines = text_lines
-        self._src_language = src_language
-        self._dest_language = dest_language
-        self._is_add_src = is_add_src
-        self._is_add_transliteration = is_add_transliteration
-
-    @property
-    def text_lines(self):
-        return self._text_lines
-
-    @property
-    def dest_language(self):
-        return self._dest_language
-
-    @property
-    def src_language(self):
-        return self._src_language
-
-    @property
-    def is_add_src(self):
-        return self._is_add_src
-
-    @property
-    def is_add_transliteration(self):
-        return self._is_add_transliteration
-
-
-def translate_text(user_input, dictionary, translator):
+def translate_text(user_input: UserInput, dictionary: dict, translator) -> str:
     if LOG.isEnabledFor(logging.DEBUG):
         LOG.debug(f'user_input={user_input}, dictionary={str(dictionary)}')
     input_lines = user_input.text_lines.split('\n')
@@ -82,7 +55,7 @@ def translate_text(user_input, dictionary, translator):
     return trans_text
 
 
-def possibly_add_extra_lines(input_lines, translated_lines, user_input):
+def possibly_add_extra_lines(input_lines: list, translated_lines: list, user_input: UserInput) -> list:
     output_lines = None
     if user_input.is_add_src:
         output_lines = input_lines.copy()
@@ -106,19 +79,19 @@ def possibly_add_extra_lines(input_lines, translated_lines, user_input):
     return output_lines
 
 
-def transliterate_lines(lines, lines_language):
+def transliterate_lines(lines: list, lines_language: str) -> list:
     if LOG.isEnabledFor(logging.DEBUG):
         LOG.debug(f'  lines_language={lines_language}')
-    if lines_language == 'English' or lines_language not in ltrans.reference.TRANSLITERATE_LANGUAGE_NAMES:
+    if lines_language == 'English' or lines_language not in TRANSLITERATE_LANGUAGE_NAMES:
         return
-    lang_abbr = ltrans.reference.LANGUAGE_NAMES_ABBRS[lines_language]
+    lang_abbr = LANGUAGE_NAMES_ABBRS[lines_language]
     return [transliterate.translit(line, lang_abbr, reversed=True) for line in lines]
 
 
-def translate_line(line, dictionary, translator):
+def translate_line(line: str, dictionary: dict, translator: googletrans.client.Translator):
     if LOG.isEnabledFor(logging.DEBUG):
         LOG.debug(f'  line={line}, translator={str(translator)}')
-    line_w_lrs_and_spaces = re.sub(ltrans.util.NON_LETTERS_REGEX, '', line.rstrip())
+    line_w_lrs_and_spaces = re.sub(NON_LETTERS_REGEX, '', line.rstrip())
     words = line_w_lrs_and_spaces.split()
     words = [x for x in words if len(x) > 0]
     trans_line = re.sub("'([^ ]+)", r'\1', line)
@@ -130,11 +103,11 @@ def translate_line(line, dictionary, translator):
     return trans_line
 
 
-def translate_word(word, dictionary, translator):
+def translate_word(word: str, dictionary: dict, translator: googletrans.client.Translator) -> str:
     if LOG.isEnabledFor(logging.DEBUG):
         LOG.debug(
-            f'    word={word}, src_language={dictionary.src_language}, dest_language={dictionary.dest_language},\
-translator={str(translator)}')
+            f'    word={word}, src_language={dictionary.src_language}, dest_language={dictionary.dest_language},' + \
+            f' translator={str(translator)}')
     no_accent_word = strip_accents(word)
     translated_word = dictionary.get(no_accent_word)
     if translated_word is None:
@@ -142,8 +115,8 @@ translator={str(translator)}')
     if translated_word is None:
         translated_word = dictionary.get(no_accent_word[0:1].lower() + no_accent_word[1:])
     if translated_word is None:
-        src_language_abbr = ltrans.reference.LANGUAGE_NAMES_ABBRS[dictionary.src_language]
-        dest_language_abbr = ltrans.reference.LANGUAGE_NAMES_ABBRS[dictionary.dest_language]
+        src_language_abbr = LANGUAGE_NAMES_ABBRS[dictionary.src_language]
+        dest_language_abbr = LANGUAGE_NAMES_ABBRS[dictionary.dest_language]
         translation = translator.translate(word, src=src_language_abbr, dest=dest_language_abbr)
         if LOG.isEnabledFor(logging.DEBUG):
             LOG.debug(f'      translation={translation}')
@@ -160,13 +133,13 @@ translator={str(translator)}')
     return translated_word
 
 
-def strip_accents(text):
+def strip_accents(text: str) -> str:
     return ''.join(c for c in unicodedata.normalize('NFD', text)
                    if unicodedata.category(c) != 'Mn')
 
 
 class Dictionary(dict):
-    def __init__(self, config, src_language, dest_language):
+    def __init__(self, config: dict, src_language: str, dest_language: str):
         self._src_language = src_language
         self._dest_language = dest_language
         self._set_file_path(config, src_language, dest_language)
@@ -180,7 +153,7 @@ class Dictionary(dict):
 
         self._initial_len = len(self.keys())
 
-    def _set_file_path(self, config, src_language, dest_language):
+    def _set_file_path(self, config: dict, src_language: str, dest_language: str):
         if config is None or config.get('DICTIONARY_DIR') is None:
             raise Exception('config missing config parameter "DICTIONARY_DIR"')
         dictionary_dir = config['DICTIONARY_DIR']
@@ -196,14 +169,14 @@ class Dictionary(dict):
             LOG.debug(f'dict_file_path={self._dict_file_path}')
 
     @property
-    def src_language(self):
+    def src_language(self) -> str:
         return self._src_language
 
     @property
-    def dest_language(self):
+    def dest_language(self) -> str:
         return self._dest_language
 
-    def words(self):
+    def words(self) -> dict:
         return {k: v for k, v in self.items()}
 
     def save(self):
@@ -213,127 +186,9 @@ class Dictionary(dict):
             with open(self._dict_file_path, "w", encoding='utf8') as f:
                 json.dump(self, f, ensure_ascii=False, sort_keys=True, indent=0)
             if LOG.isEnabledFor(logging.DEBUG):
-                sample_words = random.sample(self.items(), 2)
+                current_len = len(self.keys())
+                sample_words = random.sample(self.items(), max(2, current_len))
                 LOG.debug(
-                    f'initial/current word count: {self._initial_len}/{current_len}\
-2-word random sample: {sample_words}')
-            self._initial_len = len(self.keys())
-
-
-class Persistence:
-    def __init__(self, config):
-        self._save_dir, self._err_msg = Persistence._get_save_dir(config)
-        if self._err_msg is None:
-            self._latest_trans_number, self._files_paths = Persistence._get_filepaths(self._save_dir)
-            self._file_path_index = len(self._files_paths) - 1
-
-    @staticmethod
-    def _get_save_dir(config):
-        if config is None or config.get('SAVED_TRANSLATIONS_DIR') is None:
-            return None, 'config missing parameter "SAVED_TRANSLATIONS_DIR"'
-        save_dir = config['SAVED_TRANSLATIONS_DIR']
-        if save_dir.startswith("./"):
-            save_dir = os.path.dirname(__file__) + save_dir[1:]
-        save_dir = os.path.abspath(save_dir)
-        if LOG.isEnabledFor(logging.DEBUG):
-            LOG.debug(f'dict_file_path={save_dir}')
-
-        if not os.path.exists(save_dir):
-            try:
-                os.mkdir(save_dir, 0o777)
-                LOG.info(f'Created dir ' + save_dir)
-            except Exception as e:
-                trace = str(e) + '\n\t' + traceback.format_exc()
-                LOG.error(trace)
-                return None, str(e)
-        return save_dir, None
-
-    @staticmethod
-    def _get_filepaths(save_dir):
-        filepaths = glob.glob(save_dir + '/*.json')
-        if len(filepaths) == 0:
-            return 0, []
-
-        trans_nums = []
-        translation_filepaths = []
-        for filepath in filepaths:
-            x = filepath.split('.')
-            if len(x) > 0 and x[1].isnumeric():
-                trans_nums.append(int(x[1]))
-                translation_filepaths.append(filepath)
-
-        if len(trans_nums) == 0:
-            latest_trans_number = 0
-        else:
-            latest_trans_number = max(trans_nums)
-        return latest_trans_number, translation_filepaths
-
-    def save_translation(self, user_input, translated_text):
-        filepath = self._write(user_input, translated_text, is_replace_saved_file=False)
-        return 'Saved translation in: ' + filepath
-
-    def replace_translation(self, user_input, translated_text):
-        filepath = self._write(user_input, translated_text, is_replace_saved_file=True)
-        return 'Replaced translation rin: ' + filepath
-
-    def _write(self, user_input, translated_text, is_replace_saved_file):
-        if self._err_msg is not None:
-            raise Exception('cannot save file - ' + self._err_msg)
-        if not is_replace_saved_file:
-            self._latest_trans_number += 1
-            self._file_path_index += 1
-            filepath = self._save_dir + '/' + user_input.src_language + '-' + user_input.dest_language + '.' + str(
-                self._latest_trans_number) + '.json'
-            self._files_paths.append(filepath)
-        if self._file_path_index > (len(self._files_paths) - 1):
-            raise Exception(
-                f'Index Error:  _file_path_index= {self._file_path_index}\
-> (len(_files_paths)={len(self._files_paths)}-1)')
-        filepath = self._files_paths[self._file_path_index]
-        translation = {'text_lines': user_input.text_lines,
-                       'src_language': user_input.src_language,
-                       'dest_language': user_input.dest_language,
-                       'is_add_src': user_input.is_add_src,
-                       'is_add_transliteration': user_input.is_add_transliteration,
-                       'translated_text': translated_text
-                       }
-        with open(filepath, "w", encoding='utf8') as f:
-            json.dump(translation, f, ensure_ascii=False, sort_keys=False, indent=0)
-        if LOG.isEnabledFor(logging.DEBUG):
-            LOG.debug(f'filepath={filepath}')
-        return filepath
-
-    def read_next(self):
-        if self._err_msg is not None:
-            raise Exception('cannot read any files - ' + self._err_msg)
-        if len(self._files_paths) == 0:
-            raise Exception(f'There are no translation files in: {self._save_dir}')
-        if self._file_path_index != len(self._files_paths) - 1:
-            self._file_path_index += 1
-        return self._read_translation()
-
-    def read_prev(self):
-        if self._err_msg is not None:
-            raise Exception('cannot read any files - ' + self._err_msg)
-        if len(self._files_paths) == 0:
-            raise Exception(f'There are no translation files in: {self._save_dir}')
-        if self._file_path_index != 0:
-            self._file_path_index -= 1
-        return self._read_translation()
-
-    def _read_translation(self):
-        filepath = self._files_paths[self._file_path_index]
-        with open(filepath, "r", encoding='utf8') as f:
-            translation = json.load(f)
-        if LOG.isEnabledFor(logging.DEBUG):
-            LOG.debug(f'filepath={filepath}\ntranslation=\n{translation}')
-        return translation
-
-    def delete_translation(self):
-        filepath = self._files_paths[self._file_path_index]
-        os.remove(filepath)
-        del self._files_paths[self._file_path_index]
-        self._file_path_index -= 1
-        if LOG.isEnabledFor(logging.DEBUG):
-            LOG.debug(f'filepath={filepath}')
-        return filepath
+                    f'initial/current word count: {self._initial_len}/{current_len} ' + \
+                    f' 2-word random sample: {sample_words}')
+            self._initial_len = current_len
