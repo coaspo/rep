@@ -203,6 +203,20 @@ class Controller:
         self.model.save_dictionary()
         self.view.stop()
 
+    def bind_view_controls(self):
+        self.view.clear_bt.bind("<Button-1>", self.clear_input)
+        self.view.destination_language.bind("<KeyRelease>", self.set_dest_language)
+        self.view.trans_bt.bind("<Button-1>", self.translate_text)
+        self.view.swap_languages_bt.bind("<Button-1>", self.swap_languages)
+
+        self.view.save_bt.bind("<Button-1>", self.save_translation)
+        self.view.next_bt.bind("<Button-1>", self.next_translation)
+        self.view.previous_bt.bind("<Button-1>", self.previous_translation)
+        self.view.delete_bt.bind("<Button-1>", self.delete_translation)
+
+        self.view.root.protocol("WM_DELETE_WINDOW", self.on_closing)
+        print('Controller bound to view')
+
 
 def language_names(config: dict) -> list:
     lang_names = [v for v, _ in LANGUAGE_NAMES_ABBRS.items()]
@@ -224,7 +238,7 @@ def main():
         m = Model(config, google_translator)
         c = Controller(config, v, m)
         c.init_persistence_buttons()
-        v.bind_controls(c)
+        c.bind_view_controls()
         LOG.info('Starting Translator APP')
         c.view.start()
     except Exception as exc:
