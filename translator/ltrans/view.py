@@ -1,9 +1,13 @@
+import logging
+import os
 import tkinter.font
 import tkinter.scrolledtext
 import tkinter.ttk
+import webbrowser
+
+log = logging.getLogger(__name__)
 
 class View:
-
     def __init__(self, language_names: list, instructions: str):
         root = tkinter.Tk()
         root.title("Word translator")
@@ -12,6 +16,8 @@ class View:
         self._init_menu(root)
         self._init_text_areas(root)
         self._init_bottom(root, instructions)
+        if log.isEnabledFor(logging.DEBUG):
+            log.debug("Finished")
 
     @property
     def language_names(self):
@@ -32,7 +38,6 @@ class View:
     @property
     def swap_languages_bt(self):
         return self._swap_languages_bt
-    #
 
     @property
     def save_bt(self):
@@ -54,10 +59,7 @@ class View:
     def root(self):
         return self._root
 
-
-
-    def _init_menu(self, root):
-        print('$$$$', root)
+    def _init_menu(self, root: tkinter.Tk):
         light_yellow = '#ffffcc'
         frame: tkinter.Frame = tkinter.Frame(root, height=500)
         frame.configure(background=light_yellow)
@@ -65,10 +67,10 @@ class View:
         self._clear_bt = tkinter.Button(frame, text="  Clear  ")
         from_to_label = tkinter.Label(frame, text="From / to :", bg=light_yellow)
 
-        self.src_language = tkinter.ttk.Combobox(frame, width=10, height=1, font=("Arial", 9),
+        self.src_language = tkinter.ttk.Combobox(frame, width=10, height=12, font=("Arial", 9),
                                                  values=self.language_names, state='readonly')
         self.src_language.current(0)
-        self._destination_language = tkinter.ttk.Combobox(frame, width=10, height=1, font=("Arial", 9),
+        self._destination_language = tkinter.ttk.Combobox(frame, width=12, height=10, font=("Arial", 9),
                                                          values=self.language_names, state='readonly')
         self._destination_language.current(1)
         self._swap_languages_bt = tkinter.Button(frame, text="  ⇆  ", height=1, width=2)
@@ -83,14 +85,13 @@ class View:
                                                                     variable=self.is_add_transliteration,
                                                                     state=tkinter.DISABLED)
         self._trans_bt = tkinter.Button(frame, text="  Translate  ")
-        self._save_bt = tkinter.Button(frame, text="  Save  ", height=1, state=tkinter.DISABLED)
+        self._save_bt = tkinter.Button(frame, text="  Save  ", height=1)
         saved_label = tkinter.Label(frame, text="     Saved translations:", bg=light_yellow)
-        self._next_bt = tkinter.Button(frame, text=u' \u25BA  ', height=1, state=tkinter.DISABLED)
-        self._previous_bt = tkinter.Button(frame, text=u' \u25C4 ', height=1, state=tkinter.DISABLED)
-        self._delete_bt = tkinter.Button(frame, text=" Delete ", height=1, state=tkinter.DISABLED)
-        self.persistence_status_label = tkinter.Label(frame, width=80)
+        self._next_bt = tkinter.Button(frame, text=u' \u25BA  ', height=1)
+        self._previous_bt = tkinter.Button(frame, text=u' \u25C4 ', height=1)
+        self._delete_bt = tkinter.Button(frame, text=" Delete ", height=1)
+        help_label = tkinter.Label(frame, text="Help", fg="blue", bg=light_yellow, cursor="hand2")
 
-        # pack widgets
         self._clear_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
         from_to_label.pack(side=tkinter.LEFT, padx=5, pady=2)
         self.src_language.pack(side=tkinter.LEFT, padx=5, pady=2)
@@ -100,16 +101,18 @@ class View:
         self.add_source_check_button.pack(side=tkinter.LEFT, pady=2)
         self.add_transliteration_check_button.pack(side=tkinter.LEFT, pady=2)
         self._trans_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
+
         self._save_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
         saved_label.pack(side=tkinter.LEFT, padx=2, pady=2)
         self._next_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
         self._previous_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
         self._delete_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
-        self.persistence_status_label.pack(side=tkinter.LEFT, padx=5, pady=2)
+        help_label.pack(side=tkinter.LEFT, padx=25, pady=2)
+        help_label.bind("<Button-1>", lambda e: webbrowser.get('windows-default').open("file://"+ os.path.realpath("./ltrans/help.html")))
 
         frame.pack(fill='both', expand=False)
 
-    def _init_persistence_controls(self, root):
+    def _init_persistence_controls(self, root: tkinter.Tk):
         frame = tkinter.Frame(root)
         frame.pack(fill='both', expand='yes')
         self._save_bt = tkinter.Button(frame, text="Save", height=1, width=2)
@@ -123,7 +126,7 @@ class View:
         self._delete_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
         frame.pack()
 
-    def _init_text_areas(self, root):
+    def _init_text_areas(self, root: tkinter.Tk):
         self.txt_frame = tkinter.Frame(root)
         self.input_frame = tkinter.scrolledtext.ScrolledText(self.txt_frame)
         self.input_frame.pack(side=tkinter.LEFT, pady=2, fill='both', expand='yes')
@@ -137,11 +140,8 @@ class View:
         frame.pack(fill='both', expand='yes')
         self.status_or_description_entry = tkinter.Entry(root, bg="#eeffee", fg='black')
         self.status_or_description_entry.insert(0, instructions)
-        self.help_bt = tkinter.Button(root, text=' Help  ', height=1)
 
         self.status_or_description_entry.pack(side=tkinter.LEFT, fill='both', expand='yes')
-        self.help_bt.pack(padx=5, pady=2)
-
 
     def start(self):
         self.root.mainloop()

@@ -1,9 +1,10 @@
 {
-"DICTIONARY_DIR":"./dictionaries",
-"ERR_LOG_FILE_NAME":"word-translator-ERR-log.txt",
+"DICTIONARY_DIR": "./dictionaries",
+"ERR_LOG_FILE_NAME": "word-translator-ERR-log.txt",
 "LOG_DIR": "./logs",
-"LOG_LEVEL": "DEBUG",
-"MAX_TRANSLATION_HISTORY_COUNT":"32",
-"SAVED_TRANSLATIONS_DIR":"./saved-translations",
-"TOP_OF_LIST_LANGUAGES":"English,Greek,Spanish,German"
+"LOG_LEVEL": "INFO",
+"LOG_LEVELS" : "CRITICAL, ERROR, WARNING, INFO, DEBUG, NOTSET",
+"MAX_TRANSLATION_HISTORY_COUNT": "32",
+"SAVED_TRANSLATIONS_DIR": "./saved-translations",
+"TOP_OF_LIST_LANGUAGES": "English,Spanish,German,French,Italian,Greek"
 }

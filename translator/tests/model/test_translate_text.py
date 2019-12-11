@@ -18,7 +18,7 @@ def test_empty_lines():
     user_input = ltrans.model.UserInput(text_lines, 'English',  'French', False, False, '')
     dictionary = english_french_dict()
     trans_text = ltrans.model.translate_text(user_input, dictionary, translator=None)
-    assert trans_text == "Aujourd'hui\nbien"
+    assert trans_text == "Aujourd'hui\n\nbien"
 
 
 def english_french_dict():

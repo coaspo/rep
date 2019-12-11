@@ -1,6 +1,9 @@
 import os
 import shutil
 import ntpath
+import logging
+root = logging.getLogger()
+root.setLevel(os.environ.get("LOGLEVEL","INFO"))
 
 
 def recreate_tmp_dir(filepath):

@@ -5,21 +5,26 @@ from ltrans.reference import TRANSLITERATE_LANGUAGE_NAMES
 from ltrans.userinput import UserInput
 from ltrans.util import Config
 from ltrans.util import set_logger
-import ltrans.view
+from ltrans.view import View
 import googletrans
 import json
 import langdetect
 import logging
+import ltrans.view
 import os
 import tkinter
 import tkinter.ttk
 import traceback
 
-LOG = logging.getLogger(__name__)
+log = logging.getLogger(__name__)
+
+
+class UserInputError(Exception):
+    pass
 
 
 class Controller:
-    def __init__(self, config_trans: dict, view: ltrans.view.View, model: Model):
+    def __init__(self, config_trans: dict, view: View, model: Model):
         self._config_trans = config_trans
         self.view = view
         self.model = model
@@ -32,22 +37,16 @@ class Controller:
 
     def _handle_error(self, msg: str, exc=None):
         if exc is None:
-            LOG.error(msg)
+            log.error(msg)
             self.update_status(msg, True)
         else:
             msg_exc = msg + ' ' + str(exc)
             msg_trace = msg_exc + '\n\t' + traceback.format_exc()
-            LOG.error(msg + '\n\t' + msg_trace)
+            if type(exc) is not UserInputError:
+                log.error(msg + '\n\t' + msg_trace)
             self.update_status(msg_exc, True)
 
-    def init_persistence_buttons(self):
-        if self.model.persistence.file_path_index != -1:
-            self.view.save_bt.config(state='normal')
-            self.view.next_bt.config(state='normal')
-            self.view.previous_bt.config(state='normal')
-            self.view.delete_bt.config(state='normal')
-
-    def clear_input(self, _):
+    def clear_input(self, event: tkinter.Event):
         self.view.input_frame.delete('1.0', tkinter.END)
         self.view.output_frame.delete('1.0', tkinter.END)
         self.view.src_language.set('')
@@ -104,12 +103,12 @@ class Controller:
             except Exception as e:
                 self._handle_error('src_language=' + src_language, e)
 
-    def set_source_language(self, event):
+    def set_source_language(self, event: tkinter.Event):
         print ('$$$$',type(event))
         self.source_lang_keys_typed = \
             self._update_typed_keys(event, self.source_lang_keys_typed, self.view.source_language)
 
-    def set_dest_language(self, event):
+    def set_dest_language(self, event: tkinter.Event):
         self.destination_lang_keys_typed = \
             self._update_typed_keys(event, self.destination_lang_keys_typed, self.view.destination_language)
 
@@ -166,7 +165,7 @@ class Controller:
     def _get_user_input(self) -> UserInput:
         text = self.view.input_frame.get("1.0", tkinter.END)
         if text.strip() == '':
-            raise Exception('There is no text to translate')
+            raise UserInputError('Source text not entered')
         src_language = self.view.src_language.get()
         dest_language = self.view.destination_language.get()
         is_add_source = self.view.is_add_src.get()
@@ -174,7 +173,7 @@ class Controller:
         if Config.SAVE_INSTRUCTIONS == Config.SAVE_INSTRUCTIONS:
             description = ''
         else:
-            description = self.update_status.get
+            description = self.update_status.get()
         return UserInput(text, src_language, dest_language, is_add_source, is_add_transliteration, description)
 
     def phoneticize_and_tranlate(self, _):
@@ -188,12 +187,17 @@ class Controller:
         self.update_status(f'Translation saved in: {filepath}')
 
     def next_translation(self, _):
-        count = self.model.persistence.read_next()
-        self.view.persistence_status_label.config(text=count)
+        filepath, translation = self.model.persistence.next_translation()
+        self._pouplate_screen(translation)
+        self.update_status(text=filepath)
 
     def previous_translation(self, _):
-        count = self.model.persistence.read_prev()
-        self.view.persistence_status_label.config(text=count)
+        filepath, translation = self.model.persistence.previous_translation()
+        self._pouplate_screen(translation)
+        self.update_status(text=filepath)
+
+    def _pouplate_screen(self, translation):
+        print('---------', translation)
 
     def delete_translation(self, _):
         filepath = self.model.persistence.delete_translation()
@@ -215,7 +219,8 @@ class Controller:
         self.view.delete_bt.bind("<Button-1>", self.delete_translation)
 
         self.view.root.protocol("WM_DELETE_WINDOW", self.on_closing)
-        print('Controller bound to view')
+        if log.isEnabledFor(logging.DEBUG):
+            log.debug('controller methods bound to view widgets')
 
 
 def language_names(config: dict) -> list:
@@ -229,21 +234,20 @@ def main():
         with open(os.path.dirname(__file__) + "/config_trans.json") as f:
             config = json.load(f)
         set_logger(config)
-        if LOG.isEnabledFor(logging.DEBUG):
-            LOG.debug('active....')
+        if log.isEnabledFor(logging.DEBUG):
+            log.info(f'Transliterate languages: {TRANSLITERATE_LANGUAGE_NAMES}')
 
         lang_names = language_names(config)
         v = ltrans.view.View(lang_names, Config.TRANSLATE_INSTRUCTIONS)
         google_translator = googletrans.Translator()
         m = Model(config, google_translator)
         c = Controller(config, v, m)
-        c.init_persistence_buttons()
         c.bind_view_controls()
-        LOG.info('Starting Translator APP')
+        log.info('>>> Starting view')
         c.view.start()
     except Exception as exc:
         exc_trace = str(exc) + '\n\t' + traceback.format_exc()
-        LOG.error(exc_trace)
+        log.error(exc_trace)
 
 
 if __name__ == '__main__':

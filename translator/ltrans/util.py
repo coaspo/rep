@@ -5,7 +5,7 @@ import logging.handlers
 import os
 import traceback
 
-LOG = logging.getLogger(__name__)
+log = logging.getLogger(__name__)
 non_letters_regex = ''.join(['|\\' + x for x in r'[\^$.|?*+()'])  # regex special char's
 non_letters_regex = non_letters_regex + ''.join(['|\\' + x for x in ',!@#$%&-_=:;"?<>/{}]]'])  # other non-ltr char's
 NON_LETTERS_REGEX = '\'|[0-9]+' + non_letters_regex
@@ -64,4 +64,5 @@ def set_logger(config: dict):
     console_handler = logging.StreamHandler()
     console_handler.setFormatter(log_formatter)
     root.addHandler(console_handler)
-    LOG.info(f'created log_dir: {log_dir}')
+    if is_log_dir_created:
+        log.info(f'Created log file: {log_file_path}/')

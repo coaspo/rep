@@ -12,131 +12,7 @@ import re
 import transliterate
 import unicodedata
 
-LOG = logging.getLogger(__name__)
-
-
-class Model:
-    def __init__(self, config: dict, google_translator: googletrans.client.Translator):
-        self._config = config
-        self._persistence = Persistence(config)
-        self._dictionary = None
-        self._translator = google_translator
-        self._last_translated_text = None
-
-    @property
-    def persistence(self) -> Persistence:
-        return self._persistence
-
-    def translate(self, user_input: Persistence) -> str:
-        if self._dictionary is None \
-                or user_input.src_language != self._dictionary.src_language \
-                or user_input.dest_language != self._dictionary.dest_language:
-            self._dictionary = Dictionary(self._config, user_input.src_language, user_input.dest_language)
-        if LOG.isEnabledFor(logging.DEBUG):
-            LOG.debug(user_input)
-        self._last_translated_text = translate_text(user_input, self._dictionary, self._translator)
-        return self._last_translated_text
-
-    def save_dictionary(self):
-        if self._dictionary is not None:
-            self._dictionary.save()
-
-
-def translate_text(user_input: UserInput, dictionary: dict, translator) -> str:
-    if LOG.isEnabledFor(logging.DEBUG):
-        LOG.debug(f'user_input={user_input}, dictionary={str(dictionary)}')
-    input_lines = user_input.text_lines.split('\n')
-    input_lines = [x for x in input_lines if len(x) != 0]
-    translated_lines = [translate_line(line, dictionary, translator) for line in input_lines]
-    translated_lines = possibly_add_extra_lines(input_lines, translated_lines, user_input)
-    trans_text = '\n'.join(translated_lines).strip()
-    if LOG.isEnabledFor(logging.DEBUG):
-        LOG.debug(f'trans_text={trans_text}')
-    return trans_text
-
-
-def possibly_add_extra_lines(input_lines: list, translated_lines: list, user_input: UserInput) -> list:
-    output_lines = None
-    if user_input.is_add_src:
-        output_lines = input_lines.copy()
-        if user_input.is_add_transliteration:
-            trasliteration_lines = transliterate_lines(input_lines, user_input.src_language)
-            if trasliteration_lines is not None:
-                output_lines = [a + '\n' + b for a, b in zip(output_lines, trasliteration_lines)]
-
-    if output_lines is None:
-        output_lines = translated_lines
-    else:
-        output_lines = [a + '\n' + b for a, b in zip(output_lines, translated_lines)]
-
-    if user_input.is_add_transliteration:
-        trasliteration_lines = transliterate_lines(translated_lines, user_input.dest_language)
-        if trasliteration_lines is not None:
-            output_lines = [a + '\n' + b for a, b in zip(output_lines, trasliteration_lines)]
-
-    if output_lines != translated_lines:
-        output_lines = [line + '\n' for line in output_lines]
-    return output_lines
-
-
-def transliterate_lines(lines: list, lines_language: str) -> list:
-    if LOG.isEnabledFor(logging.DEBUG):
-        LOG.debug(f'  lines_language={lines_language}')
-    if lines_language == 'English' or lines_language not in TRANSLITERATE_LANGUAGE_NAMES:
-        return
-    lang_abbr = LANGUAGE_NAMES_ABBRS[lines_language]
-    return [transliterate.translit(line, lang_abbr, reversed=True) for line in lines]
-
-
-def translate_line(line: str, dictionary: dict, translator: googletrans.client.Translator):
-    if LOG.isEnabledFor(logging.DEBUG):
-        LOG.debug(f'  line={line}, translator={str(translator)}')
-    line_w_lrs_and_spaces = re.sub(NON_LETTERS_REGEX, '', line.rstrip())
-    words = line_w_lrs_and_spaces.split()
-    words = [x for x in words if len(x) > 0]
-    trans_line = re.sub("'([^ ]+)", r'\1', line)
-    for word in words:
-        translated_word = translate_word(word, dictionary, translator)
-        trans_line = re.sub(word, translated_word, trans_line, 1)
-    if LOG.isEnabledFor(logging.DEBUG):
-        LOG.debug(f'   trans_line={trans_line}')
-    return trans_line
-
-
-def translate_word(word: str, dictionary: dict, translator: googletrans.client.Translator) -> str:
-    if LOG.isEnabledFor(logging.DEBUG):
-        LOG.debug(
-            f'    word={word}, src_language={dictionary.src_language}, dest_language={dictionary.dest_language},' + \
-            f' translator={str(translator)}')
-    no_accent_word = strip_accents(word)
-    translated_word = dictionary.get(no_accent_word)
-    if translated_word is None:
-        translated_word = dictionary.get(no_accent_word[0:1].upper() + no_accent_word[1:])
-    if translated_word is None:
-        translated_word = dictionary.get(no_accent_word[0:1].lower() + no_accent_word[1:])
-    if translated_word is None:
-        src_language_abbr = LANGUAGE_NAMES_ABBRS[dictionary.src_language]
-        dest_language_abbr = LANGUAGE_NAMES_ABBRS[dictionary.dest_language]
-        translation = translator.translate(word, src=src_language_abbr, dest=dest_language_abbr)
-        if LOG.isEnabledFor(logging.DEBUG):
-            LOG.debug(f'      translation={translation}')
-        translated_word = translation.text
-        if word != translated_word:
-            dictionary[word] = translated_word
-        # translation.transliteration is always none , need google account?
-    if word[0:1].isupper():
-        print(translated_word[0:1], '----', translated_word[1:])
-        w = translated_word[0:1].upper() + translated_word[1:]
-        translated_word = w  # to avoid repeating firstr ltr (?)
-    if LOG.isEnabledFor(logging.DEBUG):
-        LOG.debug(f'     translated_word={translated_word}')
-    return translated_word
-
-
-def strip_accents(text: str) -> str:
-    return ''.join(c for c in unicodedata.normalize('NFD', text)
-                   if unicodedata.category(c) != 'Mn')
-
+log = logging.getLogger(__name__)
 
 class Dictionary(dict):
     def __init__(self, config: dict, src_language: str, dest_language: str):
@@ -165,8 +41,8 @@ class Dictionary(dict):
         elif not os.path.isdir(dictionary_dir):
             raise Exception(f'config parameter DICTIONARY_DIR={dictionary_dir} is and invalid directory')
         self._dict_file_path = dictionary_dir + '/' + src_language + dest_language + '-dict.json'
-        if LOG.isEnabledFor(logging.DEBUG):
-            LOG.debug(f'dict_file_path={self._dict_file_path}')
+        if log.isEnabledFor(logging.DEBUG):
+            log.debug(f'dict_file_path={self._dict_file_path}')
 
     @property
     def src_language(self) -> str:
@@ -185,10 +61,141 @@ class Dictionary(dict):
         if len_diff > 0:
             with open(self._dict_file_path, "w", encoding='utf8') as f:
                 json.dump(self, f, ensure_ascii=False, sort_keys=True, indent=0)
-            if LOG.isEnabledFor(logging.DEBUG):
+            if log.isEnabledFor(logging.DEBUG):
                 current_len = len(self.keys())
-                sample_words = random.sample(self.items(), max(2, current_len))
-                LOG.debug(
+                sample_words = random.sample(self.items(), min(4, current_len))
+                log.debug(
                     f'initial/current word count: {self._initial_len}/{current_len} ' + \
-                    f' 2-word random sample: {sample_words}')
+                    f' 4-word random sample: {sample_words}')
             self._initial_len = current_len
+            print('$$$$$$$$$$')
+            log.info(f'{len_diff} new words were added to: {os.path.basename(self._dict_file_path)}')
+
+    def __str__(self):
+        current_len = len(self.keys())
+        sample_words = random.sample(self.items(), min(4, current_len))
+        return 'Dictionary: ' + str(sample_words) + '...'
+
+
+class Model:
+    def __init__(self, config: dict, google_translator: googletrans.client.Translator):
+        self._config = config
+        self._persistence = Persistence(config)
+        self._dictionary = None
+        self._translator = google_translator
+        self._last_translated_text = None
+
+    @property
+    def persistence(self) -> Persistence:
+        return self._persistence
+
+    def translate(self, user_input: UserInput) -> str:
+        if self._dictionary is None \
+                or user_input.src_language != self._dictionary.src_language \
+                or user_input.dest_language != self._dictionary.dest_language:
+            self._dictionary = Dictionary(self._config, user_input.src_language, user_input.dest_language)
+        if log.isEnabledFor(logging.DEBUG):
+            log.debug(user_input)
+        self._last_translated_text = translate_text(user_input, self._dictionary, self._translator)
+        return self._last_translated_text
+
+    def save_dictionary(self):
+        if self._dictionary is not None:
+            self._dictionary.save()
+
+
+def translate_text(user_input: UserInput, dictionary: Dictionary, translator: googletrans.client.Translator) -> str:
+    if log.isEnabledFor(logging.DEBUG):
+        log.debug(f'user_input={user_input}, dictionary={str(dictionary)}')
+    input_lines = user_input.text_lines.split('\n')
+    #input_lines = [x for x in input_lines if len(x) != 0]
+    translated_lines = [translate_line(line, dictionary, translator) for line in input_lines]
+    translated_lines = possibly_add_extra_lines(input_lines, translated_lines, user_input)
+    trans_text = '\n'.join(translated_lines).strip()
+    if log.isEnabledFor(logging.DEBUG):
+        log.debug(f'trans_text={trans_text}')
+    return trans_text
+
+
+def possibly_add_extra_lines(input_lines: list, translated_lines: list, user_input: UserInput) -> list:
+    output_lines = None
+    if user_input.is_add_src:
+        output_lines = input_lines.copy()
+        if user_input.is_add_transliteration:
+            trasliteration_lines = transliterate_lines(input_lines, user_input.src_language)
+            if trasliteration_lines is not None:
+                output_lines = [a + '\n' + b for a, b in zip(output_lines, trasliteration_lines)]
+
+    if output_lines is None:
+        output_lines = translated_lines
+    else:
+        output_lines = [a + '\n' + b for a, b in zip(output_lines, translated_lines)]
+
+    if user_input.is_add_transliteration:
+        trasliteration_lines = transliterate_lines(translated_lines, user_input.dest_language)
+        if trasliteration_lines is not None:
+            output_lines = [a + '\n' + b for a, b in zip(output_lines, trasliteration_lines)]
+
+    if output_lines != translated_lines:
+        output_lines = [line + '\n' for line in output_lines]
+    return output_lines
+
+
+def transliterate_lines(lines: list, lines_language: str) -> list:
+    if log.isEnabledFor(logging.DEBUG):
+        log.debug(f'  lines_language={lines_language}')
+    if lines_language == 'English' or lines_language not in TRANSLITERATE_LANGUAGE_NAMES:
+        return
+    lang_abbr = LANGUAGE_NAMES_ABBRS[lines_language]
+    return [transliterate.translit(line, lang_abbr, reversed=True) for line in lines]
+
+
+def translate_line(line: str, dictionary: dict, translator: googletrans.client.Translator) -> str:
+    if log.isEnabledFor(logging.DEBUG):
+        log.debug(f'  line={line}, translator={str(translator)}')
+    line_w_lrs_and_spaces = re.sub(NON_LETTERS_REGEX, '', line.rstrip())
+    words = line_w_lrs_and_spaces.split()
+    words = [x for x in words if len(x) > 0]
+    trans_line = re.sub("'([^ ]+)", r'\1', line)
+    for word in words:
+        translated_word = translate_word(word, dictionary, translator)
+        trans_line = re.sub(word, translated_word, trans_line, 1)
+    if log.isEnabledFor(logging.DEBUG):
+        log.debug(f'   trans_line={trans_line}')
+    return trans_line
+
+
+def translate_word(word: str, dictionary: dict, translator: googletrans.client.Translator) -> str:
+    if log.isEnabledFor(logging.DEBUG):
+        log.debug(
+            f'    word={word}, src_language={dictionary.src_language}, dest_language={dictionary.dest_language},' + \
+            f' translator={str(translator)}')
+    no_accent_word = strip_accents(word)
+    translated_word = dictionary.get(no_accent_word)
+    if translated_word is None:
+        translated_word = dictionary.get(no_accent_word[0:1].upper() + no_accent_word[1:])
+    if translated_word is None:
+        translated_word = dictionary.get(no_accent_word[0:1].lower() + no_accent_word[1:])
+    if translated_word is None:
+        src_language_abbr = LANGUAGE_NAMES_ABBRS[dictionary.src_language]
+        dest_language_abbr = LANGUAGE_NAMES_ABBRS[dictionary.dest_language]
+        translation = translator.translate(word, src=src_language_abbr, dest=dest_language_abbr)
+        if log.isEnabledFor(logging.DEBUG):
+            log.debug(f'      translation={translation}')
+        translated_word = translation.text
+        if word != translated_word:
+            dictionary[word] = translated_word.lower()
+        # translation.transliteration is always none , need google account?
+    if word[0:1].isupper():
+        w = translated_word[0:1].upper() + translated_word[1:]
+        translated_word = w  # to avoid repeating firstr ltr (?)
+    if log.isEnabledFor(logging.DEBUG):
+        log.debug(f'     translated_word={translated_word}')
+    return translated_word
+
+
+def strip_accents(text: str) -> str:
+    return ''.join(c for c in unicodedata.normalize('NFD', text)
+                   if unicodedata.category(c) != 'Mn')
+
+

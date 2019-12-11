@@ -1,85 +1,120 @@
 import ltrans
 import ltrans.model
 import tests.t_util
+from ltrans.persistence import Persistence
 
 TMP_DIR = tests.t_util.recreate_tmp_dir(__file__)
 CONFIG = {'LOG_DIR': TMP_DIR, 'SAVED_TRANSLATIONS_DIR': TMP_DIR, 'LOG_LEVEL': 'CRITICAL'}
+TRANSLATION = {'dest_language': 'French',
+                'is_add_src': 0,
+                'is_add_transliteration': 1,
+                'src_language': 'English',
+                'text_lines': 'This is\na test',
+                'translated_text': 'This is\nCette est\n\na test\nune tester'}
+
 ltrans.util.set_logger(CONFIG)
+
 
 def test_invalid_directories():
     config = {}
-    persistence = ltrans.persistence.Persistence(config)
-    assert(persistence._err_msg == 'config missing parameter "SAVED_TRANSLATIONS_DIR"')
+    persistence = Persistence(config)
+    assert Persistence.err_msg == 'FileStorage failed - config missing parameter "SAVED_TRANSLATIONS_DIR"'
 
     config = {'SAVED_TRANSLATIONS_DIR': '/non-dir/fake-dir'}
-    persistence = ltrans.persistence.Persistence(config)
-    assert(persistence._err_msg == r"[WinError 3] The system cannot find the path specified: 'C:\\non-dir\\fake-dir'")
+    persistence = Persistence(config)
+    assert Persistence.err_msg.find("FileStorage failed - [WinError 3] The system cannot find the path specified") > -1
 
-    config = {'SAVED_TRANSLATIONS_DIR': './xx:\n'}
-    persistence = ltrans.persistence.Persistence(config)
-    assert (persistence._err_msg == r"[WinError 267] The directory name is invalid: 'C:\\Users\\coasp\\d\\rep\\translator\\ltrans\\xx:\n'")
+    config = {'SAVED_TRANSLATIONS_DIR': './xyz:\n'}
+    persistence = Persistence(config)
+    assert persistence.err_msg.find("FileStorage failed - [WinError 267] The directory name is invalid") > -1
+
 
 def test_obj_attrs():
-    persistence = ltrans.persistence.Persistence(CONFIG)
-    assert 'tmp' in persistence._save_dir
-    assert persistence._err_msg is None
-    assert persistence._latest_trans_number == 0
-    assert persistence._file_path_index == -1
+    persistence = Persistence(CONFIG)
+    assert persistence.err_msg is None
 
-def test_latest_trans_num():
-    persistence = ltrans.persistence.Persistence(CONFIG)
-    with open(persistence._save_dir + '/Italian-English.3.json', 'w') as f:
-        f.write('{"a":1}')
-    with open(persistence._save_dir + '/Spanish-English.1.json', 'w') as f:
-        f.write('{"b":2}')
-    persistence = ltrans.persistence.Persistence(CONFIG)
-    assert persistence._latest_trans_number == 3
-    assert persistence._file_path_index == 1
-    assert len(persistence._files_paths) == 2
 
-def test_save_tranlation():
-    persistence = ltrans.persistence.Persistence(CONFIG)
-    user_input = ltrans.model.UserInput('This is\na test', 'English', 'French', 0, 1,'test')
-    print('$$$$$$$$', type(user_input))
-    translated_text = 'This is\nCette est\n\na test\nune tester'
-    msg = persistence.save_translation(user_input, translated_text, False)
-    assert msg.startswith('Saved or replaced translation in:') and msg.endswith('English-French.4.json')
-    assert persistence._latest_trans_number == 4
-    assert persistence._file_path_index == 2
-    assert len(persistence._files_paths) == 3
+def test_save_translation():
+    persistence = Persistence(CONFIG)
 
-def test_read_next_and_prev():
-    persistence = ltrans.persistence.Persistence(CONFIG)
-    actual_trans = {'dest_language': 'French',
+    user_input = ltrans.model.UserInput('This is', 'English', 'French', 0, 0,'test 1')
+    translated_text = 'Cette est'
+    msg = persistence.save_translation(user_input, translated_text)
+    assert msg.startswith('Saved translation in:') and msg.endswith('English-French.1.json')
+
+    user_input = ltrans.model.UserInput('This is\na test', 'English', 'French', 0, 0,'test 2')
+    translated_text = 'Cette est\nune tester'
+    msg = persistence.save_translation(user_input, translated_text)
+    assert msg.endswith('English-French.2.json')
+
+    user_input = ltrans.model.UserInput('This\ntest', 'English', 'French', 0, 1,'test 3')
+    translated_text = 'This\nCette\n\ntest\ntester'
+    msg = persistence.save_translation(user_input, translated_text)
+    assert msg.endswith('English-French.3.json')
+
+
+def test_next_and_previous_translation():
+    persistence = Persistence(CONFIG)
+    translation_1 = {'dest_language': 'French',
+                    'is_add_src': 0,
+                    'is_add_transliteration': 0,
+                    'src_language': 'English',
+                    'text_lines': 'This is',
+                    'translated_text': 'Cette est',
+                    'description': 'test 1'}
+    translation_2 = {'dest_language': 'French',
+                    'is_add_src': 0,
+                    'is_add_transliteration': 0,
+                    'src_language': 'English',
+                    'text_lines': 'This is\na test',
+                    'translated_text': 'Cette est\nune tester',
+                    'description': 'test 2'}
+    translation_3 = {'dest_language': 'French',
                     'is_add_src': 0,
                     'is_add_transliteration': 1,
                     'src_language': 'English',
-                    'text_lines': 'This is\na test',
-                    'translated_text': 'This is\nCette est\n\na test\nune tester'}
-    json_doc1 = {'a': 1}
-    json2 = {'b': 2}
+                    'text_lines': 'This\ntest',
+                    'translated_text': 'This\nCette\n\ntest\ntester',
+                    'description': 'test 3'}
 
-    assert persistence._file_path_index == 2
-    trans = persistence.read_next()
-    assert trans == json2 and persistence._file_path_index == 2
+    file_path, trans = persistence.next_translation()
+    assert file_path.endswith('English-French.3.json')
+    assert_dictionaries_equal(trans, translation_3)
 
-    trans = persistence.read_prev()
-    assert trans == json_doc1 and persistence._file_path_index == 1
-    trans = persistence.read_prev()
-    assert trans == actual_trans and persistence._file_path_index == 0
-    trans = persistence.read_prev()
-    assert trans == actual_trans and persistence._file_path_index == 0
+    file_path, trans = persistence.previous_translation()
+    assert file_path.endswith('English-French.2.json')
+    assert_dictionaries_equal(trans, translation_2)
 
-    trans = persistence.read_next()
-    assert trans == json_doc1 and persistence._file_path_index == 1
-    trans = persistence.read_next()
-    assert trans == json2 and persistence._file_path_index == 2
-    trans = persistence.read_next()
-    assert trans == json2 and persistence._file_path_index == 2
+    file_path, trans = persistence.previous_translation()
+    assert file_path.endswith('English-French.1.json')
+    assert_dictionaries_equal(trans, translation_1)
 
-def test_filepath():
-    persistence = ltrans.persistence.Persistence(CONFIG)
-    user_input = ltrans.model.UserInput('This is\na test', 'English', 'French', 0, 1, 'testing')
-    translated_text = 'This is\nCette est\n\na test\nune tester'
-    msg = persistence.save_translation(user_input, translated_text)
-    assert msg.startswith('Saved or replaced translation in:') and msg.endswith('English-French.5.json')
+    file_path, trans = persistence.previous_translation()
+    assert file_path.endswith('English-French.1.json')
+    assert_dictionaries_equal(trans, translation_1)
+
+    # test next:
+    file_path, trans = persistence.next_translation()
+    assert file_path.endswith('English-French.2.json')
+    assert_dictionaries_equal(trans, translation_2)
+
+    file_path, trans = persistence.next_translation()
+    assert file_path.endswith('English-French.3.json')
+    assert_dictionaries_equal(trans, translation_3)
+
+    file_path, trans = persistence.next_translation()
+    assert file_path.endswith('English-French.3.json')
+    assert_dictionaries_equal(trans, translation_3)
+
+
+def test_delete_translation():
+    persistence = Persistence(CONFIG)
+    persistence.delete_translation()
+
+
+def assert_dictionaries_equal(dict1:dict , dict2:dict):
+    keys1 = dict1.keys()
+    assert len(keys1) == len(dict2.keys())
+    for key in keys1:
+        assert dict2.get(key) is not None
+        assert dict1[key] == dict2[key]

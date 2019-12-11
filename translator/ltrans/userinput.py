@@ -33,7 +33,7 @@ class UserInput:
         return self._description
 
     def __str__(self) -> str:
-        return f'src = {self.src_language},  dest = {self.dest_language},  is_add_src = {self.is_add_src},' + \
+        return f'UserInput: src = {self.src_language},  dest = {self.dest_language},  is_add_src = {self.is_add_src},' + \
                f'  is_add_transliteration = {self.is_add_transliteration}, ' + \
                f' description = {self.description}, ' + \
                f' text = {self.text_lines} '
