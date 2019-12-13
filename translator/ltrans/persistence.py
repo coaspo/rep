@@ -1,4 +1,5 @@
 from ltrans.userinput import UserInput
+from ltrans.userinput import UserInputError
 import glob
 import json
 import logging
@@ -64,7 +65,7 @@ class FileStorage:
         filepath = self._save_dir + '/' + file_pfx + '.' + str(
             trans_number) + '.json'
         if file_index > len(self._files_paths):
-            raise Exception(
+            raise SystemError(
                 f'Index Error:  _file_path_index= {file_index}' + \
                 f'(len(_files_paths)={len(self._files_paths)})')
         with open(filepath, "w", encoding='utf8') as f:
@@ -83,6 +84,9 @@ class FileStorage:
             self._file_paths_index += 1
         return self._read_json_file()
 
+    def get_current_file_path(self) -> str:
+        return self._files_paths[self._file_paths_index]
+
     def read_prev(self) -> tuple:
         self._validate_file_paths()
         if self._file_paths_index != 0:
@@ -91,7 +95,7 @@ class FileStorage:
 
     def _validate_file_paths(self):
         if len(self._files_paths) == 0:
-            raise Exception(f'There are no translation JSON files in: {self._save_dir}')
+            raise UserInputError(f'There are no translation JSON files in: {self._save_dir}')
 
     def _read_json_file(self) -> dict:
         filepath = self._files_paths[self._file_paths_index]
@@ -118,6 +122,7 @@ class Persistence:
                         'dest_language',
                         'is_add_src',
                         'is_add_transliteration',
+                        'translate_one_word_at_a_time',
                         'translated_text',
                         'description'}
     err_msg = None
@@ -130,29 +135,43 @@ class Persistence:
             Persistence.err_msg = str(e)
 
     def save_translation(self, user_input: UserInput, translated_text: str) -> str:
+        if Persistence.err_msg is not None:
+            raise Exception(Persistence.err_msg)
         file_pfx = user_input.src_language + '-' + user_input.dest_language
-        translation = {'text_lines': user_input.text_lines,
-                       'src_language': user_input.src_language,
+        translation = {'description': user_input.description,
                        'dest_language': user_input.dest_language,
                        'is_add_src': user_input.is_add_src,
                        'is_add_transliteration': user_input.is_add_transliteration,
-                       'translated_text': translated_text,
-                       'description': user_input.description
+                       'src_language': user_input.src_language,
+                       'text_lines': user_input.text_lines,
+                       'translate_one_word_at_a_time': user_input.translate_one_word_at_a_time,
+                       'translated_text': translated_text
                        }
         return 'Saved translation in: ' + self._file_storage.save(translation, file_pfx)
 
     def next_translation(self) -> tuple:
+        if Persistence.err_msg is not None:
+            raise Exception(Persistence.err_msg)
         file_path, translation = self._file_storage.read_next()
         self._validate_keys(translation)
         return file_path, translation
 
     def previous_translation(self) -> tuple:
+        if Persistence.err_msg is not None:
+            raise Exception(Persistence.err_msg)
         file_path, translation = self._file_storage.read_prev()
         self._validate_keys(translation)
         return file_path,  translation
 
     def delete_translation(self) -> str:
+        if Persistence.err_msg is not None:
+            raise Exception(Persistence.err_msg)
         return self._file_storage.delete()
+
+    def current_file_path(self) -> str:
+        if Persistence.err_msg is not None:
+            raise Exception(Persistence.err_msg)
+        return self._file_storage.get_current_file_path()
 
     def _validate_keys(self, translation: dict):
         keys = set(translation.keys())

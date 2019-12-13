@@ -68,7 +68,6 @@ class Dictionary(dict):
                     f'initial/current word count: {self._initial_len}/{current_len} ' + \
                     f' 4-word random sample: {sample_words}')
             self._initial_len = current_len
-            print('$$$$$$$$$$')
             log.info(f'{len_diff} new words were added to: {os.path.basename(self._dict_file_path)}')
 
     def __str__(self):

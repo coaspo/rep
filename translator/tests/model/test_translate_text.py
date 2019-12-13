@@ -8,14 +8,14 @@ ltrans.util.set_logger(CONFIG)
 
 def test_multiple_lines():
     text_lines = 'Today is a fine day.\nIs today a fine day?'
-    user_input = ltrans.model.UserInput(text_lines, 'English',  'French', False, False, '')
+    user_input = ltrans.model.UserInput(text_lines, 'English',  'French', False, False, False, '')
     dictionary = english_french_dict()
     trans_text = ltrans.model.translate_text(user_input, dictionary, translator=None)
     assert trans_text == "Aujourd'hui est une bien journée.\nEst Aujourd'hui une bien journée?"
 
 def test_empty_lines():
     text_lines = 'Today\n\nfine'
-    user_input = ltrans.model.UserInput(text_lines, 'English',  'French', False, False, '')
+    user_input = ltrans.model.UserInput(text_lines, 'English',  'French', False, False, False, '')
     dictionary = english_french_dict()
     trans_text = ltrans.model.translate_text(user_input, dictionary, translator=None)
     assert trans_text == "Aujourd'hui\n\nbien"

@@ -37,17 +37,17 @@ def test_obj_attrs():
 def test_save_translation():
     persistence = Persistence(CONFIG)
 
-    user_input = ltrans.model.UserInput('This is', 'English', 'French', 0, 0,'test 1')
+    user_input = ltrans.model.UserInput('This is', 'English', 'French', 0, 0, 0, 'test 1')
     translated_text = 'Cette est'
     msg = persistence.save_translation(user_input, translated_text)
     assert msg.startswith('Saved translation in:') and msg.endswith('English-French.1.json')
 
-    user_input = ltrans.model.UserInput('This is\na test', 'English', 'French', 0, 0,'test 2')
+    user_input = ltrans.model.UserInput('This is\na test', 'English', 'French', 0, 0, 0, 'test 2')
     translated_text = 'Cette est\nune tester'
     msg = persistence.save_translation(user_input, translated_text)
     assert msg.endswith('English-French.2.json')
 
-    user_input = ltrans.model.UserInput('This\ntest', 'English', 'French', 0, 1,'test 3')
+    user_input = ltrans.model.UserInput('This\ntest', 'English', 'French', 0, 1, 0, 'test 3')
     translated_text = 'This\nCette\n\ntest\ntester'
     msg = persistence.save_translation(user_input, translated_text)
     assert msg.endswith('English-French.3.json')
@@ -58,6 +58,7 @@ def test_next_and_previous_translation():
     translation_1 = {'dest_language': 'French',
                     'is_add_src': 0,
                     'is_add_transliteration': 0,
+                    'translate_one_word_at_a_time': 0,
                     'src_language': 'English',
                     'text_lines': 'This is',
                     'translated_text': 'Cette est',
@@ -65,6 +66,7 @@ def test_next_and_previous_translation():
     translation_2 = {'dest_language': 'French',
                     'is_add_src': 0,
                     'is_add_transliteration': 0,
+                    'translate_one_word_at_a_time': 0,
                     'src_language': 'English',
                     'text_lines': 'This is\na test',
                     'translated_text': 'Cette est\nune tester',
@@ -72,6 +74,7 @@ def test_next_and_previous_translation():
     translation_3 = {'dest_language': 'French',
                     'is_add_src': 0,
                     'is_add_transliteration': 1,
+                    'translate_one_word_at_a_time': 0,
                     'src_language': 'English',
                     'text_lines': 'This\ntest',
                     'translated_text': 'This\nCette\n\ntest\ntester',
