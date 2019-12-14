@@ -122,8 +122,7 @@ class Persistence:
                         'dest_language',
                         'is_add_src',
                         'is_add_transliteration',
-                        'translated_text',
-                        'description'}
+                        'translated_text'}
     err_msg = None
 
     def __init__(self, config: dict):
@@ -137,8 +136,7 @@ class Persistence:
         if Persistence.err_msg is not None:
             raise Exception(Persistence.err_msg)
         file_pfx = user_input.src_language + '-' + user_input.dest_language
-        translation = {'description': user_input.description,
-                       'dest_language': user_input.dest_language,
+        translation = {'dest_language': user_input.dest_language,
                        'is_add_src': user_input.is_add_src,
                        'is_add_transliteration': user_input.is_add_transliteration,
                        'src_language': user_input.src_language,

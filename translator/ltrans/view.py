@@ -141,6 +141,7 @@ class View:
 
         self._save_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
         self._next_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
+
         self._previous_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
         self._delete_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
         frame.pack()
@@ -157,10 +158,10 @@ class View:
     def _init_bottom(self, root, instructions: str):
         frame = tkinter.Frame(root)
         frame.pack(fill='both', expand='yes')
-        self.status_or_description_entry = tkinter.Entry(root, bg="#eeffee", fg='black')
-        self.status_or_description_entry.insert(0, instructions)
+        self.status_label = tkinter.Label(root, bg="#eeffee", fg='black')
+        self.status_label['text'] = instructions
 
-        self.status_or_description_entry.pack(side=tkinter.LEFT, fill='both', expand='yes')
+        self.status_label.pack(side=tkinter.LEFT, fill='both', expand='yes')
 
     def start(self):
         self.root.mainloop()
@@ -179,7 +180,7 @@ def _create_two_column_table(input_text: str, translated_text: str):
 
 
 if __name__ == '__main__':
-    v = View(['English', 'Spanish'], 'This is a manual layout test')
+    v = View(['English', 'Spanish'], 'This is a manual layout test. To run the application, run cli.py')
     print('start')
     v.start()
     print('done')

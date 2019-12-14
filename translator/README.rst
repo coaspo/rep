@@ -15,9 +15,12 @@ Run app
 |  (Optional) Update pip:
 |  ``python -m pip install --upgrade pip``
 |
-|  From project dir, **run**:
+|  From project dir, run the commands:
 |  ``pip install -r requirements.txt``
 |  ``python cli.py``
+|
+|  May review info and error MSGs in:
+|  ``logs\translator-YYYY-MM.log``
 
 Run tests
 ---------
@@ -28,7 +31,7 @@ Run tests
 |
 |  **Outside pycharm:**
 |   Double click ``c:\..\translator\run-tests.bat``
-|
+
 Notes
 -----
 |  **Best practice**, create virtual env:

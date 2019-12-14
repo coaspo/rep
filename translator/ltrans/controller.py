@@ -24,9 +24,7 @@ class Controller:
         self._config_trans = config_trans
         self.view = view
         self.model = model
-        self.source_lang_keys_typed = ''
         self.delete_bt_click_count = 0
-        self.destination_lang_keys_typed = ''
 
     @property
     def config_trans(self):
@@ -53,37 +51,9 @@ class Controller:
         self.update_status(Config.TRANSLATE_INSTRUCTIONS)
 
     def update_status(self, text: str, is_err=False):
-        self.view.status_or_description_entry.delete(0, tkinter.END)
-        self.view.status_or_description_entry.insert(0, text)
+        self.view.status_label['text'] = text
         background = "#ffeeee" if is_err else "#eeffee"
-        self.view.status_or_description_entry.config(bg=background)
-
-    def set_source_language(self, event: tkinter.Event):
-        print('$$$$', type(event))
-        self.source_lang_keys_typed = \
-            self._update_typed_keys(event, self.source_lang_keys_typed, self.view.source_language)
-
-    def set_dest_language(self, event: tkinter.Event):
-        self.destination_lang_keys_typed = \
-            self._update_typed_keys(event, self.destination_lang_keys_typed, self.view.destination_language)
-
-    def _update_typed_keys(self, event: tkinter.Event, keys_typed: str, combobox: tkinter.ttk.Combobox) -> str:
-        try:
-            keypress = event.char
-            is_not_return_key = not keypress.encode(encoding='UTF-8', errors='strict') == b'\r'
-            if is_not_return_key:
-                keys_typed += keypress
-                keys_typed = keys_typed.title()
-            else:
-                keys_typed = ''
-            for index, lang_name in enumerate(self.view.language_names):
-                if lang_name.startswith(keys_typed):
-                    combobox.current(index)
-                    # if  LANGUAGE_ABBRS_NAMES[lang_name] in
-                    break
-            return keys_typed
-        except Exception as e:
-            self._handle_error(f' keys_typed= {keys_typed}', e)
+        self.view.status_label.config(bg=background)
 
     def swap_languages(self, _):
         src_language = self.view.src_language.get()
@@ -125,11 +95,19 @@ class Controller:
         dest_language = self.view.destination_language.get()
         is_add_source = self.view.is_add_src.get()
         is_add_transliteration = self.view.is_add_transliteration.get()
-        if Config.SAVE_INSTRUCTIONS == Config.SAVE_INSTRUCTIONS:
-            description = ''
-        else:
-            description = self.update_status.get()
-        return UserInput(text, src_language, dest_language, is_add_source, is_add_transliteration, description)
+        return UserInput(text, src_language, dest_language, is_add_source, is_add_transliteration)
+
+    def update_transliteration(self, _):
+        try:
+            src_language = self.view.src_language.get()
+            dest_language = self.view.destination_language.get()
+            if src_language in TRANSLITERATE_LANGUAGE_NAMES or dest_language in TRANSLITERATE_LANGUAGE_NAMES:
+                self.view.add_transliteration_check_bt.configure(state=tkinter.NORMAL)
+            else:
+                self.view.add_transliteration_check_bt.configure(state=tkinter.DISABLED)
+                Controller._set_check_button(self.view.add_transliteration_check_bt, 0)
+        except Exception as e:
+            self._handle_error('', e)
 
     def save_translation(self, _):
         try:
@@ -195,7 +173,8 @@ class Controller:
 
     def bind_view_controls(self):
         self.view.clear_bt.bind("<Button-1>", self.clear_input)
-        self.view.destination_language.bind("<KeyRelease>", self.set_dest_language)
+        self.view.src_language.bind("<<ComboboxSelected>>", self.update_transliteration)
+        self.view.destination_language.bind("<<ComboboxSelected>>", self.update_transliteration)
         self.view.trans_bt.bind("<Button-1>", self.translate_text)
         self.view.swap_languages_bt.bind("<Button-1>", self.swap_languages)
 

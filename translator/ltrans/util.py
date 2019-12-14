@@ -12,10 +12,9 @@ NON_LETTERS_REGEX = '\'|[0-9]+' + non_letters_regex
 
 
 class Config(dict):
-    TRANSLATE_INSTRUCTIONS = 'Enter text on left panel - language will be auto-detected. \
-    To change "From / to" language, click on a combobox and type a language name. \
-    Hit enter to clear the typed language name.'
-    SAVE_INSTRUCTIONS = 'May add description here before clicking save.'
+    TRANSLATE_INSTRUCTIONS = 'Enter text on left panel and click Translate. \
+    To change the default language in the combo boxes, edit ltrans/config_ltrans.json.'
+    SAVE_INSTRUCTIONS = 'May change any text and add comments before clicking Save.'
 
     def __init__(self, config_file_path=None, **kw):
         if config_file_path is not None and kw != {}:

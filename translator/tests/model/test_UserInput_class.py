@@ -4,7 +4,7 @@ import pytest
 
 def test_create_object():
     user_input = ltrans.model.UserInput(r'Good\n morning', 'English',
-                                        'Spanish', 1, 0, 'translated simple phrase')
+                                        'Spanish', 1, 0)
     assert user_input.text_lines == r'Good\n morning'
     assert user_input.src_language == 'English'
     assert user_input.dest_language == 'Spanish'
@@ -15,7 +15,7 @@ def test_create_object():
 def test_create_object():
     # illustrate typical properties
     user_input = ltrans.model.UserInput(r'Good\n morning', 'English',
-                                        'Spanish', 1, 0, 'translated simple phrase')
+                                        'Spanish', 1, 0)
     user_input._text_lines = 'Hello'
     assert user_input._text_lines == 'Hello'
     assert user_input.text_lines == 'Hello'

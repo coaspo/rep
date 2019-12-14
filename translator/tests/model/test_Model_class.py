@@ -13,8 +13,7 @@ def test_model():
                                         src_language='English',
                                         dest_language='French',
                                         is_add_src=False,
-                                        is_add_transliteration=False,
-                                        description='')
+                                        is_add_transliteration=False)
     trans_text = model.translate(user_input)
     assert trans_text == "Aujourd'hui est une bien journée.\nEst Aujourd'hui une bien journée?"
 
