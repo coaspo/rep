@@ -15,7 +15,7 @@ def test_create_object():
 def test_create_object():
     # illustrate typical properties
     user_input = ltrans.model.UserInput(r'Good\n morning', 'English',
-                                        'Spanish', 1, 0, 0, 'translated simple phrase')
+                                        'Spanish', 1, 0, 'translated simple phrase')
     user_input._text_lines = 'Hello'
     assert user_input._text_lines == 'Hello'
     assert user_input.text_lines == 'Hello'

@@ -122,7 +122,6 @@ class Persistence:
                         'dest_language',
                         'is_add_src',
                         'is_add_transliteration',
-                        'translate_one_word_at_a_time',
                         'translated_text',
                         'description'}
     err_msg = None
@@ -144,7 +143,6 @@ class Persistence:
                        'is_add_transliteration': user_input.is_add_transliteration,
                        'src_language': user_input.src_language,
                        'text_lines': user_input.text_lines,
-                       'translate_one_word_at_a_time': user_input.translate_one_word_at_a_time,
                        'translated_text': translated_text
                        }
         return 'Saved translation in: ' + self._file_storage.save(translation, file_pfx)

@@ -4,7 +4,6 @@ import tkinter.font
 import tkinter.scrolledtext
 import tkinter.ttk
 import webbrowser
-from ltrans.userinput import UserInput
 
 log = logging.getLogger(__name__)
 
@@ -42,20 +41,12 @@ class View:
         return self._swap_languages_bt
 
     @property
-    def translate_one_word_at_a_time_check_bt(self):
-        return self._translate_one_word_at_a_time_check_bt
-
-    @property
     def add_source_check_bt(self):
         return self._add_source_check_bt
 
     @property
     def add_transliteration_check_bt(self):
         return self._add_transliteration_check_bt
-
-    @property
-    def one_word_at_a_time(self):
-        return self._one_word_at_a_time
 
     @property
     def is_add_src(self):
@@ -104,10 +95,6 @@ class View:
                                                           values=self.language_names, state='readonly')
         self._destination_language.current(1)
         self._swap_languages_bt = tkinter.Button(frame, text="  ⇆  ", height=1, width=2)
-        self._one_word_at_a_time = tkinter.IntVar(value=1)
-        self._translate_one_word_at_a_time_check_bt = tkinter.Checkbutton(frame, text="One word at a time",
-                                                                          bg=light_yellow,
-                                                                          variable=self._one_word_at_a_time)
         self._is_add_src = tkinter.IntVar()
         self._add_source_check_bt = tkinter.Checkbutton(frame, text="Add source", bg=light_yellow,
                                                         variable=self._is_add_src)
@@ -128,7 +115,7 @@ class View:
         self.src_language.pack(side=tkinter.LEFT, padx=5, pady=2)
         self._swap_languages_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
         self._destination_language.pack(side=tkinter.LEFT, padx=5, pady=2)
-        self._translate_one_word_at_a_time_check_bt.pack(side=tkinter.LEFT, pady=2)
+
         self._add_source_check_bt.pack(side=tkinter.LEFT, pady=2)
         self._add_transliteration_check_bt.pack(side=tkinter.LEFT, pady=2)
         self._trans_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
@@ -182,26 +169,6 @@ class View:
         self.root.destroy()
 
 
-def _create_html_page(user_input: UserInput, translation: dict):
-    str_list = list('<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><title>')
-    str_list.append(user_input.src_language)
-    str_list.append(' -> ')
-    str_list.append(user_input.dest_language)
-    str_list.append('</title><body>')
-    if user_input.is_add_src:
-        html = _create_highlighted_text(translation['translated_text'])
-    else:
-        html = _create_two_column_table(translation['text_lines'], translation['translated_text'])
-    str_list.append(html)
-    str_list.append('</body></html>')
-    return ''.join(str_list)
-
-
-def _create_highlighted_text(translated_text: str):
-    html = list('to-do')
-    return ''.join(html)
-
-
 def _create_two_column_table(input_text: str, translated_text: str):
     html = list('<table><tr><td>')
     html.append(input_text)
@@ -209,6 +176,7 @@ def _create_two_column_table(input_text: str, translated_text: str):
     html.append(translated_text)
     html.append('</td></tr></table>')
     return ''.join(html)
+
 
 if __name__ == '__main__':
     v = View(['English', 'Spanish'], 'This is a manual layout test')

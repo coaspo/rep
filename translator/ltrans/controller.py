@@ -49,7 +49,6 @@ class Controller:
         self.view.src_language.set(self.view.language_names[0])
         self.view.destination_language.set(self.view.language_names[1])
         self.view.add_transliteration_check_bt.config(state=tkinter.DISABLED)
-        self.view.translate_one_word_at_a_time_check_bt.select()
         self.view.add_source_check_bt.deselect()
         self.update_status(Config.TRANSLATE_INSTRUCTIONS)
 
@@ -126,13 +125,11 @@ class Controller:
         dest_language = self.view.destination_language.get()
         is_add_source = self.view.is_add_src.get()
         is_add_transliteration = self.view.is_add_transliteration.get()
-        one_word_at_a_time = self.view.one_word_at_a_time.get()
         if Config.SAVE_INSTRUCTIONS == Config.SAVE_INSTRUCTIONS:
             description = ''
         else:
             description = self.update_status.get()
-        return UserInput(text, src_language, dest_language, is_add_source, is_add_transliteration, one_word_at_a_time,
-                         description)
+        return UserInput(text, src_language, dest_language, is_add_source, is_add_transliteration, description)
 
     def save_translation(self, _):
         try:
@@ -164,7 +161,6 @@ class Controller:
         self.view.output_frame.delete('1.0', tkinter.END)
         Controller._set_check_button(self.view.add_transliteration_check_bt, translation['is_add_transliteration'])
         Controller._set_check_button(self.view.add_source_check_bt, translation['is_add_src'])
-        Controller._set_check_button(self.view.translate_one_word_at_a_time_check_bt, translation['text_lines'])
         self.view.input_frame.insert(tkinter.END, translation['text_lines'])
         self.view.output_frame.insert(tkinter.END, translation['translated_text'])
         self.update_status(filepath)

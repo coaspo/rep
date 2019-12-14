@@ -14,7 +14,6 @@ def test_model():
                                         dest_language='French',
                                         is_add_src=False,
                                         is_add_transliteration=False,
-                                        translate_one_word_at_a_time=False,
                                         description='')
     trans_text = model.translate(user_input)
     assert trans_text == "Aujourd'hui est une bien journée.\nEst Aujourd'hui une bien journée?"

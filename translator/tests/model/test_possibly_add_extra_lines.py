@@ -8,7 +8,7 @@ ltrans.util.set_logger(CONFIG)
 
 
 def test_add_nothing():
-    user_input = ltrans.model.UserInput('...', 'English',  'French', False, False, False, '')
+    user_input = ltrans.model.UserInput('...', 'English',  'French', False, False, '')
     input_lines = ['Good morning', 'goodbye']
     translated_lines = ['Доброе утро', 'Прощайς']
     output_lines = ltrans.model.possibly_add_extra_lines(input_lines, translated_lines, user_input)
@@ -19,7 +19,7 @@ def test_add_nothing():
 
 
 def test_add_source():
-    user_input = ltrans.model.UserInput('...', 'English', 'Russian', True, False, False, '')
+    user_input = ltrans.model.UserInput('...', 'English', 'Russian', True, False, '')
     input_lines = ['Good morning', 'goodbye']
     translated_lines = ['Доброе утро', 'Прощайς']
     output_lines = ltrans.model.possibly_add_extra_lines(input_lines, translated_lines, user_input)
@@ -27,7 +27,7 @@ def test_add_source():
 
 
 def test_transliterate():
-    user_input = ltrans.model.UserInput('...', 'English', 'Russian', False, True, False, '')
+    user_input = ltrans.model.UserInput('...', 'English', 'Russian', False, True, '')
     input_lines = ['Good morning', 'goodbye']
     translated_lines = ['Доброе утро', 'Прощайς']
     output_lines = ltrans.model.possibly_add_extra_lines(input_lines, translated_lines, user_input)
@@ -35,7 +35,7 @@ def test_transliterate():
 
 
 def test_add_source_and_transliterate():
-    user_input = ltrans.model.UserInput('...', 'English', 'Russian', True, True, False, '')
+    user_input = ltrans.model.UserInput('...', 'English', 'Russian', True, True, '')
     input_lines = ['Good', 'goodbye']
     translated_lines = ['Хороший', 'Прощайς']
     output_lines = ltrans.model.possibly_add_extra_lines(input_lines, translated_lines, user_input)
