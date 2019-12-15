@@ -6,6 +6,7 @@ from ltrans.userinput import UserInputError
 from ltrans.util import Config
 from ltrans.util import set_logger
 from ltrans.view import View
+import calendar
 import datetime
 import googletrans
 import json
@@ -120,28 +121,29 @@ class Controller:
 
     def next_translation(self, _):
         try:
-            filepath, translation = self.model.persistence.next_translation()
-            self._populate_screen(filepath, translation)
-            self.update_status(text=filepath)
+            file_path, translation = self.model.persistence.next_translation()
+            info = Controller._file_info(file_path)
+            self._populate_screen(info, translation)
         except Exception as e:
             self._handle_error('', e)
 
     def previous_translation(self, _):
         try:
-            filepath, translation = self.model.persistence.previous_translation()
-            self._populate_screen(filepath, translation)
-            self.update_status(text=filepath)
+            file_path, translation = self.model.persistence.previous_translation()
+            info = Controller._file_info(file_path)
+            self._populate_screen(info, translation)
         except Exception as e:
             self._handle_error('', e)
 
-    def _populate_screen(self, filepath, translation):
+    def _populate_screen(self, info, translation):
+        self.delete_bt_click_count = 0
         self.view.input_frame.delete('1.0', tkinter.END)
         self.view.output_frame.delete('1.0', tkinter.END)
         Controller._set_check_button(self.view.add_transliteration_check_bt, translation['is_add_transliteration'])
         Controller._set_check_button(self.view.add_source_check_bt, translation['is_add_src'])
         self.view.input_frame.insert(tkinter.END, translation['text_lines'])
         self.view.output_frame.insert(tkinter.END, translation['translated_text'])
-        self.update_status(filepath)
+        self.update_status(info)
 
     @staticmethod
     def _set_check_button(button: tkinter.Checkbutton, value: int):
@@ -150,19 +152,26 @@ class Controller:
         else:
             button.deselect()
 
+    @staticmethod
+    def _file_info(file_path: str):
+        seconds_since_created = os.path.getmtime(file_path)
+        create_ts = datetime.datetime.utcfromtimestamp(seconds_since_created).isoformat()[:22]
+        # remove T in, for example, create_ts = 2019-12-11T19:20:48.85
+        create_ts = create_ts[:10] + ' ' + create_ts[11:]
+        day_index = datetime.datetime.utcfromtimestamp(seconds_since_created).weekday()
+        info = file_path + ' created at: ' + create_ts + ' ' + calendar.day_name[day_index]
+        return info
+
     def delete_translation(self, _):
         self.delete_bt_click_count += 1
+        file_path = self.model.persistence.current_file_path()
+        info = Controller._file_info(file_path)
         if self.delete_bt_click_count == 1:
-            file_path = self.model.persistence.current_file_path()
-            seconds_since_created = os.path.getmtime(file_path)
-            create_ts = datetime.datetime.utcfromtimestamp(seconds_since_created).isoformat()[:22]
-            # remove T in, for example, create_ts = 2019-12-11T19:20:48.85
-            create_ts = create_ts[:10] + ' ' + create_ts[11:]
-            self.update_status(f'Click Delete button again, to delete file: {file_path}, created at: {create_ts}')
+            self.update_status(f'Click Delete button again, to delete file: {info} or \u25BA \u25C4 to cancel')
         else:
             try:
                 file_path = self.model.persistence.delete_translation()
-                self.update_status(f'Deleted translation file: {file_path}')
+                self.update_status(f'Deleted translation file: {info}')
                 self.delete_bt_click_count == 0
             except Exception as e:
                 self._handle_error('', e)

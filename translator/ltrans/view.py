@@ -109,6 +109,9 @@ class View:
         self._previous_bt = tkinter.Button(frame, text=u' \u25C4 ', height=1)
         self._delete_bt = tkinter.Button(frame, text=" Delete ", height=1)
         help_label = tkinter.Label(frame, text="Help", fg="blue", bg=light_yellow, cursor="hand2")
+        f = tkinter.font.Font(help_label, help_label.cget("font"))
+        f.configure(underline=True)
+        help_label.configure(font=f)
 
         self._clear_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
         from_to_label.pack(side=tkinter.LEFT, padx=5, pady=2)
@@ -149,11 +152,11 @@ class View:
     def _init_text_areas(self, root: tkinter.Tk):
         self.txt_frame = tkinter.Frame(root)
         self.input_frame = tkinter.scrolledtext.ScrolledText(self.txt_frame)
-        self.input_frame.pack(side=tkinter.LEFT, pady=2, fill='both', expand='yes')
+        self.input_frame.pack(side=tkinter.LEFT, pady=2, fill='both', expand=1)
 
         self.output_frame = tkinter.scrolledtext.ScrolledText(self.txt_frame)
-        self.output_frame.pack(side=tkinter.LEFT, pady=2, fill='both', expand='yes')
-        self.txt_frame.pack(fill='both', expand='yes')
+        self.output_frame.pack(side=tkinter.LEFT, pady=2, fill='both', expand=1)
+        self.txt_frame.pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
 
     def _init_bottom(self, root, instructions: str):
         frame = tkinter.Frame(root)
