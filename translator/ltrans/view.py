@@ -84,9 +84,13 @@ class View:
         light_yellow = '#ffffcc'
         frame: tkinter.Frame = tkinter.Frame(root, height=500)
         frame.configure(background=light_yellow)
-        frame.pack(fill='both', expand='yes')
+        self._init_translate_menu(frame, light_yellow)
+        self._init_persistence_menu(frame, light_yellow)
+        frame.pack(fill=tkinter.BOTH, expand=False)
+
+    def _init_translate_menu(self, frame, frame_color):
         self._clear_bt = tkinter.Button(frame, text="  Clear  ")
-        from_to_label = tkinter.Label(frame, text="From / to :", bg=light_yellow)
+        from_to_label = tkinter.Label(frame, text="From / to :", bg=frame_color)
 
         self.src_language = tkinter.ttk.Combobox(frame, width=10, height=12, font=("Arial", 9),
                                                  values=self.language_names, state='readonly')
@@ -96,23 +100,14 @@ class View:
         self._destination_language.current(1)
         self._swap_languages_bt = tkinter.Button(frame, text="  ⇆  ", height=1, width=2)
         self._is_add_src = tkinter.IntVar()
-        self._add_source_check_bt = tkinter.Checkbutton(frame, text="Add source", bg=light_yellow,
+        self._add_source_check_bt = tkinter.Checkbutton(frame, text="Add source", bg=frame_color,
                                                         variable=self._is_add_src)
         self._is_add_transliteration = tkinter.IntVar()
-        self._add_transliteration_check_bt = tkinter.Checkbutton(frame, text="Transliterate", bg=light_yellow,
+        self._add_transliteration_check_bt = tkinter.Checkbutton(frame, text="Transliterate", bg=frame_color,
                                                                  variable=self._is_add_transliteration,
                                                                  state=tkinter.DISABLED)
         self._trans_bt = tkinter.Button(frame, text="  Translate  ")
         self._save_bt = tkinter.Button(frame, text="  Save  ", height=1)
-        saved_label = tkinter.Label(frame, text="     Saved translations:", bg=light_yellow)
-        self._next_bt = tkinter.Button(frame, text=u' \u25BA  ', height=1)
-        self._previous_bt = tkinter.Button(frame, text=u' \u25C4 ', height=1)
-        self._delete_bt = tkinter.Button(frame, text=" Delete ", height=1)
-        help_label = tkinter.Label(frame, text="Help", fg="blue", bg=light_yellow, cursor="hand2")
-        f = tkinter.font.Font(help_label, help_label.cget("font"))
-        f.configure(underline=True)
-        help_label.configure(font=f)
-
         self._clear_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
         from_to_label.pack(side=tkinter.LEFT, padx=5, pady=2)
         self.src_language.pack(side=tkinter.LEFT, padx=5, pady=2)
@@ -123,6 +118,16 @@ class View:
         self._add_transliteration_check_bt.pack(side=tkinter.LEFT, pady=2)
         self._trans_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
 
+    def _init_persistence_menu(self, frame, frame_color):
+        saved_label = tkinter.Label(frame, text="     Saved translations:", bg=frame_color)
+        self._next_bt = tkinter.Button(frame, text=u' \u25BA  ', height=1)
+        self._previous_bt = tkinter.Button(frame, text=u' \u25C4 ', height=1)
+        self._delete_bt = tkinter.Button(frame, text=" Delete ", height=1)
+        help_label = tkinter.Label(frame, text="Help", fg="blue", bg=frame_color, cursor="hand2")
+        f = tkinter.font.Font(help_label, help_label.cget("font"))
+        f.configure(underline=True)
+        help_label.configure(font=f)
+
         self._save_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
         saved_label.pack(side=tkinter.LEFT, padx=2, pady=2)
         self._next_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
@@ -131,23 +136,6 @@ class View:
         help_label.pack(side=tkinter.LEFT, padx=25, pady=2)
         help_label.bind("<Button-1>", lambda e: webbrowser.get('windows-default').open(
             "file://" + os.path.realpath("./ltrans/help.html")))
-
-        frame.pack(fill='both', expand=False)
-
-    def _init_persistence_controls(self, root: tkinter.Tk):
-        frame = tkinter.Frame(root)
-        frame.pack(fill='both', expand='yes')
-        self._save_bt = tkinter.Button(frame, text="Save", height=1, width=2)
-        self._next_bt = tkinter.Button(frame, text="Display next", height=1, width=2)
-        self._previous_bt = tkinter.Button(frame, text="Display previous", height=1, width=2)
-        self._delete_bt = tkinter.Button(frame, text="Delete", height=1, width=2)
-
-        self._save_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
-        self._next_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
-
-        self._previous_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
-        self._delete_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
-        frame.pack()
 
     def _init_text_areas(self, root: tkinter.Tk):
         self.txt_frame = tkinter.Frame(root)
@@ -160,7 +148,7 @@ class View:
 
     def _init_bottom(self, root, instructions: str):
         frame = tkinter.Frame(root)
-        frame.pack(fill='both', expand='yes')
+        frame.pack(expand=False)
         self.status_label = tkinter.Label(root, bg="#eeffee", fg='black')
         self.status_label['text'] = instructions
 

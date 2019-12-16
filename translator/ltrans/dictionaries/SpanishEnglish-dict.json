@@ -1,9 +1,5 @@
 {
-"ella": "she",
-"encantada": "delighted",
-"hola": "hi",
 "Unidos": "United",
-"yo": "me",
 "a": "to",
 "ambiente": "ambient",
 "ayudarme": "help me",
@@ -27,8 +23,10 @@
 "dio": "it gave",
 "donde": "where",
 "el": "he",
+"ella": "she",
 "ellas": "they",
 "ellos": "they",
+"encantada": "delighted",
 "era": "was",
 "eran": "they were",
 "es": "is",
@@ -52,6 +50,7 @@
 "hacia": "toward",
 "hay": "there are",
 "he": "i",
+"hola": "hi",
 "hombre": "man",
 "ida": "going",
 "ideas": "ideas",
@@ -87,6 +86,7 @@
 "nosotros": "we",
 "o": "or",
 "objetos": "objects",
+"ola": "wave",
 "orquesta": "orchestra",
 "os": "you",
 "para": "for",
@@ -140,5 +140,6 @@
 "visita": "visit",
 "vosotras": "you",
 "vosotros": "you",
-"y": "and"
+"y": "and",
+"yo": "me"
 }
