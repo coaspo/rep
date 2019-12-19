@@ -130,12 +130,12 @@ class FileStorage:
         seconds_since_created = os.path.getmtime(file_path)
         create_ts = datetime.datetime.utcfromtimestamp(seconds_since_created).isoformat()[:22]
         # remove T in, for example, create_ts = 2019-12-11T19:20:48.85
-        create_ts = create_ts[:10] + ' ' + create_ts[11:16]
+        create_ts = create_ts[2:10] + ' ' + create_ts[11:16]
         day_index = datetime.datetime.utcfromtimestamp(seconds_since_created).weekday()
         count = str(self._file_paths_index + 1) + '/' + str(len(self._files_paths))
         file_name = os.path.basename(file_path)
         file_name = file_name[:len(file_name) - 5]
-        info = count + ' ' + file_name + ' ' + create_ts[2:] + calendar.day_name[day_index][0:3]
+        info = count + ' ' + file_name + ' ' + create_ts + ' '+ calendar.day_name[day_index][0:3]
         return info
 
 
