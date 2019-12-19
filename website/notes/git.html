@@ -5,33 +5,36 @@
       <title>τσουρέκι</title>
     </head>
    <body style="font-size:24px;"><pre>
-git add {file or dir}
-git add .  # all unstaged files
-git commit - "message.."
+
+0.
+  git clone https://github.com/chantzis/chrepo
+  git pull origin {branch}
+1.
+  git checkout {branch}
+  git add *  # all unstaged files
+  git commit -m "message.."
+  git push origin {branch}
+2.
+  git checkout master
+  git merge {branch}
+  git push origin master
+
 git status
 git config -l
+git log
+git reset --hard
+git clean -fdx
 
 git branch -a   # list all branches
 git branch -d  {ranch}  # delete branch
 git checkout -b {new-branch}  # create and chekcout branch
 git merge {branch}
 
-git log
 
-git clone https://github.com/chantzis/chrepo
 git remote -v   # list repos; : https://github.com/chantzis/chrepo
 git remte add origin  https://github.com/chantzis/chrepo
 git pull origin {branch}
 git push https://github.com/chantzis/chrepo {branch}
-
-git pull origin {ranch}
-git checkout {ranch}
-git merge {ranch}
-git push origin {ranch}
-
-
-git reset --hard
-git clean -fdx
 
 find . type f -name "*.txt" -exec grep -i} 'ERR' {} \;
 git stash save "comments"
