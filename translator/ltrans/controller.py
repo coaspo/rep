@@ -6,8 +6,6 @@ from ltrans.userinput import UserInputError
 from ltrans.util import Config
 from ltrans.util import set_logger
 from ltrans.view import View
-import calendar
-import datetime
 import googletrans
 import json
 import logging
@@ -21,17 +19,40 @@ log = logging.getLogger(__name__)
 
 
 class Controller:
-    def __init__(self, config_trans: dict, view: View, model: Model):
-        self._config_trans = config_trans
+    def __init__(self, view: View, model: Model):
         self.view = view
         self.model = model
         self.delete_bt_click_count = 0
 
-    @property
-    def config_trans(self):
-        return self._config_trans
+    def get_user_input(self) -> UserInput:
+        text = self.view.input_frame.get("1.0", tkinter.END)
+        if text.strip() == '':
+            raise UserInputError('Source text not entered')
+        src_language = self.view.src_language.get()
+        dest_language = self.view.destination_language.get()
+        is_add_source = self.view.is_add_src.get()
+        is_add_transliteration = self.view.is_add_transliteration.get()
+        return UserInput(text, src_language, dest_language, is_add_source, is_add_transliteration)
 
-    def _handle_error(self, msg: str, exc=None):
+    def update_status(self, text: str, is_err=False):
+        self.view.status_label['text'] = text
+        background = "#ffeeee" if is_err else "#eeffee"
+        self.view.status_label.config(bg=background)
+
+    def clear_screen(self, event: tkinter.Event):
+        self.delete_bt_click_count = 0
+        self.view.src_language.set(self.view.language_names[0])
+        self.view.destination_language.set(self.view.language_names[1])
+        self.view.add_source_check_bt.deselect()
+        self.view.add_transliteration_check_bt.config(state=tkinter.DISABLED)
+        self.update_status(Config.TRANSLATE_INSTRUCTIONS)
+        self.view.delete_bt.config(state=tkinter.DISABLED)
+        self.view.update_bt.config(state=tkinter.DISABLED)
+        self.view.input_frame.delete('1.0', tkinter.END)
+        self.view.output_frame.delete('1.0', tkinter.END)
+        self.view.persistence_status['text'] = ''
+
+    def handle_exception(self, msg: str, exc=None):
         if exc is None:
             log.error(msg)
             self.update_status(msg, True)
@@ -42,21 +63,16 @@ class Controller:
                 log.error(msg + '\n\t' + msg_trace)
             self.update_status(msg_exc, True)
 
-    def clear_input(self, event: tkinter.Event):
-        self.view.input_frame.delete('1.0', tkinter.END)
-        self.view.output_frame.delete('1.0', tkinter.END)
-        self.view.src_language.set(self.view.language_names[0])
-        self.view.destination_language.set(self.view.language_names[1])
-        self.view.add_transliteration_check_bt.config(state=tkinter.DISABLED)
-        self.view.add_source_check_bt.deselect()
-        self.update_status(Config.TRANSLATE_INSTRUCTIONS)
+    @staticmethod
+    def set_check_button(button: tkinter.Checkbutton, value: int):
+        if value == 1:
+            button.select()
+        else:
+            button.deselect()
 
-    def update_status(self, text: str, is_err=False):
-        self.view.status_label['text'] = text
-        background = "#ffeeee" if is_err else "#eeffee"
-        self.view.status_label.config(bg=background)
 
-    def swap_languages(self, _):
+class TranslationController(Controller):
+    def _swap_languages(self, _):
         src_language = self.view.src_language.get()
         dest_language = self.view.destination_language.get()
 
@@ -77,28 +93,7 @@ class Controller:
         self.view.input_frame.insert(tkinter.INSERT, dest_text)
         self.view.output_frame.insert(tkinter.INSERT, src_text)
 
-    def translate_text(self, _):
-        try:
-            user_input = self._get_user_input()
-            self.view.output_frame.delete('1.0', tkinter.END)
-            trans_text = self.model.translate(user_input)
-            self.view.output_frame.insert(tkinter.END, trans_text)
-            self.update_status(Config.SAVE_INSTRUCTIONS)
-            self.view.save_bt.config(state='normal')
-        except Exception as e:
-            self._handle_error('', e)
-
-    def _get_user_input(self) -> UserInput:
-        text = self.view.input_frame.get("1.0", tkinter.END)
-        if text.strip() == '':
-            raise UserInputError('Source text not entered')
-        src_language = self.view.src_language.get()
-        dest_language = self.view.destination_language.get()
-        is_add_source = self.view.is_add_src.get()
-        is_add_transliteration = self.view.is_add_transliteration.get()
-        return UserInput(text, src_language, dest_language, is_add_source, is_add_transliteration)
-
-    def update_transliteration(self, _):
+    def _update_transliteration(self, _):
         try:
             src_language = self.view.src_language.get()
             dest_language = self.view.destination_language.get()
@@ -106,93 +101,118 @@ class Controller:
                 self.view.add_transliteration_check_bt.configure(state=tkinter.NORMAL)
             else:
                 self.view.add_transliteration_check_bt.configure(state=tkinter.DISABLED)
-                Controller._set_check_button(self.view.add_transliteration_check_bt, 0)
+                Controller.set_check_button(self.view.add_transliteration_check_bt, 0)
         except Exception as e:
-            self._handle_error('', e)
+            self.handle_exception('', e)
 
-    def save_translation(self, _):
+    def _translate_text(self, _):
         try:
-            user_input = self._get_user_input()
+            user_input = super().get_user_input()
+            self.view.output_frame.delete('1.0', tkinter.END)
+            trans_text = self.model.translate(user_input)
+            self.view.output_frame.insert(tkinter.END, trans_text)
+            super().update_status(Config.SAVE_INSTRUCTIONS)
+            self.view.save_bt.config(state='normal')
+            self.view.delete_bt.config(state=tkinter.DISABLED)
+            self.view.update_bt.config(state=tkinter.DISABLED)
+            self.view.persistence_status['text'] = ''
+        except Exception as e:
+            self.handle_exception('', e)
+
+    def _save_translation(self, _):
+        if self.view.save_bt['state'] == tkinter.DISABLED:
+            return
+        try:
+            user_input = super().get_user_input()
             trans_text = self.view.output_frame.get("1.0", tkinter.END)
-            filepath = self.model.persistence.save_translation(user_input, trans_text)
-            self.update_status(f'Translation saved in: {filepath}')
+            file_path = self.model.persistence.save_translation(user_input, trans_text)
+            super().update_status(f'Translation saved in: {file_path}')
         except Exception as e:
-            self._handle_error('', e)
+            self.handle_exception('Save error: ', e)
 
-    def next_translation(self, _):
-        try:
-            file_path, translation = self.model.persistence.next_translation()
-            info = Controller._file_info(file_path)
-            self._populate_screen(info, translation)
-        except Exception as e:
-            self._handle_error('', e)
-
-    def previous_translation(self, _):
-        try:
-            file_path, translation = self.model.persistence.previous_translation()
-            info = Controller._file_info(file_path)
-            self._populate_screen(info, translation)
-        except Exception as e:
-            self._handle_error('', e)
-
-    def _populate_screen(self, info, translation):
-        self.delete_bt_click_count = 0
-        self.view.input_frame.delete('1.0', tkinter.END)
-        self.view.output_frame.delete('1.0', tkinter.END)
-        Controller._set_check_button(self.view.add_transliteration_check_bt, translation['is_add_transliteration'])
-        Controller._set_check_button(self.view.add_source_check_bt, translation['is_add_src'])
-        self.view.input_frame.insert(tkinter.END, translation['text_lines'])
-        self.view.output_frame.insert(tkinter.END, translation['translated_text'])
-        self.update_status(info)
-
-    @staticmethod
-    def _set_check_button(button: tkinter.Checkbutton, value: int):
-        if value == 1:
-            button.select()
-        else:
-            button.deselect()
-
-    @staticmethod
-    def _file_info(file_path: str):
-        seconds_since_created = os.path.getmtime(file_path)
-        create_ts = datetime.datetime.utcfromtimestamp(seconds_since_created).isoformat()[:22]
-        # remove T in, for example, create_ts = 2019-12-11T19:20:48.85
-        create_ts = create_ts[:10] + ' ' + create_ts[11:]
-        day_index = datetime.datetime.utcfromtimestamp(seconds_since_created).weekday()
-        info = file_path + ' created at: ' + create_ts + ' ' + calendar.day_name[day_index]
-        return info
-
-    def delete_translation(self, _):
-        self.delete_bt_click_count += 1
-        file_path = self.model.persistence.current_file_path()
-        info = Controller._file_info(file_path)
-        if self.delete_bt_click_count == 1:
-            self.update_status(f'Click Delete button again, to delete file: {info} or \u25BA \u25C4 to cancel')
-        else:
-            try:
-                file_path = self.model.persistence.delete_translation()
-                self.update_status(f'Deleted translation file: {info}')
-                self.delete_bt_click_count == 0
-            except Exception as e:
-                self._handle_error('', e)
-
-    def on_closing(self):
+    def _on_closing(self):
         self.model.save_dictionary()
         self.view.stop()
 
-    def bind_view_controls(self):
-        self.view.clear_bt.bind("<Button-1>", self.clear_input)
-        self.view.src_language.bind("<<ComboboxSelected>>", self.update_transliteration)
-        self.view.destination_language.bind("<<ComboboxSelected>>", self.update_transliteration)
-        self.view.trans_bt.bind("<Button-1>", self.translate_text)
-        self.view.swap_languages_bt.bind("<Button-1>", self.swap_languages)
+    def bind_translation_controls(self):
+        self.view.clear_bt.bind("<Button-1>", super().clear_screen)
+        self.view.swap_languages_bt.bind("<Button-1>", self._swap_languages)
+        self.view.destination_language.bind("<<ComboboxSelected>>", self._update_transliteration)
+        self.view.trans_bt.bind("<Button-1>", self._translate_text)
+        self.view.save_bt.bind("<Button-1>", self._save_translation)
+        self.view.root.protocol("WM_DELETE_WINDOW", self._on_closing)
+        if log.isEnabledFor(logging.DEBUG):
+            log.debug('controller methods bound to view widgets')
 
-        self.view.save_bt.bind("<Button-1>", self.save_translation)
-        self.view.next_bt.bind("<Button-1>", self.next_translation)
-        self.view.previous_bt.bind("<Button-1>", self.previous_translation)
-        self.view.delete_bt.bind("<Button-1>", self.delete_translation)
 
-        self.view.root.protocol("WM_DELETE_WINDOW", self.on_closing)
+class PersistenceController(Controller):
+    def _handle_persistence_error(self, e):
+        self.handle_exception('Persistence error: ', e)
+        self.view.persistence_status['text'] = 'See error below or in log file'
+
+    def _populate_all_widgets(self, file_path, msg, translation):
+        self.view.input_frame.delete('1.0', tkinter.END)
+        self.view.output_frame.delete('1.0', tkinter.END)
+        Controller.set_check_button(self.view.add_transliteration_check_bt, translation['is_add_transliteration'])
+        Controller.set_check_button(self.view.add_source_check_bt, translation['is_add_src'])
+        self.view.save_bt.config(state=tkinter.DISABLED)
+        self.view.input_frame.insert(tkinter.END, translation['text_lines'])
+        self.view.output_frame.insert(tkinter.END, translation['translated_text'])
+        status_msg = file_path + ';  may change text and click Update, or click Delete'
+        super().update_status(status_msg)
+
+        self.delete_bt_click_count = 0
+        self.view.persistence_status['text'] = msg
+        self.view.delete_bt.config(state=tkinter.NORMAL)
+        self.view.update_bt.config(state=tkinter.NORMAL)
+
+    def _next_translation(self, _):
+        try:
+            file_path, msg, translation = self.model.persistence.next_translation()
+            self._populate_all_widgets(file_path, msg, translation)
+        except Exception as e:
+            self._handle_persistence_error(e)
+
+    def _previous_translation(self, _):
+        try:
+            file_path, msg, translation = self.model.persistence.previous_translation()
+            self._populate_all_widgets(file_path, msg, translation)
+        except Exception as e:
+            self._handle_persistence_error(e)
+
+    def _update_translation(self, _):
+        if self.view.delete_bt['state'] == tkinter.DISABLED:
+            return
+        try:
+            user_input = self.get_user_input()
+            trans_text = self.view.output_frame.get("1.0", tkinter.END)
+            file_path, msg = self.model.persistence.update_translation(user_input, trans_text)
+            self.view.persistence_status['text'] =  msg
+            super().update_status(file_path)
+        except Exception as e:
+            self._handle_persistence_error(e)
+
+    def _delete_translation(self, _):
+        if self.view.update_bt['state'] == tkinter.DISABLED:
+            return
+        self.delete_bt_click_count += 1
+        try:
+            if self.delete_bt_click_count == 1:
+                self.view.persistence_status['text'] = f'Click Delete again, \u25BA \u25C4 Clear to cancel.'
+            else:
+                file_path, msg = self.model.persistence.delete_translation()
+                assert file_path in self.view.status_label['text']
+                self.view.status_label['text'] = file_path + ' deleted'
+                self.view.persistence_status['text'] = msg
+                self.delete_bt_click_count == 0
+        except Exception as e:
+            self._handle_persistence_error(e)
+
+    def bind_persistence_controls(self):
+        self.view.next_bt.bind("<Button-1>", self._next_translation)
+        self.view.previous_bt.bind("<Button-1>", self._previous_translation)
+        self.view.update_bt.bind("<Button-1>", self._update_translation)
+        self.view.delete_bt.bind("<Button-1>", self._delete_translation)
         if log.isEnabledFor(logging.DEBUG):
             log.debug('controller methods bound to view widgets')
 
@@ -213,12 +233,17 @@ def main():
 
         lang_names = language_names(config)
         v = ltrans.view.View(lang_names, Config.TRANSLATE_INSTRUCTIONS)
+
         google_translator = googletrans.Translator()
         m = Model(config, google_translator)
-        c = Controller(config, v, m)
-        c.bind_view_controls()
+
+        c = TranslationController(v, m)
+        c.bind_translation_controls()
+        c2 = PersistenceController(v, m)
+        c2.bind_persistence_controls()
+
         log.info('>>> Starting view')
-        c.view.start()
+        v.start()
     except Exception as exc:
         exc_trace = str(exc) + '\n\t' + traceback.format_exc()
         log.error(exc_trace)

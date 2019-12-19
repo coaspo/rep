@@ -61,6 +61,14 @@ class View:
         return self._is_add_transliteration
 
     @property
+    def input_frame(self):
+        return self._input_frame
+
+    @property
+    def output_frame(self):
+        return self._output_frame
+
+    @property
     def save_bt(self):
         return self._save_bt
 
@@ -73,8 +81,20 @@ class View:
         return self._previous_bt
 
     @property
+    def persistence_status(self):
+        return self._persistence_status_label
+
+    @property
+    def update_bt(self):
+        return self._update_bt
+
+    @property
     def delete_bt(self):
         return self._delete_bt
+
+    @property
+    def status_label(self):
+        return self._status_label
 
     @property
     def root(self):
@@ -122,7 +142,10 @@ class View:
         saved_label = tkinter.Label(frame, text="     Saved translations:", bg=frame_color)
         self._next_bt = tkinter.Button(frame, text=u' \u25BA  ', height=1)
         self._previous_bt = tkinter.Button(frame, text=u' \u25C4 ', height=1)
-        self._delete_bt = tkinter.Button(frame, text=" Delete ", height=1)
+        self._persistence_status_label = tkinter.Label(frame, text="", anchor='w', bg='white')
+        self._persistence_status_label.config(width=30)
+        self._update_bt = tkinter.Button(frame, text="Update", height=1, state=tkinter.DISABLED)
+        self._delete_bt = tkinter.Button(frame, text="Delete", height=1, state=tkinter.DISABLED)
         help_label = tkinter.Label(frame, text="Help", fg="blue", bg=frame_color, cursor="hand2")
         f = tkinter.font.Font(help_label, help_label.cget("font"))
         f.configure(underline=True)
@@ -132,27 +155,29 @@ class View:
         saved_label.pack(side=tkinter.LEFT, padx=2, pady=2)
         self._next_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
         self._previous_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
+        self._persistence_status_label.pack(side=tkinter.LEFT, padx=2, pady=2)
         self._delete_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
+        self._update_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
         help_label.pack(side=tkinter.LEFT, padx=25, pady=2)
         help_label.bind("<Button-1>", lambda e: webbrowser.get('windows-default').open(
             "file://" + os.path.realpath("./ltrans/help.html")))
 
     def _init_text_areas(self, root: tkinter.Tk):
-        self.txt_frame = tkinter.Frame(root)
-        self.input_frame = tkinter.scrolledtext.ScrolledText(self.txt_frame)
-        self.input_frame.pack(side=tkinter.LEFT, pady=2, fill='both', expand=1)
+        txt_frame = tkinter.Frame(root)
+        self._input_frame = tkinter.scrolledtext.ScrolledText(txt_frame)
+        self._input_frame.pack(side=tkinter.LEFT, pady=2, fill='both', expand=1)
 
-        self.output_frame = tkinter.scrolledtext.ScrolledText(self.txt_frame)
-        self.output_frame.pack(side=tkinter.LEFT, pady=2, fill='both', expand=1)
-        self.txt_frame.pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
+        self._output_frame = tkinter.scrolledtext.ScrolledText(txt_frame)
+        self._output_frame.pack(side=tkinter.LEFT, pady=2, fill='both', expand=1)
+        txt_frame.pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
 
     def _init_bottom(self, root, instructions: str):
         frame = tkinter.Frame(root)
         frame.pack(expand=False)
-        self.status_label = tkinter.Label(root, bg="#eeffee", fg='black')
-        self.status_label['text'] = instructions
+        self._status_label = tkinter.Label(root, bg="#eeffee", fg='black')
+        self._status_label['text'] = instructions
 
-        self.status_label.pack(side=tkinter.LEFT, fill='both', expand='yes')
+        self._status_label.pack(side=tkinter.LEFT, fill='both', expand='yes')
 
     def start(self):
         self.root.mainloop()

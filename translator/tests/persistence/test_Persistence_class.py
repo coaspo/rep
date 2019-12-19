@@ -74,34 +74,43 @@ def test_next_and_previous_translation():
                     'text_lines': 'This\ntest',
                     'translated_text': 'This\nCette\n\ntest\ntester'}
 
-    file_path, trans = persistence.next_translation()
+    file_path, msg, trans = persistence.next_translation()
     assert file_path.endswith('English-French.3.json')
     assert_dictionaries_equal(trans, translation_3)
 
-    file_path, trans = persistence.previous_translation()
+    file_path, msg, trans = persistence.previous_translation()
     assert file_path.endswith('English-French.2.json')
     assert_dictionaries_equal(trans, translation_2)
 
-    file_path, trans = persistence.previous_translation()
+    file_path, msg, trans = persistence.previous_translation()
     assert file_path.endswith('English-French.1.json')
     assert_dictionaries_equal(trans, translation_1)
 
-    file_path, trans = persistence.previous_translation()
+    file_path, msg, trans = persistence.previous_translation()
     assert file_path.endswith('English-French.1.json')
     assert_dictionaries_equal(trans, translation_1)
 
     # test next:
-    file_path, trans = persistence.next_translation()
+    file_path, msg, trans = persistence.next_translation()
     assert file_path.endswith('English-French.2.json')
     assert_dictionaries_equal(trans, translation_2)
 
-    file_path, trans = persistence.next_translation()
+    file_path, msg, trans = persistence.next_translation()
     assert file_path.endswith('English-French.3.json')
     assert_dictionaries_equal(trans, translation_3)
 
-    file_path, trans = persistence.next_translation()
+    file_path, msg, trans = persistence.next_translation()
     assert file_path.endswith('English-French.3.json')
     assert_dictionaries_equal(trans, translation_3)
+
+    user_input = ltrans.model.UserInput('One', 'Italian', 'Dutch', 0, 1)
+    translated_text = 'Cette 123'
+    persistence.update_translation(user_input, translated_text)
+    file_path, msg, trans2 = persistence.next_translation()
+    assert file_path.endswith('English-French.3.json')
+    assert trans2['translated_text'] == 'Cette 123'
+    assert trans2['dest_language'] == 'Dutch'
+    assert trans2['text_lines'] == 'One'
 
 
 def test_delete_translation():

@@ -79,14 +79,10 @@ class Dictionary(dict):
 class Model:
     def __init__(self, config: dict, google_translator: googletrans.client.Translator):
         self._config = config
-        self._persistence = Persistence(config)
+        self.persistence = Persistence(config)
         self._dictionary = None
         self._translator = google_translator
         self._last_translated_text = None
-
-    @property
-    def persistence(self) -> Persistence:
-        return self._persistence
 
     def translate(self, user_input: UserInput) -> str:
         if self._dictionary is None \

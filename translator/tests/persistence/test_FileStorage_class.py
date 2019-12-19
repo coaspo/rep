@@ -43,6 +43,7 @@ def test_save_file():
     example_dict = {'text': 'Yes', 'translation': 'Oui'}
     msg = storage.save(example_dict, file_pfx)
     assert msg.endswith('English-French.4.json')
+    assert msg.startswith('Saved screen into: ')
     assert storage._latest_file_number == 4
     assert storage._file_paths_index == 2
     assert len(storage._files_paths) == 3
@@ -55,27 +56,26 @@ def test_read_next_and_prev():
     json2 = {'b': 2}
 
     assert storage._file_paths_index == 2
-    file_path, trans = storage.read_next()
+    file_path, msg, trans = storage.read_next()
+    assert 'created at:' in msg
     assert trans == json2 and storage._file_paths_index == 2
 
-    file_path, trans = storage.read_prev()
+    file_path, msg, trans = storage.read_prev()
+    assert 'created at:' in msg
     assert trans == json_doc1 and storage._file_paths_index == 1
-    file_path, trans = storage.read_prev()
+    file_path, msg, trans = storage.read_prev()
     assert trans == actual_dict and storage._file_paths_index == 0
-    file_path, trans = storage.read_prev()
+    file_path, msg, trans = storage.read_prev()
     assert trans == actual_dict and storage._file_paths_index == 0
 
-    file_path, trans = storage.read_next()
+    file_path, msg, trans = storage.read_next()
     assert trans == json_doc1 and storage._file_paths_index == 1
-    file_path, trans = storage.read_next()
+    file_path, msg, trans = storage.read_next()
     assert trans == json2 and storage._file_paths_index == 2
-    file_path, trans = storage.read_next()
+    file_path, msg, trans = storage.read_next()
     assert trans == json2 and storage._file_paths_index == 2
+    trans['b'] = 123
+    storage.update(trans)
+    file_path, msg, trans = storage.read_next()
+    assert trans == {'b': 123} and storage._file_paths_index == 2
 
-
-def test_filepath():
-    storage = FileStorage(CONFIG)
-    file_pfx = 'English-French'
-    test_trans = {'text': 'No', 'translation': 'Non'}
-    msg = storage.save(test_trans, file_pfx)
-    assert msg.endswith('English-French.5.json')

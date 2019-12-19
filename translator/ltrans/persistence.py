@@ -1,3 +1,5 @@
+import datetime
+import calendar
 from ltrans.userinput import UserInput
 from ltrans.userinput import UserInputError
 import glob
@@ -45,13 +47,14 @@ class FileStorage:
         if len(file_paths) == 0:
             return 0, []
 
+        file_paths.sort()
         trans_nums = []
         proper_formatted_filepaths = []
         for file_path in file_paths:
             x = file_path.split('.')
             if len(x) > 0 and x[1].isnumeric():
                 trans_nums.append(int(x[1]))
-                proper_formatted_filepaths.append(file_path)
+            proper_formatted_filepaths.append(file_path)
 
         if len(trans_nums) == 0:
             latest_file_number = 0
@@ -60,6 +63,7 @@ class FileStorage:
         return latest_file_number, proper_formatted_filepaths
 
     def save(self, translation: dict, file_pfx) -> str:
+        print('---------', self._files_paths)
         trans_number = self._latest_file_number + 1
         file_index = self._file_paths_index + 1
         filepath = self._save_dir + '/' + file_pfx + '.' + str(
@@ -74,18 +78,24 @@ class FileStorage:
         self._files_paths.append(filepath)
         self._latest_file_number = trans_number
         self._file_paths_index = file_index
+        print('+++++++', self._files_paths)
+        print('+++++++', file_index)
         if log.isEnabledFor(logging.DEBUG):
             log.debug(f'filepath={filepath}')
-        return filepath
+        return 'Saved screen into: ' + filepath
+
+    def update(self, translation: dict) -> tuple:
+        with open(self._files_paths[self._file_paths_index], "w", encoding='utf8') as f:
+            json.dump(translation, f, ensure_ascii=False, sort_keys=False, indent=0)
+        if log.isEnabledFor(logging.DEBUG):
+            log.debug(f'filepath={self._files_paths[self._file_paths_index]}')
+        return self._files_paths[self._file_paths_index], 'File updated'
 
     def read_next(self) -> tuple:
         self._validate_file_paths()
         if self._file_paths_index != len(self._files_paths) - 1:
             self._file_paths_index += 1
         return self._read_json_file()
-
-    def get_current_file_path(self) -> str:
-        return self._files_paths[self._file_paths_index]
 
     def read_prev(self) -> tuple:
         self._validate_file_paths()
@@ -97,15 +107,15 @@ class FileStorage:
         if len(self._files_paths) == 0:
             raise UserInputError(f'There are no translation JSON files in: {self._save_dir}')
 
-    def _read_json_file(self) -> dict:
+    def _read_json_file(self) -> tuple:
         filepath = self._files_paths[self._file_paths_index]
         with open(filepath, "r", encoding='utf8') as f:
             translation = json.load(f)
         if log.isEnabledFor(logging.DEBUG):
             log.debug(f'filepath={filepath}\ntranslation=\n{translation}')
-        return filepath, translation
+        return filepath, self.file_info(), translation
 
-    def delete(self) -> str:
+    def delete(self) -> tuple:
         self._validate_file_paths()
         filepath = self._files_paths[self._file_paths_index]
         os.remove(filepath)
@@ -113,7 +123,20 @@ class FileStorage:
         self._file_paths_index -= 1
         if log.isEnabledFor(logging.DEBUG):
             log.debug(f'filepath={filepath}')
-        return filepath
+        return filepath, 'Deleted file'
+
+    def file_info(self):
+        file_path = self._files_paths[self._file_paths_index]
+        seconds_since_created = os.path.getmtime(file_path)
+        create_ts = datetime.datetime.utcfromtimestamp(seconds_since_created).isoformat()[:22]
+        # remove T in, for example, create_ts = 2019-12-11T19:20:48.85
+        create_ts = create_ts[:10] + ' ' + create_ts[11:16]
+        day_index = datetime.datetime.utcfromtimestamp(seconds_since_created).weekday()
+        count = str(self._file_paths_index + 1) + '/' + str(len(self._files_paths))
+        file_name = os.path.basename(file_path)
+        file_name = file_name[:len(file_name) - 5]
+        info = count + ' ' + file_name + ' ' + create_ts[2:] + calendar.day_name[day_index][0:3]
+        return info
 
 
 class Persistence:
@@ -132,42 +155,48 @@ class Persistence:
         except Exception as e:
             Persistence.err_msg = str(e)
 
+    @staticmethod
+    def _transaltion(user_input: UserInput, translated_text: str) -> dict:
+        return {'dest_language': user_input.dest_language,
+                'is_add_src': user_input.is_add_src,
+                'is_add_transliteration': user_input.is_add_transliteration,
+                'src_language': user_input.src_language,
+                'text_lines': user_input.text_lines,
+                'translated_text': translated_text
+                }
+
     def save_translation(self, user_input: UserInput, translated_text: str) -> str:
         if Persistence.err_msg is not None:
             raise Exception(Persistence.err_msg)
         file_pfx = user_input.src_language + '-' + user_input.dest_language
-        translation = {'dest_language': user_input.dest_language,
-                       'is_add_src': user_input.is_add_src,
-                       'is_add_transliteration': user_input.is_add_transliteration,
-                       'src_language': user_input.src_language,
-                       'text_lines': user_input.text_lines,
-                       'translated_text': translated_text
-                       }
-        return 'Saved translation in: ' + self._file_storage.save(translation, file_pfx)
+        translation = Persistence._transaltion(user_input, translated_text)
+        file_path = self._file_storage.save(translation, file_pfx)
+        return 'Saved translation in: ' + file_path
 
     def next_translation(self) -> tuple:
         if Persistence.err_msg is not None:
             raise Exception(Persistence.err_msg)
-        file_path, translation = self._file_storage.read_next()
+        file_path, msg, translation = self._file_storage.read_next()
         self._validate_keys(translation)
-        return file_path, translation
+        return file_path, msg, translation
 
     def previous_translation(self) -> tuple:
         if Persistence.err_msg is not None:
             raise Exception(Persistence.err_msg)
-        file_path, translation = self._file_storage.read_prev()
+        file_path, msg, translation = self._file_storage.read_prev()
         self._validate_keys(translation)
-        return file_path,  translation
+        return file_path, msg, translation
 
-    def delete_translation(self) -> str:
+    def delete_translation(self) -> tuple:
         if Persistence.err_msg is not None:
             raise Exception(Persistence.err_msg)
         return self._file_storage.delete()
 
-    def current_file_path(self) -> str:
+    def update_translation(self, user_input: UserInput, translated_text: str) -> tuple:
         if Persistence.err_msg is not None:
             raise Exception(Persistence.err_msg)
-        return self._file_storage.get_current_file_path()
+        translation = Persistence._transaltion(user_input, translated_text)
+        return self._file_storage.update(translation)
 
     def _validate_keys(self, translation: dict):
         keys = set(translation.keys())
