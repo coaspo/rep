@@ -1,4 +1,4 @@
-from ltrans.persistence import Persistence
+from ltrans.persistence import FilePersistence
 from ltrans.reference import LANGUAGE_NAMES_ABBRS
 from ltrans.reference import TRANSLITERATE_LANGUAGE_NAMES
 from ltrans.util import NON_LETTERS_REGEX
@@ -77,9 +77,9 @@ class Dictionary(dict):
 
 
 class Model:
-    def __init__(self, config: dict, google_translator: googletrans.client.Translator):
+    def __init__(self, config: dict, google_translator: googletrans.client.Translator, persistence: FilePersistence):
         self._config = config
-        self.persistence = Persistence(config)
+        self._persistence = persistence
         self._dictionary = None
         self._translator = google_translator
         self._last_translated_text = None
@@ -93,6 +93,26 @@ class Model:
             log.debug(user_input)
         self._last_translated_text = translate_text(user_input, self._dictionary, self._translator)
         return self._last_translated_text
+
+    def save_translation(self, user_input: UserInput, translated_text: str) -> str:
+        status_msg = self._persistence.save_translation(user_input, translated_text)
+        return status_msg
+
+    def next_translation(self) -> tuple:
+        status_msg, persistence_msg, translation = self._persistence.next_translation()
+        return status_msg, persistence_msg, translation
+
+    def previous_translation(self) -> tuple:
+        status_msg, persistence_msg, translation = self._persistence.previous_translation()
+        return status_msg, persistence_msg, translation
+
+    def delete_translation(self) -> tuple:
+        status_msg, persistence_msg = self._persistence.delete_translation()
+        return status_msg, persistence_msg
+
+    def update_translation(self, user_input: UserInput, translated_text: str) -> tuple:
+        status_msg, persistence_msg = self._persistence.update_translation(user_input, translated_text)
+        return status_msg, persistence_msg
 
     def save_dictionary(self):
         if self._dictionary is not None:

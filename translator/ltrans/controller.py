@@ -1,4 +1,5 @@
 from ltrans.model import Model
+from ltrans.persistence import FilePersistence
 from ltrans.reference import LANGUAGE_NAMES_ABBRS
 from ltrans.reference import TRANSLITERATE_LANGUAGE_NAMES
 from ltrans.userinput import UserInput
@@ -125,8 +126,8 @@ class TranslationController(Controller):
         try:
             user_input = super().get_user_input()
             trans_text = self.view.output_frame.get("1.0", tkinter.END)
-            file_path = self.model.persistence.save_translation(user_input, trans_text)
-            super().update_status(f'Translation saved in: {file_path}')
+            status_msg = self.model.save_translation(user_input, trans_text)
+            super().update_status(status_msg)
         except Exception as e:
             self.handle_exception('Save error: ', e)
 
@@ -150,7 +151,7 @@ class PersistenceController(Controller):
         self.handle_exception('Persistence error: ', e)
         self.view.persistence_status['text'] = 'See error below or in log file'
 
-    def _populate_all_widgets(self, file_path, msg, translation):
+    def _populate_all_widgets(self, status_msg, persistence_msg, translation):
         self.view.input_frame.delete('1.0', tkinter.END)
         self.view.output_frame.delete('1.0', tkinter.END)
         Controller.set_check_button(self.view.add_transliteration_check_bt, translation['is_add_transliteration'])
@@ -158,25 +159,25 @@ class PersistenceController(Controller):
         self.view.save_bt.config(state=tkinter.DISABLED)
         self.view.input_frame.insert(tkinter.END, translation['text_lines'])
         self.view.output_frame.insert(tkinter.END, translation['translated_text'])
-        status_msg = file_path + ';  may change text and click Update, or click Delete'
+        status_msg = status_msg + ';  may change text and click Update, or click Delete'
         super().update_status(status_msg)
 
         self.delete_bt_click_count = 0
-        self.view.persistence_status['text'] = msg
+        self.view.persistence_status['text'] = persistence_msg
         self.view.delete_bt.config(state=tkinter.NORMAL)
         self.view.update_bt.config(state=tkinter.NORMAL)
 
     def _next_translation(self, _):
         try:
-            file_path, msg, translation = self.model.persistence.next_translation()
-            self._populate_all_widgets(file_path, msg, translation)
+            status_msg, persistence_msg, translation = self.model.next_translation()
+            self._populate_all_widgets(status_msg, persistence_msg, translation)
         except Exception as e:
             self._handle_persistence_error(e)
 
     def _previous_translation(self, _):
         try:
-            file_path, msg, translation = self.model.persistence.previous_translation()
-            self._populate_all_widgets(file_path, msg, translation)
+            status_msg, persistence_msg, translation = self.model.previous_translation()
+            self._populate_all_widgets(status_msg, persistence_msg, translation)
         except Exception as e:
             self._handle_persistence_error(e)
 
@@ -186,9 +187,9 @@ class PersistenceController(Controller):
         try:
             user_input = self.get_user_input()
             trans_text = self.view.output_frame.get("1.0", tkinter.END)
-            file_path, msg = self.model.persistence.update_translation(user_input, trans_text)
-            self.view.persistence_status['text'] =  msg
-            super().update_status(file_path)
+            status_msg, persistence_msg = self.model._persistence.update_translation(user_input, trans_text)
+            super().update_status(status_msg)
+            self.view.persistence_status['text'] = persistence_msg
         except Exception as e:
             self._handle_persistence_error(e)
 
@@ -200,10 +201,10 @@ class PersistenceController(Controller):
             if self.delete_bt_click_count == 1:
                 self.view.persistence_status['text'] = f'Click Delete again, \u25BA \u25C4 Clear to cancel.'
             else:
-                file_path, msg = self.model.persistence.delete_translation()
-                assert file_path in self.view.status_label['text']
-                self.view.status_label['text'] = file_path + ' deleted'
-                self.view.persistence_status['text'] = msg
+                status_msg, persistence_msg = self.model._persistence.delete_translation()
+                assert status_msg in self.view.status_label['text']
+                self.view.status_label['text'] = status_msg
+                self.view.persistence_status['text'] = persistence_msg
                 self.delete_bt_click_count == 0
         except Exception as e:
             self._handle_persistence_error(e)
@@ -235,7 +236,8 @@ def main():
         v = ltrans.view.View(lang_names, Config.TRANSLATE_INSTRUCTIONS)
 
         google_translator = googletrans.Translator()
-        m = Model(config, google_translator)
+        persistence = FilePersistence(config)
+        m = Model(config, google_translator, persistence)
 
         c = TranslationController(v, m)
         c.bind_translation_controls()

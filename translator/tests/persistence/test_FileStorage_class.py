@@ -43,7 +43,6 @@ def test_save_file():
     example_dict = {'text': 'Yes', 'translation': 'Oui'}
     msg = storage.save(example_dict, file_pfx)
     assert msg.endswith('English-French.4.json')
-    assert msg.startswith('Saved screen into: ')
     assert storage._latest_file_number == 4
     assert storage._file_paths_index == 2
     assert len(storage._files_paths) == 3
@@ -57,11 +56,9 @@ def test_read_next_and_prev():
 
     assert storage._file_paths_index == 2
     file_path, msg, trans = storage.read_next()
-    assert 'created at:' in msg
     assert trans == json2 and storage._file_paths_index == 2
 
     file_path, msg, trans = storage.read_prev()
-    assert 'created at:' in msg
     assert trans == json_doc1 and storage._file_paths_index == 1
     file_path, msg, trans = storage.read_prev()
     assert trans == actual_dict and storage._file_paths_index == 0

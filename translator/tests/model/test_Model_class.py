@@ -8,7 +8,7 @@ ltrans.util.set_logger(CONFIG)
 
 def test_model():
     create_dictionary()
-    model = ltrans.model.Model(CONFIG, None)
+    model = ltrans.model.Model(CONFIG, None, None)
     user_input = ltrans.model.UserInput(text_lines='Today is a fine day.\nIs today a fine day?',
                                         src_language='English',
                                         dest_language='French',

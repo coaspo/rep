@@ -1,7 +1,7 @@
 import ltrans
 import ltrans.model
 import tests.t_util
-from ltrans.persistence import Persistence
+from ltrans.persistence import FilePersistence
 
 TMP_DIR = tests.t_util.recreate_tmp_dir(__file__)
 CONFIG = {'LOG_DIR': TMP_DIR, 'SAVED_TRANSLATIONS_DIR': TMP_DIR, 'LOG_LEVEL': 'CRITICAL'}
@@ -17,25 +17,25 @@ ltrans.util.set_logger(CONFIG)
 
 def test_invalid_directories():
     config = {}
-    persistence = Persistence(config)
-    assert Persistence.err_msg == 'FileStorage failed - config missing parameter "SAVED_TRANSLATIONS_DIR"'
+    persistence = FilePersistence(config)
+    assert FilePersistence.err_msg == 'FileStorage failed - config missing parameter "SAVED_TRANSLATIONS_DIR"'
 
     config = {'SAVED_TRANSLATIONS_DIR': '/non-dir/fake-dir'}
-    persistence = Persistence(config)
-    assert Persistence.err_msg.find("FileStorage failed - [WinError 3] The system cannot find the path specified") > -1
+    persistence = FilePersistence(config)
+    assert FilePersistence.err_msg.find("FileStorage failed - [WinError 3] The system cannot find the path specified") > -1
 
     config = {'SAVED_TRANSLATIONS_DIR': './xyz:\n'}
-    persistence = Persistence(config)
+    persistence = FilePersistence(config)
     assert persistence.err_msg.find("FileStorage failed - [WinError 267] The directory name is invalid") > -1
 
 
 def test_obj_attrs():
-    persistence = Persistence(CONFIG)
+    persistence = FilePersistence(CONFIG)
     assert persistence.err_msg is None
 
 
 def test_save_translation():
-    persistence = Persistence(CONFIG)
+    persistence = FilePersistence(CONFIG)
 
     user_input = ltrans.model.UserInput('This is', 'English', 'French', 0, 0)
     translated_text = 'Cette est'
@@ -54,7 +54,7 @@ def test_save_translation():
 
 
 def test_next_and_previous_translation():
-    persistence = Persistence(CONFIG)
+    persistence = FilePersistence(CONFIG)
     translation_1 = {'dest_language': 'French',
                     'is_add_src': 0,
                     'is_add_transliteration': 0,
@@ -114,7 +114,7 @@ def test_next_and_previous_translation():
 
 
 def test_delete_translation():
-    persistence = Persistence(CONFIG)
+    persistence = FilePersistence(CONFIG)
     persistence.delete_translation()
 
 
