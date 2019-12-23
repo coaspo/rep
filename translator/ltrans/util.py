@@ -34,7 +34,7 @@ class Config(dict):
 
 def set_logger(config: dict):
     if config is None or config.get('LOG_DIR') is None:
-        raise Exception('config missing con                                                                  fig parameter "log_dir"')
+        raise Exception('config missing config parameter "log_dir"')
     log_dir = config['LOG_DIR']
     log_level_config = config.get('LOG_LEVEL')
     log_levels = {'CRITICAL': 50, 'ERROR': 40, 'WARNING': 30, 'INFO': 20, 'DEBUG': 10, 'NOTSET': 0}

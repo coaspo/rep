@@ -45,10 +45,6 @@ class View:
         return self._add_source_check_bt
 
     @property
-    def add_transliteration_check_bt(self):
-        return self._add_transliteration_check_bt
-
-    @property
     def is_add_src(self):
         return self._is_add_src
 

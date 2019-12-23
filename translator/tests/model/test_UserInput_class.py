@@ -4,21 +4,16 @@ import pytest
 
 def test_create_object():
     user_input = ltrans.model.UserInput(r'Good\n morning', 'English',
-                                        'Spanish', 1, 0)
+                                        'Spanish', True, False)
     assert user_input.text_lines == r'Good\n morning'
     assert user_input.src_language == 'English'
-    assert user_input.dest_language == 'Spanish'
-    assert user_input.is_add_src == 1
-    assert user_input.is_add_transliteration == 0
-    assert user_input.description == 'translated simple phrase'
+    assert user_input.destination_language == 'Spanish'
+    assert user_input.is_add_src is True
+    assert user_input.is_add_transliteration is False
 
-def test_create_object():
-    # illustrate typical properties
-    user_input = ltrans.model.UserInput(r'Good\n morning', 'English',
-                                        'Spanish', 1, 0)
-    user_input._text_lines = 'Hello'
-    assert user_input._text_lines == 'Hello'
-    assert user_input.text_lines == 'Hello'
 
+def test_property_attribute():
+    user_input = ltrans.model.UserInput(r'Hello', 'English',
+                                        'Spanish', True, False)
     with pytest.raises(AttributeError):
         user_input.text_lines = 'Hi'

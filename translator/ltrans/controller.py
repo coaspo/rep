@@ -10,7 +10,6 @@ from ltrans.view import View
 import googletrans
 import json
 import logging
-import ltrans.view
 import os
 import tkinter
 import tkinter.ttk
@@ -187,7 +186,7 @@ class PersistenceController(Controller):
         try:
             user_input = self.get_user_input()
             trans_text = self.view.output_frame.get("1.0", tkinter.END)
-            status_msg, persistence_msg = self.model._persistence.update_translation(user_input, trans_text)
+            status_msg, persistence_msg = self.model.persistence.update_translation(user_input, trans_text)
             super().update_status(status_msg)
             self.view.persistence_status['text'] = persistence_msg
         except Exception as e:
@@ -201,7 +200,7 @@ class PersistenceController(Controller):
             if self.delete_bt_click_count == 1:
                 self.view.persistence_status['text'] = f'Click Delete again, \u25BA \u25C4 Clear to cancel.'
             else:
-                status_msg, persistence_msg = self.model._persistence.delete_translation()
+                status_msg, persistence_msg = self.model.persistence.delete_translation()
                 assert status_msg in self.view.status_label['text']
                 self.view.status_label['text'] = status_msg
                 self.view.persistence_status['text'] = persistence_msg
@@ -233,7 +232,7 @@ def main():
             log.info(f'Transliterate languages: {TRANSLITERATE_LANGUAGE_NAMES}')
 
         lang_names = language_names(config)
-        v = ltrans.view.View(lang_names, Config.TRANSLATE_INSTRUCTIONS)
+        v = View(lang_names, Config.TRANSLATE_INSTRUCTIONS)
 
         google_translator = googletrans.Translator()
         persistence = FilePersistence(config)

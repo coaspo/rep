@@ -1,4 +1,4 @@
-from ltrans.persistence import FilePersistence
+from ltrans.persistence import Persistence
 from ltrans.reference import LANGUAGE_NAMES_ABBRS
 from ltrans.reference import TRANSLITERATE_LANGUAGE_NAMES
 from ltrans.util import NON_LETTERS_REGEX
@@ -13,6 +13,7 @@ import transliterate
 import unicodedata
 
 log = logging.getLogger(__name__)
+
 
 class Dictionary(dict):
     def __init__(self, config: dict, src_language: str, dest_language: str):
@@ -77,41 +78,45 @@ class Dictionary(dict):
 
 
 class Model:
-    def __init__(self, config: dict, google_translator: googletrans.client.Translator, persistence: FilePersistence):
+    def __init__(self, config: dict, google_translator: googletrans.client.Translator, persistence: Persistence):
         self._config = config
         self._persistence = persistence
         self._dictionary = None
         self._translator = google_translator
         self._last_translated_text = None
 
+    @property
+    def persistence(self) -> str:
+        return self._persistence
+
     def translate(self, user_input: UserInput) -> str:
         if self._dictionary is None \
                 or user_input.src_language != self._dictionary.src_language \
-                or user_input.dest_language != self._dictionary.dest_language:
-            self._dictionary = Dictionary(self._config, user_input.src_language, user_input.dest_language)
+                or user_input.destination_language != self._dictionary.dest_language:
+            self._dictionary = Dictionary(self._config, user_input.src_language, user_input.destination_language)
         if log.isEnabledFor(logging.DEBUG):
             log.debug(user_input)
         self._last_translated_text = translate_text(user_input, self._dictionary, self._translator)
         return self._last_translated_text
 
     def save_translation(self, user_input: UserInput, translated_text: str) -> str:
-        status_msg = self._persistence.save_translation(user_input, translated_text)
+        status_msg = self.persistence.save_translation(user_input, translated_text)
         return status_msg
 
     def next_translation(self) -> tuple:
-        status_msg, persistence_msg, translation = self._persistence.next_translation()
+        status_msg, persistence_msg, translation = self.persistence.next_translation()
         return status_msg, persistence_msg, translation
 
     def previous_translation(self) -> tuple:
-        status_msg, persistence_msg, translation = self._persistence.previous_translation()
+        status_msg, persistence_msg, translation = self.persistence.previous_translation()
         return status_msg, persistence_msg, translation
 
     def delete_translation(self) -> tuple:
-        status_msg, persistence_msg = self._persistence.delete_translation()
+        status_msg, persistence_msg = self.persistence.delete_translation()
         return status_msg, persistence_msg
 
     def update_translation(self, user_input: UserInput, translated_text: str) -> tuple:
-        status_msg, persistence_msg = self._persistence.update_translation(user_input, translated_text)
+        status_msg, persistence_msg = self.persistence.update_translation(user_input, translated_text)
         return status_msg, persistence_msg
 
     def save_dictionary(self):
@@ -147,7 +152,7 @@ def possibly_add_extra_lines(input_lines: list, translated_lines: list, user_inp
         output_lines = [a + '\n' + b for a, b in zip(output_lines, translated_lines)]
 
     if user_input.is_add_transliteration:
-        trasliteration_lines = transliterate_lines(translated_lines, user_input.dest_language)
+        trasliteration_lines = transliterate_lines(translated_lines, user_input.destination_language)
         if trasliteration_lines is not None:
             output_lines = [a + '\n' + b for a, b in zip(output_lines, trasliteration_lines)]
 

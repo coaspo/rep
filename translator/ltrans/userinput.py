@@ -16,7 +16,7 @@ class UserInput:
         return self._text_lines
 
     @property
-    def dest_language(self) -> str:
+    def destination_language(self) -> str:
         return self._dest_language
 
     @property
@@ -32,7 +32,6 @@ class UserInput:
         return self._is_add_transliteration
 
     def __str__(self) -> str:
-        return f'UserInput: src = {self.src_language},  dest = {self.dest_language},  is_add_src = {self.is_add_src},' + \
-               f'  is_add_transliteration = {self.is_add_transliteration}, ' + \
+        return f'UserInput: src = {self.src_language},  dest = {self.destination_language}, ' + \
+               f' is_add_src = {self.is_add_src},  is_add_transliteration = {self.is_add_transliteration}, ' + \
                f' text = {self.text_lines} '
-

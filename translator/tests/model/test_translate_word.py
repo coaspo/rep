@@ -18,7 +18,7 @@ def test_new_word():
 def test_existing_word():
     dictionary = english_french_dict()
     int_len = len(dictionary)
-    trans_word = ltrans.model.translate_word('hello', dictionary,TRANSLATOR)
+    trans_word = ltrans.model.translate_word('hello', dictionary, TRANSLATOR)
     assert trans_word == 'bonjour'
     assert len(dictionary) == int_len
 
@@ -42,14 +42,14 @@ def test_word_w_delimiter():
 
 
 def french_english_dict():
-    french_english_dict = ltrans.model.Dictionary(CONFIG, 'French', 'English')
-    french_english_dict['Aujourd\'hui'] = 'Today'
-    french_english_dict['Bonjour'] = 'hello'
-    return french_english_dict;
+    d = ltrans.model.Dictionary(CONFIG, 'French', 'English')
+    d['Aujourd\'hui'] = 'Today'
+    d['Bonjour'] = 'hello'
+    return d
 
 
 def english_french_dict():
-    english_french_dict = ltrans.model.Dictionary(CONFIG, 'English', 'French')
-    english_french_dict['Today'] = 'Aujourd\'hui'
-    english_french_dict['hello'] = 'bonjour'
-    return english_french_dict;
+    d = ltrans.model.Dictionary(CONFIG, 'English', 'French')
+    d['Today'] = 'Aujourd\'hui'
+    d['hello'] = 'bonjour'
+    return d

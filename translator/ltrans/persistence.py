@@ -1,7 +1,8 @@
-import datetime
-import calendar
 from ltrans.userinput import UserInput
 from ltrans.userinput import UserInputError
+import abc
+import calendar
+import datetime
 import glob
 import json
 import logging
@@ -11,10 +12,55 @@ import traceback
 log = logging.getLogger(__name__)
 
 
+class Persistence(metaclass=abc.ABCMeta):
+    TRANSLATION_KEYS = {'text_lines',
+                        'src_language',
+                        'dest_language',
+                        'is_add_src',
+                        'is_add_transliteration',
+                        'translated_text'}
+
+    @staticmethod
+    def validate_translation_keys(translation: dict):
+        keys = set(translation.keys())
+        if keys != Persistence.TRANSLATION_KEYS:
+            raise Exception(f'invalid translation keys: {keys}')
+
+    @staticmethod
+    def create_translation(user_input: UserInput, translated_text: str) -> dict:
+        return {'dest_language': user_input.destination_language,
+                'is_add_src': user_input.is_add_src,
+                'is_add_transliteration': user_input.is_add_transliteration,
+                'src_language': user_input.src_language,
+                'text_lines': user_input.text_lines,
+                'translated_text': translated_text
+                }
+
+    @abc.abstractmethod
+    def save_translation(self, user_input: UserInput, translated_text: str) -> str:
+        pass
+
+    @abc.abstractmethod
+    def next_translation(self) -> tuple:
+        pass
+
+    @abc.abstractmethod
+    def previous_translation(self) -> tuple:
+        pass
+
+    @abc.abstractmethod
+    def delete_translation(self) -> tuple:
+        pass
+
+    @abc.abstractmethod
+    def update_translation(self, user_input: UserInput, translated_text: str) -> tuple:
+        pass
+
+
 class FileStorage:
     def __init__(self, config: dict):
         self._config = config
-        self._save_dir = self._latest_file_number = self._file_paths_index = None
+        self._save_dir = self._latest_file_number = self._file_paths_index = self._files_paths = None
         self.initialize()
 
     def initialize(self):
@@ -73,7 +119,7 @@ class FileStorage:
             trans_number) + '.json'
         if file_index > len(self._files_paths):
             raise SystemError(
-                f'Index Error:  _file_path_index= {file_index}' + \
+                f'Index Error:  _file_path_index= {file_index}' +
                 f'(len(_files_paths)={len(self._files_paths)})')
         with open(file_path, "w", encoding='utf8') as f:
             json.dump(translation, f, ensure_ascii=False, sort_keys=False, indent=0)
@@ -113,7 +159,7 @@ class FileStorage:
         try:
             with open(file_path, "r", encoding='utf8') as f:
                 translation = json.load(f)
-        except Exception:
+        except OSError:
             self.initialize()
             file_path = self._files_paths[self._file_paths_index]
             with open(file_path, "r", encoding='utf8') as f:
@@ -142,17 +188,11 @@ class FileStorage:
         count = str(self._file_paths_index + 1) + '/' + str(len(self._files_paths))
         file_name = os.path.basename(file_path)
         file_name = file_name[:len(file_name) - 5]
-        info = count + ' ' + file_name + ' ' + create_ts + ' '+ calendar.day_name[day_index][0:3]
+        info = count + ' ' + file_name + ' ' + create_ts + ' ' + calendar.day_name[day_index][0:3]
         return info
 
 
-class FilePersistence:
-    TRANSLATION_KEYS = {'text_lines',
-                        'src_language',
-                        'dest_language',
-                        'is_add_src',
-                        'is_add_transliteration',
-                        'translated_text'}
+class FilePersistence(Persistence):
     err_msg = None
 
     def __init__(self, config: dict):
@@ -162,21 +202,11 @@ class FilePersistence:
         except Exception as e:
             FilePersistence.err_msg = str(e)
 
-    @staticmethod
-    def _transaltion(user_input: UserInput, translated_text: str) -> dict:
-        return {'dest_language': user_input.dest_language,
-                'is_add_src': user_input.is_add_src,
-                'is_add_transliteration': user_input.is_add_transliteration,
-                'src_language': user_input.src_language,
-                'text_lines': user_input.text_lines,
-                'translated_text': translated_text
-                }
-
     def save_translation(self, user_input: UserInput, translated_text: str) -> str:
         if FilePersistence.err_msg is not None:
             raise Exception(FilePersistence.err_msg)
-        file_pfx = user_input.src_language + '-' + user_input.dest_language
-        translation = FilePersistence._transaltion(user_input, translated_text)
+        file_pfx = user_input.src_language + '-' + user_input.destination_language
+        translation = Persistence.create_translation(user_input, translated_text)
         file_path = self._file_storage.save(translation, file_pfx)
         return 'Saved translation in: ' + file_path
 
@@ -184,14 +214,14 @@ class FilePersistence:
         if FilePersistence.err_msg is not None:
             raise Exception(FilePersistence.err_msg)
         file_path, msg, translation = self._file_storage.read_next()
-        self._validate_keys(translation)
+        Persistence.validate_translation_keys(translation)
         return file_path, msg, translation
 
     def previous_translation(self) -> tuple:
         if FilePersistence.err_msg is not None:
             raise Exception(FilePersistence.err_msg)
         file_path, msg, translation = self._file_storage.read_prev()
-        self._validate_keys(translation)
+        Persistence.validate_translation_keys(translation)
         return file_path, msg, translation
 
     def delete_translation(self) -> tuple:
@@ -202,10 +232,5 @@ class FilePersistence:
     def update_translation(self, user_input: UserInput, translated_text: str) -> tuple:
         if FilePersistence.err_msg is not None:
             raise Exception(FilePersistence.err_msg)
-        translation = FilePersistence._transaltion(user_input, translated_text)
+        translation = Persistence.create_translation(user_input, translated_text)
         return self._file_storage.update(translation), 'File updated'
-
-    def _validate_keys(self, translation: dict):
-        keys = set(translation.keys())
-        if keys != FilePersistence.TRANSLATION_KEYS:
-            raise Exception(f'invalid translation keys: {keys}')
