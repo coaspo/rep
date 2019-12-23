@@ -66,7 +66,7 @@ class Dictionary(dict):
                 current_len = len(self.keys())
                 sample_words = random.sample(self.items(), min(4, current_len))
                 log.debug(
-                    f'initial/current word count: {self._initial_len}/{current_len} ' + \
+                    f'initial/current word count: {self._initial_len}/{current_len} ' +
                     f' 4-word random sample: {sample_words}')
             self._initial_len = current_len
             log.info(f'{len_diff} new words were added to: {os.path.basename(self._dict_file_path)}')
@@ -86,7 +86,7 @@ class Model:
         self._last_translated_text = None
 
     @property
-    def persistence(self) -> str:
+    def persistence(self) -> Persistence:
         return self._persistence
 
     def translate(self, user_input: UserInput) -> str:
@@ -128,7 +128,6 @@ def translate_text(user_input: UserInput, dictionary: Dictionary, translator: go
     if log.isEnabledFor(logging.DEBUG):
         log.debug(f'user_input={user_input}, dictionary={str(dictionary)}')
     input_lines = user_input.text_lines.split('\n')
-    #input_lines = [x for x in input_lines if len(x) != 0]
     translated_lines = [translate_line(line, dictionary, translator) for line in input_lines]
     translated_lines = possibly_add_extra_lines(input_lines, translated_lines, user_input)
     trans_text = '\n'.join(translated_lines).strip()
@@ -164,13 +163,13 @@ def possibly_add_extra_lines(input_lines: list, translated_lines: list, user_inp
 def transliterate_lines(lines: list, lines_language: str) -> list:
     if log.isEnabledFor(logging.DEBUG):
         log.debug(f'  lines_language={lines_language}')
-    if lines_language == 'English' or lines_language not in TRANSLITERATE_LANGUAGE_NAMES:
-        return
+    if lines_language not in TRANSLITERATE_LANGUAGE_NAMES:
+        return []
     lang_abbr = LANGUAGE_NAMES_ABBRS[lines_language]
     return [transliterate.translit(line, lang_abbr, reversed=True) for line in lines]
 
 
-def translate_line(line: str, dictionary: dict, translator: googletrans.client.Translator) -> str:
+def translate_line(line: str, dictionary: Dictionary, translator: googletrans.client.Translator) -> str:
     if log.isEnabledFor(logging.DEBUG):
         log.debug(f'  line={line}, translator={str(translator)}')
     line_w_lrs_and_spaces = re.sub(NON_LETTERS_REGEX, '', line.rstrip())
@@ -185,10 +184,10 @@ def translate_line(line: str, dictionary: dict, translator: googletrans.client.T
     return trans_line
 
 
-def translate_word(word: str, dictionary: dict, translator: googletrans.client.Translator) -> str:
+def translate_word(word: str, dictionary: Dictionary, translator: googletrans.client.Translator) -> str:
     if log.isEnabledFor(logging.DEBUG):
         log.debug(
-            f'    word={word}, src_language={dictionary.src_language}, dest_language={dictionary.dest_language},' + \
+            f'    word={word}, src_language={dictionary.src_language}, dest_language={dictionary.dest_language},' +
             f' translator={str(translator)}')
     no_accent_word = strip_accents(word)
     translated_word = dictionary.get(no_accent_word)
@@ -217,5 +216,3 @@ def translate_word(word: str, dictionary: dict, translator: googletrans.client.T
 def strip_accents(text: str) -> str:
     return ''.join(c for c in unicodedata.normalize('NFD', text)
                    if unicodedata.category(c) != 'Mn')
-
-
