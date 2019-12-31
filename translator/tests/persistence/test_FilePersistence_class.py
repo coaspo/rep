@@ -18,20 +18,20 @@ ltrans.util.set_logger(CONFIG)
 def test_invalid_directories():
     config = {}
     persistence = FilePersistence(config)
-    assert FilePersistence.err_msg == 'FileStorage failed - config missing parameter "SAVED_TRANSLATIONS_DIR"'
+    assert FilePersistence.file_storage_err_msg == 'FileStorage failed - config missing parameter "SAVED_TRANSLATIONS_DIR"'
 
     config = {'SAVED_TRANSLATIONS_DIR': '/non-dir/fake-dir'}
     persistence = FilePersistence(config)
-    assert FilePersistence.err_msg.find("FileStorage failed - [WinError 3] The system cannot find the path specified") > -1
+    assert FilePersistence.file_storage_err_msg.find("FileStorage failed - [WinError 3] The system cannot find the path specified") > -1
 
     config = {'SAVED_TRANSLATIONS_DIR': './xyz:\n'}
     persistence = FilePersistence(config)
-    assert persistence.err_msg.find("FileStorage failed - [WinError 267] The directory name is invalid") > -1
+    assert persistence.file_storage_err_msg.find("FileStorage failed - [WinError 267] The directory name is invalid") > -1
 
 
 def test_obj_attrs():
     persistence = FilePersistence(CONFIG)
-    assert persistence.err_msg is None
+    assert persistence.file_storage_err_msg is None
 
 
 def test_save_translation():
