@@ -1,0 +1,162 @@
+import logging
+import os
+import tkinter.font
+import tkinter.scrolledtext
+import tkinter.ttk
+import webbrowser
+
+log = logging.getLogger(__name__)
+
+
+class View:
+    def __init__(self, instructions: str):
+        root = tkinter.Tk()
+        root.title("Quiz maker/taker")
+        self._root = root
+        self._init_menu(root)
+        self._init_text_areas(root)
+        self._init_bottom(root, instructions)
+        if log.isEnabledFor(logging.DEBUG):
+            log.debug("Finished")
+
+
+    @property
+    def clear_bt(self):
+        return self._clear_bt
+
+    @property
+    def create_quiz_bt(self):
+        return self._create_quiz_bt
+
+    @property
+    def input_frame(self):
+        return self._input_frame
+
+    @property
+    def output_frame(self):
+        return self._question_frame
+
+    @property
+    def save_bt(self):
+        return self._save_bt
+
+    @property
+    def next_bt(self):
+        return self._next_quiz_bt
+
+    @property
+    def previous_bt(self):
+        return self._previous_quiz_bt
+
+    @property
+    def persistence_status(self):
+        return self._persistence_status_label
+
+    @property
+    def update_bt(self):
+        return self._update_bt
+
+    @property
+    def delete_bt(self):
+        return self._delete_bt
+
+    @property
+    def question_frame(self):
+        return self._question_frame
+
+    @property
+    def status_label(self):
+        return self._status_label
+
+    @property
+    def root(self):
+        return self._root
+
+    def _init_menu(self, root: tkinter.Tk):
+        light_yellow = '#ffffcc'
+        frame: tkinter.Frame = tkinter.Frame(root, height=500)
+        frame.configure(background=light_yellow)
+        self._init_main_menu(frame, light_yellow)
+        self._init_persistence_menu(frame, light_yellow)
+        frame.pack(fill=tkinter.BOTH, expand=False)
+
+    def _init_main_menu(self, frame, frame_color):
+        self._clear_bt = tkinter.Button(frame, text="  Clear  ")
+        self._create_quiz_bt = tkinter.Button(frame, text="  Create Quiz  ", height=1)
+        self._save_bt = tkinter.Button(frame, text="  Save  ", height=1)
+        self._clear_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
+        self._create_quiz_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
+        self._save_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
+
+    def _init_persistence_menu(self, frame, frame_color):
+        saved_label = tkinter.Label(frame, text="                          Saved quizes:", bg=frame_color)
+        self._next_quiz_bt = tkinter.Button(frame, text=u' \u25BA  ', height=1)
+        self._previous_quiz_bt = tkinter.Button(frame, text=u' \u25C4 ', height=1)
+        self._persistence_status_label = tkinter.Label(frame, text="", anchor='w', bg='white')
+        self._persistence_status_label.config(width=30)
+        self._update_bt = tkinter.Button(frame, text="Update", height=1, state=tkinter.DISABLED)
+        self._delete_bt = tkinter.Button(frame, text="Delete", height=1, state=tkinter.DISABLED)
+        help_label = tkinter.Label(frame, text="Help", fg="blue", bg=frame_color, cursor="hand2")
+        f = tkinter.font.Font(help_label, help_label.cget("font"))
+        f.configure(underline=True)
+        help_label.configure(font=f)
+
+        self._save_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
+        saved_label.pack(side=tkinter.LEFT, padx=2, pady=2)
+        self._next_quiz_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
+        self._previous_quiz_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
+        self._persistence_status_label.pack(side=tkinter.LEFT, padx=2, pady=2)
+        self._delete_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
+        self._update_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
+        help_label.pack(side=tkinter.LEFT, padx=25, pady=2)
+        help_label.bind("<Button-1>", lambda e: webbrowser.get('windows-default').open(
+            "file://" + os.path.realpath("./quz/help.html")))
+
+    def _init_text_areas(self, root: tkinter.Tk):
+        txt_frame = tkinter.Frame(root)
+        self._input_frame = tkinter.scrolledtext.ScrolledText(txt_frame)
+        self._input_frame.pack(side=tkinter.LEFT, pady=2, fill='both', expand=1)
+        #self._input_frame.grid(row=0, column=0, sticky=tkinter.NE, pady=2)
+
+        self._question_frame = tkinter.Frame(txt_frame)
+        self._question = tkinter.Label(self._question_frame, text="Select the correct statmenet(s)", fg="blue", bg='white')
+        self._is_check_A = tkinter.IntVar()
+        self._is_check_B = tkinter.IntVar()
+        self._check_A = tkinter.Checkbutton(self._question_frame, text="answer a", bg='white', variable=self._is_check_A)
+        self._check_B = tkinter.Checkbutton(self._question_frame, text="answer B---\nthis is long", bg='white', variable=self._is_check_B)
+        self._submit_bt = tkinter.Button(self._question_frame, text="  Submit  ")
+        self._next_question_bt = tkinter.Button(self._question_frame, text=u' \u25BA  ', height=1)
+        self._previous_question_bt = tkinter.Button(self._question_frame, text=u' \u25C4 ', height=1)
+
+        self._question.grid(row=0, column=0, sticky=tkinter.W, pady=2)
+        self._check_A.grid(row=1, column=0, sticky=tkinter.W, pady=2)
+        self._check_B.grid(row=2, column=0, sticky=tkinter.W, pady=2)
+        self._submit_bt.grid(row=7, column=0, sticky=tkinter.W, pady=2)
+        self._next_question_bt.grid(row=7, column=1, sticky=tkinter.W, pady=2)
+        self._previous_question_bt.grid(row=7, column=2
+
+                                        , sticky=tkinter.W, pady=2)
+        self._question_frame.pack(side=tkinter.LEFT, pady=2, fill='both', expand=1)
+       #self._question_frame.grid(row=0, column=1, sticky=tkinter.NESW, pady=2)
+        txt_frame.pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
+
+    def _init_bottom(self, root, instructions: str):
+        frame = tkinter.Frame(root)
+        frame.pack(expand=False)
+        self._status_label = tkinter.Label(root, bg="#eeffee", fg='black')
+        self._status_label['text'] = instructions
+
+        self._status_label.pack(side=tkinter.LEFT, fill='both', expand='yes')
+
+    def start(self):
+        self.root.mainloop()
+
+    def stop(self):
+        self.root.destroy()
+
+
+if __name__ == '__main__':
+    v = View('This is a manual layout test. To run the application, run cli.py')
+    print('start')
+    v.start()
+    print('done')

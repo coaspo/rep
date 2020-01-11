@@ -1,0 +1,6 @@
+{
+"LOG_DIR": "./logs",
+"LOG_LEVEL": "INFO",
+"LOG_LEVELS" : "CRITICAL, ERROR, WARNING, INFO, DEBUG, NOTSET",
+"SAVED_QUIZES_DIR": "./save_quizes"
+}
