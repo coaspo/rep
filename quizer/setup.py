@@ -12,7 +12,7 @@ setuptools.setup(
     include_package_data=True,
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/pypa/translator",
+    url="https://github.com/pypa/quizzer",
     packages=setuptools.find_packages(exclude=['tests']),
     test_suite="tests",
     classifiers=[

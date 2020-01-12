@@ -4,9 +4,9 @@ class QuizDataError(Exception):
 
 def _create_data_dict(marked_user_input: str) -> dict:
     text_lines = marked_user_input.strip().split('\n')
-    if len(text_lines) < 4:
-        raise QuizDataError('Invalid text; line count < 4')
-    data_dict = {'latest_question_num': 1, 'num_of_completed_questions': 0}
+    if len(text_lines) < 3:
+        raise QuizDataError('Invalid text; line count < 3 - min is 1 question and two options')
+    data_dict = {'latest_question_num': 1, 'num_of_completed_questions': 0, 'marked_user_input': marked_user_input}
     num_of_answers = 0
     num_of_questions = 0
     question_answers = {}
@@ -53,22 +53,12 @@ def _add_question_to_data_dict(comment: str, num_of_answers: int, num_of_questio
     data_dict['question' + str(num_of_questions) + '_answers'] = question_answers
 
 
-def _create_quiz_data_dict(marked_user_input: str, quiz_file_path: str):
-    if marked_user_input is not None:
-        quiz_data_dict = _create_data_dict(marked_user_input)
-    else:
-        with open(quiz_file_path, "r", encoding='utf8') as f:
-            import json
-            quiz_data_dict = json.load(f)
-    return quiz_data_dict
-
-
 class Quiz(dict):
-    def __init__(self, marked_user_input: str, quiz_file_path: str = None):
-        self._quiz_file_path = quiz_file_path
-        quiz_data_dict = _create_quiz_data_dict(marked_user_input, quiz_file_path)
+    def __init__(self, marked_user_input: str = None, quiz_data: dict = None):
+        if quiz_data is None:
+            quiz_data = _create_data_dict(marked_user_input)
         self._current_question_num = 1
-        super(Quiz, self).__init__(quiz_data_dict)
+        super(Quiz, self).__init__(quiz_data)
 
         self._initial_len = len(self.keys())
 
@@ -76,9 +66,8 @@ class Quiz(dict):
     def quiz_file_path(self) -> str:
         return self._quiz_file_path
 
-    @property
     def marked_user_input(self) -> str:
-        return self['latest_question']
+        return self['marked_user_input']
 
     def next_question(self) -> tuple:
         if self._current_question_num < self['num_of_questions']:

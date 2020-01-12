@@ -1,6 +1,7 @@
 from quz.model import Model
 from quz.persistence import Persistence
 from quz.quiz import QuizDataError
+from quz.quiz import Quiz
 from quz.util import Config
 from quz.util import set_logger
 from quz.view import View
@@ -25,13 +26,13 @@ class Controller:
         background = "#ffeeee" if is_err else "#eeffee"
         self.view.status_label.config(bg=background)
 
-    def clear_screen(self, event: tkinter.Event):
+    def clear_screen(self, _):
         self.delete_bt_click_count = 0
         self.update_status(Config.APP_INSTRUCTIONS)
         self.view.delete_bt.config(state=tkinter.DISABLED)
         self.view.update_bt.config(state=tkinter.DISABLED)
-        self.view.input_frame.delete('1.0', tkinter.END)
-        self.view.output_frame.delete('1.0', tkinter.END)
+        self.view.input_frame.delete_current_file('1.0', tkinter.END)
+        self.view.output_frame.delete_current_file('1.0', tkinter.END)
         self.view.persistence_status['text'] = ''
 
     def handle_exception(self, msg: str, exc=None):
@@ -57,8 +58,7 @@ class QuizController(Controller):
 
     def _create_quiz(self, _):
         try:
-            text = self.view.input_frame.get("1.0", tkinter.END)
-            self.view.output_frame.delete('1.0', tkinter.END)
+            self.view.output_frame.delete_current_file('1.0', tkinter.END)
             trans_text = 'aaa'
             self.view.output_frame.insert(tkinter.END, trans_text)
             super().update_status(Config.SAVE_INSTRUCTIONS)
@@ -73,7 +73,7 @@ class QuizController(Controller):
         if self.view.save_bt['state'] == tkinter.DISABLED:
             return
         try:
-            #self.view.output_frame.delete('1.0', tkinter.END)
+            # self.view.output_frame.delete('1.0', tkinter.END)
             text = self.view.input_frame.get("1.0", tkinter.END)
             status_msg = self.model.save_quiz(text)
             super().update_status(status_msg)
@@ -81,8 +81,8 @@ class QuizController(Controller):
             self.handle_exception('Save error: ', e)
 
     def _on_closing(self):
-        text = self.view.input_frame.get("1.0", tkinter.END)
-        self.model.save_quiz(text)
+        # text = self.view.input_frame.get("1.0", tkinter.END)
+        # self.model.save_quiz(text)
         self.view.stop()
 
     def bind_quiz_controls(self):
@@ -98,10 +98,10 @@ class PersistenceController(Controller):
         self.handle_exception('AbstractPersistence error: ', e)
         self.view.persistence_status['text'] = 'See error below or in log file'
 
-    def _populate_all_widgets(self, status_msg, persistence_msg, quiz_text):
-        self.view.input_frame.delete('1.0', tkinter.END)
-        self.view.save_bt.config(state=tkinter.DISABLED)
-        self.view.input_frame.insert(tkinter.END, quiz_text)
+    def _populate_all_widgets(self, status_msg: str, persistence_msg: str, quiz: Quiz):
+        self.view.input_frame.delete_current_file('1.0', tkinter.END)
+        # self.view.save_bt.config(state=tkinter.DISABLED)
+        self.view.input_frame.insert(tkinter.END, quiz.marked_user_input())
         status_msg = status_msg + ';  may change text and click Update, or click Delete'
         super().update_status(status_msg)
 
@@ -110,33 +110,32 @@ class PersistenceController(Controller):
         self.view.delete_bt.config(state=tkinter.NORMAL)
         self.view.update_bt.config(state=tkinter.NORMAL)
 
-    def _next_translation(self, _):
+    def _next_quiz(self, _):
         try:
-            status_msg, persistence_msg, translation = self.model.next_quiz()
-            self._populate_all_widgets(status_msg, persistence_msg, translation)
+            status_msg, persistence_msg, quiz = self.model.next_quiz()
+            self._populate_all_widgets(status_msg, persistence_msg, quiz)
         except Exception as e:
             self._handle_persistence_error(e)
 
-    def _previous_translation(self, _):
+    def _previous_quiz(self, _):
         try:
-            status_msg, persistence_msg, translation = self.model.previous_quiz()
-            self._populate_all_widgets(status_msg, persistence_msg, translation)
+            status_msg, persistence_msg, quiz = self.model.previous_quiz()
+            self._populate_all_widgets(status_msg, persistence_msg, quiz)
         except Exception as e:
             self._handle_persistence_error(e)
 
-    def _update_translation(self, _):
+    def _update_quiz(self, _):
         if self.view.delete_bt['state'] == tkinter.DISABLED:
             return
         try:
-            user_input = self.get_user_input()
-            trans_text = self.view.output_frame.get("1.0", tkinter.END)
-            status_msg, persistence_msg = self.model.persistence.update(user_input, trans_text)
+            quiz = None #TODO
+            status_msg, persistence_msg = self.model.persistence.update(quiz)
             super().update_status(status_msg)
             self.view.persistence_status['text'] = persistence_msg
         except Exception as e:
             self._handle_persistence_error(e)
 
-    def _delete_translation(self, _):
+    def _delete_quiz(self, _):
         if self.view.update_bt['state'] == tkinter.DISABLED:
             return
         self.delete_bt_click_count += 1
@@ -153,13 +152,12 @@ class PersistenceController(Controller):
             self._handle_persistence_error(e)
 
     def bind_persistence_controls(self):
-        self.view.next_bt.bind("<Button-1>", self._next_translation)
-        self.view.previous_bt.bind("<Button-1>", self._previous_translation)
-        self.view.update_bt.bind("<Button-1>", self._update_translation)
-        self.view.delete_bt.bind("<Button-1>", self._delete_translation)
+        self.view.next_bt.bind("<Button-1>", self._next_quiz)
+        self.view.previous_bt.bind("<Button-1>", self._previous_quiz)
+        self.view.update_bt.bind("<Button-1>", self._update_quiz)
+        self.view.delete_bt.bind("<Button-1>", self._delete_quiz)
         if log.isEnabledFor(logging.DEBUG):
             log.debug('controller methods bound to view widgets')
-
 
 
 def main():

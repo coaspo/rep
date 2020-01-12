@@ -1,4 +1,4 @@
-Title Run pytest in translator
+Title Run pytest in quizzer
 call ./venv/Scripts/activate.bat
 set PYTHONPATH=.
 pytest tests/

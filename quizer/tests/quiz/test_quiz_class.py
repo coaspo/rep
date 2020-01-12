@@ -2,7 +2,7 @@ import quz
 import tests.t_util
 
 TMP_DIR = tests.t_util.recreate_tmp_dir(__file__)
-CONFIG = {'LOG_DIR': TMP_DIR, 'SAVED_QUIZES_DIR': TMP_DIR, 'LOG_LEVEL': 'DEBUG'}
+CONFIG = {'LOG_DIR': TMP_DIR, 'QUIZZES_DIR': TMP_DIR, 'LOG_LEVEL': 'DEBUG'}
 quz.util.set_logger(CONFIG)
 
 MARKED_USER_INPUT = '?What is 2+3\n' \
@@ -35,11 +35,12 @@ EXPECTED_QUESTION2_ANSWERS = {'answer1': {'is_correct': False,
 EXPECTED_DATA_DICT = {'latest_question_num': 1,
                       'num_of_completed_questions': 0,
                       'num_of_questions': 2,
+                      'marked_user_input': MARKED_USER_INPUT,
                       'question1': 'What is 2+3',
                       'question1_answers': EXPECTED_QUESTION1_ANSWERS,
                       'question2': '1*2 = ?',
                       'question2_answers': EXPECTED_QUESTION2_ANSWERS}
-QUIZ = quz.quiz.Quiz(MARKED_USER_INPUT)
+QUIZ = quz.quiz.Quiz(marked_user_input=MARKED_USER_INPUT)
 
 
 def test_class_initialize():
@@ -47,6 +48,11 @@ def test_class_initialize():
     question, question_answers = QUIZ.current_question()
     assert question == QUIZ['question1']
     assert question_answers == EXPECTED_QUESTION1_ANSWERS
+
+
+def test_marked_user_input():
+    assert QUIZ == EXPECTED_DATA_DICT
+    assert QUIZ.marked_user_input() == MARKED_USER_INPUT
 
 
 def test_next_question():

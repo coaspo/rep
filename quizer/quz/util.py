@@ -55,7 +55,7 @@ def set_logger(config: dict):
     root.setLevel(os.environ.get("LOGLEVEL", log_level))
     log_formatter = logging.Formatter("%(asctime)s %(filename)s:%(lineno)s - %(funcName)s() - %(message)s")
 
-    log_file_path = log_dir + "/translator-" + year_month + ".log"
+    log_file_path = log_dir + "/quizzer-" + year_month + ".log"
     handler = logging.FileHandler(log_file_path, 'a', 'utf-8')
     handler.setFormatter(log_formatter)
     root.addHandler(handler)

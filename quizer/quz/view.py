@@ -19,7 +19,6 @@ class View:
         if log.isEnabledFor(logging.DEBUG):
             log.debug("Finished")
 
-
     @property
     def clear_bt(self):
         return self._clear_bt
@@ -80,7 +79,7 @@ class View:
         self._init_persistence_menu(frame, light_yellow)
         frame.pack(fill=tkinter.BOTH, expand=False)
 
-    def _init_main_menu(self, frame, frame_color):
+    def _init_main_menu(self, frame, _):
         self._clear_bt = tkinter.Button(frame, text="  Clear  ")
         self._create_quiz_bt = tkinter.Button(frame, text="  Create Quiz  ", height=1)
         self._save_bt = tkinter.Button(frame, text="  Save  ", height=1)
@@ -116,14 +115,17 @@ class View:
         txt_frame = tkinter.Frame(root)
         self._input_frame = tkinter.scrolledtext.ScrolledText(txt_frame)
         self._input_frame.pack(side=tkinter.LEFT, pady=2, fill='both', expand=1)
-        #self._input_frame.grid(row=0, column=0, sticky=tkinter.NE, pady=2)
+        # self._input_frame.grid(row=0, column=0, sticky=tkinter.NE, pady=2)
 
         self._question_frame = tkinter.Frame(txt_frame)
-        self._question = tkinter.Label(self._question_frame, text="Select the correct statmenet(s)", fg="blue", bg='white')
+        self._question = tkinter.Label(self._question_frame, text="Select the correct statmenet(s)", fg="blue",
+                                       bg='white')
         self._is_check_A = tkinter.IntVar()
         self._is_check_B = tkinter.IntVar()
-        self._check_A = tkinter.Checkbutton(self._question_frame, text="answer a", bg='white', variable=self._is_check_A)
-        self._check_B = tkinter.Checkbutton(self._question_frame, text="answer B---\nthis is long", bg='white', variable=self._is_check_B)
+        self._check_A = tkinter.Checkbutton(self._question_frame, text="answer a", bg='white',
+                                            variable=self._is_check_A)
+        self._check_B = tkinter.Checkbutton(self._question_frame, text="answer B---\nthis is long", bg='white',
+                                            variable=self._is_check_B)
         self._submit_bt = tkinter.Button(self._question_frame, text="  Submit  ")
         self._next_question_bt = tkinter.Button(self._question_frame, text=u' \u25BA  ', height=1)
         self._previous_question_bt = tkinter.Button(self._question_frame, text=u' \u25C4 ', height=1)
@@ -133,11 +135,9 @@ class View:
         self._check_B.grid(row=2, column=0, sticky=tkinter.W, pady=2)
         self._submit_bt.grid(row=7, column=0, sticky=tkinter.W, pady=2)
         self._next_question_bt.grid(row=7, column=1, sticky=tkinter.W, pady=2)
-        self._previous_question_bt.grid(row=7, column=2
-
-                                        , sticky=tkinter.W, pady=2)
+        self._previous_question_bt.grid(row=7, column=2, sticky=tkinter.W, pady=2)
         self._question_frame.pack(side=tkinter.LEFT, pady=2, fill='both', expand=1)
-       #self._question_frame.grid(row=0, column=1, sticky=tkinter.NESW, pady=2)
+        # self._question_frame.grid(row=0, column=1, sticky=tkinter.NESW, pady=2)
         txt_frame.pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
 
     def _init_bottom(self, root, instructions: str):

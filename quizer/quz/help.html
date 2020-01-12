@@ -1,25 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Word translator</title>
+    <title>Quiz maker/giver</title>
 </head>
 <body>
-Application translates one word at a time.<br>
-One can infer and save a more accurate translation.
+Application creates a quiz based on marked text that the user enters.<br>
+For example:
+<pre>
+? Select the true statement below
++F=ma
+-F=m+a
+-F=ma^2
+</pre>
+The user may then take the quiz.
+Application it starts with the question t
+
+hat it was closed.
 <p>Recommendations:</p>
 <ul>
-    <li>Change languages that are listed first at the combobox,<br>
-        by editing <b><code>ltrans/config_trans.json</code></b></li>
-    <li>Adjust word translations by editing files in <b><code>ltrans/dictionaries</code></b></li>
-    <li>For a few languages such as Russian and Greek,<br>
-        select <b><code>Transliteration</code></b> checkbox <br>
-        to get a rough pronunciation of source or destination words.<br>
-        Transliteration converts non-latin characters to latin characters.</li>
-    <li>Adjust translations and add comments before clicking <b>Save</b></li>
-    <li>Correct saved translations/comments and click <b>Update</b></li>
-    <li>Rename and number saved translations in <b><code>ltrans/save_quizes</code></b>.<br>
-        Because files are sorted, you may include a number prefix.</li>
-    <li>Prevent accidental deletes - make files in <b><code>ltrans/save_quizes</code> <i>Read-Only</i></b></li>
+    <li>Correct quizzes - change marked text and click <b>Update</b></li>
+    <li>Rename quiz files <b><code>ltrans/squiz_files</code></b>. using the<br>
+        format: %lt;text%gt;.%lt;number&gt;.json  - for example: infix-functions-quiz.4.json.
+        the number must be unique.  Application loops through a sorted file name.<b>
+        </b></li>
+    <li>Prevent accidental deletes - make files in <b><code>ltrans/squiz_files</code> <i>Read-Only</i></b></li>
 </ul>
 Technical info: <a href="../README.rst">README.rst</a>
 </body>

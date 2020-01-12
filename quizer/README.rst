@@ -1,10 +1,7 @@
-translator
-==========
+Quizzer
+=======
 Project illustrates MVC in python.
-
-It uses **googletranslate** and saves translated words into
-a local json file.
-User input and translation may be saved and viewed later.
+It may be used to make and practice quizzes.
 
 .. contents:: Contents:
 
@@ -20,7 +17,7 @@ Run app
 |  ``python cli.py``
 |
 |  May review info and error MSGs in:
-|  ``logs\translator-YYYY-MM.log``
+|  ``logs\quizzer-YYYY-MM.log``
 
 Run tests
 ---------
@@ -30,7 +27,7 @@ Run tests
 |   select a test and > "run pytest"
 |
 |  **Outside pycharm:**
-|   Double click ``c:\..\translator\run-tests.bat``
+|   Double click ``c:\..\quizzer\run-tests.bat``
 
 Notes
 -----
@@ -39,13 +36,13 @@ Notes
 |    ``virtualenv venv``
 |
 |    **Work in pycharm:**
-|     >File >Settings >Project:translator
+|     >File >Settings >Project:quizzer
 |     Should be able to select:
-|     ``c:\..\translator\venv\Scripts\python.exe``
+|     ``c:\..\quizzer\venv\Scripts\python.exe``
 |
 |    **Work outside pycharm:**
 |     Activate venv (add bin to ``%PATH%``)
-|       ``cd c:\..\translator``
+|       ``cd c:\..\quizzer``
 |       ``.\venv\Scripts\activate.bat``
 |       When done, deactivate Path. ``%PATH%``:
 |       ``.\venv\Scripts\deactivate.bat``
@@ -58,11 +55,6 @@ Problems/Solutions
 | Cannot run pytest (rt click tests dir ..)
 | **FIX:** >File >Settings >Tools >Python-Integrated-Tools,
 | change >Default-test-runner to pytest
-|
-| ``E   ModuleNotFoundError: No module named 'googletrans'``
-| **FIX:** Click on ``import googletrans`` and slect fix
-| Cause(?): ``venv`` created before running:
-|   ``pip install -r requirements.txt``
 |
 | on running pytest: ``found = cls._search_paths(context.pattern, context.path) AttributeError: 'str' object has no attribute 'pattern'``
 | **FIX:** from project dir, run ``./venv/Scripts/activate.bat``
