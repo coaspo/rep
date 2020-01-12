@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Quiz maker/giver</title>
+</head>
+<body>
+Application creates a quiz based on marked text that the user enters.<br>
+For example:
+<pre>
+? Select the true statement below
++F=ma
+-F=m+a
+-F=ma^2
+</pre>
+The user may then take the quiz.
+Application it starts with the question t
+
+hat it was closed.
+<p>Recommendations:</p>
+<ul>
+    <li>Correct quizzes - change marked text and click <b>Update</b></li>
+    <li>Rename quiz files <b><code>ltrans/squiz_files</code></b>. using the<br>
+        format: %lt;text%gt;.%lt;number&gt;.json  - for example: infix-functions-quiz.4.json.
+        the number must be unique.  Application loops through a sorted file name.<b>
+        </b></li>
+    <li>Prevent accidental deletes - make files in <b><code>ltrans/squiz_files</code> <i>Read-Only</i></b></li>
+</ul>
+Technical info: <a href="../README.rst">README.rst</a>
+</body>
+</html>

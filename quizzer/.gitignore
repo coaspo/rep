@@ -1,0 +1,14 @@
+tmp/**
+tmp*
+venv/**
+quizzes/**
+quz/dictionaries/**
+quz/saved-quizes/**
+
+.idea
+*.pyc
+**.log
+**.bak
+**.tmp
+ltrans.egg*
+a.py*
