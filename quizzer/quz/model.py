@@ -7,8 +7,7 @@ log = logging.getLogger(__name__)
 
 
 class Model:
-    def __init__(self, config: dict, persistence: AbstractPersistence):
-        self._config = config
+    def __init__(self, persistence: AbstractPersistence):
         self._persistence = persistence
 
     @property
@@ -20,21 +19,19 @@ class Model:
         status_msg = self.persistence.save(quiz)
         return status_msg
 
-    def next_quiz(self) -> tuple:
+    def next_quiz(self) -> (str, str, Quiz):
         status_msg, persistence_msg, quiz = self.persistence.get_next()
         return status_msg, persistence_msg, quiz
 
-    def previous_quiz(self) -> tuple:
+    def previous_quiz(self) -> (str, str, Quiz):
         status_msg, persistence_msg, quiz = self.persistence.get_previous()
         return status_msg, persistence_msg, quiz
 
-    def delete_quiz(self) -> tuple:
+    def delete_quiz(self) -> (str, str):
         status_msg, persistence_msg = self.persistence.delete()
         return status_msg, persistence_msg
 
-    def update_quiz(self,  marked_user_input: str) -> tuple:
+    def update_quiz(self, marked_user_input: str) -> (str, str):
         quiz = Quiz(marked_user_input=marked_user_input)
         status_msg, persistence_msg = self.persistence.update(quiz)
         return status_msg, persistence_msg
-
-

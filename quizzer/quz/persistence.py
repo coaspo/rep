@@ -8,55 +8,54 @@ import os.path
 import traceback
 from quz.quiz import Quiz
 
-
 log = logging.getLogger(__name__)
 
 
 class AbstractPersistence(metaclass=abc.ABCMeta):
 
     @abc.abstractmethod
-    def save(self, quiz: Quiz) -> str:
+    def save(self, app_data: dict) -> str:
         pass
 
     @abc.abstractmethod
-    def get(self) -> tuple:
+    def get(self) -> (str, str, Quiz):
         pass
 
     @abc.abstractmethod
-    def get_next(self) -> tuple:
+    def get_next(self) -> (str, str, Quiz):
         pass
 
     @abc.abstractmethod
-    def get_previous(self) -> tuple:
+    def get_previous(self) -> (str, str, Quiz):
         pass
 
     @abc.abstractmethod
-    def delete(self) -> tuple:
+    def delete(self) -> (str, str):
         pass
 
     @abc.abstractmethod
-    def update(self, quiz: Quiz) -> tuple:
+    def update(self, quiz: dict) -> (str, str):
         pass
 
 
-class FileStorage:
-    def __init__(self, config: dict):
-        self._config = config
+class JsonFileStorage:
+    def __init__(self, config_save_dir: str):
         self._save_dir = self._latest_file_number = self._active_file_index = self._files_paths = None
-        self._initialize()
+        self._initialize(config_save_dir)
 
-    def _initialize(self):
-        self._save_dir, err_msg = self._get_save_dir()
+    def _initialize(self, config_save_dir):
+        self._save_dir, err_msg = JsonFileStorage._get_save_dir(config_save_dir)
         if err_msg is None:
-            self._latest_file_number, self._files_paths = FileStorage._get_file_paths(self._save_dir)
+            self._latest_file_number, self._files_paths = JsonFileStorage._get_file_paths(self._save_dir)
             self._active_file_index = len(self._files_paths) - 1
         else:
-            raise Exception('FileStorage failed - ' + err_msg)
+            raise Exception('JsonFileStorage failed - ' + err_msg)
 
-    def _get_save_dir(self) -> tuple:
-        if self._config is None or self._config.get('QUIZZES_DIR') is None:
-            return None, 'config missing parameter "QUIZZES_DIR"'
-        save_dir = self._config['QUIZZES_DIR']
+    @staticmethod
+    def _get_save_dir(config_save_dir) -> (str, str):
+        if config_save_dir is None:
+            return None, 'missing config_save_dir'
+        save_dir = config_save_dir
         if save_dir.startswith("./"):
             save_dir = os.path.dirname(__file__) + save_dir[1:]
         save_dir = os.path.abspath(save_dir)
@@ -74,7 +73,7 @@ class FileStorage:
         return save_dir, None
 
     @staticmethod
-    def _get_file_paths(save_dir: str) -> tuple:
+    def _get_file_paths(save_dir: str) -> (str, str):
         file_paths = glob.glob(save_dir + '/*.json')
         if len(file_paths) == 0:
             return 0, []
@@ -94,16 +93,16 @@ class FileStorage:
             latest_file_number = max(file_nums)
         return latest_file_number, proper_formatted_file_paths
 
-    def save_file(self, quiz: dict) -> str:
+    def save_file(self, app_data: dict, file_pfx) -> str:
         file_num = self._latest_file_number + 1
         file_index = self._active_file_index + 1
-        file_path = self._save_dir + '/quiz.' + str(file_num) + '.json'
+        file_path = self._save_dir + '/' + file_pfx + '.' + str(file_num) + '.json'
         if file_index > len(self._files_paths):
             raise SystemError(
                 f'Index Error:  _file_path_index= {file_index}' +
                 f'(len(_files_paths)={len(self._files_paths)})')
         with open(file_path, "w", encoding='utf8') as f:
-            json.dump(quiz, f, ensure_ascii=False, sort_keys=False, indent=0)
+            json.dump(app_data, f, ensure_ascii=False, sort_keys=False, indent=0)
 
         self._files_paths.append(file_path)
         self._latest_file_number = file_num
@@ -112,9 +111,9 @@ class FileStorage:
             log.debug(f'file_path={file_path}')
         return file_path
 
-    def update_file(self, quiz: Quiz) -> tuple:
+    def update_file(self, app_data: Quiz) -> (str, str):
         with open(self._files_paths[self._active_file_index], "w", encoding='utf8') as f:
-            json.dump(quiz, f, ensure_ascii=False, sort_keys=False, indent=0)
+            json.dump(app_data, f, ensure_ascii=False, sort_keys=False, indent=0)
         if log.isEnabledFor(logging.DEBUG):
             log.debug(f'file_path={self._files_paths[self._active_file_index]}')
         return self._file_info(), 'Updated: ' + self._file_name()
@@ -131,15 +130,15 @@ class FileStorage:
 
     def _validate_file_paths(self):
         if len(self._files_paths) == 0:
-            raise FileExistsError(f'There are no quiz files in: {self._save_dir}')
+            raise FileExistsError(f'There are no "<prefix>.<unique-num>.json" files in: {self._save_dir}')
 
-    def read_active_file(self) -> tuple:
+    def read_active_file(self) -> (str, str, dict):
         file_path = self._files_paths[self._active_file_index]
         try:
             with open(file_path, "r", encoding='utf8') as f:
                 data_dict = json.load(f)
         except OSError:
-            self._initialize()
+            self._initialize(self._save_dir)
             file_path = self._files_paths[self._active_file_index]
             with open(file_path, "r", encoding='utf8') as f:
                 data_dict = json.load(f)
@@ -157,7 +156,7 @@ class FileStorage:
             log.debug(f'file_path={file_path}')
         return file_path
 
-    def _file_name(self):
+    def _file_name(self) -> str:
         file_num = str(self._active_file_index + 1)
         file_path = self._files_paths[self._active_file_index]
         file_name = os.path.basename(file_path)
@@ -165,7 +164,7 @@ class FileStorage:
         info = file_num + '.  ' + file_name
         return info
 
-    def _file_info(self):
+    def _file_info(self) -> str:
         file_path = self._files_paths[self._active_file_index]
         seconds_since_created = os.path.getmtime(file_path)
         create_ts = datetime.datetime.utcfromtimestamp(seconds_since_created).isoformat()[:22]
@@ -177,45 +176,47 @@ class FileStorage:
         return info
 
 
-class Persistence(AbstractPersistence):
+class FilePersistence(AbstractPersistence):
     file_storage_err_msg = True
 
     def __init__(self, config: dict):
         try:
-            self._file_storage = FileStorage(config)
-            Persistence.file_storage_err_msg = None
+            config_save_dir = config.get('QUIZZES_DIR')
+            self._file_storage = JsonFileStorage(config_save_dir)
+            self._quiz_file_pfx = config.get('QUIZ_FILE_PFX')
+            FilePersistence.file_storage_err_msg = None
         except Exception as e:
-            Persistence.file_storage_err_msg = str(e)
+            FilePersistence.file_storage_err_msg = str(e)
 
     @staticmethod
     def validate_file_storage():
-        if Persistence.file_storage_err_msg is not None:
-            raise Exception(Persistence.file_storage_err_msg)
+        if FilePersistence.file_storage_err_msg is not None:
+            raise Exception(FilePersistence.file_storage_err_msg)
 
     def save(self, quiz: dict) -> str:
-        Persistence.validate_file_storage()
-        file_path = self._file_storage.save_file(quiz)
-        return 'Saved quiz text in: ' + file_path
+        FilePersistence.validate_file_storage()
+        file_path = self._file_storage.save_file(quiz, self._quiz_file_pfx)
+        return 'Saved quiz into: ' + file_path
 
-    def get(self) -> tuple:
-        Persistence.validate_file_storage()
+    def get(self) -> (str, str, Quiz):
+        FilePersistence.validate_file_storage()
         status_msg, file_name, data_dict = self._file_storage.read_active_file()
         quiz = Quiz(quiz_data=data_dict)
         return status_msg, file_name, quiz
 
-    def get_next(self) -> tuple:
+    def get_next(self) -> (str, str, Quiz):
         self._file_storage.increment_file_index()
         return self.get()
 
-    def get_previous(self) -> tuple:
+    def get_previous(self) -> (str, str, Quiz):
         self._file_storage.decrement_file_index()
         return self.get()
 
-    def delete(self) -> tuple:
-        Persistence.validate_file_storage()
-        return self._file_storage.delete_active_file(), 'Deleted file'
+    def delete(self) -> (str, str):
+        FilePersistence.validate_file_storage()
+        return self._file_storage.delete_active_file(), 'Deleted quiz'
 
-    def update(self, quiz: Quiz) -> tuple:
-        Persistence.validate_file_storage()
+    def update(self, quiz: Quiz) -> (str, str):
+        FilePersistence.validate_file_storage()
         file_info, update_msg = self._file_storage.update_file(quiz)
         return file_info, update_msg

@@ -12,8 +12,8 @@ NON_LETTERS_REGEX = '\'|[0-9]+' + non_letters_regex
 
 
 class Config(dict):
-    APP_INSTRUCTIONS = 'In separate lines, enter ? followed by a question, + followed by correct reply(s), \
-     - followed by incorrect reply(s),  and optionally = followed by a comment.'
+    APP_INSTRUCTIONS = 'Type ?+-= followed by question/correct-answer/incorrect-answer/comment respectively;\
+     2/7 min/max answers and one comment.'
     SAVE_INSTRUCTIONS = 'May change any text before clicking Save.'
 
     def __init__(self, config_file_path=None, **kw):

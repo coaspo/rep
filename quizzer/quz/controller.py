@@ -1,9 +1,7 @@
 from quz.model import Model
-from quz.persistence import Persistence
-from quz.quiz import QuizDataError
-from quz.quiz import Quiz
-from quz.util import Config
-from quz.util import set_logger
+from quz.persistence import FilePersistence
+from quz.quiz import QuizDataError, Quiz
+from quz.util import Config, set_logger
 from quz.view import View
 import json
 import logging
@@ -17,6 +15,7 @@ log = logging.getLogger(__name__)
 
 class Controller:
     def __init__(self, view: View, model: Model):
+        self.delete_bt_click_count = 0
         self.view = view
         self.model = model
         self.delete_bt_click_count = 0
@@ -31,8 +30,8 @@ class Controller:
         self.update_status(Config.APP_INSTRUCTIONS)
         self.view.delete_bt.config(state=tkinter.DISABLED)
         self.view.update_bt.config(state=tkinter.DISABLED)
-        self.view.input_frame.delete_current_file('1.0', tkinter.END)
-        self.view.output_frame.delete_current_file('1.0', tkinter.END)
+        self.view.input_frame.delete('1.0', tkinter.END)
+        # self.view.output_frame.delete('1.0', tkinter.END)
         self.view.persistence_status['text'] = ''
 
     def handle_exception(self, msg: str, exc=None):
@@ -99,7 +98,7 @@ class PersistenceController(Controller):
         self.view.persistence_status['text'] = 'See error below or in log file'
 
     def _populate_all_widgets(self, status_msg: str, persistence_msg: str, quiz: Quiz):
-        self.view.input_frame.delete_current_file('1.0', tkinter.END)
+        self.view.input_frame.delete('1.0', tkinter.END)
         # self.view.save_bt.config(state=tkinter.DISABLED)
         self.view.input_frame.insert(tkinter.END, quiz.marked_user_input())
         status_msg = status_msg + ';  may change text and click Update, or click Delete'
@@ -128,8 +127,8 @@ class PersistenceController(Controller):
         if self.view.delete_bt['state'] == tkinter.DISABLED:
             return
         try:
-            quiz = None #TODO
-            status_msg, persistence_msg = self.model.persistence.update(quiz)
+            marked_user_input = self.view.input_frame.get("1.0", tkinter.END)
+            status_msg, persistence_msg = self.model.update_quiz(marked_user_input)
             super().update_status(status_msg)
             self.view.persistence_status['text'] = persistence_msg
         except Exception as e:
@@ -147,7 +146,7 @@ class PersistenceController(Controller):
                 assert status_msg in self.view.status_label['text']
                 self.view.status_label['text'] = status_msg
                 self.view.persistence_status['text'] = persistence_msg
-                self.delete_bt_click_count == 0
+                self.delete_bt_click_count = 0
         except Exception as e:
             self._handle_persistence_error(e)
 
@@ -170,8 +169,8 @@ def main():
 
         v = View(Config.APP_INSTRUCTIONS)
 
-        persistence = Persistence(config)
-        m = Model(config, persistence)
+        persistence = FilePersistence(config)
+        m = Model(persistence)
 
         c = QuizController(v, m)
         c.bind_quiz_controls()

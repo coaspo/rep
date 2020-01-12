@@ -131,7 +131,7 @@ class View:
         self._previous_question_bt = tkinter.Button(self._question_frame, text=u' \u25C4 ', height=1)
 
         self._question.grid(row=0, column=0, sticky=tkinter.W, pady=2)
-        self._check_A.grid(row=1, column=0, sticky=tkinter.W, pady=2)
+        # self._check_A.grid(row=1, column=0, sticky=tkinter.W, pady=2)
         self._check_B.grid(row=2, column=0, sticky=tkinter.W, pady=2)
         self._submit_bt.grid(row=7, column=0, sticky=tkinter.W, pady=2)
         self._next_question_bt.grid(row=7, column=1, sticky=tkinter.W, pady=2)

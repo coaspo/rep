@@ -62,10 +62,6 @@ class Quiz(dict):
 
         self._initial_len = len(self.keys())
 
-    @property
-    def quiz_file_path(self) -> str:
-        return self._quiz_file_path
-
     def marked_user_input(self) -> str:
         return self['marked_user_input']
 

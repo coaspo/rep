@@ -2,13 +2,12 @@ tmp/**
 tmp*
 venv/**
 quizzes/**
-quz/dictionaries/**
-quz/saved-quizes/**
+quz/quizzes/**
 
 .idea
 *.pyc
 **.log
 **.bak
 **.tmp
-ltrans.egg*
+quz.egg*
 a.py*

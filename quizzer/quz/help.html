@@ -1,30 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>Quiz maker/giver</title>
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <style>
+         b {}
+         code {color:green; font-weight: 999; font-size:16px}
+         pre {font-family: Arial, Helvetica, sans-serif}
+         body {font-family: Arial, Helvetica, sans-serif}
+         id {color:green; font-family: "Courier New", Courier, monospace}
+      </style>
+      <meta charset="utf-8"/>
+      <title>Create & practice quizzes</title>
+   </head>
 </head>
 <body>
-Application creates a quiz based on marked text that the user enters.<br>
-For example:
 <pre>
-? Select the true statement below
-+F=ma
--F=m+a
--F=ma^2
+Application is to be used to help study.
+It creates a quiz based questions/answers in marked text
+with the markers <code>? + - = </code>,for example:
+    <code>
+    ? Select correct statement(s)
+    +a, b = b, a
+    -[print(x) for x in a_list if x > 10]
+    -[if x > 10 print(x) for x in a_list]
+    =best features in python
+    </code>
+that the user enters.  <code>? + - = </code> marks the question/answer/comment lines.
+After one takes the quiz the application displays the score.
 </pre>
-The user may then take the quiz.
-Application it starts with the question t
-
-hat it was closed.
 <p>Recommendations:</p>
 <ul>
+    <li>Customize quiz file names; adjust <code>QUIZ_FILE_PFX</code> in <code>quz\config_quizzer.json</code></li>
     <li>Correct quizzes - change marked text and click <b>Update</b></li>
-    <li>Rename quiz files <b><code>ltrans/squiz_files</code></b>. using the<br>
-        format: %lt;text%gt;.%lt;number&gt;.json  - for example: infix-functions-quiz.4.json.
-        the number must be unique.  Application loops through a sorted file name.<b>
-        </b></li>
-    <li>Prevent accidental deletes - make files in <b><code>ltrans/squiz_files</code> <i>Read-Only</i></b></li>
+    <li>Rename quiz files <code>quz/quizzes</code>. using the format:<br>
+        <code>&lt;text&gt;.&lt;number&gt;.json</code>  - for example:<br>
+        <code>python-classes-quiz.4.json</code><br>
+        where <code>4</code> is unique in all file names.<br>
+        Application loops through a sorted file name.</li>
+    <li>Prevent accidental deletes - make files in <code>quz/quizzes</code> <i>Read-Only</i></li>
 </ul>
 Technical info: <a href="../README.rst">README.rst</a>
+
 </body>
 </html>

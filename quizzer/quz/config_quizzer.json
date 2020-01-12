@@ -2,5 +2,6 @@
 "LOG_DIR": "./logs",
 "LOG_LEVEL": "INFO",
 "LOG_LEVELS" : "CRITICAL, ERROR, WARNING, INFO, DEBUG, NOTSET",
-"QUIZZES_DIR": "./quizzes"
+"QUIZZES_DIR": "./quizzes",
+"QUIZ_FILE_PFX": "python-quiz"
 }

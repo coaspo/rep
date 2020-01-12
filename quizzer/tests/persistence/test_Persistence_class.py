@@ -1,36 +1,36 @@
 import quz.model
 import tests.t_util
-from quz.persistence import Persistence
+from quz.persistence import FilePersistence
 
 TMP_DIR = tests.t_util.recreate_tmp_dir(__file__)
-CONFIG = {'LOG_DIR': TMP_DIR, 'QUIZZES_DIR': TMP_DIR, 'LOG_LEVEL': 'CRITICAL'}
+CONFIG = {'LOG_DIR': TMP_DIR, 'QUIZZES_DIR': TMP_DIR, 'LOG_LEVEL': 'CRITICAL', 'QUIZ_FILE_PFX': 'quiz'}
 
 quz.util.set_logger(CONFIG)
 
 
 def test_invalid_directories():
     config = {}
-    Persistence(config)
-    assert Persistence.file_storage_err_msg == 'FileStorage failed - config missing parameter "QUIZZES_DIR"'
+    FilePersistence(config)
+    assert FilePersistence.file_storage_err_msg == 'JsonFileStorage failed - missing config_save_dir'
 
     config = {'QUIZZES_DIR': '/non-dir/fake-dir'}
-    Persistence(config)
-    assert Persistence.file_storage_err_msg.find(
-        "FileStorage failed - [WinError 3] The system cannot find the path specified") > -1
+    FilePersistence(config)
+    assert FilePersistence.file_storage_err_msg.find(
+        "JsonFileStorage failed - [WinError 3] The system cannot find the path specified") > -1
 
     config = {'QUIZZES_DIR': './xyz:\n'}
-    persistence = Persistence(config)
+    persistence = FilePersistence(config)
     assert persistence.file_storage_err_msg.find(
-        "FileStorage failed - [WinError 267] The directory name is invalid") > -1
+        "JsonFileStorage failed - [WinError 267] The directory name is invalid") > -1
 
 
 def test_obj_attrs():
-    persistence = Persistence(CONFIG)
+    persistence = FilePersistence(CONFIG)
     assert persistence.file_storage_err_msg is None
 
 
 def test_save():
-    persistence = Persistence(CONFIG)
+    persistence = FilePersistence(CONFIG)
 
     quiz = {'fake..ques..': 'a'}
     msg = persistence.save(quiz)
@@ -42,7 +42,7 @@ def test_save():
 
 
 def test_get():
-    persistence = Persistence(CONFIG)
+    persistence = FilePersistence(CONFIG)
     file_path, msg, quiz = persistence.get()
     assert 'quiz.2.json' in file_path
     assert msg == '2.  quiz.2'
@@ -50,7 +50,7 @@ def test_get():
 
 
 def test_get_previous():
-    persistence = Persistence(CONFIG)
+    persistence = FilePersistence(CONFIG)
     file_path, msg, quiz = persistence.get_previous()
     assert 'quiz.1.json' in file_path
     assert msg == '1.  quiz.1'
@@ -62,7 +62,7 @@ def test_get_previous():
 
 
 def test_get_next():
-    persistence = Persistence(CONFIG)
+    persistence = FilePersistence(CONFIG)
     file_path, msg, quiz = persistence.get_next()
     assert 'quiz.2.json' in file_path
     assert msg == '2.  quiz.2'
@@ -74,7 +74,7 @@ def test_get_next():
 
 
 def test_delete():
-    persistence = Persistence(CONFIG)
+    persistence = FilePersistence(CONFIG)
     persistence.delete()
 
     file_path, msg, quiz = persistence.get()
@@ -84,7 +84,7 @@ def test_delete():
 
 
 def test_update():
-    persistence = Persistence(CONFIG)
+    persistence = FilePersistence(CONFIG)
     quiz_new = {'real?..ques..': 'A'}
     persistence.update(quiz_new)
 
