@@ -141,9 +141,9 @@ def possibly_add_extra_lines(input_lines: list, translated_lines: list, user_inp
     if user_input.is_add_src:
         output_lines = input_lines.copy()
         if user_input.is_add_transliteration:
-            trasliteration_lines = transliterate_lines(input_lines, user_input.src_language)
-            if trasliteration_lines is not None:
-                output_lines = [a + '\n' + b for a, b in zip(output_lines, trasliteration_lines)]
+            transliteration_lines = transliterate_lines(input_lines, user_input.src_language)
+            if transliteration_lines is not None and transliteration_lines != []:
+                output_lines = [a + '\n' + b for a, b in zip(output_lines, transliteration_lines)]
 
     if output_lines is None:
         output_lines = translated_lines
@@ -151,9 +151,9 @@ def possibly_add_extra_lines(input_lines: list, translated_lines: list, user_inp
         output_lines = [a + '\n' + b for a, b in zip(output_lines, translated_lines)]
 
     if user_input.is_add_transliteration:
-        trasliteration_lines = transliterate_lines(translated_lines, user_input.destination_language)
-        if trasliteration_lines is not None:
-            output_lines = [a + '\n' + b for a, b in zip(output_lines, trasliteration_lines)]
+        transliteration_lines = transliterate_lines(translated_lines, user_input.destination_language)
+        if transliteration_lines is not None and transliteration_lines != []:
+            output_lines = [a + '\n' + b for a, b in zip(output_lines, transliteration_lines)]
 
     if output_lines != translated_lines:
         output_lines = [line + '\n' for line in output_lines]
@@ -207,7 +207,7 @@ def translate_word(word: str, dictionary: Dictionary, translator: googletrans.cl
         # translation.transliteration is always none , need google account?
     if word[0:1].isupper():
         w = translated_word[0:1].upper() + translated_word[1:]
-        translated_word = w  # to avoid repeating firstr ltr (?)
+        translated_word = w  # to avoid repeating first ltr (?)
     if log.isEnabledFor(logging.DEBUG):
         log.debug(f'     translated_word={translated_word}')
     return translated_word

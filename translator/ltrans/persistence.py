@@ -194,8 +194,6 @@ class FileStorage:
         create_ts = create_ts[2:10] + ' ' + create_ts[11:16]
         day_index = datetime.datetime.utcfromtimestamp(seconds_since_created).weekday()
         count = str(self._file_paths_index + 1) + '/' + str(len(self._files_paths))
-        file_name = os.path.basename(file_path)
-        file_name = file_name[:len(file_name) - 5]
         info = count + '  ' + file_path + '  ' + create_ts + ' ' + calendar.day_name[day_index][0:3]
         return info
 
@@ -224,7 +222,7 @@ class FilePersistence(Persistence):
 
     def next_translation(self) -> tuple:
         FilePersistence.validate_file_storage()
-        status_msg, file_name, translation = self._file_storage.read_prev()
+        status_msg, file_name, translation = self._file_storage.read_next()
         Persistence.validate_translation_keys(translation)
         return status_msg, file_name, translation
 

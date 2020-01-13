@@ -6,7 +6,6 @@ import json
 import logging
 import os.path
 import traceback
-from quz.quiz import Quiz
 
 log = logging.getLogger(__name__)
 
@@ -14,19 +13,19 @@ log = logging.getLogger(__name__)
 class AbstractPersistence(metaclass=abc.ABCMeta):
 
     @abc.abstractmethod
-    def save(self, app_data: dict) -> str:
+    def save(self, data_dict: dict) -> str:
         pass
 
     @abc.abstractmethod
-    def get(self) -> (str, str, Quiz):
+    def get(self, create_domain_dct_object) -> (str, str, dict):
         pass
 
     @abc.abstractmethod
-    def get_next(self) -> (str, str, Quiz):
+    def get_next(self, create_domain_dct_object) -> (str, str, dict):
         pass
 
     @abc.abstractmethod
-    def get_previous(self) -> (str, str, Quiz):
+    def get_previous(self, create_domain_dct_object) -> (str, str, dict):
         pass
 
     @abc.abstractmethod
@@ -34,17 +33,17 @@ class AbstractPersistence(metaclass=abc.ABCMeta):
         pass
 
     @abc.abstractmethod
-    def update(self, quiz: dict) -> (str, str):
+    def update(self, data_dict: dict) -> (str, str):
         pass
 
 
 class JsonFileStorage:
-    def __init__(self, config_save_dir: str):
+    def __init__(self, save_dir: str):
         self._save_dir = self._latest_file_number = self._active_file_index = self._files_paths = None
-        self._initialize(config_save_dir)
+        self._initialize(save_dir)
 
-    def _initialize(self, config_save_dir):
-        self._save_dir, err_msg = JsonFileStorage._get_save_dir(config_save_dir)
+    def _initialize(self, save_dir):
+        self._save_dir, err_msg = JsonFileStorage._get_save_dir(save_dir)
         if err_msg is None:
             self._latest_file_number, self._files_paths = JsonFileStorage._get_file_paths(self._save_dir)
             self._active_file_index = len(self._files_paths) - 1
@@ -52,10 +51,10 @@ class JsonFileStorage:
             raise Exception('JsonFileStorage failed - ' + err_msg)
 
     @staticmethod
-    def _get_save_dir(config_save_dir) -> (str, str):
-        if config_save_dir is None:
-            return None, 'missing config_save_dir'
-        save_dir = config_save_dir
+    def _get_save_dir(save_dir) -> (str, str):
+        if save_dir is None:
+            return None, 'missing save_dir'
+        save_dir = save_dir
         if save_dir.startswith("./"):
             save_dir = os.path.dirname(__file__) + save_dir[1:]
         save_dir = os.path.abspath(save_dir)
@@ -93,7 +92,7 @@ class JsonFileStorage:
             latest_file_number = max(file_nums)
         return latest_file_number, proper_formatted_file_paths
 
-    def save_file(self, app_data: dict, file_pfx) -> str:
+    def save_file(self, data_dictt: dict, file_pfx) -> str:
         file_num = self._latest_file_number + 1
         file_index = self._active_file_index + 1
         file_path = self._save_dir + '/' + file_pfx + '.' + str(file_num) + '.json'
@@ -102,7 +101,7 @@ class JsonFileStorage:
                 f'Index Error:  _file_path_index= {file_index}' +
                 f'(len(_files_paths)={len(self._files_paths)})')
         with open(file_path, "w", encoding='utf8') as f:
-            json.dump(app_data, f, ensure_ascii=False, sort_keys=False, indent=0)
+            json.dump(data_dictt, f, ensure_ascii=False, sort_keys=False, indent=0)
 
         self._files_paths.append(file_path)
         self._latest_file_number = file_num
@@ -111,9 +110,9 @@ class JsonFileStorage:
             log.debug(f'file_path={file_path}')
         return file_path
 
-    def update_file(self, app_data: Quiz) -> (str, str):
+    def update_file(self, data_dictt: dict) -> (str, str):
         with open(self._files_paths[self._active_file_index], "w", encoding='utf8') as f:
-            json.dump(app_data, f, ensure_ascii=False, sort_keys=False, indent=0)
+            json.dump(data_dictt, f, ensure_ascii=False, sort_keys=False, indent=0)
         if log.isEnabledFor(logging.DEBUG):
             log.debug(f'file_path={self._files_paths[self._active_file_index]}')
         return self._file_info(), 'Updated: ' + self._file_name()
@@ -179,11 +178,10 @@ class JsonFileStorage:
 class FilePersistence(AbstractPersistence):
     file_storage_err_msg = True
 
-    def __init__(self, config: dict):
+    def __init__(self, save_dir: str, file_pfx: str):
         try:
-            config_save_dir = config.get('QUIZZES_DIR')
-            self._file_storage = JsonFileStorage(config_save_dir)
-            self._quiz_file_pfx = config.get('QUIZ_FILE_PFX')
+            self._file_storage = JsonFileStorage(save_dir)
+            self._file_pfx = file_pfx
             FilePersistence.file_storage_err_msg = None
         except Exception as e:
             FilePersistence.file_storage_err_msg = str(e)
@@ -193,30 +191,31 @@ class FilePersistence(AbstractPersistence):
         if FilePersistence.file_storage_err_msg is not None:
             raise Exception(FilePersistence.file_storage_err_msg)
 
-    def save(self, quiz: dict) -> str:
+    def save(self, data_dict: dict) -> str:
         FilePersistence.validate_file_storage()
-        file_path = self._file_storage.save_file(quiz, self._quiz_file_pfx)
+        file_path = self._file_storage.save_file(data_dict, self._file_pfx)
         return 'Saved quiz into: ' + file_path
 
-    def get(self) -> (str, str, Quiz):
+    def get(self, create_domain_object) -> (str, str, dict):
         FilePersistence.validate_file_storage()
         status_msg, file_name, data_dict = self._file_storage.read_active_file()
-        quiz = Quiz(quiz_data=data_dict)
-        return status_msg, file_name, quiz
+        domain_object = create_domain_object(data_dict)
+        return status_msg, file_name, domain_object
 
-    def get_next(self) -> (str, str, Quiz):
+    def get_next(self, create_domain_dct_object) -> (str, str, dict):
         self._file_storage.increment_file_index()
-        return self.get()
+        return self.get(create_domain_dct_object)
 
-    def get_previous(self) -> (str, str, Quiz):
+    def get_previous(self, create_domain_dct_object) -> (str, str, dict):
+        print(type(create_domain_dct_object))
         self._file_storage.decrement_file_index()
-        return self.get()
+        return self.get(create_domain_dct_object)
 
     def delete(self) -> (str, str):
         FilePersistence.validate_file_storage()
-        return self._file_storage.delete_active_file(), 'Deleted quiz'
+        return self._file_storage.delete_active_file(), 'Deleted file'
 
-    def update(self, quiz: Quiz) -> (str, str):
+    def update(self, data_dict: dict) -> (str, str):
         FilePersistence.validate_file_storage()
-        file_info, update_msg = self._file_storage.update_file(quiz)
+        file_info, update_msg = self._file_storage.update_file(data_dict)
         return file_info, update_msg

@@ -26,7 +26,7 @@ def test_existing_word():
 def test_word_upper_case():
     dictionary = english_french_dict()
     int_len = len(dictionary)
-    trans_word = ltrans.model.translate_word('Hello', dictionary,TRANSLATOR)
+    trans_word = ltrans.model.translate_word('Hello', dictionary, TRANSLATOR)
     assert trans_word == 'Bonjour'
     assert len(dictionary) == int_len
 
@@ -34,7 +34,7 @@ def test_word_upper_case():
 def test_word_w_delimiter():
     dictionary = french_english_dict()
     int_len = len(dictionary)
-    trans_word = ltrans.model.translate_word("Aujourd'hui", dictionary,TRANSLATOR)
+    trans_word = ltrans.model.translate_word("Aujourd'hui", dictionary, TRANSLATOR)
     assert trans_word == "Today"
     if len(dictionary) == int_len:
         print('words: ', dictionary.words())

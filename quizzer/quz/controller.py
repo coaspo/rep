@@ -156,7 +156,7 @@ def main():
 
         v = View(Config.APP_INSTRUCTIONS)
 
-        persistence = FilePersistence(config)
+        persistence = FilePersistence(config['QUIZZES_DIR'], config['QUIZ_FILE_PFX'])
         m = Model(persistence)
 
         c = QuizController(v, m)

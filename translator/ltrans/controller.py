@@ -29,17 +29,17 @@ class Controller:
         if text.strip() == '':
             raise UserInputError('Source text not entered')
         src_language = self.view.src_language.get()
-        dest_language = self.view.destination_language.get()
+        destination_language = self.view.destination_language.get()
         is_add_source = self.view.is_add_src.get()
         is_add_transliteration = self.view.is_add_transliteration.get()
-        return UserInput(text, src_language, dest_language, is_add_source, is_add_transliteration)
+        return UserInput(text, src_language, destination_language, is_add_source, is_add_transliteration)
 
     def update_status(self, text: str, is_err=False):
         self.view.status_label['text'] = text
         background = "#ffeeee" if is_err else "#eeffee"
         self.view.status_label.config(bg=background)
 
-    def clear_screen(self, event: tkinter.Event):
+    def clear_screen(self, _):
         self.delete_bt_click_count = 0
         self.view.src_language.set(self.view.language_names[0])
         self.view.destination_language.set(self.view.language_names[1])
@@ -74,7 +74,7 @@ class Controller:
 class TranslationController(Controller):
     def _swap_languages(self, _):
         src_language = self.view.src_language.get()
-        dest_language = self.view.destination_language.get()
+        destination_language = self.view.destination_language.get()
 
         for index, lang_name in enumerate(self.view.language_names):
             if lang_name == src_language:
@@ -82,7 +82,7 @@ class TranslationController(Controller):
                 break
 
         for index, lang_name in enumerate(self.view.language_names):
-            if lang_name == dest_language:
+            if lang_name == destination_language:
                 self.view.src_language.current(index)
                 break
 
@@ -96,8 +96,8 @@ class TranslationController(Controller):
     def _update_transliteration(self, _):
         try:
             src_language = self.view.src_language.get()
-            dest_language = self.view.destination_language.get()
-            if src_language in TRANSLITERATE_LANGUAGE_NAMES or dest_language in TRANSLITERATE_LANGUAGE_NAMES:
+            destination_language = self.view.destination_language.get()
+            if src_language in TRANSLITERATE_LANGUAGE_NAMES or destination_language in TRANSLITERATE_LANGUAGE_NAMES:
                 self.view.add_transliteration_check_bt.configure(state=tkinter.NORMAL)
             else:
                 self.view.add_transliteration_check_bt.configure(state=tkinter.DISABLED)

@@ -27,11 +27,11 @@ def test_w_non_ltrs():
 
 
 def english_french_dict():
-    english_french_dict = ltrans.model.Dictionary(CONFIG, 'English', 'French')
-    english_french_dict['Today'] = 'Aujourd\'hui'
-    english_french_dict['is'] = 'est'
-    english_french_dict['a'] = 'une'
-    english_french_dict['fine'] = 'bien'
-    english_french_dict['day'] = 'journée'
-    assert len(english_french_dict) == 5
-    return english_french_dict;
+    english_french_dict2 = ltrans.model.Dictionary(CONFIG, 'English', 'French')
+    english_french_dict2['Today'] = 'Aujourd\'hui'
+    english_french_dict2['is'] = 'est'
+    english_french_dict2['a'] = 'une'
+    english_french_dict2['fine'] = 'bien'
+    english_french_dict2['day'] = 'journée'
+    assert len(english_french_dict2) == 5
+    return english_french_dict2;

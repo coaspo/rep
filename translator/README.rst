@@ -9,6 +9,14 @@ User input and translation may be saved and viewed later.
 .. contents:: Contents:
 
 
+Get application
+----------------
+| Use git-bash to clone the repo:
+|    ``git clone https://github.com/coaspo/rep``
+|   To get a brach, for example ``br1``:
+|    ``git pull origin br1``
+| Or download zip file from github.
+
 Run app
 -------
 |  Install python 3 and add it to path.
@@ -50,8 +58,10 @@ Notes
 |       When done, deactivate Path. ``%PATH%``:
 |       ``.\venv\Scripts\deactivate.bat``
 |
-|  **After using a new library**, update requirements.txt:
-|   ``pip freeze > requirements.txt``
+|  **After using a new library**, update ``requirements.txt``:
+|   ``pip install pipreqs``
+|   ``pipreqs ltrans``
+
 
 Problems/Solutions
 ------------------
