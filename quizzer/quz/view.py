@@ -88,7 +88,7 @@ class View:
         self._save_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
 
     def _init_persistence_menu(self, frame, frame_color):
-        saved_label = tkinter.Label(frame, text="                          Saved quizes:", bg=frame_color)
+        saved_label = tkinter.Label(frame, text="                          Saved quizzes:", bg=frame_color)
         self._next_quiz_bt = tkinter.Button(frame, text=u' \u25BA  ', height=1)
         self._previous_quiz_bt = tkinter.Button(frame, text=u' \u25C4 ', height=1)
         self._persistence_status_label = tkinter.Label(frame, text="", anchor='w', bg='white')
@@ -118,7 +118,7 @@ class View:
         # self._input_frame.grid(row=0, column=0, sticky=tkinter.NE, pady=2)
 
         self._question_frame = tkinter.Frame(txt_frame)
-        self._question = tkinter.Label(self._question_frame, text="Select the correct statmenet(s)", fg="blue",
+        self._question = tkinter.Label(self._question_frame, text="Select the correct statement(s)", fg="blue",
                                        bg='white')
         self._is_check_A = tkinter.IntVar()
         self._is_check_B = tkinter.IntVar()

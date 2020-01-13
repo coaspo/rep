@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-      <style>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <style>
          b {}
          code {color:green; font-weight: 999; font-size:16px}
          pre {font-family: Arial, Helvetica, sans-serif}
          body {font-family: Arial, Helvetica, sans-serif}
          id {color:green; font-family: "Courier New", Courier, monospace}
-      </style>
-      <meta charset="utf-8"/>
-      <title>Create & practice quizzes</title>
-   </head>
+
+    </style>
+    <meta charset="utf-8"/>
+    <title>Create & practice quizzes</title>
 </head>
 <body>
 <pre>
@@ -33,10 +33,11 @@ After one takes the quiz the application displays the score.
     <li>Customize quiz file names; adjust <code>QUIZ_FILE_PFX</code> in <code>quz\config_quizzer.json</code></li>
     <li>Correct quizzes - change marked text and click <b>Update</b></li>
     <li>Rename quiz files <code>quz/quizzes</code>. using the format:<br>
-        <code>&lt;text&gt;.&lt;number&gt;.json</code>  - for example:<br>
+        <code>&lt;text&gt;.&lt;number&gt;.json</code> - for example:<br>
         <code>python-classes-quiz.4.json</code><br>
         where <code>4</code> is unique in all file names.<br>
-        Application loops through a sorted file name.</li>
+        Application loops through a sorted file name.
+    </li>
     <li>Prevent accidental deletes - make files in <code>quz/quizzes</code> <i>Read-Only</i></li>
 </ul>
 Technical info: <a href="../README.rst">README.rst</a>

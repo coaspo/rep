@@ -1,7 +1,6 @@
 import datetime
 import logging
 import quz.util
-import shutil
 import re
 import os
 import tests.t_util
@@ -22,10 +21,11 @@ def test_set_logger():
 
     files = os.listdir(TMP_DIR)
     log_file = [f for f in files if f.endswith('.log')][0]
-    with open(config['LOG_DIR'] + '/'+ log_file) as f:
+    with open(config['LOG_DIR'] + '/' + log_file) as f:
         file_txt = f.read()
     assert ts in file_txt
     assert 'test_set_logger() - This is a test' in file_txt
+
 
 def test_config_wo_file():
     config = quz.util.Config(a=123, b='abc')
@@ -47,7 +47,7 @@ def test_config_file():
     assert config['DICTIONARY_DIR'] == 'my-dict-dir'
 
 
-def test_non_ltrs_regex():
+def test_non_letters_regex():
     actual = re.sub(quz.util.NON_LETTERS_REGEX, '', 'ab cd')
     assert actual == 'ab cd'
     actual = re.sub(quz.util.NON_LETTERS_REGEX, '', 'ab' + r'[\^$.|?*+()' + ' cd')

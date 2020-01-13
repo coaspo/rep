@@ -52,7 +52,7 @@ def set_logger(config: dict):
         is_log_dir_created = True
     year_month = str(datetime.datetime.today())[:7]
     root = logging.getLogger()
-    root.setLevel(os.environ.get("LOGLEVEL", log_level))
+    root.setLevel(os.environ.get("LOG_LEVEL", log_level))
     log_formatter = logging.Formatter("%(asctime)s %(filename)s:%(lineno)s - %(funcName)s() - %(message)s")
 
     log_file_path = log_dir + "/quizzer-" + year_month + ".log"

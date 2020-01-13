@@ -55,19 +55,6 @@ class Controller:
 
 class QuizController(Controller):
 
-    def _create_quiz(self, _):
-        try:
-            self.view.output_frame.delete_current_file('1.0', tkinter.END)
-            trans_text = 'aaa'
-            self.view.output_frame.insert(tkinter.END, trans_text)
-            super().update_status(Config.SAVE_INSTRUCTIONS)
-            self.view.save_bt.config(state='normal')
-            self.view.delete_bt.config(state=tkinter.DISABLED)
-            self.view.update_bt.config(state=tkinter.DISABLED)
-            self.view.persistence_status['text'] = ''
-        except Exception as e:
-            self.handle_exception('', e)
-
     def _save_quiz(self, _):
         if self.view.save_bt['state'] == tkinter.DISABLED:
             return

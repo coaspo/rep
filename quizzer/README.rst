@@ -8,11 +8,11 @@ It may be used to make and practice quizzes.
 
 Get application
 ----------------
-| To get a copy of the application, clone the repo that is in:
+| Use git-bash to clone the repo:
 |    ``git clone https://github.com/coaspo/rep``
 |   To get a brach, for example ``br1``:
 |    ``git pull origin br1``
-| Or from https://github.com/coaspo/rep download zip file.
+| Or download zip file from github.
 
 Run app
 -------
@@ -57,7 +57,8 @@ Notes
 |       ``.\venv\Scripts\deactivate.bat``
 |
 |  **After using a new library**, update ``requirements.txt``:
-|   ``pip freeze > requirements.txt``
+|   ``pip install pipreqs``
+|   ``pipreqs ltrans``
 
 Problems/Solutions
 ------------------
