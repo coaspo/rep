@@ -38,22 +38,21 @@ class AbstractPersistence(metaclass=abc.ABCMeta):
 
 
 class JsonFileStorage:
-    def __init__(self, save_dir: str):
+    def __init__(self, save_dir: str, file_pfx: str):
+        self._file_pfx = file_pfx
         self._save_dir = self._latest_file_number = self._active_file_index = self._files_paths = None
-        self._initialize(save_dir)
+        self._initialize(save_dir, file_pfx)
 
-    def _initialize(self, save_dir):
+    def _initialize(self, save_dir, file_pfx):
         self._save_dir, err_msg = JsonFileStorage._get_save_dir(save_dir)
         if err_msg is None:
-            self._latest_file_number, self._files_paths = JsonFileStorage._get_file_paths(self._save_dir)
+            self._latest_file_number, self._files_paths = JsonFileStorage._get_file_paths(file_pfx, self._save_dir)
             self._active_file_index = len(self._files_paths) - 1
         else:
             raise Exception('JsonFileStorage failed - ' + err_msg)
 
     @staticmethod
     def _get_save_dir(save_dir) -> (str, str):
-        if save_dir is None:
-            return None, 'missing save_dir'
         save_dir = save_dir
         if save_dir.startswith("./"):
             save_dir = os.path.dirname(__file__) + save_dir[1:]
@@ -72,8 +71,8 @@ class JsonFileStorage:
         return save_dir, None
 
     @staticmethod
-    def _get_file_paths(save_dir: str) -> (str, str):
-        file_paths = glob.glob(save_dir + '/*.json')
+    def _get_file_paths(file_pfx: str, save_dir: str) -> (str, str):
+        file_paths = glob.glob(save_dir + '/' + file_pfx + '*.json')
         if len(file_paths) == 0:
             return 0, []
 
@@ -92,16 +91,16 @@ class JsonFileStorage:
             latest_file_number = max(file_nums)
         return latest_file_number, proper_formatted_file_paths
 
-    def save_file(self, data_dictt: dict, file_pfx) -> str:
+    def save_file(self, data_dict: dict) -> str:
         file_num = self._latest_file_number + 1
         file_index = self._active_file_index + 1
-        file_path = self._save_dir + '/' + file_pfx + '.' + str(file_num) + '.json'
+        file_path = self._save_dir + '/' + self._file_pfx + '.' + str(file_num) + '.json'
         if file_index > len(self._files_paths):
             raise SystemError(
                 f'Index Error:  _file_path_index= {file_index}' +
                 f'(len(_files_paths)={len(self._files_paths)})')
         with open(file_path, "w", encoding='utf8') as f:
-            json.dump(data_dictt, f, ensure_ascii=False, sort_keys=False, indent=0)
+            json.dump(data_dict, f, ensure_ascii=False, sort_keys=False, indent=0)
 
         self._files_paths.append(file_path)
         self._latest_file_number = file_num
@@ -110,9 +109,9 @@ class JsonFileStorage:
             log.debug(f'file_path={file_path}')
         return file_path
 
-    def update_file(self, data_dictt: dict) -> (str, str):
+    def update_file(self, data_dict: dict) -> (str, str):
         with open(self._files_paths[self._active_file_index], "w", encoding='utf8') as f:
-            json.dump(data_dictt, f, ensure_ascii=False, sort_keys=False, indent=0)
+            json.dump(data_dict, f, ensure_ascii=False, sort_keys=False, indent=0)
         if log.isEnabledFor(logging.DEBUG):
             log.debug(f'file_path={self._files_paths[self._active_file_index]}')
         return self._file_info(), 'Updated: ' + self._file_name()
@@ -137,7 +136,8 @@ class JsonFileStorage:
             with open(file_path, "r", encoding='utf8') as f:
                 data_dict = json.load(f)
         except OSError:
-            self._initialize(self._save_dir)
+            # reinitialize to fix for example no files found error.
+            self._initialize(self._save_dir, self._file_pfx)
             file_path = self._files_paths[self._active_file_index]
             with open(file_path, "r", encoding='utf8') as f:
                 data_dict = json.load(f)
@@ -180,7 +180,7 @@ class FilePersistence(AbstractPersistence):
 
     def __init__(self, save_dir: str, file_pfx: str):
         try:
-            self._file_storage = JsonFileStorage(save_dir)
+            self._file_storage = JsonFileStorage(save_dir, file_pfx)
             self._file_pfx = file_pfx
             FilePersistence.file_storage_err_msg = None
         except Exception as e:
@@ -193,7 +193,7 @@ class FilePersistence(AbstractPersistence):
 
     def save(self, data_dict: dict) -> str:
         FilePersistence.validate_file_storage()
-        file_path = self._file_storage.save_file(data_dict, self._file_pfx)
+        file_path = self._file_storage.save_file(data_dict)
         return 'Saved quiz into: ' + file_path
 
     def get(self, create_domain_object) -> (str, str, dict):

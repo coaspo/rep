@@ -20,15 +20,16 @@ Run app
 |  (Optional) Update pip:
 |    ``python -m pip install --upgrade pip``
 |
-|  From project dir, run the commands:
-|    ``pip install -r requirements.txt``
-|    ``python cli.py``
+|  Run ``python cli.py``
 |
 |  May review info and error MSGs in:
 |    ``logs\quizzer-YYYY-MM.log``''
 
 Run tests
 ---------
+|  From project dir, install pytest:
+|    ``pip install -r requirements.txt``
+|
 |  **In Pycharm:**
 |   >File >Settings >Tools >Python-Integrated-Tools,
 |   change >Default-test-runner to ``pytest``

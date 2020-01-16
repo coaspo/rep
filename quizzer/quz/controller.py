@@ -31,6 +31,7 @@ class Controller:
         self.view.delete_bt.config(state=tkinter.DISABLED)
         self.view.update_bt.config(state=tkinter.DISABLED)
         self.view.input_frame.delete('1.0', tkinter.END)
+        self.view.delete_quiz_question()
         # self.view.output_frame.delete('1.0', tkinter.END)
         self.view.persistence_status['text'] = ''
 

@@ -3,7 +3,7 @@ import pprint
 import quz
 
 
-def test_create_questions():
+def test_create_quiz_data_dict():
     marked_user_input = '?What is 2+3\n' \
                         '-is 4\n' \
                         '+is 5\n\n' \
@@ -19,9 +19,9 @@ def test_create_questions():
                         '+is 25\n\n' \
                         '=big addition\n\n'
 
-    data_dict = quz.quiz._create_data_dict(marked_user_input)
-    expected_data_dict = {'latest_question_num': 1,
-                          'num_of_completed_questions': 0,
+    data_dict = quz.quiz._create_quiz_data_dict(marked_user_input)
+    expected_data_dict = {'current_question_num': 1,
+                          'num_of_answered_questions': 0,
                           'num_of_questions': 3,
                           'marked_user_input': marked_user_input,
                           'question1': 'What is 2+3',
@@ -54,14 +54,14 @@ def test_create_questions():
                                                 'comment': 'big addition',
                                                 'num_of_answers': 2}}
 
-    pp_data_dict = pprint.pformat(data_dict).split('\n')
-    pp_expected_data_dict = pprint.pformat(expected_data_dict).split('\n')
+    data_dict_lines = pprint.pformat(data_dict).split('\n')
+    expected_data_dict_lines = pprint.pformat(expected_data_dict).split('\n')
 
-    for i, line in enumerate(pp_data_dict):
+    for i, line in enumerate(data_dict_lines):
         print(i, line)
-        if i > len(pp_expected_data_dict) - 1:
-            raise Exception(f'Actual larger than expected.\nactual/expected:\n{pp_data_dict}{pp_expected_data_dict}')
-        if line != pp_expected_data_dict[i]:
+        if i > len(expected_data_dict_lines) - 1:
+            raise Exception(f'Actual larger than expected.\nactual/expected:\n{data_dict_lines}{expected_data_dict_lines}')
+        if line != expected_data_dict_lines[i]:
             pytest.fail(f'json lines #{i} not equal ' +
-                        f'\nactual/expected lines:\n{line}\n{pp_expected_data_dict[i]}' +
+                        f'\nactual/expected lines:\n{line}\n{expected_data_dict_lines[i]}' +
                         f'\nactual/expected DICTs:\n{data_dict}\n{expected_data_dict}')

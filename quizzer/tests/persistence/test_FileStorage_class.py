@@ -9,45 +9,42 @@ quz.util.set_logger(CONFIG)
 
 
 def test_invalid_directories():
-    with pytest.raises(Exception, match=r'JsonFileStorage failed - missing save_dir'):
-        JsonFileStorage(save_dir=None)
-
     with pytest.raises(Exception, match=r".*\[WinError 3] The system cannot find the path specified: "
                                         r"'C:\\\\non-dir\\\\fake-dir'"):
-        JsonFileStorage(save_dir='/non-dir/fake-dir')
+        JsonFileStorage('/non-dir/fake-dir', '')
 
 
 def test_valid_config():
     try:
-        JsonFileStorage(save_dir=TMP_DIR)
+        JsonFileStorage(TMP_DIR, 'quizCat1')
     except Exception as e:
         pytest.fail("Unexpected error: " + str(e))
 
 
 def test_latest_file_num():
-    storage = JsonFileStorage(save_dir=TMP_DIR)
-    with open(storage._save_dir + '/quiz.3.json', 'w') as f:
+    storage = JsonFileStorage(TMP_DIR, 'quizCat1')
+    with open(storage._save_dir + '/quizCat1.3.json', 'w') as f:
         f.write('{"a":1}')
-    with open(storage._save_dir + '/quiz.2.json', 'w') as f:
+    with open(storage._save_dir + '/quizCat1.2.json', 'w') as f:
         f.write('{"b":2}')
-    storage = JsonFileStorage(save_dir=TMP_DIR)
+    storage = JsonFileStorage(TMP_DIR, 'quizCat1')
     assert storage._latest_file_number == 3
     assert storage._active_file_index == 1
     assert len(storage._files_paths) == 2
 
 
 def test_save():
-    storage = JsonFileStorage(save_dir=TMP_DIR)
+    storage = JsonFileStorage(TMP_DIR, 'quizCat1')
     dict4 = {'ques...': 'What is..'}
-    msg = storage.save_file(dict4, 'quiz')
-    assert msg.endswith('quiz.4.json')
+    msg = storage.save_file(dict4)
+    assert 'quizCat1.4.json' in msg
     assert storage._latest_file_number == 4
     assert storage._active_file_index == 2
     assert len(storage._files_paths) == 3
 
 
 def test_read():
-    storage = JsonFileStorage(save_dir=TMP_DIR)
+    storage = JsonFileStorage(TMP_DIR, 'quizCat1')
     dict4 = {'ques...': 'What is..'}
     dict3 = {'a': 1}
     dict2 = {'b': 2}
