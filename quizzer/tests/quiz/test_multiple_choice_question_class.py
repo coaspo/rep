@@ -40,4 +40,3 @@ def test_incorrect_answers():
     question = MultipleChoiceQuestion('What is 2+2?', 'test question', answers)
     assert not question.are_answers_correct()
     assert not question.is_answered()
-

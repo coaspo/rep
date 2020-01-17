@@ -155,24 +155,24 @@ def _create_answers(answers_dict: dict) -> list:
     return answers
 
 
-def _quiz_obj_to_data_dict(quiz: Quiz) -> list:
+def _quiz_obj_to_data_dict(quiz: Quiz) -> dict:
     quiz_data_dict = {'current_question_num': quiz.current_question_num,
                       'num_of_questions': quiz.num_of_questions,
                       'marked_user_input': quiz.marked_user_input}
-    # for i in range(quiz.num_of_questions):
-    #     question: MultipleChoiceQuestion = quiz.questions[i]
-    #     key_i = 'question' + i
-    #     quiz_data_dict[key_i] = question.question
-    #     question_answers_dict = dict()
-    #     for j in range(len(question.answers)):
-    #         answer: MultipleChoiceAnswer = question.answers[i]
-    #         answer_dict = {'answer': answer.answer, 'is_correct': answer.is_correct, 'is_selected': answer.is_selected}
-    #         key_j = 'answer' + j
-    #         question_answers_dict[key_j]= answer_dict
-    #     question_answers_dict['comment'] = question.comment
-    #     question_answers_dict['num_of_answers'] = len(question.answers)
-    #     key = key_i + '_answers'
-    #     quiz_data_dict[key] = question_answers_dict
+    for i in range(quiz.num_of_questions):
+        question: MultipleChoiceQuestion = quiz.questions[i]
+        key_i = 'question' + str(i + 1)
+        quiz_data_dict[key_i] = question.question
+        question_answers_dict = dict()
+        for j in range(len(question.answers)):
+            answer: MultipleChoiceAnswer = question.answers[j]
+            answer_dict = {'answer': answer.answer, 'is_correct': answer.is_correct, 'is_selected': answer.is_selected}
+            key_j = 'answer' + str(j + 1)
+            question_answers_dict[key_j] = answer_dict
+        question_answers_dict['comment'] = question.comment
+        question_answers_dict['num_of_answers'] = len(question.answers)
+        key = key_i + '_answers'
+        quiz_data_dict[key] = question_answers_dict
     return quiz_data_dict
 
 

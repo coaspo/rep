@@ -197,7 +197,7 @@ class View:
 
 
 if __name__ == '__main__':
-    v = View('This is a manual layout test. To run the application, run cli.py')
+    v = View('quiz', 'This is a manual layout test. To run the application, run cli.py')
     print('start')
     v.start()
     print('done')

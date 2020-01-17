@@ -59,7 +59,8 @@ def test_create_quiz_data_dict():
     for i, line in enumerate(data_dict_lines):
         print(i, line)
         if i > len(expected_data_dict_lines) - 1:
-            raise Exception(f'Actual larger than expected.\nactual/expected:\n{data_dict_lines}{expected_data_dict_lines}')
+            raise Exception(
+                f'Actual larger than expected.\nactual/expected:\n{data_dict_lines}{expected_data_dict_lines}')
         if line != expected_data_dict_lines[i]:
             pytest.fail(f'json lines #{i} not equal ' +
                         f'\nactual/expected lines:\n{line}\n{expected_data_dict_lines[i]}' +
