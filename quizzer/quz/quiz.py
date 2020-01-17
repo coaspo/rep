@@ -9,8 +9,7 @@ def _create_quiz_data_dict(marked_user_input: str) -> dict:
     text_lines = marked_user_input.strip().split('\n')
     if len(text_lines) < 3:
         raise QuizDataError('Invalid text; line count < 3 - min is 1 question and two options')
-    quiz_data_dict = {'current_question_num': 1, 'num_of_answered_questions': 0,
-                      'marked_user_input': marked_user_input}
+    quiz_data_dict = {'current_question_num': 1, 'marked_user_input': marked_user_input}
     num_of_answers = 0
     num_of_questions = 0
     question_answers = {}
@@ -46,7 +45,6 @@ def _create_quiz_data_dict(marked_user_input: str) -> dict:
     _add_question_to_quiz_data_dict(comment, num_of_answers, num_of_questions, question_answers, question_text,
                                     quiz_data_dict)
     quiz_data_dict['num_of_questions'] = num_of_questions
-    quiz_data_dict['num_of_answered_questions'] = 0
     return quiz_data_dict
 
 
@@ -75,13 +73,13 @@ class Quiz:
         if log.isEnabledFor(logging.DEBUG):
             log.debug(f'questions={self.questions}')
 
-        self._marked_user_input = self._quiz_data_dict['marked_user_input']
         self._current_question_num = self._quiz_data_dict['current_question_num']
-        self._num_of_answered_questions = self._quiz_data_dict['num_of_answered_questions']
+        self._marked_user_input = self._quiz_data_dict['marked_user_input']
+        self._num_of_questions = self._quiz_data_dict['num_of_questions']
 
     @property
-    def num_of_answered_questions(self) -> int:
-        return self._num_of_answered_questions
+    def num_of_questions(self) -> int:
+        return self._num_of_questions
 
     @property
     def marked_user_input(self) -> str:
@@ -124,8 +122,8 @@ class Quiz:
         return ratio, f'{percent}%'
 
     def __repr__(self) -> str:
-        return f'Quiz(current_question_num={self._current_question_num}, num_of_answered_questions=' \
-               f'{self.num_of_answered_questions}, {self._questions})'
+        return f'Quiz(current_question_num={self._current_question_num}, num_of_questions=' \
+               f'{self.num_of_questions}, {self._questions})'
 
 
 def _create_questions(_quiz_data_dict: dict) -> list:
@@ -158,10 +156,9 @@ def _create_answers(answers_dict: dict) -> list:
 
 
 def _quiz_obj_to_data_dict(quiz: Quiz) -> list:
-    # quiz_data_dict = {'current_question_num': quiz.current_question_num,
-    #                   'num_of_answered_questions': quiz.num_of_answered_questions,
-    #                   'num_of_questions': quiz.num_of_questions,
-    #                   'marked_user_input': quiz.marked_user_input}
+    quiz_data_dict = {'current_question_num': quiz.current_question_num,
+                      'num_of_questions': quiz.num_of_questions,
+                      'marked_user_input': quiz.marked_user_input}
     # for i in range(quiz.num_of_questions):
     #     question: MultipleChoiceQuestion = quiz.questions[i]
     #     key_i = 'question' + i
@@ -176,8 +173,7 @@ def _quiz_obj_to_data_dict(quiz: Quiz) -> list:
     #     question_answers_dict['num_of_answers'] = len(question.answers)
     #     key = key_i + '_answers'
     #     quiz_data_dict[key] = question_answers_dict
-    #     return quiz_data_dict
-    pass
+    return quiz_data_dict
 
 
 class MultipleChoiceQuestion:

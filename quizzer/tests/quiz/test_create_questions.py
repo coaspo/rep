@@ -20,7 +20,6 @@ def test_create_questions():
                          'answer3': {'is_correct': False, 'is_selected': False, 'answer': ' = 4'},
                          'num_of_answers': 3}
     quiz_data_dict = {'current_question_num': 2,
-                      'num_of_answered_questions': 1,
                       'num_of_questions': 2,
                       'marked_user_input': '?aaa/n+bbb/n-ccc...',
                       'question1': 'What is 2+3',

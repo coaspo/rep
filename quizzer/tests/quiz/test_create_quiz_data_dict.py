@@ -21,7 +21,6 @@ def test_create_quiz_data_dict():
 
     data_dict = quz.quiz._create_quiz_data_dict(marked_user_input)
     expected_data_dict = {'current_question_num': 1,
-                          'num_of_answered_questions': 0,
                           'num_of_questions': 3,
                           'marked_user_input': marked_user_input,
                           'question1': 'What is 2+3',

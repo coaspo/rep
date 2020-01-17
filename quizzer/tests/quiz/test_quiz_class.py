@@ -21,7 +21,6 @@ question_2_answers = {'answer1': {'is_correct': False, 'is_selected': False, 'an
                       'answer3': {'is_correct': False, 'is_selected': False, 'answer': ' = 4'},
                       'num_of_answers': 3}
 quiz_data_dict = {'current_question_num': 2,
-                  'num_of_answered_questions': 1,
                   'num_of_questions': 2,
                   'marked_user_input': marked_user_input,
                   'question1': 'What is 2+3',
@@ -41,7 +40,6 @@ question_1_answered = MultipleChoiceQuestion("What is 2+3", "addition", [Multipl
 
 def test_initialize_with_test_marked_user_input():
     quiz = Quiz(marked_user_input=marked_user_input)
-    assert quiz.num_of_answered_questions == 0
     assert quiz.marked_user_input == marked_user_input
 
     assert quiz.current_question() == question_1
@@ -56,7 +54,6 @@ def test_initialize_with_test_marked_user_input():
 
 def test_initialize_with_quiz_data_dict():
     quiz = Quiz(quiz_data_dict=quiz_data_dict)
-    assert quiz.num_of_answered_questions == 1
     assert quiz.marked_user_input == marked_user_input
 
     assert quiz.current_question() == question_2
