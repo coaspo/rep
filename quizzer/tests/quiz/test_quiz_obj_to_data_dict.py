@@ -1,11 +1,11 @@
 from quz.quiz import Quiz
-import quz.quiz
 from quz.util import set_logger
 from tests.t_util import recreate_tmp_dir
+import quz.quiz
 
 TMP_DIR = recreate_tmp_dir(__file__)
 
-CONFIG = {'LOG_DIR': TMP_DIR, 'LOG_LEVEL': 'DEBUG'}
+CONFIG = {'LOG_DIR': TMP_DIR, 'LOG_LEVEL': 'CRITICAL'}
 set_logger(CONFIG)
 
 

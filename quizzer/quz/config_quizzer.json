@@ -1,9 +1,9 @@
 {
+"LATEST_QUIZ_CATEGORY": "quiz"
 "LOG_DIR": "./logs",
 "LOG_LEVEL": "INFO",
 "LOG_LEVELS" : "CRITICAL, ERROR, WARNING, INFO, DEBUG, NOTSET",
-"QUIZ_CATEGORY": "python",
 "QUIZZES_DIR": "./quizzes",
+"QUIZ_CATEGORY": "python",
 "QUIZ_FILE_PFX": "quiz",
-"LATEST_QUIZ_CATEGORY": "quiz"
 }

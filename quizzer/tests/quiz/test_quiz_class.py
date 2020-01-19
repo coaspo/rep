@@ -6,7 +6,7 @@ from tests.t_util import recreate_tmp_dir
 
 TMP_DIR = recreate_tmp_dir(__file__)
 
-CONFIG = {'LOG_DIR': TMP_DIR, 'LOG_LEVEL': 'DEBUG'}
+CONFIG = {'LOG_DIR': TMP_DIR, 'LOG_LEVEL': 'CRITICAL'}
 set_logger(CONFIG)
 
 marked_user_input = '?What is 2+3\n-is 4\n+is 5\n\n=addition\n\n' \

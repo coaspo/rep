@@ -1,6 +1,6 @@
+import ntpath
 import os
 import shutil
-import ntpath
 
 
 def recreate_tmp_dir(file_path):

@@ -1,5 +1,5 @@
-import pytest
 import pprint
+import pytest
 import quz
 
 

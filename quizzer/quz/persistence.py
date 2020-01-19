@@ -5,6 +5,7 @@ import glob
 import json
 import logging
 import os.path
+import re
 import traceback
 
 log = logging.getLogger(__name__)
@@ -50,6 +51,10 @@ class JsonFileStorage:
             self._active_file_index = len(self._files_paths) - 1
         else:
             raise Exception('JsonFileStorage failed - ' + err_msg)
+
+    @property
+    def save_dir(self):
+        return self._save_dir
 
     @staticmethod
     def _get_save_dir(save_dir) -> (str, str):
@@ -219,3 +224,49 @@ class FilePersistence(AbstractPersistence):
         FilePersistence.validate_file_storage()
         file_info, update_msg = self._file_storage.update_file(data_dict)
         return file_info, update_msg
+
+
+def file_prefixes(save_dir: str, default_prefix='quiz') -> (str, list):
+    absolute_dir = _find_absolute_dir_path(save_dir)
+
+    latest_prefix = _find_latest_file_prefix(absolute_dir)
+    prefixes = _find_file_prefixes(absolute_dir)
+
+    if len(prefixes) == 0:
+        prefixes = [default_prefix]
+    if latest_prefix is None:
+        latest_prefix = prefixes[0]
+
+    return latest_prefix, prefixes
+
+
+def _find_file_prefixes(absolute_dir: str) -> list:
+    prefixes = []
+    for file in sorted(os.listdir(absolute_dir)):
+        if file == 'latest_work.json':
+            continue
+        if file.endswith('.json'):
+            prefix = re.split(r'\.|-', file)[0]
+            if prefix not in prefixes:
+                prefixes.append(prefix)
+    return prefixes
+
+
+def _find_latest_file_prefix(absolute_dir: str) -> str:
+    file_path = absolute_dir + "/latest_work.json"
+    latest_file_prefix = None
+    if os.path.exists(file_path):
+        with open(file_path) as f:
+            latest_work = json.load(f)
+        latest_file_prefix = latest_work['LATEST_FILE_PREFIX']
+    return latest_file_prefix
+
+
+def _find_absolute_dir_path(dir_path: str) -> str:
+    absolute_dir = dir_path
+    print('+++++', dir_path)
+    print(type(dir_path))
+    if dir_path.startswith("./"):
+        absolute_dir = os.path.dirname(__file__) + absolute_dir[1:]
+    absolute_dir = os.path.abspath(absolute_dir)
+    return absolute_dir

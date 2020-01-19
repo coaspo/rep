@@ -1,7 +1,7 @@
+from quz.persistence import JsonFileStorage
+import pytest
 import quz
 import tests.t_util
-import pytest
-from quz.persistence import JsonFileStorage
 
 TMP_DIR = tests.t_util.recreate_tmp_dir(__file__)
 CONFIG = {'LOG_DIR': TMP_DIR, 'QUIZZES_DIR': TMP_DIR, 'LOG_LEVEL': 'CRITICAL'}

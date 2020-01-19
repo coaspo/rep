@@ -1,8 +1,5 @@
-import glob
-import re
-
 from quz.model import Model
-from quz.persistence import FilePersistence
+from quz.persistence import FilePersistence, file_prefixes
 from quz.quiz import QuizDataError, Quiz
 from quz.util import Config, set_logger
 from quz.view import View
@@ -73,6 +70,7 @@ class QuizController(Controller):
     def _on_closing(self):
         # text = self.view.input_frame.get("1.0", tkinter.END)
         # self.model.save_quiz(text)
+        # self.model.save_latest_work(text)
         self.view.stop()
 
     def bind_quiz_controls(self):
@@ -150,50 +148,6 @@ class PersistenceController(Controller):
             log.debug('controller methods bound to view widgets')
 
 
-def find_quiz_categories(quizzes_dir) -> list:
-    absolute_quizzes_dir = _find_absolute_dir_path(quizzes_dir)
-
-    latest_quiz_category = _find_latest_quiz_category(absolute_quizzes_dir)
-    quiz_categories = _find_quiz_categories_from_files(absolute_quizzes_dir)
-
-    if len(quiz_categories) == 0:
-        quiz_categories=['quiz']
-    if latest_quiz_category is None:
-        latest_quiz_category = quiz_categories[0]
-
-    return latest_quiz_category, quiz_categories
-
-
-def _find_quiz_categories_from_files(absolute_quizzes_dir):
-    quiz_categories = []
-    for file in sorted(os.listdir(absolute_quizzes_dir)):
-        if file == 'latest_work.json':
-            continue
-        if file.endswith('.json'):
-            category = re.split(r'\.|-', file)[0]
-            if category not in quiz_categories:
-                quiz_categories.append(category)
-    return quiz_categories
-
-
-def _find_latest_quiz_category(absolute_quizzes_dir):
-    file_path = absolute_quizzes_dir + "/latest_work.json"
-    latest_quiz_category = None
-    if os.path.exists(file_path):
-        with open(file_path) as f:
-            latest_work = json.load(f)
-        latest_quiz_category = latest_work['LATEST_QUIZ_CATEGORY']
-    return latest_quiz_category
-
-
-def _find_absolute_dir_path(dir_path):
-    absolute_dir = dir_path
-    if dir_path.startswith("./"):
-        absolute_dir = os.path.dirname(__file__) + absolute_dir[1:]
-    absolute_dir = os.path.abspath(absolute_dir)
-    return absolute_dir
-
-
 def main():
     try:
         with open(os.path.dirname(__file__) + "/config_quizzer.json") as f:
@@ -202,10 +156,10 @@ def main():
         if log.isEnabledFor(logging.DEBUG):
             log.info(f'config: {config}')
 
-        categories, latest_category = find_quiz_categories(config['QUIZZES_DIR'])
-        v = View(categories, latest_category, Config.APP_INSTRUCTIONS)
+        latest_quiz_category, quiz_categories = file_prefixes(config['QUIZZES_DIR'])
+        v = View(latest_quiz_category, quiz_categories, Config.APP_INSTRUCTIONS)
 
-        persistence = FilePersistence(config['QUIZZES_DIR'], config['QUIZ_FILE_PFX'])
+        persistence = FilePersistence(config['QUIZZES_DIR'], latest_quiz_category)
         m = Model(persistence)
 
         c = QuizController(v, m)

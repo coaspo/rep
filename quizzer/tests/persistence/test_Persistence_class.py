@@ -1,6 +1,6 @@
+from quz.persistence import FilePersistence
 import quz.model
 import tests.t_util
-from quz.persistence import FilePersistence
 
 TMP_DIR = tests.t_util.recreate_tmp_dir(__file__)
 QUIZ_FILE_PFX = 'quiz'

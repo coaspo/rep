@@ -10,7 +10,14 @@ CONFIG = {'LOG_DIR': TMP_DIR, 'LOG_LEVEL': 'CRITICAL'}
 set_logger(CONFIG)
 
 
-def test_model_set_up():
-    latest_quiz_category, _ = file_prefixes(TMP_DIR)
+def test_controller_set_up():
+    latest_quiz_category, quiz_categories = file_prefixes(TMP_DIR)
+    v = View(latest_quiz_category, quiz_categories, '<UI intructions>')
+
     persistence = FilePersistence(TMP_DIR, latest_quiz_category)
-    Model(persistence)
+    m = Model(persistence)
+
+    c = QuizController(v, m)
+    c.bind_quiz_controls()
+    c2 = PersistenceController(v, m)
+    c2.bind_persistence_controls()

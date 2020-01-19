@@ -9,12 +9,12 @@ log = logging.getLogger(__name__)
 
 
 class View:
-    def __init__(self, latest_category: str, quiz_categories: list, instructions: str):
+    def __init__(self, latest_quiz_category: str, quiz_categories: list, instructions: str):
         root = tkinter.Tk()
         root.title("Quiz maker/taker")
         self._quiz_answer_bts = []
         self._root = root
-        self._init_menu(latest_category, quiz_categories, root)
+        self._init_menu(latest_quiz_category, quiz_categories, root)
         self._init_text_areas(root)
         self._init_bottom(root, instructions)
         self._answer_check_buttons = None
@@ -77,22 +77,22 @@ class View:
     def root(self):
         return self._root
 
-    def _init_menu(self, latest_category: str, quiz_categories: list, root: tkinter.Tk):
+    def _init_menu(self, latest_quiz_category: str, quiz_categories: list, root: tkinter.Tk):
         light_yellow = '#ffffcc'
         frame = tkinter.Frame(root, height=500)
         menu_background_color = light_yellow
         frame.configure(background=menu_background_color)
-        self._init_main_menu(latest_category, quiz_categories, frame, menu_background_color)
+        self._init_main_menu(latest_quiz_category, quiz_categories, frame, menu_background_color)
         self._init_persistence_menu(frame, menu_background_color)
         frame.pack(fill=tkinter.BOTH, expand=False)
 
-    def _init_main_menu(self, latest_category: str, quiz_categories: list, frame, frame_color):
+    def _init_main_menu(self, latest_quiz_category: str, quiz_categories: list, frame, frame_color):
         self._clear_bt = tkinter.Button(frame, text="  Clear  ")
         category_label = tkinter.Label(frame, text="   Quiz category:", bg=frame_color)
         self._quiz_categories = tkinter.ttk.Combobox(frame, width=10, height=12, font=("Arial", 9),
                                                      values=quiz_categories)
-        if len(quiz_categories) > 0 and latest_category in quiz_categories:
-            self._quiz_categories.current(quiz_categories.index(latest_category))
+        if len(quiz_categories) > 0 and latest_quiz_category in quiz_categories:
+            self._quiz_categories.current(quiz_categories.index(latest_quiz_category))
         self._create_quiz_bt = tkinter.Button(frame, text="  Create Quiz  ", height=1)
         self._save_bt = tkinter.Button(frame, text="  Save  ", height=1)
 

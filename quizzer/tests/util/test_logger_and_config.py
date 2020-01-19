@@ -9,12 +9,9 @@ TMP_DIR = tests.t_util.recreate_tmp_dir(__file__)
 
 
 def test_set_logger():
-
-    config = {'LOG_DIR': TMP_DIR, 'LOG_LEVEL': 'DEBUG'}
+    config = {'LOG_DIR': TMP_DIR, 'LOG_LEVEL': 'INFO'}
     quz.util.set_logger(config)
     log = logging.getLogger(__name__)
-    if log.isEnabledFor(logging.DEBUG):
-        log.debug(f'config={config}')
 
     ts = str(datetime.datetime.now())[:14]
     log.info(f'This is a test {ts}')
@@ -25,6 +22,8 @@ def test_set_logger():
         file_txt = f.read()
     assert ts in file_txt
     assert 'test_set_logger() - This is a test' in file_txt
+    config = {'LOG_DIR': TMP_DIR, 'LOG_LEVEL': 'CRITICAL'}
+    quz.util.set_logger(config)
 
 
 def test_config_wo_file():
