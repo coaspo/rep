@@ -41,13 +41,14 @@ class AbstractPersistence(metaclass=abc.ABCMeta):
 class JsonFileStorage:
     def __init__(self, save_dir: str, file_pfx: str):
         self._file_pfx = file_pfx
-        self._save_dir = self._latest_file_number = self._active_file_index = self._files_paths = None
-        self._initialize(save_dir, file_pfx)
+        self._save_dir = save_dir
+        self._latest_file_number = self._active_file_index = self._files_paths = None
+        self._initialize()
 
-    def _initialize(self, save_dir, file_pfx):
-        self._save_dir, err_msg = JsonFileStorage._get_save_dir(save_dir)
+    def _initialize(self):
+        self._save_dir, err_msg = JsonFileStorage._get_save_dir(self._save_dir)
         if err_msg is None:
-            self._latest_file_number, self._files_paths = JsonFileStorage._get_file_paths(file_pfx, self._save_dir)
+            self._latest_file_number, self._files_paths = JsonFileStorage._get_file_paths(self._file_pfx, self._save_dir)
             self._active_file_index = len(self._files_paths) - 1
         else:
             raise Exception('JsonFileStorage failed - ' + err_msg)
@@ -142,7 +143,7 @@ class JsonFileStorage:
                 data_dict = json.load(f)
         except OSError:
             # reinitialize to fix for example no files found error.
-            self._initialize(self._save_dir, self._file_pfx)
+            self._initialize()
             file_path = self._files_paths[self._active_file_index]
             with open(file_path, "r", encoding='utf8') as f:
                 data_dict = json.load(f)

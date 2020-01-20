@@ -1,8 +1,10 @@
 @echo on
 call ./venv/Scripts/activate.bat
+echo --- venv active
 set PYTHONPATH=.
 pytest tests/
 if ERRORLEVEL 1 (
+    echo === pytest failed
 	set errorflag=1
 )
 call ./venv/Scripts/deactivate.bat
