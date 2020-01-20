@@ -58,23 +58,18 @@ class JsonFileStorage:
         return self._save_dir
 
     @staticmethod
-    def _get_save_dir(save_dir) -> (str, str):
-        save_dir = save_dir
-        if save_dir.startswith("./"):
-            save_dir = os.path.dirname(__file__) + save_dir[1:]
-        save_dir = os.path.abspath(save_dir)
-        if log.isEnabledFor(logging.DEBUG):
-            log.debug(f'save_dir={save_dir}')
+    def _get_save_dir(save_dir2) -> (str, str):
+        absolute_dir = _find_absolute_dir(save_dir2)
 
-        if not os.path.exists(save_dir):
+        if not os.path.exists(absolute_dir):
             try:
-                os.mkdir(save_dir, 0o777)
-                log.info(f'Created dir ' + save_dir)
+                os.mkdir(absolute_dir, 0o777)
+                log.info(f'Created dir ' + absolute_dir)
             except Exception as e:
                 trace = str(e) + '\n\t' + traceback.format_exc()
                 log.error(trace)
                 return None, str(e)
-        return save_dir, None
+        return absolute_dir, None
 
     @staticmethod
     def _get_file_paths(file_pfx: str, save_dir: str) -> (str, str):
@@ -228,7 +223,7 @@ class FilePersistence(AbstractPersistence):
 
 
 def file_prefixes(save_dir: str, default_prefix='quiz') -> (str, list):
-    absolute_dir = _find_absolute_dir_path(save_dir)
+    absolute_dir = _find_absolute_dir(save_dir)
 
     latest_prefix = _find_latest_file_prefix(absolute_dir)
     prefixes = _find_file_prefixes(absolute_dir)
@@ -263,11 +258,11 @@ def _find_latest_file_prefix(absolute_dir: str) -> str:
     return latest_file_prefix
 
 
-def _find_absolute_dir_path(dir_path: str) -> str:
+def _find_absolute_dir(dir_path: str) -> str:
     absolute_dir = dir_path
-    print('+++++', dir_path)
-    print(type(dir_path))
     if dir_path.startswith("./"):
         absolute_dir = os.path.dirname(__file__) + absolute_dir[1:]
     absolute_dir = os.path.abspath(absolute_dir)
+    if log.isEnabledFor(logging.DEBUG):
+        log.debug(f'absolute_dir={absolute_dir}')
     return absolute_dir
