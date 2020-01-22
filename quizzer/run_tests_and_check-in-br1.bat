@@ -1,11 +1,12 @@
 REM To run this in the Git Bash window type:
-REM    cmd "/C check-in-br1.bat"
+REM    cmd "/C run_tests_and_check-in-br1.bat"
 REM
 REM For any errors, may need to update a pkg, for example:
 REM    pip install -U pluggy
 REM and recreate venv:
 REM    virtualenv venv
 
+Title Run pytest and git add/commit/push
 @echo on
 call .\venv\Scripts\activate.bat
 if ERRORLEVEL 1 (

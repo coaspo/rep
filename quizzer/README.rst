@@ -1,7 +1,8 @@
 Quizzer
 =======
-Project illustrates MVC in python.
-It may be used to make and practice quizzes.
+Application creates multiple choice quizzes using simple marked-up text.
+
+See `help <./quz/help.html>`__ for more details
 
 .. contents:: Contents:
 
@@ -21,6 +22,7 @@ Run app
 |    ``python -m pip install --upgrade pip``
 |
 |  Run ``python cli.py``
+|  or a short cut to ``run_app.bat``
 |
 |  May review info and error MSGs in:
 |    ``logs\quizzer-YYYY-MM.log``''
@@ -36,7 +38,11 @@ Run tests
 |   select a test and > "run pytest"
 |
 |  **Outside pycharm:**
-|   Double click ``c:\..\quizzer\run-tests.bat``
+|   Run ``run_tests.bat``
+
+Run tests and check into github
+-------------------------------
+|   Run ``run_tests_and_check-in-br1.bat``
 
 Notes
 -----
