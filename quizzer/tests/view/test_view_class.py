@@ -1,4 +1,4 @@
-from quz.persistence import file_prefixes
+from quz.persistence import FilePersistence
 from quz.util import set_logger
 from quz.view import View
 from tests.t_util import recreate_tmp_dir
@@ -9,6 +9,6 @@ set_logger(CONFIG)
 
 
 def test_view_set_up():
-    latest_quiz_category, quiz_categories = file_prefixes(TMP_DIR)
-    v = View(latest_quiz_category, quiz_categories, '<UI intructions>')
+    persistence = FilePersistence(TMP_DIR)
+    v = View(persistence.latest_topic(), persistence.topics(), 'instructions....')
     #  v._root.update() # disabled because screen flashes

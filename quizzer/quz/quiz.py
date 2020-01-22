@@ -58,15 +58,22 @@ def _add_question_to_quiz_data_dict(comment: str, num_of_answers: int, num_of_qu
 
 
 class Quiz:
-    def __init__(self, marked_user_input: str = None, quiz_data_dict: dict = None):
+    def __init__(self, quiz_topic: str = None, marked_user_input: str = None, quiz_data_dict: dict = None):
         log = logging.getLogger(__name__)
         if log.isEnabledFor(logging.DEBUG):
-            log.debug(f'marked_user_input={marked_user_input}\nquiz_data_dict={quiz_data_dict}')
+            log.debug(
+                f'quiz_topic={quiz_topic}, marked_user_input={marked_user_input}\nquiz_data_dict={quiz_data_dict}')
+        if quiz_data_dict is None and (quiz_topic is None or marked_user_input is None):
+            raise ValueError(f'quiz_topic={quiz_topic}, marked_user_input={marked_user_input}\nBoth are not none')
+        elif quiz_data_dict is not None and (quiz_topic is not None or marked_user_input is not None):
+            raise ValueError(f'quiz_topic={quiz_topic}, marked_user_input={marked_user_input}\nBoth are not none')
 
         if quiz_data_dict is None:
             self._quiz_data_dict = _create_quiz_data_dict(marked_user_input)
+            self._quiz_topic = quiz_topic
         else:
             self._quiz_data_dict = quiz_data_dict
+            self._quiz_topic = quiz_data_dict['quiz_topic']
         if log.isEnabledFor(logging.DEBUG):
             log.debug(f'quiz_data_dict={self._quiz_data_dict}')
         self._questions = _create_questions(self._quiz_data_dict)
@@ -76,6 +83,10 @@ class Quiz:
         self._current_question_num = self._quiz_data_dict['current_question_num']
         self._marked_user_input = self._quiz_data_dict['marked_user_input']
         self._num_of_questions = self._quiz_data_dict['num_of_questions']
+
+    @property
+    def quiz_topic(self) -> int:
+        return self._quiz_topic
 
     @property
     def num_of_questions(self) -> int:
@@ -158,6 +169,7 @@ def _create_answers(answers_dict: dict) -> list:
 def _quiz_obj_to_data_dict(quiz: Quiz) -> dict:
     quiz_data_dict = {'current_question_num': quiz.current_question_num,
                       'num_of_questions': quiz.num_of_questions,
+                      'quiz_topic': quiz.quiz_topic,
                       'marked_user_input': quiz.marked_user_input}
     for i in range(quiz.num_of_questions):
         question: MultipleChoiceQuestion = quiz.questions[i]
@@ -177,7 +189,7 @@ def _quiz_obj_to_data_dict(quiz: Quiz) -> dict:
 
 
 class MultipleChoiceQuestion:
-    def __init__(self, question: str, comment: str, answers: list):
+    def __init__(self, question: str, comment: str or None, answers: list):
         self._question = question
         self._comment = comment
         self._answers = answers

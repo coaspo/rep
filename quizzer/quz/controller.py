@@ -1,5 +1,5 @@
 from quz.model import Model
-from quz.persistence import FilePersistence, file_prefixes
+from quz.persistence import FilePersistence
 from quz.quiz import QuizDataError, Quiz
 from quz.util import Config, set_logger
 from quz.view import View
@@ -54,13 +54,17 @@ class Controller:
             button.deselect()
 
 
-class QuizController(Controller):
+class MainController(Controller):
 
     def _save_quiz(self, _):
         if self.view.save_bt['state'] == tkinter.DISABLED:
             return
         try:
             # self.view.output_frame.delete('1.0', tkinter.END)
+
+            print(self.view.quiz_categories.get())
+
+            # self.view.quiz_categories.set(self.view.language_names[1])
             text = self.view.input_frame.get("1.0", tkinter.END)
             status_msg = self.model.save_quiz(text)
             super().update_status(status_msg)
@@ -73,7 +77,7 @@ class QuizController(Controller):
         # self.model.save_latest_work(text)
         self.view.stop()
 
-    def bind_quiz_controls(self):
+    def bind_main_controls(self):
         self.view.clear_bt.bind("<Button-1>", super().clear_screen)
         self.view.save_bt.bind("<Button-1>", self._save_quiz)
         self.view.root.protocol("WM_DELETE_WINDOW", self._on_closing)
@@ -156,14 +160,13 @@ def main():
         if log.isEnabledFor(logging.DEBUG):
             log.info(f'config: {config}')
 
-        latest_quiz_category, quiz_categories = file_prefixes(config['QUIZZES_DIR'])
-        v = View(latest_quiz_category, quiz_categories, Config.APP_INSTRUCTIONS)
+        persistence = FilePersistence(config['QUIZZES_DIR'])
+        v = View(persistence.latest_topic(), persistence.topics(), Config.APP_INSTRUCTIONS)
 
-        persistence = FilePersistence(config['QUIZZES_DIR'], latest_quiz_category)
         m = Model(persistence)
 
-        c = QuizController(v, m)
-        c.bind_quiz_controls()
+        c = MainController(v, m)
+        c.bind_main_controls()
         c2 = PersistenceController(v, m)
         c2.bind_persistence_controls()
 

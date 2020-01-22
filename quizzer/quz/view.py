@@ -9,12 +9,12 @@ log = logging.getLogger(__name__)
 
 
 class View:
-    def __init__(self, latest_quiz_category: str, quiz_categories: list, instructions: str):
+    def __init__(self, latest_quiz_topic: str, quiz_topics: list, instructions: str):
         root = tkinter.Tk()
         root.title("Quiz maker/taker")
         self._quiz_answer_bts = []
         self._root = root
-        self._init_menu(latest_quiz_category, quiz_categories, root)
+        self._init_menu(latest_quiz_topic, quiz_topics, root)
         self._init_text_areas(root)
         self._init_bottom(root, instructions)
         self._answer_check_buttons = None
@@ -74,6 +74,10 @@ class View:
         return self._status_label
 
     @property
+    def quiz_categories(self):
+        return self._quiz_categories
+
+    @property
     def root(self):
         return self._root
 
@@ -89,8 +93,9 @@ class View:
     def _init_main_menu(self, latest_quiz_category: str, quiz_categories: list, frame, frame_color):
         self._clear_bt = tkinter.Button(frame, text="  Clear  ")
         category_label = tkinter.Label(frame, text="   Quiz category:", bg=frame_color)
+        self.variableCombo_value = tkinter.StringVar()
         self._quiz_categories = tkinter.ttk.Combobox(frame, width=10, height=12, font=("Arial", 9),
-                                                     values=quiz_categories)
+                                                     values=quiz_categories, textvariable=self.variableCombo_value)
         if len(quiz_categories) > 0 and latest_quiz_category in quiz_categories:
             self._quiz_categories.current(quiz_categories.index(latest_quiz_category))
         self._create_quiz_bt = tkinter.Button(frame, text="  Create Quiz  ", height=1)
@@ -132,13 +137,8 @@ class View:
         # self._input_frame.grid(row=0, column=0, sticky=tkinter.NE, pady=2)
 
         self._question_frame = tkinter.Frame(txt_frame, bg="white")
-        self._question = tkinter.Label(self._question_frame,
-                                       text="Select the correct statement(s)                                                                        " \
-                                            "                                                                                .",
-                                       fg="blue",
-                                       bg='white')
-        self._comment = tkinter.Label(self._question_frame, text="a commnet here ", fg="blue",
-                                      bg='white')
+        self._question = tkinter.Label(self._question_frame, text=150 * " ", fg="blue", bg='white')
+        self._comment = tkinter.Label(self._question_frame, text="a commnet here ", fg="blue", bg='white')
         self._is_check_A = tkinter.IntVar()
         self._is_check_B = tkinter.IntVar()
         self._check_A = tkinter.Checkbutton(self._question_frame, text="answer a", bg='white',

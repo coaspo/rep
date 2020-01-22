@@ -38,3 +38,8 @@ class Model:
         quiz = Quiz(marked_user_input=marked_user_input)
         status_msg, persistence_msg = self.persistence.update(quiz)
         return status_msg, persistence_msg
+
+    @property
+    def quiz_topics(self) -> list:
+        return self._quiz_topics
+

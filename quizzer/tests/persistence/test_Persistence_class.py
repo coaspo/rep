@@ -14,22 +14,20 @@ def _create_fake_domain_object(data_dict: dict) -> dict:
 
 
 def test_invalid_directories():
-    FilePersistence(save_dir='/non-dir/fake-dir', file_pfx='quiz')
-    assert FilePersistence.file_storage_err_msg.find(
-        "JsonFileStorage failed - [WinError 3] The system cannot find the path specified") > -1
+    FilePersistence('/non-dir/fake-dir')
+    assert "The system cannot find the path specified" in FilePersistence.file_storage_err_msg
 
-    persistence = FilePersistence(save_dir='./xyz:\n', file_pfx='quiz')
-    assert persistence.file_storage_err_msg.find(
-        "JsonFileStorage failed - [WinError 267] The directory name is invalid") > -1
+    FilePersistence('./xyz:\n')
+    assert "The directory name is invalid" in FilePersistence.file_storage_err_msg
 
 
 def test_obj_attrs():
-    persistence = FilePersistence(TMP_DIR, QUIZ_FILE_PFX)
+    persistence = FilePersistence(TMP_DIR)
     assert persistence.file_storage_err_msg is None
 
 
 def test_save():
-    persistence = FilePersistence(TMP_DIR, QUIZ_FILE_PFX)
+    persistence = FilePersistence(TMP_DIR)
 
     quiz = {'fake..ques..': 'a'}
     msg = persistence.save(quiz)
@@ -41,7 +39,7 @@ def test_save():
 
 
 def test_get():
-    persistence = FilePersistence(TMP_DIR, QUIZ_FILE_PFX)
+    persistence = FilePersistence(TMP_DIR)
     file_path, msg, quiz = persistence.get(_create_fake_domain_object)
     assert 'quiz.2.json' in file_path
     assert msg == '2.  quiz.2'
@@ -49,7 +47,7 @@ def test_get():
 
 
 def test_get_previous():
-    persistence = FilePersistence(TMP_DIR, QUIZ_FILE_PFX)
+    persistence = FilePersistence(TMP_DIR)
     file_path, msg, quiz = persistence.get_previous(_create_fake_domain_object)
     assert 'quiz.1.json' in file_path
     assert msg == '1.  quiz.1'
@@ -61,7 +59,7 @@ def test_get_previous():
 
 
 def test_get_next():
-    persistence = FilePersistence(TMP_DIR, QUIZ_FILE_PFX)
+    persistence = FilePersistence(TMP_DIR)
     file_path, msg, quiz = persistence.get_next(_create_fake_domain_object)
     assert 'quiz.2.json' in file_path
     assert msg == '2.  quiz.2'
@@ -73,7 +71,7 @@ def test_get_next():
 
 
 def test_delete():
-    persistence = FilePersistence(TMP_DIR, QUIZ_FILE_PFX)
+    persistence = FilePersistence(TMP_DIR)
     persistence.delete()
 
     file_path, msg, quiz = persistence.get(_create_fake_domain_object)
@@ -83,7 +81,7 @@ def test_delete():
 
 
 def test_update():
-    persistence = FilePersistence(TMP_DIR, QUIZ_FILE_PFX)
+    persistence = FilePersistence(TMP_DIR)
     quiz_new = {'real?..ques..': 'A'}
     persistence.update(quiz_new)
 
