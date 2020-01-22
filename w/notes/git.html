@@ -1,0 +1,43 @@
+<html lang="en">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <head>
+    <meta charset="utf-8"/>
+      <title>τσουρέκι</title>
+    </head>
+   <body style="font-size:24px;"><pre>
+
+0.
+  git clone https://github.com/chantzis/chrepo
+  git pull origin {branch}
+1.
+  git checkout {branch}
+  git add *  # all unstaged files
+  git commit -m "message.."
+  git push origin {branch}
+2.
+  git checkout master
+  git merge {branch}
+  git push origin master
+
+git status
+git config -l
+git log
+git reset --hard
+git clean -fdx
+
+git branch -a   # list all branches
+git branch -d  {ranch}  # delete branch
+git checkout -b {new-branch}  # create and chekcout branch
+git merge {branch}
+
+
+git remote -v   # list repos; : https://github.com/chantzis/chrepo
+git remte add origin  https://github.com/chantzis/chrepo
+git pull origin {branch}
+git push https://github.com/chantzis/chrepo {branch}
+
+find . type f -name "*.txt" -exec grep -i} 'ERR' {} \;
+git stash save "comments"
+git stach save ...comments...
+git stach list
+git stach show
