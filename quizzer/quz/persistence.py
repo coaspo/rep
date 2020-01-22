@@ -192,12 +192,12 @@ class FilePersistence(AbstractPersistence):
 
     def __init__(self, save_dir: str):
         try:
-            absolute_dir = _find_absolute_dir(save_dir)
-            self._latest_file_name = _find_latest_file_name(absolute_dir)
+            absolute_dir = FilePersistence._find_absolute_dir(save_dir)
+            self._latest_file_name = FilePersistence._find_latest_file_name(absolute_dir)
             self._latest_file_prefix = 'quiz' if self._latest_file_name is None \
                 else re.split(r'[.\-]', self._latest_file_name)[0]
             self._file_storage = JsonFileStorage(absolute_dir, self._latest_file_prefix, self._latest_file_name)
-            self._file_prefixes = _find_file_prefixes(absolute_dir)
+            self._file_prefixes = FilePersistence._find_file_prefixes(absolute_dir)
             FilePersistence.file_storage_err_msg = None
         except Exception as e:
             FilePersistence.file_storage_err_msg = str(e)
@@ -207,11 +207,6 @@ class FilePersistence(AbstractPersistence):
 
     def topics(self) -> list:
         return self._file_prefixes
-
-    @staticmethod
-    def _validate_file_storage():
-        if FilePersistence.file_storage_err_msg is not None:
-            raise Exception(FilePersistence.file_storage_err_msg)
 
     def save(self, data_dict: dict) -> str:
         FilePersistence._validate_file_storage()
@@ -241,45 +236,40 @@ class FilePersistence(AbstractPersistence):
         file_info, update_msg = self._file_storage.update_file(data_dict)
         return file_info, update_msg
 
+    @staticmethod
+    def _validate_file_storage():
+        if FilePersistence.file_storage_err_msg is not None:
+            raise Exception(FilePersistence.file_storage_err_msg)
 
-def _find_file_prefixes(absolute_dir: str) -> list:
-    prefixes = []
-    if os.path.exists(absolute_dir):
-        for file in sorted(os.listdir(absolute_dir)):
-            if file == 'latest_work.json':
-                continue
-            if file.endswith('.json'):
-                prefix = re.split(r'[.\-]', file)[0]
-                if prefix not in prefixes:
-                    prefixes.append(prefix)
-    return prefixes
+    @staticmethod
+    def _find_absolute_dir(dir_path: str) -> str:
+        absolute_dir = dir_path
+        if dir_path.startswith("./"):
+            absolute_dir = os.path.dirname(__file__) + absolute_dir[1:]
+        absolute_dir = os.path.abspath(absolute_dir)
+        if log.isEnabledFor(logging.DEBUG):
+            log.debug(f'absolute_dir={absolute_dir}')
+        return absolute_dir
 
+    @staticmethod
+    def _find_latest_file_name(absolute_dir: str) -> str or None:
+        path = absolute_dir + "/latest_work.json"
+        if os.path.exists(path):
+            with open(path) as f:
+                latest_work = json.load(f)
+            return latest_work['LATEST_FILE_NAME']
+        else:
+            return None
 
-def _find_latest_file_name(absolute_dir: str) -> str or None:
-    path = absolute_dir + "/latest_work.json"
-    if os.path.exists(path):
-        with open(path) as f:
-            latest_work = json.load(f)
-        return latest_work['LATEST_FILE_NAME']
-    else:
-        return None
-
-
-def _find_latest_file_prefix(absolute_dir: str) -> str:
-    file_path = absolute_dir + "/latest_work.json"
-    prefix = None
-    if os.path.exists(file_path):
-        with open(file_path) as f:
-            latest_work = json.load(f)
-        prefix = latest_work['LATEST_FILE_PREFIX']
-    return prefix
-
-
-def _find_absolute_dir(dir_path: str) -> str:
-    absolute_dir = dir_path
-    if dir_path.startswith("./"):
-        absolute_dir = os.path.dirname(__file__) + absolute_dir[1:]
-    absolute_dir = os.path.abspath(absolute_dir)
-    if log.isEnabledFor(logging.DEBUG):
-        log.debug(f'absolute_dir={absolute_dir}')
-    return absolute_dir
+    @staticmethod
+    def _find_file_prefixes(absolute_dir: str) -> list:
+        prefixes = []
+        if os.path.exists(absolute_dir):
+            for file in sorted(os.listdir(absolute_dir)):
+                if file == 'latest_work.json':
+                    continue
+                if file.endswith('.json'):
+                    prefix = re.split(r'[.\-]', file)[0]
+                    if prefix not in prefixes:
+                        prefixes.append(prefix)
+        return prefixes

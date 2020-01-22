@@ -4,6 +4,7 @@ from quz.persistence import JsonFileStorage
 import pytest
 import quz
 import tests.t_util
+from quz.quiz import Quiz
 
 TMP_DIR = tests.t_util.recreate_tmp_dir(__file__)
 CONFIG = {'LOG_DIR': TMP_DIR, 'QUIZZES_DIR': TMP_DIR, 'LOG_LEVEL': 'CRITICAL'}
@@ -86,3 +87,13 @@ def test_file_name():
     assert storage._latest_file_number == 4
     assert storage._active_file_index == 1
     assert len(storage._files_paths) == 3
+
+
+def test_save_quiz():
+    marked_user_input = '?What is 2+3\n-is 4\n+is 5\n\n=addition\n\n' \
+                        '?1*2 = ?\n- = 1\n+ = 2\n- = 4\n\n'
+    quiz = Quiz(quiz_topic='test', marked_user_input=marked_user_input)
+
+    storage = JsonFileStorage(TMP_DIR, 'quizCat1', None)
+    msg = storage.save_file(quiz.data_dict())
+    assert 'quizCat1' in msg

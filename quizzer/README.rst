@@ -69,3 +69,4 @@ Problems/Solutions
 |
 | on running pytest: ``found = cls._search_paths(context.pattern, context.path) AttributeError: 'str' object has no attribute 'pattern'``
 | **FIX:** from project dir, run ``./venv/Scripts/activate.bat``
+|

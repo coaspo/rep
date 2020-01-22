@@ -1,5 +1,4 @@
 from quz.model import Model
-from quz.persistence import FilePersistence
 from quz.quiz import QuizDataError, Quiz
 from quz.util import Config, set_logger
 from quz.view import View
@@ -135,7 +134,7 @@ class PersistenceController(Controller):
             if self.delete_bt_click_count == 1:
                 self.view.persistence_status['text'] = f'Click Delete again, \u25BA \u25C4 Clear to cancel.'
             else:
-                status_msg, persistence_msg = self.model.persistence.delete()
+                status_msg, persistence_msg = self.model.delete_quiz()
                 assert status_msg in self.view.status_label['text']
                 self.view.status_label['text'] = status_msg
                 self.view.persistence_status['text'] = persistence_msg
@@ -160,10 +159,9 @@ def main():
         if log.isEnabledFor(logging.DEBUG):
             log.info(f'config: {config}')
 
-        persistence = FilePersistence(config['QUIZZES_DIR'])
-        v = View(persistence.latest_topic(), persistence.topics(), Config.APP_INSTRUCTIONS)
+        m = Model(config['QUIZZES_DIR'])
 
-        m = Model(persistence)
+        v = View(m.latest_quiz_topic, m.quiz_topics, Config.APP_INSTRUCTIONS)
 
         c = MainController(v, m)
         c.bind_main_controls()

@@ -13,7 +13,7 @@ def test_quiz_obj_to_data_dict():
     marked_user_input = '?What is 2+3\n-is 4\n+is 5\n\n=addition\n\n' \
                         '?1*2 = ?\n- = 1\n+ = 2\n- = 4\n\n'
     quiz = Quiz(quiz_topic='try', marked_user_input=marked_user_input)
-    data_dict = quz.quiz._quiz_obj_to_data_dict(quiz)
+    data_dict = quiz.data_dict()
 
     expected_quiz_data_dict = {'current_question_num': 1,
                                'num_of_questions': 2,
