@@ -1,3 +1,13 @@
-tmp/**
-temp/**
-* - Copy
+**/tmp/**
+**/temp/**
+**/venv/**
+**/.pytest_cache/**
+
+**.idea
+** - Copy
+**.pyc
+**.log
+**.bak
+**.tmp
+**.egg*
+**a.py*

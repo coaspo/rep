@@ -10,5 +10,5 @@ quz/quizzes/**
 **.log
 **.bak
 **.tmp
-quz.egg*
-a.py*
+**/quz.egg*
+**/a.py

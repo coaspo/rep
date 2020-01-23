@@ -1,13 +1,2 @@
-tmp/**
-tmp*
-venv/**
 ltrans/dictionaries/**
 ltrans/saved-translations/**
-
-.idea
-*.pyc
-**.log
-**.bak
-**.tmp
-ltrans.egg*
-a.py*
