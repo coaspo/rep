@@ -74,36 +74,36 @@ class View:
         return self._status_label
 
     @property
-    def quiz_categories(self):
-        return self._quiz_categories
+    def quiz_topics(self):
+        return self._quiz_topics
 
     @property
     def root(self):
         return self._root
 
-    def _init_menu(self, latest_quiz_category: str, quiz_categories: list, root: tkinter.Tk):
+    def _init_menu(self, latest_quiz_topic: str, quiz_topics: list, root: tkinter.Tk):
         light_yellow = '#ffffcc'
         frame = tkinter.Frame(root, height=500)
         menu_background_color = light_yellow
         frame.configure(background=menu_background_color)
-        self._init_main_menu(latest_quiz_category, quiz_categories, frame, menu_background_color)
+        self._init_main_menu(latest_quiz_topic, quiz_topics, frame, menu_background_color)
         self._init_persistence_menu(frame, menu_background_color)
         frame.pack(fill=tkinter.BOTH, expand=False)
 
-    def _init_main_menu(self, latest_quiz_category: str, quiz_categories: list, frame, frame_color):
+    def _init_main_menu(self, latest_quiz_topic: str, quiz_topics: list, frame, frame_color):
         self._clear_bt = tkinter.Button(frame, text="  Clear  ")
-        category_label = tkinter.Label(frame, text="   Quiz category:", bg=frame_color)
+        topic_label = tkinter.Label(frame, text="   Quiz topic:", bg=frame_color)
         self.variableCombo_value = tkinter.StringVar()
-        self._quiz_categories = tkinter.ttk.Combobox(frame, width=10, height=12, font=("Arial", 9),
-                                                     values=quiz_categories, textvariable=self.variableCombo_value)
-        if len(quiz_categories) > 0 and latest_quiz_category in quiz_categories:
-            self._quiz_categories.current(quiz_categories.index(latest_quiz_category))
+        self._quiz_topics = tkinter.ttk.Combobox(frame, width=10, height=12, font=("Arial", 9),
+                                                 values=quiz_topics, textvariable=self.variableCombo_value)
+        if len(quiz_topics) > 0 and latest_quiz_topic in quiz_topics:
+            self._quiz_topics.current(quiz_topics.index(latest_quiz_topic))
         self._create_quiz_bt = tkinter.Button(frame, text="  Create Quiz  ", height=1)
         self._save_bt = tkinter.Button(frame, text="  Save  ", height=1)
 
         self._clear_bt.pack(side=tkinter.LEFT, padx=12, pady=2)
-        category_label.pack(side=tkinter.LEFT, pady=2)
-        self._quiz_categories.pack(side=tkinter.LEFT, padx=5, pady=2)
+        topic_label.pack(side=tkinter.LEFT, pady=2)
+        self._quiz_topics.pack(side=tkinter.LEFT, padx=5, pady=2)
         self._create_quiz_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
         self._save_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
 
@@ -186,7 +186,7 @@ class View:
         self._question.destroy()
         self._comment.destroy()
 
-    def create_quiz_question(self, question: str, ansers: dict, comment: str):
+    def create_quiz_question(self, question: str, anwsers: dict, comment: str):
         self._question = tkinter.Label(self._question_frame, text="Select the correct statement(s)", fg="blue",
                                        bg='white')
         self._question.grid(row=0, column=0, sticky=tkinter.W, pady=2)

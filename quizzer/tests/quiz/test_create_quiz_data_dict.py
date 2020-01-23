@@ -1,10 +1,13 @@
 import pprint
+
 import pytest
+
 import quz
 
 
 def test_create_quiz_data_dict():
     marked_user_input = '?What is 2+3\n' \
+                        '/comment line\n' \
                         '-is 4\n' \
                         '+is 5\n\n' \
                         '=addition\n\n' \
@@ -14,6 +17,7 @@ def test_create_quiz_data_dict():
                         '+ = 2\n' \
                         '- = 4\n' \
  \
+                        '/comment \n' \
                         '?What is 12+13\n' \
                         '-is 24\n' \
                         '+is 25\n\n' \

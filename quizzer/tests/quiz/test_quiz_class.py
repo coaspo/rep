@@ -24,7 +24,6 @@ question_2_answers = {'answer1': {'is_correct': False, 'is_selected': False, 'an
                       'num_of_answers': 3}
 quiz_data_dict = {'current_question_num': 2,
                   'num_of_questions': 2,
-                  'quiz_topic': 'quiz',
                   'marked_user_input': marked_user_input,
                   'question1': 'What is 2+3',
                   'question1_answers': question_1_answers,
@@ -41,14 +40,8 @@ question_1_answered = MultipleChoiceQuestion("What is 2+3", "addition", [Multipl
                                                                          MultipleChoiceAnswer("is 5", True, True)])
 
 
-def test_incomplete_input():
-    with pytest.raises(Exception, match=r"Invalid none value"):
-        Quiz(marked_user_input=marked_user_input)
-
-
 def test_initialize_with_test_marked_user_input():
-    quiz = Quiz(quiz_topic='test', marked_user_input=marked_user_input)
-    assert quiz.quiz_topic == 'test'
+    quiz = Quiz( marked_user_input=marked_user_input)
 
     assert quiz.marked_user_input == marked_user_input
 
@@ -65,7 +58,6 @@ def test_initialize_with_test_marked_user_input():
 def test_initialize_with_quiz_data_dict():
     quiz = Quiz(quiz_data_dict=quiz_data_dict)
     assert quiz.marked_user_input == marked_user_input
-    assert quiz.quiz_topic == 'quiz'
 
     assert quiz.current_question() == question_2
 

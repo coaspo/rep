@@ -78,6 +78,10 @@ class JsonFileStorage:
         return self._file_pfx
 
     @property
+    def is_empty(self):
+        return len(self._files_paths) == 0
+
+    @property
     def save_dir(self):
         return self._save_dir
 
@@ -210,6 +214,7 @@ class FilePersistence(AbstractPersistence):
             self._file_prefixes = FilePersistence._find_file_prefixes(absolute_dir)
             FilePersistence.file_storage_err_msg = None
         except Exception as e:
+            traceback.print_exc()
             FilePersistence.file_storage_err_msg = str(e)
 
     def latest_topic(self) -> str:
@@ -230,9 +235,12 @@ class FilePersistence(AbstractPersistence):
             self._file_storage.reset(file_pfx)
 
     def get(self, create_domain_object) -> (str, str, dict):
+        if self._file_storage.is_empty:
+            return f'There are no "{self._file_storage.file_pfx} files in {self._file_storage.save_dir}"', \
+                   'no files ', None
         FilePersistence._validate_file_storage()
         status_msg, file_name, data_dict = self._file_storage.read_active_file()
-        domain_object = create_domain_object(data_dict)
+        domain_object = None if data_dict is None else create_domain_object(data_dict)
         return status_msg, file_name, domain_object
 
     def get_next(self, create_domain_dct_object) -> (str, str, dict):
@@ -245,7 +253,7 @@ class FilePersistence(AbstractPersistence):
 
     def delete(self) -> (str, str):
         FilePersistence._validate_file_storage()
-        return self._file_storage.delete_active_file(), 'Deleted file'
+        return 'Deleted: ' + self._file_storage.delete_active_file() + ';  '
 
     def update(self, data_dict: dict) -> (str, str):
         FilePersistence._validate_file_storage()

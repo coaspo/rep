@@ -11,11 +11,10 @@ set_logger(CONFIG)
 
 
 def test_controller_set_up():
-    persistence = FilePersistence(TMP_DIR)
-    v = View(persistence.latest_topic(), persistence.topics(), '<UI intructions>')
+    m = Model(TMP_DIR)
+    v = View(m.latest_quiz_topic, m.quiz_topics, '<UI intructions>')
 
-    persistence = FilePersistence(TMP_DIR)
-    m = Model(persistence)
+    # persistence = FilePersistence(TMP_DIR)
 
     c = MainController(v, m)
     c.bind_main_controls()
