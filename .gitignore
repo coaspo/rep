@@ -1,6 +1,7 @@
 **/tmp/**
 **/temp/**
 **/venv/**
+**/python-venv/**
 **/.pytest_cache/**
 
 **.idea
