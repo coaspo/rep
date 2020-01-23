@@ -40,9 +40,10 @@ Run tests
 |  **Outside pycharm:**
 |   Run ``run_tests.bat``
 
-Run tests and check into github
+Tests/check-in automation
 -------------------------------
 |   Run ``run_tests_and_check-in-br1.bat``
+|   If a test fails, code will not be checked in.
 
 Notes
 -----
