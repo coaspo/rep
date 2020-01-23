@@ -64,9 +64,9 @@ class Quiz:
             log.debug(
                 f'quiz_topic={quiz_topic}, marked_user_input={marked_user_input}\nquiz_data_dict={quiz_data_dict}')
         if quiz_data_dict is None and (quiz_topic is None or marked_user_input is None):
-            raise ValueError(f'quiz_topic={quiz_topic}, marked_user_input={marked_user_input}\nBoth are not none')
+            raise ValueError(f'quiz_topic={quiz_topic}, marked_user_input={marked_user_input}\nInvalid none value')
         elif quiz_data_dict is not None and (quiz_topic is not None or marked_user_input is not None):
-            raise ValueError(f'quiz_topic={quiz_topic}, marked_user_input={marked_user_input}\nBoth are not none')
+            raise ValueError(f'quiz_topic={quiz_topic}, marked_user_input={marked_user_input}\nBoth should be none')
 
         if quiz_data_dict is None:
             self._quiz_data_dict = _create_quiz_data_dict(marked_user_input)

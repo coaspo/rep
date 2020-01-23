@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <style>
-         code {color:green; font-weight: 999; font-size:16px}
+         code {color:blue; font-weight: 999; font-size:16px}
          pre {font-family: Arial, Helvetica, sans-serif}
          body {font-family: Arial, Helvetica, sans-serif}
          id {color:green; font-family: "Courier New", Courier, monospace}
@@ -13,29 +13,38 @@
     <title>Create & practice quizzes</title>
 </head>
 <body>
+<h3>Quizzer user doc</h3>
 <pre>
-Application is to be used to help study.
-It creates a quiz based questions/answers in marked text
-with the markers <code>? + - = </code>,for example:
+Application can help you study by quickly
+creating a multiple choice quiz.
+For example, you type the marked text:
     <code>
+    /this a one-question quiz  
     ? Select correct statement(s)
     +a, b = b, a
-    -[print(x) for x in a_list if x > 10]
+    +[print(x) for x in a_list if x > 10]
     -[if x > 10 print(x) for x in a_list]
     =best features in python
     </code>
-that the user enters.  <code>? + - = </code> marks the question/answer/comment lines.
-After one takes the quiz the application displays the score.
+where the markers <code>/ ? + - = </code> indicate a
+<i>quiz-comment/question/answer/question-comment</i> line.
+The application creates a multiple choice choice quiz 
+with one question with 2/1 correct/incorrect answers,
+and a comment.
+After you answer all questions, the application displays the score.
+You may stop the application and finish a quiz later.
 </pre>
 <p>Recommendations:</p>
 <ul>
-    <li>Customize quiz file names; adjust <code>QUIZ_FILE_PFX</code> in <code>quz\config_quizzer.json</code></li>
     <li>Correct quizzes - change marked text and click <b>Update</b></li>
-    <li>Rename quiz files <code>quz/quizzes</code>. using the format:<br>
-        <code>&lt;text&gt;.&lt;number&gt;.json</code> - for example:<br>
-        <code>python-classes-quiz.4.json</code><br>
-        where <code>4</code> is unique in all file names.<br>
-        Application loops through a sorted file name.
+    <li>Make quiz file name more prescriptive -<br>
+	    rename quiz files <code>quz/quizzes</code>. using the format:<br>
+        <code>&lt;topic&gt;-&lt;description&gt;.&lt;id-number&gt;.json</code><br>
+        For example, rename <code>python-.4.json</code><br> to
+        <code>python-classes and OOD quiz.4.json</code><br>
+        The id-number <code>4</code> and topic <code>python</code>  
+		could but were not changed.<br>
+        Application navigates through the sorted file names.
     </li>
     <li>Prevent accidental deletes - make files in <code>quz/quizzes</code> <i>Read-Only</i></li>
 </ul>

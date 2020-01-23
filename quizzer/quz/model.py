@@ -13,9 +13,9 @@ class Model:
     def __init__(self, quiz_dir: str):
         self._persistence = FilePersistence(quiz_dir)
 
-    def save_quiz(self, marked_user_input: str) -> str:
-        quiz = Quiz(marked_user_input=marked_user_input)
-        status_msg = self._persistence.save(quiz.data_dict())
+    def save_quiz(self, quiz_topic: str, marked_user_input: str) -> str:
+        quiz = Quiz(quiz_topic=quiz_topic, marked_user_input=marked_user_input)
+        status_msg = self._persistence.save(quiz_topic, quiz.data_dict())
         return status_msg
 
     def next_quiz(self) -> (str, str, Quiz):
@@ -34,6 +34,9 @@ class Model:
         quiz = Quiz(marked_user_input=marked_user_input)
         status_msg, persistence_msg = self._persistence.update(quiz.data_dict())
         return status_msg, persistence_msg
+
+    def reset_persistence(self, quiz_topic: str) -> None:
+        self._persistence.reset(quiz_topic)
 
     @property
     def latest_quiz_topic(self) -> str:

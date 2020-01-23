@@ -65,8 +65,21 @@ class MainController(Controller):
 
             # self.view.quiz_categories.set(self.view.language_names[1])
             text = self.view.input_frame.get("1.0", tkinter.END)
-            status_msg = self.model.save_quiz(text)
+            topic = self.view.quiz_categories.get()
+            combo_values = self.view.quiz_categories['values']
+            if topic not in combo_values:
+                if isinstance(combo_values, str):
+                    if len(combo_values.strip()):
+                        combo_values = topic
+                    else:
+                        combo_values = (combo_values, topic)
+                else:
+                    combo_values += (topic,)
+                self.view.quiz_categories['values'] = combo_values
+            status_msg = self.model.save_quiz(topic, text)
             super().update_status(status_msg)
+
+
         except Exception as e:
             self.handle_exception('Save error: ', e)
 
@@ -80,8 +93,13 @@ class MainController(Controller):
         self.view.clear_bt.bind("<Button-1>", super().clear_screen)
         self.view.save_bt.bind("<Button-1>", self._save_quiz)
         self.view.root.protocol("WM_DELETE_WINDOW", self._on_closing)
+        self.view.quiz_categories.bind("<<ComboboxSelected>>", self.reset_persistence)
         if log.isEnabledFor(logging.DEBUG):
             log.debug('controller methods bound to view widgets')
+
+    def reset_persistence(self, e):
+        topic = self.view.quiz_categories.get()
+        self.model.reset_persistence(topic)
 
 
 class PersistenceController(Controller):

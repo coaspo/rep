@@ -1,3 +1,5 @@
+import pytest
+
 from quz.quiz import MultipleChoiceAnswer
 from quz.quiz import MultipleChoiceQuestion
 from quz.quiz import Quiz
@@ -39,9 +41,15 @@ question_1_answered = MultipleChoiceQuestion("What is 2+3", "addition", [Multipl
                                                                          MultipleChoiceAnswer("is 5", True, True)])
 
 
+def test_incomplete_input():
+    with pytest.raises(Exception, match=r"Invalid none value"):
+        Quiz(marked_user_input=marked_user_input)
+
+
 def test_initialize_with_test_marked_user_input():
     quiz = Quiz(quiz_topic='test', marked_user_input=marked_user_input)
     assert quiz.quiz_topic == 'test'
+
     assert quiz.marked_user_input == marked_user_input
 
     assert quiz.current_question() == question_1
