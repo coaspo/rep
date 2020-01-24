@@ -20,6 +20,9 @@ def run(args: list):
         if len(output) > 0:
             f2.write('\n' + output)
             print(output)
+            if 'FAILURES' in output:
+                print('May have intermittent tkinter venv failure. - try rerunning')
+                sys.exit(2)
         if len(errs) > 0:
             f2.write('\n' + 15 * 'ERR---' + '\n' + errs)
             print(15 * 'ERR---', '\n', errs)
@@ -33,7 +36,7 @@ if __name__ == '__main__':
     run(['pytest', 'tests/'])
     run(['git', 'add', '*'])
     run(['git', 'status'])
-    msg = input("Git commit msg: ")
-    run(['git', 'commit', '-m', '"' + msg + '"'])
-    run(['git', 'push', 'origin', 'brw'])
+    # msg = input("Git commit msg: ")
+    # run(['git', 'commit', '-m', '"' + msg + '"'])
+    # run(['git', 'push', 'origin', 'brw'])
     run([r'..\python-venv\Scripts\deactivate.bat'])
