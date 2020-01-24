@@ -1,5 +1,4 @@
 from quz.model import Model
-from quz.persistence import FilePersistence
 from quz.util import set_logger
 from tests.t_util import recreate_tmp_dir
 
@@ -9,5 +8,4 @@ set_logger(CONFIG)
 
 
 def test_model_set_up():
-    persistence = FilePersistence(TMP_DIR)
-    Model(persistence)
+    Model(TMP_DIR)

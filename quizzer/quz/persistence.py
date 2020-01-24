@@ -14,7 +14,7 @@ log = logging.getLogger(__name__)
 class AbstractPersistence(metaclass=abc.ABCMeta):
 
     @abc.abstractmethod
-    def save(self, data_dict: dict) -> str:
+    def save(self, file_pfx: str, data_dict: dict) -> str:
         pass
 
     @abc.abstractmethod
@@ -66,6 +66,21 @@ class JsonFileStorage:
         else:
             raise Exception('JsonFileStorage failed - ' + err_msg)
 
+    def reset(self, file_pfx: str) -> None:
+        self._file_pfx = file_pfx
+        self._latest_file_number, self._active_file_index, self._files_paths = JsonFileStorage._get_file_paths(
+            file_pfx,
+            self._latest_file_name,
+            self._save_dir)
+
+    @property
+    def file_pfx(self):
+        return self._file_pfx
+
+    @property
+    def is_empty(self):
+        return len(self._files_paths) == 0
+
     @property
     def save_dir(self):
         return self._save_dir
@@ -107,7 +122,6 @@ class JsonFileStorage:
         file_index = self._active_file_index + 1
         file_path = self._save_dir + '/' + self._file_pfx + '.' + str(file_num) + '.json'
         if file_index > len(self._files_paths):
-
             raise SystemError(
                 f'Index Error:  _file_path_index= {file_index}' +
                 f'(len(_files_paths)={len(self._files_paths)}), ')
@@ -200,6 +214,7 @@ class FilePersistence(AbstractPersistence):
             self._file_prefixes = FilePersistence._find_file_prefixes(absolute_dir)
             FilePersistence.file_storage_err_msg = None
         except Exception as e:
+            traceback.print_exc()
             FilePersistence.file_storage_err_msg = str(e)
 
     def latest_topic(self) -> str:
@@ -208,15 +223,24 @@ class FilePersistence(AbstractPersistence):
     def topics(self) -> list:
         return self._file_prefixes
 
-    def save(self, data_dict: dict) -> str:
+    def save(self, file_pfx: str, data_dict: dict) -> str:
         FilePersistence._validate_file_storage()
+        self.reset(file_pfx)
         file_path = self._file_storage.save_file(data_dict)
         return 'Saved quiz into: ' + file_path
 
+    def reset(self, file_pfx: str) -> None:
+        if self._latest_file_prefix != file_pfx:
+            self._latest_file_prefix = file_pfx
+            self._file_storage.reset(file_pfx)
+
     def get(self, create_domain_object) -> (str, str, dict):
+        if self._file_storage.is_empty:
+            return f'There are no "{self._file_storage.file_pfx} files in {self._file_storage.save_dir}"', \
+                   'no files ', None
         FilePersistence._validate_file_storage()
         status_msg, file_name, data_dict = self._file_storage.read_active_file()
-        domain_object = create_domain_object(data_dict)
+        domain_object = None if data_dict is None else create_domain_object(data_dict)
         return status_msg, file_name, domain_object
 
     def get_next(self, create_domain_dct_object) -> (str, str, dict):
@@ -229,7 +253,7 @@ class FilePersistence(AbstractPersistence):
 
     def delete(self) -> (str, str):
         FilePersistence._validate_file_storage()
-        return self._file_storage.delete_active_file(), 'Deleted file'
+        return 'Deleted: ' + self._file_storage.delete_active_file() + ';  '
 
     def update(self, data_dict: dict) -> (str, str):
         FilePersistence._validate_file_storage()

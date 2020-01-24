@@ -59,13 +59,19 @@ class MainController(Controller):
         if self.view.save_bt['state'] == tkinter.DISABLED:
             return
         try:
-            # self.view.output_frame.delete('1.0', tkinter.END)
-
-            print(self.view.quiz_categories.get())
-
-            # self.view.quiz_categories.set(self.view.language_names[1])
             text = self.view.input_frame.get("1.0", tkinter.END)
-            status_msg = self.model.save_quiz(text)
+            topic = self.view.quiz_topics.get().strip()
+            combo_values = self.view.quiz_topics['values']
+            if topic not in combo_values:
+                if isinstance(combo_values, str):
+                    if len(combo_values.strip()):
+                        combo_values = topic
+                    else:
+                        combo_values = (combo_values, topic)
+                else:
+                    combo_values += (topic,)
+                self.view.quiz_topics['values'] = combo_values
+            status_msg = self.model.save_quiz(topic, text)
             super().update_status(status_msg)
         except Exception as e:
             self.handle_exception('Save error: ', e)
@@ -80,13 +86,18 @@ class MainController(Controller):
         self.view.clear_bt.bind("<Button-1>", super().clear_screen)
         self.view.save_bt.bind("<Button-1>", self._save_quiz)
         self.view.root.protocol("WM_DELETE_WINDOW", self._on_closing)
+        self.view.quiz_topics.bind("<<ComboboxSelected>>", self.reset_persistence)
         if log.isEnabledFor(logging.DEBUG):
             log.debug('controller methods bound to view widgets')
+
+    def reset_persistence(self, _):
+        topic = self.view.quiz_topics.get()
+        self.model.reset_quiz_topic(topic)
 
 
 class PersistenceController(Controller):
     def _handle_persistence_error(self, e):
-        self.handle_exception('AbstractPersistence error: ', e)
+        self.handle_exception('PersistenceController error: ', e)
         self.view.persistence_status['text'] = 'See error below or in log file'
 
     def _populate_all_widgets(self, status_msg: str, persistence_msg: str, quiz: Quiz):

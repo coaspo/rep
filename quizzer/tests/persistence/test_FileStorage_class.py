@@ -92,7 +92,7 @@ def test_file_name():
 def test_save_quiz():
     marked_user_input = '?What is 2+3\n-is 4\n+is 5\n\n=addition\n\n' \
                         '?1*2 = ?\n- = 1\n+ = 2\n- = 4\n\n'
-    quiz = Quiz(quiz_topic='test', marked_user_input=marked_user_input)
+    quiz = Quiz(marked_user_input=marked_user_input)
 
     storage = JsonFileStorage(TMP_DIR, 'quizCat1', None)
     msg = storage.save_file(quiz.data_dict())
