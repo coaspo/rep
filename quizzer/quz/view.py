@@ -5,6 +5,8 @@ import tkinter.scrolledtext
 import tkinter.ttk
 import webbrowser
 
+from quz.quiz import Quiz
+
 log = logging.getLogger(__name__)
 
 
@@ -12,10 +14,11 @@ class View:
     def __init__(self, latest_quiz_topic: str, quiz_topics: list, instructions: str):
         root = tkinter.Tk()
         root.title("Quiz maker/taker")
-        self._quiz_answer_bts = []
+        self._is_selected_list = []
+        self._chk_bts = []
         self._root = root
         self._init_menu(latest_quiz_topic, quiz_topics, root)
-        self._init_text_areas(root)
+        self._init_quiz_area(root)
         self._init_bottom(root, instructions)
         self._answer_check_buttons = None
         if log.isEnabledFor(logging.DEBUG):
@@ -130,42 +133,29 @@ class View:
         help_label.bind("<Button-1>", lambda e: webbrowser.get('windows-default').open(
             "file://" + os.path.realpath("./quz/help.html")))
 
-    def _init_text_areas(self, root: tkinter.Tk):
+    def _init_quiz_area(self, root: tkinter.Tk):
         txt_frame = tkinter.Frame(root)
         self._input_frame = tkinter.scrolledtext.ScrolledText(txt_frame)
         self._input_frame.pack(side=tkinter.LEFT, pady=2, fill='both', expand=1)
-        # self._input_frame.grid(row=0, column=0, sticky=tkinter.NE, pady=2)
-
         self._question_frame = tkinter.Frame(txt_frame, bg="white")
-        self._question = tkinter.Label(self._question_frame, text=150 * " ", fg="blue", bg='white')
-        self._comment = tkinter.Label(self._question_frame, text="a commnet here ", fg="blue", bg='white')
-        self._is_check_A = tkinter.IntVar()
-        self._is_check_B = tkinter.IntVar()
-        self._check_A = tkinter.Checkbutton(self._question_frame, text="answer a", bg='white',
-                                            variable=self._is_check_A)
-        self._check_B = tkinter.Checkbutton(self._question_frame, text="answer B---\nthis is long", bg='white',
-                                            variable=self._is_check_B)
-        self._quiz_answer_bts.append((self._is_check_A, self._check_A))
-        self._quiz_answer_bts.append((self._is_check_B, self._check_B))
-        self._submit_bt = tkinter.Button(self._question_frame, text="  Submit  ")
-        self._next_question_bt = tkinter.Button(self._question_frame, text=u' \u25BA  ', height=1)
-        self._previous_question_bt = tkinter.Button(self._question_frame, text=u' \u25C4 ', height=1)
-        self._submit_bt.place(x=20, y=330, width=100, height=25)
-        self._previous_question_bt.place(x=160, y=330, width=40, height=25)
-        self._next_question_bt.place(x=210, y=330, width=40, height=25)
-
-        self._question.grid(row=0, column=0, columnspan=14, sticky=tkinter.W, pady=2)
-        self._check_A.grid(row=1, column=0, sticky=tkinter.W, pady=2)
-        self._check_B.grid(row=2, column=0, sticky=tkinter.W, pady=2)
-        self._comment.grid(row=3, column=0, sticky=tkinter.W, pady=2)
-        # self._submit_bt.grid(row=7, column=0, pady=2)
-
-        spacer_label = tkinter.Label(self._question_frame, text=150 * ' ', fg="blue", bg='white')
-        spacer_label.grid(row=15, column=0, columnspan=14, sticky=tkinter.W, pady=2)
-
+        self._init_question_fixed_attrs()
         self._question_frame.pack(side=tkinter.LEFT, pady=2, fill='both', expand=1)
-        # self._question_frame.grid(row=0, column=1, sticky=tkinter.NESW, pady=2)
+        spacer_label = tkinter.Label(self._question_frame, text=200 * ' ', fg="blue", bg='white')
+        spacer_label.grid(row=15, column=0, columnspan=14, sticky=tkinter.W, pady=2)
         txt_frame.pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
+
+    def _init_question_fixed_attrs(self):
+        self._question = tkinter.Label(self._question_frame, fg="blue", bg='white', width=90, justify=tkinter.LEFT)
+        self._question.grid(row=0, column=0, sticky=tkinter.W, padx=10, pady=10)
+        self._comment = tkinter.Label(self._question_frame, fg="blue", bg='white', anchor="e")
+        self._comment.place(x=10, y=370, width=240, height=25, anchor=tkinter.W)
+
+        self._submit_bt = tkinter.Button(self._question_frame, text="  Submit  ")
+        self._submit_bt.place(x=20, y=330, width=100, height=25)
+        self._next_question_bt = tkinter.Button(self._question_frame, text=u' \u25BA  ', height=1)
+        self._next_question_bt.place(x=210, y=330, width=40, height=25)
+        self._previous_question_bt = tkinter.Button(self._question_frame, text=u' \u25C4 ', height=1)
+        self._previous_question_bt.place(x=160, y=330, width=40, height=25)
 
     def _init_bottom(self, root, instructions: str):
         frame = tkinter.Frame(root)
@@ -182,24 +172,51 @@ class View:
         self.root.destroy()
 
     def delete_quiz_question(self):
-        [y.destroy() for (_, y) in self._quiz_answer_bts]
+        [y.destroy() for (_, y) in self._chk_bts]
         self._question.destroy()
         self._comment.destroy()
 
-    def create_quiz_question(self, question: str, anwsers: dict, comment: str):
-        self._question = tkinter.Label(self._question_frame, text="Select the correct statement(s)", fg="blue",
-                                       bg='white')
-        self._question.grid(row=0, column=0, sticky=tkinter.W, pady=2)
-        [y.delete() for (_, y) in self._quiz_answer_bts]
-        self._is_check_B = tkinter.IntVar()
-        self._check_A = tkinter.Checkbutton(self._question_frame, text="answer a", bg='white',
-                                            variable=self._is_check_A)
-        self._check_B = tkinter.Checkbutton(self._question_frame, text="answer B---\nthis is long", bg='white',
-                                            variable=self._is_check_B)
+    def add_quiz_question(self, quiz: Quiz):
+        question = quiz.current_question()
+        self._question['text'] = make_multiple_lines(question.question)
+        self._comment['text'] = make_multiple_lines(question.comment)
+
+        [y.delete() for (_, y) in self._chk_bts]
+        self._is_selected_list.clear()
+        self._chk_bts.clear()
+        for i, answer in enumerate(question.answers):
+            is_set = 1 if answer.is_selected else 0
+            self._is_selected_list.append(tkinter.IntVar(value=is_set))
+            self._chk_bts.append(
+                tkinter.Checkbutton(self._question_frame, text=make_multiple_lines(answer.answer), bg='white',
+                                    variable=self._is_selected_list[i], padx=15))
+            self._chk_bts[i].grid(row=i + 1, column=0, sticky=tkinter.W, pady=2)
+
+
+def make_multiple_lines(line: str) -> str:
+    if len(line) < 5:
+        return line
+    paragraph = []
+    is_new_line_added = False
+    line_num = 1
+    for i, c in enumerate(line):
+        paragraph.append(c)
+        if 75 * line_num < i < 90 * line_num and c == ' ':
+            if not is_new_line_added:
+                line_num += 1
+                paragraph.append('\n')
+                is_new_line_added = True
+        else:
+            is_new_line_added = False
+    return ''.join(paragraph)
 
 
 if __name__ == '__main__':
     v = View('quiz', ['java', 'sql'], 'This is a manual layout test. To run the application, run cli.py')
     print('start')
+    marked_user_input = '?What is 2+3123456789 123456789 1234---56789 123456789 123456789 123456789 123456789 123456789 123456789 123456789  aaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n-is 4\n+is 5\n\n=addition\n\n' \
+                        '?1*2 = ?\n- = 1\n+ = 2\n- = 4\n\n'
+    q = Quiz(marked_user_input=marked_user_input)
+    v.add_quiz_question(q)
     v.start()
     print('done')

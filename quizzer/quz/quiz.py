@@ -1,8 +1,102 @@
 import logging
+from typing import List
 
 
 class QuizDataError(Exception):
     pass
+
+
+class MultipleChoiceAnswer:
+    def __init__(self, answer: str, is_correct: bool, is_selected: bool):
+        self._answer = answer
+        self._is_correct = is_correct
+        self._is_selected = is_selected
+        log = logging.getLogger(__name__)
+        if log.isEnabledFor(logging.DEBUG):
+            log.debug(self.__repr__())
+
+    @property
+    def answer(self) -> str:
+        return self._answer
+
+    @property
+    def is_correct(self) -> bool:
+        return self._is_correct
+
+    @property
+    def is_selected(self) -> bool:
+        return self._is_selected
+
+    @is_selected.setter
+    def is_selected(self, value: bool) -> None:
+        self._is_selected = value
+
+    def is_selected_correct(self):
+        return (self._is_selected and self._is_correct) or \
+               (not self._is_selected and not self._is_correct)
+
+    def __eq__(self, other) -> bool:
+        if isinstance(other, MultipleChoiceAnswer):
+            return self.answer == other.answer and \
+                   self.is_correct == other.is_correct and \
+                   self.is_selected == other.is_selected
+        return False
+
+    def __ne__(self, other) -> bool:
+        return not self.__eq__(other)
+
+    def __repr__(self) -> str:
+        return f'MultipleChoiceAnswer("{self.answer}", {self.is_correct}, {self.is_selected})'
+
+
+class MultipleChoiceQuestion:
+    def __init__(self, question: str, comment: str or None, answers: List[MultipleChoiceAnswer]):
+        self._question = question
+        self._comment = comment
+        self._answers = answers
+        log = logging.getLogger(__name__)
+        if log.isEnabledFor(logging.DEBUG):
+            log.debug(self.__repr__())
+
+    @property
+    def question(self) -> str:
+        return self._question
+
+    @property
+    def comment(self) -> str:
+        return self._comment
+
+    @property
+    def answers(self) -> List[MultipleChoiceAnswer]:
+        return self._answers
+
+    def are_answers_correct(self) -> bool:
+        for answer in self._answers:
+            if not answer.is_selected_correct():
+                return False
+        return True
+
+    def is_answered(self) -> bool:
+        for answer in self._answers:
+            if answer.is_selected:
+                return True
+        return False
+
+    def __eq__(self, other) -> bool:
+        if isinstance(other, MultipleChoiceQuestion):
+            return self.question == other.question and \
+                   self.comment == other.comment and \
+                   self.answers == other.answers
+        return False
+
+    def __ne__(self, other) -> bool:
+        return not self.__eq__(other)
+
+    def __repr__(self) -> str:
+        text = self.comment
+        if text is not None:
+            text = '"' + text + '"'
+        return f'MultipleChoiceQuestion("{self.question}", {text}, {self.answers})'
 
 
 def _create_quiz_data_dict(marked_user_input: str) -> dict:
@@ -91,22 +185,22 @@ class Quiz:
         return self._marked_user_input
 
     @property
-    def questions(self) -> list:
+    def questions(self) -> List[MultipleChoiceQuestion]:
         return self._questions
 
     @property
     def current_question_num(self) -> int:
         return self._current_question_num
 
-    def next_question(self) -> tuple:
+    def next_question(self) -> MultipleChoiceQuestion:
         if self._current_question_num < len(self._questions):
             self._current_question_num += 1
         return self.current_question()
 
-    def current_question(self) -> tuple:
+    def current_question(self) -> MultipleChoiceQuestion:
         return self._questions[self._current_question_num - 1]
 
-    def previous_question(self) -> tuple:
+    def previous_question(self) -> MultipleChoiceQuestion:
         if self._current_question_num > 1:
             self._current_question_num -= 1
         return self.current_question()
@@ -152,7 +246,7 @@ class Quiz:
                f'{self.num_of_questions}, {self._questions})'
 
 
-def _create_questions(_quiz_data_dict: dict) -> list:
+def _create_questions(_quiz_data_dict: dict) -> List[MultipleChoiceQuestion]:
     num_of_questions = _quiz_data_dict['num_of_questions']
     questions = []
     for i in range(1, num_of_questions + 1):
@@ -167,7 +261,7 @@ def _create_questions(_quiz_data_dict: dict) -> list:
     return questions
 
 
-def _create_answers(answers_dict: dict) -> list:
+def _create_answers(answers_dict: dict) -> List[MultipleChoiceAnswer]:
     num_of_answers = answers_dict['num_of_answers']
     answers = []
     for j in range(1, num_of_answers + 1):
@@ -179,96 +273,3 @@ def _create_answers(answers_dict: dict) -> list:
         answer = MultipleChoiceAnswer(text, is_correct, is_selected)
         answers.append(answer)
     return answers
-
-
-class MultipleChoiceQuestion:
-    def __init__(self, question: str, comment: str or None, answers: list):
-        self._question = question
-        self._comment = comment
-        self._answers = answers
-        log = logging.getLogger(__name__)
-        if log.isEnabledFor(logging.DEBUG):
-            log.debug(self.__repr__())
-
-    @property
-    def question(self) -> str:
-        return self._question
-
-    @property
-    def comment(self) -> str:
-        return self._comment
-
-    @property
-    def answers(self) -> list:
-        return self._answers
-
-    def are_answers_correct(self) -> bool:
-        for answer in self._answers:
-            if not answer.is_selected_correct():
-                return False
-        return True
-
-    def is_answered(self) -> bool:
-        for answer in self._answers:
-            if answer.is_selected:
-                return True
-        return False
-
-    def __eq__(self, other) -> bool:
-        if isinstance(other, MultipleChoiceQuestion):
-            return self.question == other.question and \
-                   self.comment == other.comment and \
-                   self.answers == other.answers
-        return False
-
-    def __ne__(self, other) -> bool:
-        return not self.__eq__(other)
-
-    def __repr__(self) -> str:
-        text = self.comment
-        if text is not None:
-            text = '"' + text + '"'
-        return f'MultipleChoiceQuestion("{self.question}", {text}, {self.answers})'
-
-
-class MultipleChoiceAnswer:
-    def __init__(self, answer: str, is_correct: bool, is_selected: bool):
-        self._answer = answer
-        self._is_correct = is_correct
-        self._is_selected = is_selected
-        log = logging.getLogger(__name__)
-        if log.isEnabledFor(logging.DEBUG):
-            log.debug(self.__repr__())
-
-    @property
-    def answer(self) -> str:
-        return self._answer
-
-    @property
-    def is_correct(self) -> bool:
-        return self._is_correct
-
-    @property
-    def is_selected(self) -> bool:
-        return self._is_selected
-
-    @is_selected.setter
-    def is_selected(self, value: bool) -> None:
-        self._is_selected = value
-
-    def is_selected_correct(self):
-        return (self._is_selected and self._is_correct) or \
-               (not self._is_selected and not self._is_correct)
-
-    def __eq__(self, other) -> bool:
-        if isinstance(other, MultipleChoiceAnswer):
-            return self.answer == other.answer and \
-                   self.is_correct == other.is_correct and \
-                   self.is_selected == other.is_selected
-        return False
-
-    def __ne__(self, other) -> bool:
-        return not self.__eq__(other)
-
-    def __repr__(self) -> str:
-        return f'MultipleChoiceAnswer("{self.answer}", {self.is_correct}, {self.is_selected})'

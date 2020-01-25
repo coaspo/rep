@@ -45,6 +45,18 @@ class Controller:
                 log.error(msg + '\n\t' + msg_trace)
             self.update_status(msg_exc, True)
 
+    def _populate_all_widgets(self, status_msg: str, persistence_msg: str, quiz: Quiz):
+        self.view.input_frame.delete('1.0', tkinter.END)
+        # self.view.save_bt.config(state=tkinter.DISABLED)
+        self.view.input_frame.insert(tkinter.END, quiz.marked_user_input)
+        status_msg = status_msg + ';  may change text and click Update, or click Delete'
+        self.update_status(status_msg)
+
+        self.delete_bt_click_count = 0
+        self.view.persistence_status['text'] = persistence_msg
+        self.view.delete_bt.config(state=tkinter.NORMAL)
+        self.view.update_bt.config(state=tkinter.NORMAL)
+
     @staticmethod
     def set_check_button(button: tkinter.Checkbutton, value: int):
         if value == 1:
@@ -92,25 +104,14 @@ class MainController(Controller):
 
     def reset_persistence(self, _):
         topic = self.view.quiz_topics.get()
-        self.model.reset_quiz_topic(topic)
+        status_msg, persistence_msg, quiz  = self.model.reset_quiz_topic(topic)
+        self._populate_all_widgets(status_msg, persistence_msg, quiz)
 
 
 class PersistenceController(Controller):
     def _handle_persistence_error(self, e):
         self.handle_exception('PersistenceController error: ', e)
         self.view.persistence_status['text'] = 'See error below or in log file'
-
-    def _populate_all_widgets(self, status_msg: str, persistence_msg: str, quiz: Quiz):
-        self.view.input_frame.delete('1.0', tkinter.END)
-        # self.view.save_bt.config(state=tkinter.DISABLED)
-        self.view.input_frame.insert(tkinter.END, quiz.marked_user_input)
-        status_msg = status_msg + ';  may change text and click Update, or click Delete'
-        super().update_status(status_msg)
-
-        self.delete_bt_click_count = 0
-        self.view.persistence_status['text'] = persistence_msg
-        self.view.delete_bt.config(state=tkinter.NORMAL)
-        self.view.update_bt.config(state=tkinter.NORMAL)
 
     def _next_quiz(self, _):
         try:

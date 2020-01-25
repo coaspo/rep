@@ -6,7 +6,7 @@ from subprocess import Popen, PIPE
 LOG_FILE = os.path.basename(__file__) + '.log'
 
 
-def run(args: list):
+def run(*args: str):
     print('cmd:', args)
     with open(LOG_FILE, 'a') as f1:
         f1.write('\n' + str(args))
@@ -29,6 +29,6 @@ def run(args: list):
 if __name__ == '__main__':
     with open(LOG_FILE, 'w') as f:
         f.write(str(datetime.now()))
-    run([r'..\python-venv\Scripts\activate.bat'])
-    run(['pytest', 'tests/'])
-    run([r'..\python-venv\Scripts\deactivate.bat'])
+    run(r'..\python-venv\Scripts\activate.bat')
+    run('pytest', 'tests/')
+    run(r'..\python-venv\Scripts\deactivate.bat')

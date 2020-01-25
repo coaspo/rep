@@ -1,4 +1,5 @@
 import logging
+from typing import List
 
 from quz.persistence import FilePersistence
 from quz.quiz import Quiz
@@ -25,6 +26,10 @@ class Model:
         status_msg, persistence_msg, self._quiz = self._persistence.get_next(_create_domain_object)
         return status_msg, persistence_msg, self._quiz
 
+    def current_quiz(self) -> (str, str, Quiz):
+        status_msg, persistence_msg, self._quiz = self._persistence.get(_create_domain_object)
+        return status_msg, persistence_msg, self._quiz
+
     def previous_quiz(self) -> (str, str, Quiz):
         status_msg, persistence_msg, self._quiz = self._persistence.get_previous(_create_domain_object)
         return status_msg, persistence_msg, self._quiz
@@ -39,14 +44,15 @@ class Model:
         status_msg, persistence_msg = self._persistence.update(self._quiz.data_dict())
         return status_msg, persistence_msg
 
-    def reset_quiz_topic(self, quiz_topic: str) -> None:
+    def reset_quiz_topic(self, quiz_topic: str) -> (str, str, Quiz):
         self._persistence.reset(quiz_topic)
-        self._quiz = self._persistence.get(_create_domain_object)
+        status_msg, persistence_msg, self._quiz = self._persistence.get_previous(_create_domain_object)
+        return status_msg, persistence_msg, self._quiz
 
     @property
     def latest_quiz_topic(self) -> str:
         return self._persistence.latest_topic()
 
     @property
-    def quiz_topics(self) -> list:
+    def quiz_topics(self) -> List[str]:
         return self._persistence.topics()
