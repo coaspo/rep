@@ -111,6 +111,7 @@ class View:
         self.src_language = tkinter.ttk.Combobox(frame, width=10, height=12, font=("Arial", 9),
                                                  values=self.language_names, state='readonly')
         self.src_language.current(0)
+
         self._destination_language = tkinter.ttk.Combobox(frame, width=12, height=10, font=("Arial", 9),
                                                           values=self.language_names, state='readonly')
         self._destination_language.current(1)
