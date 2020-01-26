@@ -19,5 +19,5 @@ def test_view_set_up():
 
     #  v._root.update() # disabled because screen flashes
 
-    v.start()  # for manual testing
+    # v.start()  # for manual testing
 
