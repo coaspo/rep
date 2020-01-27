@@ -2,7 +2,6 @@ from datetime import datetime
 from os import path
 from subprocess import Popen, PIPE
 from sys import exit
-from time import sleep
 
 LOG_FILE = path.basename(__file__) + '.log'
 
@@ -24,17 +23,14 @@ def run(*args: str):
         if len(errs) > 0:
             f2.write('\n' + 15 * 'ERR---' + '\n' + errs)
             print(15 * 'ERR---', '\n', errs)
-            print('ERR')
-            sleep(10)
             exit(1)
 
 
 if __name__ == '__main__':
     with open(LOG_FILE, 'w') as f:
         f.write(str(datetime.now()))
-    run(r'..\python-venv\Scripts\activate.bat')
-    run('pytest', '--pyargs', './tests')
-    run(r'..\python-venv\Scripts\deactivate.bat')
+    run(r'venv\Scripts\activate.bat')
+    run('pytest',  './tests')
+    run(r'venv\Scripts\deactivate.bat')
     print('done')
-    sleep(5)
     exit(0)

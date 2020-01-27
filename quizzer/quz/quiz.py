@@ -133,8 +133,10 @@ def _create_quiz_data_dict(marked_user_input: str) -> dict:
             if comment is not None:
                 raise QuizDataError(f'More than one comment for question;  line#{i}; line={line}')
             comment = line[1:]
+        elif line.startswith('/'):
+            pass
         else:
-            raise QuizDataError(f'First character is not: ?+-=  line#{i}; line={line}')
+            raise QuizDataError(f'First character is not: ?+-=/  line#{i}; line={line}')
 
     _add_question_to_quiz_data_dict(comment, num_of_answers, num_of_questions, question_answers, question_text,
                                     quiz_data_dict)

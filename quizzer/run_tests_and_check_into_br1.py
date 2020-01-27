@@ -35,18 +35,19 @@ def run(*args: str):
 if __name__ == '__main__':
     with open(LOG_FILE, 'w') as f:
         f.write(str(datetime.now()))
-    run(r'..\python-venv\Scripts\activate.bat')
+    run(r'venv\Scripts\activate.bat')
     run('pytest', 'tests/')
     run('git', 'add', '*')
     run('git', 'status')
-    msg = '"' + input("Git commit msg: ") + '"'
+    msg = '"' + input(" Git commit msg: ") + '"'
     run('git', 'commit', '-m', msg)
     run('git', 'push', 'origin', 'br1')
     run('git', 'diff')
-    run(r'..\python-venv\Scripts\deactivate.bat')
+    run(r'venv\Scripts\deactivate.bat')
 
     archive_dir = './logs-check-ins'
     if not path.isdir(archive_dir):
         mkdir(archive_dir)
     log_archive_file = archive_dir + '/' + SCRIPT_NAME + '-' + str(datetime.now()).replace(':', '-') + '.log'
     copy(LOG_FILE, log_archive_file)
+    print('done')

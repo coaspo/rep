@@ -4,26 +4,12 @@ import tkinter.font
 import tkinter.scrolledtext
 import tkinter.ttk
 import webbrowser
-
-from quz.quiz import Quiz
+from typing import List
 
 log = logging.getLogger(__name__)
 
 
 class View:
-    def __init__(self, latest_quiz_topic: str, quiz_topics: list, instructions: str):
-        root = tkinter.Tk()
-        root.title("Quiz maker/taker")
-        self._is_selected_list = []
-        self._chk_bts = []
-        self._root = root
-        self._init_menu(latest_quiz_topic, quiz_topics, root)
-        self._init_quiz_area(root)
-        self._init_bottom(root, instructions)
-        self._answer_check_buttons = None
-        if log.isEnabledFor(logging.DEBUG):
-            log.debug("Finished")
-
     @property
     def answer_check_buttons(self) -> list:
         return self._answer_check_buttons
@@ -33,136 +19,157 @@ class View:
         return self._clear_bt
 
     @property
-    def create_quiz_bt(self):
-        return self._create_quiz_bt
+    def question_comment_label(self):
+        return self._question_comment_label
 
     @property
-    def input_frame(self):
-        return self._input_frame
+    def delete_quiz_bt(self):
+        return self._delete_quiz_bt
 
     @property
-    def output_frame(self):
-        return self._question_frame
+    def input_marked_text_area(self):
+        return self._input_marked_text_area
 
     @property
-    def save_bt(self):
-        return self._save_bt
+    def next_question_bt(self):
+        return self._next_question_bt
 
     @property
-    def next_bt(self):
+    def next_quiz_bt(self):
         return self._next_quiz_bt
 
     @property
-    def previous_bt(self):
+    def previous_quiz_bt(self):
         return self._previous_quiz_bt
 
     @property
-    def persistence_status(self):
+    def previous_question_bt(self):
+        return self._previous_question_bt
+
+    @property
+    def persistence_status_label(self):
         return self._persistence_status_label
 
     @property
-    def update_bt(self):
-        return self._update_bt
+    def question_area(self):
+        return self._question_area
 
     @property
-    def delete_bt(self):
-        return self._delete_bt
-
-    @property
-    def question_frame(self):
-        return self._question_frame
-
-    @property
-    def status_label(self):
-        return self._status_label
+    def question_label(self):
+        return self._question_label
 
     @property
     def quiz_topics(self):
         return self._quiz_topics
 
     @property
+    def refresh_quiz_bt(self):
+        return self._refresh_quiz_bt
+
+    @property
+    def update_bt(self):
+        return self._update_bt
+
+    @property
+    def status_label(self):
+        return self._status_label
+
+    @property
     def root(self):
         return self._root
+
+    def __init__(self, latest_quiz_topic: str, quiz_topics: list, instructions: str):
+        root = tkinter.Tk()
+        root.title("Quiz maker/taker")
+        self._answer_check_buttons: List[object, tkinter.Checkbutton. int] = []
+        self._root = root
+
+        self._init_menu(latest_quiz_topic, quiz_topics, root)
+        self._init_scroll_frames(root)
+        self._init_bottom_status_label(root, instructions)
+        if log.isEnabledFor(logging.DEBUG):
+            log.debug("Finished creating view")
 
     def _init_menu(self, latest_quiz_topic: str, quiz_topics: list, root: tkinter.Tk):
         light_yellow = '#ffffcc'
         frame = tkinter.Frame(root, height=500)
         menu_background_color = light_yellow
         frame.configure(background=menu_background_color)
-        self._init_main_menu(latest_quiz_topic, quiz_topics, frame, menu_background_color)
-        self._init_persistence_menu(frame, menu_background_color)
         frame.pack(fill=tkinter.BOTH, expand=False)
 
-    def _init_main_menu(self, latest_quiz_topic: str, quiz_topics: list, frame, frame_color):
+        self._init_topics_menu(latest_quiz_topic, quiz_topics, frame, menu_background_color)
+        self._init_persistence_menu(frame, menu_background_color)
+
+    def _init_topics_menu(self, latest_quiz_topic: str, quiz_topics: list, frame, frame_color):
         self._clear_bt = tkinter.Button(frame, text="  Clear  ")
+        self._clear_bt.pack(side=tkinter.LEFT, padx=12, pady=2)
         topic_label = tkinter.Label(frame, text="   Quiz topic:", bg=frame_color)
+        topic_label.pack(side=tkinter.LEFT, pady=2)
+
         self.variableCombo_value = tkinter.StringVar()
         self._quiz_topics = tkinter.ttk.Combobox(frame, width=10, height=12, font=("Arial", 9),
                                                  values=quiz_topics, textvariable=self.variableCombo_value)
         if len(quiz_topics) > 0 and latest_quiz_topic in quiz_topics:
             self._quiz_topics.current(quiz_topics.index(latest_quiz_topic))
-        self._create_quiz_bt = tkinter.Button(frame, text="  Create Quiz  ", height=1)
-        self._save_bt = tkinter.Button(frame, text="  Save  ", height=1)
-
-        self._clear_bt.pack(side=tkinter.LEFT, padx=12, pady=2)
-        topic_label.pack(side=tkinter.LEFT, pady=2)
         self._quiz_topics.pack(side=tkinter.LEFT, padx=5, pady=2)
-        self._create_quiz_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
-        self._save_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
+
+        self._refresh_quiz_bt = tkinter.Button(frame, text="  Refresh Quiz  ", height=1)
+        self._refresh_quiz_bt.pack(side=tkinter.LEFT, padx=20, pady=2)
+        spacer_label = tkinter.Label(frame, text=None, bg=frame_color)
+        spacer_label.pack(side=tkinter.LEFT, padx=10)
 
     def _init_persistence_menu(self, frame, frame_color):
         saved_label = tkinter.Label(frame, text="                          Saved quizzes:", bg=frame_color)
+        saved_label.pack(side=tkinter.LEFT, padx=2, pady=2)
         self._previous_quiz_bt = tkinter.Button(frame, text=u' \u25C4 ', height=1)
+        self._previous_quiz_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
         self._next_quiz_bt = tkinter.Button(frame, text=u' \u25BA  ', height=1)
+        self._next_quiz_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
+
         self._persistence_status_label = tkinter.Label(frame, text="", anchor='w', bg='white')
         self._persistence_status_label.config(width=30)
-        self._update_bt = tkinter.Button(frame, text="Update", height=1, state=tkinter.DISABLED)
-        self._delete_bt = tkinter.Button(frame, text="Delete", height=1, state=tkinter.DISABLED)
-        help_label = tkinter.Label(frame, text="Help", fg="blue", bg=frame_color, cursor="hand2")
-        f = tkinter.font.Font(help_label, help_label.cget("font"))
-        f.configure(underline=True)
-        help_label.configure(font=f)
-
-        saved_label.pack(side=tkinter.LEFT, padx=2, pady=2)
-        self._previous_quiz_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
-        self._next_quiz_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
         self._persistence_status_label.pack(side=tkinter.LEFT, padx=2, pady=2)
-        self._delete_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
+        self._update_bt = tkinter.Button(frame, text="Update", height=1, state=tkinter.DISABLED)
         self._update_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
-        help_label.pack(side=tkinter.LEFT, padx=25, pady=2)
+        self._delete_quiz_bt = tkinter.Button(frame, text="Delete", height=1, state=tkinter.DISABLED)
+        self._delete_quiz_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
+
+        help_label = tkinter.Label(frame, text="Help", fg="blue", bg=frame_color, cursor="hand2")
+        font = tkinter.font.Font(help_label, help_label.cget("font"))
+        font.configure(underline=True)
+        help_label.configure(font=font)
+        help_label.pack(side=tkinter.LEFT, padx=50, pady=2)
         help_label.bind("<Button-1>", lambda e: webbrowser.get('windows-default').open(
             "file://" + os.path.realpath("./quz/help.html")))
 
-    def _init_quiz_area(self, root: tkinter.Tk):
-        txt_frame = tkinter.Frame(root)
-        self._input_frame = tkinter.scrolledtext.ScrolledText(txt_frame)
-        self._input_frame.pack(side=tkinter.LEFT, pady=2, fill='both', expand=1)
-        self._question_frame = tkinter.Frame(txt_frame, bg="white")
-        self._init_question_fixed_attrs()
-        self._question_frame.pack(side=tkinter.LEFT, pady=2, fill='both', expand=1)
-        spacer_label = tkinter.Label(self._question_frame, text=200 * ' ', fg="blue", bg='white')
-        spacer_label.grid(row=15, column=0, columnspan=14, sticky=tkinter.W, pady=2)
-        txt_frame.pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
+    def _init_scroll_frames(self, root: tkinter.Tk):
+        frame = tkinter.Frame(root)
+        self._input_marked_text_area = tkinter.scrolledtext.ScrolledText(frame)
+        self._input_marked_text_area.pack(side=tkinter.LEFT, pady=2, fill='both', expand=1)
+        self._question_area = tkinter.Frame(frame, bg="white")
 
-    def _init_question_fixed_attrs(self):
-        self._question = tkinter.Label(self._question_frame, fg="blue", bg='white', width=90, justify=tkinter.LEFT)
-        self._question.grid(row=0, column=0, sticky=tkinter.W, padx=10, pady=10)
-        self._comment = tkinter.Label(self._question_frame, fg="blue", bg='white', anchor="e")
-        self._comment.place(x=10, y=370, width=240, height=25, anchor=tkinter.W)
+        self._init_question_frame()
+        self._question_area.pack(side=tkinter.LEFT, pady=2, fill='both', expand=1)
+        # question_are_width_adjust_label = tkinter.Label(self._question_area, text=None, fg="blue", bg='white')
+        # question_area_width_adjust_label.grid(row=15, column=0, columnspan=14, sticky=tkinter.W, padx=1)
+        frame.pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
 
-        self._submit_bt = tkinter.Button(self._question_frame, text="  Submit  ")
+    def _init_question_frame(self):
+        self._question_label = tkinter.Label(self._question_area, fg="blue", bg='white', width=90, justify=tkinter.LEFT)
+        self._question_label.grid(row=0, column=0, sticky=tkinter.W, padx=10, pady=10)
+        self._question_comment_label = tkinter.Label(self._question_area, fg="blue", bg='white', anchor="e")
+        self._question_comment_label.place(x=10, y=370, width=240, height=25, anchor=tkinter.W)
+
+        self._submit_bt = tkinter.Button(self._question_area, text="  Submit  ")
         self._submit_bt.place(x=20, y=330, width=100, height=25)
-        self._next_question_bt = tkinter.Button(self._question_frame, text=u' \u25BA  ', height=1)
+        self._next_question_bt = tkinter.Button(self._question_area, text=u' \u25BA  ', height=1)
         self._next_question_bt.place(x=210, y=330, width=40, height=25)
-        self._previous_question_bt = tkinter.Button(self._question_frame, text=u' \u25C4 ', height=1)
+        self._previous_question_bt = tkinter.Button(self._question_area, text=u' \u25C4 ', height=1)
         self._previous_question_bt.place(x=160, y=330, width=40, height=25)
 
-    def _init_bottom(self, root, instructions: str):
-        frame = tkinter.Frame(root)
-        frame.pack(expand=False)
+    def _init_bottom_status_label(self, root, instructions: str):
         self._status_label = tkinter.Label(root, bg="#eeffee", fg='black')
         self._status_label['text'] = instructions
-
         self._status_label.pack(side=tkinter.LEFT, fill='both', expand='yes')
 
     def start(self):
@@ -171,26 +178,16 @@ class View:
     def stop(self):
         self.root.destroy()
 
-    def delete_quiz_question(self):
-        [y.destroy() for (_, y) in self._chk_bts]
-        self._question.destroy()
-        self._comment.destroy()
+    def clear_screen(self):
+        self.input_marked_text_area.delete('1.0', tkinter.END)
+        self.persistence_status_label['text'] = ''
+        self.status_label['text'] = ''
+        self.clear_quiz_question()
 
-    def add_quiz_question(self, quiz: Quiz):
-        question = quiz.current_question()
-        self._question['text'] = make_multiple_lines(question.question)
-        self._comment['text'] = make_multiple_lines(question.comment)
-
-        [y.delete() for (_, y) in self._chk_bts]
-        self._is_selected_list.clear()
-        self._chk_bts.clear()
-        for i, answer in enumerate(question.answers):
-            is_set = 1 if answer.is_selected else 0
-            self._is_selected_list.append(tkinter.IntVar(value=is_set))
-            self._chk_bts.append(
-                tkinter.Checkbutton(self._question_frame, text=make_multiple_lines(answer.answer), bg='white',
-                                    variable=self._is_selected_list[i], padx=15))
-            self._chk_bts[i].grid(row=i + 1, column=0, sticky=tkinter.W, pady=2)
+    def clear_quiz_question(self):
+        [self.answer_check_buttons.destroy() for (_, self.answer_check_buttons) in self.answer_check_buttons]
+        self.question_label['text'] = ''
+        self.question_comment_label['text'] = ''
 
 
 def make_multiple_lines(line: str) -> str:
@@ -214,9 +211,4 @@ def make_multiple_lines(line: str) -> str:
 if __name__ == '__main__':
     v = View('quiz', ['java', 'sql'], 'This is a manual layout test. To run the application, run cli.py')
     print('start')
-    marked_user_input = '?What is 2+3123456789 123456789 1234---56789 123456789 123456789 123456789 123456789 123456789 123456789 123456789  aaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa\n-is 4\n+is 5\n\n=addition\n\n' \
-                        '?1*2 = ?\n- = 1\n+ = 2\n- = 4\n\n'
-    q = Quiz(marked_user_input=marked_user_input)
-    v.add_quiz_question(q)
     v.start()
-    print('done')
