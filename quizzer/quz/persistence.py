@@ -74,6 +74,10 @@ class JsonFileStorage:
             self._save_dir)
 
     @property
+    def latest_file_name(self):
+        return self._latest_file_name
+
+    @property
     def file_pfx(self):
         return self._file_pfx
 
@@ -284,6 +288,12 @@ class FilePersistence(AbstractPersistence):
             return latest_work['LATEST_FILE_NAME']
         else:
             return None
+
+    def save_latest_file_name(self) -> str or None:
+        file_path = self._file_storage.save_dir + "/latest_work.json"
+        data_dict = {'LATEST_FILE_NAME':self._file_storage.latest_file_name}
+        with open(file_path, "w", encoding='utf8') as f:
+            json.dump(data_dict, f, ensure_ascii=False, sort_keys=False, indent=0)
 
     @staticmethod
     def _find_file_prefixes(absolute_dir: str) -> list:

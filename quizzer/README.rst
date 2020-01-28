@@ -31,6 +31,7 @@ Run tests
 ---------
 |  From project dir, install pytest:
 |    ``pip install -r requirements.txt``
+|  May need to activate venv (see below) before doing this.
 |
 |  **In Pycharm:**
 |   >File >Settings >Tools >Python-Integrated-Tools,

@@ -1,7 +1,6 @@
 from quz.quiz import Quiz
 from quz.util import set_logger
 from tests.t_util import recreate_tmp_dir
-import quz.quiz
 
 TMP_DIR = recreate_tmp_dir(__file__)
 
@@ -13,7 +12,7 @@ def test_quiz_obj_to_data_dict():
     marked_user_input = '?What is 2+3\n-is 4\n+is 5\n\n=addition\n\n' \
                         '?1*2 = ?\n- = 1\n+ = 2\n- = 4\n\n'
     quiz = Quiz(marked_user_input=marked_user_input)
-    data_dict = quiz.data_dict()
+    data_dict = quiz.get_data_dict()
 
     expected_quiz_data_dict = {'current_question_num': 1,
                                'num_of_questions': 2,

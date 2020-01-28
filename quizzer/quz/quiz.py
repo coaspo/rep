@@ -222,7 +222,7 @@ class Quiz:
         percent = round(100. * num_of_correct_questions / num_of_questions)
         return ratio, f'{percent}%'
 
-    def data_dict(self) -> dict:
+    def get_data_dict(self) -> dict:
         data_dict = {'current_question_num': self.current_question_num,
                      'num_of_questions': self.num_of_questions,
                      'marked_user_input': self.marked_user_input}
@@ -246,6 +246,23 @@ class Quiz:
     def __repr__(self) -> str:
         return f'Quiz(current_question_num={self._current_question_num}, num_of_questions=' \
                f'{self.num_of_questions}, {self._questions})'
+
+    def is_same_as(self, other) -> bool:
+        if isinstance(other, Quiz):
+            if self.num_of_questions != other.num_of_questions:
+                return False
+            for i, question in enumerate(self.questions):
+                if question.question != other.questions[i].question or \
+                        question.comment != other.questions[i].comment or \
+                        len(question.answers) != len(other.questions[i].answers):
+                    return False
+                other_answers = other.questions[i].answers
+                for j, answer in enumerate(question.answers):
+                    if answer.answer != other_answers[j].answer or \
+                            answer.is_correct != other_answers[j].is_correct:
+                        return False
+            return True
+        return False
 
 
 def _create_questions(_quiz_data_dict: dict) -> List[MultipleChoiceQuestion]:

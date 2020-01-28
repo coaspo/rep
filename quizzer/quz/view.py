@@ -156,7 +156,7 @@ class View:
 
     def _init_question_frame(self):
         self._question_label = tkinter.Label(self._question_area, fg="blue", bg='white', width=90, justify=tkinter.LEFT)
-        self._question_label.grid(row=0, column=0, sticky=tkinter.W, padx=10, pady=10)
+        self._question_label.grid(row=0, column=0, padx=10, pady=10)
         self._question_comment_label = tkinter.Label(self._question_area, fg="blue", bg='white', anchor="e")
         self._question_comment_label.place(x=10, y=370, width=240, height=25, anchor=tkinter.W)
 
@@ -185,8 +185,8 @@ class View:
         self.clear_quiz_question()
 
     def clear_quiz_question(self):
-        [self.answer_check_buttons.destroy() for (_, self.answer_check_buttons) in self.answer_check_buttons]
-        self.question_label['text'] = ''
+        [btn.destroy() for (_, btn) in self.answer_check_buttons]
+        self._question_label['text'] = ''
         self.question_comment_label['text'] = ''
 
 

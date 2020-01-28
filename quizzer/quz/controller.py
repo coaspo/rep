@@ -4,6 +4,7 @@ import os
 import tkinter
 import tkinter.ttk
 import traceback
+from tkinter import messagebox
 
 from quz.model import Model
 from quz.quiz import QuizDataError, Quiz, MultipleChoiceQuestion
@@ -80,24 +81,51 @@ class Controller:
 
 class MainController(Controller):
 
+    def __init__(self, view: View, model: Model):
+        Controller.__init__(self, view, model)
+        status_msg, persistence_msg, quiz = self.model.current_quiz()
+        if quiz is not None:
+            self._populate_all_widgets(status_msg, persistence_msg, quiz)
+            self._display_question(quiz.current_question())
+
     def _save_quiz(self, _):
         try:
-            text = self.view.input_marked_text_area.get("1.0", tkinter.END)
             topic = self.view.quiz_topics.get().strip()
-            combo_values = self.view.quiz_topics['values']
-            if topic not in combo_values:
-                if isinstance(combo_values, str):
-                    if len(combo_values.strip()):
-                        combo_values = topic
-                    else:
-                        combo_values = (combo_values, topic)
-                else:
-                    combo_values += (topic,)
-                self.view.quiz_topics['values'] = combo_values
-            status_msg = self.model.save_quiz(topic, text)
+            self._update_combo_box_topics(topic)
+            status_msg = self.model.save_quiz(topic)
             super().update_status(status_msg)
         except Exception as e:
             self.handle_exception('Save error: ', e)
+
+    def _update_combo_box_topics(self, topic):
+        combo_values = self.view.quiz_topics['values']
+        if topic not in combo_values:
+            if isinstance(combo_values, str):
+                if len(combo_values.strip()):
+                    combo_values = topic
+                else:
+                    combo_values = (combo_values, topic)
+            else:
+                combo_values += (topic,)
+            self.view.quiz_topics['values'] = combo_values
+
+    def _on_close_window(self):
+        self.possibly_reset_quiz()
+        topic = self.view.quiz_topics.get().strip()
+        self.model.save_quiz(topic)
+        self.view.stop()
+
+    def possibly_reset_quiz(self):
+        marked_user_input = self.view.input_marked_text_area.get("1.0", tkinter.END)
+        quiz = Quiz(marked_user_input=marked_user_input)
+        if not quiz.is_same_as(self.model.quiz):
+            is_to_reset = messagebox.askyesno(title="Quiz inconsistency",
+                                              message="Marked text and the quiz are not consistent.\n"
+                                                      "Would you like to reset the quiz?\n"
+                                                      "This erases any entered answers.",
+                                              default=messagebox.NO, parent=self.view.root)
+            if is_to_reset:
+                self.model.reset_quiz( marked_user_input)
 
     def bind_main_controls(self):
         self.view.clear_bt.bind("<Button-1>", super().clear_screen)
@@ -107,7 +135,7 @@ class MainController(Controller):
         self.view.next_question_bt.bind("<Button-1>", self._next_question)
         self.view.previous_question_bt.bind("<Button-1>", self._previous_question)
 
-        self.view.root.protocol("WM_DELETE_WINDOW", self.view.stop)
+        self.view.root.protocol("WM_DELETE_WINDOW", self._on_close_window)
         if log.isEnabledFor(logging.DEBUG):
             log.debug('controller methods bound to view widgets')
 
@@ -118,14 +146,14 @@ class MainController(Controller):
 
     def _next_question(self, _):
         try:
-            question = self.model.next_quiz().current_question()
+            question = self.model.current_quiz()[2].next_question()
             self._display_question(question)
         except Exception as e:
             super().handle_exception('Next question err', e)
 
     def _previous_question(self, _):
         try:
-            question = self.model.previous_quiz().current_question()
+            question = self.model.current_quiz()[2].previous_question()
             self._display_question(question)
         except Exception as e:
             self.handle_exception('Previous question err', e)
