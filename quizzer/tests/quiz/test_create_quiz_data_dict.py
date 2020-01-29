@@ -1,6 +1,6 @@
 import pprint
 import pytest
-import quz
+from quz.quiz import Quiz
 
 
 def test_create_quiz_data_dict():
@@ -19,7 +19,7 @@ def test_create_quiz_data_dict():
                         '+is 25\n\n' \
                         '=big addition\n\n'
 
-    data_dict = quz.quiz._create_quiz_data_dict(marked_user_input)
+    data_dict = Quiz._create_quiz_data_dict(marked_user_input)
     expected_data_dict = {'current_question_num': 1,
                           'num_of_questions': 3,
                           'marked_user_input': marked_user_input,

@@ -99,61 +99,9 @@ class MultipleChoiceQuestion:
         return f'MultipleChoiceQuestion("{self.question}", {text}, {self.answers})'
 
 
-def _create_quiz_data_dict(marked_user_input: str) -> dict:
-    text_lines = marked_user_input.strip().split('\n')
-    if len(text_lines) < 3:
-        raise QuizDataError('Invalid text; line count < 3 - min is 1 question and two options')
-    quiz_data_dict = {'current_question_num': 1, 'marked_user_input': marked_user_input}
-    num_of_answers = 0
-    num_of_questions = 0
-    question_answers = {}
-    question_text = None
-    comment = None
-
-    for i, line in enumerate(text_lines):
-        line = line.strip()
-        if len(line) == 0:
-            continue
-
-        if line.startswith('?'):
-            if num_of_questions != 0:
-                _add_question_to_quiz_data_dict(comment, num_of_answers, num_of_questions, question_answers,
-                                                question_text, quiz_data_dict)
-            question_text = line[1:]
-            num_of_questions += 1
-
-            num_of_answers = 0
-            question_answers = {}
-            comment = None
-        elif line.startswith('+') or line.startswith('-'):
-            num_of_answers += 1
-            answer = {'is_correct': line.startswith('+'), 'is_selected': False, 'answer': line[1:]}
-            question_answers['answer' + str(num_of_answers)] = answer
-        elif line.startswith('='):
-            if comment is not None:
-                raise QuizDataError(f'More than one comment for question;  line#{i}; line={line}')
-            comment = line[1:]
-        elif line.startswith('/'):
-            pass
-        else:
-            raise QuizDataError(f'First character is not: ?+-=/  line#{i}; line={line}')
-
-    _add_question_to_quiz_data_dict(comment, num_of_answers, num_of_questions, question_answers, question_text,
-                                    quiz_data_dict)
-    quiz_data_dict['num_of_questions'] = num_of_questions
-    return quiz_data_dict
-
-
-def _add_question_to_quiz_data_dict(comment: str, num_of_answers: int, num_of_questions: int, question_answers: dict,
-                                    question_text: str, quiz_data_dict: dict):
-    question_answers['num_of_answers'] = num_of_answers
-    if comment is not None:
-        question_answers['comment'] = comment
-    quiz_data_dict['question' + str(num_of_questions)] = question_text
-    quiz_data_dict['question' + str(num_of_questions) + '_answers'] = question_answers
-
-
 class Quiz:
+    """ marked_user_input when quiz is created from GUI, quiz_data_dict when quiz is created from persistence"""
+
     def __init__(self, marked_user_input: str = None, quiz_data_dict: dict = None):
         log = logging.getLogger(__name__)
         if log.isEnabledFor(logging.DEBUG):
@@ -165,12 +113,12 @@ class Quiz:
             raise ValueError(f'marked_user_input or quiz_data_dict must be none')
 
         if quiz_data_dict is None:
-            self._quiz_data_dict = _create_quiz_data_dict(marked_user_input)
+            self._quiz_data_dict = Quiz._create_quiz_data_dict(marked_user_input)
         else:
             self._quiz_data_dict = quiz_data_dict
         if log.isEnabledFor(logging.DEBUG):
             log.debug(f'quiz_data_dict={self._quiz_data_dict}')
-        self._questions = _create_questions(self._quiz_data_dict)
+        self._questions = Quiz._create_questions(self._quiz_data_dict)
         if log.isEnabledFor(logging.DEBUG):
             log.debug(f'questions={self.questions}')
 
@@ -264,31 +212,86 @@ class Quiz:
             return True
         return False
 
+    @staticmethod
+    def _create_quiz_data_dict(marked_user_input: str) -> dict:
+        text_lines = marked_user_input.strip().split('\n')
+        if len(text_lines) < 3:
+            raise QuizDataError('Invalid text; line count < 3 - min is 1 question and two options')
+        quiz_data_dict = {'current_question_num': 1, 'marked_user_input': marked_user_input}
+        num_of_answers = 0
+        num_of_questions = 0
+        question_answers = {}
+        question_text = None
+        comment = None
 
-def _create_questions(_quiz_data_dict: dict) -> List[MultipleChoiceQuestion]:
-    num_of_questions = _quiz_data_dict['num_of_questions']
-    questions = []
-    for i in range(1, num_of_questions + 1):
-        key = 'question' + str(i)
-        question_text = _quiz_data_dict[key]
-        key2 = key + '_answers'
-        answers_dict = _quiz_data_dict[key2]
-        comment = answers_dict.get('comment')
-        answers = _create_answers(answers_dict)
-        question = MultipleChoiceQuestion(question_text, comment, answers)
-        questions.append(question)
-    return questions
+        for i, line in enumerate(text_lines):
+            line = line.strip()
+            if len(line) == 0:
+                continue
 
+            if line.startswith('?'):
+                if num_of_questions != 0:
+                    Quiz._add_question_to_quiz_data_dict(comment, num_of_answers, num_of_questions, question_answers,
+                                                         question_text, quiz_data_dict)
+                question_text = line[1:]
+                num_of_questions += 1
 
-def _create_answers(answers_dict: dict) -> List[MultipleChoiceAnswer]:
-    num_of_answers = answers_dict['num_of_answers']
-    answers = []
-    for j in range(1, num_of_answers + 1):
-        key = 'answer' + str(j)
-        answer_dict = answers_dict[key]
-        text = answer_dict['answer']
-        is_correct = answer_dict['is_correct']
-        is_selected = answer_dict['is_selected']
-        answer = MultipleChoiceAnswer(text, is_correct, is_selected)
-        answers.append(answer)
-    return answers
+                num_of_answers = 0
+                question_answers = {}
+                comment = None
+            elif line.startswith('+') or line.startswith('-'):
+                num_of_answers += 1
+                answer = {'is_correct': line.startswith('+'), 'is_selected': False, 'answer': line[1:]}
+                question_answers['answer' + str(num_of_answers)] = answer
+            elif line.startswith('='):
+                if comment is not None:
+                    raise QuizDataError(f'More than one comment for question;  line#{i}; line={line}')
+                comment = line[1:]
+            elif line.startswith('/'):
+                pass
+            else:
+                raise QuizDataError(f'First character is not: ?+-=/  line#{i}; line={line}')
+
+        Quiz._add_question_to_quiz_data_dict(comment, num_of_answers, num_of_questions, question_answers, question_text,
+                                             quiz_data_dict)
+        quiz_data_dict['num_of_questions'] = num_of_questions
+        return quiz_data_dict
+
+    @staticmethod
+    def _add_question_to_quiz_data_dict(comment: str, num_of_answers: int, num_of_questions: int,
+                                        question_answers: dict,
+                                        question_text: str, quiz_data_dict: dict):
+        question_answers['num_of_answers'] = num_of_answers
+        if comment is not None:
+            question_answers['comment'] = comment
+        quiz_data_dict['question' + str(num_of_questions)] = question_text
+        quiz_data_dict['question' + str(num_of_questions) + '_answers'] = question_answers
+
+    @staticmethod
+    def _create_questions(_quiz_data_dict: dict) -> List[MultipleChoiceQuestion]:
+        num_of_questions = _quiz_data_dict['num_of_questions']
+        questions = []
+        for i in range(1, num_of_questions + 1):
+            key = 'question' + str(i)
+            question_text = _quiz_data_dict[key]
+            key2 = key + '_answers'
+            answers_dict = _quiz_data_dict[key2]
+            comment = answers_dict.get('comment')
+            answers = Quiz._create_answers(answers_dict)
+            question = MultipleChoiceQuestion(question_text, comment, answers)
+            questions.append(question)
+        return questions
+
+    @staticmethod
+    def _create_answers(answers_dict: dict) -> List[MultipleChoiceAnswer]:
+        num_of_answers = answers_dict['num_of_answers']
+        answers = []
+        for j in range(1, num_of_answers + 1):
+            key = 'answer' + str(j)
+            answer_dict = answers_dict[key]
+            text = answer_dict['answer']
+            is_correct = answer_dict['is_correct']
+            is_selected = answer_dict['is_selected']
+            answer = MultipleChoiceAnswer(text, is_correct, is_selected)
+            answers.append(answer)
+        return answers

@@ -1,7 +1,7 @@
-from quz.quiz import MultipleChoiceAnswer
+from quz.quiz import MultipleChoiceAnswer, Quiz
 from quz.util import set_logger
 from tests.t_util import recreate_tmp_dir
-import quz.quiz
+
 
 TMP_DIR = recreate_tmp_dir(__file__)
 
@@ -18,7 +18,7 @@ def test_create_answers():
                                 'answer': 'is 5'},
                     'comment': 'addition',
                     'num_of_answers': 2}
-    answers = quz.quiz._create_answers(answers_dict)
+    answers = Quiz._create_answers(answers_dict)
     assert len(answers) == 2
     a1 = MultipleChoiceAnswer('is 4', False, True)
     assert answers[0] == a1

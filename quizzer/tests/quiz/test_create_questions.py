@@ -1,8 +1,7 @@
-from quz.quiz import MultipleChoiceAnswer
+from quz.quiz import MultipleChoiceAnswer, Quiz
 from quz.quiz import MultipleChoiceQuestion
 from quz.util import set_logger
 from tests.t_util import recreate_tmp_dir
-import quz.quiz
 
 TMP_DIR = recreate_tmp_dir(__file__)
 
@@ -27,7 +26,7 @@ def test_create_questions():
                       'question2': '1*2 = ?',
                       'question2_answers': question2_answers}
 
-    questions = quz.quiz._create_questions(quiz_data_dict)
+    questions = Quiz._create_questions(quiz_data_dict)
     assert len(questions) == 2
 
     expected = MultipleChoiceQuestion("What is 2+3", "addition", [MultipleChoiceAnswer("is 4", False, False),
