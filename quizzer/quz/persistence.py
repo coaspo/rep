@@ -162,7 +162,7 @@ class JsonFileStorage:
 
     def _validate_file_paths(self):
         if len(self._files_paths) == 0:
-            raise FileExistsError(f'There are no "<prefix>.<unique-num>.json" files in: {self._save_dir}')
+            raise FileExistsError(f'No files, "<prefix>.<unique-num>.json" files in: {self._save_dir}')
 
     def read_active_file(self) -> (str, str, dict):
         file_path = self._files_paths[self._active_file_index]
@@ -183,8 +183,10 @@ class JsonFileStorage:
         self._validate_file_paths()
         file_path = self._files_paths[self._active_file_index]
         os.remove(file_path)
-        del self._files_paths[self._active_file_index]
-        self._active_file_index -= 1
+        self._latest_file_number, self._active_file_index, self._files_paths = JsonFileStorage._get_file_paths(
+            self._file_pfx,
+            self._latest_file_name,
+            self._save_dir)
         if log.isEnabledFor(logging.DEBUG):
             log.debug(f'file_path={file_path}')
         return file_path

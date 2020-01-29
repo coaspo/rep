@@ -1,9 +1,11 @@
+import os
 import traceback
 
-from quz.persistence import JsonFileStorage
 import pytest
+
 import quz
 import tests.t_util
+from quz.persistence import JsonFileStorage
 from quz.quiz import Quiz
 
 TMP_DIR = tests.t_util.recreate_tmp_dir(__file__)
@@ -21,6 +23,34 @@ def test_valid_config():
         JsonFileStorage(TMP_DIR, 'quizCat1', None)
     except Exception as e:
         pytest.fail("Unexpected error: " + str(e) + '/n' + traceback.format_exc())
+
+
+def test_delete():
+    storage = JsonFileStorage(TMP_DIR, 'quizCat1', None)
+    with open(storage._save_dir + '/quizCat1.3.json', 'w') as f:
+        f.write('{"a":1}')
+    storage = JsonFileStorage(TMP_DIR, 'quizCat1', None)
+    path = storage.delete_active_file()
+    assert not os.path.exists(path)
+    with pytest.raises(FileExistsError, match="No file*"):
+        path = storage.delete_active_file()
+
+
+def test_delete_multiple():
+    storage = JsonFileStorage(TMP_DIR, 'quizCat1', None)
+    with open(storage._save_dir + '/quizCat1.2.json', 'w') as f:
+        f.write('{"a":1}')
+    with open(storage._save_dir + '/quizCat1.3.json', 'w') as f:
+        f.write('{"a":2}')
+    storage = JsonFileStorage(TMP_DIR, 'quizCat1', None)
+    assert storage._latest_file_number == 3
+    assert storage._active_file_index == 1
+    assert len(storage._files_paths) == 2
+    path = storage.delete_active_file()
+    assert not os.path.exists(path)
+    assert storage._latest_file_number == 2
+    assert storage._active_file_index == 0
+    assert len(storage._files_paths) == 1
 
 
 def test_latest_file_num():

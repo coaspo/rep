@@ -54,6 +54,8 @@ class Model:
         return status_msg + status_msg2, persistence_msg
 
     def quiz_description(self) -> str:
+        if self._quiz is None:
+            return ''
         return self._persistence.description()
 
     def update_quiz(self, marked_user_input: str) -> (str, str):

@@ -107,7 +107,8 @@ class MainController(Controller):
                                                                       "the quiz will be deleted.",
                                                               default=messagebox.CANCEL, parent=self.view.root)
                         if is_to_delete:
-                            self.model.delete_quiz()
+                            status_msg = self.model.delete_quiz()
+                            self._populate_all_widgets(status_msg, self.model.quiz_description(), self.model.quiz)
                     else:
                         is_to_reset = messagebox.askyesno(title="Quiz inconsistency",
                                                           message="Marked text and the quiz are not consistent.\n"
