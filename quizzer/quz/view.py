@@ -47,7 +47,7 @@ class View:
         return self._previous_question_bt
 
     @property
-    def persistence_status_label(self):
+    def quiz_description_label(self):
         return self._persistence_status_label
 
     @property
@@ -178,7 +178,7 @@ class View:
 
     def clear_screen(self):
         self.input_marked_text_area.delete('1.0', tkinter.END)
-        self.persistence_status_label['text'] = ''
+        self.quiz_description_label['text'] = ''
         self.status_label['text'] = ''
         self.clear_quiz_question()
 

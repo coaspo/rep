@@ -38,19 +38,18 @@ class Controller:
         else:
             msg_exc = msg + ' ' + str(exc)
             msg_trace = msg_exc + '\n\t' + traceback.format_exc()
+            print(msg + '\n\t' + msg_trace)
             if type(exc) is not QuizDataError:
                 log.error(msg + '\n\t' + msg_trace)
             self.update_status(msg_exc, True)
 
-    def _populate_all_widgets(self, status_msg: str, persistence_msg: str, quiz: Quiz):
+    def _populate_all_widgets(self, status_msg: str, quiz_description: str, quiz: Quiz):
         self.view.input_marked_text_area.delete('1.0', tkinter.END)
         # self.view.save_bt.config(state=tkinter.DISABLED)
         self.view.input_marked_text_area.insert(tkinter.END, quiz.marked_user_input)
-        status_msg = status_msg
         self.update_status(status_msg)
-
         self.delete_bt_click_count = 0
-        self.view.persistence_status_label['text'] = persistence_msg
+        self.view.quiz_description_label['text'] = quiz_description
         self.view.delete_quiz_bt.config(state=tkinter.NORMAL)
         self.view.update_bt.config(state=tkinter.NORMAL)
 
@@ -99,7 +98,7 @@ class MainController(Controller):
                 self.model.reset_quiz(marked_user_input)
                 topic = self.view.quiz_topics.get().strip()
                 status_msg = self.model.save_quiz(topic)
-                self._populate_all_widgets
+                self._populate_all_widgets(status_msg, self.model.quiz_description(), self.model.quiz)
             else:
                 if marked_user_input != self.model.quiz.marked_user_input:
                     if len(marked_user_input) == 0:
@@ -120,8 +119,6 @@ class MainController(Controller):
                             self.model.reset_quiz(marked_user_input)
                         else:
                             self.view.input_marked_text_area.insert('insert', self.model.quiz.marked_user_input)
-            status_msg = self.model.save_quiz(topic)
-            super().update_status(status_msg)
         except Exception as e:
             self.handle_exception('Save error: ', e)
 
@@ -176,7 +173,7 @@ class MainController(Controller):
 class PersistenceController(Controller):
     def _handle_persistence_error(self, e):
         self.handle_exception('PersistenceController error: ', e)
-        self.view.persistence_status_label['text'] = 'See error below or in log file'
+        self.view.quiz_description_label['text'] = 'See error below or in log file'
 
     def _next_quiz(self, _):
         try:
@@ -201,7 +198,7 @@ class PersistenceController(Controller):
             marked_user_input = self.view.input_marked_text_area.get("1.0", tkinter.END)
             status_msg, persistence_msg = self.model.update_quiz(marked_user_input)
             super().update_status(status_msg)
-            self.view.persistence_status_label['text'] = persistence_msg
+            self.view.quiz_description_label['text'] = persistence_msg
         except Exception as e:
             self._handle_persistence_error(e)
 
@@ -211,12 +208,12 @@ class PersistenceController(Controller):
         self.delete_bt_click_count += 1
         try:
             if self.delete_bt_click_count == 1:
-                self.view.persistence_status_label['text'] = f'Click Delete again, \u25BA \u25C4 Clear to cancel.'
+                self.view.quiz_description_label['text'] = f'Click Delete again, \u25BA \u25C4 Clear to cancel.'
             else:
                 status_msg, persistence_msg = self.model.delete_quiz()
                 assert status_msg in self.view.status_label['text']
                 self.view.status_label['text'] = status_msg
-                self.view.persistence_status_label['text'] = persistence_msg
+                self.view.quiz_description_label['text'] = persistence_msg
                 self.delete_bt_click_count = 0
         except Exception as e:
             self._handle_persistence_error(e)

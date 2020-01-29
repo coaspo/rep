@@ -53,6 +53,9 @@ class Model:
         status_msg2, persistence_msg, self._quiz = self._persistence.get(_create_domain_object)
         return status_msg + status_msg2, persistence_msg
 
+    def quiz_description(self) -> str:
+        return self._persistence.description()
+
     def update_quiz(self, marked_user_input: str) -> (str, str):
         self._quiz = Quiz(marked_user_input=marked_user_input)
         status_msg, persistence_msg = self._persistence.update(self._quiz.get_data_dict())

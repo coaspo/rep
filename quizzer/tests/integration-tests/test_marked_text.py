@@ -33,5 +33,5 @@ def test_save_marked_text():
                                               '+ = 2\n'
                                               '- = 4\n\n')
     c._update_quiz(1)
-    print(':::::::::', v.status_label.cget('text'))
     assert v.status_label.cget('text').startswith('Saved quiz')
+    assert v.quiz_description_label.cget('text').startswith('1/1  quiz.1.json')

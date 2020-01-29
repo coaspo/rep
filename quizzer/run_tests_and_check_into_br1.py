@@ -27,8 +27,9 @@ def run(*args: str):
                 print('May have intermittent tkinter venv failure. - try rerunning')
                 exit(1)
         if len(errs) > 0:
-            f2.write('\n' + 15 * 'ERR---' + '\n' + errs)
-            print(15 * 'ERR---', '\n', errs)
+            label = 15 * 'ERR---' if 'br1 -> br1' not in str(errs) else ''
+            f2.write('\n' + label + '\n' + errs)
+            print(label, '\n', errs)
             exit(2)
 
 

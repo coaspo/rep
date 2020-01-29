@@ -45,6 +45,10 @@ class AbstractPersistence(metaclass=abc.ABCMeta):
     def latest_topic(self) -> list:
         pass
 
+    @abc.abstractmethod
+    def description(self) -> list:
+        pass
+
 
 class JsonFileStorage:
     def __init__(self, save_dir: str, file_pfx: str, latest_file_name: str or None):
@@ -144,7 +148,7 @@ class JsonFileStorage:
             json.dump(data_dict, f, ensure_ascii=False, sort_keys=False, indent=0)
         if log.isEnabledFor(logging.DEBUG):
             log.debug(f'file_path={self._files_paths[self._active_file_index]}')
-        return self._file_info(), 'Updated: ' + self._file_name()
+        return self.file_info(), 'Updated: ' + self._file_name()
 
     def increment_file_index(self):
         self._validate_file_paths()
@@ -173,7 +177,7 @@ class JsonFileStorage:
                 data_dict = json.load(f)
         if log.isEnabledFor(logging.DEBUG):
             log.debug(f'file_path={file_path}\ndata_dict=\n{data_dict}')
-        return self._file_info(), self._file_name(), data_dict
+        return self.file_info(), self._file_name(), data_dict
 
     def delete_active_file(self) -> str:
         self._validate_file_paths()
@@ -193,7 +197,7 @@ class JsonFileStorage:
         info = file_num + '.  ' + file_name
         return info
 
-    def _file_info(self) -> str:
+    def file_info(self) -> str:
         file_path = self._files_paths[self._active_file_index]
         seconds_since_created = os.path.getmtime(file_path)
         create_ts = datetime.datetime.utcfromtimestamp(seconds_since_created).isoformat()[:22]
@@ -201,7 +205,7 @@ class JsonFileStorage:
         create_ts = create_ts[2:10] + ' ' + create_ts[11:16]
         day_index = datetime.datetime.utcfromtimestamp(seconds_since_created).weekday()
         count = str(self._active_file_index + 1) + '/' + str(len(self._files_paths))
-        info = count + '  ' + file_path + '  ' + create_ts + ' ' + calendar.day_name[day_index][0:3]
+        info = count + '  ' + os.path.basename(file_path) + '  ' + create_ts + ' ' + calendar.day_name[day_index][0:3]
         return info
 
 
@@ -213,7 +217,7 @@ class FilePersistence(AbstractPersistence):
             absolute_dir = FilePersistence._find_absolute_dir(save_dir)
             self._latest_file_name = FilePersistence._find_latest_file_name(absolute_dir)
             self._latest_file_prefix, self._file_prefixes = FilePersistence.prefixes(save_dir,
-                                                                                          self._latest_file_name)
+                                                                                     self._latest_file_name)
             self._file_storage = JsonFileStorage(absolute_dir, self._latest_file_prefix, self._latest_file_name)
             FilePersistence.file_storage_err_msg = None
         except Exception as e:
@@ -236,6 +240,9 @@ class FilePersistence(AbstractPersistence):
         if prefix not in prefixes:
             raise ValueError(f'file prefix={prefix}, not in {prefixes}')
         return prefix, prefixes
+
+    def description(self):
+        return self._file_storage.file_info()
 
     def latest_topic(self) -> str:
         return self._latest_file_prefix
