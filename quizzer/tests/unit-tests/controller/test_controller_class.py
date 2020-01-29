@@ -1,6 +1,5 @@
 from quz.controller import MainController, PersistenceController
 from quz.model import Model
-from quz.persistence import FilePersistence
 from quz.util import set_logger
 from quz.view import View
 from tests.t_util import recreate_tmp_dir

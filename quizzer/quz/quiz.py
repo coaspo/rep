@@ -215,8 +215,10 @@ class Quiz:
     @staticmethod
     def _create_quiz_data_dict(marked_user_input: str) -> dict:
         text_lines = marked_user_input.strip().split('\n')
-        if len(text_lines) < 3:
-            raise QuizDataError('Invalid text; line count < 3 - min is 1 question and two options')
+        if len(text_lines) < 2:
+            raise QuizDataError(
+                'Missing or invalid marked text on left panel - prefix lines with ?/+/-'
+                'for question/correct-answer/incorrect answer')
         quiz_data_dict = {'current_question_num': 1, 'marked_user_input': marked_user_input}
         num_of_answers = 0
         num_of_questions = 0

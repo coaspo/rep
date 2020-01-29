@@ -15,35 +15,35 @@ class View:
         return self._answer_check_buttons
 
     @property
-    def clear_bt(self):
+    def clear_bt(self) -> tkinter.Button:
         return self._clear_bt
 
     @property
-    def question_comment_label(self):
+    def question_comment_label(self) -> tkinter.Label:
         return self._question_comment_label
 
     @property
-    def delete_quiz_bt(self):
+    def delete_quiz_bt(self) -> tkinter.Button:
         return self._delete_quiz_bt
 
     @property
-    def input_marked_text_area(self):
+    def input_marked_text_area(self) -> tkinter.scrolledtext.ScrolledText:
         return self._input_marked_text_area
 
     @property
-    def next_question_bt(self):
+    def next_question_bt(self) -> tkinter.Button:
         return self._next_question_bt
 
     @property
-    def next_quiz_bt(self):
+    def next_quiz_bt(self) -> tkinter.Button:
         return self._next_quiz_bt
 
     @property
-    def previous_quiz_bt(self):
+    def previous_quiz_bt(self) -> tkinter.Button:
         return self._previous_quiz_bt
 
     @property
-    def previous_question_bt(self):
+    def previous_question_bt(self) -> tkinter.Button:
         return self._previous_question_bt
 
     @property
@@ -55,33 +55,33 @@ class View:
         return self._question_area
 
     @property
-    def question_label(self):
+    def question_label(self) -> tkinter.Label:
         return self._question_label
 
     @property
-    def quiz_topics(self):
+    def quiz_topics(self) -> tkinter.ttk.Combobox:
         return self._quiz_topics
 
     @property
-    def refresh_quiz_bt(self):
+    def refresh_quiz_bt(self) -> tkinter.Button:
         return self._refresh_quiz_bt
 
     @property
-    def update_bt(self):
+    def update_bt(self) -> tkinter.Button:
         return self._update_bt
 
     @property
-    def status_label(self):
+    def status_label(self) -> tkinter.Label:
         return self._status_label
 
     @property
-    def root(self):
+    def root(self) -> tkinter.Tk:
         return self._root
 
     def __init__(self, latest_quiz_topic: str, quiz_topics: list, instructions: str):
         root = tkinter.Tk()
         root.title("Quiz maker/taker")
-        self._answer_check_buttons: List[object, tkinter.Checkbutton. int] = []
+        self._answer_check_buttons: List[object, tkinter.Checkbutton] = []
         self._root = root
 
         self._init_menu(latest_quiz_topic, quiz_topics, root)
@@ -150,8 +150,6 @@ class View:
 
         self._init_question_frame()
         self._question_area.pack(side=tkinter.LEFT, pady=2, fill='both', expand=1)
-        # question_are_width_adjust_label = tkinter.Label(self._question_area, text=None, fg="blue", bg='white')
-        # question_area_width_adjust_label.grid(row=15, column=0, columnspan=14, sticky=tkinter.W, padx=1)
         frame.pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
 
     def _init_question_frame(self):

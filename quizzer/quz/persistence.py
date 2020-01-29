@@ -212,14 +212,30 @@ class FilePersistence(AbstractPersistence):
         try:
             absolute_dir = FilePersistence._find_absolute_dir(save_dir)
             self._latest_file_name = FilePersistence._find_latest_file_name(absolute_dir)
-            self._latest_file_prefix = 'quiz' if self._latest_file_name is None \
-                else re.split(r'[.\-]', self._latest_file_name)[0]
+            self._latest_file_prefix, self._file_prefixes = FilePersistence.prefixes(save_dir,
+                                                                                          self._latest_file_name)
             self._file_storage = JsonFileStorage(absolute_dir, self._latest_file_prefix, self._latest_file_name)
-            self._file_prefixes = FilePersistence._find_file_prefixes(absolute_dir)
             FilePersistence.file_storage_err_msg = None
         except Exception as e:
             traceback.print_exc()
             FilePersistence.file_storage_err_msg = str(e)
+
+    @staticmethod
+    def prefixes(save_dir: str, latest_file_name: str) -> (str, list):
+        absolute_dir = FilePersistence._find_absolute_dir(save_dir)
+        prefix = None
+        prefixes = FilePersistence._find_file_prefixes(absolute_dir)
+        if latest_file_name is not None:
+            prefix = re.split(r'[.\-]', latest_file_name)[0]
+        if prefix is None and len(prefixes) > 0:
+            prefix = prefixes[0]
+        if prefix is None:
+            prefix = 'quiz'
+        if len(prefixes) == 0:
+            prefixes = [prefix]
+        if prefix not in prefixes:
+            raise ValueError(f'file prefix={prefix}, not in {prefixes}')
+        return prefix, prefixes
 
     def latest_topic(self) -> str:
         return self._latest_file_prefix
@@ -291,7 +307,7 @@ class FilePersistence(AbstractPersistence):
 
     def save_latest_file_name(self) -> str or None:
         file_path = self._file_storage.save_dir + "/latest_work.json"
-        data_dict = {'LATEST_FILE_NAME':self._file_storage.latest_file_name}
+        data_dict = {'LATEST_FILE_NAME': self._file_storage.latest_file_name}
         with open(file_path, "w", encoding='utf8') as f:
             json.dump(data_dict, f, ensure_ascii=False, sort_keys=False, indent=0)
 

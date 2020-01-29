@@ -65,3 +65,4 @@ def test_create_quiz_data_dict():
             pytest.fail(f'json lines #{i} not equal ' +
                         f'\nactual/expected lines:\n{line}\n{expected_data_dict_lines[i]}' +
                         f'\nactual/expected DICTs:\n{data_dict}\n{expected_data_dict}')
+

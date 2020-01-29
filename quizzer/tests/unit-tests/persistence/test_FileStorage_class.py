@@ -95,5 +95,5 @@ def test_save_quiz():
     quiz = Quiz(marked_user_input=marked_user_input)
 
     storage = JsonFileStorage(TMP_DIR, 'quizCat1', None)
-    msg = storage.save_file(quiz.get_data_dict())
-    assert 'quizCat1' in msg
+    status_msg = storage.save_file(quiz.get_data_dict())
+    assert 'quizCat1' in status_msg

@@ -46,7 +46,7 @@ class Controller:
         self.view.input_marked_text_area.delete('1.0', tkinter.END)
         # self.view.save_bt.config(state=tkinter.DISABLED)
         self.view.input_marked_text_area.insert(tkinter.END, quiz.marked_user_input)
-        status_msg = status_msg + ';  may change text and click Update, or click Delete'
+        status_msg = status_msg
         self.update_status(status_msg)
 
         self.delete_bt_click_count = 0
@@ -88,10 +88,38 @@ class MainController(Controller):
             self._populate_all_widgets(status_msg, persistence_msg, quiz)
             self._display_question(quiz.current_question())
 
-    def _save_quiz(self, _):
+    def _update_quiz(self, _):
         try:
             topic = self.view.quiz_topics.get().strip()
+            if len(topic) == 0:
+                raise QuizDataError('Topic drop down is empty')
             self._update_combo_box_topics(topic)
+            marked_user_input = self.view.input_marked_text_area.get("1.0", tkinter.END).strip()
+            if self.model.quiz is None:
+                self.model.reset_quiz(marked_user_input)
+                topic = self.view.quiz_topics.get().strip()
+                status_msg = self.model.save_quiz(topic)
+                self._populate_all_widgets
+            else:
+                if marked_user_input != self.model.quiz.marked_user_input:
+                    if len(marked_user_input) == 0:
+                        is_to_delete = messagebox.askokcancel(title="Delete quiz",
+                                                              message="With marked text removed,\n"
+                                                                      "the quiz will be deleted.",
+                                                              default=messagebox.CANCEL, parent=self.view.root)
+                        if is_to_delete:
+                            self.model.delete_quiz()
+                    else:
+                        is_to_reset = messagebox.askyesno(title="Quiz inconsistency",
+                                                          message="Marked text and the quiz are not consistent.\n"
+                                                                  "Would you like to reset the quiz?\n"
+                                                                  "This erases any entered answers.\n\n"
+                                                                  "If not, marked text area will be reset",
+                                                          default=messagebox.NO, parent=self.view.root)
+                        if is_to_reset:
+                            self.model.reset_quiz(marked_user_input)
+                        else:
+                            self.view.input_marked_text_area.insert('insert', self.model.quiz.marked_user_input)
             status_msg = self.model.save_quiz(topic)
             super().update_status(status_msg)
         except Exception as e:
@@ -110,36 +138,9 @@ class MainController(Controller):
             self.view.quiz_topics['values'] = combo_values
 
     def _on_close_window(self):
-        self.possibly_reset_quiz()
-        topic = self.view.quiz_topics.get().strip()
-        self.model.save_quiz(topic)
         self.view.stop()
 
-    def possibly_reset_quiz(self):
-        marked_user_input = self.view.input_marked_text_area.get("1.0", tkinter.END)
-        quiz = Quiz(marked_user_input=marked_user_input)
-        if not quiz.is_same_as(self.model.quiz):
-            is_to_reset = messagebox.askyesno(title="Quiz inconsistency",
-                                              message="Marked text and the quiz are not consistent.\n"
-                                                      "Would you like to reset the quiz?\n"
-                                                      "This erases any entered answers.",
-                                              default=messagebox.NO, parent=self.view.root)
-            if is_to_reset:
-                self.model.reset_quiz( marked_user_input)
-
-    def bind_main_controls(self):
-        self.view.clear_bt.bind("<Button-1>", super().clear_screen)
-        self.view.quiz_topics.bind("<<ComboboxSelected>>", self.reset_persistence)
-        self.view.input_marked_text_area.bind("<FocusOut>", self._save_quiz)
-
-        self.view.next_question_bt.bind("<Button-1>", self._next_question)
-        self.view.previous_question_bt.bind("<Button-1>", self._previous_question)
-
-        self.view.root.protocol("WM_DELETE_WINDOW", self._on_close_window)
-        if log.isEnabledFor(logging.DEBUG):
-            log.debug('controller methods bound to view widgets')
-
-    def reset_persistence(self, _):
+    def reset_topic(self, _):
         topic = self.view.quiz_topics.get()
         status_msg, persistence_msg, quiz = self.model.reset_quiz_topic(topic)
         self._populate_all_widgets(status_msg, persistence_msg, quiz)
@@ -157,6 +158,19 @@ class MainController(Controller):
             self._display_question(question)
         except Exception as e:
             self.handle_exception('Previous question err', e)
+
+    def bind_main_controls(self):
+        self.view.clear_bt.bind("<Button-1>", super().clear_screen)
+        self.view.quiz_topics.bind("<<ComboboxSelected>>", self.reset_topic)
+        self.view.input_marked_text_area.bind("<FocusOut>", self._update_quiz)
+
+        self.view.input_marked_text_area.bind("<Leave>", self._update_quiz)
+        self.view.next_question_bt.bind("<Button-1>", self._next_question)
+        self.view.previous_question_bt.bind("<Button-1>", self._previous_question)
+
+        self.view.root.protocol("WM_DELETE_WINDOW", self._on_close_window)
+        if log.isEnabledFor(logging.DEBUG):
+            log.debug('controller methods bound to view widgets')
 
 
 class PersistenceController(Controller):
