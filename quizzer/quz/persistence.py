@@ -34,6 +34,10 @@ class JsonFileStorage:
             raise Exception('JsonFileStorage failed - ' + err_msg)
 
     @property
+    def file_description(self):
+        return self._file_description
+
+    @property
     def file_path(self):
         return self._files_paths[self._active_file_index]
 
@@ -97,6 +101,7 @@ class JsonFileStorage:
             file_path = self._files_paths[self._active_file_index]
             with open(file_path, "r", encoding='utf8') as f:
                 data_dict = json.load(f)
+        self._file_description = self.file_description2()
         if log.isEnabledFor(logging.DEBUG):
             log.debug(f'file_path={file_path}\ndata_dict=\n{data_dict}')
         return data_dict
@@ -118,12 +123,12 @@ class JsonFileStorage:
                 f'(len(_files_paths)={len(self._files_paths)}), ')
         with open(file_path, "w", encoding='utf8') as f:
             json.dump(data_dict, f, ensure_ascii=False, sort_keys=False, indent=0)
-
         self._files_paths.append(file_path)
         self._latest_file_number = file_num
         self._active_file_index = file_index
         if log.isEnabledFor(logging.DEBUG):
             log.debug(f'file_path={file_path}')
+        self._file_description = self.file_description2()
         return file_path
 
     def update_file(self, data_dict: dict):
@@ -234,7 +239,7 @@ class FilePersistence(AbstractPersistence):
 
     @property
     def description(self) -> str:
-        return self._file_storage.file_description2()
+        return self._file_storage.file_description
 
     @property
     def latest_topic(self) -> str:
