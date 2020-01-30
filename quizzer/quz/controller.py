@@ -43,13 +43,13 @@ class Controller:
                 log.error(msg + '\n\t' + msg_trace)
             self._update_status(msg_exc, True)
 
-    def _populate_all_widgets(self, status_msg: str, quiz_description: str, quiz: Quiz):
+    def _populate_quiz_widgets(self):
         self.view.input_marked_text_area.delete('1.0', tkinter.END)
         # self.view.save_bt.config(state=tkinter.DISABLED)
-        self.view.input_marked_text_area.insert(tkinter.END, quiz.marked_user_input)
-        self._update_status(status_msg)
+        self.view.input_marked_text_area.insert(tkinter.END, self.model.quiz.marked_user_input)
+        self._update_status(self.model.status_msg)
         self.delete_bt_click_count = 0
-        self.view.quiz_description_label['text'] = quiz_description
+        self.view.quiz_description_label['text'] = self.model.description
         self.view.delete_quiz_bt.config(state=tkinter.NORMAL)
         self.view.update_bt.config(state=tkinter.NORMAL)
 
@@ -84,7 +84,7 @@ class MainController(Controller):
         Controller.__init__(self, view, model)
         status_msg, persistence_msg, quiz = self.model.current_quiz()
         if quiz is not None:
-            self._populate_all_widgets(status_msg, persistence_msg, quiz)
+            self._populate_quiz_widgets(status_msg, persistence_msg, quiz)
             self._display_question(quiz.current_question())
 
     def update_quiz(self, _):
@@ -97,8 +97,8 @@ class MainController(Controller):
             if self.model.quiz is None:
                 self.model.create_new_quiz(marked_user_input)
                 topic = self.view.quiz_topics.get().strip()
-                status_msg = self.model.save_quiz(topic)
-                self._populate_all_widgets(status_msg, self.model.quiz_description_old(), self.model.quiz)
+                self.model.save_quiz(topic)
+                self._populate_quiz_widgets()
             else:
                 if marked_user_input != self.model.quiz.marked_user_input:
                     if len(marked_user_input) == 0:
@@ -108,23 +108,22 @@ class MainController(Controller):
                                                               default=messagebox.CANCEL, parent=self.view.root)
                         if is_to_delete:
                             status_msg = self.model.delete_quiz()
-                            self._populate_all_widgets(status_msg, self.model.quiz_description_old(), self.model.quiz)
+                            self._populate_quiz_widgets(status_msg, self.model.quiz_description_old(), self.model.quiz)
                     else:
-                        self.askyesno = messagebox.askyesno(title="Quiz inconsistency",
+                        is_to_recreate= messagebox.askyesno(title="Quiz inconsistency",
                                                             message="Marked text and the quiz are not consistent.\n" \
-                                                                    "Would you like to reset the quiz?\n" \
+                                                                    "Would you like to recreate the quiz?\n" \
                                                                     "This erases any entered answers.\n\n" \
                                                                     "If not, marked text area will be reset",
                                                             default=messagebox.NO, parent=self.view.root)
-                        is_to_reset = self.askyesno
-                        if is_to_reset:
+                        if is_to_recreate:
                             self.model.create_new_quiz(marked_user_input)
                         else:
                             self.view.input_marked_text_area.insert('insert', self.model.quiz.marked_user_input)
         except Exception as e:
             self._update_status(str(e), True)
             if str(e) != Config.MARKED_TEXT_ERR:
-                self.handle_exception('Save error: ', e)
+                self.handle_exception('Unexpected error: ', e)
 
     def _update_combo_box_topics(self, topic):
         combo_values = self.view.quiz_topics['values']
@@ -144,7 +143,7 @@ class MainController(Controller):
     def reset_topic(self, _):
         topic = self.view.quiz_topics.get()
         status_msg, persistence_msg, quiz = self.model.reset_quiz_topic(topic)
-        self._populate_all_widgets(status_msg, persistence_msg, quiz)
+        self._populate_quiz_widgets(status_msg, persistence_msg, quiz)
 
     def next_question(self, _):
         try:
@@ -182,7 +181,7 @@ class PersistenceController(Controller):
     def _next_quiz(self, _):
         try:
             status_msg, persistence_msg, quiz = self.model.next_quiz()
-            self._populate_all_widgets(status_msg, persistence_msg, quiz)
+            self._populate_quiz_widgets(status_msg, persistence_msg, quiz)
             self._display_question(quiz.current_question())
         except Exception as e:
             self._handle_persistence_error(e)
@@ -190,7 +189,7 @@ class PersistenceController(Controller):
     def _previous_quiz(self, _):
         try:
             status_msg, persistence_msg, quiz = self.model.previous_quiz()
-            self._populate_all_widgets(status_msg, persistence_msg, quiz)
+            self._populate_quiz_widgets(status_msg, persistence_msg, quiz)
             self._display_question(quiz.current_question())
         except Exception as e:
             self._handle_persistence_error(e)

@@ -190,7 +190,11 @@ class JsonFileStorage:
 class AbstractPersistence(metaclass=abc.ABCMeta):
 
     @abc.abstractmethod
-    def save(self, file_pfx: str, data_dict: dict) -> str:
+    def delete(self) -> (str, str):
+        pass
+
+    @abc.abstractmethod
+    def description(self) -> (str, str):
         pass
 
     @abc.abstractmethod
@@ -206,7 +210,11 @@ class AbstractPersistence(metaclass=abc.ABCMeta):
         pass
 
     @abc.abstractmethod
-    def delete(self) -> (str, str):
+    def latest_topic(self) -> list:
+        pass
+
+    @abc.abstractmethod
+    def save(self, file_pfx: str, data_dict: dict) -> str:
         pass
 
     @abc.abstractmethod
@@ -215,10 +223,6 @@ class AbstractPersistence(metaclass=abc.ABCMeta):
 
     @abc.abstractmethod
     def topics(self) -> str:
-        pass
-
-    @abc.abstractmethod
-    def latest_topic(self) -> list:
         pass
 
     @abc.abstractmethod
@@ -236,47 +240,17 @@ class FilePersistence(AbstractPersistence):
             self._latest_file_prefix, self._file_prefixes = FilePersistence._find_prefixes(save_dir,
                                                                                            self._latest_file_name)
             self._file_storage = JsonFileStorage(absolute_dir, self._latest_file_prefix, self._latest_file_name)
+            self._status = None
             FilePersistence.file_storage_err_msg = None
         except Exception as e:
             traceback.print_exc()
             FilePersistence.file_storage_err_msg = str(e)
 
-    @staticmethod
-    def _find_prefixes(save_dir: str, latest_file_name: str) -> (str, list):
-        absolute_dir = FilePersistence._find_absolute_dir(save_dir)
-        prefix = None
-        prefixes = FilePersistence._find_file_prefixes(absolute_dir)
-        if latest_file_name is not None:
-            prefix = re.split(r'[.\-]', latest_file_name)[0]
-        if prefix is None and len(prefixes) > 0:
-            prefix = prefixes[0]
-        if prefix is None:
-            prefix = 'quiz'
-        if len(prefixes) == 0:
-            prefixes = [prefix]
-        if prefix not in prefixes:
-            raise ValueError(f'file prefix={prefix}, not in {prefixes}')
-        return prefix, prefixes
-
     def description_old(self):
         return self._file_storage.file_info()
 
-    def latest_topic(self) -> str:
-        return self._latest_file_prefix
-
-    def topics(self) -> list:
-        return self._file_prefixes
-
-    def save(self, file_pfx: str, data_dict: dict) -> str:
-        FilePersistence._validate_file_storage()
-        self.reset(file_pfx)
-        file_path = self._file_storage.save_file(data_dict)
-        return 'Saved quiz into: ' + file_path
-
-    def reset(self, file_pfx: str) -> None:
-        if self._latest_file_prefix != file_pfx:
-            self._latest_file_prefix = file_pfx
-            self._file_storage.reset(file_pfx)
+    def description(self):
+        return self._file_storage.file_info()
 
     def get(self, create_domain_object) -> (str, str, dict):
         if self._file_storage.is_empty:
@@ -299,16 +273,54 @@ class FilePersistence(AbstractPersistence):
         FilePersistence._validate_file_storage()
         return 'Deleted: ' + self._file_storage.delete_file() + ';  '
 
+    def latest_topic(self) -> str:
+        return self._latest_file_prefix
+
+    def reset(self, file_pfx: str) -> None:
+        if self._latest_file_prefix != file_pfx:
+            self._latest_file_prefix = file_pfx
+            self._file_storage.reset(file_pfx)
+
+    @property
+    def status(self) -> list:
+        return self._status
+
+    def save(self, file_pfx: str, data_dict: dict) -> str:
+        FilePersistence._validate_file_storage()
+        self.reset(file_pfx)
+        self._file_storage.save_file(data_dict)
+        self._status = 'Saved quiz into: ' + self._file_storage.file_path
+
+    def topics(self) -> list:
+        return self._file_prefixes
+
     def update(self, data_dict: dict) -> (str, str):
         FilePersistence._validate_file_storage()
         file_info, update_msg = self._file_storage.update_file(data_dict)
         return file_info, update_msg
 
-    def _save_latest_file_name(self) -> str or None:
+    def save_latest_file_name(self) -> str or None:
         file_path = self._file_storage.save_dir + "/latest_work.json"
         data_dict = {'LATEST_FILE_NAME': self._file_storage.latest_file_name}
         with open(file_path, "w", encoding='utf8') as f:
             json.dump(data_dict, f, ensure_ascii=False, sort_keys=False, indent=0)
+
+    @staticmethod
+    def _find_prefixes(save_dir: str, latest_file_name: str) -> (str, list):
+        absolute_dir = FilePersistence._find_absolute_dir(save_dir)
+        prefix = None
+        prefixes = FilePersistence._find_file_prefixes(absolute_dir)
+        if latest_file_name is not None:
+            prefix = re.split(r'[.\-]', latest_file_name)[0]
+        if prefix is None and len(prefixes) > 0:
+            prefix = prefixes[0]
+        if prefix is None:
+            prefix = 'quiz'
+        if len(prefixes) == 0:
+            prefixes = [prefix]
+        if prefix not in prefixes:
+            raise ValueError(f'file prefix={prefix}, not in {prefixes}')
+        return prefix, prefixes
 
     @staticmethod
     def _validate_file_storage():

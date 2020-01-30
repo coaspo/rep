@@ -30,12 +30,12 @@ def test_save():
     persistence = FilePersistence(TMP_DIR)
 
     quiz = {'fake..ques..': 'a'}
-    msg = persistence.save('quiz', quiz)
-    assert msg.endswith('quiz.1.json')
+    persistence.save('quiz', quiz)
+    assert persistence.status.endswith('quiz.1.json')
 
     quiz = {'fake2..ques..': 'a2'}
-    msg = persistence.save('quiz', quiz)
-    assert msg.endswith('quiz.2.json')
+    persistence.save('quiz', quiz)
+    assert persistence.status.endswith('quiz.2.json')
 
 
 def test_get():

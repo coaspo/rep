@@ -25,6 +25,9 @@ class Model:
         status_msg2, persistence_msg, self._quiz = self._persistence.get(_create_domain_object)
         return status_msg + status_msg2, persistence_msg
 
+    def quiz_description(self) -> str:
+        return self._persistence.description()
+
     @property
     def latest_quiz_topic(self) -> str:
         return self._persistence.latest_topic()
@@ -46,6 +49,11 @@ class Model:
             return ''
         return self._persistence.description_old()
 
+    def quiz_description(self) -> str:
+        if self._quiz is None:
+            return ''
+        return self._persistence.description()
+
     @property
     def quiz_topics(self) -> List[str]:
         return self._persistence.topics()
@@ -58,10 +66,12 @@ class Model:
         status_msg, persistence_msg, self._quiz = self._persistence.get_previous(_create_domain_object)
         return status_msg, persistence_msg, self._quiz
 
-    def save_quiz(self, quiz_topic: str) -> str:
-        status_msg = self._persistence.save(quiz_topic, self._quiz.get_data_dict())
-        self._persistence._save_latest_file_name()
-        return status_msg
+    def save_quiz(self, quiz_topic: str):
+        self._persistence.save(quiz_topic, self._quiz.get_data_dict())
+
+    @property
+    def status_msg(self) -> str:
+        return self._persistence.status
 
     def update_quiz(self, marked_user_input: str) -> (str, str):
         self._quiz = Quiz(marked_user_input=marked_user_input)
