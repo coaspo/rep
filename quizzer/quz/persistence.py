@@ -59,38 +59,6 @@ class JsonFileStorage:
             self._latest_file_name,
             self._save_dir)
 
-    @staticmethod
-    def _possibly_create_save_dir(absolute_dir) -> (str or None, str or None):
-        if not os.path.exists(absolute_dir):
-            try:
-                os.mkdir(absolute_dir, 0o777)
-                log.info(f'Created dir ' + absolute_dir)
-            except FileNotFoundError as e:
-                trace = str(e) + '\n\t' + traceback.format_exc()
-                log.error(trace)
-                return None, str(e)
-        return absolute_dir, None
-
-    @staticmethod
-    def _get_file_paths(file_pfx: str, latest_file_name: str, save_dir: str) -> (str, str):
-        file_paths = glob.glob(save_dir + '/' + file_pfx + '*.json')
-        if len(file_paths) == 0:
-            return 0, -1, []
-        file_paths.sort()
-        file_nums = []
-        filtered_file_paths = []
-        file_index = len(file_paths) - 1
-        for i, file_path in enumerate(file_paths):
-            x = file_path.split('.')
-            if len(x) > 0 and x[1].isnumeric():
-                file_nums.append(int(x[1]))
-                if latest_file_name is not None and os.path.basename(file_path) == latest_file_name:
-                    file_index = i
-            filtered_file_paths.append(file_path)
-
-        latest_file_number = 0 if len(file_nums) == 0 else max(file_nums)
-        return latest_file_number, file_index, filtered_file_paths
-
     def save_file(self, data_dict: dict) -> str:
         file_num = self._latest_file_number + 1
         file_index = self._active_file_index + 1
@@ -187,6 +155,38 @@ class JsonFileStorage:
         if len(self._files_paths) == 0:
             raise AttributeError(f'No files, "{self._file_pfx}.<unique-num>.json" files in: {self._save_dir}')
 
+    @staticmethod
+    def _possibly_create_save_dir(absolute_dir) -> (str or None, str or None):
+        if not os.path.exists(absolute_dir):
+            try:
+                os.mkdir(absolute_dir, 0o777)
+                log.info(f'Created dir ' + absolute_dir)
+            except FileNotFoundError as e:
+                trace = str(e) + '\n\t' + traceback.format_exc()
+                log.error(trace)
+                return None, str(e)
+        return absolute_dir, None
+
+    @staticmethod
+    def _get_file_paths(file_pfx: str, latest_file_name: str, save_dir: str) -> (str, str):
+        file_paths = glob.glob(save_dir + '/' + file_pfx + '*.json')
+        if len(file_paths) == 0:
+            return 0, -1, []
+        file_paths.sort()
+        file_nums = []
+        filtered_file_paths = []
+        file_index = len(file_paths) - 1
+        for i, file_path in enumerate(file_paths):
+            x = file_path.split('.')
+            if len(x) > 0 and x[1].isnumeric():
+                file_nums.append(int(x[1]))
+                if latest_file_name is not None and os.path.basename(file_path) == latest_file_name:
+                    file_index = i
+            filtered_file_paths.append(file_path)
+
+        latest_file_number = 0 if len(file_nums) == 0 else max(file_nums)
+        return latest_file_number, file_index, filtered_file_paths
+
 
 class AbstractPersistence(metaclass=abc.ABCMeta):
 
@@ -247,6 +247,14 @@ class FilePersistence(AbstractPersistence):
     def description(self) -> str:
         return self._file_storage.file_info()
 
+    @property
+    def latest_topic(self) -> str:
+        return self._latest_file_prefix
+
+    @property
+    def status(self) -> str:
+        return self._status
+
     def get(self, create_domain_object) -> Dict or None:
         if self._file_storage.is_empty:
             self._status = f'There are no "{self._file_storage.file_pfx} files in {self._file_storage.save_dir}"', \
@@ -270,18 +278,10 @@ class FilePersistence(AbstractPersistence):
         FilePersistence._validate_file_storage()
         return 'Deleted: ' + self._file_storage.delete_file() + ';  '
 
-    @property
-    def latest_topic(self) -> str:
-        return self._latest_file_prefix
-
     def reset(self, file_pfx: str) -> None:
         if self._latest_file_prefix != file_pfx:
             self._latest_file_prefix = file_pfx
             self._file_storage.reset(file_pfx)
-
-    @property
-    def status(self) -> str:
-        return self._status
 
     def save(self, file_pfx: str, data_dict: dict):
         FilePersistence._validate_file_storage()
