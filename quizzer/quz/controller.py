@@ -49,7 +49,7 @@ class Controller:
         self.view.input_marked_text_area.insert(tkinter.END, self.model.quiz.marked_user_input)
         self._update_status(self.model.status_msg)
         self.delete_bt_click_count = 0
-        self.view.quiz_description_label['text'] = self.model.description
+        self.view.quiz_description_label['text'] = self.model.quiz_description
         self.view.delete_quiz_bt.config(state=tkinter.NORMAL)
         self.view.update_bt.config(state=tkinter.NORMAL)
 
