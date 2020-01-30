@@ -1,8 +1,10 @@
 import logging
 from typing import List
 
+from quz.util import Config
 
-class QuizDataError(Exception):
+
+class QuizError(Exception):
     pass
 
 
@@ -216,9 +218,7 @@ class Quiz:
     def _create_quiz_data_dict(marked_user_input: str) -> dict:
         text_lines = marked_user_input.strip().split('\n')
         if len(text_lines) < 2:
-            raise QuizDataError(
-                'Missing or invalid marked text on left panel - prefix lines with ?/+/-'
-                'for question/correct-answer/incorrect answer')
+            raise QuizError(Config.MARKED_TEXT_ERR)
         quiz_data_dict = {'current_question_num': 1, 'marked_user_input': marked_user_input}
         num_of_answers = 0
         num_of_questions = 0
@@ -247,12 +247,12 @@ class Quiz:
                 question_answers['answer' + str(num_of_answers)] = answer
             elif line.startswith('='):
                 if comment is not None:
-                    raise QuizDataError(f'More than one comment for question;  line#{i}; line={line}')
+                    raise QuizError(f'More than one comment for question;  line#{i}; line={line}')
                 comment = line[1:]
             elif line.startswith('/'):
                 pass
             else:
-                raise QuizDataError(f'First character is not: ?+-=/  line#{i}; line={line}')
+                raise QuizError(f'First character is not: ?+-=/  line#{i}; line={line}')
 
         Quiz._add_question_to_quiz_data_dict(comment, num_of_answers, num_of_questions, question_answers, question_text,
                                              quiz_data_dict)

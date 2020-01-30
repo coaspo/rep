@@ -16,36 +16,8 @@ class Model:
         self._persistence = FilePersistence(quiz_dir)
         _, _, self._quiz = self._persistence.get(_create_domain_object)
 
-    @property
-    def quiz(self) -> Quiz:
-        return self._quiz
-
-    @property
-    def latest_quiz_topic(self) -> str:
-        return self._persistence.latest_topic()
-
-    @property
-    def quiz_topics(self) -> List[str]:
-        return self._persistence.topics()
-
-    def reset_quiz(self, marked_user_input: str):
-        self._quiz = Quiz(marked_user_input=marked_user_input)
-
-    def save_quiz(self, quiz_topic: str) -> str:
-        status_msg = self._persistence.save(quiz_topic, self._quiz.get_data_dict())
-        self._persistence.save_latest_file_name()
-        return status_msg
-
-    def next_quiz(self) -> (str, str, Quiz):
-        status_msg, persistence_msg, self._quiz = self._persistence.get_next(_create_domain_object)
-        return status_msg, persistence_msg, self._quiz
-
     def current_quiz(self) -> (str, str, Quiz):
         status_msg, persistence_msg, self._quiz = self._persistence.get(_create_domain_object)
-        return status_msg, persistence_msg, self._quiz
-
-    def previous_quiz(self) -> (str, str, Quiz):
-        status_msg, persistence_msg, self._quiz = self._persistence.get_previous(_create_domain_object)
         return status_msg, persistence_msg, self._quiz
 
     def delete_quiz(self) -> (str, str):
@@ -53,17 +25,45 @@ class Model:
         status_msg2, persistence_msg, self._quiz = self._persistence.get(_create_domain_object)
         return status_msg + status_msg2, persistence_msg
 
-    def quiz_description(self) -> str:
+    @property
+    def latest_quiz_topic(self) -> str:
+        return self._persistence.latest_topic()
+
+    def next_quiz(self) -> (str, str, Quiz):
+        status_msg, persistence_msg, self._quiz = self._persistence.get_next(_create_domain_object)
+        return status_msg, persistence_msg, self._quiz
+
+    def previous_quiz(self) -> (str, str, Quiz):
+        status_msg, persistence_msg, self._quiz = self._persistence.get_previous(_create_domain_object)
+        return status_msg, persistence_msg, self._quiz
+
+    @property
+    def quiz(self) -> Quiz:
+        return self._quiz
+
+    def quiz_description_old(self) -> str:
         if self._quiz is None:
             return ''
-        return self._persistence.description()
+        return self._persistence.description_old()
 
-    def update_quiz(self, marked_user_input: str) -> (str, str):
+    @property
+    def quiz_topics(self) -> List[str]:
+        return self._persistence.topics()
+
+    def create_new_quiz(self, marked_user_input: str):
         self._quiz = Quiz(marked_user_input=marked_user_input)
-        status_msg, persistence_msg = self._persistence.update(self._quiz.get_data_dict())
-        return status_msg, persistence_msg
 
     def reset_quiz_topic(self, quiz_topic: str) -> (str, str, Quiz):
         self._persistence.reset(quiz_topic)
         status_msg, persistence_msg, self._quiz = self._persistence.get_previous(_create_domain_object)
         return status_msg, persistence_msg, self._quiz
+
+    def save_quiz(self, quiz_topic: str) -> str:
+        status_msg = self._persistence.save(quiz_topic, self._quiz.get_data_dict())
+        self._persistence._save_latest_file_name()
+        return status_msg
+
+    def update_quiz(self, marked_user_input: str) -> (str, str):
+        self._quiz = Quiz(marked_user_input=marked_user_input)
+        status_msg, persistence_msg = self._persistence.update(self._quiz.get_data_dict())
+        return status_msg, persistence_msg

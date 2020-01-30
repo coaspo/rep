@@ -30,10 +30,10 @@ def test_delete():
     with open(storage._save_dir + '/quizCat1.3.json', 'w') as f:
         f.write('{"a":1}')
     storage = JsonFileStorage(TMP_DIR, 'quizCat1', None)
-    path = storage.delete_active_file()
+    path = storage.delete_file()
     assert not os.path.exists(path)
-    with pytest.raises(FileExistsError, match="No file*"):
-        path = storage.delete_active_file()
+    with pytest.raises(AttributeError, match="No file*"):
+        path = storage.delete_file()
 
 
 def test_delete_multiple():
@@ -46,7 +46,7 @@ def test_delete_multiple():
     assert storage._latest_file_number == 3
     assert storage._active_file_index == 1
     assert len(storage._files_paths) == 2
-    path = storage.delete_active_file()
+    path = storage.delete_file()
     assert not os.path.exists(path)
     assert storage._latest_file_number == 2
     assert storage._active_file_index == 0
@@ -84,31 +84,31 @@ def test_read():
     # decrement_file_path_index(self):
 
     assert storage._active_file_index == 2
-    file_path, msg, a_dict = storage.read_active_file()
+    file_path, msg, a_dict = storage.read_file()
     assert a_dict == dict4
     #
     storage.decrement_file_index()
-    file_path, msg, a_dict = storage.read_active_file()
+    file_path, msg, a_dict = storage.read_file()
     assert a_dict == dict3
     storage.decrement_file_index()
-    file_path, msg, a_dict = storage.read_active_file()
+    file_path, msg, a_dict = storage.read_file()
     assert a_dict == dict2
     storage.decrement_file_index()
-    file_path, msg, a_dict = storage.read_active_file()
+    file_path, msg, a_dict = storage.read_file()
     assert a_dict == dict2
 
     storage.increment_file_index()
-    file_path, msg, a_dict = storage.read_active_file()
+    file_path, msg, a_dict = storage.read_file()
     assert a_dict == dict3
     storage.increment_file_index()
-    file_path, msg, a_dict = storage.read_active_file()
+    file_path, msg, a_dict = storage.read_file()
     assert a_dict == dict4
     storage.increment_file_index()
-    file_path, msg, a_dict = storage.read_active_file()
+    file_path, msg, a_dict = storage.read_file()
     assert a_dict == dict4
     a_dict['ques...'] = 123
     storage.update_file(a_dict)
-    file_path, msg, a_dict = storage.read_active_file()
+    file_path, msg, a_dict = storage.read_file()
     assert a_dict == {'ques...': 123}
 
 

@@ -30,7 +30,8 @@ def run(*args: str):
             label = 15 * 'ERR---' if 'br1 -> br1' not in str(errs) else ''
             f2.write('\n' + label + '\n' + errs)
             print(label, '\n', errs)
-            exit(2)
+            if 'ERR---' in label:
+                exit(2)
 
 
 if __name__ == '__main__':

@@ -19,10 +19,6 @@ class View:
         return self._clear_bt
 
     @property
-    def question_comment_label(self) -> tkinter.Label:
-        return self._question_comment_label
-
-    @property
     def delete_quiz_bt(self) -> tkinter.Button:
         return self._delete_quiz_bt
 
@@ -47,16 +43,20 @@ class View:
         return self._previous_question_bt
 
     @property
-    def quiz_description_label(self):
-        return self._persistence_status_label
-
-    @property
     def question_area(self):
         return self._question_area
 
     @property
+    def question_comment_label(self) -> tkinter.Label:
+        return self._question_comment_label
+
+    @property
     def question_label(self) -> tkinter.Label:
         return self._question_label
+
+    @property
+    def quiz_description_label(self):
+        return self._persistence_status_label
 
     @property
     def quiz_topics(self) -> tkinter.ttk.Combobox:
@@ -67,16 +67,16 @@ class View:
         return self._refresh_quiz_bt
 
     @property
-    def update_bt(self) -> tkinter.Button:
-        return self._update_bt
+    def root(self) -> tkinter.Tk:
+        return self._root
 
     @property
     def status_label(self) -> tkinter.Label:
         return self._status_label
 
     @property
-    def root(self) -> tkinter.Tk:
-        return self._root
+    def update_bt(self) -> tkinter.Button:
+        return self._update_bt
 
     def __init__(self, latest_quiz_topic: str, quiz_topics: list, instructions: str):
         root = tkinter.Tk()
