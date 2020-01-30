@@ -17,6 +17,7 @@ class JsonFileStorage:
         self._active_file_index = None
         self._file_pfx = file_pfx
         self._files_paths = None
+        self._file_description = None
         self._latest_file_name = latest_file_name
         self._latest_file_number = None
         self._save_dir = save_dir
@@ -68,17 +69,6 @@ class JsonFileStorage:
         if log.isEnabledFor(logging.DEBUG):
             log.debug(f'file_path={file_path}')
         return file_path
-
-    def file_info(self) -> str:
-        file_path = self._files_paths[self._active_file_index]
-        seconds_since_created = os.path.getmtime(file_path)
-        create_ts = datetime.datetime.utcfromtimestamp(seconds_since_created).isoformat()[:22]
-        # remove T in, for example, create_ts = 2019-12-11T19:20:48.85
-        create_ts = create_ts[2:10] + ' ' + create_ts[11:16]
-        day_index = datetime.datetime.utcfromtimestamp(seconds_since_created).weekday()
-        count = str(self._active_file_index + 1) + '/' + str(len(self._files_paths))
-        info = count + '  ' + os.path.basename(file_path) + '  ' + create_ts + ' ' + calendar.day_name[day_index][0:3]
-        return info
 
     def file_description2(self) -> str:
         file_path = self._files_paths[self._active_file_index]
@@ -155,18 +145,6 @@ class JsonFileStorage:
             raise AttributeError(f'No files, "{self._file_pfx}.<unique-num>.json" files in: {self._save_dir}')
 
     @staticmethod
-    def _possibly_create_save_dir(absolute_dir) -> (str or None, str or None):
-        if not os.path.exists(absolute_dir):
-            try:
-                os.mkdir(absolute_dir, 0o777)
-                log.info(f'Created dir ' + absolute_dir)
-            except FileNotFoundError as e:
-                trace = str(e) + '\n\t' + traceback.format_exc()
-                log.error(trace)
-                return None, str(e)
-        return absolute_dir, None
-
-    @staticmethod
     def _get_file_paths(file_pfx: str, latest_file_name: str, save_dir: str) -> (str, str):
         file_paths = glob.glob(save_dir + '/' + file_pfx + '*.json')
         if len(file_paths) == 0:
@@ -185,6 +163,18 @@ class JsonFileStorage:
 
         latest_file_number = 0 if len(file_nums) == 0 else max(file_nums)
         return latest_file_number, file_index, filtered_file_paths
+
+    @staticmethod
+    def _possibly_create_save_dir(absolute_dir) -> (str or None, str or None):
+        if not os.path.exists(absolute_dir):
+            try:
+                os.mkdir(absolute_dir, 0o777)
+                log.info(f'Created dir ' + absolute_dir)
+            except FileNotFoundError as e:
+                trace = str(e) + '\n\t' + traceback.format_exc()
+                log.error(trace)
+                return None, str(e)
+        return absolute_dir, None
 
 
 class AbstractPersistence(metaclass=abc.ABCMeta):
@@ -244,7 +234,7 @@ class FilePersistence(AbstractPersistence):
 
     @property
     def description(self) -> str:
-        return self._file_storage.file_info()
+        return self._file_storage.file_description2()
 
     @property
     def latest_topic(self) -> str:
