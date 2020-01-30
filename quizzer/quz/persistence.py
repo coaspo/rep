@@ -33,8 +33,8 @@ class JsonFileStorage:
             raise Exception('JsonFileStorage failed - ' + err_msg)
 
     @property
-    def latest_file_name(self):
-        return self._latest_file_name
+    def file_path(self):
+        return self._files_paths[self._active_file_index]
 
     @property
     def file_pfx(self):
@@ -45,12 +45,71 @@ class JsonFileStorage:
         return len(self._files_paths) == 0
 
     @property
+    def latest_file_name(self):
+        return self._latest_file_name
+
+    @property
     def save_dir(self):
         return self._save_dir
 
-    @property
-    def file_path(self):
-        return self._files_paths[self._active_file_index]
+    def decrement_file_index(self):
+        self._ensure_file_path_list_is_not_empty()
+        if self._active_file_index != 0:
+            self._active_file_index -= 1
+
+    def delete_file(self) -> str:
+        self._ensure_file_path_list_is_not_empty()
+        file_path = self._files_paths[self._active_file_index]
+        os.remove(file_path)
+        self._latest_file_number, self._active_file_index, self._files_paths = JsonFileStorage._get_file_paths(
+            self._file_pfx,
+            self._latest_file_name,
+            self._save_dir)
+        if log.isEnabledFor(logging.DEBUG):
+            log.debug(f'file_path={file_path}')
+        return file_path
+
+    def file_info(self) -> str:
+        file_path = self._files_paths[self._active_file_index]
+        seconds_since_created = os.path.getmtime(file_path)
+        create_ts = datetime.datetime.utcfromtimestamp(seconds_since_created).isoformat()[:22]
+        # remove T in, for example, create_ts = 2019-12-11T19:20:48.85
+        create_ts = create_ts[2:10] + ' ' + create_ts[11:16]
+        day_index = datetime.datetime.utcfromtimestamp(seconds_since_created).weekday()
+        count = str(self._active_file_index + 1) + '/' + str(len(self._files_paths))
+        info = count + '  ' + os.path.basename(file_path) + '  ' + create_ts + ' ' + calendar.day_name[day_index][0:3]
+        return info
+
+    def file_description2(self) -> str:
+        file_path = self._files_paths[self._active_file_index]
+        seconds_since_created = os.path.getmtime(file_path)
+        create_ts = datetime.datetime.utcfromtimestamp(seconds_since_created).isoformat()[:22]
+        # remove T in, for example, create_ts = 2019-12-11T19:20:48.85
+        create_ts = create_ts[2:10] + ' ' + create_ts[11:16]
+        day_index = datetime.datetime.utcfromtimestamp(seconds_since_created).weekday()
+        count = str(self._active_file_index + 1) + '/' + str(len(self._files_paths))
+        info = count + '  ' + os.path.basename(file_path) + '  ' + create_ts + ' ' + calendar.day_name[day_index][0:3]
+        return info
+
+    def increment_file_index(self):
+        self._ensure_file_path_list_is_not_empty()
+        if self._active_file_index != len(self._files_paths) - 1:
+            self._active_file_index += 1
+
+    def read_file(self) -> dict:
+        file_path = self._files_paths[self._active_file_index]
+        try:
+            with open(file_path, "r", encoding='utf8') as f:
+                data_dict = json.load(f)
+        except OSError:
+            # reinitialize to fix for example no files found error.
+            self._initialize()
+            file_path = self._files_paths[self._active_file_index]
+            with open(file_path, "r", encoding='utf8') as f:
+                data_dict = json.load(f)
+        if log.isEnabledFor(logging.DEBUG):
+            log.debug(f'file_path={file_path}\ndata_dict=\n{data_dict}')
+        return data_dict
 
     def reset(self, file_pfx: str) -> None:
         self._file_pfx = file_pfx
@@ -77,49 +136,11 @@ class JsonFileStorage:
             log.debug(f'file_path={file_path}')
         return file_path
 
-    def update_file(self, data_dict: dict) -> (str, str):
+    def update_file(self, data_dict: dict):
         with open(self._files_paths[self._active_file_index], "w", encoding='utf8') as f:
             json.dump(data_dict, f, ensure_ascii=False, sort_keys=False, indent=0)
         if log.isEnabledFor(logging.DEBUG):
             log.debug(f'file_path={self._files_paths[self._active_file_index]}')
-        return self.file_info(), 'Updated: ' + self._file_name()
-
-    def increment_file_index(self):
-        self._ensure_file_path_list_is_not_empty()
-        if self._active_file_index != len(self._files_paths) - 1:
-            self._active_file_index += 1
-
-    def decrement_file_index(self):
-        self._ensure_file_path_list_is_not_empty()
-        if self._active_file_index != 0:
-            self._active_file_index -= 1
-
-    def read_file(self) -> dict:
-        file_path = self._files_paths[self._active_file_index]
-        try:
-            with open(file_path, "r", encoding='utf8') as f:
-                data_dict = json.load(f)
-        except OSError:
-            # reinitialize to fix for example no files found error.
-            self._initialize()
-            file_path = self._files_paths[self._active_file_index]
-            with open(file_path, "r", encoding='utf8') as f:
-                data_dict = json.load(f)
-        if log.isEnabledFor(logging.DEBUG):
-            log.debug(f'file_path={file_path}\ndata_dict=\n{data_dict}')
-        return data_dict
-
-    def delete_file(self) -> str:
-        self._ensure_file_path_list_is_not_empty()
-        file_path = self._files_paths[self._active_file_index]
-        os.remove(file_path)
-        self._latest_file_number, self._active_file_index, self._files_paths = JsonFileStorage._get_file_paths(
-            self._file_pfx,
-            self._latest_file_name,
-            self._save_dir)
-        if log.isEnabledFor(logging.DEBUG):
-            log.debug(f'file_path={file_path}')
-        return file_path
 
     def _file_name(self) -> str:
         file_num = str(self._active_file_index + 1)
@@ -127,28 +148,6 @@ class JsonFileStorage:
         file_name = os.path.basename(file_path)
         file_name = file_name[:len(file_name) - 5]
         info = file_num + '.  ' + file_name
-        return info
-
-    def file_info(self) -> str:
-        file_path = self._files_paths[self._active_file_index]
-        seconds_since_created = os.path.getmtime(file_path)
-        create_ts = datetime.datetime.utcfromtimestamp(seconds_since_created).isoformat()[:22]
-        # remove T in, for example, create_ts = 2019-12-11T19:20:48.85
-        create_ts = create_ts[2:10] + ' ' + create_ts[11:16]
-        day_index = datetime.datetime.utcfromtimestamp(seconds_since_created).weekday()
-        count = str(self._active_file_index + 1) + '/' + str(len(self._files_paths))
-        info = count + '  ' + os.path.basename(file_path) + '  ' + create_ts + ' ' + calendar.day_name[day_index][0:3]
-        return info
-
-    def file_description(self) -> str:
-        file_path = self._files_paths[self._active_file_index]
-        seconds_since_created = os.path.getmtime(file_path)
-        create_ts = datetime.datetime.utcfromtimestamp(seconds_since_created).isoformat()[:22]
-        # remove T in, for example, create_ts = 2019-12-11T19:20:48.85
-        create_ts = create_ts[2:10] + ' ' + create_ts[11:16]
-        day_index = datetime.datetime.utcfromtimestamp(seconds_since_created).weekday()
-        count = str(self._active_file_index + 1) + '/' + str(len(self._files_paths))
-        info = count + '  ' + os.path.basename(file_path) + '  ' + create_ts + ' ' + calendar.day_name[day_index][0:3]
         return info
 
     def _ensure_file_path_list_is_not_empty(self):
@@ -255,6 +254,10 @@ class FilePersistence(AbstractPersistence):
     def status(self) -> str:
         return self._status
 
+    @property
+    def topics(self) -> list:
+        return self._file_prefixes
+
     def get(self, create_domain_object) -> Dict or None:
         if self._file_storage.is_empty:
             self._status = f'There are no "{self._file_storage.file_pfx} files in {self._file_storage.save_dir}"', \
@@ -289,14 +292,10 @@ class FilePersistence(AbstractPersistence):
         self._file_storage.save_file(data_dict)
         self._status = 'Saved quiz into: ' + self._file_storage.file_path
 
-    @property
-    def topics(self) -> list:
-        return self._file_prefixes
-
-    def update(self, data_dict: dict) -> (str, str):
+    def update(self, data_dict: dict):
         FilePersistence._validate_file_storage()
-        file_info, update_msg = self._file_storage.update_file(data_dict)
-        return file_info, update_msg
+        self._file_storage.update_file(data_dict)
+        self._status = 'Updated quiz file: ' + self._file_storage.file_path
 
     def save_latest_file_name(self) -> str or None:
         file_path = self._file_storage.save_dir + "/latest_work.json"
