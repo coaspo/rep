@@ -1,6 +1,6 @@
-from quz.persistence import FilePersistence
 import quz.model
 import tests.t_util
+from quz.persistence import FilePersistence
 
 TMP_DIR = tests.t_util.recreate_tmp_dir(__file__)
 QUIZ_FILE_PFX = 'quiz'
@@ -40,33 +40,33 @@ def test_save():
 
 def test_get():
     persistence = FilePersistence(TMP_DIR)
-    file_path, msg, quiz = persistence.get(_create_fake_domain_object)
-    assert 'quiz.2.json' in file_path
-    assert msg == '2.  quiz.2'
+    quiz = persistence.get(_create_fake_domain_object)
+    assert 'quiz.2.json' in persistence.status
+    assert '2/2  quiz.2' in persistence.description
     assert quiz == {'fake2..ques..': 'a2'}
 
 
 def test_get_previous():
     persistence = FilePersistence(TMP_DIR)
-    file_path, msg, quiz = persistence.get_previous(_create_fake_domain_object)
-    assert 'quiz.1.json' in file_path
-    assert msg == '1.  quiz.1'
+    quiz = persistence.get_previous(_create_fake_domain_object)
+    assert 'quiz.1.json' in persistence.status
+    assert '1/2  quiz.1' in persistence.description
     assert quiz == {'fake..ques..': 'a'}
-    file_path, msg, quiz = persistence.get_previous(_create_fake_domain_object)
-    assert 'quiz.1.json' in file_path
-    assert msg == '1.  quiz.1'
+    quiz = persistence.get_previous(_create_fake_domain_object)
+    assert 'quiz.1.json' in persistence.status
+    assert '1/2  quiz.1' in persistence.description
     assert quiz == {'fake..ques..': 'a'}
 
 
 def test_get_next():
     persistence = FilePersistence(TMP_DIR)
-    file_path, msg, quiz = persistence.get_next(_create_fake_domain_object)
-    assert 'quiz.2.json' in file_path
-    assert msg == '2.  quiz.2'
+    quiz = persistence.get_next(_create_fake_domain_object)
+    assert 'quiz.2.json' in persistence.status
+    assert '2/2  quiz.2' in persistence.description
     assert quiz == {'fake2..ques..': 'a2'}
-    file_path, msg, quiz = persistence.get_next(_create_fake_domain_object)
-    assert 'quiz.2.json' in file_path
-    assert msg == '2.  quiz.2'
+    quiz = persistence.get_next(_create_fake_domain_object)
+    assert 'quiz.2.json' in persistence.status
+    assert '2/2  quiz.2' in persistence.description
     assert quiz == {'fake2..ques..': 'a2'}
 
 
@@ -74,9 +74,9 @@ def test_delete():
     persistence = FilePersistence(TMP_DIR)
     persistence.delete()
 
-    file_path, msg, quiz = persistence.get(_create_fake_domain_object)
-    assert 'quiz.1.json' in file_path
-    assert msg == '1.  quiz.1'
+    quiz = persistence.get(_create_fake_domain_object)
+    assert 'quiz.1.json' in persistence.status
+    assert '1/1  quiz.1' in persistence.description
     assert quiz == {'fake..ques..': 'a'}
 
 
@@ -85,7 +85,7 @@ def test_update():
     quiz_new = {'real?..ques..': 'A'}
     persistence.update(quiz_new)
 
-    file_path, msg, quiz = persistence.get(_create_fake_domain_object)
-    assert 'quiz.1.json' in file_path
-    assert msg == '1.  quiz.1'
+    quiz = persistence.get(_create_fake_domain_object)
+    assert 'quiz.1.json' in persistence.status
+    assert '1/1  quiz.1' in persistence.description
     assert quiz == quiz_new

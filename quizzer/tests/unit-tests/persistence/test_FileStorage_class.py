@@ -84,32 +84,32 @@ def test_read():
     # decrement_file_path_index(self):
 
     assert storage._active_file_index == 2
-    file_path, msg, a_dict = storage.read_file()
-    assert a_dict == dict4
+    data = storage.read_file()
+    assert data == dict4
     #
     storage.decrement_file_index()
-    file_path, msg, a_dict = storage.read_file()
-    assert a_dict == dict3
+    data = storage.read_file()
+    assert data == dict3
     storage.decrement_file_index()
-    file_path, msg, a_dict = storage.read_file()
-    assert a_dict == dict2
+    data = storage.read_file()
+    assert data == dict2
     storage.decrement_file_index()
-    file_path, msg, a_dict = storage.read_file()
-    assert a_dict == dict2
+    data = storage.read_file()
+    assert data == dict2
 
     storage.increment_file_index()
-    file_path, msg, a_dict = storage.read_file()
-    assert a_dict == dict3
+    data = storage.read_file()
+    assert data == dict3
     storage.increment_file_index()
-    file_path, msg, a_dict = storage.read_file()
-    assert a_dict == dict4
+    data = storage.read_file()
+    assert data == dict4
     storage.increment_file_index()
-    file_path, msg, a_dict = storage.read_file()
-    assert a_dict == dict4
-    a_dict['ques...'] = 123
-    storage.update_file(a_dict)
-    file_path, msg, a_dict = storage.read_file()
-    assert a_dict == {'ques...': 123}
+    data = storage.read_file()
+    assert data == dict4
+    data['ques...'] = 123
+    storage.update_file(data)
+    data = storage.read_file()
+    assert data == {'ques...': 123}
 
 
 def test_file_name():

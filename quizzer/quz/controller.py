@@ -82,9 +82,9 @@ class MainController(Controller):
 
     def __init__(self, view: View, model: Model):
         Controller.__init__(self, view, model)
-        status_msg, persistence_msg, quiz = self.model.current_quiz()
+        quiz = self.model.current_quiz()
         if quiz is not None:
-            self._populate_quiz_widgets(status_msg, persistence_msg, quiz)
+            self._populate_quiz_widgets()
             self._display_question(quiz.current_question())
 
     def update_quiz(self, _):
@@ -108,7 +108,7 @@ class MainController(Controller):
                                                               default=messagebox.CANCEL, parent=self.view.root)
                         if is_to_delete:
                             status_msg = self.model.delete_quiz()
-                            self._populate_quiz_widgets(status_msg, self.model.quiz_description_old(), self.model.quiz)
+                            self._populate_quiz_widgets()
                     else:
                         is_to_recreate= messagebox.askyesno(title="Quiz inconsistency",
                                                             message="Marked text and the quiz are not consistent.\n" \

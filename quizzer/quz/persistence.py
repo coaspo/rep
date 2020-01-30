@@ -7,6 +7,7 @@ import logging
 import os.path
 import re
 import traceback
+from typing import Dict
 
 log = logging.getLogger(__name__)
 
@@ -125,7 +126,7 @@ class JsonFileStorage:
         if self._active_file_index != 0:
             self._active_file_index -= 1
 
-    def read_file(self) -> (str, str, dict):
+    def read_file(self) -> dict:
         file_path = self._files_paths[self._active_file_index]
         try:
             with open(file_path, "r", encoding='utf8') as f:
@@ -138,7 +139,7 @@ class JsonFileStorage:
                 data_dict = json.load(f)
         if log.isEnabledFor(logging.DEBUG):
             log.debug(f'file_path={file_path}\ndata_dict=\n{data_dict}')
-        return self.file_info(), self._file_name(), data_dict
+        return data_dict
 
     def delete_file(self) -> str:
         self._ensure_file_path_list_is_not_empty()
@@ -198,15 +199,15 @@ class AbstractPersistence(metaclass=abc.ABCMeta):
         pass
 
     @abc.abstractmethod
-    def get(self, create_domain_dct_object) -> (str, str, dict):
+    def get(self, create_domain_dct_object) -> dict:
         pass
 
     @abc.abstractmethod
-    def get_next(self, create_domain_dct_object) -> (str, str, dict):
+    def get_next(self, create_domain_dct_object) -> dict:
         pass
 
     @abc.abstractmethod
-    def get_previous(self, create_domain_dct_object) -> (str, str, dict):
+    def get_previous(self, create_domain_dct_object) -> dict:
         pass
 
     @abc.abstractmethod
@@ -249,23 +250,26 @@ class FilePersistence(AbstractPersistence):
     def description_old(self):
         return self._file_storage.file_info()
 
-    def description(self):
+    @property
+    def description(self) -> str:
         return self._file_storage.file_info()
 
-    def get(self, create_domain_object) -> (str, str, dict):
+    def get(self, create_domain_object) -> Dict or Dict:
         if self._file_storage.is_empty:
-            return f'There are no "{self._file_storage.file_pfx} files in {self._file_storage.save_dir}"', \
-                   'no files ', None
+            self._status = f'There are no "{self._file_storage.file_pfx} files in {self._file_storage.save_dir}"', \
+                           'no files '
+            return None
         FilePersistence._validate_file_storage()
-        status_msg, file_name, data_dict = self._file_storage.read_file()
+        data_dict = self._file_storage.read_file()
         domain_object = None if data_dict is None else create_domain_object(data_dict)
-        return status_msg, file_name, domain_object
+        self._status = 'Quiz file: ' + self._file_storage.file_path
+        return domain_object
 
-    def get_next(self, create_domain_dct_object) -> (str, str, dict):
+    def get_next(self, create_domain_dct_object) -> None or Dict:
         self._file_storage.increment_file_index()
         return self.get(create_domain_dct_object)
 
-    def get_previous(self, create_domain_dct_object) -> (str, str, dict):
+    def get_previous(self, create_domain_dct_object) -> None or Dict:
         self._file_storage.decrement_file_index()
         return self.get(create_domain_dct_object)
 
@@ -282,10 +286,10 @@ class FilePersistence(AbstractPersistence):
             self._file_storage.reset(file_pfx)
 
     @property
-    def status(self) -> list:
+    def status(self) -> str:
         return self._status
 
-    def save(self, file_pfx: str, data_dict: dict) -> str:
+    def save(self, file_pfx: str, data_dict: dict):
         FilePersistence._validate_file_storage()
         self.reset(file_pfx)
         self._file_storage.save_file(data_dict)

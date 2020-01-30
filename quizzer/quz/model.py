@@ -14,11 +14,11 @@ def _create_domain_object(data_dict: dict) -> Quiz:
 class Model:
     def __init__(self, quiz_dir: str):
         self._persistence = FilePersistence(quiz_dir)
-        _, _, self._quiz = self._persistence.get(_create_domain_object)
+        self._quiz = self._persistence.get(_create_domain_object)
 
-    def current_quiz(self) -> (str, str, Quiz):
-        status_msg, persistence_msg, self._quiz = self._persistence.get(_create_domain_object)
-        return status_msg, persistence_msg, self._quiz
+    def current_quiz(self) -> Quiz:
+        self._quiz = self._persistence.get(_create_domain_object)
+        return self._quiz
 
     def delete_quiz(self) -> (str, str):
         status_msg = self._persistence.delete()
@@ -43,11 +43,6 @@ class Model:
     @property
     def quiz(self) -> Quiz:
         return self._quiz
-
-    def quiz_description_old(self) -> str:
-        if self._quiz is None:
-            return ''
-        return self._persistence.description_old()
 
     def quiz_description(self) -> str:
         if self._quiz is None:
