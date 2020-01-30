@@ -74,7 +74,7 @@ class JsonFileStorage:
             log.debug(f'file_path={file_path}')
         return file_path
 
-    def file_description2(self) -> str:
+    def file_info(self) -> str:
         file_path = self._files_paths[self._active_file_index]
         seconds_since_created = os.path.getmtime(file_path)
         create_ts = datetime.datetime.utcfromtimestamp(seconds_since_created).isoformat()[:22]
@@ -101,7 +101,7 @@ class JsonFileStorage:
             file_path = self._files_paths[self._active_file_index]
             with open(file_path, "r", encoding='utf8') as f:
                 data_dict = json.load(f)
-        self._file_description = self.file_description2()
+        self._file_description = self.file_info()
         if log.isEnabledFor(logging.DEBUG):
             log.debug(f'file_path={file_path}\ndata_dict=\n{data_dict}')
         return data_dict
@@ -128,7 +128,7 @@ class JsonFileStorage:
         self._active_file_index = file_index
         if log.isEnabledFor(logging.DEBUG):
             log.debug(f'file_path={file_path}')
-        self._file_description = self.file_description2()
+        self._file_description = self.file_info()
         return file_path
 
     def update_file(self, data_dict: dict):
@@ -136,14 +136,6 @@ class JsonFileStorage:
             json.dump(data_dict, f, ensure_ascii=False, sort_keys=False, indent=0)
         if log.isEnabledFor(logging.DEBUG):
             log.debug(f'file_path={self._files_paths[self._active_file_index]}')
-
-    def _file_name(self) -> str:
-        file_num = str(self._active_file_index + 1)
-        file_path = self._files_paths[self._active_file_index]
-        file_name = os.path.basename(file_path)
-        file_name = file_name[:len(file_name) - 5]
-        info = file_num + '.  ' + file_name
-        return info
 
     def _ensure_file_path_list_is_not_empty(self):
         if len(self._files_paths) == 0:

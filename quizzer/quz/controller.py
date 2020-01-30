@@ -7,7 +7,7 @@ import traceback
 from tkinter import messagebox
 
 from quz.model import Model
-from quz.quiz import QuizError, Quiz, MultipleChoiceQuestion
+from quz.quiz import QuizError, MultipleChoiceQuestion
 from quz.util import Config, set_logger
 from quz.view import View
 
@@ -107,15 +107,15 @@ class MainController(Controller):
                                                                       "the quiz will be deleted.",
                                                               default=messagebox.CANCEL, parent=self.view.root)
                         if is_to_delete:
-                            status_msg = self.model.delete_quiz()
+                            self.model.delete_quiz()
                             self._populate_quiz_widgets()
                     else:
-                        is_to_recreate= messagebox.askyesno(title="Quiz inconsistency",
-                                                            message="Marked text and the quiz are not consistent.\n" \
-                                                                    "Would you like to recreate the quiz?\n" \
-                                                                    "This erases any entered answers.\n\n" \
-                                                                    "If not, marked text area will be reset",
-                                                            default=messagebox.NO, parent=self.view.root)
+                        is_to_recreate = messagebox.askyesno(title="Quiz inconsistency",
+                                                             message="Marked text and the quiz are not consistent.\n"
+                                                                     "Would you like to recreate the quiz?\n"
+                                                                     "This erases any entered answers.\n\n"
+                                                                     "If not, marked text area will be reset",
+                                                             default=messagebox.NO, parent=self.view.root)
                         if is_to_recreate:
                             self.model.create_new_quiz(marked_user_input)
                         else:
@@ -142,19 +142,19 @@ class MainController(Controller):
 
     def reset_topic(self, _):
         topic = self.view.quiz_topics.get()
-        status_msg, persistence_msg, quiz = self.model.reset_quiz_topic(topic)
-        self._populate_quiz_widgets(status_msg, persistence_msg, quiz)
+        self.model.reset_quiz_topic(topic)
+        self._populate_quiz_widgets()
 
     def next_question(self, _):
         try:
-            question = self.model.current_quiz()[2].next_question()
+            question = self.model.current_quiz.next_question()
             self._display_question(question)
         except Exception as e:
             super().handle_exception('Next question err', e)
 
     def previous_question(self, _):
         try:
-            question = self.model.current_quiz()[2].previous_question()
+            question = self.model.current_quiz.previous_question()
             self._display_question(question)
         except Exception as e:
             self.handle_exception('Previous question err', e)
@@ -181,7 +181,7 @@ class PersistenceController(Controller):
     def _next_quiz(self, _):
         try:
             status_msg, persistence_msg, quiz = self.model.next_quiz()
-            self._populate_quiz_widgets(status_msg, persistence_msg, quiz)
+            self._populate_quiz_widgets()
             self._display_question(quiz.current_question())
         except Exception as e:
             self._handle_persistence_error(e)
@@ -189,7 +189,7 @@ class PersistenceController(Controller):
     def _previous_quiz(self, _):
         try:
             status_msg, persistence_msg, quiz = self.model.previous_quiz()
-            self._populate_quiz_widgets(status_msg, persistence_msg, quiz)
+            self._populate_quiz_widgets()
             self._display_question(quiz.current_question())
         except Exception as e:
             self._handle_persistence_error(e)

@@ -13,8 +13,6 @@ def test_controller_set_up():
     m = Model(TMP_DIR)
     v = View(m.latest_quiz_topic, m.quiz_topics, '<UI intructions>')
 
-    # persistence = FilePersistence(TMP_DIR)
-
     c = MainController(v, m)
     c.bind_main_controls()
     c2 = PersistenceController(v, m)
