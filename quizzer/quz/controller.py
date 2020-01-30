@@ -82,7 +82,7 @@ class MainController(Controller):
 
     def __init__(self, view: View, model: Model):
         Controller.__init__(self, view, model)
-        quiz = self.model.current_quiz()
+        quiz = self.model.current_quiz
         if quiz is not None:
             self._populate_quiz_widgets()
             self._display_question(quiz.current_question())

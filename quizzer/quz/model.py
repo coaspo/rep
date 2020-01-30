@@ -16,6 +16,7 @@ class Model:
         self._persistence = FilePersistence(quiz_dir)
         self._quiz = self._persistence.get(_create_domain_object)
 
+    @property
     def current_quiz(self) -> Quiz:
         self._quiz = self._persistence.get(_create_domain_object)
         return self._quiz
@@ -25,12 +26,13 @@ class Model:
         status_msg2, persistence_msg, self._quiz = self._persistence.get(_create_domain_object)
         return status_msg + status_msg2, persistence_msg
 
+    @property
     def quiz_description(self) -> str:
-        return self._persistence.description()
+        return self._persistence.description
 
     @property
     def latest_quiz_topic(self) -> str:
-        return self._persistence.latest_topic()
+        return self._persistence.latest_topic
 
     def next_quiz(self) -> (str, str, Quiz):
         status_msg, persistence_msg, self._quiz = self._persistence.get_next(_create_domain_object)
@@ -51,7 +53,7 @@ class Model:
 
     @property
     def quiz_topics(self) -> List[str]:
-        return self._persistence.topics()
+        return self._persistence.topics
 
     def create_new_quiz(self, marked_user_input: str):
         self._quiz = Quiz(marked_user_input=marked_user_input)

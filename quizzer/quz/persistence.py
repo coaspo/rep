@@ -226,10 +226,6 @@ class AbstractPersistence(metaclass=abc.ABCMeta):
     def topics(self) -> str:
         pass
 
-    @abc.abstractmethod
-    def description_old(self) -> list:
-        pass
-
 
 class FilePersistence(AbstractPersistence):
     file_storage_err_msg = True
@@ -247,14 +243,11 @@ class FilePersistence(AbstractPersistence):
             traceback.print_exc()
             FilePersistence.file_storage_err_msg = str(e)
 
-    def description_old(self):
-        return self._file_storage.file_info()
-
     @property
     def description(self) -> str:
         return self._file_storage.file_info()
 
-    def get(self, create_domain_object) -> Dict or Dict:
+    def get(self, create_domain_object) -> Dict or None:
         if self._file_storage.is_empty:
             self._status = f'There are no "{self._file_storage.file_pfx} files in {self._file_storage.save_dir}"', \
                            'no files '
@@ -277,6 +270,7 @@ class FilePersistence(AbstractPersistence):
         FilePersistence._validate_file_storage()
         return 'Deleted: ' + self._file_storage.delete_file() + ';  '
 
+    @property
     def latest_topic(self) -> str:
         return self._latest_file_prefix
 
@@ -295,6 +289,7 @@ class FilePersistence(AbstractPersistence):
         self._file_storage.save_file(data_dict)
         self._status = 'Saved quiz into: ' + self._file_storage.file_path
 
+    @property
     def topics(self) -> list:
         return self._file_prefixes
 
