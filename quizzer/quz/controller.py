@@ -48,9 +48,9 @@ class AbstractController:
 
     def _populate_question_widgets(self):
         question = self.model.quiz.current_question()
-        self.view.question_label['text'] = make_multiple_lines(question.question)
-        self.view.question_comment_label['text'] = '' if question.comment is None else make_multiple_lines(
-            question.comment)
+        self.view.question_label['text'] = AbstractController.make_multiple_lines(question.question)
+        cmt = '' if question.comment is None else question.comment
+        self.view.question_comment_label['text'] = cmt
         self._populate_answers_widgets()
 
     def _populate_answers_widgets(self):
@@ -60,9 +60,9 @@ class AbstractController:
         for i, answer in enumerate(self.model.quiz.current_question().answers):
             is_set = 1 if answer.is_selected else 0
             is_selected = tkinter.IntVar(value=is_set)
-            chk_bt = tkinter.Checkbutton(self.view.question_area, text=make_multiple_lines(answer.answer), bg='white',
+            chk_bt = tkinter.Checkbutton(self.view.question_area,
+                                         text=AbstractController.make_multiple_lines(answer.answer), bg='white',
                                          variable=is_selected, padx=15)
-
             chk_bt.grid(row=i + 1, column=0, sticky=tkinter.W, pady=2)
             self.view.answer_check_buttons.append((is_selected, chk_bt))
 
@@ -72,6 +72,24 @@ class AbstractController:
             button.select()
         else:
             button.deselect()
+
+    @staticmethod
+    def make_multiple_lines(line: str) -> str:
+        if len(line) < 5:
+            return line
+        paragraph = []
+        is_new_line_added = False
+        line_num = 1
+        for i, c in enumerate(line):
+            paragraph.append(c)
+            if 75 * line_num < i < 90 * line_num and c == ' ':
+                if not is_new_line_added:
+                    line_num += 1
+                    paragraph.append('\n')
+                    is_new_line_added = True
+            else:
+                is_new_line_added = False
+        return ''.join(paragraph)
 
 
 class QuizController(AbstractController):
@@ -242,21 +260,3 @@ def main():
         exc_trace = str(exc) + '\n\t' + traceback.format_exc()
         print(exc_trace)
         log.error(exc_trace)
-
-
-def make_multiple_lines(line: str) -> str:
-    if len(line) < 5:
-        return line
-    paragraph = []
-    is_new_line_added = False
-    line_num = 1
-    for i, c in enumerate(line):
-        paragraph.append(c)
-        if 75 * line_num < i < 90 * line_num and c == ' ':
-            if not is_new_line_added:
-                line_num += 1
-                paragraph.append('\n')
-                is_new_line_added = True
-        else:
-            is_new_line_added = False
-    return ''.join(paragraph)
