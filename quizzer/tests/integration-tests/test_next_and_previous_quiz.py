@@ -34,60 +34,18 @@ def test_next_quiz():
     c.update_quiz('fake-mouse-leave-event')
     assert v.status_label.cget('text').startswith('Saved quiz file')
     assert v.quiz_description_label.cget('text').startswith('1/1  quiz.1.json')
+    c.update_quiz('fake-mouse-leave-event')
+    assert v.status_label.cget('text').startswith('Saved quiz file')
+    assert v.quiz_description_label.cget('text').startswith('1/1  quiz.1.json')
     assert 'What is 2+3' == v.question_label.cget('text')
     assert 'addition' == v.question_comment_label.cget('text')
+    v.input_marked_text_area.insert('insert', '?What is 2+33333333\n'
+                                              '-is 444444444\n'
+                                              '+is 5444444444\n\n'
+                                              '=additionnnnnnnnnn\n\n'
+                                              '?1*2 = ?///////////\n'
+                                              '- = 111111111111\n'
+                                              '+ = 222222222222\n'
+                                              '- = 44444444444\n\n')
+    c.update_quiz('fake-mouse-leave-event')
 
-
-def test_validate_answers():
-    is_selected, chk_bt = v.answer_check_buttons[0]
-    assert 0 == is_selected.get()
-    assert 'is 4' == chk_bt.cget('text')
-    is_selected, chk_bt = v.answer_check_buttons[1]
-    assert 0 == is_selected.get()
-    assert 'is 5' == chk_bt.cget('text')
-
-
-def validate_buttons():
-    assert NORMAL == v.next_question_bt['state']
-    assert NORMAL == v.previous_question_bt['state']
-    assert NORMAL == v.submit_bt['state']
-
-
-def test_validate_stored_file():
-    path = glob.glob(TMP_DIR + '/*.json')[0]
-    with open(path) as f:
-        data_dict = json.load(f)
-        assert {'current_question_num': 1, 'num_of_questions': 2, 'marked_user_input':
-            '?What is 2+3\n-is 4\n+is 5\n\n=addition\n\n?1*2 = ?\n- = 1\n+ = 2\n- = 4',
-                'question1': 'What is 2+3', 'question1_answers': {'answer1': {'answer': 'is 4',
-                                                                              'is_correct': False,
-                                                                              'is_selected': False},
-                                                                  'answer2': {'answer': 'is 5',
-                                                                              'is_correct': True,
-                                                                              'is_selected': False},
-                                                                  'comment': 'addition',
-                                                                  'num_of_answers': 2},
-                'question2': '1*2 = ?', 'question2_answers': {'answer1': {'answer': ' = 1',
-                                                                          'is_correct': False,
-                                                                          'is_selected': False},
-                                                              'answer2': {'answer': ' = 2',
-                                                                          'is_correct': True,
-                                                                          'is_selected': False},
-                                                              'answer3': {'answer': ' = 4',
-                                                                          'is_correct': False,
-                                                                          'is_selected': False},
-                                                              'comment': None,
-                                                              'num_of_answers': 3}} == data_dict
-
-
-def test_clear_screen_button():
-    assert v.status_label.cget('text').startswith('Saved quiz file')
-    c.clear_screen2('fake-button-event')
-    assert '\n' == v.input_marked_text_area.get("1.0", END)
-    assert Config.APP_INSTRUCTIONS == v.status_label.cget('text')
-    assert '' == v.question_comment_label.cget('text')
-    assert '' == v.question_label.cget('text')
-    assert '' == v.quiz_description_label.cget('text')
-    assert DISABLED == v.next_question_bt['state']
-    assert DISABLED == v.previous_question_bt['state']
-    assert DISABLED == v.submit_bt['state']

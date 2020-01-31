@@ -20,10 +20,6 @@ class View:
         return self._clear_bt
 
     @property
-    def delete_quiz_bt(self) -> tkinter.Button:
-        return self._delete_quiz_bt
-
-    @property
     def input_marked_text_area(self) -> tkinter.scrolledtext.ScrolledText:
         return self._input_marked_text_area
 
@@ -64,10 +60,6 @@ class View:
         return self._quiz_topics
 
     @property
-    def refresh_quiz_bt(self) -> tkinter.Button:
-        return self._refresh_quiz_bt
-
-    @property
     def root(self) -> tkinter.Tk:
         return self._root
 
@@ -76,12 +68,8 @@ class View:
         return self._status_label
 
     @property
-    def submit_bt(self) -> tkinter.Label:
+    def submit_bt(self) -> tkinter.Button:
         return self._submit_bt
-
-    @property
-    def update_bt(self) -> tkinter.Button:
-        return self._update_bt
 
     def __init__(self, latest_quiz_topic: str, quiz_topics: list, instructions: str):
         root = tkinter.Tk()
@@ -118,8 +106,6 @@ class View:
             self._quiz_topics.current(quiz_topics.index(latest_quiz_topic))
         self._quiz_topics.pack(side=tkinter.LEFT, padx=5, pady=2)
 
-        self._refresh_quiz_bt = tkinter.Button(frame, text="  Refresh Quiz  ", height=1)
-        self._refresh_quiz_bt.pack(side=tkinter.LEFT, padx=20, pady=2)
         spacer_label = tkinter.Label(frame, text=None, bg=frame_color)
         spacer_label.pack(side=tkinter.LEFT, padx=10)
 
@@ -134,10 +120,6 @@ class View:
         self._persistence_status_label = tkinter.Label(frame, text="", anchor='w', bg='white')
         self._persistence_status_label.config(width=30)
         self._persistence_status_label.pack(side=tkinter.LEFT, padx=2, pady=2)
-        self._update_bt = tkinter.Button(frame, text="Update", height=1, state=tkinter.DISABLED)
-        self._update_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
-        self._delete_quiz_bt = tkinter.Button(frame, text="Delete", height=1, state=tkinter.DISABLED)
-        self._delete_quiz_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
 
         help_label = tkinter.Label(frame, text="Help", fg="blue", bg=frame_color, cursor="hand2")
         font = tkinter.font.Font(help_label, help_label.cget("font"))

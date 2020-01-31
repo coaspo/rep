@@ -142,7 +142,7 @@ class JsonFileStorage:
             raise AttributeError(f'No files, "{self._file_pfx}.<unique-num>.json" files in: {self._save_dir}')
 
     @staticmethod
-    def _get_file_paths(file_pfx: str, latest_file_name: str, save_dir: str) -> (str, str):
+    def _get_file_paths(file_pfx: str, latest_file_name: str or None, save_dir: str) -> (str, str):
         file_paths = glob.glob(save_dir + '/' + file_pfx + '*.json')
         if len(file_paths) == 0:
             return 0, -1, []
