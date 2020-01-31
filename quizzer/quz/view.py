@@ -76,6 +76,10 @@ class View:
         return self._status_label
 
     @property
+    def submit_bt(self) -> tkinter.Label:
+        return self._submit_bt
+
+    @property
     def update_bt(self) -> tkinter.Button:
         return self._update_bt
 
@@ -186,11 +190,12 @@ class View:
 
     def clear_quiz_question(self):
         [btn.destroy() for (_, btn) in self.answer_check_buttons]
+        self.answer_check_buttons.clear()
         self._question_label['text'] = ''
         self.question_comment_label['text'] = ''
         self.next_question_bt.configure(state=DISABLED)
         self.previous_question_bt.configure(state=DISABLED)
-        print('disssssssssssss')
+        self.submit_bt.configure(state=DISABLED)
 
 
 def make_multiple_lines(line: str) -> str:

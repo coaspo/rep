@@ -4,7 +4,7 @@ import os
 import tkinter
 import tkinter.ttk
 import traceback
-from tkinter import messagebox
+from tkinter import messagebox, DISABLED
 
 from quz.model import Model
 from quz.quiz import QuizError, MultipleChoiceQuestion
@@ -99,6 +99,7 @@ class MainController(Controller):
                 topic = self.view.quiz_topics.get().strip()
                 self.model.save_quiz(topic)
                 self._populate_quiz_widgets()
+                self._enable_buttons()
             else:
                 if marked_user_input != self.model.quiz.marked_user_input:
                     if len(marked_user_input) == 0:
@@ -124,6 +125,11 @@ class MainController(Controller):
             self._update_status(str(e), True)
             if str(e) != Config.MARKED_TEXT_ERR:
                 self.handle_exception('Unexpected error: ', e)
+
+    def _enable_buttons(self):
+        self.view.next_question_bt.configure(state=DISABLED)
+        self.view.previous_question_bt.configure(state=DISABLED)
+        self.view.submit_bt.configure(state=DISABLED)
 
     def _update_combo_box_topics(self, topic):
         combo_values = self.view.quiz_topics['values']
@@ -161,6 +167,13 @@ class MainController(Controller):
             except Exception as e:
                 self.handle_exception('Previous question err', e)
 
+    def submit_answers(self, _):
+        if self.view.submit_bt['state'] != 'disabled':
+            try:
+                pass
+            except Exception as e:
+                self.handle_exception('Previous question err', e)
+
     def bind_main_controls(self):
         self.view.clear_bt.bind("<Button-1>", super().clear_screen)
         self.view.quiz_topics.bind("<<ComboboxSelected>>", self.reset_topic)
@@ -169,6 +182,7 @@ class MainController(Controller):
         self.view.input_marked_text_area.bind("<Leave>", self.update_quiz)
         self.view.next_question_bt.bind("<ButtonRelease-1>", self.next_question)
         self.view.previous_question_bt.bind("<Button-1>", self.previous_question)
+        self.view.submit_bt.bind("<Button-1>", self.submit_answers)
 
         self.view.root.protocol("WM_DELETE_WINDOW", self.on_close_window)
         if log.isEnabledFor(logging.DEBUG):

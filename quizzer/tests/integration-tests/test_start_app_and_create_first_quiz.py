@@ -1,6 +1,6 @@
 import glob
 import json
-from tkinter import END, DISABLED
+from tkinter import END, DISABLED, NORMAL
 
 from quz.controller import MainController
 from quz.model import Model
@@ -57,6 +57,10 @@ def test_validate_answers():
     assert 0 == is_selected.get()
     assert 'is 5' == chk_bt.cget('text')
 
+def validate_buttons():
+    assert NORMAL == v.next_question_bt['state']
+    assert NORMAL == v.previous_question_bt['state']
+    assert NORMAL == v.submit_bt['state']
 
 def test_validate_stored_file():
     path = glob.glob(TMP_DIR + '/*.json')[0]
@@ -95,4 +99,5 @@ def test_clear_screen_button():
     assert '' == v.question_comment_label.cget('text')
     assert DISABLED == v.next_question_bt['state']
     assert DISABLED == v.previous_question_bt['state']
+    assert DISABLED == v.submit_bt['state']
 
