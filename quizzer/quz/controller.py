@@ -21,11 +21,6 @@ class Controller:
         self.model = model
         self.delete_bt_click_count = 0
 
-    def _update_status(self, text: str, is_err=False):
-        self.view.status_label['text'] = text
-        background = "#ffeeee" if is_err else "#eeffee"
-        self.view.status_label.config(bg=background)
-
     def clear_screen(self, _):
         self.view.clear_screen()
         self.delete_bt_click_count = 0
@@ -43,32 +38,31 @@ class Controller:
                 log.error(msg + '\n\t' + msg_trace)
             self._update_status(msg_exc, True)
 
+    def _update_status(self, text: str, is_err=False):
+        self.view.status_label['text'] = text
+        background = "#ffeeee" if is_err else "#eeffee"
+        self.view.status_label.config(bg=background)
+
     def _populate_quiz_widgets(self):
         self.view.input_marked_text_area.delete('1.0', tkinter.END)
-        # self.view.save_bt.config(state=tkinter.DISABLED)
         self.view.input_marked_text_area.insert(tkinter.END, self.model.quiz.marked_user_input)
         self._update_status(self.model.status_msg)
         self.delete_bt_click_count = 0
         self.view.quiz_description_label['text'] = self.model.quiz_description
-        self.view.delete_quiz_bt.config(state=tkinter.NORMAL)
-        self.view.update_bt.config(state=tkinter.NORMAL)
+        self._populate_question_widgets()
 
-    @staticmethod
-    def set_check_button(button: tkinter.Checkbutton, value: int):
-        if value == 1:
-            button.select()
-        else:
-            button.deselect()
-
-    def _display_question(self, question: MultipleChoiceQuestion):
+    def _populate_question_widgets(self):
+        question = self.model.quiz.current_question()
         self.view.question_label['text'] = make_multiple_lines(question.question)
         self.view.question_comment_label['text'] = '' if question.comment is None else make_multiple_lines(
             question.comment)
+        self._populate_answers_widgets()
 
+    def _populate_answers_widgets(self):
         [chk_bt.destroy() for (_, chk_bt) in self.view.answer_check_buttons]
         self.view.answer_check_buttons.clear()
 
-        for i, answer in enumerate(question.answers):
+        for i, answer in enumerate(self.model.quiz.current_question().answers):
             is_set = 1 if answer.is_selected else 0
             is_selected = tkinter.IntVar(value=is_set)
             chk_bt = tkinter.Checkbutton(self.view.question_area, text=make_multiple_lines(answer.answer), bg='white',
@@ -76,6 +70,13 @@ class Controller:
 
             chk_bt.grid(row=i + 1, column=0, sticky=tkinter.W, pady=2)
             self.view.answer_check_buttons.append((is_selected, chk_bt))
+
+    @staticmethod
+    def set_check_button(button: tkinter.Checkbutton, value: int):
+        if value == 1:
+            button.select()
+        else:
+            button.deselect()
 
 
 class MainController(Controller):

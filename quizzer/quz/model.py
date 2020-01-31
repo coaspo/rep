@@ -14,7 +14,7 @@ def _create_domain_object(data_dict: dict) -> Quiz:
 class Model:
     def __init__(self, quiz_dir: str):
         self._persistence = FilePersistence(quiz_dir)
-        self._quiz = self._persistence.get(_create_domain_object)
+        self._quiz: Quiz = self._persistence.get(_create_domain_object)
 
     def create_new_quiz(self, marked_user_input: str):
         self._quiz = Quiz(marked_user_input=marked_user_input)

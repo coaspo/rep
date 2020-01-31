@@ -32,6 +32,8 @@ def test_save_marked_text():
                                               '- = 1\n'
                                               '+ = 2\n'
                                               '- = 4\n\n')
-    c.update_quiz(1)
+    c.update_quiz('fake-event')
     assert v.status_label.cget('text').startswith('Saved quiz')
     assert v.quiz_description_label.cget('text').startswith('1/1  quiz.1.json')
+    assert v.question_label.cget('text') == 'What is 2+3'
+    assert v.question_comment_label.cget('text') == 'addition'
