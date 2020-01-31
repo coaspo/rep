@@ -62,9 +62,6 @@ class Model:
     def save_quiz(self, quiz_topic: str):
         self._persistence.save(quiz_topic, self._quiz.get_data_dict())
 
-    def set_answer(self, answer_index, is_selected):
-        self._persistence.save(quiz_topic, self._quiz.get_data_dict())
-
     def update_quiz(self, marked_user_input: str) -> (str, str):
         self._quiz = Quiz(marked_user_input=marked_user_input)
         status_msg, persistence_msg = self._persistence.update(self._quiz.get_data_dict())

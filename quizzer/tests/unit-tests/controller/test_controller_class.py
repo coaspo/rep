@@ -1,4 +1,4 @@
-from quz.controller import MainController, PersistenceController
+from quz.controller import QuizController, QuizQuestionController
 from quz.model import Model
 from quz.util import set_logger
 from quz.view import View
@@ -13,7 +13,7 @@ def test_controller_set_up():
     m = Model(TMP_DIR)
     v = View(m.latest_quiz_topic, m.quiz_topics, '<UI intructions>')
 
-    c = MainController(v, m)
-    c.bind_main_controls()
-    c2 = PersistenceController(v, m)
-    c2.bind_persistence_controls()
+    c = QuizController(v, m)
+    c.bind_controls()
+    c2 = QuizQuestionController(v, m)
+    c2.bind_controls()

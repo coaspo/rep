@@ -1,7 +1,7 @@
 import json
 import tkinter
 
-from quz.controller import MainController
+from quz.controller import QuizController
 from quz.model import Model
 from quz.util import set_logger
 from quz.view import View
@@ -45,7 +45,7 @@ def test_enter_marked_text():
     global m, v, c
     m = Model(TMP_DIR)
     v = View(m.latest_quiz_topic, m.quiz_topics, 'fake instructions')
-    c = MainController(v, m)
+    c = QuizController(v, m)
     assert v.status_label.cget('text').startswith('Read quiz file')
     assert v.quiz_description_label.cget('text').startswith('1/1  quiz.1.json')
     assert 'What is 2+3' == v.question_label.cget('text')

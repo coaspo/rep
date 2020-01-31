@@ -13,23 +13,12 @@ CONFIG = {'LOG_DIR': TMP_DIR, 'LOG_LEVEL': 'CRITICAL'}
 set_logger(CONFIG)
 
 
-def test_missing_marked_text():
-    m1 = Model(TMP_DIR)
-    v1 = View(m1.latest_quiz_topic, m1.quiz_topics, '<UI instructions>')
-    assert v1.quiz_topics.get() == 'quiz'
-    assert v1.status_label.cget('text') == '<UI instructions>'
-    c1 = QuizController(v1, m1)
-    v1.input_marked_text_area.insert('insert', 'aaaa')
-    c1.update_quiz(1)
-    assert Config.MARKED_TEXT_ERR == v1.status_label.cget('text')
-
-
 m: Model = None
 v: View = None
 c: View = None
 
 
-def test_enter_marked_text():
+def test_next_quiz():
     global m, v, c
     m = Model(TMP_DIR)
     v = View(m.latest_quiz_topic, m.quiz_topics, 'fake instructions')

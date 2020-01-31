@@ -14,7 +14,7 @@ from quz.view import View
 log = logging.getLogger(__name__)
 
 
-class Controller:
+class AbstractController:
     def __init__(self, view: View, model: Model):
         self.delete_bt_click_count = 0
         self.view = view
@@ -26,7 +26,7 @@ class Controller:
         self.delete_bt_click_count = 0
         self._update_status(Config.APP_INSTRUCTIONS)
 
-    def handle_exception(self, msg: str, exc=None):
+    def handle_exception(self, msg: str, exc: Exception = None):
         if exc is None:
             log.error(msg)
             self._update_status(msg, True)
@@ -79,10 +79,10 @@ class Controller:
             button.deselect()
 
 
-class MainController(Controller):
+class QuizController(AbstractController):
 
     def __init__(self, view: View, model: Model):
-        Controller.__init__(self, view, model)
+        AbstractController.__init__(self, view, model)
         quiz = self.model.get_quiz()
         if quiz is not None:
             self._populate_quiz_widgets()
@@ -99,7 +99,7 @@ class MainController(Controller):
             else:
                 if marked_user_input != self.model.quiz.marked_user_input:
                     if len(marked_user_input) == 0:
-                        self.delete_quiz()
+                        self._delete_quiz()
                     else:
                         self._recreate_quiz_or_undo_marked_text_changes(marked_user_input)
         except Exception as e:
@@ -119,7 +119,7 @@ class MainController(Controller):
         else:
             self.view.input_marked_text_area.insert('insert', self.model.quiz.marked_user_input)
 
-    def delete_quiz(self):
+    def _delete_quiz(self):
         is_to_delete = messagebox.askokcancel(title="Delete quiz",
                                               message="With marked text removed,\n"
                                                       "the quiz will be deleted.",
@@ -152,24 +152,51 @@ class MainController(Controller):
     def on_close_window(self):
         self.view.stop()
 
-    def reset_topic(self, _):
+    def reset_quiz_topic(self, _):
         topic = self.view.quiz_topics.get()
         self.model.reset_quiz_topic(topic)
         self._populate_quiz_widgets()
 
+    def _next_quiz(self, _):
+        try:
+            self.model.set_to_next_quiz()
+            self._populate_quiz_widgets()
+        except Exception as e:
+            self.handle_exception('Unexpected err', e)
+
+    def _previous_quiz(self, _):
+        try:
+            self.model.set_to_previous_quiz()
+            self._populate_quiz_widgets()
+        except Exception as e:
+            self.handle_exception('Unexpected err', e)
+
+    def bind_controls(self):
+        self.view.clear_bt.bind("<Button-1>", super().clear_screen)
+        self.view.input_marked_text_area.bind("<Leave>", self.update_quiz)
+        self.view.quiz_topics.bind("<<ComboboxSelected>>", self.reset_quiz_topic)
+        self.view.root.protocol("WM_DELETE_WINDOW", self.on_close_window)
+        self.view.next_quiz_bt.bind("<Button-1>", self._next_quiz)
+        self.view.previous_quiz_bt.bind("<Button-1>", self._previous_quiz)
+        if log.isEnabledFor(logging.DEBUG):
+            log.debug('controller methods bound to view widgets')
+
+
+class QuizQuestionController(AbstractController):
+
     def next_question(self, _):
         if self.view.next_question_bt['state'] != 'disabled':
             try:
-                question = self.model.quiz.next_question()
-                self._display_question(question)
+                self.model.quiz.next_question()
+                self._populate_quiz_widgets()
             except Exception as e:
                 super().handle_exception('Next question err', e)
 
     def previous_question(self, _):
         if self.view.previous_question_bt['state'] != 'disabled':
             try:
-                question = self.model.quiz.previous_question()
-                self._display_question(question)
+                self.model.quiz.previous_question()
+                self._populate_quiz_widgets()
             except Exception as e:
                 self.handle_exception('Previous question err', e)
 
@@ -184,72 +211,10 @@ class MainController(Controller):
             except Exception as e:
                 self.handle_exception('Previous question err', e)
 
-    def bind_main_controls(self):
-        self.view.clear_bt.bind("<Button-1>", super().clear_screen)
-        self.view.quiz_topics.bind("<<ComboboxSelected>>", self.reset_topic)
-        self.view.input_marked_text_area.bind("<FocusOut>", self.update_quiz)
-
-        self.view.input_marked_text_area.bind("<Leave>", self.update_quiz)
+    def bind_controls(self):
         self.view.next_question_bt.bind("<ButtonRelease-1>", self.next_question)
         self.view.previous_question_bt.bind("<Button-1>", self.previous_question)
         self.view.submit_bt.bind("<Button-1>", self.submit_answers)
-
-        self.view.root.protocol("WM_DELETE_WINDOW", self.on_close_window)
-        if log.isEnabledFor(logging.DEBUG):
-            log.debug('controller methods bound to view widgets')
-
-
-class PersistenceController(Controller):
-    def _handle_persistence_error(self, e):
-        self.handle_exception('PersistenceController error: ', e)
-        self.view.quiz_description_label['text'] = 'See error below or in log file'
-
-    def _next_quiz(self, _):
-        try:
-            self.model.set_to_next_quiz()
-            self._populate_quiz_widgets()
-        except Exception as e:
-            self._handle_persistence_error(e)
-
-    def _previous_quiz(self, _):
-        try:
-            self.model.set_to_previous_quiz()
-            self._populate_quiz_widgets()
-        except Exception as e:
-            self._handle_persistence_error(e)
-
-    def _update_quiz(self, _):
-        if self.view.delete_quiz_bt['state'] == tkinter.DISABLED:
-            return
-        try:
-            marked_user_input = self.view.input_marked_text_area.get("1.0", tkinter.END)
-            status_msg, persistence_msg = self.model.update_quiz(marked_user_input)
-            super()._update_status(status_msg)
-            self.view.quiz_description_label['text'] = persistence_msg
-        except Exception as e:
-            self._handle_persistence_error(e)
-
-    def _delete_quiz(self, _):
-        if self.view.update_bt['state'] == tkinter.DISABLED:
-            return
-        self.delete_bt_click_count += 1
-        try:
-            if self.delete_bt_click_count == 1:
-                self.view.quiz_description_label['text'] = f'Click Delete again, \u25BA \u25C4 Clear to cancel.'
-            else:
-                status_msg, persistence_msg = self.model.delete_quiz()
-                assert status_msg in self.view.status_label['text']
-                self.view.status_label['text'] = status_msg
-                self.view.quiz_description_label['text'] = persistence_msg
-                self.delete_bt_click_count = 0
-        except Exception as e:
-            self._handle_persistence_error(e)
-
-    def bind_persistence_controls(self):
-        self.view.next_quiz_bt.bind("<Button-1>", self._next_quiz)
-        self.view.previous_quiz_bt.bind("<Button-1>", self._previous_quiz)
-        self.view.update_bt.bind("<Button-1>", self._update_quiz)
-        self.view.delete_quiz_bt.bind("<Button-1>", self._delete_quiz)
         if log.isEnabledFor(logging.DEBUG):
             log.debug('controller methods bound to view widgets')
 
@@ -266,15 +231,16 @@ def main():
 
         v = View(m.latest_quiz_topic, m.quiz_topics, Config.APP_INSTRUCTIONS)
 
-        c = MainController(v, m)
-        c.bind_main_controls()
-        c2 = PersistenceController(v, m)
-        c2.bind_persistence_controls()
+        c = QuizController(v, m)
+        c.bind_controls()
+        c2 = QuizQuestionController(v, m)
+        c2.bind_controls()
 
         log.info('>>> Starting view')
         v.start()
     except Exception as exc:
         exc_trace = str(exc) + '\n\t' + traceback.format_exc()
+        print(exc_trace)
         log.error(exc_trace)
 
 
@@ -294,7 +260,3 @@ def make_multiple_lines(line: str) -> str:
         else:
             is_new_line_added = False
     return ''.join(paragraph)
-
-
-if __name__ == '__main__':
-    main()
