@@ -13,9 +13,9 @@ CONFIG = {'LOG_DIR': TMP_DIR, 'LOG_LEVEL': 'CRITICAL'}
 set_logger(CONFIG)
 
 
-m: Model = None
-v: View = None
-c: View = None
+m: Model
+v: View
+c: QuizController
 
 
 def test_next_quiz():
@@ -82,7 +82,7 @@ def test_validate_stored_file():
 
 def test_clear_screen_button():
     assert v.status_label.cget('text').startswith('Saved quiz file')
-    c.clear_screen('fake-button-event')
+    c.clear_screen2('fake-button-event')
     assert '\n' == v.input_marked_text_area.get("1.0", END)
     assert Config.APP_INSTRUCTIONS == v.status_label.cget('text')
     assert '' == v.question_comment_label.cget('text')

@@ -21,11 +21,6 @@ class AbstractController:
         self.model = model
         self.delete_bt_click_count = 0
 
-    def clear_screen(self, _):
-        self.view.clear_screen()
-        self.delete_bt_click_count = 0
-        self._update_status(Config.APP_INSTRUCTIONS)
-
     def handle_exception(self, msg: str, exc: Exception = None):
         if exc is None:
             log.error(msg)
@@ -86,6 +81,11 @@ class QuizController(AbstractController):
         quiz = self.model.get_quiz()
         if quiz is not None:
             self._populate_quiz_widgets()
+
+    def clear_screen2(self, _):
+        self.view.clear_screen()
+        self.delete_bt_click_count = 0
+        self._update_status(Config.APP_INSTRUCTIONS)
 
     def update_quiz(self, _):
         try:
@@ -172,7 +172,7 @@ class QuizController(AbstractController):
             self.handle_exception('Unexpected err', e)
 
     def bind_controls(self):
-        self.view.clear_bt.bind("<Button-1>", super().clear_screen)
+        self.view.clear_bt.bind("<Button-1>", self.clear_screen2)
         self.view.input_marked_text_area.bind("<Leave>", self.update_quiz)
         self.view.quiz_topics.bind("<<ComboboxSelected>>", self.reset_quiz_topic)
         self.view.root.protocol("WM_DELETE_WINDOW", self.on_close_window)
