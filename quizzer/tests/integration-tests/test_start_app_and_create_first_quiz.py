@@ -1,5 +1,6 @@
 import glob
 import json
+from tkinter import END, DISABLED
 
 from quz.controller import MainController
 from quz.model import Model
@@ -20,10 +21,16 @@ def test_missing_marked_text():
     c = MainController(v, m)
     v.input_marked_text_area.insert('insert', 'aaaa')
     c.update_quiz(1)
-    assert  Config.MARKED_TEXT_ERR == v.status_label.cget('text')
+    assert Config.MARKED_TEXT_ERR == v.status_label.cget('text')
+
+
+m: Model = None
+v: View = None
+c: View = None
 
 
 def test_enter_marked_text():
+    global m, v, c
     m = Model(TMP_DIR)
     v = View(m.latest_quiz_topic, m.quiz_topics, 'fake instructions')
     c = MainController(v, m)
@@ -41,6 +48,8 @@ def test_enter_marked_text():
     assert 'What is 2+3' == v.question_label.cget('text')
     assert 'addition' == v.question_comment_label.cget('text')
 
+
+def test_validate_answers():
     is_selected, chk_bt = v.answer_check_buttons[0]
     assert 0 == is_selected.get()
     assert 'is 4' == chk_bt.cget('text')
@@ -48,10 +57,11 @@ def test_enter_marked_text():
     assert 0 == is_selected.get()
     assert 'is 5' == chk_bt.cget('text')
 
+
+def test_validate_stored_file():
     path = glob.glob(TMP_DIR + '/*.json')[0]
     with open(path) as f:
         data_dict = json.load(f)
-        print(data_dict)
         assert {'current_question_num': 1, 'num_of_questions': 2, 'marked_user_input':
             '?What is 2+3\n-is 4\n+is 5\n\n=addition\n\n?1*2 = ?\n- = 1\n+ = 2\n- = 4',
                 'question1': 'What is 2+3', 'question1_answers': {'answer1': {'answer': 'is 4',
@@ -73,3 +83,16 @@ def test_enter_marked_text():
                                                                           'is_selected': False},
                                                               'comment': None,
                                                               'num_of_answers': 3}} == data_dict
+
+
+def test_clear_screen_button():
+    assert v.status_label.cget('text').startswith('Saved quiz file')
+    c.clear_screen('fake-button-event')
+    assert '\n' == v.input_marked_text_area.get("1.0", END)
+    assert Config.APP_INSTRUCTIONS == v.status_label.cget('text')
+    assert '' == v.quiz_description_label.cget('text')
+    assert '' == v.question_label.cget('text')
+    assert '' == v.question_comment_label.cget('text')
+    assert DISABLED == v.next_question_bt['state']
+    assert DISABLED == v.previous_question_bt['state']
+

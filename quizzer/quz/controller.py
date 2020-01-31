@@ -146,18 +146,20 @@ class MainController(Controller):
         self._populate_quiz_widgets()
 
     def next_question(self, _):
-        try:
-            question = self.model.quiz.next_question()
-            self._display_question(question)
-        except Exception as e:
-            super().handle_exception('Next question err', e)
+        if self.view.next_question_bt['state'] != 'disabled':
+            try:
+                question = self.model.quiz.next_question()
+                self._display_question(question)
+            except Exception as e:
+                super().handle_exception('Next question err', e)
 
     def previous_question(self, _):
-        try:
-            question = self.model.quiz.previous_question()
-            self._display_question(question)
-        except Exception as e:
-            self.handle_exception('Previous question err', e)
+        if self.view.previous_question_bt['state'] != 'disabled':
+            try:
+                question = self.model.quiz.previous_question()
+                self._display_question(question)
+            except Exception as e:
+                self.handle_exception('Previous question err', e)
 
     def bind_main_controls(self):
         self.view.clear_bt.bind("<Button-1>", super().clear_screen)
@@ -165,7 +167,7 @@ class MainController(Controller):
         self.view.input_marked_text_area.bind("<FocusOut>", self.update_quiz)
 
         self.view.input_marked_text_area.bind("<Leave>", self.update_quiz)
-        self.view.next_question_bt.bind("<Button-1>", self.next_question)
+        self.view.next_question_bt.bind("<ButtonRelease-1>", self.next_question)
         self.view.previous_question_bt.bind("<Button-1>", self.previous_question)
 
         self.view.root.protocol("WM_DELETE_WINDOW", self.on_close_window)
