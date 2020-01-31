@@ -106,11 +106,11 @@ class JsonFileStorage:
             log.debug(f'file_path={file_path}\ndata_dict=\n{data_dict}')
         return data_dict
 
-    def reset(self, file_pfx: str) -> None:
+    def reset_file_prefix(self, file_pfx: str) -> None:
         self._file_pfx = file_pfx
         self._latest_file_number, self._active_file_index, self._files_paths = JsonFileStorage._get_file_paths(
             file_pfx,
-            self._latest_file_name,
+            None,
             self._save_dir)
 
     def save_file(self, data_dict: dict) -> str:
@@ -253,7 +253,7 @@ class FilePersistence(AbstractPersistence):
         FilePersistence._validate_file_storage()
         data_dict = self._file_storage.read_file()
         domain_object = None if data_dict is None else create_domain_object(data_dict)
-        self._status = 'Quiz file: ' + self._file_storage.file_path
+        self._status = 'Read file: ' + self._file_storage.file_path
         return domain_object
 
     def get_next(self, create_domain_dct_object) -> None or Dict:
@@ -266,12 +266,13 @@ class FilePersistence(AbstractPersistence):
 
     def delete(self) -> (str, str):
         FilePersistence._validate_file_storage()
-        return 'Deleted: ' + self._file_storage.delete_file() + ';  '
+        self._status = 'Deleted: ' + self._file_storage.delete_file() + ';  '
 
     def reset(self, file_pfx: str) -> None:
         if self._latest_file_prefix != file_pfx:
             self._latest_file_prefix = file_pfx
-            self._file_storage.reset(file_pfx)
+            self._file_storage.reset_file_prefix(file_pfx)
+            self._status = 'Reset file storage: ' + self._file_storage.delete_file() + ';  '
 
     def save(self, file_pfx: str, data_dict: dict):
         FilePersistence._validate_file_storage()
