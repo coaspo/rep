@@ -86,7 +86,6 @@ class MainController(Controller):
         quiz = self.model.get_quiz()
         if quiz is not None:
             self._populate_quiz_widgets()
-            self._display_question(quiz.current_question())
 
     def update_quiz(self, _):
         try:

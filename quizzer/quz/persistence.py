@@ -253,7 +253,7 @@ class FilePersistence(AbstractPersistence):
         FilePersistence._validate_file_storage()
         data_dict = self._file_storage.read_file()
         domain_object = None if data_dict is None else create_domain_object(data_dict)
-        self._status = 'Read file: ' + self._file_storage.file_path
+        self._status = 'Read quiz file: ' + self._file_storage.file_path
         return domain_object
 
     def get_next(self, create_domain_dct_object) -> None or Dict:
@@ -266,19 +266,19 @@ class FilePersistence(AbstractPersistence):
 
     def delete(self) -> (str, str):
         FilePersistence._validate_file_storage()
-        self._status = 'Deleted: ' + self._file_storage.delete_file() + ';  '
+        self._status = 'Deleted quiz file: ' + self._file_storage.delete_file() + ';  '
 
     def reset(self, file_pfx: str) -> None:
         if self._latest_file_prefix != file_pfx:
             self._latest_file_prefix = file_pfx
             self._file_storage.reset_file_prefix(file_pfx)
-            self._status = 'Reset file storage: ' + self._file_storage.delete_file() + ';  '
+            self._status = 'Reset file storage: ' + '??' + ';  '
 
     def save(self, file_pfx: str, data_dict: dict):
         FilePersistence._validate_file_storage()
         self.reset(file_pfx)
         self._file_storage.save_file(data_dict)
-        self._status = 'Saved quiz into: ' + self._file_storage.file_path
+        self._status = 'Saved quiz file: ' + self._file_storage.file_path
 
     def update(self, data_dict: dict):
         FilePersistence._validate_file_storage()
