@@ -37,3 +37,9 @@ def test_save_marked_text():
     assert v.quiz_description_label.cget('text').startswith('1/1  quiz.1.json')
     assert v.question_label.cget('text') == 'What is 2+3'
     assert v.question_comment_label.cget('text') == 'addition'
+    is_selected, chk_bt = v.answer_check_buttons[0]
+    assert is_selected.get() == 0
+    assert chk_bt.cget('text') == 'is 4'
+    is_selected, chk_bt = v.answer_check_buttons[1]
+    assert is_selected.get() == 0
+    assert chk_bt.cget('text') == 'is 5'
