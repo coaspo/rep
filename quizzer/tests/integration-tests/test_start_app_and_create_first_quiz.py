@@ -57,10 +57,12 @@ def test_validate_answers():
     assert 0 == is_selected.get()
     assert 'is 5' == chk_bt.cget('text')
 
+
 def validate_buttons():
     assert NORMAL == v.next_question_bt['state']
     assert NORMAL == v.previous_question_bt['state']
     assert NORMAL == v.submit_bt['state']
+
 
 def test_validate_stored_file():
     path = glob.glob(TMP_DIR + '/*.json')[0]
@@ -94,10 +96,9 @@ def test_clear_screen_button():
     c.clear_screen('fake-button-event')
     assert '\n' == v.input_marked_text_area.get("1.0", END)
     assert Config.APP_INSTRUCTIONS == v.status_label.cget('text')
-    assert '' == v.quiz_description_label.cget('text')
-    assert '' == v.question_label.cget('text')
     assert '' == v.question_comment_label.cget('text')
+    assert '' == v.question_label.cget('text')
+    assert '' == v.quiz_description_label.cget('text')
     assert DISABLED == v.next_question_bt['state']
     assert DISABLED == v.previous_question_bt['state']
     assert DISABLED == v.submit_bt['state']
-

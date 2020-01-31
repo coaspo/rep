@@ -7,7 +7,7 @@ import traceback
 from tkinter import messagebox, DISABLED
 
 from quz.model import Model
-from quz.quiz import QuizError, MultipleChoiceQuestion
+from quz.quiz import QuizError
 from quz.util import Config, set_logger
 from quz.view import View
 
@@ -95,38 +95,44 @@ class MainController(Controller):
             self._update_combo_box_topics(topic)
             marked_user_input = self.view.input_marked_text_area.get("1.0", tkinter.END).strip()
             if self.model.quiz is None:
-                self.model.create_new_quiz(marked_user_input)
-                topic = self.view.quiz_topics.get().strip()
-                self.model.save_quiz(topic)
-                self._populate_quiz_widgets()
-                self._enable_buttons()
+                self._create_new_quiz(marked_user_input)
             else:
                 if marked_user_input != self.model.quiz.marked_user_input:
                     if len(marked_user_input) == 0:
-                        is_to_delete = messagebox.askokcancel(title="Delete quiz",
-                                                              message="With marked text removed,\n"
-                                                                      "the quiz will be deleted.",
-                                                              default=messagebox.CANCEL, parent=self.view.root)
-                        if is_to_delete:
-                            self.model.delete_quiz()
-                            self._populate_quiz_widgets()
+                        self.delete_quiz()
                     else:
-                        is_to_recreate = messagebox.askyesno(title="Quiz inconsistency",
-                                                             message="Marked text and the quiz are not consistent.\n"
-                                                                     "Would you like to recreate the quiz?\n"
-                                                                     "This erases any entered answers.\n\n"
-                                                                     "If not, marked text area will be reset",
-                                                             default=messagebox.NO, parent=self.view.root)
-                        if is_to_recreate:
-                            self.model.create_new_quiz(marked_user_input)
-                        else:
-                            self.view.input_marked_text_area.insert('insert', self.model.quiz.marked_user_input)
+                        self._recreate_quiz_or_undo_marked_text_changes(marked_user_input)
         except Exception as e:
             self._update_status(str(e), True)
             if str(e) != Config.MARKED_TEXT_ERR:
                 self.handle_exception('Unexpected error: ', e)
 
-    def _enable_buttons(self):
+    def _recreate_quiz_or_undo_marked_text_changes(self, marked_user_input):
+        is_to_recreate = messagebox.askyesno(title="Quiz inconsistency",
+                                             message="Marked text and the quiz are not consistent.\n"
+                                                     "Would you like to recreate the quiz?\n"
+                                                     "This erases any entered answers.\n\n"
+                                                     "If not, marked text area will be reset",
+                                             default=messagebox.NO, parent=self.view.root)
+        if is_to_recreate:
+            self.model.create_new_quiz(marked_user_input)
+        else:
+            self.view.input_marked_text_area.insert('insert', self.model.quiz.marked_user_input)
+
+    def delete_quiz(self):
+        is_to_delete = messagebox.askokcancel(title="Delete quiz",
+                                              message="With marked text removed,\n"
+                                                      "the quiz will be deleted.",
+                                              default=messagebox.CANCEL, parent=self.view.root)
+        if is_to_delete:
+            self.model.delete_quiz()
+            self._populate_quiz_widgets()
+
+    def _create_new_quiz(self, marked_user_input):
+        self.model.create_new_quiz(marked_user_input)
+        topic = self.view.quiz_topics.get().strip()
+        self.model.save_quiz(topic)
+        self._populate_quiz_widgets()
         self.view.next_question_bt.configure(state=DISABLED)
         self.view.previous_question_bt.configure(state=DISABLED)
         self.view.submit_bt.configure(state=DISABLED)
