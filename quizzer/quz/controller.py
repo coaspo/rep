@@ -176,7 +176,11 @@ class MainController(Controller):
     def submit_answers(self, _):
         if self.view.submit_bt['state'] != 'disabled':
             try:
-                pass
+                answers = self.model.quiz.current_question().answers
+                for i, (is_selected, _) in enumerate(self.view.answer_check_buttons):
+                    answers[i].is_selected = is_selected
+                self.model.set_to_next_quiz()
+                self._populate_quiz_widgets()
             except Exception as e:
                 self.handle_exception('Previous question err', e)
 
@@ -202,17 +206,15 @@ class PersistenceController(Controller):
 
     def _next_quiz(self, _):
         try:
-            status_msg, persistence_msg, quiz = self.model.get_next_quiz()
+            self.model.set_to_next_quiz()
             self._populate_quiz_widgets()
-            self._display_question(quiz.current_question())
         except Exception as e:
             self._handle_persistence_error(e)
 
     def _previous_quiz(self, _):
         try:
-            status_msg, persistence_msg, quiz = self.model.get_previous_quiz()
+            self.model.set_to_previous_quiz()
             self._populate_quiz_widgets()
-            self._display_question(quiz.current_question())
         except Exception as e:
             self._handle_persistence_error(e)
 

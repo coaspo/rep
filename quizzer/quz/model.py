@@ -44,13 +44,11 @@ class Model:
         status_msg2, persistence_msg, self._quiz = self._persistence.get(_create_domain_object)
         return status_msg + status_msg2, persistence_msg
 
-    def get_next_quiz(self) -> (str, str, Quiz):
-        status_msg, persistence_msg, self._quiz = self._persistence.get_next(_create_domain_object)
-        return status_msg, persistence_msg, self._quiz
+    def set_to_next_quiz(self) -> (str, str, Quiz):
+        self._quiz = self._persistence.get_next(_create_domain_object)
 
-    def get_previous_quiz(self) -> (str, str, Quiz):
-        status_msg, persistence_msg, self._quiz = self._persistence.get_previous(_create_domain_object)
-        return status_msg, persistence_msg, self._quiz
+    def set_to_previous_quiz(self) -> (str, str, Quiz):
+        self._quiz = self._persistence.get_previous(_create_domain_object)
 
     def get_quiz(self) -> Quiz or dict:
         self._quiz = self._persistence.get(_create_domain_object)
@@ -62,6 +60,9 @@ class Model:
         return status_msg, persistence_msg, self._quiz
 
     def save_quiz(self, quiz_topic: str):
+        self._persistence.save(quiz_topic, self._quiz.get_data_dict())
+
+    def set_answer(self, answer_index, is_selected):
         self._persistence.save(quiz_topic, self._quiz.get_data_dict())
 
     def update_quiz(self, marked_user_input: str) -> (str, str):
