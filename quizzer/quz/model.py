@@ -52,8 +52,7 @@ class Model:
         status_msg, persistence_msg, self._quiz = self._persistence.get_previous(_create_domain_object)
         return status_msg, persistence_msg, self._quiz
 
-    @property
-    def get_quiz(self) -> Quiz:
+    def get_quiz(self) -> Quiz or dict:
         self._quiz = self._persistence.get(_create_domain_object)
         return self._quiz
 

@@ -83,7 +83,7 @@ class MainController(Controller):
 
     def __init__(self, view: View, model: Model):
         Controller.__init__(self, view, model)
-        quiz = self.model.get_quiz
+        quiz = self.model.get_quiz()
         if quiz is not None:
             self._populate_quiz_widgets()
             self._display_question(quiz.current_question())
@@ -148,14 +148,14 @@ class MainController(Controller):
 
     def next_question(self, _):
         try:
-            question = self.model.get_quiz.next_question()
+            question = self.model.quiz.next_question()
             self._display_question(question)
         except Exception as e:
             super().handle_exception('Next question err', e)
 
     def previous_question(self, _):
         try:
-            question = self.model.get_quiz.previous_question()
+            question = self.model.quiz.previous_question()
             self._display_question(question)
         except Exception as e:
             self.handle_exception('Previous question err', e)
