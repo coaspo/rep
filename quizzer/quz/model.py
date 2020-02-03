@@ -40,9 +40,10 @@ class Model:
         self._quiz = Quiz(marked_user_input=marked_user_input)
 
     def delete_quiz(self) -> (str, str):
-        status_msg = self._persistence.delete()
-        status_msg2, persistence_msg, self._quiz = self._persistence.get(_create_domain_object)
-        return status_msg + status_msg2, persistence_msg
+        self._persistence.delete()
+        delete_msg = self._persistence.status
+        self._quiz = self._persistence.get(_create_domain_object)
+        return delete_msg + self._persistence.status
 
     def set_to_next_quiz(self) -> (str, str, Quiz):
         self._quiz = self._persistence.get_next(_create_domain_object)

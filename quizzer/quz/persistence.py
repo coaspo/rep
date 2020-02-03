@@ -270,7 +270,8 @@ class FilePersistence(AbstractPersistence):
 
     def delete(self) -> (str, str):
         FilePersistence._validate_file_storage()
-        self._status = 'Deleted quiz file: ' + self._file_storage.delete_file() + ';  '
+        file_path = self._file_storage.delete_file()
+        self._status = 'Deleted quiz file: ' + file_path + ';  '
 
     def reset(self, file_pfx: str) -> None:
         if self._latest_file_prefix != file_pfx:
