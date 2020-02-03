@@ -48,7 +48,7 @@ def test_delete_multiple():
     assert len(storage._files_paths) == 2
     path = storage.delete_file()
     assert not os.path.exists(path)
-    assert storage._latest_file_number == 2
+    assert storage._latest_file_number == 3
     assert storage._active_file_index == 0
     assert len(storage._files_paths) == 1
 

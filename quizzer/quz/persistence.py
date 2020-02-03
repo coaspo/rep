@@ -66,10 +66,14 @@ class JsonFileStorage:
         self._ensure_file_path_list_is_not_empty()
         file_path = self._files_paths[self._active_file_index]
         os.remove(file_path)
-        self._latest_file_number, self._active_file_index, self._files_paths = JsonFileStorage._get_file_paths(
-            self._file_pfx,
-            self._latest_file_name,
-            self._save_dir)
+        self._files_paths.remove(file_path)
+        if len(self._files_paths) == 0:
+            self._latest_file_number, self._active_file_index, self._files_paths = JsonFileStorage._get_file_paths(
+                self._file_pfx,
+                self._latest_file_name,
+                self._save_dir)
+        else:
+            self.decrement_file_index()
         if log.isEnabledFor(logging.DEBUG):
             log.debug(f'file_path={file_path}')
         return file_path
