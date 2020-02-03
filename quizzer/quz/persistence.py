@@ -46,7 +46,7 @@ class JsonFileStorage:
         return self._file_pfx
 
     @property
-    def is_empty(self):
+    def is_file_list_empty(self):
         return len(self._files_paths) == 0
 
     @property
@@ -250,8 +250,8 @@ class FilePersistence(AbstractPersistence):
         return self._file_prefixes
 
     def get(self, create_domain_object) -> Dict or None:
-        if self._file_storage.is_empty:
-            self._status = f'There are no "{self._file_storage.file_pfx} files in {self._file_storage.save_dir}"', \
+        if self._file_storage.is_file_list_empty:
+            self._status = f'There are no {self._file_storage.file_pfx} files in {self._file_storage.save_dir}', \
                            'no files '
             return None
         FilePersistence._validate_file_storage()
