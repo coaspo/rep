@@ -7,20 +7,20 @@ import logging
 import os.path
 import re
 import traceback
-from typing import Dict
+from typing import Dict, List
 
 log = logging.getLogger(__name__)
 
 
 class JsonFileStorage:
     def __init__(self, save_dir: str, file_pfx: str, latest_file_name: str or None):
-        self._active_file_index = None
-        self._file_pfx = file_pfx
-        self._files_paths = None
-        self._file_description = None
-        self._latest_file_name = latest_file_name
-        self._latest_file_number = None
-        self._save_dir = save_dir
+        self._active_file_index: int
+        self._file_pfx: str = file_pfx
+        self._files_paths: List[str]
+        self._file_description: str
+        self._latest_file_name: str = latest_file_name
+        self._latest_file_number: int
+        self._save_dir: str = save_dir
         self._initialize()
 
     def _initialize(self):
@@ -217,13 +217,13 @@ class FilePersistence(AbstractPersistence):
     file_storage_err_msg = True
 
     def __init__(self, save_dir: str):
+        self._status: str = ''
         try:
             absolute_dir = FilePersistence._find_absolute_dir(save_dir)
-            self._latest_file_name = FilePersistence._find_latest_file_name(absolute_dir)
+            self._latest_file_name: str = FilePersistence._find_latest_file_name(absolute_dir)
             self._latest_file_prefix, self._file_prefixes = FilePersistence._find_prefixes(save_dir,
                                                                                            self._latest_file_name)
             self._file_storage = JsonFileStorage(absolute_dir, self._latest_file_prefix, self._latest_file_name)
-            self._status = None
             FilePersistence.file_storage_err_msg = None
         except Exception as e:
             traceback.print_exc()
