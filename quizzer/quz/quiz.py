@@ -127,6 +127,7 @@ class Quiz:
         self._current_question_num = self._quiz_data_dict['current_question_num']
         self._marked_user_input = self._quiz_data_dict['marked_user_input']
         self._num_of_questions = self._quiz_data_dict['num_of_questions']
+        self._is_question_answered = self._num_of_questions * [False]
 
     @property
     def num_of_questions(self) -> int:
@@ -158,9 +159,25 @@ class Quiz:
         return self.current_question()
 
     def set_selected_of_current_question(self, answer_num: int, is_selected: bool) -> None:
-        current_question: MultipleChoiceQuestion = self._questions[self._current_question_num - 1]
+        i_question = self._current_question_num - 1
+        current_question: MultipleChoiceQuestion = self._questions[i_question]
         answer: MultipleChoiceAnswer = current_question.answers[answer_num]
         answer.is_selected = is_selected
+        is_answered = False
+        for answer in current_question.answers:
+            if answer.is_selected:
+                is_answered = True
+                break
+        self._is_question_answered[i_question] = is_answered
+
+    def is_any_question_answered(self) -> tuple:
+        is_any = False
+        for is_answered in self._is_question_answered:
+            if is_answered:
+                is_any = False
+                break
+        return is_any
+
 
     def score(self) -> tuple:
         num_of_correct_questions = 0

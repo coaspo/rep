@@ -4,7 +4,7 @@ import os
 import tkinter
 import tkinter.ttk
 import traceback
-from tkinter import messagebox, DISABLED
+from tkinter import ACTIVE
 
 from quz.model import Model
 from quz.quiz import QuizError
@@ -44,6 +44,9 @@ class AbstractController:
             self.view.input_marked_text_area.insert(tkinter.END, self.model.quiz.marked_user_input)
             self.view.quiz_description_label['text'] = self.model.quiz_description
             self._populate_question_widgets()
+            self.view.next_question_bt.configure(state=ACTIVE)
+            self.view.previous_question_bt.configure(state=ACTIVE)
+            self.view.submit_bt.configure(state=ACTIVE)
         self._update_status(self.model.status_msg)
 
     def _populate_question_widgets(self):
@@ -113,9 +116,12 @@ class QuizController(AbstractController):
             marked_user_input = self.view.input_marked_text_area.get("1.0", tkinter.END).strip()
             if self.model.quiz is None:
                 self._create_new_quiz(marked_user_input)
-            else:
-                if marked_user_input != self.model.quiz.marked_user_input:
-                    self.model.create_new_quiz(marked_user_input)
+            elif marked_user_input != self.model.quiz.marked_user_input:
+                if self.model.quiz.is_any_question_answered:
+                    self._update_status("Original/current marked text are {}/{} characters long."
+                                        "These can be synchronized on closing the APP.")
+                else:
+                    self.model.update_quiz(marked_user_input)
         except Exception as e:
             self._update_status(str(e), True)
             if str(e) != Config.MARKED_TEXT_ERR:
@@ -126,9 +132,6 @@ class QuizController(AbstractController):
         topic = self.view.quiz_topics.get().strip()
         self.model.save_quiz(topic)
         self._populate_quiz_widgets()
-        self.view.next_question_bt.configure(state=DISABLED)
-        self.view.previous_question_bt.configure(state=DISABLED)
-        self.view.submit_bt.configure(state=DISABLED)
 
     def _update_combo_box_topics(self, topic):
         combo_values = self.view.quiz_topics['values']
