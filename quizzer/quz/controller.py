@@ -16,10 +16,8 @@ log = logging.getLogger(__name__)
 
 class AbstractController:
     def __init__(self, view: View, model: Model):
-        self.delete_bt_click_count = 0
         self.view = view
         self.model = model
-        self.delete_bt_click_count = 0
 
     def handle_exception(self, msg: str, exc: Exception = None):
         if exc is None:
@@ -39,12 +37,14 @@ class AbstractController:
         self.view.status_label.config(bg=background)
 
     def _populate_quiz_widgets(self):
-        self.view.input_marked_text_area.delete('1.0', tkinter.END)
-        self.view.input_marked_text_area.insert(tkinter.END, self.model.quiz.marked_user_input)
+        if self.model.quiz is None:
+            self.view.clear_screen()
+        else:
+            self.view.input_marked_text_area.delete('1.0', tkinter.END)
+            self.view.input_marked_text_area.insert(tkinter.END, self.model.quiz.marked_user_input)
+            self.view.quiz_description_label['text'] = self.model.quiz_description
+            self._populate_question_widgets()
         self._update_status(self.model.status_msg)
-        self.delete_bt_click_count = 0
-        self.view.quiz_description_label['text'] = self.model.quiz_description
-        self._populate_question_widgets()
 
     def _populate_question_widgets(self):
         question = self.model.quiz.current_question()
@@ -102,7 +102,6 @@ class QuizController(AbstractController):
 
     def clear_screen2(self, _):
         self.view.clear_screen()
-        self.delete_bt_click_count = 0
         self._update_status(Config.APP_INSTRUCTIONS)
 
     def update_quiz(self, _):
@@ -116,35 +115,11 @@ class QuizController(AbstractController):
                 self._create_new_quiz(marked_user_input)
             else:
                 if marked_user_input != self.model.quiz.marked_user_input:
-                    if len(marked_user_input) == 0:
-                        self._delete_quiz()
-                    else:
-                        self._recreate_quiz_or_undo_marked_text_changes(marked_user_input)
+                    self.model.create_new_quiz(marked_user_input)
         except Exception as e:
             self._update_status(str(e), True)
             if str(e) != Config.MARKED_TEXT_ERR:
                 self.handle_exception('Unexpected error: ', e)
-
-    def _recreate_quiz_or_undo_marked_text_changes(self, marked_user_input):
-        is_to_recreate = messagebox.askyesno(title="Quiz inconsistency",
-                                             message="Marked text and the quiz are not consistent.\n"
-                                                     "Would you like to recreate the quiz?\n"
-                                                     "This erases any entered answers.\n\n"
-                                                     "If not, marked text area will be reset",
-                                             default=messagebox.NO, parent=self.view.root)
-        if is_to_recreate:
-            self.model.create_new_quiz(marked_user_input)
-        else:
-            self.view.input_marked_text_area.insert('insert', self.model.quiz.marked_user_input)
-
-    def _delete_quiz(self):
-        is_to_delete = messagebox.askokcancel(title="Delete quiz",
-                                              message="With marked text removed,\n"
-                                                      "the quiz will be deleted.",
-                                              default=messagebox.CANCEL, parent=self.view.root)
-        if is_to_delete:
-            self.model.delete_quiz()
-            self._populate_quiz_widgets()
 
     def _create_new_quiz(self, marked_user_input):
         self.model.create_new_quiz(marked_user_input)

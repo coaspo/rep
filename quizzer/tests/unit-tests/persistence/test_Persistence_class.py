@@ -70,22 +70,12 @@ def test_get_next():
     assert quiz == {'fake2..ques..': 'a2'}
 
 
-def test_delete():
-    persistence = FilePersistence(TMP_DIR)
-    persistence.delete()
-
-    quiz = persistence.get(_create_fake_domain_object)
-    assert 'quiz.1.json' in persistence.status
-    assert '1/1  quiz.1' in persistence.description
-    assert quiz == {'fake..ques..': 'a'}
-
-
 def test_update():
     persistence = FilePersistence(TMP_DIR)
     quiz_new = {'real?..ques..': 'A'}
     persistence.update(quiz_new)
 
     quiz = persistence.get(_create_fake_domain_object)
-    assert 'quiz.1.json' in persistence.status
-    assert '1/1  quiz.1' in persistence.description
+    assert 'quiz.2.json' in persistence.status
+    assert '2/2  quiz.2' in persistence.description
     assert quiz == quiz_new

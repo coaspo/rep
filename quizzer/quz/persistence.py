@@ -62,22 +62,6 @@ class JsonFileStorage:
         if self._active_file_index != 0:
             self._active_file_index -= 1
 
-    def delete_file(self) -> str:
-        self._ensure_file_path_list_is_not_empty()
-        file_path = self._files_paths[self._active_file_index]
-        os.remove(file_path)
-        self._files_paths.remove(file_path)
-        if len(self._files_paths) == 0:
-            self._latest_file_number, self._active_file_index, self._files_paths = JsonFileStorage._get_file_paths(
-                self._file_pfx,
-                self._latest_file_name,
-                self._save_dir)
-        else:
-            self.decrement_file_index()
-        if log.isEnabledFor(logging.DEBUG):
-            log.debug(f'file_path={file_path}')
-        return file_path
-
     def file_info(self) -> str:
         file_path = self._files_paths[self._active_file_index]
         seconds_since_created = os.path.getmtime(file_path)
@@ -181,10 +165,6 @@ class JsonFileStorage:
 class AbstractPersistence(metaclass=abc.ABCMeta):
 
     @abc.abstractmethod
-    def delete(self) -> (str, str):
-        pass
-
-    @abc.abstractmethod
     def description(self) -> (str, str):
         pass
 
@@ -251,8 +231,7 @@ class FilePersistence(AbstractPersistence):
 
     def get(self, create_domain_object) -> Dict or None:
         if self._file_storage.is_file_list_empty:
-            self._status = f'There are no {self._file_storage.file_pfx} files in {self._file_storage.save_dir}', \
-                           'no files '
+            self._status = f'There are no {self._file_storage.file_pfx} files in {self._file_storage.save_dir}'
             return None
         FilePersistence._validate_file_storage()
         data_dict = self._file_storage.read_file()
@@ -267,11 +246,6 @@ class FilePersistence(AbstractPersistence):
     def get_previous(self, create_domain_dct_object) -> None or Dict:
         self._file_storage.decrement_file_index()
         return self.get(create_domain_dct_object)
-
-    def delete(self) -> (str, str):
-        FilePersistence._validate_file_storage()
-        file_path = self._file_storage.delete_file()
-        self._status = 'Deleted quiz file: ' + file_path + ';  '
 
     def reset(self, file_pfx: str) -> None:
         if self._latest_file_prefix != file_pfx:
