@@ -28,11 +28,12 @@ def run(*args: str):
                 exit(1)
         if len(errs) > 0:
             f2.write('\n' + errs)
+            print(errs)
             if 'Everything up-to-date' in errs:
                 exit(0)
             label = 15 * 'ERR---' if 'br1 -> br1' not in str(errs) else ''
-            f2.write('\n' + label + '\n' + errs)
-            print(label, '\n', errs)
+            f2.write('\n' + label)
+            print(label)
             if 'ERR---' in label:
                 exit(2)
 
