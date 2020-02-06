@@ -4,7 +4,7 @@ import os
 import tkinter
 import tkinter.ttk
 import traceback
-from tkinter import ACTIVE
+from tkinter import ACTIVE, messagebox
 
 from quz.model import Model
 from quz.quiz import QuizError
@@ -51,7 +51,7 @@ class AbstractController:
 
     def _populate_question_widgets(self):
         question = self.model.quiz.current_question()
-        self.view.question_label['text'] = AbstractController.make_multiple_lines(question.question)
+        self.view.question_label['text'] = AbstractController._make_multiple_lines(question.question)
         cmt = '' if question.comment is None else question.comment
         self.view.question_comment_label['text'] = cmt
         self._populate_answers_widgets()
@@ -64,20 +64,13 @@ class AbstractController:
             is_set = 1 if answer.is_selected else 0
             is_selected = tkinter.IntVar(value=is_set)
             chk_bt = tkinter.Checkbutton(self.view.question_area,
-                                         text=AbstractController.make_multiple_lines(answer.answer), bg='white',
+                                         text=AbstractController._make_multiple_lines(answer.answer), bg='white',
                                          variable=is_selected, padx=15)
             chk_bt.grid(row=i + 1, column=0, sticky=tkinter.W, pady=2)
             self.view.answer_check_buttons.append((is_selected, chk_bt))
 
     @staticmethod
-    def set_check_button(button: tkinter.Checkbutton, value: int):
-        if value == 1:
-            button.select()
-        else:
-            button.deselect()
-
-    @staticmethod
-    def make_multiple_lines(line: str) -> str:
+    def _make_multiple_lines(line: str) -> str:
         if len(line) < 5:
             return line
         paragraph = []
@@ -103,7 +96,7 @@ class QuizController(AbstractController):
         if quiz is not None:
             self._populate_quiz_widgets()
 
-    def clear_screen2(self, _):
+    def clear_entire_screen(self, _):
         self.view.clear_screen()
         self._update_status(Config.APP_INSTRUCTIONS)
 
@@ -114,12 +107,17 @@ class QuizController(AbstractController):
                 raise QuizError('Topic drop down is empty')
             self._update_combo_box_topics(topic)
             marked_user_input = self.view.input_marked_text_area.get("1.0", tkinter.END).strip()
+            print('------self.model.quiz-------', self.model.quiz
+                  )
             if self.model.quiz is None:
                 self._create_new_quiz(marked_user_input)
             elif marked_user_input != self.model.quiz.marked_user_input:
-                if self.model.quiz.is_any_question_answered:
-                    self._update_status("Original/current marked text are {}/{} characters long."
-                                        "These can be synchronized on closing the APP.")
+                print('------is_any_question_answered-------', self.model.quiz.is_any_question_answered())
+                if self.model.quiz.is_any_question_answered():
+                    n_original = len(self.model.quiz.marked_user_input)
+                    n_current = len(marked_user_input)
+                    self._update_status(f"Original/current marked text are {n_original}/{n_current} characters long."
+                                        "Original quiz can be updated on closing the APP.")
                 else:
                     self.model.update_quiz(marked_user_input)
         except Exception as e:
@@ -146,6 +144,23 @@ class QuizController(AbstractController):
             self.view.quiz_topics['values'] = combo_values
 
     def on_close_window(self):
+        marked_user_input = self.view.input_marked_text_area.get("1.0", tkinter.END).strip()
+        n_original = len(self.model.quiz.marked_user_input)
+        n_current = len(marked_user_input)
+        print('---- ---')
+        print(n_original, n_current)
+        if n_original != n_current:
+            is_to_recreate = messagebox.askyesno(title="Quiz inconsistency",
+                                                 message=f"Original/current marked text are {n_original}/{n_current}"
+                                                         "characters long."
+                                                         "Marked text and the quiz are not consistent.\n"
+                                                         "Would you like to update the quiz with the new mark-up?\n"
+                                                         "This erases any entered answers.",
+                                                 default=messagebox.NO, parent=self.view.root)
+            if is_to_recreate:
+                self.model.update_quiz(marked_user_input)
+        else:
+            self.model.update_quiz()
         self.view.stop()
 
     def reset_quiz_topic(self, _):
@@ -168,7 +183,7 @@ class QuizController(AbstractController):
             self.handle_exception('Unexpected err', e)
 
     def bind_controls(self):
-        self.view.clear_bt.bind("<Button-1>", self.clear_screen2)
+        self.view.clear_bt.bind("<Button-1>", self.clear_entire_screen)
         self.view.input_marked_text_area.bind("<Leave>", self.update_quiz)
         self.view.quiz_topics.bind("<<ComboboxSelected>>", self.reset_quiz_topic)
         self.view.root.protocol("WM_DELETE_WINDOW", self.on_close_window)
@@ -196,21 +211,24 @@ class QuizQuestionController(AbstractController):
             except Exception as e:
                 self.handle_exception('Previous question err', e)
 
-    def submit_answers(self, _):
+    def submit_question_answer(self, _):
         if self.view.submit_bt['state'] != 'disabled':
             try:
                 answers = self.model.quiz.current_question().answers
+                print('---', answers)
                 for i, (is_selected, _) in enumerate(self.view.answer_check_buttons):
-                    answers[i].is_selected = is_selected
-                self.model.set_to_next_quiz()
+                    answers[i].is_selected = is_selected.get()
+                print(answers)
+                self.model.quiz.next_question()
                 self._populate_quiz_widgets()
+                print(answers)
             except Exception as e:
                 self.handle_exception('Previous question err', e)
 
     def bind_controls(self):
         self.view.next_question_bt.bind("<ButtonRelease-1>", self.next_question)
         self.view.previous_question_bt.bind("<Button-1>", self.previous_question)
-        self.view.submit_bt.bind("<Button-1>", self.submit_answers)
+        self.view.submit_bt.bind("<Button-1>", self.submit_question_answer)
         if log.isEnabledFor(logging.DEBUG):
             log.debug('controller methods bound to view widgets')
 

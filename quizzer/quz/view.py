@@ -53,7 +53,7 @@ class View:
 
     @property
     def quiz_description_label(self):
-        return self._persistence_status_label
+        return self._quiz_description_label
 
     @property
     def quiz_topics(self) -> tkinter.ttk.Combobox:
@@ -117,9 +117,9 @@ class View:
         self._next_quiz_bt = tkinter.Button(frame, text=u' \u25BA  ', height=1)
         self._next_quiz_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
 
-        self._persistence_status_label = tkinter.Label(frame, text="", anchor='w', bg='white')
-        self._persistence_status_label.config(width=30)
-        self._persistence_status_label.pack(side=tkinter.LEFT, padx=2, pady=2)
+        self._quiz_description_label = tkinter.Label(frame, text="", anchor='w', bg=frame_color)
+        self._quiz_description_label.config(width=50)
+        self._quiz_description_label.pack(side=tkinter.LEFT, padx=2, pady=2)
 
         help_label = tkinter.Label(frame, text="Help", fg="blue", bg=frame_color, cursor="hand2")
         font = tkinter.font.Font(help_label, help_label.cget("font"))
@@ -141,9 +141,9 @@ class View:
 
     def _init_question_frame(self):
         self._question_label = tkinter.Label(self._question_area, fg="blue", bg='white', width=90, justify=tkinter.LEFT)
-        self._question_label.grid(row=0, column=0, padx=10, pady=10)
-        self._question_comment_label = tkinter.Label(self._question_area, fg="blue", bg='white', anchor="e")
-        self._question_comment_label.place(x=10, y=370, width=240, height=25, anchor=tkinter.W)
+        self._question_label.grid(row=0, column=0, padx=10, pady=10, sticky=(tkinter.N, tkinter.S, tkinter.E))
+        self._question_comment_label = tkinter.Label(self._question_area, fg="blue", bg='white')
+        self._question_comment_label.place(x=25, y=370, width=240, height=25, anchor=tkinter.E)
 
         self._submit_bt = tkinter.Button(self._question_area, text="  Submit  ", state=DISABLED)
         self._submit_bt.place(x=20, y=330, width=100, height=25)

@@ -39,13 +39,8 @@ def test_next_quiz():
     assert v.quiz_description_label.cget('text').startswith('1/1  quiz.1.json')
     assert 'What is 2+3' == v.question_label.cget('text')
     assert 'addition' == v.question_comment_label.cget('text')
-    v.input_marked_text_area.insert('insert', '?What is 2+33333333\n'
-                                              '-is 444444444\n'
-                                              '+is 5444444444\n\n'
-                                              '=additionnnnnnnnnn\n\n'
-                                              '?1*2 = ?///////////\n'
-                                              '- = 111111111111\n'
-                                              '+ = 222222222222\n'
-                                              '- = 44444444444\n\n')
+    v.input_marked_text_area.insert('insert', '?What is 2+3\n'
+                                              '-is 4\n'
+                                              '+is 5\n\n')
     c.update_quiz('fake-mouse-leave-event')
 

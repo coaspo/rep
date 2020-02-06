@@ -7,7 +7,7 @@ from quz.quiz import Quiz
 log = logging.getLogger(__name__)
 
 
-def _create_domain_object(data_dict: dict) -> Quiz:
+def _create_quiz_object(data_dict: dict) -> Quiz:
     return Quiz(quiz_data_dict=data_dict)
 
 
@@ -15,7 +15,7 @@ class Model:
     def __init__(self, quiz_dir: str):
         self.status = None
         self._persistence = FilePersistence(quiz_dir)
-        self._quiz: Quiz = self._persistence.get(_create_domain_object)
+        self._quiz: Quiz = self._persistence.get(_create_quiz_object)
 
     @property
     def latest_quiz_topic(self) -> str:
@@ -42,28 +42,29 @@ class Model:
         self.status = self._persistence.status
 
     def set_to_next_quiz(self) -> (str, str, Quiz):
-        self._quiz = self._persistence.get_next(_create_domain_object)
+        self._quiz = self._persistence.get_next(_create_quiz_object)
         self.status = self._persistence.status
 
     def set_to_previous_quiz(self) -> (str, str, Quiz):
-        self._quiz = self._persistence.get_previous(_create_domain_object)
+        self._quiz = self._persistence.get_previous(_create_quiz_object)
         self.status = self._persistence.status
 
     def get_quiz(self) -> Quiz or dict:
-        self._quiz = self._persistence.get(_create_domain_object)
+        self._quiz = self._persistence.get(_create_quiz_object)
         self.status = self._persistence.status
         return self._quiz
 
     def reset_quiz_topic(self, quiz_topic: str) -> (str, str, Quiz):
         self._persistence.reset(quiz_topic)
-        self._quiz = self._persistence.get_previous(_create_domain_object)
+        self._quiz = self._persistence.get_previous(_create_quiz_object)
         self.status = self._persistence.status
 
     def save_quiz(self, quiz_topic: str):
         self._persistence.save(quiz_topic, self._quiz.get_data_dict())
         self.status = self._persistence.status
 
-    def update_quiz(self, marked_user_input: str) -> (str, str):
-        self._quiz = Quiz(marked_user_input=marked_user_input)
+    def update_quiz(self, marked_user_input: str = None):
+        if marked_user_input is not None:
+            self._quiz = Quiz(marked_user_input=marked_user_input)
         self._persistence.update(self._quiz.get_data_dict())
         self.status = self._persistence.status

@@ -158,26 +158,24 @@ class Quiz:
             self._current_question_num -= 1
         return self.current_question()
 
-    def set_selected_of_current_question(self, answer_num: int, is_selected: bool) -> None:
+    def set_selected_of_current_question(self, answer_index: int, is_selected: bool) -> None:
         i_question = self._current_question_num - 1
         current_question: MultipleChoiceQuestion = self._questions[i_question]
-        answer: MultipleChoiceAnswer = current_question.answers[answer_num]
+        answer: MultipleChoiceAnswer = current_question.answers[answer_index]
         answer.is_selected = is_selected
         is_answered = False
         for answer in current_question.answers:
             if answer.is_selected:
                 is_answered = True
                 break
+
         self._is_question_answered[i_question] = is_answered
 
-    def is_any_question_answered(self) -> tuple:
-        is_any = False
-        for is_answered in self._is_question_answered:
-            if is_answered:
-                is_any = False
-                break
-        return is_any
+    def is_any_question_answered(self) -> bool:
+        return max(self._is_question_answered)
 
+    def are_all_questions_answered(self) -> bool:
+        return min(self._is_question_answered)
 
     def score(self) -> tuple:
         num_of_correct_questions = 0
