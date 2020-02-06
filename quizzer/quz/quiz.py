@@ -127,7 +127,16 @@ class Quiz:
         self._current_question_num = self._quiz_data_dict['current_question_num']
         self._marked_user_input = self._quiz_data_dict['marked_user_input']
         self._num_of_questions = self._quiz_data_dict['num_of_questions']
-        self._is_question_answered = self._num_of_questions * [False]
+        self._is_question_answered = self._find_questions_answered()
+
+    def _find_questions_answered(self):
+        is_question_answered = self._num_of_questions * [False]
+        for i, question in enumerate(self._questions):
+            for answer in question.answers:
+                if answer.is_selected:
+                    is_question_answered[i] = True
+                    break
+        return is_question_answered
 
     @property
     def num_of_questions(self) -> int:
@@ -158,17 +167,16 @@ class Quiz:
             self._current_question_num -= 1
         return self.current_question()
 
-    def set_selected_of_current_question(self, answer_index: int, is_selected: bool) -> None:
-        i_question = self._current_question_num - 1
-        current_question: MultipleChoiceQuestion = self._questions[i_question]
-        answer: MultipleChoiceAnswer = current_question.answers[answer_index]
-        answer.is_selected = is_selected
+    def set_selected_answer(self, answer_index: int, is_selected: bool) -> None:
+        answers = self.current_question().answers
+        answers[answer_index].is_selected = is_selected
+
         is_answered = False
-        for answer in current_question.answers:
+        for answer in answers:
             if answer.is_selected:
                 is_answered = True
                 break
-
+        i_question = self._current_question_num - 1
         self._is_question_answered[i_question] = is_answered
 
     def is_any_question_answered(self) -> bool:
@@ -177,7 +185,16 @@ class Quiz:
     def are_all_questions_answered(self) -> bool:
         return min(self._is_question_answered)
 
-    def score(self) -> tuple:
+    def count_n_score(self) -> str:
+        count = f'{self.current_question_num}/{len(self._questions)}'
+        if self.are_all_questions_answered():
+            ratio, percent = self._score()
+            score = f'    score: {percent} ({ratio})'
+        else:
+            score = ''
+        return f'{count}{score}'
+
+    def _score(self) -> tuple:
         num_of_correct_questions = 0
         num_of_questions = len(self._questions)
         for question in self._questions:

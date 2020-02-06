@@ -53,6 +53,7 @@ class AbstractController:
         question = self.model.quiz.current_question()
         self.view.question_label['text'] = AbstractController._make_multiple_lines(question.question)
         cmt = '' if question.comment is None else question.comment
+        self.view.question_count_n_score['text'] = self.model.quiz.count_n_score()
         self.view.question_comment_label['text'] = cmt
         self._populate_answers_widgets()
 
@@ -107,12 +108,9 @@ class QuizController(AbstractController):
                 raise QuizError('Topic drop down is empty')
             self._update_combo_box_topics(topic)
             marked_user_input = self.view.input_marked_text_area.get("1.0", tkinter.END).strip()
-            print('------self.model.quiz-------', self.model.quiz
-                  )
             if self.model.quiz is None:
                 self._create_new_quiz(marked_user_input)
             elif marked_user_input != self.model.quiz.marked_user_input:
-                print('------is_any_question_answered-------', self.model.quiz.is_any_question_answered())
                 if self.model.quiz.is_any_question_answered():
                     n_original = len(self.model.quiz.marked_user_input)
                     n_current = len(marked_user_input)
@@ -147,8 +145,6 @@ class QuizController(AbstractController):
         marked_user_input = self.view.input_marked_text_area.get("1.0", tkinter.END).strip()
         n_original = len(self.model.quiz.marked_user_input)
         n_current = len(marked_user_input)
-        print('---- ---')
-        print(n_original, n_current)
         if n_original != n_current:
             is_to_recreate = messagebox.askyesno(title="Quiz inconsistency",
                                                  message=f"Original/current marked text are {n_original}/{n_current}"
@@ -215,13 +211,10 @@ class QuizQuestionController(AbstractController):
         if self.view.submit_bt['state'] != 'disabled':
             try:
                 answers = self.model.quiz.current_question().answers
-                print('---', answers)
                 for i, (is_selected, _) in enumerate(self.view.answer_check_buttons):
-                    answers[i].is_selected = is_selected.get()
-                print(answers)
+                    self.model.quiz.set_selected_answer(i, is_selected.get())
                 self.model.quiz.next_question()
                 self._populate_quiz_widgets()
-                print(answers)
             except Exception as e:
                 self.handle_exception('Previous question err', e)
 

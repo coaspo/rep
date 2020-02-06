@@ -71,6 +71,10 @@ class View:
     def submit_bt(self) -> tkinter.Button:
         return self._submit_bt
 
+    @property
+    def question_count_n_score(self) -> tkinter.Label:
+        return self._question_count_n_score
+
     def __init__(self, latest_quiz_topic: str, quiz_topics: list, instructions: str):
         root = tkinter.Tk()
         root.title("Quiz maker/taker")
@@ -147,10 +151,12 @@ class View:
 
         self._submit_bt = tkinter.Button(self._question_area, text="  Submit  ", state=DISABLED)
         self._submit_bt.place(x=20, y=330, width=100, height=25)
-        self._next_question_bt = tkinter.Button(self._question_area, text=u' \u25BA  ', height=1, state=DISABLED)
-        self._next_question_bt.place(x=210, y=330, width=40, height=25)
         self._previous_question_bt = tkinter.Button(self._question_area, text=u' \u25C4 ', height=1, state=DISABLED)
         self._previous_question_bt.place(x=160, y=330, width=40, height=25)
+        self._next_question_bt = tkinter.Button(self._question_area, text=u' \u25BA  ', height=1, state=DISABLED)
+        self._next_question_bt.place(x=210, y=330, width=40, height=25)
+        self._question_count_n_score = tkinter.Label(self._question_area, fg="blue", bg='white', width=150, text='aaaa')
+        self._question_count_n_score.place(x=280, y=330, width=150, height=25)
 
     def _init_bottom_status_label(self, root, instructions: str):
         self._status_label = tkinter.Label(root, bg="#eeffee", fg='black')

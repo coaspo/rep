@@ -50,7 +50,7 @@ def test_initialize_with_test_marked_user_input():
 
     assert QUIZ.previous_question() == question_1
     assert QUIZ.previous_question() == question_1
-    assert QUIZ.score() == ('0/2', '0%')
+    assert QUIZ.count_n_score() == '1/2'
 
 
 def test_initialize_with_quiz_data_dict():
@@ -64,8 +64,8 @@ def test_initialize_with_quiz_data_dict():
 
     assert quiz.next_question() == question_2
     assert quiz.next_question() == question_2
-    assert quiz.score() == ('1/2', '50%')
     assert quiz.is_same_as(QUIZ)
+    assert QUIZ.count_n_score() == '1/2'
 
 
 def test_is_same_as():
