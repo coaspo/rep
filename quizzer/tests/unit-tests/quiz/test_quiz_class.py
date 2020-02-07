@@ -22,7 +22,7 @@ question_2_answers = {'answer1': {'is_correct': False, 'is_selected': False, 'an
                       'answer2': {'is_correct': True, 'is_selected': False, 'answer': ' = 2'},
                       'answer3': {'is_correct': False, 'is_selected': False, 'answer': ' = 4'},
                       'num_of_answers': 3}
-quiz_data_dict = {'current_question_num': 2,
+quiz_data_dict = {'current_question_index': 1,
                   'num_of_questions': 2,
                   'marked_user_input': MARKED_USER_INPUT,
                   'question1': 'What is 2+3',

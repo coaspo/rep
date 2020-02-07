@@ -124,7 +124,7 @@ class Quiz:
         if log.isEnabledFor(logging.DEBUG):
             log.debug(f'questions={self.questions}')
 
-        self._current_question_num = self._quiz_data_dict['current_question_num']
+        self._current_question_index = self._quiz_data_dict['current_question_index']
         self._marked_user_input = self._quiz_data_dict['marked_user_input']
         self._num_of_questions = self._quiz_data_dict['num_of_questions']
         self._is_question_answered = self._find_questions_answered()
@@ -151,20 +151,20 @@ class Quiz:
         return self._questions
 
     @property
-    def current_question_num(self) -> int:
-        return self._current_question_num
+    def current_question_index(self) -> int:
+        return self._current_question_index
 
     def next_question(self) -> MultipleChoiceQuestion:
-        if self._current_question_num < len(self._questions):
-            self._current_question_num += 1
+        if self._current_question_index < len(self._questions) - 1:
+            self._current_question_index += 1
         return self.current_question()
 
     def current_question(self) -> MultipleChoiceQuestion:
-        return self._questions[self._current_question_num - 1]
+        return self._questions[self._current_question_index]
 
     def previous_question(self) -> MultipleChoiceQuestion:
-        if self._current_question_num > 1:
-            self._current_question_num -= 1
+        if self._current_question_index > 0:
+            self._current_question_index -= 1
         return self.current_question()
 
     def set_selected_answer(self, answer_index: int, is_selected: bool) -> None:
@@ -176,8 +176,7 @@ class Quiz:
             if answer.is_selected:
                 is_answered = True
                 break
-        i_question = self._current_question_num - 1
-        self._is_question_answered[i_question] = is_answered
+        self._is_question_answered[self._current_question_index] = is_answered
 
     def is_any_question_answered(self) -> bool:
         return max(self._is_question_answered)
@@ -186,7 +185,7 @@ class Quiz:
         return min(self._is_question_answered)
 
     def count_n_score(self) -> str:
-        count = f'{self.current_question_num}/{len(self._questions)}'
+        count = f'{self.current_question_index+1}/{len(self._questions)}'
         if self.are_all_questions_answered():
             ratio, percent = self._score()
             score = f'    score: {percent} ({ratio})'
@@ -205,7 +204,7 @@ class Quiz:
         return ratio, f'{percent}%'
 
     def get_data_dict(self) -> dict:
-        data_dict = {'current_question_num': self.current_question_num,
+        data_dict = {'current_question_index': self.current_question_index,
                      'num_of_questions': self.num_of_questions,
                      'marked_user_input': self.marked_user_input}
         for i in range(self.num_of_questions):
@@ -226,7 +225,7 @@ class Quiz:
         return data_dict
 
     def __repr__(self) -> str:
-        return f'Quiz(current_question_num={self._current_question_num}, num_of_questions=' \
+        return f'Quiz(current_question_index={self._current_question_index}, num_of_questions=' \
                f'{self.num_of_questions}, {self._questions})'
 
     def is_same_as(self, other) -> bool:
@@ -251,7 +250,7 @@ class Quiz:
         text_lines = marked_user_input.strip().split('\n')
         if len(text_lines) < 2:
             raise QuizError(Config.MARKED_TEXT_ERR)
-        quiz_data_dict = {'current_question_num': 1, 'marked_user_input': marked_user_input}
+        quiz_data_dict = {'current_question_index': 0, 'marked_user_input': marked_user_input}
         num_of_answers = 0
         num_of_questions = 0
         question_answers = {}

@@ -68,7 +68,7 @@ def test_validate_stored_file():
     path = glob.glob(TMP_DIR + '/*.json')[0]
     with open(path) as f:
         data_dict = json.load(f)
-        assert {'current_question_num': 1, 'num_of_questions': 2, 'marked_user_input':
+        assert {'current_question_index': 0, 'num_of_questions': 2, 'marked_user_input':
             '?What is 2+3\n-is 4\n+is 5\n\n=addition\n\n?1*2 = ?\n- = 1\n+ = 2\n- = 4',
                 'question1': 'What is 2+3', 'question1_answers': {'answer1': {'answer': 'is 4',
                                                                               'is_correct': False,
