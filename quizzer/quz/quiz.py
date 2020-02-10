@@ -120,16 +120,17 @@ class Quiz:
             self._quiz_data_dict = quiz_data_dict
         if log.isEnabledFor(logging.DEBUG):
             log.debug(f'quiz_data_dict={self._quiz_data_dict}')
-        self._questions = Quiz._create_questions(self._quiz_data_dict)
+        self._questions: List[MultipleChoiceQuestion] = Quiz._create_questions(self._quiz_data_dict)
         if log.isEnabledFor(logging.DEBUG):
             log.debug(f'questions={self.questions}')
 
         self._current_question_index = self._quiz_data_dict['current_question_index']
-        self._marked_user_input = self._quiz_data_dict['marked_user_input']
+        self._marked_user_input: str = self._quiz_data_dict['marked_user_input']
         self._num_of_questions = self._quiz_data_dict['num_of_questions']
-        self._is_question_answered = self._find_questions_answered()
+        self._are_questions_answered: List[bool] = self._find_questions_answered()
+        self._are_questions_answered_incorrectly: List[bool] = self._find_questions_answered_incorrectly()
 
-    def _find_questions_answered(self):
+    def _find_questions_answered(self) -> List[bool]:
         is_question_answered = self._num_of_questions * [False]
         for i, question in enumerate(self._questions):
             for answer in question.answers:
@@ -137,6 +138,12 @@ class Quiz:
                     is_question_answered[i] = True
                     break
         return is_question_answered
+
+    def _find_questions_answered_incorrectly(self) -> List[bool]:
+        are_questions_answered_incorrectly = []
+        for question in self._questions:
+            are_questions_answered_incorrectly.append(not question.are_answers_correct())
+        return are_questions_answered_incorrectly
 
     @property
     def num_of_questions(self) -> int:
@@ -155,6 +162,7 @@ class Quiz:
         return self._current_question_index
 
     def next_question(self) -> MultipleChoiceQuestion:
+        # if not  self.are_all_questions_answered() or self.are_all_questions_answered_correctly():
         if self._current_question_index < len(self._questions) - 1:
             self._current_question_index += 1
         return self.current_question()
@@ -176,16 +184,19 @@ class Quiz:
             if answer.is_selected:
                 is_answered = True
                 break
-        self._is_question_answered[self._current_question_index] = is_answered
+        self._are_questions_answered[self._current_question_index] = is_answered
 
     def is_any_question_answered(self) -> bool:
-        return max(self._is_question_answered)
+        return max(self._are_questions_answered)
 
     def are_all_questions_answered(self) -> bool:
-        return min(self._is_question_answered)
+        return min(self._are_questions_answered)
+
+    def are_all_questions_answered_correctly(self) -> bool:
+        return not min(self._are_questions_answered_incorrectly)
 
     def count_n_score(self) -> str:
-        count = f'{self.current_question_index+1}/{len(self._questions)}'
+        count = f'{self.current_question_index + 1}/{len(self._questions)}'
         if self.are_all_questions_answered():
             ratio, percent = self._score()
             score = f'    score: {percent} ({ratio})'
