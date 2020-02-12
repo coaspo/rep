@@ -51,7 +51,7 @@ class MultipleChoiceAnswer:
         return f'MultipleChoiceAnswer("{self.answer}", {self.is_correct}, {self.is_selected})'
 
 
-class MultipleChoiceQuestion:
+class QuizQuestion:
     def __init__(self, question: str, comment: str or None, answers: List[MultipleChoiceAnswer]):
         self._question = question
         self._comment = comment
@@ -85,7 +85,7 @@ class MultipleChoiceQuestion:
         return False
 
     def __eq__(self, other) -> bool:
-        if isinstance(other, MultipleChoiceQuestion):
+        if isinstance(other, QuizQuestion):
             return self.question == other.question and \
                    self.comment == other.comment and \
                    self.answers == other.answers
@@ -98,7 +98,7 @@ class MultipleChoiceQuestion:
         text = self.comment
         if text is not None:
             text = '"' + text + '"'
-        return f'MultipleChoiceQuestion("{self.question}", {text}, {self.answers})'
+        return f'QuizQuestion("{self.question}", {text}, {self.answers})'
 
 
 class Quiz:
@@ -120,7 +120,7 @@ class Quiz:
             self._quiz_data_dict = quiz_data_dict
         if log.isEnabledFor(logging.DEBUG):
             log.debug(f'quiz_data_dict={self._quiz_data_dict}')
-        self._questions: List[MultipleChoiceQuestion] = Quiz._create_questions(self._quiz_data_dict)
+        self._questions: List[QuizQuestion] = Quiz._create_questions(self._quiz_data_dict)
         if log.isEnabledFor(logging.DEBUG):
             log.debug(f'questions={self.questions}')
 
@@ -128,7 +128,7 @@ class Quiz:
         self._marked_user_input: str = self._quiz_data_dict['marked_user_input']
         self._num_of_questions = self._quiz_data_dict['num_of_questions']
         self._are_questions_answered: List[bool] = self._find_questions_answered()
-        self._are_questions_answered_incorrectly: List[bool] = self._find_questions_answered_incorrectly()
+        self._are_questions_answered_correctly: List[bool] = self._find_questions_answered_correctly()
 
     def _find_questions_answered(self) -> List[bool]:
         is_question_answered = self._num_of_questions * [False]
@@ -139,11 +139,11 @@ class Quiz:
                     break
         return is_question_answered
 
-    def _find_questions_answered_incorrectly(self) -> List[bool]:
-        are_questions_answered_incorrectly = []
+    def _find_questions_answered_correctly(self) -> List[bool]:
+        are_questions_answered_correctly = []
         for question in self._questions:
-            are_questions_answered_incorrectly.append(not question.are_answers_correct())
-        return are_questions_answered_incorrectly
+            are_questions_answered_correctly.append(question.are_answers_correct())
+        return are_questions_answered_correctly
 
     @property
     def num_of_questions(self) -> int:
@@ -154,25 +154,53 @@ class Quiz:
         return self._marked_user_input
 
     @property
-    def questions(self) -> List[MultipleChoiceQuestion]:
+    def questions(self) -> List[QuizQuestion]:
         return self._questions
 
     @property
     def current_question_index(self) -> int:
         return self._current_question_index
 
-    def next_question(self) -> MultipleChoiceQuestion:
-        # if not  self.are_all_questions_answered() or self.are_all_questions_answered_correctly():
-        if self._current_question_index < len(self._questions) - 1:
-            self._current_question_index += 1
+    def next_question(self) -> QuizQuestion:
+        print('- ---- -', self.are_all_questions_answered(), self.are_all_questions_answered_correctly(), self._current_question_index, len(self._questions) )
+        print(self)
+        if not self.are_all_questions_answered() or self.are_all_questions_answered_correctly():
+            if self._current_question_index < len(self._questions) - 1:
+                self._current_question_index += 1
+                print('????', self._current_question_index)
+                print (self)
+        else:
+            i = self._current_question_index
+            while True:
+                if i < len(self._questions) - 1:
+                    i += 1
+                else:
+                    break
+                if not self._are_questions_answered_correctly[i]:
+                    self._current_question_index = i
+                    break
         return self.current_question()
 
-    def current_question(self) -> MultipleChoiceQuestion:
+    def current_question(self) -> QuizQuestion:
         return self._questions[self._current_question_index]
 
-    def previous_question(self) -> MultipleChoiceQuestion:
-        if self._current_question_index > 0:
-            self._current_question_index -= 1
+    def previous_question(self) -> QuizQuestion:
+        print('- ---- -', self.are_all_questions_answered(), self.are_all_questions_answered_correctly(), self._current_question_index, len(self._questions) )
+        if not self.are_all_questions_answered() or self.are_all_questions_answered_correctly():
+            if self._current_question_index > 0:
+                self._current_question_index -= 1
+            print('? ? ?', self._current_question_index)
+        else:
+            i = self._current_question_index
+            print('- - -', i)
+            while True:
+                if i > 0:
+                    i -= 1
+                else:
+                    break
+                if not self._are_questions_answered_correctly[i]:
+                    self._current_question_index = i
+                    break
         return self.current_question()
 
     def set_selected_answer(self, answer_index: int, is_selected: bool) -> None:
@@ -184,6 +212,7 @@ class Quiz:
             if answer.is_selected:
                 is_answered = True
                 break
+        self._are_questions_answered_correctly[self._current_question_index] = self.current_question().are_answers_correct()
         self._are_questions_answered[self._current_question_index] = is_answered
 
     def is_any_question_answered(self) -> bool:
@@ -193,7 +222,7 @@ class Quiz:
         return min(self._are_questions_answered)
 
     def are_all_questions_answered_correctly(self) -> bool:
-        return not min(self._are_questions_answered_incorrectly)
+        return min(self._are_questions_answered_correctly)
 
     def count_n_score(self) -> str:
         count = f'{self.current_question_index + 1}/{len(self._questions)}'
@@ -219,7 +248,7 @@ class Quiz:
                      'num_of_questions': self.num_of_questions,
                      'marked_user_input': self.marked_user_input}
         for i in range(self.num_of_questions):
-            question: MultipleChoiceQuestion = self.questions[i]
+            question: QuizQuestion = self.questions[i]
             key_i = 'question' + str(i + 1)
             data_dict[key_i] = question.question
             question_answers_dict = dict()
@@ -312,7 +341,7 @@ class Quiz:
         quiz_data_dict['question' + str(num_of_questions) + '_answers'] = question_answers
 
     @staticmethod
-    def _create_questions(_quiz_data_dict: dict) -> List[MultipleChoiceQuestion]:
+    def _create_questions(_quiz_data_dict: dict) -> List[QuizQuestion]:
         num_of_questions = _quiz_data_dict['num_of_questions']
         questions = []
         for i in range(1, num_of_questions + 1):
@@ -322,7 +351,7 @@ class Quiz:
             answers_dict = _quiz_data_dict[key2]
             comment = answers_dict.get('comment')
             answers = Quiz._create_answers(answers_dict)
-            question = MultipleChoiceQuestion(question_text, comment, answers)
+            question = QuizQuestion(question_text, comment, answers)
             questions.append(question)
         return questions
 

@@ -78,7 +78,7 @@ class View:
     def __init__(self, latest_quiz_topic: str, quiz_topics: list, instructions: str):
         root = tkinter.Tk()
         root.title("Quiz maker/taker")
-        self._answer_check_buttons: List[object, tkinter.Checkbutton] = []
+        self._answer_check_buttons: List[object, object] = []
         self._root = root
 
         self._init_menu(latest_quiz_topic, quiz_topics, root)

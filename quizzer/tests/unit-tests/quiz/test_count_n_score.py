@@ -18,7 +18,7 @@ def test_is_same_as():
     assert quiz.is_any_question_answered()
     assert not quiz.are_all_questions_answered()
     assert str(
-        quiz.current_question()) == 'MultipleChoiceQuestion("What is 2+3", "addition", [MultipleChoiceAnswer' \
+        quiz.current_question()) == 'QuizQuestion("What is 2+3", "addition", [MultipleChoiceAnswer' \
                                     '("is 4", False, False), MultipleChoiceAnswer("is 5", True, True)])'
     assert quiz.count_n_score() == '1/2'
 

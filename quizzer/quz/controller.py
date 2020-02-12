@@ -66,11 +66,10 @@ class AbstractController:
             is_selected = tkinter.IntVar(value=is_set)
             bg = 'white'
             if self.model.quiz.are_all_questions_answered():
-                if (answer.is_correct and not answer.is_selected) or \
-                        (not answer.is_correct and answer.is_selected):
-                    bg = '#fdd'
-                elif answer.is_correct and answer.is_selected:
+                if answer.is_correct:
                     bg = '#cfc'
+                elif not answer.is_correct and answer.is_selected:
+                    bg = '#fdd'
             chk_bt = tkinter.Checkbutton(self.view.question_area,
                                          text=AbstractController._make_multiple_lines(answer.answer), bg=bg,
                                          variable=is_selected, padx=15)
@@ -156,10 +155,9 @@ class QuizController(AbstractController):
         if n_original != n_current:
             is_to_recreate = messagebox.askyesno(title="Quiz inconsistency",
                                                  message=f"Original/current marked text are {n_original}/{n_current}"
-                                                         "characters long."
-                                                         "Marked text and the quiz are not consistent.\n"
+                                                         "characters long.\n\n"
                                                          "Would you like to update the quiz with the new mark-up?\n"
-                                                         "This erases any entered answers.",
+                                                         "This ERASES any entered answers.",
                                                  default=messagebox.NO, parent=self.view.root)
             if is_to_recreate:
                 self.model.update_quiz(marked_user_input)
@@ -218,7 +216,6 @@ class QuizQuestionController(AbstractController):
     def submit_question_answer(self, _):
         if self.view.submit_bt['state'] != 'disabled':
             try:
-                answers = self.model.quiz.current_question().answers
                 for i, (is_selected, _) in enumerate(self.view.answer_check_buttons):
                     self.model.quiz.set_selected_answer(i, is_selected.get())
                 self.model.quiz.next_question()

@@ -1,5 +1,5 @@
 from quz.quiz import MultipleChoiceAnswer, Quiz
-from quz.quiz import MultipleChoiceQuestion
+from quz.quiz import QuizQuestion
 from quz.util import set_logger
 from tests.t_util import recreate_tmp_dir
 
@@ -29,11 +29,11 @@ def test_create_questions():
     questions = Quiz._create_questions(quiz_data_dict)
     assert len(questions) == 2
 
-    expected = MultipleChoiceQuestion("What is 2+3", "addition", [MultipleChoiceAnswer("is 4", False, False),
-                                                                  MultipleChoiceAnswer("is 5", True, False)])
+    expected = QuizQuestion("What is 2+3", "addition", [MultipleChoiceAnswer("is 4", False, False),
+                                                        MultipleChoiceAnswer("is 5", True, False)])
     assert questions[0] == expected
 
-    expected = MultipleChoiceQuestion("1*2 = ?", None, [MultipleChoiceAnswer(" = 1", False, False),
-                                                        MultipleChoiceAnswer(" = 2", True, False),
-                                                        MultipleChoiceAnswer(" = 4", False, False)])
+    expected = QuizQuestion("1*2 = ?", None, [MultipleChoiceAnswer(" = 1", False, False),
+                                              MultipleChoiceAnswer(" = 2", True, False),
+                                              MultipleChoiceAnswer(" = 4", False, False)])
     assert questions[1] == expected
