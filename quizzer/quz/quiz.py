@@ -120,7 +120,7 @@ class Quiz:
             self._quiz_data_dict = quiz_data_dict
         if log.isEnabledFor(logging.DEBUG):
             log.debug(f'quiz_data_dict={self._quiz_data_dict}')
-        self._questions: List[QuizQuestion] = Quiz._create_questions(self._quiz_data_dict)
+        self._quiz_questions: List[QuizQuestion] = Quiz._create_questions(self._quiz_data_dict)
         if log.isEnabledFor(logging.DEBUG):
             log.debug(f'questions={self.questions}')
 
@@ -132,7 +132,7 @@ class Quiz:
 
     def _find_questions_answered(self) -> List[bool]:
         is_question_answered = self._num_of_questions * [False]
-        for i, question in enumerate(self._questions):
+        for i, question in enumerate(self._quiz_questions):
             for answer in question.answers:
                 if answer.is_selected:
                     is_question_answered[i] = True
@@ -141,7 +141,7 @@ class Quiz:
 
     def _find_questions_answered_correctly(self) -> List[bool]:
         are_questions_answered_correctly = []
-        for question in self._questions:
+        for question in self._quiz_questions:
             are_questions_answered_correctly.append(question.are_answers_correct())
         return are_questions_answered_correctly
 
@@ -155,24 +155,24 @@ class Quiz:
 
     @property
     def questions(self) -> List[QuizQuestion]:
-        return self._questions
+        return self._quiz_questions
 
     @property
     def current_question_index(self) -> int:
         return self._current_question_index
 
     def next_question(self) -> QuizQuestion:
-        print('- ---- -', self.are_all_questions_answered(), self.are_all_questions_answered_correctly(), self._current_question_index, len(self._questions) )
+        print('- ---- -', self.are_all_questions_answered(), self.are_all_questions_answered_correctly(), self._current_question_index, len(self._quiz_questions))
         print(self)
         if not self.are_all_questions_answered() or self.are_all_questions_answered_correctly():
-            if self._current_question_index < len(self._questions) - 1:
+            if self._current_question_index < len(self._quiz_questions) - 1:
                 self._current_question_index += 1
                 print('????', self._current_question_index)
                 print (self)
         else:
             i = self._current_question_index
             while True:
-                if i < len(self._questions) - 1:
+                if i < len(self._quiz_questions) - 1:
                     i += 1
                 else:
                     break
@@ -182,10 +182,10 @@ class Quiz:
         return self.current_question()
 
     def current_question(self) -> QuizQuestion:
-        return self._questions[self._current_question_index]
+        return self._quiz_questions[self._current_question_index]
 
     def previous_question(self) -> QuizQuestion:
-        print('- ---- -', self.are_all_questions_answered(), self.are_all_questions_answered_correctly(), self._current_question_index, len(self._questions) )
+        print('- ---- -', self.are_all_questions_answered(), self.are_all_questions_answered_correctly(), self._current_question_index, len(self._quiz_questions))
         if not self.are_all_questions_answered() or self.are_all_questions_answered_correctly():
             if self._current_question_index > 0:
                 self._current_question_index -= 1
@@ -225,7 +225,7 @@ class Quiz:
         return min(self._are_questions_answered_correctly)
 
     def count_n_score(self) -> str:
-        count = f'{self.current_question_index + 1}/{len(self._questions)}'
+        count = f'{self.current_question_index + 1}/{len(self._quiz_questions)}'
         if self.are_all_questions_answered():
             ratio, percent = self._score()
             score = f'    score: {percent} ({ratio})'
@@ -235,8 +235,8 @@ class Quiz:
 
     def _score(self) -> tuple:
         num_of_correct_questions = 0
-        num_of_questions = len(self._questions)
-        for question in self._questions:
+        num_of_questions = len(self._quiz_questions)
+        for question in self._quiz_questions:
             if question.are_answers_correct():
                 num_of_correct_questions += 1
         ratio = f'{num_of_correct_questions}/{num_of_questions}'
@@ -248,25 +248,25 @@ class Quiz:
                      'num_of_questions': self.num_of_questions,
                      'marked_user_input': self.marked_user_input}
         for i in range(self.num_of_questions):
-            question: QuizQuestion = self.questions[i]
+            quiz_question: QuizQuestion = self.questions[i]
             key_i = 'question' + str(i + 1)
-            data_dict[key_i] = question.question
+            data_dict[key_i] = quiz_question.question
             question_answers_dict = dict()
-            for j in range(len(question.answers)):
-                answer: MultipleChoiceAnswer = question.answers[j]
+            for j in range(len(quiz_question.answers)):
+                answer: MultipleChoiceAnswer = quiz_question.answers[j]
                 answer_dict = {'answer': answer.answer, 'is_correct': answer.is_correct,
                                'is_selected': answer.is_selected}
                 key_j = 'answer' + str(j + 1)
                 question_answers_dict[key_j] = answer_dict
-            question_answers_dict['comment'] = question.comment
-            question_answers_dict['num_of_answers'] = len(question.answers)
+            question_answers_dict['comment'] = quiz_question.comment
+            question_answers_dict['num_of_answers'] = len(quiz_question.answers)
             key = key_i + '_answers'
             data_dict[key] = question_answers_dict
         return data_dict
 
     def __repr__(self) -> str:
         return f'Quiz(current_question_index={self._current_question_index}, num_of_questions=' \
-               f'{self.num_of_questions}, {self._questions})'
+               f'{self.num_of_questions}, {self._quiz_questions})'
 
     def is_same_as(self, other) -> bool:
         if isinstance(other, Quiz):
@@ -351,8 +351,8 @@ class Quiz:
             answers_dict = _quiz_data_dict[key2]
             comment = answers_dict.get('comment')
             answers = Quiz._create_answers(answers_dict)
-            question = QuizQuestion(question_text, comment, answers)
-            questions.append(question)
+            quiz_question = QuizQuestion(question_text, comment, answers)
+            questions.append(quiz_question)
         return questions
 
     @staticmethod
