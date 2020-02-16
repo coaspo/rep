@@ -73,6 +73,7 @@ class AbstractController:
             chk_bt = tkinter.Checkbutton(self.view.question_area,
                                          text=AbstractController._make_multiple_lines(answer.answer), bg=bg,
                                          variable=is_selected, padx=15)
+            # chk_bt.setvar('is_selected', is_selected)
             chk_bt.grid(row=i + 1, column=0, sticky=tkinter.W, pady=2)
             self.view.answer_check_buttons.append((is_selected, chk_bt))
 

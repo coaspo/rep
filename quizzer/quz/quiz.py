@@ -51,6 +51,47 @@ class MultipleChoiceAnswer:
         return f'MultipleChoiceAnswer("{self.answer}", {self.is_correct}, {self.is_selected})'
 
 
+class FillAnswer:
+    def __init__(self, correct_answer: str, answer: str):
+        self._answer = answer
+        self._correct_answer = correct_answer
+        log = logging.getLogger(__name__)
+        if log.isEnabledFor(logging.DEBUG):
+            log.debug(self.__repr__())
+
+    @property
+    def answer(self) -> str:
+        return self._answer
+
+    @property
+    def correct_answer(self) -> str:
+        return self._correct_answer
+
+    @answer.setter
+    def answer(self, value: bool) -> None:
+        self._answer = value
+
+    def is_correct(self):
+        if self._answer is None:
+            return False
+        answer = self._answer.replace(' ', '')
+        correct_answer = self._correct_answer.replace(' ', '')
+        return answer == correct_answer
+
+    def __eq__(self, other) -> bool:
+        if isinstance(other, FillAnswer):
+            return self.answer == other.answer and \
+                   self.is_correct == other.is_correct and \
+                   self.correct_answer == other.correct_answer
+        return False
+
+    def __ne__(self, other) -> bool:
+        return not self.__eq__(other)
+
+    def __repr__(self) -> str:
+        return f'FillAnswer("{self.answer}", {self.correct_answer}, {self.is_correct})'
+
+
 class QuizQuestion:
     def __init__(self, question: str, comment: str or None, answers: List[MultipleChoiceAnswer]):
         self._question = question
@@ -162,13 +203,9 @@ class Quiz:
         return self._current_question_index
 
     def next_question(self) -> QuizQuestion:
-        print('- ---- -', self.are_all_questions_answered(), self.are_all_questions_answered_correctly(), self._current_question_index, len(self._quiz_questions))
-        print(self)
         if not self.are_all_questions_answered() or self.are_all_questions_answered_correctly():
             if self._current_question_index < len(self._quiz_questions) - 1:
                 self._current_question_index += 1
-                print('????', self._current_question_index)
-                print (self)
         else:
             i = self._current_question_index
             while True:
@@ -185,14 +222,11 @@ class Quiz:
         return self._quiz_questions[self._current_question_index]
 
     def previous_question(self) -> QuizQuestion:
-        print('- ---- -', self.are_all_questions_answered(), self.are_all_questions_answered_correctly(), self._current_question_index, len(self._quiz_questions))
         if not self.are_all_questions_answered() or self.are_all_questions_answered_correctly():
             if self._current_question_index > 0:
                 self._current_question_index -= 1
-            print('? ? ?', self._current_question_index)
         else:
             i = self._current_question_index
-            print('- - -', i)
             while True:
                 if i > 0:
                     i -= 1
@@ -212,7 +246,8 @@ class Quiz:
             if answer.is_selected:
                 is_answered = True
                 break
-        self._are_questions_answered_correctly[self._current_question_index] = self.current_question().are_answers_correct()
+        self._are_questions_answered_correctly[
+            self._current_question_index] = self.current_question().are_answers_correct()
         self._are_questions_answered[self._current_question_index] = is_answered
 
     def is_any_question_answered(self) -> bool:
