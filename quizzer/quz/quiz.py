@@ -53,8 +53,8 @@ class MultipleChoiceAnswer:
 
 class FillAnswer:
     def __init__(self, correct_answer: str, answer: str):
-        self._answer = answer
-        self._correct_answer = correct_answer
+        self._answer = answer.strip()
+        self._correct_answer = correct_answer.strip()
         log = logging.getLogger(__name__)
         if log.isEnabledFor(logging.DEBUG):
             log.debug(self.__repr__())

@@ -25,4 +25,3 @@ def test_is_same_as():
     assert quiz.is_any_question_answered()
     assert quiz.are_all_questions_answered()
     assert quiz.count_n_score() == '2/2    score: 100% (2/2)'
-

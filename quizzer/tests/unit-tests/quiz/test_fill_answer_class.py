@@ -1,4 +1,4 @@
-from quz.quiz import MultipleChoiceAnswer, FillAnswer
+from quz.quiz import FillAnswer
 from quz.util import set_logger
 from tests.t_util import recreate_tmp_dir
 
@@ -9,7 +9,7 @@ set_logger(CONFIG)
 
 
 def test_correct_answer():
-    answer = FillAnswer('2', None)
+    answer = FillAnswer('2', ' 5 ')
     assert not answer.is_correct()
     answer.answer = ' 2 '
     assert answer.is_correct()

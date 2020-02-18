@@ -20,7 +20,7 @@ def test_missing_marked_text():
     assert v1.status_label.cget('text') == '<UI instructions>'
     c1 = QuizController(v1, m1)
     v1.input_marked_text_area.insert('insert', 'aaaa')
-    c1.update_quiz(1)
+    c1._update_quiz(1)
     assert Config.MARKED_TEXT_ERR == v1.status_label.cget('text')
 
 
@@ -42,7 +42,7 @@ def test_enter_marked_text():
                                               '- = 1\n'
                                               '+ = 2\n'
                                               '- = 4\n\n')
-    c.update_quiz('fake-mouse-leave-event')
+    c._update_quiz('fake-mouse-leave-event')
     assert v.status_label.cget('text').startswith('Saved quiz file')
     assert v.quiz_description_label.cget('text').startswith('1/1  quiz.1.json')
     assert 'What is 2+3' == v.question_label.cget('text')
@@ -68,8 +68,8 @@ def test_validate_stored_file():
     path = glob.glob(TMP_DIR + '/*.json')[0]
     with open(path) as f:
         data_dict = json.load(f)
-        assert {'current_question_index': 0, 'num_of_questions': 2, 'marked_user_input':
-            '?What is 2+3\n-is 4\n+is 5\n\n=addition\n\n?1*2 = ?\n- = 1\n+ = 2\n- = 4',
+        assert {'current_question_index': 0, 'num_of_questions': 2,
+                'marked_user_input': '?What is 2+3\n-is 4\n+is 5\n\n=addition\n\n?1*2 = ?\n- = 1\n+ = 2\n- = 4',
                 'question1': 'What is 2+3', 'question1_answers': {'answer1': {'answer': 'is 4',
                                                                               'is_correct': False,
                                                                               'is_selected': False},
@@ -93,7 +93,7 @@ def test_validate_stored_file():
 
 def test_clear_screen_button():
     assert v.status_label.cget('text').startswith('Saved quiz file')
-    c.clear_entire_screen('fake-button-event')
+    c._clear_entire_screen('fake-button-event')
     assert '\n' == v.input_marked_text_area.get("1.0", END)
     assert Config.APP_INSTRUCTIONS == v.status_label.cget('text')
     assert '' == v.question_comment_label.cget('text')

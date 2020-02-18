@@ -77,7 +77,6 @@ class AbstractController:
             chk_bt.grid(row=i + 1, column=0, sticky=tkinter.W, pady=2)
             self.view.answer_check_buttons.append((is_selected, chk_bt))
 
-
     @staticmethod
     def _make_multiple_lines(line: str) -> str:
         if len(line) < 5:
@@ -105,11 +104,11 @@ class QuizController(AbstractController):
         if quiz is not None:
             self._populate_quiz_widgets()
 
-    def clear_entire_screen(self, _):
+    def _clear_entire_screen(self, _):
         self.view.clear_screen()
         self._update_status(Config.APP_INSTRUCTIONS)
 
-    def update_quiz(self, _):
+    def _update_quiz(self, _):
         try:
             topic = self.view.quiz_topics.get().strip()
             if len(topic) == 0:
@@ -149,7 +148,7 @@ class QuizController(AbstractController):
                 combo_values += (topic,)
             self.view.quiz_topics['values'] = combo_values
 
-    def on_close_window(self):
+    def _on_close_window(self):
         marked_user_input = self.view.input_marked_text_area.get("1.0", tkinter.END).strip()
         n_original = len(self.model.quiz.marked_user_input)
         n_current = len(marked_user_input)
@@ -166,7 +165,7 @@ class QuizController(AbstractController):
             self.model.update_quiz()
         self.view.stop()
 
-    def reset_quiz_topic(self, _):
+    def _reset_quiz_topic(self, _):
         topic = self.view.quiz_topics.get()
         self.model.reset_quiz_topic(topic)
         self._populate_quiz_widgets()
@@ -186,10 +185,10 @@ class QuizController(AbstractController):
             self.handle_exception('Unexpected err', e)
 
     def bind_controls(self):
-        self.view.clear_bt.bind("<Button-1>", self.clear_entire_screen)
-        self.view.input_marked_text_area.bind("<Leave>", self.update_quiz)
-        self.view.quiz_topics.bind("<<ComboboxSelected>>", self.reset_quiz_topic)
-        self.view.root.protocol("WM_DELETE_WINDOW", self.on_close_window)
+        self.view.clear_bt.bind("<Button-1>", self._clear_entire_screen)
+        self.view.input_marked_text_area.bind("<Leave>", self._update_quiz)
+        self.view.quiz_topics.bind("<<ComboboxSelected>>", self._reset_quiz_topic)
+        self.view.root.protocol("WM_DELETE_WINDOW", self._on_close_window)
         self.view.next_quiz_bt.bind("<Button-1>", self._next_quiz)
         self.view.previous_quiz_bt.bind("<Button-1>", self._previous_quiz)
         if log.isEnabledFor(logging.DEBUG):
@@ -198,7 +197,7 @@ class QuizController(AbstractController):
 
 class QuizQuestionController(AbstractController):
 
-    def next_question(self, _):
+    def _next_question(self, _):
         if self.view.next_question_bt['state'] != 'disabled':
             try:
                 self.model.quiz.next_question()
@@ -206,7 +205,7 @@ class QuizQuestionController(AbstractController):
             except Exception as e:
                 super().handle_exception('Next question err', e)
 
-    def previous_question(self, _):
+    def _previous_question(self, _):
         if self.view.previous_question_bt['state'] != 'disabled':
             try:
                 self.model.quiz.previous_question()
@@ -214,7 +213,7 @@ class QuizQuestionController(AbstractController):
             except Exception as e:
                 self.handle_exception('Previous question err', e)
 
-    def submit_question_answer(self, _):
+    def _submit_question_answer(self, _):
         if self.view.submit_bt['state'] != 'disabled':
             try:
                 for i, (is_selected, _) in enumerate(self.view.answer_check_buttons):
@@ -225,9 +224,9 @@ class QuizQuestionController(AbstractController):
                 self.handle_exception('Previous question err', e)
 
     def bind_controls(self):
-        self.view.next_question_bt.bind("<ButtonRelease-1>", self.next_question)
-        self.view.previous_question_bt.bind("<Button-1>", self.previous_question)
-        self.view.submit_bt.bind("<Button-1>", self.submit_question_answer)
+        self.view.next_question_bt.bind("<ButtonRelease-1>", self._next_question)
+        self.view.previous_question_bt.bind("<Button-1>", self._previous_question)
+        self.view.submit_bt.bind("<Button-1>", self._submit_question_answer)
         if log.isEnabledFor(logging.DEBUG):
             log.debug('controller methods bound to view widgets')
 

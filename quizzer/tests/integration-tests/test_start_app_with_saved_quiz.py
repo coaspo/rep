@@ -11,14 +11,14 @@ TMP_DIR = recreate_tmp_dir(__file__)
 CONFIG = {'LOG_DIR': TMP_DIR, 'LOG_LEVEL': 'CRITICAL'}
 set_logger(CONFIG)
 
-m: Model = None
-v: View = None
-c: View = None
+m: Model
+v: View
+c: View
 
 
 def test_enter_marked_text():
-    data_dict = {'current_question_index': 0, 'num_of_questions': 2, 'marked_user_input':
-        '?What is 2+3\n-is 4\n+is 5\n\n=addition\n\n?1*2 = ?\n- = 1\n+ = 2\n- = 4',
+    data_dict = {'current_question_index': 0, 'num_of_questions': 2,
+                 'marked_user_input': '?What is 2+3\n-is 4\n+is 5\n\n=addition\n\n?1*2 = ?\n- = 1\n+ = 2\n- = 4',
                  'question1': 'What is 2+3', 'question1_answers': {'answer1': {'answer': 'is 4',
                                                                                'is_correct': False,
                                                                                'is_selected': False},
