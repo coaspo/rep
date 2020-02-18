@@ -58,24 +58,34 @@ class AbstractController:
         self._populate_answers_widgets()
 
     def _populate_answers_widgets(self):
-        [chk_bt.destroy() for (_, chk_bt) in self.view.answer_check_buttons]
+        [widget.destroy() for (_, widget) in self.view.answer_check_buttons]
         self.view.answer_check_buttons.clear()
+        answers = self.model.quiz.current_question().answers
 
-        for i, answer in enumerate(self.model.quiz.current_question().answers):
-            is_set = 1 if answer.is_selected else 0
-            is_selected = tkinter.IntVar(value=is_set)
-            bg = 'white'
-            if self.model.quiz.are_all_questions_answered():
-                if answer.is_correct:
-                    bg = '#cfc'
-                elif not answer.is_correct and answer.is_selected:
-                    bg = '#fdd'
-            chk_bt = tkinter.Checkbutton(self.view.question_area,
-                                         text=AbstractController._make_multiple_lines(answer.answer), bg=bg,
-                                         variable=is_selected, padx=15)
-            # chk_bt.setvar('is_selected', is_selected)
-            chk_bt.grid(row=i + 1, column=0, sticky=tkinter.W, pady=2)
-            self.view.answer_check_buttons.append((is_selected, chk_bt))
+        for i, answer in enumerate(answers):
+            if len(answers) > 1:
+                is_set = 1 if answer.is_selected else 0
+                is_selected = tkinter.IntVar(value=is_set)
+                bg = 'white'
+                if self.model.quiz.are_all_questions_answered():
+                    if answer.is_correct:
+                        bg = '#cfc'
+                    elif not answer.is_correct and answer.is_selected:
+                        bg = '#fdd'
+                chk_bt = tkinter.Checkbutton(self.view.question_area,
+                                             text=AbstractController._make_multiple_lines(answer.answer), bg=bg,
+                                             variable=is_selected, padx=15)
+                # chk_bt.setvar('is_selected', is_selected)
+                chk_bt.grid(row=i + 1, column=0, sticky=tkinter.W, pady=2)
+                self.view.answer_check_buttons.append((is_selected, chk_bt))
+            else:
+                bg = 'white'
+                if self.model.quiz.are_all_questions_answered():
+                    if answer.is_correct:
+                        bg = '#cfc'
+                    elif not answer.is_correct and answer.is_ansered:
+                        bg = '#fdd'
+
 
     @staticmethod
     def _make_multiple_lines(line: str) -> str:

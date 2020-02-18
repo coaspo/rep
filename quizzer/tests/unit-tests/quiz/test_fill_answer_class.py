@@ -10,13 +10,13 @@ set_logger(CONFIG)
 
 def test_correct_answer():
     answer = FillAnswer('2', ' 5 ')
-    assert not answer.is_correct()
+    assert not answer.is_answered_correctly()
     answer.answer = ' 2 '
-    assert answer.is_correct()
+    assert answer.is_answered_correctly()
 
 
 def test_incorrect_answer():
     answer = FillAnswer(' 2', '  2')
-    assert answer.is_correct()
+    assert answer.is_answered_correctly()
     answer.answer = '3'
-    assert not answer.is_correct()
+    assert not answer.is_answered_correctly()

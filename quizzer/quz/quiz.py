@@ -1,3 +1,4 @@
+import abc
 import logging
 from typing import List
 
@@ -8,7 +9,13 @@ class QuizError(Exception):
     pass
 
 
-class MultipleChoiceAnswer:
+class AbstractAnswer(metaclass=abc.ABCMeta):
+    @abc.abstractmethod
+    def is_answered_correctly(self) -> bool:
+        pass
+
+
+class MultipleChoiceAnswer(AbstractAnswer):
     def __init__(self, answer: str, is_correct: bool, is_selected: bool):
         self._answer = answer
         self._is_correct = is_correct
@@ -33,7 +40,7 @@ class MultipleChoiceAnswer:
     def is_selected(self, value: bool) -> None:
         self._is_selected = value
 
-    def is_selected_correct(self):
+    def is_answered_correctly(self):
         return (self._is_selected and self._is_correct) or \
                (not self._is_selected and not self._is_correct)
 
@@ -51,7 +58,7 @@ class MultipleChoiceAnswer:
         return f'MultipleChoiceAnswer("{self.answer}", {self.is_correct}, {self.is_selected})'
 
 
-class FillAnswer:
+class FillAnswer(AbstractAnswer):
     def __init__(self, correct_answer: str, answer: str):
         self._answer = answer.strip()
         self._correct_answer = correct_answer.strip()
@@ -71,7 +78,7 @@ class FillAnswer:
     def answer(self, value: bool) -> None:
         self._answer = value
 
-    def is_correct(self):
+    def is_answered_correctly(self):
         if self._answer is None:
             return False
         answer = self._answer.replace(' ', '')
@@ -81,7 +88,7 @@ class FillAnswer:
     def __eq__(self, other) -> bool:
         if isinstance(other, FillAnswer):
             return self.answer == other.answer and \
-                   self.is_correct == other.is_correct and \
+                   self.is_answered_correctly == other.is_answered_correctly and \
                    self.correct_answer == other.correct_answer
         return False
 
@@ -89,7 +96,7 @@ class FillAnswer:
         return not self.__eq__(other)
 
     def __repr__(self) -> str:
-        return f'FillAnswer("{self.answer}", {self.correct_answer}, {self.is_correct})'
+        return f'FillAnswer("{self.answer}", {self.correct_answer}, {self.is_answered_correctly})'
 
 
 class QuizQuestion:
@@ -115,7 +122,7 @@ class QuizQuestion:
 
     def are_answers_correct(self) -> bool:
         for answer in self._answers:
-            if not answer.is_selected_correct():
+            if not answer.is_answered_correctly():
                 return False
         return True
 

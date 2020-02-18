@@ -10,13 +10,13 @@ set_logger(CONFIG)
 
 def test_correct_answer():
     answer = MultipleChoiceAnswer('is 1+1=2?', True, False)
-    assert not answer.is_selected_correct()
+    assert not answer.is_answered_correctly()
     answer.is_selected = True
-    assert answer.is_selected_correct()
+    assert answer.is_answered_correctly()
 
 
 def test_incorrect_answer():
     answer = MultipleChoiceAnswer('is 1+1=0?', False, False)
-    assert answer.is_selected_correct()
+    assert answer.is_answered_correctly()
     answer.is_selected = True
-    assert not answer.is_selected_correct()
+    assert not answer.is_answered_correctly()
