@@ -58,7 +58,15 @@ class AbstractController:
         self._populate_answers_widgets()
 
     def _populate_answers_widgets(self):
-        [widget.destroy() for (_, widget) in self.view.answer_check_buttons]
+        for (data, object) in self.view.answer_check_buttons:
+            if type(data) is tkinter.StringVar:
+                object[0].destroy()
+                object[1].destroy()
+            elif type(data) is tkinter.IntVar:
+                object.destroy()
+            else:
+                raise Exception(f'unrecognized data type: {type(data)}')
+
         self.view.answer_check_buttons.clear()
         answers = self.model.quiz.current_question().answers
 
@@ -80,12 +88,22 @@ class AbstractController:
                 self.view.answer_check_buttons.append((is_selected, chk_bt))
             else:
                 bg = 'white'
+                label_fg = 'white'
+                label_bg = 'white'
                 if self.model.quiz.are_all_questions_answered():
                     if answer.is_correct:
                         bg = '#cfc'
                     elif not answer.is_correct and answer.is_ansered:
                         bg = '#fdd'
-
+                        label_fg = 'black'
+                        label_bg = '#cfc'
+                answer_txt = tkinter.StringVar()
+                answer_txt.set(answer.answer)
+                entry = tkinter.Entry(self.view.question_area, textvariable=answer_txt, bg=bg)
+                entry.grid(row=2 * i + 1, column=0, sticky=tkinter.W, pady=2)
+                label = tkinter.Label(self.view.question_area, text=answer.correct_anser, bg=label_bg, fg=label_fg)
+                label.grid(row=2 * i + 2, column=0, sticky=tkinter.W, pady=2)
+                self.view.answer_check_buttons.append((answer_txt, (entry, label)))
 
     @staticmethod
     def _make_multiple_lines(line: str) -> str:
