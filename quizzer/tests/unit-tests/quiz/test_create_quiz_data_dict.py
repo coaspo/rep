@@ -66,3 +66,42 @@ def test_create_quiz_data_dict():
                         f'\nactual/expected lines:\n{line}\n{expected_data_dict_lines[i]}' +
                         f'\nactual/expected DICTs:\n{data_dict}\n{expected_data_dict}')
 
+def test_create_quiz_data_dict_with_fill_in():
+    marked_user_input = '?What is 2+3\n' \
+                        '+five\n\n' \
+                        '=addition fill in\n\n' \
+ \
+                        '?1*2 = ?\n' \
+                        '- = 1\n' \
+                        '+ = 2\n' \
+                        '- = 4\n'
+    data_dict = Quiz._create_quiz_data_dict(marked_user_input)
+    expected_data_dict = {'current_question_index': 0,
+                          'num_of_questions': 2,
+                          'marked_user_input': marked_user_input,
+                          'question1': 'What is 2+3',
+                          'question1_answers': {'answer1': {'answer': '',
+                                                            'correct_answer': 'five'},
+                                                'comment': 'addition fill in',
+                                                'num_of_answers': 1},
+                          'question2': '1*2 = ?',
+                          'question2_answers': {'answer1': {'is_correct': False,
+                                                            'is_selected': False,
+                                                            'answer': ' = 1'},
+                                                'answer2': {'is_correct': True,
+                                                            'is_selected': False,
+                                                            'answer': ' = 2'},
+                                                'answer3': {'is_correct': False,
+                                                            'is_selected': False,
+                                                            'answer': ' = 4'},
+                                                'num_of_answers': 3}}
+
+    data_dict_lines = pprint.pformat(data_dict).split('\n')
+    expected_data_dict_lines = pprint.pformat(expected_data_dict).split('\n')
+
+    for i, line in enumerate(data_dict_lines):
+        print(i, line)
+        if i > len(expected_data_dict_lines) - 1:
+            raise Exception(
+                f'Actual larger than expected.\nactual/expected:\n{data_dict_lines}{expected_data_dict_lines}')
+        assert line == expected_data_dict_lines[i]

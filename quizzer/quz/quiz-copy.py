@@ -346,7 +346,6 @@ class Quiz:
                 is_next_line_an_answer = True
             if len(line) == 0:
                 continue
-
             if line.startswith('?'):
                 if num_of_questions != 0:
                     Quiz._add_question_to_quiz_data_dict(comment, num_of_answers, num_of_questions, question_answers,
@@ -374,6 +373,7 @@ class Quiz:
                 pass
             else:
                 raise QuizError(f'First character is not: ?+-=/  line#{i}; line={line}')
+            pass
 
         Quiz._add_question_to_quiz_data_dict(comment, num_of_answers, num_of_questions, question_answers, question_text,
                                              quiz_data_dict)
