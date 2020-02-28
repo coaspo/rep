@@ -406,18 +406,18 @@ class Quiz:
         return questions
 
     @staticmethod
-    def _create_answers(answers_dict: dict) -> List[MultipleChoiceAnswer]:
+    def _create_answers(answers_dict: dict) -> List[AbstractAnswer]:
         num_of_answers = answers_dict['num_of_answers']
         answers = []
-        if num_of_answers > 1:
-            for j in range(1, num_of_answers + 1):
-                key = 'answer' + str(j)
-                answer_dict = answers_dict[key]
-                text = answer_dict['answer']
+        for j in range(1, num_of_answers + 1):
+            key = 'answer' + str(j)
+            answer_dict = answers_dict[key]
+            text = answer_dict['answer']
+            if num_of_answers > 1:
                 is_correct = answer_dict['is_correct']
                 is_selected = answer_dict['is_selected']
                 answer = MultipleChoiceAnswer(text, is_correct, is_selected)
-                answers.append(answer)
-        else:
-            pass
+            else:
+                answer = FillAnswer(text, '')
+            answers.append(answer)
         return answers
