@@ -27,12 +27,11 @@ def test_create_multiple_choice_answers():
 
 
 def test_create_fill_in_answer():
-    answers_dict = {'answer1': {'is_correct': False,
-                                'is_selected': True,
-                                'answer': '4'},
+    answers_dict = {'answer1': {'correct_answer': '4'},
                     'comment': 'addition',
                     'num_of_answers': 1}
     answers = Quiz._create_answers(answers_dict)
     assert len(answers) == 1
     a1 = FillAnswer('4', '')
     assert answers[0] == a1
+

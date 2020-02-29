@@ -1,4 +1,4 @@
-from quz.quiz import MultipleChoiceAnswer, Quiz
+from quz.quiz import MultipleChoiceAnswer, Quiz, FillAnswer
 from quz.quiz import QuizQuestion
 from quz.util import set_logger
 from tests.t_util import recreate_tmp_dir
@@ -36,4 +36,28 @@ def test_create_questions():
     expected = QuizQuestion("1*2 = ?", None, [MultipleChoiceAnswer(" = 1", False, False),
                                               MultipleChoiceAnswer(" = 2", True, False),
                                               MultipleChoiceAnswer(" = 4", False, False)])
+    assert questions[1] == expected
+
+
+def test_create_fill_in_questions():
+    question1_answer = {'answer1': {'correct_answer': '5', 'answer': ''},
+                        'comment': 'addition',
+                        'num_of_answers': 1}
+    question2_answer = {'answer1': {'correct_answer': '2', 'answer': ''},
+                        'num_of_answers': 1}
+    quiz_data_dict = {'current_question_index': 0,
+                      'num_of_questions': 2,
+                      'marked_user_input': '?aaa/n+bbb/n-ccc...',
+                      'question1': 'What is 2+3',
+                      'question1_answers': question1_answer,
+                      'question2': '1*2 = ?',
+                      'question2_answers': question2_answer}
+
+    questions = Quiz._create_questions(quiz_data_dict)
+    assert len(questions) == 2
+
+    expected = QuizQuestion("What is 2+3", "addition", [FillAnswer("5", '')])
+    assert questions[0] == expected
+
+    expected = QuizQuestion("1*2 = ?", None, [FillAnswer("2", '')])
     assert questions[1] == expected

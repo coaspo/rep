@@ -95,11 +95,11 @@ class FillAnswer(AbstractAnswer):
         return not self.__eq__(other)
 
     def __repr__(self) -> str:
-        return f'FillAnswer("{self.answer}", {self.correct_answer})'
+        return f'FillAnswer("{self.correct_answer}", "{self.answer}")'
 
 
 class QuizQuestion:
-    def __init__(self, question: str, comment: str or None, answers: List[MultipleChoiceAnswer]):
+    def __init__(self, question: str, comment: str or None, answers: List[AbstractAnswer]):
         self._question = question
         self._comment = comment
         self._answers = answers
@@ -142,10 +142,10 @@ class QuizQuestion:
         return not self.__eq__(other)
 
     def __repr__(self) -> str:
-        text = self.comment
-        if text is not None:
-            text = '"' + text + '"'
-        return f'QuizQuestion("{self.question}", {text}, {self.answers})'
+        comment = self.comment
+        if comment is not None:
+            comment = '"' + comment + '"'
+        return f'QuizQuestion("{self.question}", {comment}, {self.answers})'
 
 
 class Quiz:
@@ -412,12 +412,13 @@ class Quiz:
         for j in range(1, num_of_answers + 1):
             key = 'answer' + str(j)
             answer_dict = answers_dict[key]
-            text = answer_dict['answer']
             if num_of_answers > 1:
+                text = answer_dict['answer']
                 is_correct = answer_dict['is_correct']
                 is_selected = answer_dict['is_selected']
                 answer = MultipleChoiceAnswer(text, is_correct, is_selected)
             else:
+                text = answer_dict['correct_answer']
                 answer = FillAnswer(text, '')
             answers.append(answer)
         return answers
