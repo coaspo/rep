@@ -1,4 +1,4 @@
-from quz.quiz import MultipleChoiceAnswer, Quiz, FillAnswer
+from quz.quiz import MultipleChoiceAnswer, Quiz, FillInAnswer
 from quz.util import set_logger
 from tests.t_util import recreate_tmp_dir
 
@@ -32,6 +32,6 @@ def test_create_fill_in_answer():
                     'num_of_answers': 1}
     answers = Quiz._create_answers(answers_dict)
     assert len(answers) == 1
-    a1 = FillAnswer('4', '')
+    a1 = FillInAnswer('4', '')
     assert answers[0] == a1
 

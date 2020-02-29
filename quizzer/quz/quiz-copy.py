@@ -58,7 +58,7 @@ class MultipleChoiceAnswer(AbstractAnswer):
         return f'MultipleChoiceAnswer("{self.answer}", {self.is_correct}, {self.is_selected})'
 
 
-class FillAnswer(AbstractAnswer):
+class FillInAnswer(AbstractAnswer):
     def __init__(self, correct_answer: str, answer: str):
         self._answer = answer.strip()
         self._correct_answer = correct_answer.strip()
@@ -95,7 +95,7 @@ class FillAnswer(AbstractAnswer):
         return not self.__eq__(other)
 
     def __repr__(self) -> str:
-        return f'FillAnswer("{self.answer}", {self.correct_answer})'
+        return f'FillInAnswer("{self.answer}", {self.correct_answer})'
 
 
 class QuizQuestion:
