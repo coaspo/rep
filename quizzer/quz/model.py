@@ -37,6 +37,9 @@ class Model:
     def status_msg(self) -> str:
         return self.status
 
+    def remove_quiz(self):
+        self._quiz = None
+
     def create_new_quiz(self, marked_user_input: str):
         self._quiz = Quiz(marked_user_input=marked_user_input)
         self.status = self._persistence.status

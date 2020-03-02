@@ -134,6 +134,7 @@ class QuizController(AbstractController):
 
     def _clear_entire_screen(self, _):
         self.view.clear_screen()
+        self.model.remove_quiz()
         self._update_status(Config.APP_INSTRUCTIONS)
 
     def _update_quiz(self, _):

@@ -180,10 +180,13 @@ class Quiz:
     def _find_questions_answered(self) -> List[bool]:
         is_question_answered = self._num_of_questions * [False]
         for i, question in enumerate(self._quiz_questions):
-            for answer in question.answers:
-                if answer.is_selected:
+            answers = question.answers
+            for answer in answers:
+                if len(answers) > 1 and answer.is_selected:
                     is_question_answered[i] = True
                     break
+                elif len(answers) == 1 and answer.answer == answer.correct_answer:
+                    is_question_answered[i] = True
         return is_question_answered
 
     def _find_questions_answered_correctly(self) -> List[bool]:
