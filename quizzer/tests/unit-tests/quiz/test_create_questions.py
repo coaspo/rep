@@ -71,6 +71,9 @@ def test_create_mixed_questions():
                          'answer2': {'is_correct': True, 'is_selected': False, 'answer': ' = 2'},
                          'answer3': {'is_correct': False, 'is_selected': False, 'answer': ' = 4'},
                          'num_of_answers': 3}
+    question3_answer = {'answer1': {'correct_answer': '5', 'answer': '5'},
+                        'comment': 'addition',
+                        'num_of_answers': 1}
     quiz_data_dict = {'current_question_index': 0,
                       'num_of_questions': 3,
                       'marked_user_input': '?aaa/n+bbb/n-ccc...',
@@ -79,7 +82,7 @@ def test_create_mixed_questions():
                       'question2': '1*2 = ?',
                       'question2_answers': question2_answers,
                       'question3': '2+3=',
-                      'question3_answers': question1_answer,
+                      'question3_answers': question3_answer,
                       }
 
     questions = Quiz._create_questions(quiz_data_dict)
@@ -90,7 +93,5 @@ def test_create_mixed_questions():
                                               MultipleChoiceAnswer(" = 4", False, False)])
     assert questions[1] == expected
 
-    expected = QuizQuestion("2+3=", "addition", [FillInAnswer("5", '')])
+    expected = QuizQuestion("2+3=", "addition", [FillInAnswer("5", '5')])
     assert questions[2] == expected
-
-

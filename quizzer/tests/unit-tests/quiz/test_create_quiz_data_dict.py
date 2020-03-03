@@ -1,5 +1,7 @@
 import pprint
+
 import pytest
+
 from quz.quiz import Quiz
 
 
@@ -57,7 +59,6 @@ def test_create_quiz_data_dict():
     expected_data_dict_lines = pprint.pformat(expected_data_dict).split('\n')
 
     for i, line in enumerate(data_dict_lines):
-        print(i, line)
         if i > len(expected_data_dict_lines) - 1:
             raise Exception(
                 f'Actual larger than expected.\nactual/expected:\n{data_dict_lines}{expected_data_dict_lines}')
@@ -65,6 +66,7 @@ def test_create_quiz_data_dict():
             pytest.fail(f'json lines #{i} not equal ' +
                         f'\nactual/expected lines:\n{line}\n{expected_data_dict_lines[i]}' +
                         f'\nactual/expected DICTs:\n{data_dict}\n{expected_data_dict}')
+
 
 def test_create_quiz_data_dict_with_fill_in():
     marked_user_input = '?What is 2+3\n' \
@@ -100,7 +102,6 @@ def test_create_quiz_data_dict_with_fill_in():
     expected_data_dict_lines = pprint.pformat(expected_data_dict).split('\n')
 
     for i, line in enumerate(data_dict_lines):
-        print(i, line)
         if i > len(expected_data_dict_lines) - 1:
             raise Exception(
                 f'Actual larger than expected.\nactual/expected:\n{data_dict_lines}{expected_data_dict_lines}')

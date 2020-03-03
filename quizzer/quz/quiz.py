@@ -2,6 +2,7 @@ import abc
 import logging
 from typing import List
 
+import quz
 from quz.util import Config
 
 
@@ -160,7 +161,6 @@ class Quiz:
             raise ValueError(f'marked_user_input and quiz_data_dict are both none')
         elif quiz_data_dict is not None and marked_user_input is not None:
             raise ValueError(f'marked_user_input or quiz_data_dict must be none')
-
         if quiz_data_dict is None:
             self._quiz_data_dict = Quiz._create_quiz_data_dict(marked_user_input)
         else:
@@ -248,8 +248,10 @@ class Quiz:
 
     def set_selected_answer(self, answer_index: int, is_selected: bool) -> None:
         answers = self.current_question().answers
-        answers[answer_index].is_selected = is_selected
+        if type(answers[answer_index]) is not quz.quiz.MultipleChoiceAnswer:
+            raise QuizError('invalid type in: ' + answers[answer_index])
 
+        answers[answer_index].is_selected = is_selected
         is_answered = False
         for answer in answers:
             if answer.is_selected:
@@ -258,6 +260,16 @@ class Quiz:
         self._are_questions_answered_correctly[
             self._current_question_index] = self.current_question().are_answers_correct()
         self._are_questions_answered[self._current_question_index] = is_answered
+
+    def set_fill_in_answer(self, answer: str) -> None:
+        if len(answer.strip()) == 0:
+            return
+        answers = self.current_question().answers
+        if len(answers) > 1:
+            raise QuizError('invalid type in answers=' + answers)
+        answers[0].answer = answer
+        self._are_questions_answered_correctly[self._current_question_index] = answer == answers[0].correct_answer
+        self._are_questions_answered[self._current_question_index] = True
 
     def is_any_question_answered(self) -> bool:
         return max(self._are_questions_answered)
@@ -297,9 +309,12 @@ class Quiz:
             data_dict[key_i] = quiz_question.question
             question_answers_dict = dict()
             for j in range(len(quiz_question.answers)):
-                answer: MultipleChoiceAnswer = quiz_question.answers[j]
-                answer_dict = {'answer': answer.answer, 'is_correct': answer.is_correct,
-                               'is_selected': answer.is_selected}
+                answer = quiz_question.answers[j]
+                if type(answer) == MultipleChoiceAnswer:
+                    answer_dict = {'answer': answer.answer, 'is_correct': answer.is_correct,
+                                   'is_selected': answer.is_selected}
+                else:
+                    answer_dict = {'correct_answer': answer.correct_answer, 'answer': answer.answer}
                 key_j = 'answer' + str(j + 1)
                 question_answers_dict[key_j] = answer_dict
             question_answers_dict['comment'] = quiz_question.comment
@@ -403,7 +418,9 @@ class Quiz:
             key2 = key + '_answers'
             answers_dict = _quiz_data_dict[key2]
             comment = answers_dict.get('comment')
+            print('*********1 ', answers_dict)
             answers = Quiz._create_answers(answers_dict)
+            print('*********2 ', answers)
             quiz_question = QuizQuestion(question_text, comment, answers)
             questions.append(quiz_question)
         return questions
@@ -422,6 +439,7 @@ class Quiz:
                 answer = MultipleChoiceAnswer(text, is_correct, is_selected)
             else:
                 text = answer_dict['correct_answer']
-                answer = FillInAnswer(text, '')
+                text_typed = answer_dict['answer']
+                answer = FillInAnswer(text, text_typed)
             answers.append(answer)
         return answers

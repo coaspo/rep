@@ -99,9 +99,9 @@ class AbstractController:
                         label_bg = '#cfc'
                 answer_txt = tkinter.StringVar()
                 answer_txt.set(answer.answer)
-                entry = tkinter.Entry(self.view.question_area, textvariable=answer_txt, bg=bg)
+                entry = tkinter.Entry(self.view.question_area, textvariable=answer_txt)  # , bg=bg)
                 entry.grid(row=2 * i + 1, column=0, sticky=tkinter.W, pady=2)
-                label = tkinter.Label(self.view.question_area, text=answer.correct_anser, bg=label_bg, fg=label_fg)
+                label = tkinter.Label(self.view.question_area, text=answer.correct_anser)  # , bg=label_bg, fg=label_fg)
                 label.grid(row=2 * i + 2, column=0, sticky=tkinter.W, pady=2)
                 self.view.answer_check_buttons.append((answer_txt, (entry, label)))
 
