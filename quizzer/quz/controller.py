@@ -91,18 +91,18 @@ class AbstractController:
                 label_fg = 'white'
                 label_bg = 'white'
                 if self.model.quiz.are_all_questions_answered():
-                    if answer.is_correct:
+                    if answer.is_answered_correctly:
                         bg = '#cfc'
-                    elif not answer.is_correct and answer.is_ansered:
+                    elif not answer.is_answered_correctly and answer.is_ansered:
                         bg = '#fdd'
                         label_fg = 'black'
                         label_bg = '#cfc'
                 answer_txt = tkinter.StringVar()
                 answer_txt.set(answer.answer)
-                entry = tkinter.Entry(self.view.question_area, textvariable=answer_txt)  # , bg=bg)
-                entry.grid(row=2 * i + 1, column=0, sticky=tkinter.W, pady=2)
-                label = tkinter.Label(self.view.question_area, text=answer.correct_anser)  # , bg=label_bg, fg=label_fg)
-                label.grid(row=2 * i + 2, column=0, sticky=tkinter.W, pady=2)
+                entry = tkinter.Entry(self.view.question_area, textvariable=answer_txt, bg=bg)
+                entry.grid(row=2 * i + 1, column=0, sticky=tkinter.W, padx=10, pady=2)
+                label = tkinter.Label(self.view.question_area, text=answer.correct_answer, bg=label_bg, fg=label_fg)
+                label.grid(row=2 * i + 2, column=0, sticky=tkinter.W, padx=10, pady=2)
                 self.view.answer_check_buttons.append((answer_txt, (entry, label)))
 
     @staticmethod
@@ -245,8 +245,12 @@ class QuizQuestionController(AbstractController):
     def _submit_question_answer(self, _):
         if self.view.submit_bt['state'] != 'disabled':
             try:
-                for i, (is_selected, _) in enumerate(self.view.answer_check_buttons):
-                    self.model.quiz.set_selected_answer(i, is_selected.get())
+                for i, (value, obj) in enumerate(self.view.answer_check_buttons):
+                    # (value, obj)  is either (is_selected, chk_bt)  or  (answer_txt, (entry, label))
+                    if type(obj) == tkinter.Checkbutton:
+                        self.model.quiz.set_selected_answer(i, value.get())
+                    else:
+                        self.model.quiz.set_fill_in_answer(value.get())
                 self.model.quiz.next_question()
                 self._populate_quiz_widgets()
             except Exception as e:

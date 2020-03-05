@@ -418,9 +418,7 @@ class Quiz:
             key2 = key + '_answers'
             answers_dict = _quiz_data_dict[key2]
             comment = answers_dict.get('comment')
-            print('*********1 ', answers_dict)
             answers = Quiz._create_answers(answers_dict)
-            print('*********2 ', answers)
             quiz_question = QuizQuestion(question_text, comment, answers)
             questions.append(quiz_question)
         return questions
