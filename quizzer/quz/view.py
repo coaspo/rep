@@ -144,7 +144,7 @@ class View:
         frame.pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
 
     def _init_question_frame(self):
-        self._question_label = tkinter.Label(self._question_area, fg="blue", bg='white', width=90, justify=tkinter.LEFT)
+        self._question_label = tkinter.Label(self._question_area, fg="blue", bg='white', width=90, justify=tkinter.LEFT, anchor="w")
         self._question_label.grid(row=0, column=0, padx=10, pady=10, sticky=(tkinter.N, tkinter.S, tkinter.E))
         self._question_comment_label = tkinter.Label(self._question_area, fg="blue", bg='white')
         self._question_comment_label.place(x=25, y=370, width=240, height=25, anchor=tkinter.E)
