@@ -101,6 +101,12 @@ class JsonFileStorage:
             None,
             self._save_dir)
 
+    def delete_file(self) -> str:
+        if len(self._files_paths) == 1:
+            raise Exception("Cannot delete last file. ")
+        os.remove(self._files_paths[self._active_file_index])
+        self._active_file_index -= 1
+
     def save_file(self, data_dict: dict) -> str:
         file_num = self._latest_file_number + 1
         file_index = self._active_file_index + 1
@@ -193,6 +199,10 @@ class AbstractPersistence(metaclass=abc.ABCMeta):
         pass
 
     @abc.abstractmethod
+    def delete(self, data_dict: dict) -> (str, str):
+        pass
+
+    @abc.abstractmethod
     def topics(self) -> str:
         pass
 
@@ -263,6 +273,12 @@ class FilePersistence(AbstractPersistence):
         FilePersistence._validate_file_storage()
         self._file_storage.update_file(data_dict)
         self._status = 'Updated quiz file: ' + self._file_storage.file_path
+
+    def delete(self):
+        FilePersistence._validate_file_storage()
+        file_path = self._file_storage.file_path
+        self._file_storage.delete_file()
+        self._status = 'Deleted quiz file: ' + file_path
 
     def save_latest_file_name(self) -> str or None:
         file_path = self._file_storage.save_dir + "/latest_work.json"

@@ -20,12 +20,8 @@ class View:
         return self._clear_bt
 
     @property
-    def input_marked_text_area(self) -> tkinter.scrolledtext.ScrolledText:
-        return self._input_marked_text_area
-
-    @property
-    def next_question_bt(self) -> tkinter.Button:
-        return self._next_question_bt
+    def add_quiz_bt(self) -> tkinter.Button:
+        return self._add_quiz_bt
 
     @property
     def next_quiz_bt(self) -> tkinter.Button:
@@ -40,8 +36,24 @@ class View:
         return self._previous_question_bt
 
     @property
+    def reload_quiz_bt(self) -> tkinter.Button:
+        return self._reload_quiz_bt
+
+    @property
+    def delete_quiz_bt(self) -> tkinter.Button:
+        return self._delete_quiz_bt
+
+    @property
+    def input_marked_text_area(self) -> tkinter.scrolledtext.ScrolledText:
+        return self._input_marked_text_area
+
+    @property
     def question_area(self):
         return self._question_area
+
+    @property
+    def next_question_bt(self) -> tkinter.Button:
+        return self._next_question_bt
 
     @property
     def question_comment_label(self) -> tkinter.Label:
@@ -114,12 +126,18 @@ class View:
         spacer_label.pack(side=tkinter.LEFT, padx=10)
 
     def _init_persistence_menu(self, frame, frame_color):
-        saved_label = tkinter.Label(frame, text="                          Saved quizzes:", bg=frame_color)
+        self._add_quiz_bt = tkinter.Button(frame, text=u'\u2795', height=1)
+        self._add_quiz_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
+        saved_label = tkinter.Label(frame, text="    Saved quizzes:", bg=frame_color)
         saved_label.pack(side=tkinter.LEFT, padx=2, pady=2)
-        self._previous_quiz_bt = tkinter.Button(frame, text=u' \u25C4 ', height=1)
+        self._previous_quiz_bt = tkinter.Button(frame, text=u'  \u2bc7  ', height=1)
         self._previous_quiz_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
-        self._next_quiz_bt = tkinter.Button(frame, text=u' \u25BA  ', height=1)
+        self._next_quiz_bt = tkinter.Button(frame, text=u'  \u2bc8   ', height=1)
         self._next_quiz_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
+        self._reload_quiz_bt = tkinter.Button(frame, text=u'  \u2b6e  ', height=1)
+        self._reload_quiz_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
+        self._delete_quiz_bt = tkinter.Button(frame, text=u'\u274C ', height=1)
+        self._delete_quiz_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
 
         self._quiz_description_label = tkinter.Label(frame, text="", anchor='w', bg=frame_color)
         self._quiz_description_label.config(width=50)
@@ -144,16 +162,17 @@ class View:
         frame.pack(side=tkinter.TOP, fill=tkinter.BOTH, expand=1)
 
     def _init_question_frame(self):
-        self._question_label = tkinter.Label(self._question_area, fg="blue", bg='white', width=90, justify=tkinter.LEFT, anchor="w")
+        self._question_label = tkinter.Label(self._question_area, fg="blue", bg='white', width=90, justify=tkinter.LEFT,
+                                             anchor="w")
         self._question_label.grid(row=0, column=0, padx=10, pady=10, sticky=(tkinter.N, tkinter.S, tkinter.E))
         self._question_comment_label = tkinter.Label(self._question_area, fg="blue", bg='white')
         self._question_comment_label.place(x=25, y=370, width=240, height=25, anchor=tkinter.E)
 
         self._submit_bt = tkinter.Button(self._question_area, text="  Submit  ", state=DISABLED)
         self._submit_bt.place(x=20, y=330, width=100, height=25)
-        self._previous_question_bt = tkinter.Button(self._question_area, text=u' \u25C4 ', height=1, state=DISABLED)
+        self._previous_question_bt = tkinter.Button(self._question_area, text=u' \u2bc7 ', height=1, state=DISABLED)
         self._previous_question_bt.place(x=160, y=330, width=40, height=25)
-        self._next_question_bt = tkinter.Button(self._question_area, text=u' \u25BA  ', height=1, state=DISABLED)
+        self._next_question_bt = tkinter.Button(self._question_area, text=u' \u2bc8  ', height=1, state=DISABLED)
         self._next_question_bt.place(x=210, y=330, width=40, height=25)
         self._question_count_n_score = tkinter.Label(self._question_area, fg="blue", bg='white', width=150, text='aaaa')
         self._question_count_n_score.place(x=280, y=330, width=150, height=25)
