@@ -128,20 +128,21 @@ class View:
     def _init_persistence_menu(self, frame, frame_color):
         self._add_quiz_bt = tkinter.Button(frame, text=u'\u2795', height=1)
         self._add_quiz_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
+
         saved_label = tkinter.Label(frame, text="    Saved quizzes:", bg=frame_color)
         saved_label.pack(side=tkinter.LEFT, padx=2, pady=2)
         self._previous_quiz_bt = tkinter.Button(frame, text=u'  \u2bc7  ', height=1)
         self._previous_quiz_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
         self._next_quiz_bt = tkinter.Button(frame, text=u'  \u2bc8   ', height=1)
         self._next_quiz_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
+        self._quiz_description_label = tkinter.Label(frame, text="", anchor='w', bg=frame_color)
+        self._quiz_description_label.config(width=50)
+        self._quiz_description_label.pack(side=tkinter.LEFT, padx=2, pady=2)
+
         self._reload_quiz_bt = tkinter.Button(frame, text=u'  \u2b6e  ', height=1)
         self._reload_quiz_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
         self._delete_quiz_bt = tkinter.Button(frame, text=u'\u274C ', height=1)
         self._delete_quiz_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
-
-        self._quiz_description_label = tkinter.Label(frame, text="", anchor='w', bg=frame_color)
-        self._quiz_description_label.config(width=50)
-        self._quiz_description_label.pack(side=tkinter.LEFT, padx=2, pady=2)
 
         help_label = tkinter.Label(frame, text="Help", fg="blue", bg=frame_color, cursor="hand2")
         font = tkinter.font.Font(help_label, help_label.cget("font"))

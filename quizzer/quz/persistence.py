@@ -12,6 +12,10 @@ from typing import Dict, List
 log = logging.getLogger(__name__)
 
 
+class InvalidOperation(Exception):
+    pass
+
+
 class JsonFileStorage:
     def __init__(self, save_dir: str, file_pfx: str, latest_file_name: str or None):
         self._active_file_index: int
@@ -103,8 +107,10 @@ class JsonFileStorage:
 
     def delete_file(self) -> str:
         if len(self._files_paths) == 1:
-            raise Exception("Cannot delete last file. ")
-        os.remove(self._files_paths[self._active_file_index])
+            raise Exception("Cannot delete last file.")
+        file_path = self._files_paths[self._active_file_index]
+        os.remove(file_path)
+        self._files_paths.remove(file_path)
         self._active_file_index -= 1
 
     def save_file(self, data_dict: dict) -> str:
@@ -277,8 +283,11 @@ class FilePersistence(AbstractPersistence):
     def delete(self):
         FilePersistence._validate_file_storage()
         file_path = self._file_storage.file_path
-        self._file_storage.delete_file()
-        self._status = 'Deleted quiz file: ' + file_path
+        try:
+            self._file_storage.delete_file()
+            self._status = 'Deleted quiz file: ' + file_path
+        except InvalidOperation as e:
+            self._status = str(e)
 
     def save_latest_file_name(self) -> str or None:
         file_path = self._file_storage.save_dir + "/latest_work.json"

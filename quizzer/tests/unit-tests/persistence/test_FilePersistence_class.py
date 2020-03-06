@@ -1,3 +1,7 @@
+import os
+
+import pytest
+
 import quz.model
 import tests.t_util
 from quz.persistence import FilePersistence
@@ -79,3 +83,21 @@ def test_update():
     assert 'quiz.2.json' in persistence.status
     assert '2/2  quiz.2' in persistence.description
     assert quiz == quiz_new
+
+
+def test_delete():
+    persistence = FilePersistence(TMP_DIR)
+    quiz = persistence.get(_create_fake_domain_object)
+    assert persistence.topics == ['quiz']
+    assert quiz == {'real?..ques..': 'A'}
+    assert len(os.listdir(TMP_DIR)) == 3
+
+    persistence.delete()
+    assert len(os.listdir(TMP_DIR)) == 2
+    assert persistence.status.startswith('Deleted quiz file:')
+
+    quiz = persistence.get(_create_fake_domain_object)
+    assert persistence.status.startswith('Read quiz file:')
+    assert quiz == {'fake..ques..': 'a'}
+    with pytest.raises(Exception, match="Cannot delete last file."):
+        persistence.delete()

@@ -90,7 +90,7 @@ def test_file_name():
     assert len(storage._files_paths) == 3
 
 
-def test_save_quiz():
+def test_save_file():
     marked_user_input = '?What is 2+3\n-is 4\n+is 5\n\n=addition\n\n' \
                         '?1*2 = ?\n- = 1\n+ = 2\n- = 4\n\n'
     quiz = Quiz(marked_user_input=marked_user_input)
@@ -98,3 +98,18 @@ def test_save_quiz():
     storage = JsonFileStorage(TMP_DIR, 'quizCat1', None)
     status_msg = storage.save_file(quiz.get_data_dict())
     assert 'quizCat1' in status_msg
+
+
+def test_delete_file():
+    storage = JsonFileStorage(TMP_DIR, 'quizCat1', None)
+    assert storage._active_file_index == 3
+    assert storage._latest_file_number == 5
+    storage.delete_file()
+    assert storage._active_file_index == 2
+    storage.delete_file()
+    assert storage._active_file_index == 1
+    storage.delete_file()
+    assert storage._active_file_index == 0
+    with pytest.raises(Exception, match="Cannot delete last file."):
+        storage.delete_file()
+    assert storage._latest_file_number == 5
