@@ -141,7 +141,6 @@ class View:
         self._quiz_description_label.config(width=50)
         self._quiz_description_label.pack(side=tkinter.LEFT, padx=2, pady=2)
 
-
         help_label = tkinter.Label(frame, text="Help", fg="blue", bg=frame_color, cursor="hand2")
         font = tkinter.font.Font(help_label, help_label.cget("font"))
         font.configure(underline=True)
@@ -164,11 +163,12 @@ class View:
         self._question_label = tkinter.Label(self._question_area, fg="blue", bg='white', width=90, justify=tkinter.LEFT,
                                              anchor="w")
         self._question_label.grid(row=0, column=0, padx=10, pady=10, sticky=(tkinter.N, tkinter.S, tkinter.E))
-        self._question_comment_label = tkinter.Label(self._question_area, fg="blue", bg='white')
-        self._question_comment_label.place(x=25, y=370, width=240, height=25, anchor=tkinter.E)
+        self._question_comment_label = tkinter.Label(self._question_area, fg="blue", bg='white', anchor=tkinter.W,
+                                                     justify=tkinter.LEFT)
+        self._question_comment_label.place(x=10, y=300, width=500, height=25)
 
         self._submit_bt = tkinter.Button(self._question_area, text="  Submit  ", state=DISABLED)
-        self._submit_bt.place(x=20, y=330, width=100, height=25)
+        self._submit_bt.place(x=5, y=330, width=100, height=25)
         self._previous_question_bt = tkinter.Button(self._question_area, text=u' \u2bc7 ', height=1, state=DISABLED)
         self._previous_question_bt.place(x=160, y=330, width=40, height=25)
         self._next_question_bt = tkinter.Button(self._question_area, text=u' \u2bc8  ', height=1, state=DISABLED)
