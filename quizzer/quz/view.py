@@ -167,7 +167,7 @@ class View:
                                                      justify=tkinter.LEFT)
         self._question_comment_label.place(x=10, y=300, width=500, height=25)
 
-        self._submit_bt = tkinter.Button(self._question_area, text="  Submit  ", state=DISABLED)
+        self._submit_bt = tkinter.Button(self._question_area, text="  Submit  ", state=tkinter.DISABLED)
         self._submit_bt.place(x=5, y=330, width=100, height=25)
         self._previous_question_bt = tkinter.Button(self._question_area, text=u' \u2bc7 ', height=1, state=DISABLED)
         self._previous_question_bt.place(x=160, y=330, width=40, height=25)
@@ -188,6 +188,7 @@ class View:
         self.root.destroy()
 
     def clear_screen(self):
+        self.add_quiz_bt['state'] = 'normal'
         self.input_marked_text_area.delete('1.0', tkinter.END)
         self.input_marked_text_area.insert(tkinter.END, '')
         self.quiz_description_label['text'] = ''

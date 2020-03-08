@@ -42,7 +42,7 @@ def test_enter_marked_text():
                                               '- = 1\n'
                                               '+ = 2\n'
                                               '- = 4\n\n')
-    c._indicate_possible_update('fake-mouse-leave-event')
+    c._create_quiz('fake-<Button-1>-event')
     assert v.status_label.cget('text').startswith('Saved quiz file')
     assert v.quiz_description_label.cget('text').startswith('1/1  quiz.1.json')
     assert 'What is 2+3' == v.question_label.cget('text')
