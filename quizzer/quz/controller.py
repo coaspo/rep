@@ -213,8 +213,38 @@ class QuizController(AbstractController):
         except Exception as e:
             self.handle_exception('Unexpected err', e)
 
+    def _create_quiz(self, _):
+        marked_user_input = self.view.input_marked_text_area.get("1.0", tkinter.END).strip()
+        self.model.create_new_quiz(marked_user_input)
+        topic = self.view.quiz_topics.get().strip()
+        self.model.save_quiz(topic)
+        self._populate_quiz_widgets()
+
+    def _delete_quiz(self, _):
+        try:
+            is_to_delete = messagebox.askyesno(title="Verify quiz delete",
+                                               message=f"Are you sure you want to delete quiz:\n"
+                                                       f"{self.model.quiz_description}",
+                                               default=messagebox.NO, parent=self.view.root)
+            if is_to_delete:
+                self.model.delete_quiz()
+                self._populate_quiz_widgets()
+        except Exception as e:
+            self.handle_exception('Unexpected err', e)
+
+    def _update_quiz(self, _):
+        try:
+            marked_user_input = self.view.input_marked_text_area.get("1.0", tkinter.END).strip()
+            self.model.update_quiz(marked_user_input)
+            self._populate_quiz_widgets()
+        except Exception as e:
+            self.handle_exception('Unexpected err', e)
+
     def bind_controls(self):
         self.view.clear_bt.bind("<Button-1>", self._clear_entire_screen)
+        self.view.add_quiz_bt.bind("<Button-1>", self._create_quiz)
+        self.view.reload_quiz_bt.bind("<Button-1>", self._update_quiz)
+        self.view.delete_quiz_bt.bind("<Button-1>", self._delete_quiz)
         self.view.input_marked_text_area.bind("<Leave>", self._indicate_possible_update)
         self.view.quiz_topics.bind("<<ComboboxSelected>>", self._reset_quiz_topic)
         self.view.root.protocol("WM_DELETE_WINDOW", self._on_close_window)
