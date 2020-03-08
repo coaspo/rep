@@ -20,7 +20,7 @@ def test_missing_marked_text():
     assert v1.status_label.cget('text') == '<UI instructions>'
     c1 = QuizController(v1, m1)
     v1.input_marked_text_area.insert('insert', 'aaaa')
-    c1._update_quiz(1)
+    c1._indicate_possible_update(1)
     assert Config.MARKED_TEXT_ERR == v1.status_label.cget('text')
 
 
@@ -42,7 +42,7 @@ def test_enter_marked_text():
                                               '- = 1\n'
                                               '+ = 2\n'
                                               '- = 4\n\n')
-    c._update_quiz('fake-mouse-leave-event')
+    c._indicate_possible_update('fake-mouse-leave-event')
     assert v.status_label.cget('text').startswith('Saved quiz file')
     assert v.quiz_description_label.cget('text').startswith('1/1  quiz.1.json')
     assert 'What is 2+3' == v.question_label.cget('text')

@@ -137,7 +137,7 @@ class QuizController(AbstractController):
         self.model.remove_quiz()
         self._update_status(Config.APP_INSTRUCTIONS)
 
-    def _update_quiz(self, _):
+    def _indicate_possible_update(self, _):
         try:
             topic = self.view.quiz_topics.get().strip()
             if len(topic) == 0:
@@ -215,7 +215,7 @@ class QuizController(AbstractController):
 
     def bind_controls(self):
         self.view.clear_bt.bind("<Button-1>", self._clear_entire_screen)
-        self.view.input_marked_text_area.bind("<Leave>", self._update_quiz)
+        self.view.input_marked_text_area.bind("<Leave>", self._indicate_possible_update)
         self.view.quiz_topics.bind("<<ComboboxSelected>>", self._reset_quiz_topic)
         self.view.root.protocol("WM_DELETE_WINDOW", self._on_close_window)
         self.view.next_quiz_bt.bind("<Button-1>", self._next_quiz)
