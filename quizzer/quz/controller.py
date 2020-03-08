@@ -213,7 +213,7 @@ class QuizController(AbstractController):
         except Exception as e:
             self.handle_exception('Unexpected err', e)
 
-    def _create_quiz(self, _):
+    def _add_new_quiz(self, _):
         marked_user_input = self.view.input_marked_text_area.get("1.0", tkinter.END).strip()
         self.model.create_new_quiz(marked_user_input)
         topic = self.view.quiz_topics.get().strip()
@@ -232,7 +232,7 @@ class QuizController(AbstractController):
         except Exception as e:
             self.handle_exception('Unexpected err', e)
 
-    def _update_quiz(self, _):
+    def _update_and_reset_quiz(self, _):
         try:
             marked_user_input = self.view.input_marked_text_area.get("1.0", tkinter.END).strip()
             self.model.update_quiz(marked_user_input)
@@ -242,8 +242,8 @@ class QuizController(AbstractController):
 
     def bind_controls(self):
         self.view.clear_bt.bind("<Button-1>", self._clear_entire_screen)
-        self.view.add_quiz_bt.bind("<Button-1>", self._create_quiz)
-        self.view.reload_quiz_bt.bind("<Button-1>", self._update_quiz)
+        self.view.add_new_quiz_bt.bind("<Button-1>", self._add_new_quiz)
+        self.view.update_and_reset_quiz_bt.bind("<Button-1>", self._update_and_reset_quiz)
         self.view.delete_quiz_bt.bind("<Button-1>", self._delete_quiz)
         self.view.input_marked_text_area.bind("<Leave>", self._indicate_possible_update)
         self.view.quiz_topics.bind("<<ComboboxSelected>>", self._reset_quiz_topic)

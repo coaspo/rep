@@ -31,7 +31,7 @@ def test_next_quiz():
                                               '- = 1\n'
                                               '- = 4\n'
                                               '+ = 2\n\n')
-    c._create_quiz('fake-<Button-1>-event')
+    c._add_new_quiz('fake-<Button-1>-event')
     assert v.status_label.cget('text').startswith('Saved quiz file')
     assert v.question_count_n_score.cget('text') == '1/2'
 

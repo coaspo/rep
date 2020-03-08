@@ -26,7 +26,7 @@ def test_next_quiz():
                                               '- = 1\n'
                                               '+ = 2\n'
                                               '- = 4\n\n')
-    c._create_quiz('fake-<Button-1>-event')
+    c._add_new_quiz('fake-<Button-1>-event')
     print(v.status_label.cget('text'))
     assert v.status_label.cget('text').startswith('Saved quiz file')
     assert v.quiz_description_label.cget('text').startswith('1/1  quiz.1.json')

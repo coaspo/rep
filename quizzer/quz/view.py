@@ -20,7 +20,7 @@ class View:
         return self._clear_bt
 
     @property
-    def add_quiz_bt(self) -> tkinter.Button:
+    def add_new_quiz_bt(self) -> tkinter.Button:
         return self._add_quiz_bt
 
     @property
@@ -36,7 +36,7 @@ class View:
         return self._previous_question_bt
 
     @property
-    def reload_quiz_bt(self) -> tkinter.Button:
+    def update_and_reset_quiz_bt(self) -> tkinter.Button:
         return self._reload_quiz_bt
 
     @property
@@ -188,7 +188,7 @@ class View:
         self.root.destroy()
 
     def clear_screen(self):
-        self.add_quiz_bt['state'] = 'normal'
+        self.add_new_quiz_bt['state'] = 'normal'
         self.input_marked_text_area.delete('1.0', tkinter.END)
         self.input_marked_text_area.insert(tkinter.END, '')
         self.quiz_description_label['text'] = ''
