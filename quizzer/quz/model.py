@@ -44,11 +44,11 @@ class Model:
         self._quiz = Quiz(marked_user_input=marked_user_input)
         self._status = self._persistence.status
 
-    def set_to_next_quiz(self) -> (str, str, Quiz):
+    def set_to_next_quiz(self):
         self._quiz = self._persistence.get_next(_create_quiz_object)
         self._status = self._persistence.status
 
-    def set_to_previous_quiz(self) -> (str, str, Quiz):
+    def set_to_previous_quiz(self):
         self._quiz = self._persistence.get_previous(_create_quiz_object)
         self._status = self._persistence.status
 
@@ -57,7 +57,7 @@ class Model:
         self._status = self._persistence.status
         return self._quiz
 
-    def reset_quiz_topic(self, quiz_topic: str) -> (str, str, Quiz):
+    def reset_quiz_topic(self, quiz_topic: str):
         self._persistence.reset(quiz_topic)
         self._quiz = self._persistence.get_previous(_create_quiz_object)
         self._status = self._persistence.status
@@ -72,8 +72,7 @@ class Model:
         self.get_quiz()
         self._status = delete_status + '  ' + self._status
 
-    def update_quiz(self, marked_user_input: str = None):
-        if marked_user_input is not None:
-            self._quiz = Quiz(marked_user_input=marked_user_input)
+    def reset_quiz(self, marked_user_input: str = None):
+        self._quiz = Quiz(marked_user_input=marked_user_input)
         self._persistence.update(self._quiz.get_data_dict())
         self._status = self._persistence.status

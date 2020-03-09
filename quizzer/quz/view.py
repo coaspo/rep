@@ -36,7 +36,7 @@ class View:
         return self._previous_question_bt
 
     @property
-    def update_and_reset_quiz_bt(self) -> tkinter.Button:
+    def reset_quiz_bt(self) -> tkinter.Button:
         return self._reload_quiz_bt
 
     @property

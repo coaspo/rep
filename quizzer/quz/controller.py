@@ -153,7 +153,8 @@ class QuizController(AbstractController):
                     self._update_status(f"Original/current marked text are {n_original}/{n_current} characters long."
                                         "Original quiz can be updated on closing the APP.")
                 else:
-                    self.model.update_quiz(marked_user_input)
+                    self.model.reset_quiz(marked_user_input)
+            # self.model.save_quiz(topic)
         except Exception as e:
             self._update_status(str(e), True)
             if str(e) != Config.MARKED_TEXT_ERR:
@@ -189,9 +190,9 @@ class QuizController(AbstractController):
                                                          "This ERASES any entered answers.",
                                                  default=messagebox.NO, parent=self.view.root)
             if is_to_recreate:
-                self.model.update_quiz(marked_user_input)
+                self.model.reset_quiz(marked_user_input)
         else:
-            self.model.update_quiz()
+            self.model.reset_quiz()
         self.view.stop()
 
     def _reset_quiz_topic(self, _):
@@ -232,18 +233,24 @@ class QuizController(AbstractController):
         except Exception as e:
             self.handle_exception('Unexpected err', e)
 
-    def _update_and_reset_quiz(self, _):
-        try:
-            marked_user_input = self.view.input_marked_text_area.get("1.0", tkinter.END).strip()
-            self.model.update_quiz(marked_user_input)
-            self._populate_quiz_widgets()
-        except Exception as e:
-            self.handle_exception('Unexpected err', e)
+    def _reset_quiz(self, _):
+        is_to_reset = messagebox.askyesno(title="Verify quiz update/rest",
+                                          message="Reset will save a new quiz from the mark-up text,\n"
+                                                  "Any answers are removed. Quiz:\n"
+                                                  f"{self.model.quiz_description}",
+                                          default=messagebox.NO, parent=self.view.root)
+        if is_to_reset:
+            try:
+                marked_user_input = self.view.input_marked_text_area.get("1.0", tkinter.END).strip()
+                self.model.reset_quiz(marked_user_input)
+                self._populate_quiz_widgets()
+            except Exception as e:
+                self.handle_exception('Unexpected err', e)
 
     def bind_controls(self):
         self.view.clear_bt.bind("<Button-1>", self._clear_entire_screen)
         self.view.add_new_quiz_bt.bind("<Button-1>", self._add_new_quiz)
-        self.view.update_and_reset_quiz_bt.bind("<Button-1>", self._update_and_reset_quiz)
+        self.view.reset_quiz_bt.bind("<Button-1>", self._reset_quiz)
         self.view.delete_quiz_bt.bind("<Button-1>", self._delete_quiz)
         self.view.input_marked_text_area.bind("<Leave>", self._indicate_possible_update)
         self.view.quiz_topics.bind("<<ComboboxSelected>>", self._reset_quiz_topic)
