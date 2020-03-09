@@ -1,5 +1,7 @@
 import tkinter
 
+import pytest
+
 from quz.controller import QuizController
 from quz.model import Model
 from quz.util import set_logger
@@ -10,13 +12,8 @@ TMP_DIR = recreate_tmp_dir(__file__)
 CONFIG = {'LOG_DIR': TMP_DIR, 'LOG_LEVEL': 'CRITICAL'}
 set_logger(CONFIG)
 
-m: Model
-v: View
-c: QuizController
-
 
 def test_add_quiz():
-    global m, v, c
     m = Model(TMP_DIR)
     v = View(m.latest_quiz_topic, m.quiz_topics, 'fake instructions')
     c = QuizController(v, m)
@@ -47,7 +44,6 @@ def test_add_quiz():
 
 
 def test_delete_quiz():
-    global m, v, c
     m = Model(TMP_DIR)
     v = View(m.latest_quiz_topic, m.quiz_topics, 'fake instructions')
     c = QuizController(v, m)
@@ -63,3 +59,6 @@ def test_delete_quiz():
     assert v.quiz_description_label.cget('text').startswith('1/1  quiz.1.json')
     assert 'What is 2+3' == v.question_label.cget('text')
     assert 'addition' == v.question_comment_label.cget('text')
+
+    with pytest.raises(Exception, match="Cannot delete last file."):
+        c.model.delete_quiz()
