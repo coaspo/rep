@@ -144,17 +144,12 @@ class QuizController(AbstractController):
                 raise QuizError('Topic drop down is empty')
             self._update_combo_box_topics(topic)
             marked_user_input = self.view.input_marked_text_area.get("1.0", tkinter.END).strip()
-            if self.model.quiz is None:
-                self._create_new_quiz(marked_user_input)
-            elif marked_user_input != self.model.quiz.marked_user_input:
+            if self.model.quiz is not None and self.model.quiz.marked_user_input != marked_user_input:
                 if self.model.quiz.is_any_question_answered():
                     n_original = len(self.model.quiz.marked_user_input)
                     n_current = len(marked_user_input)
                     self._update_status(f"Original/current marked text are {n_original}/{n_current} characters long."
-                                        "Original quiz can be updated on closing the APP.")
-                else:
-                    self.model.reset_quiz(marked_user_input)
-            # self.model.save_quiz(topic)
+                                        "Click circle button to reset/update or wait for prompt on closing the APP.")
         except Exception as e:
             self._update_status(str(e), True)
             if str(e) != Config.MARKED_TEXT_ERR:
@@ -179,20 +174,21 @@ class QuizController(AbstractController):
             self.view.quiz_topics['values'] = combo_values
 
     def _on_close_window(self):
-        marked_user_input = self.view.input_marked_text_area.get("1.0", tkinter.END).strip()
-        n_original = len(self.model.quiz.marked_user_input)
-        n_current = len(marked_user_input)
-        if n_original != n_current:
-            is_to_recreate = messagebox.askyesno(title="Quiz inconsistency",
-                                                 message=f"Original/current marked text are {n_original}/{n_current}"
-                                                         "characters long.\n\n"
-                                                         "Would you like to update the quiz with the new mark-up?\n"
-                                                         "This ERASES any entered answers.",
-                                                 default=messagebox.NO, parent=self.view.root)
-            if is_to_recreate:
-                self.model.reset_quiz(marked_user_input)
-        else:
-            self.model.reset_quiz()
+        if self.model.quiz is not None:
+            marked_user_input = self.view.input_marked_text_area.get("1.0", tkinter.END).strip()
+            n_original = len(self.model.quiz.marked_user_input)
+            n_current = len(marked_user_input)
+            if n_original != n_current:
+                is_to_recreate = messagebox.askyesno(title="Quiz inconsistency",
+                                                     message=f"Original/current marked text ia {n_original}/{n_current}"
+                                                             "characters long.\n\n"
+                                                             "Would you like to update the quiz with the new mark-up?\n"
+                                                             "This ERASES any entered answers.",
+                                                     default=messagebox.NO, parent=self.view.root)
+                if is_to_recreate:
+                    self.model.reset_quiz(marked_user_input)
+            else:
+                self.model.reset_quiz()
         self.view.stop()
 
     def _reset_quiz_topic(self, _):
@@ -215,23 +211,27 @@ class QuizController(AbstractController):
             self.handle_exception('Unexpected err', e)
 
     def _add_new_quiz(self, _):
-        marked_user_input = self.view.input_marked_text_area.get("1.0", tkinter.END).strip()
-        self.model.create_new_quiz(marked_user_input)
         topic = self.view.quiz_topics.get().strip()
-        self.model.save_quiz(topic)
-        self._populate_quiz_widgets()
+        marked_user_input = self.view.input_marked_text_area.get("1.0", tkinter.END).strip()
+        try:
+            self.model.create_new_quiz(marked_user_input)
+            self.model.save_quiz(topic)
+            self._populate_quiz_widgets()
+        except QuizError as e:
+            self.view.status_label['text'] = str(e) + '  ' + Config.APP_INSTRUCTIONS
 
     def _delete_quiz(self, _):
-        try:
-            is_to_delete = messagebox.askyesno(title="Verify quiz delete",
-                                               message=f"Are you sure you want to delete quiz:\n"
-                                                       f"{self.model.quiz_description}",
-                                               default=messagebox.NO, parent=self.view.root)
-            if is_to_delete:
-                self.model.delete_quiz()
-                self._populate_quiz_widgets()
-        except Exception as e:
-            self.handle_exception('Unexpected err', e)
+        if self.model.quiz is not None:
+            try:
+                is_to_delete = messagebox.askyesno(title="Verify quiz delete",
+                                                   message=f"Are you sure you want to delete quiz:\n"
+                                                           f"{self.model.quiz_description}",
+                                                   default=messagebox.NO, parent=self.view.root)
+                if is_to_delete:
+                    self.model.delete_quiz()
+                    self._populate_quiz_widgets()
+            except Exception as e:
+                self.handle_exception('Unexpected err', e)
 
     def _reset_quiz(self, _):
         is_to_reset = messagebox.askyesno(title="Verify quiz update/rest",

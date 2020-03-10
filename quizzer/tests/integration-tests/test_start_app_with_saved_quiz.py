@@ -61,6 +61,7 @@ def test_enter_marked_text():
 
 
 def test_answers():
+    global m, v, c
     is_selected, chk_bt = v.answer_check_buttons[0]
     assert 0 == is_selected.get()
     assert 'is 4' == chk_bt.cget('text')

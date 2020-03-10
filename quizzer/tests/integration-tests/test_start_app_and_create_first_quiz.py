@@ -20,8 +20,9 @@ def test_missing_marked_text():
     assert v1.status_label.cget('text') == '<UI instructions>'
     c1 = QuizController(v1, m1)
     v1.input_marked_text_area.insert('insert', 'aaaa')
-    c1._indicate_possible_update(1)
-    assert Config.MARKED_TEXT_ERR == v1.status_label.cget('text')
+    c1._add_new_quiz('fake <Button-1> event')
+    assert v1.status_label.cget('text').startswith('Missing or invalid marked text on left panel')
+    assert v1.status_label.cget('text').find(Config.APP_INSTRUCTIONS) > -1
 
 
 m: Model
