@@ -36,8 +36,8 @@ class View:
         return self._previous_question_bt
 
     @property
-    def reset_quiz_bt(self) -> tkinter.Button:
-        return self._reload_quiz_bt
+    def update_reset_quiz_bt(self) -> tkinter.Button:
+        return self._update_reset_quiz_bt
 
     @property
     def delete_quiz_bt(self) -> tkinter.Button:
@@ -128,9 +128,9 @@ class View:
     def _init_persistence_menu(self, frame, frame_color):
         self._add_quiz_bt = tkinter.Button(frame, text=u'\u2795', height=1)
         self._add_quiz_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
-        self._reload_quiz_bt = tkinter.Button(frame, text=u'  \u2b6e  ', height=1)
-        self._reload_quiz_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
-        self._delete_quiz_bt = tkinter.Button(frame, text=u'\u274C ', height=1)
+        self._update_reset_quiz_bt = tkinter.Button(frame, text=u'  \u2b6e  ', height=1)
+        self._update_reset_quiz_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
+        self._delete_quiz_bt = tkinter.Button(frame, text=u'\u274C ')
         self._delete_quiz_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
 
         self._previous_quiz_bt = tkinter.Button(frame, text=u'  \u2bc7  ', height=1)
@@ -196,7 +196,12 @@ class View:
         self.clear_quiz_question()
 
     def clear_quiz_question(self):
-        [btn.destroy() for (_, btn) in self.answer_check_buttons]
+        for (data, obj) in self.answer_check_buttons:
+            if type(data) is tkinter.StringVar:
+                obj[0].destroy()
+                obj[1].destroy()
+            elif type(data) is tkinter.IntVar:
+                obj.destroy()
         self.answer_check_buttons.clear()
         self._question_label['text'] = ''
         self.question_comment_label['text'] = ''

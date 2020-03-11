@@ -72,7 +72,7 @@ class Model:
         self.get_quiz()
         self._status = delete_status + '  ' + self._status
 
-    def reset_quiz(self, marked_user_input: str = None):
+    def update_reset_quiz(self, marked_user_input: str = None):
         self._quiz = Quiz(marked_user_input=marked_user_input)
         self._persistence.update(self._quiz.get_data_dict())
         self._status = self._persistence.status
