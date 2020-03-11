@@ -39,7 +39,7 @@ def test_latest_file_num():
 def test_save():
     storage = JsonFileStorage(TMP_DIR, 'quizCat1', None)
     dict4 = {'ques...': 'What is..'}
-    msg = storage.save_file(dict4)
+    msg = storage.save_new_file(dict4)
     assert 'quizCat1.4.json' in msg
     assert storage._latest_file_number == 4
     assert storage._active_file_index == 2
@@ -96,7 +96,7 @@ def test_save_file():
     quiz = Quiz(marked_user_input=marked_user_input)
 
     storage = JsonFileStorage(TMP_DIR, 'quizCat1', None)
-    status_msg = storage.save_file(quiz.get_data_dict())
+    status_msg = storage.save_new_file(quiz.get_data_dict())
     assert 'quizCat1' in status_msg
 
 

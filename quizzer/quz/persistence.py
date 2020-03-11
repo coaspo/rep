@@ -113,7 +113,7 @@ class JsonFileStorage:
         self._files_paths.remove(file_path)
         self._active_file_index -= 1
 
-    def save_file(self, data_dict: dict) -> str:
+    def save_new_file(self, data_dict: dict) -> str:
         file_num = self._latest_file_number + 1
         file_index = self._active_file_index + 1
         file_path = self._save_dir + '/' + self._file_pfx + '.' + str(file_num) + '.json'
@@ -272,7 +272,7 @@ class FilePersistence(AbstractPersistence):
     def save(self, file_pfx: str, data_dict: dict):
         FilePersistence._validate_file_storage()
         self.reset(file_pfx)
-        self._file_storage.save_file(data_dict)
+        self._file_storage.save_new_file(data_dict)
         self._status = 'Saved quiz file: ' + self._file_storage.file_path
 
     def update(self, data_dict: dict):
