@@ -25,6 +25,7 @@ def test_add_quiz():
                                               '- = 1\n'
                                               '+ = 2\n'
                                               '- = 4\n\n')
+    v.add_new_quiz_bt['state'] = tkinter.NORMAL
     c._add_new_quiz('fake-<Button-1>-event')
     assert v.status_label.cget('text').startswith('Saved quiz file')
     assert v.quiz_description_label.cget('text').startswith('1/1  quiz.1.json')
@@ -36,6 +37,7 @@ def test_add_quiz():
                                               '-30\n'
                                               '+20\n\n'
                                               '=big addition\n\n')
+    v.add_new_quiz_bt['state'] = tkinter.NORMAL
     c._add_new_quiz('fake-<Button-1>-event')
     assert v.status_label.cget('text').startswith('Saved quiz file')
     assert v.quiz_description_label.cget('text').startswith('2/2  quiz.2.json')

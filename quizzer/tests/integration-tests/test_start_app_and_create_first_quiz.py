@@ -1,5 +1,6 @@
 import glob
 import json
+import tkinter
 from tkinter import END, DISABLED, NORMAL
 
 from quz.controller import QuizController
@@ -20,6 +21,7 @@ def test_missing_marked_text():
     assert v1.status_label.cget('text') == '<UI instructions>'
     c1 = QuizController(v1, m1)
     v1.input_marked_text_area.insert('insert', 'aaaa')
+    v1.add_new_quiz_bt['state'] = tkinter.NORMAL
     c1._add_new_quiz('fake <Button-1> event')
     assert v1.status_label.cget('text').startswith('Missing or invalid marked text on left panel')
     assert v1.status_label.cget('text').find(Config.APP_INSTRUCTIONS) > -1
@@ -43,6 +45,7 @@ def test_enter_marked_text():
                                               '- = 1\n'
                                               '+ = 2\n'
                                               '- = 4\n\n')
+    v.add_new_quiz_bt['state'] = tkinter.NORMAL
     c._add_new_quiz('fake-<Button-1>-event')
     assert v.status_label.cget('text').startswith('Saved quiz file')
     assert v.quiz_description_label.cget('text').startswith('1/1  quiz.1.json')

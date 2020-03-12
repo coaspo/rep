@@ -23,6 +23,7 @@ def test_update_marked_text():
                                               '- = 1\n'
                                               '+ = 2\n'
                                               '- = 4\n\n')
+    v.add_new_quiz_bt['state'] = tkinter.NORMAL
     c._add_new_quiz('fake-<Button-1>-event')
     assert v.status_label.cget('text').startswith('Saved quiz file')
     assert v.quiz_description_label.cget('text').startswith('1/1  quiz.1.json')

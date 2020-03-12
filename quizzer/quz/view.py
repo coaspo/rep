@@ -37,7 +37,7 @@ class View:
 
     @property
     def reset_update_quiz_bt(self) -> tkinter.Button:
-        return self._update_reset_quiz_bt
+        return self._reset_update_quiz_bt
 
     @property
     def delete_quiz_bt(self) -> tkinter.Button:
@@ -128,8 +128,8 @@ class View:
     def _init_persistence_menu(self, frame, frame_color):
         self._add_quiz_bt = tkinter.Button(frame, text=u'\u2795', height=1)
         self._add_quiz_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
-        self._update_reset_quiz_bt = tkinter.Button(frame, text=u'  \u2b6e  ', height=1)
-        self._update_reset_quiz_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
+        self._reset_update_quiz_bt = tkinter.Button(frame, text=u'  \u2b6e  ', height=1)
+        self._reset_update_quiz_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
         self._delete_quiz_bt = tkinter.Button(frame, text=u'\u274C ')
         self._delete_quiz_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
 
@@ -188,12 +188,20 @@ class View:
         self.root.destroy()
 
     def clear_screen(self):
-        self.add_new_quiz_bt['state'] = 'normal'
+        self.add_new_quiz_bt['state'] = tkinter.NORMAL
+        self.set_buttons_state(tkinter.DISABLED)
         self.input_marked_text_area.delete('1.0', tkinter.END)
         self.input_marked_text_area.insert(tkinter.END, '')
         self.quiz_description_label['text'] = ''
         self.status_label['text'] = ''
         self.clear_quiz_question()
+
+    def set_buttons_state(self, state):
+        self.reset_update_quiz_bt['state'] = state
+        self.delete_quiz_bt['state'] = state
+        self.submit_bt['state'] = state
+        self.next_question_bt['state'] = state
+        self.previous_question_bt['state'] = state
 
     def clear_quiz_question(self):
         for (data, obj) in self.answer_check_buttons:

@@ -4,7 +4,7 @@ import os
 import tkinter
 import tkinter.ttk
 import traceback
-from tkinter import ACTIVE, messagebox
+from tkinter import messagebox
 
 from quz.model import Model
 from quz.quiz import QuizError
@@ -40,13 +40,12 @@ class AbstractController:
         if self.model.quiz is None:
             self.view.clear_screen()
         else:
+            self.view.add_new_quiz_bt['state'] = tkinter.DISABLED
+            self.view.set_buttons_state(tkinter.NORMAL)
             self.view.input_marked_text_area.delete('1.0', tkinter.END)
             self.view.input_marked_text_area.insert(tkinter.END, self.model.quiz.marked_user_input)
             self.view.quiz_description_label['text'] = self.model.quiz_description
             self._populate_question_widgets()
-            self.view.next_question_bt.configure(state=ACTIVE)
-            self.view.previous_question_bt.configure(state=ACTIVE)
-            self.view.submit_bt.configure(state=ACTIVE)
         self._update_status(self.model.status_msg)
 
     def _populate_question_widgets(self):
@@ -134,7 +133,9 @@ class QuizController(AbstractController):
 
     def _clear_entire_screen(self, _):
         self.view.clear_screen()
+        print('ccccccccc')
         self.model.remove_quiz()
+        print(self.model.quiz)
         self._update_status(Config.APP_INSTRUCTIONS)
 
     def _indicate_possible_update(self, _):
@@ -209,41 +210,46 @@ class QuizController(AbstractController):
             self.handle_exception('Unexpected err', e)
 
     def _add_new_quiz(self, _):
-        topic = self.view.quiz_topics.get().strip()
-        marked_user_input = self.view.input_marked_text_area.get("1.0", tkinter.END).strip()
-        try:
-            self.model.create_new_quiz(marked_user_input)
-            self.model.save_new_quiz(topic)
-            self._populate_quiz_widgets()
-        except QuizError as e:
-            self.view.status_label['text'] = str(e) + '  ' + Config.APP_INSTRUCTIONS
+        if self.view.add_new_quiz_bt['state'] == tkinter.NORMAL:
+            topic = self.view.quiz_topics.get().strip()
+            marked_user_input = self.view.input_marked_text_area.get("1.0", tkinter.END).strip()
+            try:
+                self.model.create_new_quiz(marked_user_input)
+                self.model.save_new_quiz(topic)
+                self._populate_quiz_widgets()
+            except QuizError as e:
+                self.view.status_label['text'] = str(e) + '  ' + Config.APP_INSTRUCTIONS
+        else:
+            self._update_status("To add a quiz, clear 'Clear' and on left panel: " + Config.APP_INSTRUCTIONS, True)
 
     def _delete_quiz(self, _):
         if self.model.quiz is not None:
-            try:
-                is_to_delete = messagebox.askyesno(title="Verify quiz delete",
-                                                   message=f"Are you sure you want to delete quiz:\n"
-                                                           f"{self.model.quiz_description}",
-                                                   default=messagebox.NO, parent=self.view.root)
-                if is_to_delete:
+            self._update_status("", False)
+            is_to_delete = messagebox.askokcancel(title="Verify quiz delete",
+                                                  message=f"Delete quiz:\n  {self.model.quiz_description}",
+                                                  default=messagebox.CANCEL, parent=self.view.root)
+            if is_to_delete:
+                try:
                     self.model.delete_quiz()
                     self._populate_quiz_widgets()
-            except Exception as e:
-                self.handle_exception('Unexpected err', e)
+                except Exception as e:
+                    self.handle_exception('Unexpected err', e)
 
     def _reset_update_quiz(self, _):
-        is_to_reset = messagebox.askyesno(title="Verify quiz update/rest",
-                                          message="Reset will save a new quiz from the mark-up text,\n"
-                                                  "Any answers are removed. Quiz:\n"
-                                                  f"{self.model.quiz_description}",
-                                          default=messagebox.NO, parent=self.view.root)
-        if is_to_reset:
-            try:
-                marked_user_input = self.view.input_marked_text_area.get("1.0", tkinter.END).strip()
-                self.model.reset_update_quiz(marked_user_input)
-                self._populate_quiz_widgets()
-            except Exception as e:
-                self.handle_exception('Unexpected err', e)
+        if self.model.quiz is not None:
+            self._update_status("", False)
+            is_to_reset = messagebox.askokcancel(title="Verify quiz update/rest",
+                                                 message=f"Quiz:\n  {self.model.quiz_description}\n\n"
+                                                         "Reset will save a new quiz from the mark-up text.\n"
+                                                         "Any answers are removed.",
+                                                 default=messagebox.CANCEL, parent=self.view.root)
+            if is_to_reset:
+                try:
+                    marked_user_input = self.view.input_marked_text_area.get("1.0", tkinter.END).strip()
+                    self.model.reset_update_quiz(marked_user_input)
+                    self._populate_quiz_widgets()
+                except Exception as e:
+                    self.handle_exception('Unexpected err', e)
 
     def bind_controls(self):
         self.view.clear_bt.bind("<Button-1>", self._clear_entire_screen)

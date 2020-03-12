@@ -28,12 +28,14 @@ def test_next_previous_quiz():
                                               '- = 1\n'
                                               '+ = 2\n'
                                               '- = 4\n\n')
+    v.add_new_quiz_bt['state'] = tkinter.NORMAL
     c._add_new_quiz('fake-<Button-1>-event')
     v.input_marked_text_area.delete('1.0', tkinter.END)
     v.input_marked_text_area.insert('insert', '?What is 10+10\n'
                                               '-30\n'
                                               '+20\n\n'
                                               '=big addition\n\n')
+    v.add_new_quiz_bt['state'] = tkinter.NORMAL
     c._add_new_quiz('fake-<Button-1>-event')
 
     c._next_quiz('fake-<Button-1>-event')
