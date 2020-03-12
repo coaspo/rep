@@ -77,7 +77,7 @@ class FillInAnswer(AbstractAnswer):
 
     @answer.setter
     def answer(self, value: bool) -> None:
-        self._answer = value
+        self._answer = value.strip()
 
     def is_answered_correctly(self):
         if self._answer is None:
@@ -185,7 +185,7 @@ class Quiz:
                 if len(answers) > 1 and answer.is_selected:
                     is_question_answered[i] = True
                     break
-                elif len(answers) == 1 and answer.answer == answer.correct_answer:
+                elif len(answers) == 1 and len(answer.answer) > 0:
                     is_question_answered[i] = True
         return is_question_answered
 
@@ -275,6 +275,7 @@ class Quiz:
         return max(self._are_questions_answered)
 
     def are_all_questions_answered(self) -> bool:
+        print('))))', self._are_questions_answered)
         return min(self._are_questions_answered)
 
     def are_all_questions_answered_correctly(self) -> bool:
