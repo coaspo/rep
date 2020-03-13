@@ -69,7 +69,6 @@ class AbstractController:
         self.view.answer_check_buttons.clear()
         answers = self.model.quiz.current_question().answers
         for i, answer in enumerate(answers):
-            print('+++++++', answers)
             if len(answers) > 1:
                 self._populate_multiple_choice_answers(answer, i)
             else:
@@ -139,7 +138,6 @@ class QuizController(AbstractController):
 
     def _clear_entire_screen(self, _):
         self.view.clear_screen()
-        print('ccccccccc')
         self.model.remove_quiz()
         print(self.model.quiz)
         self._update_status(Config.APP_INSTRUCTIONS)

@@ -275,7 +275,6 @@ class Quiz:
         return max(self._are_questions_answered)
 
     def are_all_questions_answered(self) -> bool:
-        print('))))', self._are_questions_answered)
         return min(self._are_questions_answered)
 
     def are_all_questions_answered_correctly(self) -> bool:
