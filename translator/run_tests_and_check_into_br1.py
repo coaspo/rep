@@ -1,10 +1,11 @@
-import os
-import sys
 from datetime import datetime
+from os import mkdir
+from os import path
 from shutil import copy
 from subprocess import Popen, PIPE
+from sys import exit
 
-SCRIPT_NAME = os.path.basename(__file__)
+SCRIPT_NAME = path.basename(__file__)
 LOG_FILE = SCRIPT_NAME + '.log'
 
 
