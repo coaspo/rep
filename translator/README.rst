@@ -73,6 +73,8 @@ Problems/Solutions
 | **FIX:** Click on ``import googletrans`` and slect fix
 | Cause(?): ``venv`` created before running:
 |   ``pip install -r requirements.txt``
+|  May need to install package: >File >Settings.... >project:translator >project-interpreter + ..
 |
 | on running pytest: ``found = cls._search_paths(context.pattern, context.path) AttributeError: 'str' object has no attribute 'pattern'``
 | **FIX:** from project dir, run ``./venv/Scripts/activate.bat``
+|

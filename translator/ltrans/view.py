@@ -137,8 +137,8 @@ class View:
 
     def _init_persistence_menu(self, frame, frame_color):
         saved_label = tkinter.Label(frame, text="     Saved translations:", bg=frame_color)
-        self._next_bt = tkinter.Button(frame, text=u' \u25BA  ', height=1)
-        self._previous_bt = tkinter.Button(frame, text=u' \u25C4 ', height=1)
+        self._previous_bt = tkinter.Button(frame, text=u' \u2bc7 ', height=1)
+        self._next_bt = tkinter.Button(frame, text=u' \u2bc8  ', height=1)
         self._persistence_status_label = tkinter.Label(frame, text="", anchor='w', bg='white')
         self._persistence_status_label.config(width=30)
         self._update_bt = tkinter.Button(frame, text="Update", height=1, state=tkinter.DISABLED)
@@ -150,8 +150,8 @@ class View:
 
         self._save_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
         saved_label.pack(side=tkinter.LEFT, padx=2, pady=2)
-        self._next_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
         self._previous_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
+        self._next_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
         self._persistence_status_label.pack(side=tkinter.LEFT, padx=2, pady=2)
         self._delete_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
         self._update_bt.pack(side=tkinter.LEFT, padx=5, pady=2)
