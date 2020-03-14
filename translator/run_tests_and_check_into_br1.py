@@ -24,11 +24,17 @@ def run(*args: str):
             print(output)
             if 'FAILURES' in output:
                 print('May have intermittent tkinter venv failure. - try rerunning')
-                sys.exit(1)
+                exit(1)
         if len(errs) > 0:
-            f2.write('\n' + 15 * 'ERR---' + '\n' + errs)
-            print(15 * 'ERR---', '\n', errs)
-            sys.exit(2)
+            f2.write('\n' + errs)
+            print(errs)
+            if 'Everything up-to-date' in errs:
+                exit(0)
+            label = 15 * 'ERR---' if 'br1 -> br1' not in str(errs) else ''
+            f2.write('\n' + label)
+            print(label)
+            if 'ERR---' in label:
+                exit(2)
 
 
 if __name__ == '__main__':
@@ -38,15 +44,15 @@ if __name__ == '__main__':
     run('pytest', 'tests/')
     run('git', 'add', '*')
     run('git', 'status')
-    msg = '"' + input("Git commit msg: ") + '"'
+    msg = input(" Git commit msg: ")
     run('git', 'commit', '-m', msg)
     run('git', 'push', 'origin', 'br1')
     run('git', 'diff')
     run(r'venv\Scripts\deactivate.bat')
 
     archive_dir = './logs-check-ins'
-    if not os.path.isdir(archive_dir):
-        os.mkdir(archive_dir)
+    if not path.isdir(archive_dir):
+        mkdir(archive_dir)
     log_archive_file = archive_dir + '/' + SCRIPT_NAME + '-' + str(datetime.now()).replace(':', '-') + '.log'
     copy(LOG_FILE, log_archive_file)
     print('done')
