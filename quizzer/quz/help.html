@@ -13,11 +13,21 @@
     <title>Create & practice quizzes</title>
 </head>
 <body>
+<<<<<<< HEAD
 <h3>Quizzer user doc</h3>
 <pre>
 Application can help you study by quickly
 creating a multiple choice quiz.
 For example, you type the marked text:
+=======
+<img src="GUI-screen-snapshot.gif">
+<h3>Quizzer user doc</h3>
+<pre>
+    Application can help you study by quickly creating 
+a quiz with fill-in and multiple choices questions.
+    For example, you select or type "python" in the "topic"
+combo box and in the left panel, type the marked text:
+>>>>>>> br1
     <code>
     /this a one-question quiz  
     ? Select correct statement(s)
@@ -27,6 +37,7 @@ For example, you type the marked text:
     =best features in python
     </code>
 where the markers <code>/ ? + - = </code> indicate a
+<<<<<<< HEAD
 <i>quiz-comment/question/answer/question-comment</i> line.
 The application creates a multiple choice choice quiz 
 with one question with 2/1 correct/incorrect answers,
@@ -45,8 +56,28 @@ You may stop the application and finish a quiz later.
         The id-number <code>4</code> and topic <code>python</code>  
 		could but were not changed.<br>
         Application navigates through the sorted file names.
+=======
+<i>quiz-comment / question / answer / question-comment</i> line.
+respectively. With this input, application creates a one-question quiz
+with 2 correct answers, 1 incorrect answer, and a comment.
+
+	Application navigates through a saved set of quizzes and always starts
+with the last active quiz. It ignores spaces in fill-in answers.
+
+</pre>
+<p>Recommendations:</p>
+<ul>
+    <li>Make quiz file names more prescriptive by renaming<br>
+	    quiz files in <code>quz/quizzes</code>. The file name format is:<br>
+        <code>&lt;topic&gt;-&lt;description&gt;.&lt;id-number&gt;.json</code><br><br>
+        For example, rename <code>python-.4.json</code><br> to
+        "<code>python-classes and OOD quiz.4.json</code>"<br>  
+        The quiz topic <code>python</code> can also be changed.<br> 
+		(<code>4</code> is the file-id number)<br><br>
+>>>>>>> br1
     </li>
-    <li>Prevent accidental deletes - make files in <code>quz/quizzes</code> <i>Read-Only</i></li>
+    <li>Correct answers or add comments by editing the markup text, <br>
+	and clicking the circle-arrow button.</li>
 </ul>
 Technical info: <a href="../README.rst">README.rst</a>
 

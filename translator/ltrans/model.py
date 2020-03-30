@@ -1,5 +1,5 @@
 from ltrans.persistence import Persistence
-from ltrans.reference import LANGUAGE_NAMES_ABBRS
+from ltrans.reference import LANGUAGE_NAMES_ABBR
 from ltrans.reference import TRANSLITERATE_LANGUAGE_NAMES
 from ltrans.util import NON_LETTERS_REGEX
 from ltrans.userinput import UserInput
@@ -165,7 +165,7 @@ def transliterate_lines(lines: list, lines_language: str) -> list:
         log.debug(f'  lines_language={lines_language}')
     if lines_language not in TRANSLITERATE_LANGUAGE_NAMES:
         return []
-    lang_abbr = LANGUAGE_NAMES_ABBRS[lines_language]
+    lang_abbr = LANGUAGE_NAMES_ABBR[lines_language]
     return [transliterate.translit(line, lang_abbr, reversed=True) for line in lines]
 
 
@@ -196,8 +196,8 @@ def translate_word(word: str, dictionary: Dictionary, translator: googletrans.cl
     if translated_word is None:
         translated_word = dictionary.get(no_accent_word[0:1].lower() + no_accent_word[1:])
     if translated_word is None:
-        src_language_abbr = LANGUAGE_NAMES_ABBRS[dictionary.src_language]
-        dest_language_abbr = LANGUAGE_NAMES_ABBRS[dictionary.dest_language]
+        src_language_abbr = LANGUAGE_NAMES_ABBR[dictionary.src_language]
+        dest_language_abbr = LANGUAGE_NAMES_ABBR[dictionary.dest_language]
         translation = translator.translate(word, src=src_language_abbr, dest=dest_language_abbr)
         if log.isEnabledFor(logging.DEBUG):
             log.debug(f'      translation={translation}')

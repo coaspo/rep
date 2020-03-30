@@ -12,9 +12,11 @@ NON_LETTERS_REGEX = '\'|[0-9]+' + non_letters_regex
 
 
 class Config(dict):
-    APP_INSTRUCTIONS = 'Type ?+-= followed by question/correct-answer/incorrect-answer/comment respectively;\
-     2/7 min/max answers and one comment.'
+    APP_INSTRUCTIONS = 'Type ?+-= followed by question/correct-answer/incorrect-answer/comment respectively;'
+    ' 2/7 min/max answers and one comment.'
     SAVE_INSTRUCTIONS = 'May change any text before clicking Save.'
+    MARKED_TEXT_ERR = 'Missing or invalid marked text on left panel - prefix lines with ?/+/-'
+    'for question/correct-answer/incorrect answer'
 
     def __init__(self, config_file_path=None, **kw):
         if config_file_path is not None and kw != {}:

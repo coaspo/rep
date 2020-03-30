@@ -1,6 +1,6 @@
 from ltrans.model import Model
 from ltrans.persistence import FilePersistence
-from ltrans.reference import LANGUAGE_NAMES_ABBRS
+from ltrans.reference import LANGUAGE_NAMES_ABBR
 from ltrans.reference import TRANSLITERATE_LANGUAGE_NAMES
 from ltrans.userinput import UserInput
 from ltrans.userinput import UserInputError
@@ -146,6 +146,7 @@ class TranslationController(Controller):
 
 
 class PersistenceController(Controller):
+
     def _handle_persistence_error(self, e):
         self.handle_exception('Persistence error: ', e)
         self.view.persistence_status['text'] = 'See error below or in log file'
@@ -218,7 +219,7 @@ class PersistenceController(Controller):
 
 
 def language_names(config: dict) -> list:
-    lang_names = [v for v, _ in LANGUAGE_NAMES_ABBRS.items()]
+    lang_names = [v for v, _ in LANGUAGE_NAMES_ABBR.items()]
     top_of_list = config.get('TOP_OF_LIST_LANGUAGES').split(',')
     return top_of_list + [x for x in lang_names if x not in top_of_list]
 

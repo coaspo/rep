@@ -22,7 +22,7 @@ Run app
 |    ``python -m pip install --upgrade pip``
 |
 |  Run ``python cli.py``
-|  or a short cut to ``run_app.bat``
+|  or create a short cut to it and double click it.
 |
 |  May review info and error MSGs in:
 |    ``logs\quizzer-YYYY-MM.log``''
@@ -31,6 +31,7 @@ Run tests
 ---------
 |  From project dir, install pytest:
 |    ``pip install -r requirements.txt``
+|  May need to activate venv (see below) before doing this.
 |
 |  **In Pycharm:**
 |   >File >Settings >Tools >Python-Integrated-Tools,
@@ -38,12 +39,18 @@ Run tests
 |   select a test and > "run pytest"
 |
 |  **Outside pycharm:**
-|   Run ``run_tests.bat``
+|   In command window type  ``run_tests.py``
+|   Double clicking the file does not work (!)
 
 Tests/check-in automation
 -------------------------------
+<<<<<<< HEAD
 |   Run ``run_tests_and_check-in-br1.bat``
 |   If a test fails, code will not be checked in.
+=======
+|   In command window type  or in Pycharm run:
+|   ``run_tests_and_check-in-br1.py``
+>>>>>>> br1
 
 Notes
 -----
@@ -54,7 +61,7 @@ Notes
 |
 |    **In pycharm:**
 |     >File >Settings >Project:quizzer
-|     Should be able to select:
+|     Create ``venv`` in project folder and select project interpreter:
 |     ``c:\..\quizzer\venv\Scripts\python.exe``
 |
 |    **Outside pycharm:**

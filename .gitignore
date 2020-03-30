@@ -1,15 +1,17 @@
 **/tmp/**
 **/temp/**
 **/venv/**
+**/python-venv/**
 **/.pytest_cache/**
 
 **.idea
 ** - Copy
 **.pyc
+**.iml
 **.log
 **.bak
 **.tmp
 **.egg*
 **a.py*
-**temp.txt
-**tmp.txt
+**temp.**
+**tmp.**

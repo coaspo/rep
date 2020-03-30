@@ -7,10 +7,12 @@ import logging
 import os.path
 import re
 import traceback
+from typing import Dict, List
 
 log = logging.getLogger(__name__)
 
 
+<<<<<<< HEAD
 class AbstractPersistence(metaclass=abc.ABCMeta):
 
     @abc.abstractmethod
@@ -44,16 +46,21 @@ class AbstractPersistence(metaclass=abc.ABCMeta):
     @abc.abstractmethod
     def latest_topic(self) -> list:
         pass
+=======
+class InvalidOperation(Exception):
+    pass
+>>>>>>> br1
 
 
 class JsonFileStorage:
     def __init__(self, save_dir: str, file_pfx: str, latest_file_name: str or None):
-        self._active_file_index = None
-        self._file_pfx = file_pfx
-        self._files_paths = None
-        self._latest_file_name = latest_file_name
-        self._latest_file_number = None
-        self._save_dir = save_dir
+        self._active_file_index: int
+        self._file_pfx: str = file_pfx
+        self._files_paths: List[str]
+        self._file_description: str
+        self._latest_file_name: str = latest_file_name
+        self._latest_file_number: int
+        self._save_dir: str = save_dir
         self._initialize()
 
     def _initialize(self):
@@ -82,8 +89,141 @@ class JsonFileStorage:
         return len(self._files_paths) == 0
 
     @property
+    def file_description(self):
+        return self._file_description
+
+    @property
+    def file_path(self):
+        return self._files_paths[self._active_file_index]
+
+    @property
+    def file_pfx(self):
+        return self._file_pfx
+
+    @property
+    def is_file_list_empty(self):
+        return len(self._files_paths) == 0
+
+<<<<<<< HEAD
+    def save_file(self, data_dict: dict) -> str:
+        file_num = self._latest_file_number + 1
+        file_index = self._active_file_index + 1
+        file_path = self._save_dir + '/' + self._file_pfx + '.' + str(file_num) + '.json'
+        if file_index > len(self._files_paths):
+            raise SystemError(
+                f'Index Error:  _file_path_index= {file_index}' +
+                f'(len(_files_paths)={len(self._files_paths)}), ')
+        with open(file_path, "w", encoding='utf8') as f:
+            json.dump(data_dict, f, ensure_ascii=False, sort_keys=False, indent=0)
+=======
+    @property
+    def latest_file_name(self):
+        return self._latest_file_name
+
+    @property
     def save_dir(self):
         return self._save_dir
+>>>>>>> br1
+
+    def decrement_file_index(self):
+        self._ensure_file_path_list_is_not_empty()
+        if self._active_file_index != 0:
+            self._active_file_index -= 1
+
+    def file_info(self) -> str:
+        file_path = self._files_paths[self._active_file_index]
+        seconds_since_created = os.path.getmtime(file_path)
+        create_ts = datetime.datetime.utcfromtimestamp(seconds_since_created).isoformat()[:22]
+        # remove T in, for example, create_ts = 2019-12-11T19:20:48.85
+        create_ts = create_ts[2:10] + ' ' + create_ts[11:16]
+        day_index = datetime.datetime.utcfromtimestamp(seconds_since_created).weekday()
+        count = str(self._active_file_index + 1) + '/' + str(len(self._files_paths))
+        info = count + '  ' + os.path.basename(file_path) + '  ' + create_ts + ' ' + calendar.day_name[day_index][0:3]
+        return info
+
+    def increment_file_index(self):
+        self._ensure_file_path_list_is_not_empty()
+        if self._active_file_index != len(self._files_paths) - 1:
+            self._active_file_index += 1
+
+    def read_file(self) -> dict:
+        file_path = self._files_paths[self._active_file_index]
+        try:
+            with open(file_path, "r", encoding='utf8') as f:
+                data_dict = json.load(f)
+        except OSError:
+            # reinitialize to fix for example no files found error.
+            self._initialize()
+            file_path = self._files_paths[self._active_file_index]
+            with open(file_path, "r", encoding='utf8') as f:
+                data_dict = json.load(f)
+        self._file_description = self.file_info()
+        if log.isEnabledFor(logging.DEBUG):
+            log.debug(f'file_path={file_path}\ndata_dict=\n{data_dict}')
+        return data_dict
+
+    def reset_file_prefix(self, file_pfx: str) -> None:
+        self._file_pfx = file_pfx
+        self._latest_file_number, self._active_file_index, self._files_paths = JsonFileStorage._get_file_paths(
+            file_pfx,
+            None,
+            self._save_dir)
+
+    def delete_file(self) -> str:
+        if len(self._files_paths) == 1:
+            raise Exception("Cannot delete last file.")
+        file_path = self._files_paths[self._active_file_index]
+        os.remove(file_path)
+        self._files_paths.remove(file_path)
+        self._active_file_index -= 1
+
+    def save_new_file(self, data_dict: dict) -> str:
+        file_num = self._latest_file_number + 1
+        file_index = self._active_file_index + 1
+        file_path = self._save_dir + '/' + self._file_pfx + '.' + str(file_num) + '.json'
+        if file_index > len(self._files_paths):
+            raise AttributeError(
+                f'Index Error:  _file_path_index= {file_index}' +
+                f'(len(_files_paths)={len(self._files_paths)}), ')
+        with open(file_path, "w", encoding='utf8') as f:
+            json.dump(data_dict, f, ensure_ascii=False, sort_keys=False, indent=0)
+        self._files_paths.append(file_path)
+        self._latest_file_number = file_num
+        self._active_file_index = file_index
+        if log.isEnabledFor(logging.DEBUG):
+            log.debug(f'file_path={file_path}')
+        self._file_description = self.file_info()
+        return file_path
+
+    def update_file(self, data_dict: dict):
+        with open(self._files_paths[self._active_file_index], "w", encoding='utf8') as f:
+            json.dump(data_dict, f, ensure_ascii=False, sort_keys=False, indent=0)
+        if log.isEnabledFor(logging.DEBUG):
+            log.debug(f'file_path={self._files_paths[self._active_file_index]}')
+
+    def _ensure_file_path_list_is_not_empty(self):
+        if len(self._files_paths) == 0:
+            raise AttributeError(f'No files, "{self._file_pfx}.<unique-num>.json" files in: {self._save_dir}')
+
+    @staticmethod
+    def _get_file_paths(file_pfx: str, latest_file_name: str or None, save_dir: str) -> (str, str):
+        file_paths = glob.glob(save_dir + '/' + file_pfx + '*.json')
+        if len(file_paths) == 0:
+            return 0, -1, []
+        file_paths.sort()
+        file_nums = []
+        filtered_file_paths = []
+        file_index = len(file_paths) - 1
+        for i, file_path in enumerate(file_paths):
+            x = file_path.split('.')
+            if len(x) > 0 and x[1].isnumeric():
+                file_nums.append(int(x[1]))
+                if latest_file_name is not None and os.path.basename(file_path) == latest_file_name:
+                    file_index = i
+            filtered_file_paths.append(file_path)
+
+        latest_file_number = 0 if len(file_nums) == 0 else max(file_nums)
+        return latest_file_number, file_index, filtered_file_paths
 
     @staticmethod
     def _possibly_create_save_dir(absolute_dir) -> (str or None, str or None):
@@ -97,132 +237,79 @@ class JsonFileStorage:
                 return None, str(e)
         return absolute_dir, None
 
-    @staticmethod
-    def _get_file_paths(file_pfx: str, latest_file_name: str, save_dir: str) -> (str, str):
-        file_paths = glob.glob(save_dir + '/' + file_pfx + '*.json')
-        if len(file_paths) == 0:
-            return 0, -1, []
-        file_paths.sort()
-        file_nums = []
-        proper_formatted_file_paths = []
-        file_index = len(file_paths) - 1
-        for i, file_path in enumerate(file_paths):
-            x = file_path.split('.')
-            if len(x) > 0 and x[1].isnumeric():
-                file_nums.append(int(x[1]))
-                if latest_file_name is not None and os.path.basename(file_path) == latest_file_name:
-                    file_index = i
-            proper_formatted_file_paths.append(file_path)
 
-        latest_file_number = 0 if len(file_nums) == 0 else max(file_nums)
-        return latest_file_number, file_index, proper_formatted_file_paths
+class AbstractPersistence(metaclass=abc.ABCMeta):
 
-    def save_file(self, data_dict: dict) -> str:
-        file_num = self._latest_file_number + 1
-        file_index = self._active_file_index + 1
-        file_path = self._save_dir + '/' + self._file_pfx + '.' + str(file_num) + '.json'
-        if file_index > len(self._files_paths):
-            raise SystemError(
-                f'Index Error:  _file_path_index= {file_index}' +
-                f'(len(_files_paths)={len(self._files_paths)}), ')
-        with open(file_path, "w", encoding='utf8') as f:
-            json.dump(data_dict, f, ensure_ascii=False, sort_keys=False, indent=0)
+    @abc.abstractmethod
+    def description(self) -> (str, str):
+        pass
 
-        self._files_paths.append(file_path)
-        self._latest_file_number = file_num
-        self._active_file_index = file_index
-        if log.isEnabledFor(logging.DEBUG):
-            log.debug(f'file_path={file_path}')
-        return file_path
+    @abc.abstractmethod
+    def get(self, create_domain_dct_object) -> dict:
+        pass
 
-    def update_file(self, data_dict: dict) -> (str, str):
-        with open(self._files_paths[self._active_file_index], "w", encoding='utf8') as f:
-            json.dump(data_dict, f, ensure_ascii=False, sort_keys=False, indent=0)
-        if log.isEnabledFor(logging.DEBUG):
-            log.debug(f'file_path={self._files_paths[self._active_file_index]}')
-        return self._file_info(), 'Updated: ' + self._file_name()
+    @abc.abstractmethod
+    def get_next(self, create_domain_dct_object) -> dict:
+        pass
 
-    def increment_file_index(self):
-        self._validate_file_paths()
-        if self._active_file_index != len(self._files_paths) - 1:
-            self._active_file_index += 1
+    @abc.abstractmethod
+    def get_previous(self, create_domain_dct_object) -> dict:
+        pass
 
-    def decrement_file_index(self):
-        self._validate_file_paths()
-        if self._active_file_index != 0:
-            self._active_file_index -= 1
+    @abc.abstractmethod
+    def latest_topic(self) -> list:
+        pass
 
-    def _validate_file_paths(self):
-        if len(self._files_paths) == 0:
-            raise FileExistsError(f'There are no "<prefix>.<unique-num>.json" files in: {self._save_dir}')
+    @abc.abstractmethod
+    def save(self, file_pfx: str, data_dict: dict) -> str:
+        pass
 
-    def read_active_file(self) -> (str, str, dict):
-        file_path = self._files_paths[self._active_file_index]
-        try:
-            with open(file_path, "r", encoding='utf8') as f:
-                data_dict = json.load(f)
-        except OSError:
-            # reinitialize to fix for example no files found error.
-            self._initialize()
-            file_path = self._files_paths[self._active_file_index]
-            with open(file_path, "r", encoding='utf8') as f:
-                data_dict = json.load(f)
-        if log.isEnabledFor(logging.DEBUG):
-            log.debug(f'file_path={file_path}\ndata_dict=\n{data_dict}')
-        return self._file_info(), self._file_name(), data_dict
+    @abc.abstractmethod
+    def update(self, data_dict: dict) -> (str, str):
+        pass
 
-    def delete_active_file(self) -> str:
-        self._validate_file_paths()
-        file_path = self._files_paths[self._active_file_index]
-        os.remove(file_path)
-        del self._files_paths[self._active_file_index]
-        self._active_file_index -= 1
-        if log.isEnabledFor(logging.DEBUG):
-            log.debug(f'file_path={file_path}')
-        return file_path
+    @abc.abstractmethod
+    def delete(self, data_dict: dict) -> (str, str):
+        pass
 
-    def _file_name(self) -> str:
-        file_num = str(self._active_file_index + 1)
-        file_path = self._files_paths[self._active_file_index]
-        file_name = os.path.basename(file_path)
-        file_name = file_name[:len(file_name) - 5]
-        info = file_num + '.  ' + file_name
-        return info
-
-    def _file_info(self) -> str:
-        file_path = self._files_paths[self._active_file_index]
-        seconds_since_created = os.path.getmtime(file_path)
-        create_ts = datetime.datetime.utcfromtimestamp(seconds_since_created).isoformat()[:22]
-        # remove T in, for example, create_ts = 2019-12-11T19:20:48.85
-        create_ts = create_ts[2:10] + ' ' + create_ts[11:16]
-        day_index = datetime.datetime.utcfromtimestamp(seconds_since_created).weekday()
-        count = str(self._active_file_index + 1) + '/' + str(len(self._files_paths))
-        info = count + '  ' + file_path + '  ' + create_ts + ' ' + calendar.day_name[day_index][0:3]
-        return info
+    @abc.abstractmethod
+    def topics(self) -> str:
+        pass
 
 
 class FilePersistence(AbstractPersistence):
     file_storage_err_msg = True
 
     def __init__(self, save_dir: str):
+        self._status: str = ''
         try:
             absolute_dir = FilePersistence._find_absolute_dir(save_dir)
-            self._latest_file_name = FilePersistence._find_latest_file_name(absolute_dir)
-            self._latest_file_prefix = 'quiz' if self._latest_file_name is None \
-                else re.split(r'[.\-]', self._latest_file_name)[0]
+            self._latest_file_name: str = FilePersistence._find_latest_file_name(absolute_dir)
+            self._latest_file_prefix, self._file_prefixes = FilePersistence._find_prefixes(save_dir,
+                                                                                           self._latest_file_name)
             self._file_storage = JsonFileStorage(absolute_dir, self._latest_file_prefix, self._latest_file_name)
-            self._file_prefixes = FilePersistence._find_file_prefixes(absolute_dir)
             FilePersistence.file_storage_err_msg = None
         except Exception as e:
             traceback.print_exc()
             FilePersistence.file_storage_err_msg = str(e)
 
+    @property
+    def description(self) -> str:
+        return self._file_storage.file_description
+
+    @property
     def latest_topic(self) -> str:
         return self._latest_file_prefix
 
+    @property
+    def status(self) -> str:
+        return self._status
+
+    @property
     def topics(self) -> list:
         return self._file_prefixes
 
+<<<<<<< HEAD
     def save(self, file_pfx: str, data_dict: dict) -> str:
         FilePersistence._validate_file_storage()
         self.reset(file_pfx)
@@ -242,23 +329,78 @@ class FilePersistence(AbstractPersistence):
         status_msg, file_name, data_dict = self._file_storage.read_active_file()
         domain_object = None if data_dict is None else create_domain_object(data_dict)
         return status_msg, file_name, domain_object
+=======
+    def get(self, create_domain_object) -> Dict or None:
+        if self._file_storage.is_file_list_empty:
+            self._status = f'There are no {self._file_storage.file_pfx} files in {self._file_storage.save_dir}'
+            return None
+        FilePersistence._validate_file_storage()
+        data_dict = self._file_storage.read_file()
+        domain_object = None if data_dict is None else create_domain_object(data_dict)
+        self._status = 'Read quiz file: ' + self._file_storage.file_path
+        return domain_object
+>>>>>>> br1
 
-    def get_next(self, create_domain_dct_object) -> (str, str, dict):
+    def get_next(self, create_domain_dct_object) -> None or Dict:
         self._file_storage.increment_file_index()
         return self.get(create_domain_dct_object)
 
-    def get_previous(self, create_domain_dct_object) -> (str, str, dict):
+    def get_previous(self, create_domain_dct_object) -> None or Dict:
         self._file_storage.decrement_file_index()
         return self.get(create_domain_dct_object)
 
-    def delete(self) -> (str, str):
-        FilePersistence._validate_file_storage()
-        return 'Deleted: ' + self._file_storage.delete_active_file() + ';  '
+    def reset(self, file_pfx: str) -> None:
+        if self._latest_file_prefix != file_pfx:
+            self._latest_file_prefix = file_pfx
+            self._file_storage.reset_file_prefix(file_pfx)
+            self._status = 'Reset file storage: ' + '??' + ';  '
 
-    def update(self, data_dict: dict) -> (str, str):
+    def save(self, file_pfx: str, data_dict: dict):
         FilePersistence._validate_file_storage()
-        file_info, update_msg = self._file_storage.update_file(data_dict)
-        return file_info, update_msg
+<<<<<<< HEAD
+        return 'Deleted: ' + self._file_storage.delete_active_file() + ';  '
+=======
+        self.reset(file_pfx)
+        self._file_storage.save_new_file(data_dict)
+        self._status = 'Saved quiz file: ' + self._file_storage.file_path
+>>>>>>> br1
+
+    def update(self, data_dict: dict):
+        FilePersistence._validate_file_storage()
+        self._file_storage.update_file(data_dict)
+        self._status = 'Updated quiz file: ' + self._file_storage.file_path
+
+    def delete(self):
+        FilePersistence._validate_file_storage()
+        file_path = self._file_storage.file_path
+        try:
+            self._file_storage.delete_file()
+            self._status = 'Deleted quiz file: ' + file_path
+        except InvalidOperation as e:
+            self._status = str(e)
+
+    def save_latest_file_name(self) -> str or None:
+        file_path = self._file_storage.save_dir + "/latest_work.json"
+        data_dict = {'LATEST_FILE_NAME': self._file_storage.latest_file_name}
+        with open(file_path, "w", encoding='utf8') as f:
+            json.dump(data_dict, f, ensure_ascii=False, sort_keys=False, indent=0)
+
+    @staticmethod
+    def _find_prefixes(save_dir: str, latest_file_name: str) -> (str, list):
+        absolute_dir = FilePersistence._find_absolute_dir(save_dir)
+        prefix = None
+        prefixes = FilePersistence._find_file_prefixes(absolute_dir)
+        if latest_file_name is not None:
+            prefix = re.split(r'[.\-]', latest_file_name)[0]
+        if prefix is None and len(prefixes) > 0:
+            prefix = prefixes[0]
+        if prefix is None:
+            prefix = 'quiz'
+        if len(prefixes) == 0:
+            prefixes = [prefix]
+        if prefix not in prefixes:
+            raise ValueError(f'file prefix={prefix}, not in {prefixes}')
+        return prefix, prefixes
 
     @staticmethod
     def _validate_file_storage():
