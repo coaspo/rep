@@ -17,6 +17,7 @@
         <button class="w3-bar-item w3-button tablink w3-blue" onclick="opencontName(event, 'Util')">Util</button>
         <button class="w3-bar-item w3-button tablink"         onclick="opencontName(event, 'Projects')">Proj</button>
         <button class="w3-bar-item w3-button tablink"         onclick="opencontName(event, 'Tools')">Tool</button>
+        <button class="w3-bar-item w3-button tablink"         onclick="opencontName(event, 'Recipe')">Recipe</button>
         <button class="w3-bar-item w3-button tablink"         onclick="opencontName(event, 'Note')">Note</button>
       </div>
       <!--======================================== Util ======================================-->
@@ -28,7 +29,6 @@
 		      <!--music--><a href="https://www.wqxr.org">Music</a><br/><br/>
               <!--spanish--><a href="https://quizlet.com/Dr_Darlington">Spanish</a><br/><br/>
               <!--npr--><a href="https://www.npr.org">NPR</a><br/><br/>
-              <!--recipes--><a href="./recipes/index.html">recipes </a><br/><br/>
               <!--traffic--><a href="https://www.google.com/maps/@42.4765179,-71.1097046,12z/data=!5m1!1e1?hl=en">Traffic</a> <br/><br/>
               <!--weather--><a href="https://forecast.weather.gov/MapClick.php?lat=42.482&amp;lon=-71.0973&amp;unit=0&amp;lg=english&amp;FcstType=graphical">Weather</a>&nbsp;&nbsp;&nbsp;<br/><br/>
 		    </td>
@@ -50,17 +50,17 @@
         <table class="w3-striped">
           <tr>
             <td class="w3-cyan">
-              <a href="https://app.netlify.com/teams/coaspo/sites" >netlify</a><br />
+              <a href="https://app.netlify.com/teams/coaspo/sites" >netlify</a><br/>
             </td>
             <td class="w3-light-blue">
-              <a href="https://github.com/coaspo/rep/tree/br1">github br1</a>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
-              &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/coaspo/rep/tree/br1/quizzer">quizzer</a><br />
-              &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/coaspo/rep/tree/br1/translator">translator</a><br />
+              <a href="https://github.com/coaspo/rep/tree/br1">github br1</a>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/coaspo/rep/tree/br1/quizzer">quizzer</a><br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/coaspo/rep/tree/br1/translator">translator</a><br/>
               &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/coaspo/rep/tree/br1/w">w(ebsite)</a><br/>
-              <a href="https://github.com/coaspo/rep/tree/master">github master</a>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
-              &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/coaspo/rep/tree/master/quizzer">quizzer</a><br />
-              &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/coaspo/rep/tree/master/translator">translator</a><br />
-              &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/coaspo/rep/tree/master/w">w(ebsite)</a><br />
+              <a href="https://github.com/coaspo/rep/tree/master">github master</a>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/coaspo/rep/tree/master/quizzer">quizzer</a><br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/coaspo/rep/tree/master/translator">translator</a><br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/coaspo/rep/tree/master/w">w(ebsite)</a><br/>
             </td>
           </tr>
         </table>
@@ -76,22 +76,47 @@
               <!--python tuto.--><a href="https://python-course.eu">python-course.eu</a><br/>
               <!--Java tuto.--><a href="https://www.vogella.com/tutorials/java.html">Java tutorial</a><br/>
 			</td><td class="w3-pale-green" >
-			  <!--Java IDE--><a href="https://onlinegdb.com/online_java_compiler">Java IDE</a><br />
-			  <!--Java compile--><a href="https://compilejava.net">Java compile</a><br />
-			  <!--Java repl--><a href="https://compilejava.net">Java repl</a><br />
-			  <!--python IDE--><a href="https://onlinegdb.com/online_python_compiler" >Python IDE</a><br />
-			  <!--python repl--><a href="https://python.org/shell" >Python repl</a><br />
-			  <!--python repl--><a href="https://www.pythonanywhere.com/user/cphantzis/>PythonAnywhere/a><br />
-			  <a href="https://plnkr.co/" >Plunker</a><br />
-			  <a href="https://play.kotlinlang.org" >Kotlin</a><br />
+			  <!--Java IDE--><a href="https://onlinegdb.com/online_java_compiler">Java IDE</a><br/>
+			  <!--Java compile--><a href="https://compilejava.net">Java compile</a><br/>
+			  <!--Java repl--><a href="https://compilejava.net">Java repl</a><br/>
+			  <!--python IDE--><a href="https://onlinegdb.com/online_python_compiler" >Python IDE</a><br/>
+			  <!--python repl--><a href="https://python.org/shell" >Python repl</a><br/>
+			  <!--python repl--><a href="https://www.pythonanywhere.com/user/cphantzis/>PythonAnywhere/a><br/>
+			  <a href="https://plnkr.co/" >Plunker</a><br/>
+			  <a href="https://play.kotlinlang.org" >Kotlin</a><br/>
             </td><td class="w3-pale-yellow">
               <!--SQL Format--><a href="https://sqlformat.org/">SQL Format</a><br/>
               <!--SQL Format--><a href="https://www.dpriver.com/pp/sqlformat.htm">SQL Format2</a><br/>
-              <!--HTML valid.--><a href="https://validator.w3.org/#validate_by_input">HTML valid.</a><br />
-              <!--HTML format--><a href="https://www.freeformatter.com/html-formatter.html">HTML format</a><br />
+              <!--HTML valid.--><a href="https://validator.w3.org/#validate_by_input">HTML valid.</a><br/>
+              <!--HTML format--><a href="https://www.freeformatter.com/html-formatter.html">HTML format</a><br/>
          </tr>
         </table>
-              <br><!--chromne--><a href="chrome://net-internals">chrome://net-internals</a><br /> <br />
+              <br><!--chromne--><a href="chrome://net-internals">chrome://net-internals</a><br/> <br/>
+      </div>
+      <!--======================================== Recipe ======================================-->
+      <div id="Recipe" class="w3-container contName" style="display:none" >
+        <table>
+          <!-- class="w3-table"-->
+          <tr>
+            <td  class="w3-pale-yellow" >
+				<a href="./recipes/fried-rice.html">fried rice</a> <br/>
+				<a href="./recipes/mac-n-cheese.html">mac and cheese</a> <br/>
+				<a href="./recipes/potato-tortilla.html">potato-tortilla</a> <br/>
+				<a href="./recipes/prasorizo.html">prasorizo</a> <br/>
+				<a href="./recipes/rizogalo.html">rizogalo</a> <br/>
+				<a href="./recipes/spanish-rice.html">Spanish rice</a> <br/>
+            </td>
+            <td  class="w3-pale-green" >
+				<a href="./recipes/gemista.html">gemista</a> <br/>
+				<a href="./recipes/kolokithokeftedes.html">kolokithokeftedes</a> <br/>
+				<a href="./recipes/oat bread.html">oat bread</a> <br/>
+				<a href="./recipes/pizza.html">pizza</a> <br/>
+				<a href="./recipes/portuguese bread.html">Portuguese bread</a> <br/>
+				<a href="./recipes/sourdough.html">sourdough</a> <br/>
+				<a href="./recipes/tsoureki.html">tsoureki</a> <br/>
+            </td>
+          </tr>
+        </table>
       </div>
       <!--======================================== Note ======================================-->
       <div id="Note" class="w3-container contName" style="display:none" >
@@ -99,12 +124,12 @@
           <!-- class="w3-table"-->
           <tr>
             <td  class="w3-pale-yellow" >
-              <a href="./notes/git.html">git</a> <br />
-              <a href="./notes/ide.html">intellij</a> <br />
-              <a href="./notes/keyboard-shortcuts.html">keyboard-shortcuts</a> <br />
-              <a href="./notes/python.html">python</a> <br />
-              <a href="https://www.coursera.org/learn/algorithms-part1/home/welcome">Algorithms course</a> <br />
-              <a href="https://www.edx.org">edx</a> <br />
+              <a href="./notes/git.html">git</a> <br/>
+              <a href="./notes/ide.html">intellij</a> <br/>
+              <a href="./notes/keyboard-shortcuts.html">keyboard-shortcuts</a> <br/>
+              <a href="./notes/python.html">python</a> <br/>
+              <a href="https://www.coursera.org/learn/algorithms-part1/home/welcome">Algorithms course</a> <br/>
+              <a href="https://www.edx.org">edx</a> <br/>
             </td>
           </tr>
         </table>
