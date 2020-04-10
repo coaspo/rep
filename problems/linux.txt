@@ -1,0 +1,30 @@
+On firefox search in ne tab, get msg: Gah. Your tab just crashed?!!
+FIX: about:config    browser.tabs.remote.autostart = false
+
+Diable password request from sleep
+FIX: gsettings set org.gnome.desktop.screensaver ubuntu-lock-on-suspend false
+
+Add git branch on the Bash command prompt
+FIX: gooble.... change ~/.bashrc
+
+Use snipping tool
+Answer: Shift-PrtScn
+
+Record screen actions
+Answer: Ctl-Alt-Shift-r  repeat to stop
+
+Use greek fonts
+FIX: >Setting >Region-language install Greek 
+
+Use Greek font
+Answer: >Super >Space   repeat to use English
+
+Accent Greek letter 
+Answer: Alt-'a το  create ὰ
+
+Show date & seconds in desktop
+FIX: gsettings set org.gnome.desktop.interface clock-show-date true     Same with  clock-show-seconds
+
+Set up firewall; for example, block news.google.com  
+Answer: sudo gedit /etc/hosts   add line: 127.0.0.1 news.google.com  then restart
+
