@@ -1,14 +1,8 @@
 tmp/**
 tmp*
-venv/**
-quizzes/**
-quz/quizzes/**
-.pytest_cache/**
 
 .idea
-*.pyc
 **.log
 **.bak
 **.tmp
-**/quz.egg*
-**/a.py
+

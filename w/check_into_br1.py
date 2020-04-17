@@ -15,20 +15,20 @@ def run(*args: str):
     with open(LOG_FILE, 'a') as f1:
         f1.write('\n' + str(args))
 
-    p = Popen(args, shell=True, stdout=PIPE, stderr=PIPE)
+    p = Popen(args, shell=False, stdout=PIPE, stderr=PIPE)
     o, e = p.communicate()
     output = o.decode("utf-8").replace('\r', '')
     errs = e.decode("utf-8").replace('\r', '')
 
     with open(LOG_FILE, 'a') as f2:
         if len(output) > 0:
-            f2.write('\n' + output)
+            f2.write('\noutput:\n' + output)
             print(output)
             if 'FAILURES' in output:
                 print('May have intermittent tkinter venv failure. - try rerunning')
                 exit(1)
         if len(errs) > 0:
-            f2.write('\n' + errs)
+            f2.write('\nerrs:\n' + errs)
             print(errs)
             if 'Everything up-to-date' in errs:
                 exit(0)
