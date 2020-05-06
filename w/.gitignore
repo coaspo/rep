@@ -2,6 +2,8 @@ tmp/**
 tmp*
 
 .idea
+.geany
+
 **.log
 **.bak
 **.tmp

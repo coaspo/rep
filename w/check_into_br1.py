@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+#!/bin/bash
 from datetime import datetime
 from os import mkdir
 from os import path
