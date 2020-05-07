@@ -45,7 +45,7 @@ if __name__ == '__main__':
         f.write(str(datetime.now()))
     run('git', 'add', '*')
     run('git', 'status')
-    msg = input(" Git commit msg: ")
+    msg = 'save' # input(" Git commit msg: ")
     run('git', 'commit', '-m', msg)
     run('git', 'push', 'origin', 'br1')
     run('git', 'diff')

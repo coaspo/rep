@@ -11,10 +11,12 @@
    <body>
       <pre>
 On firefox search in ne tab, get msg: Gah. Your tab just crashed?!!
-FIX: about:config    browser.tabs.remote.autostart = false
+FIX: type addr.: about:config    
+     browser.tabs.remote.autostart = false
 
 Diable password request from sleep
-FIX: gsettings set org.gnome.desktop.screensaver ubuntu-lock-on-suspend false
+FIX: gsettings set org.gnome.desktop.screensaver 
+     ubuntu-lock-on-suspend false
 
 Add git branch on the Bash command prompt
 FIX: gooble.... change ~/.bashrc
@@ -35,10 +37,13 @@ Accent Greek letter
 Answer: Alt-'a το  create ὰ
 
 Show date & seconds in desktop
-FIX: gsettings set org.gnome.desktop.interface clock-show-date true     Same with  clock-show-seconds
+FIX: gsettings set org.gnome.desktop.interface 
+    clock-show-date true     
+    Same with  clock-show-seconds
 
 Set up firewall; for example, block news.google.com  
-Answer: sudo gedit /etc/hosts   add line:  127.0.0.1 news.google.com  then restart
+Answer: sudo gedit /etc/hosts   
+        add line:  127.0.0.1 news.google.com  then restart
 
 How to spoof MAC address
 Answer: Install (select yes):  sudo apt-get install macchanger   
@@ -64,4 +69,9 @@ Answer: In desktop: sudo snap install scrcpy
         Disconnect USB cable, in desktop enter: scrcpy
 	Telephone screen should be displayed in desktop.
 
-
+Ho to run scrit nuy double click
+    Hit Alt+F2, type dconf-editor and hit ``Enter.
+    In dconfg-editor goto: org ➤ gnome ➤ nautilus ➤ preferences
+    Click on executable-text-activation and from drop down menu select:
+launch: to launch scripts as programs.
+ 
