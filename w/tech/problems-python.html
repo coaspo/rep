@@ -19,3 +19,8 @@ FIX: sudo chown -R th: ~/.local/share/jupyter     sudo chown -R th: ~/.ipynb_che
 how to change jupyter notebook dir
 Answer: jupyter notebook --notebook-dir=/home/th/d/rep/scraper/jupyter-notebooks
 
+how to run python script from nautilus (linux file explorer)
+Answer: crate: ~/.local/share/nautilus/scripts/run-python
+        with contents: python3 $1
+        make file executable, right-click on python file, >Scripts >run-python
+        
