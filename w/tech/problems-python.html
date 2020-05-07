@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <style>
+         pre {font-family: Arial, Helvetica, sans-serif}
+      </style>
+      <meta charset="utf-8"/>
+      <title>linux problems</title>
+   </head>
+   <body>
+      <pre>
+how to install jupyter
+Answer: sudo apt install python3-pip    pip3 install notebook   sudo snap install jupyter  
+
+cannot create jupyter file: Permission denied: .ipynb_checkpoints
+FIX: sudo chown -R th: ~/.local/share/jupyter     sudo chown -R th: ~/.ipynb_checkpoints/   sudo chmod -R 777 .local
+
+how to change jupyter notebook dir
+Answer: jupyter notebook --notebook-dir=/home/th/d/rep/scraper/jupyter-notebooks
+
