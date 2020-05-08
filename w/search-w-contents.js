@@ -1,6 +1,6 @@
 function search() {
   search_paths = search_file_paths();
-  //alert('file_list=\n' + String(search_paths).replace(/,/g,'\n'));
+  alert('file_list=\n' + String(search_paths).replace(/,/g,'\n'));
   var search_text = document.getElementById('inputText').value.trim()
   //alert('search_text = '+search_text)
   if (search_text.length == 0) {
@@ -19,6 +19,7 @@ function search() {
 
 function search_file_paths() {
   url = String(document.URL)
+  alert('==='+url)
   i_base = url.indexOf('/w/') + 3
   base_url = url.substr(0, i_base)
    
