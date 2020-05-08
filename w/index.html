@@ -13,7 +13,7 @@
   </head>
   <body>
     <div class="w3-container">
-      <div class="w3-bar w3-white">
+      <div class="w3-bar w3-white"> 
         <button class="w3-bar-item w3-button tablink w3-blue" onclick="opencontName(event, 'Main')">Main</button>
         <button class="w3-bar-item w3-button tablink"         onclick="opencontName(event, 'Projects')">Proj</button>
         <button class="w3-bar-item w3-button tablink"         onclick="opencontName(event, 'Tools')">Tool</button>
@@ -32,6 +32,7 @@
               <!--articles--><a href="https://tetw.o">Articles</a><br/><br/>
               <!--traffic--><a href="https://www.google.com/maps/@42.4765179,-71.1097046,12z/data=!5m1!1e1?hl=en">Traffic</a> <br/><br/>
               <!--weather--><a href="https://forecast.weather.gov/MapClick.php?lat=42.482&amp;lon=-71.0973&amp;unit=0&amp;lg=english&amp;FcstType=graphical">Weather</a>&nbsp;&nbsp;&nbsp;<br/><br/>
+              <!--weather--><a href="./README.md">About/Help</a>&nbsp;&nbsp;&nbsp;<br/><br/>
 		    </td>
             <td>
               <input type="text" id="inputText" style="width:355px">
@@ -43,9 +44,9 @@
               <p><button onclick="wolfram();"   style="width:310px; text-align: left;" >Wolfram</button>
               <p><button onclick="mayoclinic();"  style="width:150px; text-align: left;" >⚕️ Mayo C</button>
                  <button onclick="nih();"  style="width:150px; text-align: left;" >⚕️ 💊 NIH</button>
-               <p><button onclick="podCasts();"    style="width:310px; text-align: left;" >Podcasts</button>
-              <p><button onclick="inSpanish();" style="width:150px; text-align: left;" >🇪🇸</button>
-              <button onclick="σταΕλληνικά();" style="width:150px; text-align: left;" > 🇬🇷</button>
+               <p><button onclick="inSpanish();" style="width:150px; text-align: left;" >🇪🇸</button>
+                 <button onclick="σταΕλληνικά();" style="width:150px; text-align: left;" > 🇬🇷</button>
+              <p><button onclick="search();" style="width:310px; text-align: left;" >Search contents</button>
             </td>
           </tr>
         </table>
@@ -167,6 +168,7 @@
         </table>
       </div>
     </div>
+    <p id="search-results" style="border:1px solid black;"></p>
     <script>
       function opencontName(evt, tabName) {
          var i;
@@ -262,5 +264,6 @@
 });
 
     </script>
+     <script src="search-w-contents.js"></script> 
   </body>
 </html>
