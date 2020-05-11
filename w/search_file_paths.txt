@@ -1,0 +1,2 @@
+/tests/test_searcn_file_paths.txt
+/tests/test.html

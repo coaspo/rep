@@ -16,12 +16,12 @@
       <div class="w3-bar w3-white"> 
         <button class="w3-bar-item w3-button tablink w3-blue" onclick="opencontName(event, 'Main')">Main</button>
         <button class="w3-bar-item w3-button tablink"         onclick="opencontName(event, 'Projects')">Proj</button>
-        <button class="w3-bar-item w3-button tablink"         onclick="opencontName(event, 'Tools')">Tool</button>
-        <button class="w3-bar-item w3-button tablink"         onclick="opencontName(event, 'Tech')">Tech</button>
-        <button class="w3-bar-item w3-button tablink"         onclick="opencontName(event, 'Food')">Food</button>
-        <button class="w3-bar-item w3-button tablink"         onclick="opencontName(event, 'Art-Science')">Art/Science</button>
+        <button class="w3-bar-item w3-button tablink"         onclick="opencontName(event, 'Tools')">Tech</button>
+        <button class="w3-bar-item w3-button tablink"         onclick="opencontName(event, 'Recipes')">Recipes</button>
+        <button class="w3-bar-item w3-button tablink"         onclick="opencontName(event, 'Arts')">Arts</button>
+        <button class="w3-bar-item w3-button tablink"         onclick="opencontName(event, 'Science')">Science</button>
       </div>
-      <!--======================================== Util ======================================-->
+      <!--======================================== Main ======================================-->
       <div id="Main" class="w3-container contName" >
         <table>
           <!-- class="w3-table"-->
@@ -32,7 +32,7 @@
               <!--articles--><a href="https://tetw.o">Articles</a><br/><br/>
               <!--traffic--><a href="https://www.google.com/maps/@42.4765179,-71.1097046,12z/data=!5m1!1e1?hl=en">Traffic</a> <br/><br/>
               <!--weather--><a href="https://forecast.weather.gov/MapClick.php?lat=42.482&amp;lon=-71.0973&amp;unit=0&amp;lg=english&amp;FcstType=graphical">Weather</a>&nbsp;&nbsp;&nbsp;<br/><br/>
-              <!--weather--><a href="./README.md">About/Help</a>&nbsp;&nbsp;&nbsp;<br/><br/>
+              <!--weather--><a href="./help.html">Help</a>&nbsp;&nbsp;&nbsp;<br/><br/>
 		    </td>
             <td>
               <input type="text" id="inputText" style="width:355px">
@@ -46,12 +46,13 @@
                  <button onclick="nih();"  style="width:150px; text-align: left;" >⚕️ 💊 NIH</button>
                <p><button onclick="inSpanish();" style="width:150px; text-align: left;" >🇪🇸</button>
                  <button onclick="σταΕλληνικά();" style="width:150px; text-align: left;" > 🇬🇷</button>
-              <p><button onclick="search();" style="width:310px; text-align: left;" >Search contents</button>
+              <p><button onclick="searchMain();" style="width:310px; text-align: left;" >Search contents</button>
             </td>
           </tr>
         </table>
+      <p id="search-results" style="background-color:#FFFFDD; font-size:16px;"></p>
       </div>
-      <!--======================================== Projects ======================================-->
+      <!--======================================== Proj ======================================-->
       <div id="Projects" class="w3-container contName" style="display:none">
         <table class="w3-striped">
           <tr>
@@ -71,8 +72,25 @@
           </tr>
         </table>
       </div>
-      <!--======================================== Tools ======================================-->
-      <div id="Tools" class="w3-container contName" style="display:none" >
+      <!--======================================== Tech ======================================-->
+      <div id="Tech" class="w3-container contName" style="display:none" >
+        <table>
+          <!-- class="w3-table"-->
+          <tr>
+            <td  class="w3-pale-yellow" >
+              git <a href="./tech/git.html">cheat sheet</a> <br/>
+              intellij ⌨ <a href="./tech/ide.html">shortcuts</a> <br/>
+              OS/Browser ⌨ <a href="./tech/keyboard-shortcuts.html">shortcuts</a> <br/>
+              python <a href="./tech/python.html">features</a> <br/>
+              python <a href="./tech/problems-python.html">problem/solutions</a> <br/>
+              linux <a href="./tech/problems-linux.html">problem/solutions</a> <br/>
+            </td>            
+            <td  class="w3-pale-green" >
+              <a href="https://www.coursera.org/learn/algorithms-part1/home/welcome">Algorithms course</a> <br/>
+              <a href="https://www.edx.org">edx</a> <br/>
+            </td>
+          </tr>
+        </table>
         <table>
           <!-- class="w3-table"-->
           <tr>
@@ -99,76 +117,70 @@
         </table>
               <br><!--chromne--><a href="chrome://net-internals">chrome://net-internals</a><br/> <br/>
       </div>
-      <!--======================================== Tech ======================================-->
-      <div id="Tech" class="w3-container contName" style="display:none" >
+      <!--======================================== Recipes ======================================-->
+      <div id="Recipes" class="w3-container contName" style="display:none" >
         <table>
           <!-- class="w3-table"-->
           <tr>
             <td  class="w3-pale-yellow" >
-              git <a href="./tech/git.html">cheat sheet</a> <br/>
-              intellij ⌨ <a href="./tech/ide.html">shortcuts</a> <br/>
-              OS/Browser ⌨ <a href="./tech/keyboard-shortcuts.html">shortcuts</a> <br/>
-              python <a href="./tech/python.html">features</a> <br/>
-              python <a href="./tech/problems-python.html">problem/solutions</a> <br/>
-              linux <a href="./tech/problems-linux.html">problem/solutions</a> <br/>
-            </td>            
+				<a href="./recipes/fried-rice.html">fried rice</a> <br/>
+				<a href="./recipes/mac-n-cheese.html">mac and cheese</a> <br/>
+				<a href="./recipes/potato-tortilla.html">potato-tortilla</a> <br/>
+				<a href="./recipes/prasorizo.html">prasorizo</a> <br/>
+				<a href="./recipes/rizogalo.html">rizogalo</a> <br/>
+				<a href="./recipes/spanish-rice.html">Spanish rice</a> <br/>
+            </td>
             <td  class="w3-pale-green" >
-              <a href="https://www.coursera.org/learn/algorithms-part1/home/welcome">Algorithms course</a> <br/>
-              <a href="https://www.edx.org">edx</a> <br/>
+				<a href="./recipes/challah.html">hallah 🍞</a> <br/>
+				<a href="./recipes/focaccia.html">focaccia 🍞</a> <br/>
+				<a href="./recipes/gemista.html">gemista</a> <br/>
+				<a href="./recipes/kolokithokeftedes.html">kolokithokeftedes</a> <br/>
+				<a href="./recipes/oat bread.html">oat 🍞</a> <br/>
+				<a href="./recipes/pizza.html">🍕 🍞</a> <br/>
+				<a href="./recipes/portuguese bread.html">Portuguese 🍞</a> <br/>
+				<a href="./recipes/sourdough.html">sourdough 🍞</a> <br/>
+				<a href="./recipes/tsoureki.html">tsoureki 🍞</a> <br/>
+				<a href="./recipes/zopf.html">zopf 🍞</a> <br/>
             </td>
           </tr>
         </table>
       </div>
-      <!--======================================== Food ======================================-->
-      <div id="Food" class="w3-container contName" style="display:none" >
+      <!--======================================== Arts ======================================-->
+      <div id="Arts" class="w3-container contName" style="display:none" >
         <table>
           <!-- class="w3-table"-->
           <tr>
             <td  class="w3-pale-yellow" >
-				<a href="./food/fried-rice.html">fried rice</a> <br/>
-				<a href="./food/mac-n-cheese.html">mac and cheese</a> <br/>
-				<a href="./food/potato-tortilla.html">potato-tortilla</a> <br/>
-				<a href="./food/prasorizo.html">prasorizo</a> <br/>
-				<a href="./food/rizogalo.html">rizogalo</a> <br/>
-				<a href="./food/spanish-rice.html">Spanish rice</a> <br/>
+              <a href="./arts/articles.html">📰 articles</a>; mostly from the Atlantic..<br/>
+              <a href="./arts/books.html">📖 books</a>; read, or to read<br/>
+              <a href="./arts/music.html">🎵 music</a>; greek, pop, classical, gospel<br/>
+              <a href="./arts/videos.html">🎞 videos</a>; classic cartoons...<br/>
+              <a href="./arts/websites.html">🌐 websites</a>Free courses<br/>
             </td>
             <td  class="w3-pale-green" >
-				<a href="./food/challah.html">hallah 🍞</a> <br/>
-				<a href="./food/focaccia.html">focaccia 🍞</a> <br/>
-				<a href="./food/gemista.html">gemista</a> <br/>
-				<a href="./food/kolokithokeftedes.html">kolokithokeftedes</a> <br/>
-				<a href="./food/oat bread.html">oat 🍞</a> <br/>
-				<a href="./food/pizza.html">🍕 🍞</a> <br/>
-				<a href="./food/portuguese bread.html">Portuguese 🍞</a> <br/>
-				<a href="./food/sourdough.html">sourdough 🍞</a> <br/>
-				<a href="./food/tsoureki.html">tsoureki 🍞</a> <br/>
-				<a href="./food/zopf.html">zopf 🍞</a> <br/>
+              <a href="./science/words.html">λέξεις words</a>; the good, bad, ugly...<br/>
+              <a href="./science/words-internet.html">🌐 words</a>; the peculiar, bad, ugly ...<br/>
             </td>
           </tr>
         </table>
       </div>
-      <!--======================================== Art-Science ======================================-->
-      <div id="Art-Science" class="w3-container contName" style="display:none" >
+    <!--======================================== Science ======================================-->
+      <div id="Science" class="w3-container contName" style="display:none" >
         <table>
           <!-- class="w3-table"-->
           <tr>
             <td  class="w3-pale-yellow" >
-              <a href="./artScience/articles.html">📰 articles</a>; mostly from the Atlantic..<br/>
-              <a href="./artScience/books.html">📖 books</a>; read, or to read<br/>
-              <a href="./artScience/music.html">🎵 music</a>; greek, pop, classical, gospel<br/>
-              <a href="./artScience/videos.html">🎞 videos</a>; classic cartoons, virology course ..<br/>
-              <a href="./artScience/websites.html">🌐 websites</a>; reference, free courses<br/>
+              <a href="./science/scienceArticles.html">science 📰</a>; <br/>
+              <a href="./science/scienceBooks.html">science 📖</a>; d<br/>
+              <a href="./science/scienceVideos.html">science 🎞</a>; virology course ..<br/>
+              <a href="./science/scienceWebsites.html">science websites</a>; statiscis, COVID<br/>
             </td>
             <td  class="w3-pale-green" >
-              <a href="./artScience/exercise.html">🏋 Exercise</a> my list<br/>
-              <a href="./artScience/words.html">λέξεις words</a>; the good, bad, ugly...<br/>
-              <a href="./artScience/words-internet.html">🌐 words</a>; the peculiar, bad, ugly ...<br/>
+              <a href="./science/exercise.html">🏋 Exercise</a> my list<br/>
             </td>
           </tr>
         </table>
-      </div>
     </div>
-    <p id="search-results" style="border:1px solid black;"></p>
     <script>
       function opencontName(evt, tabName) {
          var i;
@@ -264,6 +276,7 @@
 });
 
     </script>
-     <script src="search-w-contents.js"></script> 
+     <script src="search-files.js"></script> 
+     <script src="search-html.js"></script> 
   </body>
 </html>

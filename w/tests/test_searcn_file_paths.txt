@@ -1,0 +1,3 @@
+/tests/recipe.html
+/tests/problems-list.html
+/tests/links.html

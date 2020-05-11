@@ -1,0 +1,145 @@
+var debug = false
+var inputText = document.getElementById('inputText').value.trim();
+var searchFilesPathsFile = '/searcn_file_paths.txt'
+
+function searchMain() {
+	'use strict';
+	if (debug) console.log('inputText= ' + inputText);
+	const search = searchFiles(inputText)
+	
+	document.getElementById("search-results").innerHTML = search.html;
+	possiblyShowDoc(search.docLink)
+}
+
+
+function searchFiles(inputText) {
+	if (debug) console.log('inputText = '+inputText)	
+	if (inputText.length === 0) {
+		var search = {}
+		search.html = ''
+		search.docLink = '';
+		return search;
+	}
+	const filePaths = getFilePaths()
+	var search = doSearch(inputText, filePaths);
+	return search
+}
+
+function possiblyShowDoc(docLink) {
+	if (search.docLink.length === 0) {
+		return
+	}
+}
+
+
+function getFilePaths() {
+	const url = String(document.URL);
+	const i_base = url.indexOf('/w/') + 2;
+	const base_url = url.substr(0, i_base);
+	if (debug) console.log('base_url= ' + base_url);
+
+	const paths = readFilePaths(base_url);
+	return paths;
+}
+
+
+function readFilePaths(base_url) {
+	var req = new XMLHttpRequest();
+	const url = base_url + searchFilesPathsFile;
+	if (debug) console.log('url= ' + url);
+	req.open("GET", url, false); // synchronous - browser may disable this???
+	req.send();
+	const html = req.responseText;
+
+	const lines = html.trim().split('\n');
+	var paths = [];
+
+	for (var i = 0; i < lines.length; i++) {
+		paths[i] = base_url + lines[i];
+	}
+	if (debug) console.log('paths=\n' + String(paths).replace(/,/g, '\n'));
+	return paths;
+}
+
+
+function doSearch(inputText, filePaths) {
+	search = {};
+	search.docLink = '';
+	search.html = '';
+
+	for (i = 0; i < filePaths.length; i++) {
+		url = filePaths[i];
+		if (search.docLink === '' && url.indexOf(url) > -1) {
+			search.docLink = '<a href="' + url + '">' + url +' </a>'
+		}
+
+		const lines = readLines(url);
+		match = match_text_in_lines(inputText, lines)
+
+		if (match.display_html.length > 0) {
+			if (search.html.length > 0) {
+				search.html += '<br>';
+			}
+			search.html = search.html + '<a href="' + url + '">' + file_name(url) + '</a>:' + match.display_html;
+		}
+		if (search.docLink === '' && match.first_matched_link.length > 0) {
+			search.docLink = match.first_matched_link
+		}
+		if (debug && search.docLink.length > 0) console.log('text in: url= '+url);
+	}
+	
+	if (search.html.length === 0) {
+		search.html = 'Did not find: "' + inputText + '"';
+	}
+	if (debug) console.log('search=\n' + search);
+	return search;
+}
+
+
+	function readLines(url) {
+		var req = new XMLHttpRequest();
+		req.open('GET', url, false); // `false` makes the request synchronous
+		req.send(null);
+
+		if (req.status === 200) {
+			const iStart = req.responseText.indexOf('<pre>') + 5;
+			return req.responseText.substr(iStart).split('\n');
+		}
+		return [req.status + ' on reading:' + url];
+	}
+
+
+	function match_text_in_lines2(inputText, lines) {
+		match = {};
+		match.display_html = '';
+		match.first_matched_link = ''
+
+		for (var j = 0; j < lines.length; j++) {
+			var line = lines[j];
+			
+			if (line.indexOf(inputText) > -1) {
+				line = line.replace(/<br>/g, '');
+				line = line.replace(/<li>/g, '');
+				line = line.replace(/<\/li>/g, '');
+				match.display_html += '<br>' + j + ': ' + line;
+
+				var k1 = line.indexOf('<a href');
+				if (k1 < 0) {
+					line = lines[j].replace(/</g, '&lt;').replace(/>/g, '&gt;');
+					if (match.first_matched_link === '') {
+						var k2 = line.indexOf('>', k1);
+						match.first_matched_link = line.substring(k1 + 7, k2);
+					}
+				}
+			}
+		}
+		return match	
+	}
+
+
+	function file_name(url) {
+		const i1 = url.lastIndexOf('/') + 1;
+		const i2 = url.length - 5;
+		const name = url.substring(i1, i2);
+		return name;
+	}
