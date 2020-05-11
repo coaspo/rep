@@ -52,7 +52,7 @@ def run(*args: str):
             print('May have intermittent tkinter venv failure. - try rerunning')
             exit(1)
     if len(errs) > 0:
-        log.write('errs:\n' + errs)
+        log('errs:\n' + errs)
         print(errs)
         if 'Everything up-to-date' in errs:
             exit(0)
