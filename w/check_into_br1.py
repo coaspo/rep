@@ -31,7 +31,7 @@ def update_version_info():
         ver = line.split(';')[1].strip()
         root = tk.Tk()
         root.withdraw()
-        ver = simpledialog.askstring(title="Git check-in",prompt="Version name:",initialvalue=msg)
+        ver = simpledialog.askstring(title="Git check-in",prompt="Version name:",initialvalue=ver)
         dt = datetime.now().isoformat()[:10]
         line = '* ' + dt + ';  ' + ver
       f.write(line+'\n')
