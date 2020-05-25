@@ -24,13 +24,16 @@ def log(*args):
 def update_version_info():
   with open('help.html') as f:
     lines = f.read().splitlines()
+    
   ver = 'update'
   for line in lines:
     if line.startswith('* '):
         ver = line.split(';')[1].strip()
+        
   root = tk.Tk()
   root.withdraw()
   ver = simpledialog.askstring(title="Git check-in",prompt="Version name:",initialvalue=ver)
+  
   with open('help.html', 'w') as f:
     for line in lines:
       if line.startswith('* '):
