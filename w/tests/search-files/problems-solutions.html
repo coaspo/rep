@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <style>
+         pre {font-family: Arial, Helvetica, sans-serif}
+      </style>
+      <meta charset="utf-8"/>
+      <title>linux problems</title>
+   </head>
+   <body>
+      <pre>
+On firefox search in ne tab, get msg: Gah. Your tab just crashed?!!
+FIX: type addr.: about:config    
+     browser.tabs.remote.autostart = false
+
+Diable password request from sleep
+FIX: gsettings set org.gnome.desktop.screensaver 
+     ubuntu-lock-on-suspend false
+
+Add git branch on the Bash command prompt
+FIX: gooble.... change ~/.bashrc
+
+Use snipping tool
+Answer: Shift-PrtScn
+
+Record screen actions
+Answer: Ctl-Alt-Shift-r  repeat to stop
+
+Use greek fontsdf
+FIX: >Setting >Region-language install Greek 
+
+Use Greek font
+Answer: >Super >Space   repeat to use English
+
+Accent Greek letter 
+Answer: Alt-'a το  create ὰ
+
+Show date & seconds in desktop
+FIX: gsettings set org.gnome.desktop.interface 
+    clock-show-date true     
+    Same with  clock-show-seconds
+
+Set up firewall; for example, block news.google.com  
+Answer: sudo gedit /etc/hosts   
+        add line:  127.0.0.1 news.google.com  then restart
+
+How to spoof MAC address
+Answer: Install (select yes):  sudo apt-get install macchanger   
+	Find interface:  ip addr     (should see for example: 2: enp2s0)
+	Change MAC addr (replace enp2s0 with actual interface):  sudo macchanger -r enp2s0
+	Change MAC after resume from sleep, add command to: /lib/systemd/system-sleep/hdparm
+
+How to enable SSH with git:
+Answer: Create public/prvate keys: ssh-keygen -t rsa -b 4096 -C "coaspo@gmail.com"
+        Add public key to github:  copy text in ~/id_rsa.pub  to: https://github.com/coaspo/rep 
+                                   >user >settings >SSH-and-GPG-keys
+       
+How to Mirror & Control Your Android Phone  
+Answer: In desktop: sudo snap install scrcpy
+                    sudo apt-get install adb
+        In phone: >Settings >About-phone >Software-info
+	          tap seven times on build# to switch to developer mode
+                  >Settings >About-phone >Status 
+		  Copy WIFI IP address - for example 10.0.0.149
+        Connect desktop and phone with USB cable
+        In desktop: adb tcpip 5555
+                    adb connect 10.0.0.149:5555
+        Disconnect USB cable, in desktop enter: scrcpy
+	Telephone screen should be displayed in desktop.
+
+Ho to run scrit nuy double click
+    Hit Alt+F2, type dconf-editor and hit ``Enter.
+    In dconfg-editor goto: org ➤ gnome ➤ nautilus ➤ preferences
+    Click on executable-text-activation and from drop down menu select:
+launch: to launch scripts as programs.
+ 

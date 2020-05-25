@@ -2,7 +2,8 @@ var debug = false
 var inputText = document.getElementById('inputText').value.trim();
 var searchFilesPathsFile = '/searcn_file_paths.txt'
 
-function searchContentsMain() {
+function searchMain() {
+    af this is fre great
 	'use strict';
 	if (debug) console.log('inputText= ' + inputText);
 	const search = searchFiles(inputText)

@@ -1,2 +1,4 @@
 /tests/test_searcn_file_paths.txt
+/tests/run_web_site.py
 /tests/test.html
+/tests/run_tests.py

@@ -16,7 +16,7 @@
       <div class="w3-bar w3-white"> 
         <button class="w3-bar-item w3-button tablink w3-blue" onclick="opencontName(event, 'Main')">Main</button>
         <button class="w3-bar-item w3-button tablink"         onclick="opencontName(event, 'Projects')">Proj</button>
-        <button class="w3-bar-item w3-button tablink"         onclick="opencontName(event, 'Tools')">Tech</button>
+        <button class="w3-bar-item w3-button tablink"         onclick="opencontName(event, 'Tech')">Tech</button>
         <button class="w3-bar-item w3-button tablink"         onclick="opencontName(event, 'Recipes')">Recipes</button>
         <button class="w3-bar-item w3-button tablink"         onclick="opencontName(event, 'Arts')">Arts</button>
         <button class="w3-bar-item w3-button tablink"         onclick="opencontName(event, 'Science')">Science</button>
@@ -36,17 +36,18 @@
 		    </td>
             <td>
               <input type="text" id="inputText" style="width:355px">
-              <p><button onclick="defineWord();"  style="width:150px; text-align: left;" >Dictionary</button>
-                 <button onclick="findAcronym();" style="width:150px; text-align: left;" >Acronym</button>
-              <p><button onclick="duckDuckGo();"  style="width:150px; text-align: left;" >🦆 🦆</button>
-                 <button onclick="google();"  style="width:150px; text-align: left;" >10<sup>100</sup></button>
-              <p><button onclick="wikipedia();"   style="width:310px; text-align: left;" >Wikipedia</button>
-              <p><button onclick="wolfram();"   style="width:310px; text-align: left;" >Wolfram</button>
+              <p><button onclick="defineWord();"  style="width:150px; text-align: left; color:#347235;" >Dictionary</button>
+                 <button onclick="findAcronym();" style="width:150px; text-align: left; color:#347235;" >Acronym</button>
+              <p><button onclick="google();"  style="width:150px; text-align: left;" >10<sup>100</sup></button>
+                 <button onclick="duckDuckGo();"  style="width:150px; text-align: left;" >🦆 🦆</button>
+               <p><button onclick="wikipedia();"   style="width:150px; text-align: left; color:#800517;" >Wikipedia</button>
+                 <button onclick="wolfram();"   style="width:150px; text-align: left; color:#800517;" >Wolfram</button>
               <p><button onclick="mayoclinic();"  style="width:150px; text-align: left;" >⚕️ Mayo C</button>
                  <button onclick="nih();"  style="width:150px; text-align: left;" >⚕️ 💊 NIH</button>
-               <p><button onclick="inSpanish();" style="width:150px; text-align: left;" >🇪🇸</button>
-                 <button onclick="σταΕλληνικά();" style="width:150px; text-align: left;" > 🇬🇷</button>
-              <p><button onclick="searchMain();" style="width:310px; text-align: left;" >Search contents</button>
+               <p><button onclick="inSpanish();" style="width:150px; text-align: left;" >🇪🇸 trans</button>
+                 <button onclick="σταΕλληνικά();" style="width:150px; text-align: left;" > 🇬🇷 trans</button>
+              <p><button onclick="googlemaps();"  style="width:150px; text-align: left;" >Map 🗺️</button>
+                 <button onclick="searchContentsMain();" style="width:150px; text-align: left;" >Contents</button>
             </td>
           </tr>
         </table>
@@ -151,15 +152,14 @@
           <!-- class="w3-table"-->
           <tr>
             <td  class="w3-pale-yellow" >
-              <a href="./arts/articles.html">📰 articles</a>; mostly from the Atlantic..<br/>
-              <a href="./arts/books.html">📖 books</a>; read, or to read<br/>
-              <a href="./arts/music.html">🎵 music</a>; greek, pop, classical, gospel<br/>
-              <a href="./arts/videos.html">🎞 videos</a>; classic cartoons...<br/>
-              <a href="./arts/websites.html">🌐 websites</a>Free courses<br/>
+               <a href="./arts/music.html">🎵 music</a>; greek, pop, classical, gospel<br/>
+              <a href="./arts/videos.html">🎞 videos</a>; cartoons...<br/>
+              <a href="./arts/websites.html">websites</a> Free courses<br/>
             </td>
             <td  class="w3-pale-green" >
-              <a href="./science/words.html">λέξεις words</a>; the good, bad, ugly...<br/>
-              <a href="./science/words-internet.html">🌐 words</a>; the peculiar, bad, ugly ...<br/>
+              <a href="./arts/words.html">λέξεις words</a>; good/bad/gly...<br/> 
+              <a href="./arts/words-internet.html">internet words</a>; peculiar/bad/ugly ...<br/>
+              <a href="./arts/words-languages.html">🌐 languages</a>; yes/no/wate/fire/one/two in different languages<br/>
             </td>
           </tr>
         </table>
@@ -170,13 +170,13 @@
           <!-- class="w3-table"-->
           <tr>
             <td  class="w3-pale-yellow" >
-              <a href="./science/scienceArticles.html">science 📰</a>; <br/>
-              <a href="./science/scienceBooks.html">science 📖</a>; d<br/>
+              <a href="./science/scienceArticles.html">science 📰</a>; psychology, medicine<br/>
+              <a href="./science/scienceBooks.html">science 📖</a>; some of the best books to read?<br/>
               <a href="./science/scienceVideos.html">science 🎞</a>; virology course ..<br/>
               <a href="./science/scienceWebsites.html">science websites</a>; statiscis, COVID<br/>
             </td>
             <td  class="w3-pale-green" >
-              <a href="./science/exercise.html">🏋 Exercise</a> my list<br/>
+              <a href="./science/exercise.html">🏋 Exercise</a> to-do<br/>
             </td>
           </tr>
         </table>
@@ -199,20 +199,6 @@
       function findAcronym() {
         var acronym = document.getElementById('inputText').value;
         var url = "https://www.acronymfinder.com/" + acronym + ".html";
-        var win = window.open(url, "_self");
-        win.focus();
-      }
-      function σταΕλληνικά() {
-        var englishWord = document.getElementById('inputText').value;
-        //var url = "https://translate.google.com/#en/el/" + englishWord;
-        var url = "https://glosbe.com/en/el/" + englishWord;
-        var win = window.open(url, "_self");
-        win.focus();
-      }
-      function inSpanish() {
-        var englishWord = document.getElementById('inputText').value;
-        //var url = "https://translate.google.com/#en/es/" + englishWord;
-        var url = "https://glosbe.com/en/es/" + englishWord;
         var win = window.open(url, "_self");
         win.focus();
       }
@@ -248,13 +234,23 @@
 	    }
       function duckDuckGo() {
         var word = document.getElementById('inputText').value;
-        var url = "https://duckduckgo.com/?q=" + word + ' site:.org';+ "&t=hk&ia=web";
+        var url = "https://duckduckgo.com/?q=" + word + ' site:org';+ "&t=hk&ia=web";
         var win = window.open(url, "_self");
         win.focus();
 	    }
       function google() {
         var word = document.getElementById('inputText').value + ' site:.org';
-        alert(word)
+        var url = "https://www.google.com/search?q=" + word ;  //site%3A.edu
+        var win = window.open(url, "_self");
+        win.focus();
+	    }
+      function googlemaps() {
+        var words = String(document.getElementById('inputText').value.trim().split(" ")); 
+        var suffix = words.replace(",", "+");
+        alert(suffix)
+        https://www.google.com/maps/place/Lynn,+MA
+       // if word === ''
+        //   url = 'https://www.google.com/maps/@42.478513,-71.0486703,13.25z'
         var url = "https://www.google.com/search?q=" + word ;  //site%3A.edu
         var win = window.open(url, "_self");
         win.focus();
@@ -265,6 +261,20 @@
         var win = window.open(url, "_self");
         win.focus();
 	    }
+      function σταΕλληνικά() {
+        var englishWord = document.getElementById('inputText').value;
+        //var url = "https://translate.google.com/#en/el/" + englishWord;
+        var url = "https://glosbe.com/en/el/" + englishWord;
+        var win = window.open(url, "_self");
+        win.focus();
+      }
+      function inSpanish() {
+        var englishWord = document.getElementById('inputText').value;
+        //var url = "https://translate.google.com/#en/es/" + englishWord;
+        var url = "https://glosbe.com/en/es/" + englishWord;
+        var win = window.open(url, "_self");
+        win.focus();
+      }
 	  if (document.URL.startsWith('file')) {
 	    document.body.style.background = "lightyellow"
 	  }
