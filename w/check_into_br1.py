@@ -80,6 +80,10 @@ def run(*args: str):
 
 
 if __name__ == '__main__':
+    root = tk.Tk()
+    root.withdraw()
+    ver = simpledialog.askstring(title="Git check-in",prompt="Version name:",initialvalue='aaaaaa')
+
     ver = update_version_info()
     with open(LOG_FILE, 'w') as f:
       f.write(str(datetime.now()))
