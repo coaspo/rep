@@ -27,9 +27,8 @@
           <!-- class="w3-table"-->
           <tr>
             <td>
-		      <!--music--><a href="https://www.wqxr.org">Music</a><br/><br/>
               <!--npr--><a href="https://www.npr.org">NPR</a><br/><br/>
-              <!--articles--><a href="https://tetw.o">Articles</a><br/><br/>
+              <!--articles--><a href="https://tetw.org">Articles</a><br/><br/>
               <!--traffic--><a href="https://www.google.com/maps/@42.4765179,-71.1097046,12z/data=!5m1!1e1?hl=en">Traffic</a> <br/><br/>
               <!--weather--><a href="https://forecast.weather.gov/MapClick.php?lat=42.482&amp;lon=-71.0973&amp;unit=0&amp;lg=english&amp;FcstType=graphical">Weather</a>&nbsp;&nbsp;&nbsp;<br/><br/>
               <!--weather--><a href="./help.html">Help</a>&nbsp;&nbsp;&nbsp;<br/><br/>
@@ -45,8 +44,8 @@
               <p><button onclick="mayoclinic();"  style="width:150px; text-align: left;" >⚕️ Mayo C</button>
                  <button onclick="nih();"  style="width:150px; text-align: left;" >⚕️ 💊 NIH</button>
                <p><button onclick="inSpanish();" style="width:150px; text-align: left;" >🇪🇸 trans</button>
-                 <button onclick="σταΕλληνικά();" style="width:150px; text-align: left;" > 🇬🇷 trans</button>
-              <p><button onclick="googlemaps();"  style="width:150px; text-align: left;" >Map 🗺️</button>
+                 <button onclick="σταΕλληνικά();" style="width:150px; text-align: left;" >🇬🇷 trans</button>
+              <p><button onclick="googlemaps();"  style="width:150px; text-align: left;" >🗺️ Map</button>
                  <button onclick="searchContentsMain();" style="width:150px; text-align: left;" >Contents</button>
             </td>
           </tr>
@@ -247,11 +246,7 @@
       function googlemaps() {
         var words = String(document.getElementById('inputText').value.trim().split(" ")); 
         var suffix = words.replace(",", "+");
-        alert(suffix)
-        https://www.google.com/maps/place/Lynn,+MA
-       // if word === ''
-        //   url = 'https://www.google.com/maps/@42.478513,-71.0486703,13.25z'
-        var url = "https://www.google.com/search?q=" + word ;  //site%3A.edu
+        var url = "https://www.google.com/maps/place/" + words ;  
         var win = window.open(url, "_self");
         win.focus();
 	    }

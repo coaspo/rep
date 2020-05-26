@@ -27,18 +27,20 @@ def update_version_info():
     
   ver = 'update'
   for line in lines:
-    if line.startswith('* '):
+    if line.startswith('20'):
         ver = line.split(';')[1].strip()
         
   root = tk.Tk()
   root.withdraw()
-  ver = simpledialog.askstring(title="Git check-in",prompt="Version name:",initialvalue=ver)
+  ver = simpledialog.askstring(title="Git check-in;  "+ __file__,
+                               prompt=(' '*100)+"\nVersion name:",
+                               initialvalue=ver)
   
   with open('help.html', 'w') as f:
     for line in lines:
-      if line.startswith('* '):
+      if line.startswith('20'):
         dt = datetime.now().isoformat()[:10]
-        line = '* ' + dt + ';  ' + ver
+        line = dt + ';  ' + ver
       f.write(line+'\n')
   return ver
 
