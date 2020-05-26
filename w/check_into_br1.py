@@ -32,10 +32,12 @@ def update_version_info():
         
   root = tk.Tk()
   root.withdraw()
+  print('+++++++', ver)
   ver = simpledialog.askstring(title="Git check-in;  "+ __file__,
                                prompt=(' '*100)+"\nVersion name:",
                                initialvalue=ver)
   
+  print('+++ ++++', ver)
   with open('help.html', 'w') as f:
     for line in lines:
       if line.startswith('20'):
