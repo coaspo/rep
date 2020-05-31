@@ -1,4 +1,4 @@
-/tests/test_searcn_file_paths.txt
-/tests/run_web_site.py
-/tests/test.html
-/tests/run_tests.py
+/tests/run_web_site_locally.py
+/tests/test_search_files_file_paths.txt
+/tests/test_search_files.py
+/tests/test_search_files.html

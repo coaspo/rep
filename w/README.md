@@ -9,13 +9,13 @@ See [./help.html](help.html) for more details.
 
 Test
 ----
-Right click and run [./tests/run_web_site.py](run_web_site.p) 
+Right click and run [./tests/test_search_files.py](test_search_files.py). 
 
-The script runs:
+The script stops/runs local server using:
   fuser -k 8080/tcp
   python3 -m http.server 8080
-Site is on a local server;
-  http://localhost:8080/w/
+And displays 
+  [http://localhost:8080/w/tests/test_search_files.html](test_search_files.html)
 
 
 View site from github

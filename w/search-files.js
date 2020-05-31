@@ -1,27 +1,27 @@
-var debug = false
-var inputText = document.getElementById('inputText').value.trim();
-var searchFilesPathsFile = '/searcn_file_paths.txt'
-
-function searchContentsMain() {
+function searchContentsMain(debug) {
 	'use strict';
-	if (debug) console.log('inputText= ' + inputText);
-	const search = searchFiles(inputText)
-	
+        window.debug = debug;
+        window.inputText = document.getElementById('inputText').value.trim();
+	if (window.debug) console.log('window.inputText= ' + window.inputText);
+	const base_url = getBaseUrl()
+        const fileUrls = getFileUrls(base_url, '/searcn_file_paths.txt')
+	const search = searchFiles(window.inputText, fileUrls);
+        if (window.debug) console.log('search= ' + search);	
+        
 	document.getElementById("search-results").innerHTML = search.html;
 	possiblyShowDoc(search.docLink)
 }
 
 
-function searchFiles(inputText) {
-	if (debug) console.log('inputText = '+inputText)	
+function searchFiles(inputText, fileUrls) {
+	if (window.debug) console.log('inputText = '+inputText)	
 	if (inputText.length === 0) {
 		var search = {}
 		search.html = ''
 		search.docLink = '';
 		return search;
 	}
-	const filePaths = getFilePaths()
-	var search = doSearch(inputText, filePaths);
+	var search = doSearch(inputText, fileUrls);
 	return search
 }
 
@@ -32,66 +32,64 @@ function possiblyShowDoc(docLink) {
 }
 
 
-function getFilePaths() {
+function getBaseUrl() {
 	const url = String(document.URL);
 	const i_base = url.indexOf('/w/') + 2;
 	const base_url = url.substr(0, i_base);
-	if (debug) console.log('base_url= ' + base_url);
-
-	const paths = readFilePaths(base_url);
-	return paths;
+	if (window.debug) console.log('base_url= ' + base_url)
+	return base_url;
 }
 
 
-function readFilePaths(base_url) {
+function getFileUrls(base_url, searchFilesPathsFile) {
 	var req = new XMLHttpRequest();
 	const url = base_url + searchFilesPathsFile;
-	if (debug) console.log('url= ' + url);
+	if (window.debug) console.log('url= ' + url);
 	req.open("GET", url, false); // synchronous - browser may disable this???
 	req.send();
 	const html = req.responseText;
 
 	const lines = html.trim().split('\n');
-	var paths = [];
+	var fileUrls = [];
 
 	for (var i = 0; i < lines.length; i++) {
-		paths[i] = base_url + lines[i];
+		fileUrls[i] = base_url + lines[i];
 	}
-	if (debug) console.log('paths=\n' + String(paths).replace(/,/g, '\n'));
-	return paths;
+	if (window.debug) console.log('paths=\n' + String(fileUrls).replace(/,/g, '\n'));
+	return fileUrls;
 }
 
 
-function doSearch(inputText, filePaths) {
+function doSearch(inputText, fileUrls) {
 	search = {};
 	search.docLink = '';
 	search.html = '';
 
-	for (i = 0; i < filePaths.length; i++) {
-		url = filePaths[i];
+	for (i = 0; i < fileUrls.length; i++) {
+		url = fileUrls[i];
 		if (search.docLink === '' && url.indexOf(url) > -1) {
 			search.docLink = '<a href="' + url + '">' + url +' </a>'
 		}
 
 		const lines = readLines(url);
-		match = match_text_in_lines(inputText, lines)
+		match = matchTextInLines(inputText, lines)
 
 		if (match.display_html.length > 0) {
 			if (search.html.length > 0) {
 				search.html += '<br>';
 			}
-			search.html = search.html + '<a href="' + url + '">' + file_name(url) + '</a>:' + match.display_html;
+			search.html = search.html + '<a href="' + url + '">' + fileName(url) + '</a>:' + match.display_html;
 		}
 		if (search.docLink === '' && match.first_matched_link.length > 0) {
 			search.docLink = match.first_matched_link
 		}
-		if (debug && search.docLink.length > 0) console.log('text in: url= '+url);
+		if (window.debug && search.docLink.length > 0) console.log('text in: url= '+url);
 	}
 	
 	if (search.html.length === 0) {
 		search.html = 'Did not find: "' + inputText + '"';
 	}
-	if (debug) console.log('search=\n' + search);
+	if (window.debug) console.log('search=\n' + search);
 	return search;
 }
 
@@ -102,14 +100,22 @@ function doSearch(inputText, filePaths) {
 		req.send(null);
 
 		if (req.status === 200) {
-			const iStart = req.responseText.indexOf('<pre>') + 5;
-			return req.responseText.substr(iStart).split('\n');
+			const iStart = req.responseText.indexOf('<body>');
+                        console.log('=======>')
+                       console.log(req.responseText)
+                       console.log('<=======')
+                       lines = req.responseText.substr(iStart).trim().split('\n');
+                       lines.splice(0, 1);
+                        console.log('=======>')
+                       console.log(lines)
+                       console.log('<=======')
+			return lines;
 		}
 		return [req.status + ' on reading:' + url];
 	}
 
 
-	function match_text_in_lines2(inputText, lines) {
+	function matchTextInLines2(inputText, lines) {
 		match = {};
 		match.display_html = '';
 		match.first_matched_link = ''
@@ -137,7 +143,7 @@ function doSearch(inputText, filePaths) {
 	}
 
 
-	function file_name(url) {
+	function fileName(url) {
 		const i1 = url.lastIndexOf('/') + 1;
 		const i2 = url.length - 5;
 		const name = url.substring(i1, i2);

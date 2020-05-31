@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>test</title>
+    <style>
+      body {font-size:12px;}
+      td   {vertical-align:top}
+      p    {margin-left: 25px; margin-top: 5px; margin-bottom: 5px;}
+    </style>
+  </head>
+  <body><pre>
+<input type="text" id="inputText" style="width:300px">    <a href='http://localhost:8080/w/tests/test_search_files.html'>http://localhost:8080/w/tests/test_search_files.html</a>
+  <button onclick="searchContentsMain(true, '/tests/test_search_files_file_paths.txt');"  style="width:300px; text-align: left;" >Contents   (manual test)</button>    <a href='http://localhost:8080/w/index.html'>http://localhost:8080/w/index.html</a>
+
+
+<button onclick="integrationTestsMain();"  style="width:300px; text-align: left;" >Run Integration Tests</button>
+<button onclick="unitTestsMain();"  style="width:300px; text-align: left;" >Run Unit Tests</button>
+<button onclick="clearResults();"  style="width:300px; text-align: left;" >Clear results</button>
+<pre id="search-results" style="background-color:#FFFFDD;"></pre></pre>
+     <script src="../js/search-files.js"></script> 
+     <script src="../js/search-html.js"></script> 
+     <script src="./js/unit-tests.js"></script> 
+     <script src="./js/integration-tests.js"></script> 
+   <script>
+       window.testFailed = false;
+       unitTestsMain();
+       integrationTestsMain();
+       function clearResults() {
+         document.getElementById("search-results").innerHTML = '';
+         document.body.style.background = 'white';
+       }
+    </script>
+  </body>
+</html>
