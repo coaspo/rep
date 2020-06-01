@@ -14,12 +14,16 @@ function unitTestsMain() {
    console.log('-- unitTestsMain() done');
 }
 
-doc = document.URL
-iEnd = doc.indexOf('/w/')
-URL = doc.substr(0, iEnd+2)
+x = document.URL
+iEnd = x.indexOf('/w/')+2
+y = x[0:iEnd]
 
 function functionTests() {
    baseUrl = getBaseUrl()
+   console.log('xxxxxxxxx ='+x)
+   console.log('yyyyyyyyy ='+y)
+   console.log('UUUUUUUUU ='+iEnd)
+   console.log('UUUUUUUUU ='+URL)
    updateTestMsg('1 getBaseUrl()', URL, baseUrl)
 
    fileUrls = getFileUrls(baseUrl, '/tests/test_search_files_file_paths.txt')

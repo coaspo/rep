@@ -43,6 +43,8 @@ def update_version_info():
         dt = datetime.now().isoformat()[:10]
         line = dt + ';  ' + ver
       f.write(line+'\n')
+  global msg
+  msg += '\n' + ver
   return ver
 
 def save_searcn_file_paths():
@@ -58,9 +60,13 @@ def save_searcn_file_paths():
   with open('search_file_paths.txt', 'w') as f:
     f.writelines(p+'\n' for p in file_paths)
   log('Updated searcn_file_paths.txt')
+  global msg
+  msg += '\nUpdated searcn_file_paths.txt'
 
 
 def run(*args: str):
+    global msg
+    msg += '\n'+str(args)
     print('cmd:', args)
     log('cmd:', args)
 
@@ -73,23 +79,24 @@ def run(*args: str):
         log('output: ', output)
         print(output)
         if 'FAILURES' in output:
-            messagebox.showinfo("FAILURES", 'May have intermittent tkinter venv failure. - try rerunning')
+            messagebox.showinfo("FAILURES", msg +'\nMay have intermittent tkinter venv failure.\nTry rerunning')
             exit(1)
     if len(errs) > 0:
         log('errs: ', errs)
         print(errs)
         if 'Everything up-to-date' in errs:
-            messagebox.showinfo("Git done", 'Code checked in')
+            messagebox.showinfo("Git done", msg +'\nCode checked in')
             exit(0)
         label = 15 * 'ERR---' if 'br1 -> br1' not in str(errs) else ''
         log(label)
         print(label)
         if 'ERR---' in label:
-            messagebox.showinfo("ERR", lavel)
+            messagebox.showinfo("ERR", msg +'\n'+lavel)
             exit(2)
 
 
 if __name__ == '__main__':
+    msg = ''
     ver = update_version_info()
     with open(LOG_FILE, 'w') as f:
       f.write(str(datetime.now()))
@@ -106,4 +113,4 @@ if __name__ == '__main__':
     log_archive_file = archive_dir + '/' + SCRIPT_NAME + '-' + str(datetime.now()).replace(':', '-') + '.log'
     copy(LOG_FILE, log_archive_file)
     log('done')
-    print('done')
+    messagebox.showinfo(__file__, msg +'\ndone')

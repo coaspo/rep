@@ -98,6 +98,7 @@ function searchFiles(inputText, filePathsFile) {
       if (search.html.length > 0) {
          search.html  = html + '\n\n'+ search.html;
       } else {
+        
          search.html  = html
       }
   } 
