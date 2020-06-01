@@ -3,6 +3,7 @@ function searchContentsMain(debug, filePathsFile) {
   window.debug = debug;
   window.inputText = document.getElementById('inputText').value.trim();
   if (window.debug) console.log('*searchContentsMain() window.inputText= ' + window.inputText);
+  document.getElementById("search-results").innerHTML = 'Wait... searching web pages'
   
   const search = searchFiles(inputText, filePathsFile);
   if (window.debug) console.log('*searchContentsMain() search.html= ' + search.html);     
