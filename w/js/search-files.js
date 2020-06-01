@@ -5,14 +5,17 @@ function searchContentsMain(debug, filePathsFile) {
   if (window.debug) console.log('*searchContentsMain() window.inputText= ' + window.inputText);
   
   const search = searchFiles(inputText, filePathsFile);
-  if (window.debug) console.log('*searchContentsMain() search= ' + search);     
+  if (window.debug) console.log('*searchContentsMain() search.html= ' + search.html);     
+  if (window.debug) console.log('*searchContentsMain() search.url= ' + search.url);     
   document.getElementById("search-results").innerHTML = search.html;
-  return search;
+  if (search.hitUrl != '') {
+    window.open(search.hitUrl, "_self");
+  }
 }
 
 
-function possiblyShowDoc(docLink) {
-  if (search.docLink.length === 0) {
+function possiblyShowDoc(url) {
+  if (search.url.length === 0) {
     return
   }
 }
@@ -47,22 +50,22 @@ function getFileUrls(baseUrl, searchFilesPathsFile) {
 
 
 function searchFiles(inputText, filePathsFile) {
+   inputText = inputText.trim().toLowerCase();
    search = {};
-   search.docLink = '';
+   search.urls = '';
    search.html = '';   
+   search.hitUrl = '';   
    const baseUrl = getBaseUrl()
    const fileUrls = getFileUrls(baseUrl, filePathsFile)
    if (window.debug) console.log('*searchFiles() inputText = '+inputText)  
    if (inputText.length === 0) {
      return search;
    }
-   numOfUrlMatches = 0;
 
   for (i = 0; i < fileUrls.length; i++) {
     url = fileUrls[i];
     if (url.indexOf(inputText) > -1) {
-      search.docLink = '<a href="' + url + '">' + fileName(url) + '</a>'
-      numOfUrlMatches++;
+      search.urls += (search.urls.length > 0 ? '##' : '') + url; 
     }
 
     const lines = readLines(url);
@@ -74,22 +77,33 @@ function searchFiles(inputText, filePathsFile) {
       }
       search.html  = search.html  + '<a href="' + url + '">' + fileName(url) + '</a>: ' + fileSearchResult;
     }
-    if (window.debug) console.log('*searchFiles() found text in: url= '+url);
+    if (window.debug) console.log('*searchFiles() finishe search in url= '+url);
   }
   
-  if (window.debug) ('*searchFiles() numOfUrlMatches= '+numOfUrlMatches+ " search.docLink= " + search.docLink);
-  if (numOfUrlMatches > 1) {
-     search.docLink = '';
-  }
+  if (window.debug) console.log('*searchFiles() search.urls= ' + search.urls);
 
-  if (search.html .length === 0) {
-    if (search.docLink == '') {
-      search.html  = 'Did not find: "' + inputText + '"';
-    } else {
-      search.html  = 'Found text in one file name; ' + search.docLink;
-    }
-  }
-  if (window.debug) console.log('*searchFiles() search.html= ' + search.html+'\nsearch.docLink= '+search.docLink);
+  if (search.urls.length > 0) {
+      urls = search.urls.split('##');
+      if (urls.length == 1 && search.html.length === 0) {
+        search.hitUrl = urls[0]
+      }
+      html = ''
+      for (var i=0; i<urls.length; i++) {
+        name = fileName(urls[i])
+        name = name.replace(inputText, "<id style='color:red'>" + inputText + "</id>");
+        html = html + '\n<a href="' + urls[i] + '">' + name + '</a>';
+      }
+      html = html.trim()
+      if (search.html.length > 0) {
+         search.html  = html + '\n\n'+ search.html;
+      } else {
+         search.html  = html
+      }
+  } 
+  if (search.html.length === 0) {
+    search.html  = 'Did not find: "' + inputText + '"';
+  } 
+  if (window.debug) console.log('*searchFiles() search.html= ' + search.html+'\nsearch.urls= '+search.urls);
   return search;
 }
 

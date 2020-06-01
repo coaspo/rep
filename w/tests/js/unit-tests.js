@@ -1,11 +1,16 @@
 function unitTestsMain() {
-   window.debug = false
+   window.debug = true
    console.log('-- unitTestsMain() started');
    functionTests();
    recipeTests();
    linksTests();
    problemTests();
    highLightTest();
+   if (window.testFailed) {
+      document.body.style.background = '#ff6666';
+   } else {
+      document.body.style.background = '#ccffcc';
+   }
    console.log('-- unitTestsMain() done');
 }
 
@@ -16,7 +21,8 @@ function functionTests() {
    fileUrls = getFileUrls(baseUrl, '/tests/test_search_files_file_paths.txt')
    expected = ['http://localhost:8080/w/tests/search-files/recipe.html',
          'http://localhost:8080/w/tests/search-files/problems-solutions.html',
-         'http://localhost:8080/w/tests/search-files/links.html']
+         'http://localhost:8080/w/tests/search-files/links.html',
+          'http://localhost:8080/w/tests/search-files/misc-solutions.html']
    updateTestMsg('2 getFileUrls()', expected, fileUrls);
 
    name = fileName('http://localhost:8080/w/tests/search-files/recipe.html');
@@ -68,7 +74,7 @@ function problemTests() {
               '        add line..';
    updateTestMsg('9 matchTextInLines(),problems', expected, file_search_result)
 
-   file_search_result = matchTextInLines('Use', lines, true)
+   file_search_result = matchTextInLines('use', lines, true)
    expected = '<id style=\'color:red\'>use</id> snipping tool\n'+
               'answer: shift-prtscn\n'+
               '\n'+
@@ -109,7 +115,7 @@ function highLightTest() {
 }
 
 function updateTestMsg(testName, expected, actual) {
-   console.log('testName='+ testName)
+   console.log('* testName='+ testName)
    isPass = expected == String(actual);
    console.log('* updateTestMsg() expected='+expected+'|')
    console.log('* updateTestMsg() actual  ='+String(actual)+'|')
@@ -123,7 +129,10 @@ function updateTestMsg(testName, expected, actual) {
    }
    console.log('* updateTestMsg() status=' + status);
    displayMsgs = document.getElementById("search-results").innerHTML;
-   displayMsgs += '\n' +  status ; 
+   if (displayMsgs.length >  0) {
+      displayMsgs += '\n';
+   }
+   displayMsgs += status ; 
    document.getElementById("search-results").innerHTML = displayMsgs
 }
 
