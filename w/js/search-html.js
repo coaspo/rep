@@ -1,4 +1,4 @@
-function matchTextInLines(search_text, lines, useParagraphs) {
+function findTextInLines(search_text, lines, useParagraphs) {
         if (useParagraphs) {
                 lines = toParagraphs(lines)
         }
@@ -11,7 +11,6 @@ function matchTextInLines(search_text, lines, useParagraphs) {
                         line = line.replace(/<br>/g, '');
                         line = line.replace(/<li>/g, '');
                         line = line.replace(/<\/li>/g, '');
-                        //line = line.replace(/</g, '&lt;')
                         if (fileSearchResult.length > 0) {
                            fileSearchResult += '\n'; 
                            if (useParagraphs) {

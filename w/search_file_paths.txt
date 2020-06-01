@@ -5,6 +5,7 @@
 /tech/problems-python.html
 /tech/secutiry.html
 /tech/keyboard-shortcuts.html
+/tech/problems-secutiry.html
 /arts/music.html
 /arts/words.html
 /arts/words-internet.html
@@ -12,8 +13,6 @@
 /arts/articles.html
 /arts/videos.html
 /arts/websites.html
-/js/search-files.js
-/js/search-html.js
 /recipes/tsoureki.html
 /recipes/oat bread.html
 /recipes/challah.html

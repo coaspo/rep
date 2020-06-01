@@ -33,7 +33,8 @@ function multipleFileTest() {
    expected = '<a href="http://localhost:8080/w/tests/search-files/recipe.html">tests/search-files/recipe.html</a>: 3 <id style=\'color:red\'>cup</id>s flour\n'+
               '1 <id style=\'color:red\'>cup</id> water\n'+
               '\n'+
-              '<a href="http://localhost:8080/w/tests/search-files/problems-solutions.html">tests/search-files/problems-solutions.html</a>: oz in 1 <id style=\'color:red\'>cup</id>' 
+              '<a href="http://localhost:8080/w/tests/search-files/problems-solutions.html">tests/search-files/problems-solutions.html</a>: oz in 1 <id style=\'color:red\'>cup</id>\n'+
+              'answer: 8 oz no problem' 
    updateTestMsg('searchFiles() 3 multi file', expected, search.html)
     updateTestMsg('searchFiles() 4 multi file', '', search.hitUrl)
 }
@@ -48,7 +49,8 @@ function urlTest() {
    search = searchFiles('Problem','/tests/test_search_files_file_paths.txt')
    expectedHtml = '<a href="http://localhost:8080/w/tests/search-files/problems-solutions.html">tests/search-files/<id style=\'color:red\'>problem</id>s-solutions.html</a>\n'+
                   '\n'+
-                  '<a href="http://localhost:8080/w/tests/search-files/problems-solutions.html">tests/search-files/problems-solutions.html</a>: answer: 8 oz no <id style=\'color:red\'>problem</id>'
+                  '<a href="http://localhost:8080/w/tests/search-files/problems-solutions.html">tests/search-files/problems-solutions.html</a>: oz in 1 cup\n'+
+                  'answer: 8 oz no <id style=\'color:red\'>problem</id>'
    updateTestMsg('searchFiles() 7 file name + text, Problem', expectedHtml, search.html)
    updateTestMsg('searchFiles() 8 file name + text, Problem', '', search.hitUrl)
 }

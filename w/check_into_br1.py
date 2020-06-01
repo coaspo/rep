@@ -32,12 +32,10 @@ def update_version_info():
         
   root = tk.Tk()
   root.withdraw()
-  print('+++++++', ver)
   ver = simpledialog.askstring(title="Git check-in;  "+ __file__,
                                prompt=(' '*100)+"\nVersion name:",
                                initialvalue=ver)
   
-  print('+++ ++++', ver)
   with open('help.html', 'w') as f:
     for line in lines:
       if line.startswith('20'):
@@ -53,7 +51,7 @@ def save_searcn_file_paths():
       for f2 in os.listdir(f1):
         p = './'+f1+'/'+f2
         log(p)
-        if path.isfile(p) and not p.endswith('.log') and "test" not in p:
+        if path.isfile(p) and not p.endswith('.log') and "test" not in p and "/js/" not in p:
           file_paths.append(p[1:])
   log('file_paths= ', file_paths)
   with open('search_file_paths.txt', 'w') as f:

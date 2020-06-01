@@ -43,45 +43,45 @@ function recipeTests() {
             '    450 °F']
    updateTestMsg('4 readLines()', expected, lines)
 
-   file_search_result = matchTextInLines('cup', lines, false)
+   file_search_result = findTextInLines('cup', lines, false)
    expected = '3 <id style=\'color:red\'>cup</id>s flour\n1 <id style=\'color:red\'>cup</id> water'
-   updateTestMsg('5 matchTextInLines(),reg', expected, file_search_result)
+   updateTestMsg('5 findTextInLines(),reg', expected, file_search_result)
 
-   file_search_result = matchTextInLines('pizza', lines, false)
+   file_search_result = findTextInLines('pizza', lines, false)
    expected = "<b><id style='color:red'>pizza</id></b>";
-   updateTestMsg('6 matchTextInLines(),bold', expected, file_search_result)
+   updateTestMsg('6 findTextInLines(),bold', expected, file_search_result)
 }
 
 function linksTests() {  
    lines = readLines('http://localhost:8080/w/tests/search-files/links.html');
 
-   file_search_result = matchTextInLines('reference', lines, false)
+   file_search_result = findTextInLines('reference', lines, false)
    expected = '<id style=\'color:red\'>reference</id>:';
-   updateTestMsg('7 matchTextInLines(),links', expected, file_search_result)
+   updateTestMsg('7 findTextInLines(),links', expected, file_search_result)
 
-   file_search_result = matchTextInLines('free', lines, false)
+   file_search_result = findTextInLines('free', lines, false)
    expected = '  <a href="https://www.freebookcentre.net/"><id style=\'color:red\'>free</id> books</a>?\n'+
               '  <a href="https://www.coursera.org/">coursera</a> <id style=\'color:red\'>free</id> courses'
-   updateTestMsg('8 matchTextInLines(),links', expected, file_search_result)
+   updateTestMsg('8 findTextInLines(),links', expected, file_search_result)
 }
 
 function problemTests() {  
    lines = readLines('http://localhost:8080/w/tests/search-files/problems-solutions.html');
 
-   file_search_result = matchTextInLines('sudo', lines, true)
+   file_search_result = findTextInLines('sudo', lines, true)
    expected = 'use fire wall\n'+
               'answer: <id style=\'color:red\'>sudo</id> gedit..\n'+
               '        add line..';
-   updateTestMsg('9 matchTextInLines(),problems', expected, file_search_result)
+   updateTestMsg('9 findTextInLines(),problems', expected, file_search_result)
 
-   file_search_result = matchTextInLines('use', lines, true)
+   file_search_result = findTextInLines('use', lines, true)
    expected = '<id style=\'color:red\'>use</id> snipping tool\n'+
               'answer: shift-prtscn\n'+
               '\n'+
               '<id style=\'color:red\'>use</id> fire wall\n'+
               'answer: sudo gedit..\n'+
               '        add line..';
-   updateTestMsg('10 matchTextInLines(),problems', expected, file_search_result)
+   updateTestMsg('10 findTextInLines(),problems', expected, file_search_result)
 }
 
 function highLightTest() {

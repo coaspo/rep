@@ -69,7 +69,8 @@ function searchFiles(inputText, filePathsFile) {
     }
 
     const lines = readLines(url);
-    fileSearchResult = matchTextInLines(inputText, lines)
+    useParagraphs = url.indexOf('problem') > -1
+    fileSearchResult = findTextInLines(inputText, lines, useParagraphs)
 
     if (fileSearchResult.length > 0) {
       if (search.html .length > 0) {
@@ -114,7 +115,7 @@ function searchFiles(inputText, filePathsFile) {
     req.send(null);
 
     if (req.status === 200) {
-      const iStart = req.responseText.indexOf('<body>');
+      const iStart = req.responseText.indexOf('<body');
       if (window.debug) console.log('*readLines()responseText=' + req.responseText)
       lines = req.responseText.substr(iStart).trim().replace(/\r/, '');
       lines = lines.split('\n');
@@ -125,34 +126,6 @@ function searchFiles(inputText, filePathsFile) {
       console.log('*readLines() lines= ' + lines[0])
     }
     return lines
-  }
-
-
-  function matchTextInLines2(inputText, lines) {
-    match = {};
-    match.fileSearchResult = '';
-    match.first_matched_link = ''
-
-    for (var j = 0; j < lines.length; j++) {
-      var line = lines[j];
-      
-      if (line.indexOf(inputText) > -1) {
-        line = line.replace(/<br>/g, '');
-        line = line.replace(/<li>/g, '');
-        line = line.replace(/<\/li>/g, '');
-        match.fileSearchResult += '<br>' + j + ': ' + line;
-
-        var k1 = line.indexOf('<a href');
-        if (k1 < 0) {
-          line = lines[j].replace(/</g, '&lt;').replace(/>/g, '&gt;');
-          if (match.first_matched_link === '') {
-            var k2 = line.indexOf('>', k1);
-            match.first_matched_link = line.substring(k1 + 7, k2);
-          }
-        }
-      }
-    }
-    return match  
   }
 
 
