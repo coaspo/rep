@@ -53,7 +53,7 @@ def save_searcn_file_paths():
       for f2 in os.listdir(f1):
         p = './'+f1+'/'+f2
         log(p)
-        if path.isfile(p) and not p.endswith('.log') and "test" in p:
+        if path.isfile(p) and not p.endswith('.log') and "test" not in p:
           file_paths.append(p[1:])
   log('file_paths= ', file_paths)
   with open('search_file_paths.txt', 'w') as f:
