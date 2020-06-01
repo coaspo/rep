@@ -44,7 +44,7 @@ def update_version_info():
         line = dt + ';  ' + ver
       f.write(line+'\n')
   global msg
-  msg += '\n' + ver
+  msg += '\nversion: ' + ver
   return ver
 
 def save_searcn_file_paths():
