@@ -20,6 +20,7 @@ function findTextInLines(search_text, lines, useParagraphs) {
                         line = line.replace('<br>', "").replace('<p>', "");
                         line = line = highLight(line, search_text) 
                         fileSearchResult += line;
+                        window.numOfmatchedLines++;
                 }
         }
         if (window.debug) console.log('*matchTextInLines() fileSearchResult=' + fileSearchResult)

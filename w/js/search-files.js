@@ -58,6 +58,7 @@ function searchFiles(inputText, filePathsFile) {
    search.hitUrl = '';   
    const baseUrl = getBaseUrl()
    const fileUrls = getFileUrls(baseUrl, filePathsFile)
+   window.numOfmatchedLines = 0
    if (window.debug) console.log('*searchFiles() inputText = '+inputText)  
    if (inputText.length === 0) {
      return search;
@@ -83,10 +84,11 @@ function searchFiles(inputText, filePathsFile) {
   }
   
   if (window.debug) console.log('*searchFiles() search.urls= ' + search.urls);
+  if (window.debug) console.log('*searchFiles() window.numOfmatchedLines= ' + window.numOfmatchedLines);  
 
   if (search.urls.length > 0) {
       urls = search.urls.split('##');
-      if (urls.length == 1 && search.html.length === 0) {
+      if (urls.length == 1 && (search.html.length === 0 || window.numOfmatchedLines == 1) {
         search.hitUrl = urls[0]
       }
       html = ''
