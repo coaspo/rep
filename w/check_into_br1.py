@@ -78,6 +78,8 @@ def run(*args: str):
         log('errs: ', errs)
         print(errs)
         if 'Everything up-to-date' in errs:
+            simpledialog.askstring(title="Git done"+ __file__,
+                               prompt=(' '*100)+"\nEchecke in")
             exit(0)
         label = 15 * 'ERR---' if 'br1 -> br1' not in str(errs) else ''
         log(label)
