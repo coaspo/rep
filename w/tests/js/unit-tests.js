@@ -14,18 +14,22 @@ function unitTestsMain() {
    console.log('-- unitTestsMain() done');
 }
 
+doc = document.URL
+iEnd = doc.indexOf('/w/')
+URL = doc.substr(0, iEnd+3)
+
 function functionTests() {
    baseUrl = getBaseUrl()
    updateTestMsg('1 getBaseUrl()', 'http://localhost:8080/w', baseUrl)
 
    fileUrls = getFileUrls(baseUrl, '/tests/test_search_files_file_paths.txt')
-   expected = ['http://localhost:8080/w/tests/search-files/recipe.html',
-         'http://localhost:8080/w/tests/search-files/problems-solutions.html',
-         'http://localhost:8080/w/tests/search-files/links.html',
-          'http://localhost:8080/w/tests/search-files/misc-solutions.html']
+   expected = [URL + 'tests/search-files/recipe.html',
+          URL + 'tests/search-files/problems-solutions.html',
+          URL + 'tests/search-files/links.html',
+          URL + 'tests/search-files/misc-solutions.html']
    updateTestMsg('2 getFileUrls()', expected, fileUrls);
 
-   name = fileName('http://localhost:8080/w/tests/search-files/recipe.html');
+   name = fileName(URL + 'tests/search-files/recipe.html');
    updateTestMsg('3 fileName()', 'tests/search-files/recipe.html', name)
    
    lines = ['a','b', '','cc','', 'eee','fff']
@@ -35,7 +39,7 @@ function functionTests() {
 }
 
 function recipeTests() {  
-   lines = readLines('http://localhost:8080/w/tests/search-files/recipe.html');
+   lines = readLines(URL + 'tests/search-files/recipe.html');
    expected = ['<b>pizza</b>', 
             '3 cups flour', 
             '1/2 tsp salt', 
@@ -53,7 +57,7 @@ function recipeTests() {
 }
 
 function linksTests() {  
-   lines = readLines('http://localhost:8080/w/tests/search-files/links.html');
+   lines = readLines(URL + 'tests/search-files/links.html');
 
    file_search_result = findTextInLines('reference', lines, false)
    expected = '<id style=\'color:red\'>reference</id>:';
@@ -66,7 +70,7 @@ function linksTests() {
 }
 
 function problemTests() {  
-   lines = readLines('http://localhost:8080/w/tests/search-files/problems-solutions.html');
+   lines = readLines(URL + 'tests/search-files/problems-solutions.html');
 
    file_search_result = findTextInLines('sudo', lines, true)
    expected = 'use fire wall\n'+
