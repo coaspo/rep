@@ -58,7 +58,7 @@ function urlTest() {
                   PFX + BASE + 'tests/search-files/problems-solutions.html">tests/search-files/problems-solutions.html</a>: oz in 1 cup\n'+
                   'answer: 8 oz no <id style=\'color:red\'>problem</id>'
    updateTestMsg('searchFiles() 7 file name + text, Problem', expectedHtml, search.html)
-   updateTestMsg('searchFiles() 8 file name + text, Problem', '', search.hitUrl)
+   updateTestMsg('searchFiles() 8 file name + text, Problem', 'http://localhost:8080/w/tests/search-files/problems-solutions.html', search.hitUrl)
 }
 
 function urlsTest() {

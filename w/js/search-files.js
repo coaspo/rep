@@ -88,7 +88,7 @@ function searchFiles(inputText, filePathsFile) {
 
   if (search.urls.length > 0) {
       urls = search.urls.split('##');
-      if (urls.length == 1 && (search.html.length === 0 || window.numOfmatchedLines == 1) {
+      if (urls.length == 1 && (search.html.length === 0 || window.numOfmatchedLines == 1)) {
         search.hitUrl = urls[0]
       }
       html = ''
