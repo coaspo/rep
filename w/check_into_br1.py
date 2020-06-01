@@ -10,6 +10,7 @@ from subprocess import Popen, PIPE
 from sys import exit
 import tkinter as tk
 from tkinter import simpledialog
+from tkinter import messagebox
 
 SCRIPT_NAME = path.basename(__file__)
 LOG_FILE = SCRIPT_NAME + '.log'
@@ -72,19 +73,19 @@ def run(*args: str):
         log('output: ', output)
         print(output)
         if 'FAILURES' in output:
-            print('May have intermittent tkinter venv failure. - try rerunning')
+            messagebox.showinfo("FAILURES", 'May have intermittent tkinter venv failure. - try rerunning')
             exit(1)
     if len(errs) > 0:
         log('errs: ', errs)
         print(errs)
         if 'Everything up-to-date' in errs:
-            simpledialog.askstring(title="Git done"+ __file__,
-                               prompt=(' '*100)+"\nEchecke in")
+            messagebox.showinfo("Git done", 'Code checked in')
             exit(0)
         label = 15 * 'ERR---' if 'br1 -> br1' not in str(errs) else ''
         log(label)
         print(label)
         if 'ERR---' in label:
+            messagebox.showinfo("ERR", lavel)
             exit(2)
 
 
