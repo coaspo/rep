@@ -1,5 +1,5 @@
 /tests/search-files/recipe.html
 /tests/search-files/problems-solutions.html
 /tests/search-files/links.html
-/tests/search-files/misc-solutions.html
+/tests/search-files/problems-examples.html
 

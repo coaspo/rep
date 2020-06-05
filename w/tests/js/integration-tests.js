@@ -6,6 +6,7 @@ BASE = x.substring(0,iEnd);
 
 function integrationTestsMain() {
    console.log('-- integrationTestsMain() started');
+   const tStart = new Date().getTime();
    blankTest();
    oneFileTest();
    multipleFileTest();
@@ -17,9 +18,15 @@ function integrationTestsMain() {
    } else {
       document.body.style.background = '#ccffcc';
    }
+   const tEnd = new Date().getTime();
+   dt = tEnd - tStart;
+   document.getElementById("search-results").innerHTML += '\n  ' + dt + ' msec';
    console.log('-- integrationTestsMain() done');
 }
 
+function testIntegrationTest() {
+   console.log('NA')
+}
 
 function blankTest() {
    search = searchFiles('  ','/tests/test_search_files_file_paths.txt')
@@ -27,46 +34,43 @@ function blankTest() {
 }
 
 function oneFileTest() {
-   search = searchFiles('pizza','/tests/test_search_files_file_paths.txt')
-   expected = PFX + BASE + 'tests/search-files/recipe.html">tests/search-files/recipe.html</a>: <b><id style=\'color:red\'>pizza</id></b>' 
-   updateTestMsg('searchFiles() 1 one file', expected, search.html)
-   updateTestMsg('searchFiles() 2 one file', '', search.hitUrl)
+   search = searchFiles('recipe', '/tests/test_search_files_file_paths.txt')
+   expected = PFX + BASE + 'tests/search-files/recipe.html">tests/search-files/<id style=\'color:red\'>recipe</id>.html</a>' 
+   updateTestMsg('searchFiles() 1 one file',  expected, search.html)
+   updateTestMsg('searchFiles() 2 one file', 'http://localhost:8080/w/tests/search-files/recipe.html', search.hitUrl)
 }
 
 
 function multipleFileTest() {
-   search = searchFiles('cup','/tests/test_search_files_file_paths.txt')
-   expected = PFX + BASE + 'tests/search-files/recipe.html">tests/search-files/recipe.html</a>: 3 <id style=\'color:red\'>cup</id>s flour\n'+
-              '1 <id style=\'color:red\'>cup</id> water\n'+
+   search = searchFiles('use','/tests/test_search_files_file_paths.txt')
+   expected = PFX + BASE + 'tests/search-files/problems-solutions.html">tests/search-files/problems-solutions.html</a>: <id style=\'color:red\'>use</id> snipping tool\n'+
+              'answer: shift-prtscn\n'+
               '\n'+
-              PFX + BASE + 'tests/search-files/problems-solutions.html">tests/search-files/problems-solutions.html</a>: oz in 1 <id style=\'color:red\'>cup</id>\n'+
-              'answer: 8 oz no problem' 
-   updateTestMsg('searchFiles() 3 multi file', expected, search.html)
-    updateTestMsg('searchFiles() 4 multi file', '', search.hitUrl)
+              '<id style=\'color:red\'>use</id> fire wall\n'+
+              'answer: sudo gedit..\n' +
+              '        add line..\n' +
+              '\n'+
+              PFX + BASE + 'tests/search-files/problems-examples.html">tests/search-files/problems-examples.html</a>: <id style=\'color:red\'>use</id> linux tool\n'+
+              'answer: check apps' 
+   updateTestMsg('searchFiles() 3 problem', expected, search.html)
+   updateTestMsg('searchFiles() 4 problem', '', search.hitUrl)
 }
 
 function urlTest() {
-   search = searchFiles('recipe','/tests/test_search_files_file_paths.txt')
-   expectedHtml = PFX + BASE + 'tests/search-files/recipe.html">tests/search-files/<id style=\'color:red\'>recipe</id>.html</a>'
-   expectedUrl = BASE + 'tests/search-files/recipe.html'
-   updateTestMsg('searchFiles() 5 file name, recipe', expectedHtml, search.html)
-   updateTestMsg('searchFiles() 6 file name, recipe', expectedUrl, search.hitUrl)
-
    search = searchFiles('Problem','/tests/test_search_files_file_paths.txt')
-   expectedHtml = PFX + BASE + 'tests/search-files/problems-solutions.html">tests/search-files/<id style=\'color:red\'>problem</id>s-solutions.html</a>\n'+
+   expected = PFX + BASE + 'tests/search-files/problems-solutions.html">tests/search-files/<id style=\'color:red\'>problem</id>s-solutions.html</a>\n'+
+                  PFX + BASE + 'tests/search-files/problems-examples.html">tests/search-files/<id style=\'color:red\'>problem</id>s-examples.html</a>\n'+
                   '\n'+
                   PFX + BASE + 'tests/search-files/problems-solutions.html">tests/search-files/problems-solutions.html</a>: oz in 1 cup\n'+
                   'answer: 8 oz no <id style=\'color:red\'>problem</id>'
-   updateTestMsg('searchFiles() 7 file name + text, Problem', expectedHtml, search.html)
-   updateTestMsg('searchFiles() 8 file name + text, Problem', 'http://localhost:8080/w/tests/search-files/problems-solutions.html', search.hitUrl)
+   updateTestMsg('searchFiles() 5 file name + text, Problem', expected, search.html)
+   updateTestMsg('searchFiles() 6 file name + text, Problem', '', search.hitUrl)
 }
 
 function urlsTest() {
    search = searchFiles('solution','/tests/test_search_files_file_paths.txt')
-   expectedHtml = PFX + BASE + 'tests/search-files/problems-solutions.html">tests/search-files/problems-<id style=\'color:red\'>solution</id>s.html</a>\n'+
-                  PFX + BASE + 'tests/search-files/misc-solutions.html">tests/search-files/misc-<id style=\'color:red\'>solution</id>s.html</a>'
-   updateTestMsg('searchFiles() 9  2 files, solution', expectedHtml, search.html)
-   updateTestMsg('searchFiles() 10 2 files, solution', '', search.hitUrl)
-
+   expected = PFX + BASE + 'tests/search-files/problems-solutions.html">tests/search-files/problems-<id style=\'color:red\'>solution</id>s.html</a>'
+   updateTestMsg('searchFiles() 7  2 files, solution', expected, search.html)
+   updateTestMsg('searchFiles() 8 2 files, solution', 'http://localhost:8080/w/tests/search-files/problems-solutions.html', search.hitUrl)
 }
 

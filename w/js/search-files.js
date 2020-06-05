@@ -7,7 +7,7 @@ function searchContentsMain(debug, filePathsFile) {
   
   const search = searchFiles(inputText, filePathsFile);
   if (window.debug) console.log('*searchContentsMain() search.html= ' + search.html);     
-  if (window.debug) console.log('*searchContentsMain() search.url= ' + search.url);     
+  if (window.debug) console.log('*searchContentsMain() search.hitUrl= ' + search.hitUrl);     
   document.getElementById("search-results").innerHTML = search.html;
   if (search.hitUrl != '') {
     window.open(search.hitUrl, "_self");
@@ -66,21 +66,25 @@ function searchFiles(inputText, filePathsFile) {
 
   for (i = 0; i < fileUrls.length; i++) {
     url = fileUrls[i];
+    if (window.debug) console.log('*searchFiles() url = '+url)  
     if (url.indexOf(inputText) > -1) {
       search.urls += (search.urls.length > 0 ? '##' : '') + url; 
     }
-
+    if (url.indexOf('problem') < 0) {
+       continue;
+    }
+    // scan text of problem files.
     const lines = readLines(url);
     useParagraphs = url.indexOf('problem') > -1
-    fileSearchResult = findTextInLines(inputText, lines, useParagraphs)
+    fileSearchResult = findTextInLines(inputText, lines, true)
 
     if (fileSearchResult.length > 0) {
-      if (search.html .length > 0) {
+      if (search.html.length > 0) {
         search.html  += '\n\n';
       }
       search.html  = search.html  + '<a href="' + url + '">' + fileName(url) + '</a>: ' + fileSearchResult;
     }
-    if (window.debug) console.log('*searchFiles() finishe search in url= '+url);
+    if (window.debug) console.log('*searchFiles() finished search in url= '+url);
   }
   
   if (window.debug) console.log('*searchFiles() search.urls= ' + search.urls);
@@ -108,7 +112,8 @@ function searchFiles(inputText, filePathsFile) {
   if (search.html.length === 0) {
     search.html  = 'Did not find: "' + inputText + '"';
   } 
-  if (window.debug) console.log('*searchFiles() search.html= ' + search.html+'\nsearch.urls= '+search.urls);
+  if (window.debug) console.log('*searchFiles() search.html= ' + search.html+
+      '\nsearch.urls= '+search.urls + '\nsearch.hitUrl= '+search.hitUrl);
   return search;
 }
 

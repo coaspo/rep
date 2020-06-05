@@ -3,7 +3,6 @@
 /tech/git.html
 /tech/problems-linux.html
 /tech/problems-python.html
-/tech/secutiry.html
 /tech/keyboard-shortcuts.html
 /tech/problems-secutiry.html
 /arts/music.html
@@ -13,7 +12,9 @@
 /arts/articles.html
 /arts/videos.html
 /arts/websites.html
+/__pycache__/check_into_br1.cpython-36.pyc
 /recipes/tsoureki.html
+/recipes/out.tmp
 /recipes/oat bread.html
 /recipes/challah.html
 /recipes/spanish-rice.html

@@ -17,6 +17,7 @@
 
 <button onclick="integrationTestsMain();"  style="width:300px; text-align: left;" >Run Integration Tests</button>       <a href='https://li.netlify.app/w/index.html'>https://li.netlify.app/w/index.html</a>
 <button onclick="unitTestsMain();"  style="width:300px; text-align: left;" >Run Unit Tests</button>       <a href='https://li.netlify.app/w/tests/test_search_files.html'>https://li.netlify.app/w/tests/test_search_files.html</a>
+<button onclick="testIntegrationTest();"  style="width:300px; text-align: left;" >Test An Integration Test</button>       <a href='https://li.netlify.app/w/tests/test_search_files.html'>https://li.netlify.app/w/tests/test_search_files.html</a>
 <button onclick="clearResults();"  style="width:300px; text-align: left;" >Clear results</button>
 <pre id="search-results" style="background-color:#FFFFDD;"></pre></pre>
      <script src="../js/search-files.js"></script> 
@@ -25,8 +26,12 @@
      <script src="./js/integration-tests.js"></script> 
    <script>
        window.testFailed = false;
+       const tStart = new Date().getTime();
        unitTestsMain();
        integrationTestsMain();
+       const tEnd = new Date().getTime();
+       dt = tEnd - tStart;
+       document.getElementById("search-results").innerHTML += '\n' + dt + '  msec';
        function clearResults() {
          document.getElementById("search-results").innerHTML = '';
          document.body.style.background = 'white';

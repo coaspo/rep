@@ -14,6 +14,7 @@ from tkinter import messagebox
 
 SCRIPT_NAME = path.basename(__file__)
 LOG_FILE = SCRIPT_NAME + '.log'
+msg = ''
 
 def log(*args):
   with open(LOG_FILE, 'a') as f:
@@ -47,7 +48,7 @@ def update_version_info():
   msg += '\nversion: ' + ver
   return ver
 
-def save_searcn_file_paths():
+def save_searcn_file_paths(save_file):
   file_paths = [] 
   for f1 in os.listdir("."):
     if path.isdir(f1):
@@ -57,11 +58,45 @@ def save_searcn_file_paths():
         if path.isfile(p) and not p.endswith('.log') and "test" not in p and "/js/" not in p:
           file_paths.append(p[1:])
   log('file_paths= ', file_paths)
-  with open('search_file_paths.txt', 'w') as f:
+  with open(save_file, 'w') as f:
     f.writelines(p+'\n' for p in file_paths)
-  log('Updated searcn_file_paths.txt')
+  log('Updated '+ save_file)
   global msg
-  msg += '\nUpdated searcn_file_paths.txt'
+  msg += '\nUpdated ' + save_file
+
+
+def save_links(save_file):
+  with open(save_file, 'w') as f:
+    f.write('')
+  for f1 in os.listdir("."):
+    if path.isdir(f1):
+      for f2 in os.listdir(f1):
+        p = './'+f1+'/'+f2
+        if path.isfile(p) and not (p.endswith('.log') or "test" in p 
+           or "/js/" in p or 'pycache' in p):
+          log(p)
+          links = collect_links(p)
+          if len(links) > 0:
+            with open(save_file, 'a') as f:
+              f.write(links)
+              f.write('$$')
+              f.write(p[2:])
+              f.write('\n')
+  log('save_file= ', save_file)
+  global msg
+  msg += '\nSaved link descs to: ' + save_file
+
+
+def collect_links(file_path):
+  with open(file_path) as f:
+    lines = f.readlines()
+  links = []
+  for line in lines:
+    i = line.find('<a ')
+    if i > -1:
+      ii = line.index('</a>',i) + 4
+      links.append(line[i:ii])
+  return '##'.join(links)
 
 
 def run(*args: str):
@@ -100,7 +135,8 @@ if __name__ == '__main__':
     ver = update_version_info()
     with open(LOG_FILE, 'w') as f:
       f.write(str(datetime.now()))
-    save_searcn_file_paths()
+    save_searcn_file_paths('search_file_paths.txt')
+    save_links('search_links.txt')
     run('git', 'add', '*')
     run('git', 'status')
     run('git', 'commit', '-m', "'" + ver + "'")

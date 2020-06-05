@@ -1,6 +1,7 @@
 function unitTestsMain() {
    window.debug = true
    console.log('-- unitTestsMain() started');
+   const tStart = new Date().getTime();
    functionTests();
    recipeTests();
    linksTests();
@@ -11,6 +12,9 @@ function unitTestsMain() {
    } else {
       document.body.style.background = '#ccffcc';
    }
+   const tEnd = new Date().getTime();
+   dt = tEnd - tStart;
+   document.getElementById("search-results").innerHTML += '\n  ' + dt + ' msec';
    console.log('-- unitTestsMain() done');
 }
 
@@ -27,7 +31,7 @@ function functionTests() {
    expected = [ROOT + '/tests/search-files/recipe.html',
           ROOT + '/tests/search-files/problems-solutions.html',
           ROOT + '/tests/search-files/links.html',
-          ROOT + '/tests/search-files/misc-solutions.html']
+          ROOT + '/tests/search-files/problems-examples.html']
    updateTestMsg('2 getFileUrls()', expected, fileUrls);
 
    name = fileName(ROOT + '/tests/search-files/recipe.html');
