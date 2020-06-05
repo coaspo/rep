@@ -73,7 +73,7 @@ def save_links(save_file):
       for f2 in os.listdir(f1):
         p = './'+f1+'/'+f2
         if path.isfile(p) and not (p.endswith('.log') or "test" in p 
-           or "/js/" in p or 'pycache' in p):
+           or "/js/" in p or 'pycache' in p or 'problem' in p):
           log(p)
           links = collect_links(p)
           if len(links) > 0:
