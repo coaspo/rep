@@ -25,16 +25,16 @@ function integrationTestsMain() {
 }
 
 function testIntegrationTest() {
-   console.log('NA')
+   multipleFileTest()
 }
 
 function blankTest() {
-   search = searchFiles('  ','/tests/test_search_files_file_paths.txt')
-   updateTestMsg('searchFiles() 0 blank', '', search.html+search.urls)
+   search = searchFiles('  ','/tests/search_files_file_paths__t.txt')
+   updateTestMsg('searchFiles() 0 blank', '', search.html+search.hitUrl)
 }
 
 function oneFileTest() {
-   search = searchFiles('recipe', '/tests/test_search_files_file_paths.txt')
+   search = searchFiles('recipe', '/tests/search_files_file_paths__t.txt')
    expected = PFX + BASE + 'tests/search-files/recipe.html">tests/search-files/<id style=\'color:red\'>recipe</id>.html</a>' 
    updateTestMsg('searchFiles() 1 one file',  expected, search.html)
    updateTestMsg('searchFiles() 2 one file', 'http://localhost:8080/w/tests/search-files/recipe.html', search.hitUrl)
@@ -42,7 +42,7 @@ function oneFileTest() {
 
 
 function multipleFileTest() {
-   search = searchFiles('use','/tests/test_search_files_file_paths.txt')
+   search = searchFiles('use','/tests/search_files_file_paths__t.txt')
    expected = PFX + BASE + 'tests/search-files/problems-solutions.html">tests/search-files/problems-solutions.html</a>: <id style=\'color:red\'>use</id> snipping tool\n'+
               'answer: shift-prtscn\n'+
               '\n'+
@@ -57,7 +57,7 @@ function multipleFileTest() {
 }
 
 function urlTest() {
-   search = searchFiles('Problem','/tests/test_search_files_file_paths.txt')
+   search = searchFiles('Problem','/tests/search_files_file_paths__t.txt')
    expected = PFX + BASE + 'tests/search-files/problems-solutions.html">tests/search-files/<id style=\'color:red\'>problem</id>s-solutions.html</a>\n'+
                   PFX + BASE + 'tests/search-files/problems-examples.html">tests/search-files/<id style=\'color:red\'>problem</id>s-examples.html</a>\n'+
                   '\n'+
@@ -68,7 +68,7 @@ function urlTest() {
 }
 
 function urlsTest() {
-   search = searchFiles('solution','/tests/test_search_files_file_paths.txt')
+   search = searchFiles('solution','/tests/search_files_file_paths__t.txt')
    expected = PFX + BASE + 'tests/search-files/problems-solutions.html">tests/search-files/problems-<id style=\'color:red\'>solution</id>s.html</a>'
    updateTestMsg('searchFiles() 7  2 files, solution', expected, search.html)
    updateTestMsg('searchFiles() 8 2 files, solution', 'http://localhost:8080/w/tests/search-files/problems-solutions.html', search.hitUrl)

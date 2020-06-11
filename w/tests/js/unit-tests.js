@@ -1,12 +1,16 @@
+x = window.location.href ;
+iEnd = x.indexOf('/w/')+2;
+ROOT = x.substring(0,iEnd);
+baseUrl = getBaseUrl() 
+
 function unitTestsMain() {
    window.debug = true
    console.log('-- unitTestsMain() started');
    const tStart = new Date().getTime();
    functionTests();
-   recipeTests();
-   linksTests();
    problemTests();
    highLightTest();
+   getAnchorsTest();
    if (window.testFailed) {
       document.body.style.background = '#ff6666';
    } else {
@@ -18,16 +22,23 @@ function unitTestsMain() {
    console.log('-- unitTestsMain() done');
 }
 
-
-x = window.location.href ;
-iEnd = x.indexOf('/w/')+2;
-ROOT = x.substring(0,iEnd);
+function testUnitTest() {
+   baseUrl = getBaseUrl()
+   console.log(baseUrl)
+   fileUrls = getFileUrls(baseUrl, '/tests/files_paths__t.txt')
+   expected = [ROOT + '/tests/search-files/links-2.html',
+          ROOT + '/tests/search-files/links.html',
+          ROOT + '/tests/search-files/problems-examples.html',
+          ROOT + '/tests/search-files/problems-solutions.html',
+          ROOT + '/tests/search-files/recipe.html']
+   updateTestMsg('2 getFileUrls()', expected, fileUrls);
+}
 
 function functionTests() {
    baseUrl = getBaseUrl()
    updateTestMsg('1 getBaseUrl()', ROOT, baseUrl)
 
-   fileUrls = getFileUrls(baseUrl, '/tests/test_search_files_file_paths.txt')
+   fileUrls = getFileUrls(baseUrl, '/tests/search_files_file_paths__t.txt')
    expected = [ROOT + '/tests/search-files/recipe.html',
           ROOT + '/tests/search-files/problems-solutions.html',
           ROOT + '/tests/search-files/links.html',
@@ -43,23 +54,6 @@ function functionTests() {
    updateTestMsg('3 toParagraphs()', expected, paragraphs)
 }
 
-function recipeTests() {  
-   lines = readLines(ROOT + '/tests/search-files/recipe.html');
-   expected = ['<b>pizza</b>', 
-            '3 cups flour', 
-            '1/2 tsp salt', 
-            '1 cup water', 
-            '    450 °F']
-   updateTestMsg('4 readLines()', expected, lines)
-
-   file_search_result = findTextInLines('cup', lines, false)
-   expected = '3 <id style=\'color:red\'>cup</id>s flour\n1 <id style=\'color:red\'>cup</id> water'
-   updateTestMsg('5 findTextInLines(),reg', expected, file_search_result)
-
-   file_search_result = findTextInLines('pizza', lines, false)
-   expected = "<b><id style='color:red'>pizza</id></b>";
-   updateTestMsg('6 findTextInLines(),bold', expected, file_search_result)
-}
 
 function linksTests() {  
    lines = readLines(ROOT + '/tests/search-files/links.html');
@@ -70,20 +64,20 @@ function linksTests() {
 
    file_search_result = findTextInLines('free', lines, false)
    expected = '  <a href="https://www.freebookcentre.net/"><id style=\'color:red\'>free</id> books</a>?\n'+
-              '  <a href="https://www.coursera.org/">coursera</a> <id style=\'color:red\'>free</id> courses'
+              '  <a href="https://www.coursera.org/">coursera- free course</a>'
    updateTestMsg('8 findTextInLines(),links', expected, file_search_result)
 }
 
 function problemTests() {  
-   lines = readLines(ROOT + '/tests/search-files/problems-solutions.html');
+   text = readText(ROOT + '/tests/search-files/problems-solutions.html');
 
-   file_search_result = findTextInLines('sudo', lines, true)
+   file_search_result = findTextInParagraphs('sudo', text)
    expected = 'use fire wall\n'+
               'answer: <id style=\'color:red\'>sudo</id> gedit..\n'+
               '        add line..';
    updateTestMsg('9 findTextInLines(),problems', expected, file_search_result)
 
-   file_search_result = findTextInLines('use', lines, true)
+   file_search_result = findTextInParagraphs('use', text)
    expected = '<id style=\'color:red\'>use</id> snipping tool\n'+
               'answer: shift-prtscn\n'+
               '\n'+
@@ -123,6 +117,23 @@ function highLightTest() {
    updateTestMsg('15 highLightTest() links + text', expected, line)
 }
 
+function getAnchorsTest() {
+   text = getAnchors(getBaseUrl(), '/tests/search_labels__t.txt');
+   expected ='<a href="https://archive.org">Internet archive</a>##\
+<a href="https://www.freebookcentre.net/">Free books</a>##\
+<a href="https://www.coursera.org/">Coursera- Free course</a>##\
+<a href="https://www.edx.org/">edX - MIT, Harvard</a>$$\
+search-files/links.html\n\
+<a href="https://www.wolfram.com/">Wolfram</a>##\
+<a href="https://www.worldometers.info/">worldometers</a>##\
+<a href="https://www.microbe.tv/twiv/archive/">Week in virology</a>\
+$$search-files/links-2.html'
+   updateTestMsg('16 getAnchors()', expected, text)
+   links = ['<a href="https://www.freebookcentre.net/">Free books</a>', '<a href="https://www.edx.org/">edX - MIT, Harvard</a>'];
+   labels = getAnchorLabels(links)
+   console.log(labels)
+}
+
 function updateTestMsg(testName, expected, actual) {
    console.log('* testName='+ testName)
    isPass = expected == String(actual);
@@ -134,7 +145,7 @@ function updateTestMsg(testName, expected, actual) {
       window.testFailed =true;
       status = '<id style=\'color:red\'>Failed; '+  testName + '</id>' +
                '\n--expected: '+expected + 
-               '\n----actual: ' + actual
+               '\n----actual: ' + actual;
    }
    console.log('* updateTestMsg() status=' + status);
    displayMsgs = document.getElementById("search-results").innerHTML;

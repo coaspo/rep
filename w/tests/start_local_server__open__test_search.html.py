@@ -31,7 +31,7 @@ def start_local_server():
 if __name__ == '__main__':
     msg = ''
     start_local_server()
-    webbrowser.open('http://localhost:8080/w/tests/test_search_files.html')
+    webbrowser.open('http://localhost:8080/w/tests/test_search.html')
     msg += '\n4/4. run local tests'
     messagebox.showinfo(__file__, msg)
 

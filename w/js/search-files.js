@@ -15,13 +15,6 @@ function searchContentsMain(debug, filePathsFile) {
 }
 
 
-function possiblyShowDoc(url) {
-  if (search.url.length === 0) {
-    return
-  }
-}
-
-
 function getBaseUrl() {
   const url = String(document.URL);
   const i_base = url.indexOf('/w/') + 2;
@@ -32,12 +25,9 @@ function getBaseUrl() {
 
 
 function getFileUrls(baseUrl, searchFilesPathsFile) {
-  var req = new XMLHttpRequest();
   const url = baseUrl + searchFilesPathsFile;
   if (window.debug) console.log('*getFileUrls() url= ' + url);
-  req.open("GET", url, false); // synchronous - browser may disable this???
-  req.send();
-  const html = req.responseText;
+  const html = readText(url);
 
   const lines = html.trim().split('\n');
   var fileUrls = [];
@@ -52,89 +42,95 @@ function getFileUrls(baseUrl, searchFilesPathsFile) {
 
 function searchFiles(inputText, filePathsFile) {
    inputText = inputText.trim().toLowerCase();
-   search = {};
-   search.urls = '';
-   search.html = '';   
-   search.hitUrl = '';   
    const baseUrl = getBaseUrl()
    const fileUrls = getFileUrls(baseUrl, filePathsFile)
    window.numOfmatchedLines = 0
    if (window.debug) console.log('*searchFiles() inputText = '+inputText)  
    if (inputText.length === 0) {
+     search = {};
+     search.html = '';   
+     search.hitUrl = '';   
      return search;
    }
 
+  result = scanProblemfiles(fileUrls, inputText)
+  search = annotateResults(result, inputText)
+
+  if (search.html.length === 0) {
+    search.html = 'Did not find: "' + inputText + '"';
+  } 
+  return search;
+}
+
+function scanProblemfiles(fileUrls, inputText) {
+  result = {};
+  result.urls = '';
+  result.html = '';   
   for (i = 0; i < fileUrls.length; i++) {
-    url = fileUrls[i];
-    if (window.debug) console.log('*searchFiles() url = '+url)  
+    var url = fileUrls[i];
+    if (window.debug) console.log('*scanProblemfiles() url = '+url)  
     if (url.indexOf(inputText) > -1) {
-      search.urls += (search.urls.length > 0 ? '##' : '') + url; 
+      result.urls += (result.urls.length > 0 ? '##' : '') + url; 
     }
     if (url.indexOf('problem') < 0) {
        continue;
     }
     // scan text of problem files.
-    const lines = readLines(url);
-    useParagraphs = url.indexOf('problem') > -1
-    fileSearchResult = findTextInLines(inputText, lines, true)
+    var text = readText(url);
+    const iStart = text.indexOf('<body');
+    text = text.substr(iStart).trim().replace(/\r/, '');
+    fileSearchResult = findTextInParagraphs(inputText, text)
 
     if (fileSearchResult.length > 0) {
-      if (search.html.length > 0) {
-        search.html  += '\n\n';
+      if (result.html.length > 0) {
+        result.html += '\n\n';
       }
-      search.html  = search.html  + '<a href="' + url + '">' + fileName(url) + '</a>: ' + fileSearchResult;
+      result.html = result.html  + '<a href="' + url + '">' + fileName(url) + '</a>: ' + fileSearchResult;
     }
-    if (window.debug) console.log('*searchFiles() finished search in url= '+url);
+    if (window.debug) console.log('*scanProblemfiles() finished search in url= '+url);
   }
-  
-  if (window.debug) console.log('*searchFiles() search.urls= ' + search.urls);
-  if (window.debug) console.log('*searchFiles() window.numOfmatchedLines= ' + window.numOfmatchedLines);  
-
-  if (search.urls.length > 0) {
-      urls = search.urls.split('##');
-      if (urls.length == 1 && (search.html.length === 0 || window.numOfmatchedLines == 1)) {
-        search.hitUrl = urls[0]
-      }
-      html = ''
-      for (var i=0; i<urls.length; i++) {
-        name = fileName(urls[i])
-        name = name.replace(inputText, "<id style='color:red'>" + inputText + "</id>");
-        html = html + '\n<a href="' + urls[i] + '">' + name + '</a>';
-      }
-      html = html.trim()
-      if (search.html.length > 0) {
-         search.html  = html + '\n\n'+ search.html;
-      } else {
-        
-         search.html  = html
-      }
-  } 
-  if (search.html.length === 0) {
-    search.html  = 'Did not find: "' + inputText + '"';
-  } 
-  if (window.debug) console.log('*searchFiles() search.html= ' + search.html+
-      '\nsearch.urls= '+search.urls + '\nsearch.hitUrl= '+search.hitUrl);
-  return search;
+  return result;
 }
 
 
-  function readLines(url) {
+function annotateResults(result, inputText) {
+  search = {};
+  search.html = result.html;   
+  search.hitUrl = '';   
+  if (result.urls.length > 0) {
+    urls = result.urls.split('##');
+    if (urls.length == 1 && (result.html.length === 0 || window.numOfmatchedLines == 1)) {
+      search.hitUrl = urls[0]
+    }
+    html = ''
+    for (var i=0; i<urls.length; i++) {
+      name = fileName(urls[i])
+      name = name.replace(inputText, "<id style='color:red'>" + inputText + "</id>");
+      html = html + '\n<a href="' + urls[i] + '">' + name + '</a>';
+    }
+    html = html.trim()
+    if (result.html.length > 0) {
+      search.html = html + '\n\n'+ result.html;
+    } else {
+      search.html = html
+    }
+  } 
+  if (window.debug) console.log('*annotateResults() search.html= ' + search.html+'\nsearch.hitUrl= '+search.hitUrl);
+  return search;
+}
+
+  function readText(url) {
     var req = new XMLHttpRequest();
     req.open('GET', url, false); // `false` makes the request synchronous
     req.send(null);
-
     if (req.status === 200) {
-      const iStart = req.responseText.indexOf('<body');
-      if (window.debug) console.log('*readLines()responseText=' + req.responseText)
-      lines = req.responseText.substr(iStart).trim().replace(/\r/, '');
-      lines = lines.split('\n');
-      lines.splice(0, 1);
-      if (window.debug) console.log('*readLines() lines= ' + lines)
+      text = req.responseText.trim();
     } else {
-      lines = [req.status + ' on reading: ' + url];
-      console.log('*readLines() lines= ' + lines[0])
+      text = req.status + ' on reading: ' + url;
+      console.log('*readText() text= ' + text)
     }
-    return lines
+    if (window.debug) console.log('*readText() text= ' + text)
+    return text
   }
 
 
@@ -142,4 +138,42 @@ function searchFiles(inputText, filePathsFile) {
     const i1 = url.lastIndexOf('/w/') + 3;
     const name = url.substring(i1);
     return name;
+  }
+
+  function getAnchors(baseUrl, filePath) {
+    const url = baseUrl + filePath;
+    if (window.debug) console.log('*getAnchors() url= ' + url)
+    const text = readText(url)
+    return text;
+  }
+  
+  function scanAnchors(linksText, inputText) {
+    result = {};
+    result.html = '';   
+    result.hitUrl = '';   
+    if (linksText.indexOf(inputText) < 0) {
+      return result;
+    }
+    lines = linksText.split('\n');
+    for (var i=0; i<lines.length; i++) {
+      if (lines[i].indexOf(inputText) < 0) {
+        continue;
+      }
+      fields = lines[i].split('$$').toLowerCase()
+      anchors = fields[0].split('##')
+      //if (links.indexOf(inputText) > -1
+      filepath = fields[1]
+      console.log(i+' ' + filepath)
+    }
+  }
+
+  function getAnchorLabels(anchors) {
+    labels = new Array(anchors.length);
+    for (var i=0; i<anchors.length; i++) {
+      iStart = anchors[i].indexOf('>') + 1
+      deltaI = anchors[i].indexOf('<', iStart) -iStart
+      console.log(iStart + '  ' + iEnd)
+      labels[i] = anchors[i].substr(iStart, deltaI);
+    }
+    return labels;
   }

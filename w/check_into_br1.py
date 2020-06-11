@@ -11,12 +11,13 @@ from sys import exit
 import tkinter as tk
 from tkinter import simpledialog
 from tkinter import messagebox
+import traceback
 
-SCRIPT_NAME = path.basename(__file__)
-LOG_FILE = SCRIPT_NAME + '.log'
+LOG_FILE = path.basename(__file__) + '.log'
 msg = ''
 
 def log(*args):
+  global LOG_FILE
   with open(LOG_FILE, 'a') as f:
     f.write('\n')
     for arg in args:
@@ -34,8 +35,10 @@ def update_version_info():
         
   root = tk.Tk()
   root.withdraw()
-  ver = simpledialog.askstring(title="Git check-in;  "+ __file__,
-                               prompt=(' '*100)+"\nVersion name:",
+  ver = simpledialog.askstring(title="Git check-in;  "+ __file__, prompt=
+                               ("\nUdate 'Search contents' related files and check into git.   "
+                               "\nThis will take a while."
+                               "\n\nVersion name:"), 
                                initialvalue=ver)
   
   with open('help.html', 'w') as f:
@@ -47,58 +50,88 @@ def update_version_info():
   global msg
   msg += '\nversion: ' + ver
   return ver
+  
+file_paths = [] 
 
 def save_searcn_file_paths(save_file):
-  file_paths = [] 
+  global file_paths 
   for f1 in os.listdir("."):
     if path.isdir(f1):
       for f2 in os.listdir(f1):
-        p = './'+f1+'/'+f2
+        p = f1+'/'+f2
         log(p)
-        if path.isfile(p) and not p.endswith('.log') and "test" not in p and "/js/" not in p:
-          file_paths.append(p[1:])
+        if path.isfile(p) and not p.endswith('.log') and "test" not in p and \
+                              "js/" not in p and "pycache" not in p:
+          file_paths.append(p)
+  file_paths.sort()
   log('file_paths= ', file_paths)
   with open(save_file, 'w') as f:
     f.writelines(p+'\n' for p in file_paths)
   log('Updated '+ save_file)
   global msg
-  msg += '\nUpdated ' + save_file
+  msg += '\nSaved search file paths in: ' + save_file
 
 
-def save_links(save_file):
+def save_search_labels(save_file):
   with open(save_file, 'w') as f:
     f.write('')
-  for f1 in os.listdir("."):
-    if path.isdir(f1):
-      for f2 in os.listdir(f1):
-        p = './'+f1+'/'+f2
-        if path.isfile(p) and not (p.endswith('.log') or "test" in p 
-           or "/js/" in p or 'pycache' in p or 'problem' in p):
-          log(p)
-          links = collect_links(p)
-          if len(links) > 0:
-            with open(save_file, 'a') as f:
-              f.write(links)
-              f.write('$$')
-              f.write(p[2:])
-              f.write('\n')
+  global file_paths
+  is_first = True
+  for i, p in enumerate(file_paths):
+    if 'problem' in p:
+      continue
+    log(p)
+    links = collect_labels_urls(p)
+    if len(links) > 0:
+      with open(save_file, 'a') as f:
+        for atrs in links:
+          if not is_first:
+            f.write('\n')
+          else:
+            is_first = False
+          print(atrs[0])
+          f.write(atrs[0])
+          f.write('$$')
+          f.write(atrs[1])
+          f.write('$$')
+          f.write(str(i))
   log('save_file= ', save_file)
   global msg
-  msg += '\nSaved link descs to: ' + save_file
+  msg += '\nSaved search labels to: ' + save_file
 
 
-def collect_links(file_path):
+def collect_labels_urls(file_path):
   with open(file_path) as f:
     lines = f.readlines()
-  links = []
+  labels_urls = []
   for line in lines:
     i = line.find('<a ')
+    print(line)
     if i > -1:
       ii = line.index('</a>',i) + 4
-      links.append(line[i:ii])
-  return '##'.join(links)
+      link = line[i:ii]
+      label_url = extract_url_label(link)
+      labels_urls.append(label_url)
+  return labels_urls
 
-
+def extract_url_label(link):
+  """
+  >>> extract_url_label('<a href="https://www.coursera.org/">Coursera- Free course</a>')
+  ('Coursera- Free course', 'https://www.coursera.org/')
+  >>> extract_url_label("<a href='https://www.coursera.org/'>Coursera- Free course</a>")
+  ('Coursera- Free course', 'https://www.coursera.org/')
+  """
+  link=link.replace('href= ','href=')
+  quote =  '"' if link.find('href="')>-1  else "'"
+  i = link.index('href=' + quote) + 6
+  i2 = link.index(quote, i) 
+  url = link[i:i2]
+  i = link.index('>', i2) + 1
+  i2 = link.index('</a>', i) 
+  label = link[i:i2]
+  attrs = (label, url) 
+  return attrs
+  
 def run(*args: str):
     global msg
     msg += '\n'+str(args)
@@ -114,7 +147,8 @@ def run(*args: str):
         log('output: ', output)
         print(output)
         if 'FAILURES' in output:
-            messagebox.showinfo("FAILURES", msg +'\nMay have intermittent tkinter venv failure.\nTry rerunning')
+            messagebox.showinfo("FAILURES", msg +
+                 '\nMay have intermittent tkinter venv failure.\nTry rerunning')
             exit(1)
     if len(errs) > 0:
         log('errs: ', errs)
@@ -129,24 +163,33 @@ def run(*args: str):
             messagebox.showinfo("ERR", msg +'\n'+lavel)
             exit(2)
 
+if __name__ == '__main__22':
+    import doctest
+    doctest.testmod()
+
 
 if __name__ == '__main__':
     msg = ''
-    ver = update_version_info()
-    with open(LOG_FILE, 'w') as f:
-      f.write(str(datetime.now()))
-    save_searcn_file_paths('search_file_paths.txt')
-    save_links('search_links.txt')
-    run('git', 'add', '*')
-    run('git', 'status')
-    run('git', 'commit', '-m', "'" + ver + "'")
-    run('git', 'push', 'origin', 'br1')
-    run('git', 'diff')
+    try:
+      ver = update_version_info()
+      with open(LOG_FILE, 'w') as f:
+        f.write(str(datetime.now()))
+      save_searcn_file_paths('search_file_paths.txt')
+      save_search_labels('search_labels.txt')
+      run('git', 'add', '*')
+      run('git', 'status')
+      run('git', 'commit', '-m', "'" + ver + "'")
+      run('git', 'push', 'origin', 'br1')
+      run('git', 'diff')
 
-    archive_dir = './logs-check-ins'
-    if not path.isdir(archive_dir):
-        mkdir(archive_dir)
-    log_archive_file = archive_dir + '/' + SCRIPT_NAME + '-' + str(datetime.now()).replace(':', '-') + '.log'
-    copy(LOG_FILE, log_archive_file)
-    log('done')
-    messagebox.showinfo(__file__, msg +'\ndone')
+      archive_dir = './logs-check-ins'
+      if not path.isdir(archive_dir):
+          mkdir(archive_dir)
+      log_archive_file = archive_dir + '/' + path.basename(__file__) + '-' + \
+                         str(datetime.now()).replace(':', '-') + '.log'
+      copy(LOG_FILE, log_archive_file)
+      log('done')
+      messagebox.showinfo(__file__, msg +'\ndone')
+    except Exception as e:
+      print(traceback.format_exc())
+      messagebox.showinfo(__file__, os.path.basename(__file__) + ' FAILED; \n\n' + str(e))
