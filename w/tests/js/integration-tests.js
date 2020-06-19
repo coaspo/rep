@@ -1,4 +1,4 @@
-window.debug = true;
+window.DEBUG = true;
 x = window.location.href ;
 iEnd = x.indexOf('/w/')+3;
 PFX  = '<a href="'

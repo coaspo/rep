@@ -21,15 +21,16 @@
 <button onclick="testIntegrationTest();"  style="width:149px; text-align: left;" >An integration test</button><button onclick="testUnitTest();"  style="width:149px; text-align: left;" >A unit test</button> 
 <button onclick="clearResults();"  style="width:300px; text-align: left;" >Clear</button>
 <pre id="search-results" style="background-color:#FFFFDD;"></pre></pre>
-     <script src="../js/search-files.js"></script> 
-     <script src="../js/search-html.js"></script> 
+     <script src="../js/search.js"></script> 
+     <script src="../js/search-labels.js"></script> 
+     <script src="../js/search-page-source.js"></script> 
      <script src="./js/unit-tests.js"></script> 
      <script src="./js/integration-tests.js"></script> 
    <script>
        window.testFailed = false;
        const tStart = new Date().getTime();
        unitTestsMain();
-       integrationTestsMain();
+       //integrationTestsMain();
        const tEnd = new Date().getTime();
        dt = tEnd - tStart;
        document.getElementById("search-results").innerHTML += '\n' + dt + '  msec';

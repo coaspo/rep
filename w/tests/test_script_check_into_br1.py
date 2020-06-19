@@ -9,26 +9,26 @@ import traceback
 
 def test_save_searcn_file_paths():
   check_into_br1.msg = ''
-  check_into_br1.save_searcn_file_paths('files_paths__t.txt')
-  assert check_into_br1.msg == '\nSaved search file paths in: files_paths__t.txt', 'save_searcn_file_paths() failed\n' + check_into_br1.msg
-  with open ('files_paths__t.txt') as f:
+  check_into_br1.save_searcn_file_paths('search_files_paths__t.txt')
+  assert check_into_br1.msg == '\nSaved search file paths in: search_files_paths__t.txt', 'save_searcn_file_paths() failed\n' + check_into_br1.msg
+  with open ('search_files_paths__t.txt') as f:
     txt = f.read()
-  expected = """search-files/links-2.html
-search-files/links.html
-search-files/problems-examples.html
-search-files/problems-solutions.html
-search-files/recipe.html
+  expected = """/search-files/links-2.html
+/search-files/links.html
+/search-files/problems-examples.html
+/search-files/problems-solutions.html
+/search-files/recipe.html
 """
   assert expected == txt, 'save_searcn_file_paths() failed; expected:\n' + expected + '\nactual:\n' + txt
 
 
-def test_collect_labels_urls():
-  labels_urls = check_into_br1.collect_labels_urls('../tests/search-files/links.html')
-  expected = [('Internet archive', 'https://archive.org'),
-         ('Free books', 'https://www.freebookcentre.net/'), 
-         ('Coursera- Free course', 'https://www.coursera.org/'), 
-         ('edX - MIT, Harvard', 'https://www.edx.org/')]
-  assert expected == labels_urls, 'collect_labels_urls() failed; expected:\n' + expected + '\nactual:\n' +links
+def test_collect_links():
+  labels_urls = check_into_br1.collect_links('../tests/search-files/links.html')
+  expected = [('internet archive', 'https://archive.org'),
+         ('free books', 'https://www.freebookcentre.net/'), 
+         ('coursera- free course', 'https://www.coursera.org/'), 
+         ('edx - mit, harvard', 'https://www.edx.org/')]
+  assert expected == labels_urls, 'collect_links() failed; expected:\n' + str(expected) + '\nactual:\n' +str(labels_urls)
 
 
 def test_save_search_labels():
@@ -38,22 +38,22 @@ def test_save_search_labels():
   assert check_into_br1.msg == '\nSaved search labels to: search_labels__t.txt', 'save_links() failed\n' + check_into_br1.msg
   with open ('search_labels__t.txt') as f:
     txt = f.read()
-  expected = """Wolfram$$https://www.wolfram.com/$$0
-worldometers$$https://www.worldometers.info/$$0
-Week in virology$$https://www.microbe.tv/twiv/archive/$$0
-Internet archive$$https://archive.org$$1
-Free books$$https://www.freebookcentre.net/$$1
-Coursera- Free course$$https://www.coursera.org/$$1
-edX - MIT, Harvard$$https://www.edx.org/$$1"""
-
-  assert expected == txt, 'save_search_labels() failed; count expected:\n' + expected + '\nactual:\n' + txt
+  expected = """wolfram$$0$$https://www.wolfram.com/
+worldometers$$0$$https://www.worldometers.info/
+week in virology$$0$$https://www.microbe.tv/twiv/archive/
+internet archive$$1$$https://archive.org
+free books$$1$$https://www.freebookcentre.net/
+coursera- free course$$1$$https://www.coursera.org/
+edx - mit, harvard$$1$$https://www.edx.org/"""  # anchor label, file index, url
+  assert expected == txt, 'save_search_labels() failed:\n' + expected + '\nactual:\n' + txt
 
 
 def make_file_paths_sever_testable():
-  with open ('files_paths__t.txt') as f:
+  with open ('search_files_paths__t.txt') as f:
     lines = f.readlines()
-  with open ('files_paths__t.txt', 'w') as f:
-    f.write(''.join(lines))
+  with open ('search_files_paths__t.txt', 'w') as f:
+    [f.write('/tests'+x) for x in lines]
+
 
 
 if __name__ == '__main__':
@@ -63,10 +63,11 @@ if __name__ == '__main__':
   try:
     os.remove('check_into_br1.py.log')
     test_save_searcn_file_paths()
-    test_collect_labels_urls()
+    test_collect_links()
     test_save_search_labels()
     make_file_paths_sever_testable()
   except Exception as e:
+    print(traceback.format_exc())
     messagebox.showinfo(__file__, 'Test(s) FAILED; \n\n' + str(e))
   else:
     messagebox.showinfo(__file__, 'Tests suceesfull')

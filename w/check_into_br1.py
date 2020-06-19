@@ -61,12 +61,12 @@ def save_searcn_file_paths(save_file):
         p = f1+'/'+f2
         log(p)
         if path.isfile(p) and not p.endswith('.log') and "test" not in p and \
-                              "js/" not in p and "pycache" not in p:
+                    "js/" not in p and "pycache" not in p and ".tmp" not in p:
           file_paths.append(p)
   file_paths.sort()
   log('file_paths= ', file_paths)
   with open(save_file, 'w') as f:
-    f.writelines(p+'\n' for p in file_paths)
+    f.writelines('/'+ p+'\n' for p in file_paths)
   log('Updated '+ save_file)
   global msg
   msg += '\nSaved search file paths in: ' + save_file
@@ -81,7 +81,7 @@ def save_search_labels(save_file):
     if 'problem' in p:
       continue
     log(p)
-    links = collect_labels_urls(p)
+    links = collect_links(p)
     if len(links) > 0:
       with open(save_file, 'a') as f:
         for atrs in links:
@@ -90,17 +90,17 @@ def save_search_labels(save_file):
           else:
             is_first = False
           print(atrs[0])
-          f.write(atrs[0])
+          f.write(atrs[0]) # anchor label
           f.write('$$')
-          f.write(atrs[1])
+          f.write(str(i))  # file index number
           f.write('$$')
-          f.write(str(i))
+          f.write(atrs[1]) # url
   log('save_file= ', save_file)
   global msg
   msg += '\nSaved search labels to: ' + save_file
 
 
-def collect_labels_urls(file_path):
+def collect_links(file_path):
   with open(file_path) as f:
     lines = f.readlines()
   labels_urls = []
@@ -115,6 +115,8 @@ def collect_labels_urls(file_path):
   return labels_urls
 
 def extract_url_label(link):
+  
+  
   """
   >>> extract_url_label('<a href="https://www.coursera.org/">Coursera- Free course</a>')
   ('Coursera- Free course', 'https://www.coursera.org/')
@@ -128,7 +130,7 @@ def extract_url_label(link):
   url = link[i:i2]
   i = link.index('>', i2) + 1
   i2 = link.index('</a>', i) 
-  label = link[i:i2]
+  label = link[i:i2].lower()
   attrs = (label, url) 
   return attrs
   

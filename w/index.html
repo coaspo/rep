@@ -47,7 +47,7 @@
                <p><button onclick="inSpanish();" style="width:155px; text-align: left;" >🇪🇸 traduc.</button>
                  <button onclick="σταΕλληνικά();" style="width:155px; text-align: left;" >🇬🇷 μεταφ.</button>
               <p><button onclick="googlemaps();"  style="width:155px; text-align: left;" >🗺️ Map</button>
-                 <button onclick="searchContentsMain(false, '/search_file_paths.txt');" style="width:155px; text-align: left; color:#009900; font-weight:bold" >Contents</button>
+                 <button onclick="searchContentsMain(true, '/search_file_paths.txt', '/search_labels.txt');" style="width:155px; text-align: left; color:#009900; font-weight:bold" >Contents</button>
             </td>
           </tr>
         </table>
@@ -60,8 +60,9 @@
             <td class="w3-cyan">
               <b>Web servers:</b><br/>
               <a href="https://app.netlify.com/teams/coaspo/sites" >netlify</a><br/>
-              <a href="https://li.netlify.app/w/tests/test_search_files.html">w/test netlify</a><br>
-              <a href="http://localhost:8080/w/tests/test_search_files.html">w/test local</a><br>
+              <a href="https://li.netlify.app/w/tests/test_search.html">netlify tests</a><br>
+              <a href="http://localhost:8080/w/">w-local</a><br>
+              <a href="http://localhost:8080/w/tests/test_search.html">w-local tests</a><br>
             </td>
             <td class="w3-light-blue">
               <b>Projects:</b><br/>
@@ -124,7 +125,7 @@
       </div>
       <!--======================================== Recipes ======================================-->
       <div id="Recipes" class="w3-container contName" style="display:none; font-size:24px;" >
-        <pre><table><tr class="w3-pale-yellow" ><td><b>Various recipes</b>
+        <pre><table><tr class="w3-pale-yellow" ><td><b>Misc</b>
   <a href="./recipes/fried-rice.html">fried rice</a> 
   <a href="./recipes/mac-n-cheese.html">mac and cheese</a> 
   <a href="./recipes/potato-tortilla.html">potato-tortilla</a> 
@@ -278,7 +279,8 @@
 });
 
     </script>
-     <script src="js/search-files.js"></script> <!-- searchContentsMain() -->
-     <script src="js/search-html.js"></script> 
+     <script src="js/search.js"></script> <!-- searchContentsMain(debug, filePathsFilePath, labelsFilePath) -->
+     <script src="js/search-labels.js"></script> 
+     <script src="js/search-page-source.js"></script> 
   </body>
 </html>
