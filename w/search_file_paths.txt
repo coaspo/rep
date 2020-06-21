@@ -2,6 +2,7 @@
 /arts/music.html
 /arts/videos.html
 /arts/websites.html
+/arts/word-plasticity.html
 /arts/words-internet.html
 /arts/words-languages.html
 /arts/words.html

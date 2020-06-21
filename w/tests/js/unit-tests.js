@@ -26,10 +26,14 @@ function unitTestsMain() {
 
 
 function testUnitTest() {
-   document.getElementById("inputText").innerHTML = '  '
-   searchFileIndexTest()
+    weather() 
 }
 
+function weather() {
+  js = readText('https://api.weather.gov/gridpoints/BOX/68,81/forecast')
+  var w = JSON.parse(js)
+  console.log(w.properties.periods[0]['detailedForecast'])
+}
 
 function searchContentsMainTest() {
    document.getElementById('inputText').value = '  '
@@ -112,20 +116,20 @@ function searchFileIndexTest() {
    const labels= [['smart search site', 0, '//www.wolfram.com/'],
       ['free books site', 1, 'https://www.freebookcentre.net'],
       ['coursera- free course site', 1, 'https://www.coursera.org/']];
-   searchFileUrls =[window.BASE_URL+'/tests/search-files/etc.html',
+   searchFileUrls =[window.BASE_URL+'/tests/search-files/etc.html', 
                     window.BASE_URL+'/tests/search-files/misc.html'];
    const result = searchFileIndex('xxxx', searchFileUrls, labels)
    updateTestMsg('7 searchFileIndex(),no find', '', result.html)
    
    const result2 = searchFileIndex('smart', searchFileUrls, labels)
-   const expected2 = '<a href="http://localhost:8080/w/tests/search-files/etc.html">tests/search-files/etc.html</a>: \
+   const expected2 = '<a href="'+ window.BASE_URL+ '/tests/search-files/etc.html">tests/search-files/etc.html</a>: \
 <a href="//www.wolfram.com/"><id style=\'color:red\'>smart</id> search site</a>'
    updateTestMsg('8 searchFileIndex(), html ', expected2, result2.html)
    updateTestMsg('8 searchFileIndex(), url ', '//www.wolfram.com/', result2.url)
    updateTestMsg('8 searchFileIndex(), numOfUrls ', 1, result2.urlCount)
 
    const result3 = searchFileIndex('free', searchFileUrls, labels)
-   const expected3 = '<a href="http://localhost:8080/w/tests/search-files/misc.html">tests/search-files/misc.html</a>: \
+   const expected3 = '<a href="'+ window.BASE_URL+ '/tests/search-files/misc.html">tests/search-files/misc.html</a>: \
 <a href="https://www.freebookcentre.net"><id style=\'color:red\'>free</id> books site</a> \
 <a href="https://www.coursera.org/">coursera- <id style=\'color:red\'>free</id> course site</a>'
    updateTestMsg('9 searchFileIndex(), html 2 ', expected3, result3.html)
@@ -135,7 +139,7 @@ function searchFileIndexTest() {
    const result4 = searchFileIndex('site', searchFileUrls, labels)
    const expected4 = '<a href="http://localhost:8080/w/tests/search-files/etc.html">tests/search-files/etc.html</a>: <a href="//www.wolfram.com/">smart search <id style=\'color:red\'>site</id></a>\n\
 \n\
-<a href="http://localhost:8080/w/tests/search-files/misc.html">tests/search-files/misc.html</a>: <a href="https://www.freebookcentre.net">free books <id style=\'color:red\'>site</id></a> <a href="https://www.coursera.org/">coursera- free course <id style=\'color:red\'>site</id></a>'
+<a href="'+ window.BASE_URL+ '/tests/search-files/misc.html">tests/search-files/misc.html</a>: <a href="https://www.freebookcentre.net">free books <id style=\'color:red\'>site</id></a> <a href="https://www.coursera.org/">coursera- free course <id style=\'color:red\'>site</id></a>'
    updateTestMsg('10 searchFileIndex(), html 2 ', expected4, result4.html)
    updateTestMsg('10 searchFileIndex(), url 2 ', 'NA', result4.url)
    updateTestMsg('10 searchFileIndex(), numOfUrls 2 ', 3, result4.urlCount)

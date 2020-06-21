@@ -3,6 +3,7 @@ window.SEARCH_FILE_URLS
 window.SEARCH_LABELS
 window.BASE_URL
 
+
 function searchContentsMain(debug, filePathsFilePath, labelsFilePath) {
   'use strict';
   window.DEBUG = debug;
@@ -109,5 +110,15 @@ function searchContents(inputText, searchFileUrls, searchLabels) {
 }
 
 
+function weather() {
+  js = readText('https://api.weather.gov/gridpoints/BOX/68,81/forecast')
+  var w = JSON.parse(js)
+  forcast = w.properties.periods[0]['detailedForecast']
+  console.log('-----------'+forcast)
+  url = '<a href="https://forecast.weather.gov/MapClick.php?lat=42.482&amp;lon=-71.0973&amp;unit=0&amp;lg=english&amp;FcstType=graphical">' +
+         forcast + '</a>'
+  return url
+}
 
+document.getElementById("weather").innerHTML = weather()
 
