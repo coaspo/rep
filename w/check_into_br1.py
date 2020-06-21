@@ -37,7 +37,7 @@ def update_version_info():
   root.withdraw()
   ver = simpledialog.askstring(title="Git check-in;  "+ __file__, prompt=
                                ("\nUdate 'Search contents' related files and check into git.   "
-                               "\nThis will take a while."
+                               "\nThis may take a while."
                                "\n\nVersion name:"), 
                                initialvalue=ver)
   if ver is None:
