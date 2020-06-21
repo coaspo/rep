@@ -28,7 +28,7 @@ def update_version_info():
   with open('help.html') as f:
     lines = f.read().splitlines()
     
-  ver= 'update]'
+  ver= 'update'
   for line in lines:
     if line.startswith('20'):
         ver = line.split(';')[1].strip()
@@ -41,8 +41,7 @@ def update_version_info():
                                "\n\nVersion name:"), 
                                initialvalue=ver)
   if ver is None:
-    ver = 'update'
-  print(ver)
+    exit()
   with open('help.html', 'w') as f:
     for line in lines:
       if line.startswith('20'):
@@ -117,8 +116,6 @@ def collect_links(file_path):
   return labels_urls
 
 def extract_url_label(link):
-  
-  
   """
   >>> extract_url_label('<a href="https://www.coursera.org/">Coursera- Free course</a>')
   ('Coursera- Free course', 'https://www.coursera.org/')
