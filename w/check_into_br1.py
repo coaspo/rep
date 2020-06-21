@@ -28,7 +28,7 @@ def update_version_info():
   with open('help.html') as f:
     lines = f.read().splitlines()
     
-  
+  ver= 'update]'
   for line in lines:
     if line.startswith('20'):
         ver = line.split(';')[1].strip()
@@ -39,7 +39,7 @@ def update_version_info():
                                ("\nUdate 'Search contents' related files and check into git.   "
                                "\nThis will take a while."
                                "\n\nVersion name:"), 
-                               initialvalue='update')
+                               initialvalue=ver)
   if ver is None:
     ver = 'update'
   print(ver)
