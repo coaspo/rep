@@ -47,7 +47,7 @@ function getFileUrls(baseUrl, filePathsFilePath) {
   const html = readText(url);
 
   const lines = html.trim().split('\n');
-  fileUrls = [];
+  var fileUrls = [];
 
   for (var i = 0; i < lines.length; i++) {
     fileUrls[i] = window.BASE_URL + lines[i];
@@ -79,12 +79,17 @@ function readText(url) {
   if (window.DEBUG) console.log('*readText() url= ' + url);
   var req = new XMLHttpRequest();
   req.open('GET', url, false); // `false` makes the request synchronous
-  req.send(null);
+  try {
+    req.send(null);
+  } catch (err) {
+    throw err + ' on reading: ' + url;
+  }
   if (req.status === 200) {
     text = req.responseText.trim();
   } else {
     text = req.status + ' on reading: ' + url;
-    console.log('*readText() text= ' + text)
+    console.log('*readText() ERR text= ' + text)
+    throw text
   }
   if (window.DEBUG) console.log('*readText() text= ' + text)
   return text
@@ -94,11 +99,11 @@ function readText(url) {
 function searchContents(inputText, searchFileUrls, searchLabels) {
   if (window.DEBUG) console.log('*searchFiles() inputText = '+inputText)  
 
-  problemsHtml = scanProblemfiles(searchFileUrls, inputText)
-  urlResult = searchUrls(inputText, searchFileUrls)
-  indexResult = searchFileIndex(inputText, searchFileUrls, searchLabels) 
+  const problemsHtml = scanProblemfiles(searchFileUrls, inputText)
+  const urlResult = searchUrls(inputText, searchFileUrls)
+  const indexResult = searchFileIndex(inputText, searchFileUrls, searchLabels) 
   
-  result = {};
+  var result = {};
   result.html = urlResult.html + '\n\n' + indexResult.html + '\n\n' + problemsHtml
   result.html = result.html.replace('\n\n\n\n','')   
   if (result.html.length === 0) {
@@ -111,14 +116,27 @@ function searchContents(inputText, searchFileUrls, searchLabels) {
 
 
 function weather() {
-  js = readText('https://api.weather.gov/gridpoints/BOX/68,81/forecast')
-  var w = JSON.parse(js)
-  forcast = w.properties.periods[0]['detailedForecast']
-  console.log('-----------'+forcast)
-  url = '<a href="https://forecast.weather.gov/MapClick.php?lat=42.482&amp;lon=-71.0973&amp;unit=0&amp;lg=english&amp;FcstType=graphical">' +
-         forcast + '</a>'
+  const js = readText('https://api.weather.gov/gridpoints/BOX/68,81/forecast')
+  console.log('*weather() js = '+js)  
+  const w = JSON.parse(js)
+  const url = weatherPeriod(0, w.properties.periods)
+  const url2 = weatherPeriod(1, w.properties.periods)
+  return url + '<br>'+url2
+}
+
+function weatherPeriod(i, periods) {
+  const forecast = periods[i]['shortForecast']
+  const temp = periods[i]['temperature']
+  const detailed = periods[i]['detailedForecast']
+  const url = '<a href="https://forecast.weather.gov/MapClick.php?lat=42.482&amp;lon=-71.0973&amp;unit=0&amp;lg=english&amp;FcstType=graphical"  title="'+detailed+ '">' +
+         temp+ ' '+forecast + '</a>'
   return url
 }
 
-document.getElementById("weather").innerHTML = weather()
+try {
+  document.getElementById("weather").innerHTML = weather()
+} catch (err) {
+  document.getElementById("search-results").innerHTML = err
+}
+
 

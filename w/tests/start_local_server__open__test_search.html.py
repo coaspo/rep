@@ -1,5 +1,4 @@
 #!/usr/bin/env python3
-#!/usr/bin/env python3
 import webbrowser
 import os
 import subprocess
@@ -11,6 +10,7 @@ import time
 def f():
     # start local server:
     os.system('python3 -m http.server 8080')
+
 
 def start_local_server():
     os.chdir('..')
@@ -25,7 +25,6 @@ def start_local_server():
     p.start()
     time.sleep(2)
     msg += '\n3. local server started'
-
 
 
 if __name__ == '__main__':
