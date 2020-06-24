@@ -7,27 +7,31 @@ window.BASE_URL
 function searchContentsMain(debug, filePathsFilePath, labelsFilePath) {
   'use strict';
   window.DEBUG = debug;
-  const inputText = document.getElementById('inputText').value.toLowerCase().trim();
-  if (window.DEBUG) console.log('*searchContentsMain() inputText= ' + inputText);     
-  if (typeof window.BASE_URL === 'undefined') {
-    window.BASE_URL = getBaseUrl()
-    window.SEARCH_FILE_URLS = getFileUrls(window.BASE_URL, filePathsFilePath)
-    window.SEARCH_LABELS = getSearchLabels(window.BASE_URL,labelsFilePath)
-  }
-  if (inputText.length == 0) {
-    document.getElementById("search-results").innerHTML = ''
-    return;
-  }
+  try {
+    const inputText = document.getElementById('inputText').value.toLowerCase().trim();
+    if (window.DEBUG) console.log('*searchContentsMain() inputText= ' + inputText);     
+    if (typeof window.BASE_URL === 'undefined') {
+      window.BASE_URL = getBaseUrl()
+      window.SEARCH_FILE_URLS = getFileUrls(window.BASE_URL, filePathsFilePath)
+      window.SEARCH_LABELS = getSearchLabels(window.BASE_URL,labelsFilePath)
+    }
+    if (inputText.length == 0) {
+      document.getElementById("search-results").innerHTML = ''
+      return;
+    }
 
-  if (window.DEBUG) console.log('*searchContentsMain() window.inputText= ' + inputText);
-  document.getElementById("search-results").innerHTML = 'Wait... searching web pages'
-  
-  const result = searchContents(inputText, window.SEARCH_FILE_URLS, window.SEARCH_LABELS);
-  if (window.DEBUG) console.log('*searchContentsMain() search.html= ' + result.html);     
-  if (window.DEBUG) console.log('*searchContentsMain() search.hitUrl= ' + result.hitUrl);     
-  document.getElementById("search-results").innerHTML = result.html;
-  if (result.hitUrl != '') {
-    window.open(result.hitUrl, "_self");
+    if (window.DEBUG) console.log('*searchContentsMain() window.inputText= ' + inputText);
+    document.getElementById("search-results").innerHTML = 'Wait... searching web pages'
+    
+    const result = searchContents(inputText, window.SEARCH_FILE_URLS, window.SEARCH_LABELS);
+    if (window.DEBUG) console.log('*searchContentsMain() search.html= ' + result.html);     
+    if (window.DEBUG) console.log('*searchContentsMain() search.hitUrl= ' + result.hitUrl);     
+    document.getElementById("search-results").innerHTML = result.html;
+    if (result.hitUrl != '') {
+      window.open(result.hitUrl, "_self");
+    }
+  } catch (err) {
+    document.getElementById("search-results").innerHTML = err
   }
 }
 
@@ -121,15 +125,42 @@ function weather() {
   const w = JSON.parse(js)
   const url = weatherPeriod(0, w.properties.periods)
   const url2 = weatherPeriod(1, w.properties.periods)
-  return url + '<br>'+url2
+  return url + ' &nbsp; &nbsp; '+url2
 }
 
 function weatherPeriod(i, periods) {
   const forecast = periods[i]['shortForecast']
-  const temp = periods[i]['temperature']
+  f = forecast.toLowerCase()
+  fore = periods[i]['temperature']+'F '
+  if (f.includes('partly sun')) {
+    fore += ' 🌤️ '
+  } else if (f.includes('sun')) {
+    fore = ' 🌞 '
+  }
+  if (f.includes('cloud')) {
+    fore += ' ☁️ '
+  } 
+  if (f.includes('rain') || f.includes('shower')) {
+    fore += ' 🌧️ '
+  } 
+  if (f.includes('thunderstorm')) {
+    fore += ' 🌩️ '
+  } else if (f.includes('thunder')) {
+    fore += ' ⚡ '
+  } 
+  if (f.includes('fog')) {
+    fore += ' 🌫️ '
+  }
+  if (f.includes('snow')) {
+    fore += ' ❄️'
+  }
+  fore += periods[i]['windSpeed'].replace(' to ','/') + ' '
+  fore += periods[i]['windDirection']
   const detailed = periods[i]['detailedForecast']
   const url = '<a href="https://forecast.weather.gov/MapClick.php?lat=42.482&amp;lon=-71.0973&amp;unit=0&amp;lg=english&amp;FcstType=graphical"  title="'+detailed+ '">' +
-         temp+ ' '+forecast + '</a>'
+         fore + '</a>'
+
+        
   return url
 }
 
