@@ -109,6 +109,8 @@ def collect_links(file_path):
     i = line.find('<a ')
     print(line)
     if i > -1:
+      if '</a>' not in line:
+        print('ERR mising </a> in: ' + line + 'ERR file_path = ' + file_path)
       ii = line.index('</a>',i) + 4
       link = line[i:ii]
       label_url = extract_url_label(link)

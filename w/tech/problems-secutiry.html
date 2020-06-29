@@ -12,33 +12,46 @@
       <title>windows security</title>
    </head>
    <body><pre>
-<b>Block time-wasting websites</b>
+
+Enable SSH with git:
+Answer: Create public/prvate keys: <code>ssh-keygen -t rsa -b 4096 -C "coaspo@gmail.com"</code>
+        Add public key to github:  copy text in <code>~/id_rsa.pub</code>  to: <code>https://github.com/coaspo/rep</code> 
+                                   >user >settings >SSH-and-GPG-keys
+Block time-wasting websites
   Block news.google.com, edit:
      <id>C:\Windows\System32\drivers\etc\hosts</id> 
   and add, for example: 
     <id>127.0.0.1 news.google.com</id>
 
-<b>Spoof MAC address</b>
-  In Windows command-window, run: 
-     <code>devmgmt.msc</code>
-    Select: >Network adapters
-            >Realtek PCIe GBE Family Controller
-            >Rt-click >Properties
-            >Network Address 
-    For value add:
-      <id>AABBCCDDEEFF </id>   
-  Verify change; run: 
-      <code>ipconfig /all</code>
-    should have:<id>
-      Ethernet adapter Ethernet:
-      Physical Address. . . . : AA-BB-CC-DD-EE-FF</id>
+Spoof MAC address
+   Linux: Install (select yes):  sudo apt-get install macchanger   
+      Find interface:  ip addr     (should see for example: 2: enp2s0)
+      Change MAC addr (replace enp2s0 with actual interface):  sudo macchanger -r enp2s0
+      Change MAC after resume from sleep, add command to: /lib/systemd/system-sleep/hdparm
+   Windows : run: <code>devmgmt.msc</code>
+       Select: >Network adapters
+               >Realtek PCIe GBE Family Controller
+               >Rt-click >Properties
+               >Network Address 
+       For value add:
+         <id>AABBCCDDEEFF </id>   
+     Verify change; run: 
+         <code>ipconfig /all</code>
+       should have:<id>
+         Ethernet adapter Ethernet:
+         Physical Address. . . . : AA-BB-CC-DD-EE-FF</id>
 
-<b>Block adult websites</b>
+Set up firewall; for example, block <code>news.google.com</code>  
+Answer: <code>sudo gedit /etc/hosts</code>   
+        add line:  <code>127.0.0.1 news.google.com</code>  then restart
+
+
+Block adult websites
   Connect to router; for example, comcast has:
-      <a href='https://ww.opendns.com'>http:/10.0.0.1</a>
-    for wserId/password use admin/password
+      <a href='http:/10.0.0.1'>http:/10.0.0.1</a>
+    for userId/password use admin/password
     In Parental-control, Manage-sites add for example:
       <id>https://www.bad.com</id>
      But there are too many web sites to add!
   Alternative:
-    Change DNS server, see <a href='https://ww.opendns.com'>opendns</a>  
+    Change DNS server, see <a href='https://www.opendns.com'>opendns</a>  

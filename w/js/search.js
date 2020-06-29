@@ -109,7 +109,7 @@ function searchContents(inputText, searchFileUrls, searchLabels) {
   
   var result = {};
   result.html = urlResult.html + '\n\n' + indexResult.html + '\n\n' + problemsHtml
-  result.html = result.html.replace('\n\n\n\n','')   
+  result.html = result.html.replace('\n\n\n\n','\n\n').trim()  
   if (result.html.length === 0) {
     result.html = 'Did not find: "' + inputText + '"';
   } else  if ((problemsHtml.length + urlResult.numOfUrls + indexResult.urlCount) == 1) {
@@ -118,18 +118,19 @@ function searchContents(inputText, searchFileUrls, searchLabels) {
   return result;
 }
 
-
 function weather() {
   const js = readText('https://api.weather.gov/gridpoints/BOX/68,81/forecast')
   console.log('*weather() js = '+js)  
   const w = JSON.parse(js)
   const url = weatherPeriod(0, w.properties.periods)
   const url2 = weatherPeriod(1, w.properties.periods)
-  return url + ' &nbsp; &nbsp; '+url2
+  const url3 = weatherPeriod(2, w.properties.periods)
+  return url + '<br>' + url2 + '<br>' + url3
 }
 
 function weatherPeriod(i, periods) {
-  const forecast = periods[i]['shortForecast']
+  const forecast = periods[i]['detailedForecast']
+  console.log(periods[i])
   f = forecast.toLowerCase()
   fore = periods[i]['temperature']+'F '
   if (f.includes('partly sun')) {
@@ -154,13 +155,11 @@ function weatherPeriod(i, periods) {
   if (f.includes('snow')) {
     fore += ' ❄️'
   }
-  fore += periods[i]['windSpeed'].replace(' to ','/') + ' '
+  fore += periods[i]['windSpeed'].replace(' to ','/').replace(' mph','mph') + ' '
   fore += periods[i]['windDirection']
   const detailed = periods[i]['detailedForecast']
   const url = '<a href="https://forecast.weather.gov/MapClick.php?lat=42.482&amp;lon=-71.0973&amp;unit=0&amp;lg=english&amp;FcstType=graphical"  title="'+detailed+ '">' +
          fore + '</a>'
-
-        
   return url
 }
 

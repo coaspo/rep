@@ -2,7 +2,7 @@
 /arts/music.html
 /arts/videos.html
 /arts/websites.html
-/arts/word-plasticity.html
+/arts/word-etymology.html
 /arts/words-internet.html
 /arts/words-languages.html
 /arts/words.html
@@ -22,8 +22,11 @@
 /recipes/spanish-rice.html
 /recipes/tsoureki.html
 /recipes/zopf.html
+/science/covid.html
+/science/emotional-intelligence.html
 /science/exercise.html
-/science/scienceArticles.html
+/science/hypersanity.html
+/science/information.html
 /science/scienceBooks.html
 /science/scienceVideos.html
 /science/scienceWebsites.html
