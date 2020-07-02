@@ -61,26 +61,26 @@ internet archive$$3$$https://archive.org
  free books$$3$$https://www.freebookcentre.net/
  greek spell checker$$3$$https://www.neurolingo.gr/en/online_tools/speller
 list of languages by number of native speakers$$6$$https://en.wikipedia.org/wiki/List_of_languages_by_number_of_native_speakers
-the pandemic and the information network$$24$$https://www.cjr.org/analysis/covid-19-coronavirus-uncertainty.php
-why the coronavirus is so confusing$$24$$https://www.theatlantic.com/health/archive/2020/04/pandemic-confusing-uncertainty/610819/
-plato's five regimes$$24$$https://en.wikipedia.org/wiki/Plato%27s_five_regimes
-lydian$$24$$https://en.wikipedia.org/wiki/Lydia
-emotional intelligence tools$$25$$https://blog.dce.harvard.edu/professional-development/assessing-your-emotional-intelligence-4-tools-we-love
-emotional intelligence definition$$25$$https://www.psychologytoday.com/us/blog/the-personality-analyst/200909/what-emotional-intelligence-is-and-is-not
-the secret of becoming mentally strong$$26$$https://www.youtube.com/watch?v=TFbv757kup4
-hypersanity$$27$$https://www.psychologytoday.com/us/blog/hide-and-seek/201908/hypersanity
-10 steps to conquer information overload$$28$$https://www.forbes.com/sites/laurashin/2014/11/14/10-steps-to-conquering-information-overload/#69ac78cd7b08
-the coming plague: newly emerging diseases$$29$$https://www.amazon.com/dp/0140250913/ref=rdr_ext_tmb
-i contain multitudes... by ed yong$$29$$https://www.amazon.com/Contain-Multitudes-Microbes-Within-Grander/dp/B01FY85L38/ref=sr_1_1?dchild=1&keywords=I+Contain+Multitudes&qid=1589194089&sr=8-1
-the hacking of the american mind by robert h. lustig$$29$$https://www.amazon.com/Hacking-of-American-Mind-audiobook/dp/B0753KYQLN/ref=sr_1_1?dchild=1&keywords=The+Hacking+of+the+American+Mind+by+Robert&qid=1589850091&sr=8-1
-pure, white, and deadly$$29$$https://www.amazon.com/Pure-White-and-Deadly-audiobook/dp/B077DKN9RC/ref=sr_1_1?dchild=1&keywords=Pure%2C+White%2C+and+Deadly&qid=1589850288&sr=8-1
-korean cdc interview$$30$$https://www.youtube.com/watch?v=gAk7aX5hksU
-virus course$$30$$https://www.youtube.com/watch?v=lj3NhPgOoX4
-week in virology$$30$$https://www.microbe.tv/twiv/archive/
-the truth about mobile phone and wireless radiation$$30$$https://www.youtube.com/watch?v=BwyDCHf5iCY
-sugar: the bitter truth$$30$$https://www.youtube.com/watch?v=dBnniua6-oM
-wolfram$$31$$https://www.wolfram.com/
-worldometers$$31$$https://www.worldometers.info/
+the pandemic and the information network$$25$$https://www.cjr.org/analysis/covid-19-coronavirus-uncertainty.php
+why the coronavirus is so confusing$$25$$https://www.theatlantic.com/health/archive/2020/04/pandemic-confusing-uncertainty/610819/
+plato's five regimes$$25$$https://en.wikipedia.org/wiki/Plato%27s_five_regimes
+lydian$$25$$https://en.wikipedia.org/wiki/Lydia
+emotional intelligence tools$$26$$https://blog.dce.harvard.edu/professional-development/assessing-your-emotional-intelligence-4-tools-we-love
+emotional intelligence definition$$26$$https://www.psychologytoday.com/us/blog/the-personality-analyst/200909/what-emotional-intelligence-is-and-is-not
+the secret of becoming mentally strong$$27$$https://www.youtube.com/watch?v=TFbv757kup4
+hypersanity$$28$$https://www.psychologytoday.com/us/blog/hide-and-seek/201908/hypersanity
+10 steps to conquer information overload$$29$$https://www.forbes.com/sites/laurashin/2014/11/14/10-steps-to-conquering-information-overload/#69ac78cd7b08
+the coming plague: newly emerging diseases$$30$$https://www.amazon.com/dp/0140250913/ref=rdr_ext_tmb
+i contain multitudes... by ed yong$$30$$https://www.amazon.com/Contain-Multitudes-Microbes-Within-Grander/dp/B01FY85L38/ref=sr_1_1?dchild=1&keywords=I+Contain+Multitudes&qid=1589194089&sr=8-1
+the hacking of the american mind by robert h. lustig$$30$$https://www.amazon.com/Hacking-of-American-Mind-audiobook/dp/B0753KYQLN/ref=sr_1_1?dchild=1&keywords=The+Hacking+of+the+American+Mind+by+Robert&qid=1589850091&sr=8-1
+pure, white, and deadly$$30$$https://www.amazon.com/Pure-White-and-Deadly-audiobook/dp/B077DKN9RC/ref=sr_1_1?dchild=1&keywords=Pure%2C+White%2C+and+Deadly&qid=1589850288&sr=8-1
+korean cdc interview$$31$$https://www.youtube.com/watch?v=gAk7aX5hksU
+virus course$$31$$https://www.youtube.com/watch?v=lj3NhPgOoX4
 week in virology$$31$$https://www.microbe.tv/twiv/archive/
-flightradar24$$31$$https://www.flightradar24.com/airport/bos
-merk manual$$31$$https://www.merckmanuals.com/
+the truth about mobile phone and wireless radiation$$31$$https://www.youtube.com/watch?v=BwyDCHf5iCY
+sugar: the bitter truth$$31$$https://www.youtube.com/watch?v=dBnniua6-oM
+wolfram$$32$$https://www.wolfram.com/
+worldometers$$32$$https://www.worldometers.info/
+week in virology$$32$$https://www.microbe.tv/twiv/archive/
+flightradar24$$32$$https://www.flightradar24.com/airport/bos
+merk manual$$32$$https://www.merckmanuals.com/

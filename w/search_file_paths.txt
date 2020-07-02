@@ -12,6 +12,7 @@
 /recipes/gemista.html
 /recipes/kolokithokeftedes.html
 /recipes/mac-n-cheese.html
+/recipes/meatballs-hamburgers.html
 /recipes/oat bread.html
 /recipes/pizza.html
 /recipes/portuguese bread.html

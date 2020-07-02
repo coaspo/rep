@@ -37,4 +37,13 @@ Answer: to to top of the script file add:
         >org >gnome >nautilus >preferences >executable-text-activation
         from drop dowmn select "launch"
 
+how to run flask in ubuntu
+Answer: pip install Flask
+        export FLASK_APP=a   # where 'a' is for a.py  which has the server code
+        flask run
+        browse: http://127.0.0.1:5000/
+
+On running 'flask run' get: 'OSError: [Errno 98] Address already in use'
+FIX: fuser -k 5000/tcp
+        
 UnicodeDecodeError: 'utf-8' codec can't decode byte 0xff in position

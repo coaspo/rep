@@ -142,7 +142,7 @@ function weatherPeriod(i, periods) {
   const forecast = periods[i]['detailedForecast']
   console.log(periods[i])
   f = forecast.toLowerCase()
-  fore = periods[i]['temperature']+'F '
+  fore = periods[i]['temperature'] + ' '
   if (f.includes('partly sun')) {
     fore += ' 🌤️ '
   } else if (f.includes('sun')) {
@@ -165,7 +165,6 @@ function weatherPeriod(i, periods) {
   if (f.includes('snow')) {
     fore += ' ❄️'
   }
-  fore += periods[i]['windSpeed'] + ' ' + periods[i]['windDirection']
   const detailed = periods[i]['detailedForecast']
   const url = '<a href="https://forecast.weather.gov/MapClick.php?lat=42.482&amp;lon=-71.0973&amp;unit=0&amp;lg=english&amp;FcstType=graphical"  title="'+detailed+ '">' +
          fore + '</a>'
