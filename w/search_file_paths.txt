@@ -26,10 +26,11 @@
 /science/covid.html
 /science/emotional-intelligence.html
 /science/exercise.html
+/science/healthVideos.html
 /science/hypersanity.html
 /science/information.html
 /science/scienceBooks.html
-/science/scienceVideos.html
+/science/scienceLinks.html
 /science/scienceWebsites.html
 /tech/git.html
 /tech/ide.html

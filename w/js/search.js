@@ -141,32 +141,39 @@ function displayWeather() {
 function weatherPeriod(i, periods) {
   const forecast = periods[i]['detailedForecast']
   console.log(periods[i])
+  t = periods[i]['temperature']
+  tColor = '#0000FF;'
+  if (t > 78) {
+    tColor = '#00FF00;'
+  } else if (t > 65) {
+    tColor = '#009900;'
+  }
   f = forecast.toLowerCase()
-  fore = periods[i]['temperature'] + ' '
+  fore = "<span style='font-weight: bold; color:" + tColor + "'>" + t + '</span> '
   if (f.includes('partly sun')) {
-    fore += ' 🌤️ '
+    fore += '🌤️ '
   } else if (f.includes('sun')) {
-    fore = ' 🌞 '
+    fore += '🌞 '
   }
   if (f.includes('cloud')) {
-    fore += ' ☁️ '
+    fore += '☁️ '
   } 
   if (f.includes('rain') || f.includes('shower')) {
-    fore += ' 🌧️ '
+    fore += '🌧️ '
   } 
   if (f.includes('thunderstorm')) {
-    fore += ' 🌩️ '
+    fore += '🌩️ '
   } else if (f.includes('thunder')) {
-    fore += ' ⚡ '
+    fore += '⚡ '
   } 
   if (f.includes('fog')) {
-    fore += ' 🌫️ '
+    fore += '🌫️ '
   }
   if (f.includes('snow')) {
-    fore += ' ❄️'
+    fore += '❄️'
   }
   const detailed = periods[i]['detailedForecast']
-  const url = '<a href="https://forecast.weather.gov/MapClick.php?lat=42.482&amp;lon=-71.0973&amp;unit=0&amp;lg=english&amp;FcstType=graphical"  title="'+detailed+ '">' +
+  const url = '<a href="https://forecast.weather.gov/MapClick.php?lat=42.482&lon=-71.0973&lg=english&&FcstType=text&bw=1"  title="'+detailed+ '">' +
          fore + '</a>'
   return url
 }
