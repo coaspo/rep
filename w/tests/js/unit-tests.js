@@ -137,7 +137,7 @@ function searchFileIndexTest() {
    updateTestMsg('9 searchFileIndex(), numOfUrls 2 ', 2, result3.urlCount)
 
    const result4 = searchFileIndex('site', searchFileUrls, labels)
-   const expected4 = '<a href="http://localhost:8080/w/tests/search-files/etc.html">tests/search-files/etc.html</a>: <a href="//www.wolfram.com/">smart search <id style=\'color:red\'>site</id></a>\n\
+   const expected4 = '<a href="'+ window.BASE_URL+ '/tests/search-files/etc.html">tests/search-files/etc.html</a>: <a href="//www.wolfram.com/">smart search <id style=\'color:red\'>site</id></a>\n\
 \n\
 <a href="'+ window.BASE_URL+ '/tests/search-files/misc.html">tests/search-files/misc.html</a>: <a href="https://www.freebookcentre.net">free books <id style=\'color:red\'>site</id></a> <a href="https://www.coursera.org/">coursera- free course <id style=\'color:red\'>site</id></a>'
    updateTestMsg('10 searchFileIndex(), html 2 ', expected4, result4.html)
