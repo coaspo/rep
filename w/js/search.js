@@ -142,11 +142,11 @@ function weatherPeriod(i, periods) {
   const forecast = periods[i]['detailedForecast']
   console.log(periods[i])
   t = periods[i]['temperature']
-  tColor = '#0000FF;'
+  tColor = '#0000FF;'  // blue
   if (t > 78) {
-    tColor = '#00FF00;'
+    tColor = '#CC0000;' // dark red
   } else if (t > 65) {
-    tColor = '#009900;'
+    tColor = '#009900;'   // dark greem
   }
   f = forecast.toLowerCase()
   fore = "<span style='font-weight: bold; color:" + tColor + "'>" + t + '</span> '
