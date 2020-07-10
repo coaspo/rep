@@ -1,11 +1,12 @@
 #!/usr/bin/env python3
-import webbrowser
-import os
-import subprocess
+
 from multiprocessing import Process
 from tkinter import messagebox
+import os
+import subprocess
 import time
-
+import traceback
+import webbrowser
 
 def f():
     # start local server:
@@ -29,8 +30,12 @@ def start_local_server():
 
 if __name__ == '__main__':
     msg = ''
-    start_local_server()
-    webbrowser.open('http://localhost:8080/w/tests/test_search.html')
-    msg += '\n4/4. run local tests'
-    messagebox.showinfo(__file__, msg)
+    try: 
+      start_local_server()
+      webbrowser.open('http://localhost:8080/w/tests/test_search.html')
+      msg += '\n4/4. run local tests'
+      print(msg)
+    except Exception as e:
+      print(traceback.format_exc())
+      messagebox.showinfo(__file__, os.path.basename(__file__) + ' FAILED; \n\n' + str(e))
 

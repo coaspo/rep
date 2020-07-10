@@ -173,7 +173,7 @@ function weatherPeriod(i, periods) {
     fore += '❄️'
   }
   const detailed = periods[i]['detailedForecast']
-  const url = '<a href="https://forecast.weather.gov/MapClick.php?lat=42.482&lon=-71.0973&lg=english&&FcstType=text&bw=1"  title="'+detailed+ '">' +
+  const url = '<a href="https://forecast.weather.gov/MapClick.php?lat=42.482&lon=-71.0973&lg=english&&FcstType=text&bw=1" title="'+detailed+ '">' +
          fore + '</a>'
   return url
 }
