@@ -1,8 +1,8 @@
 /arts/articles.html
+/arts/etymology.html
 /arts/music.html
 /arts/videos.html
 /arts/websites.html
-/arts/word-etymology.html
 /arts/words-internet.html
 /arts/words-languages.html
 /arts/words.html
