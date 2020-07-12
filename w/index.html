@@ -36,7 +36,7 @@
 	<!--help--><a href="./help.html">Help</a>&nbsp;&nbsp;&nbsp;<br/><br/>
 	      </td>
       <td>
-	<input type="text" id="inputText" style="width:355px; box-sizing: border-box; " placeholder='Enter text'; >
+	<input type="text" id="inputText" style="width:355px; box-sizing: border-box; " placeholder='Enter text' >
 	<p><button onclick="defineWord();"  style="width:155px; text-align: left; color:#347235" >Dictionary</button>
 	   <button onclick="findAcronym();" style="width:155px; text-align: left; color:#347235;" >Acronym</button>
 	<p><button onclick="google();"  style="width:155px; text-align: left;" >10<sup>100</sup></button>
@@ -53,7 +53,7 @@
     </tr>
   </table>
 <!--================================ weather & content search =========== style="line-height: 2.6;"====================-->
-<id id="weather"></id>
+<div id="weather"></div>
 <pre id="search-results" style="background-color:#FFFFDD; font-size:16px;"></pre>
 </div>
 <!--======================================== Proj ======================================-->
@@ -113,7 +113,7 @@
 	<!--Java repl--><a href="https://compilejava.net">Java repl</a><br/>
 	<!--python IDE--><a href="https://onlinegdb.com/online_python_compiler" >Python IDE</a><br/>
 	<!--python repl--><a href="https://python.org/shell" >Python repl</a><br/>
-	<!--python repl--><a href="https://www.pythonanywhere.com/user/cphantzis/>PythonAnywhere/a><br/>
+	<!--python repl--><a href="https://www.pythonanywhere.com">PythonAnywhere</a><br/>
 	<a href="https://plnkr.co/" >Plunker</a><br/>
 	<a href="https://play.kotlinlang.org" >Kotlin</a><br/>
       <td class="w3-pale-yellow">
@@ -121,6 +121,7 @@
 	<!--SQL Format--><a href="https://www.dpriver.com/pp/sqlformat.htm">SQL Format2</a><br/>
 	<!--HTML valid.--><a href="https://validator.w3.org/#validate_by_input">HTML valid.</a><br/>
 	<!--HTML format--><a href="https://www.freeformatter.com/html-formatter.html">HTML format</a><br/><br/>
+	<!--HTML format--><a href="https://html5-editor.net/">HTML Editor</a><br/><br/>
        <a href="https://www.coursera.org/learn/algorithms-part1/home/welcome">Algorithms course</a> <br/>
       <a href="https://www.edx.org">edx</a> <br/>
    </tr>
@@ -130,26 +131,15 @@
 <div id="Recipes" class="w3-container contName" style="display:none; font-size:24px;" >
 <table><tr class="w3-pale-yellow" >
 <td><pre><b>Misc</b>
-  <a href="./recipes/fried-rice.html">fried rice</a> 
   <a href="./recipes/mac-n-cheese.html">mac and cheese</a> 
   <a href="./recipes/potato-tortilla.html">potato-tortilla</a> 
-  <a href="./recipes/prasorizo.html">prasorizo</a> 
-  <a href="./recipes/rizogalo.html">rizogalo</a> 
-  <a href="./recipes/spanish-rice.html">Spanish rice</a> 
-  <a href="./recipes/meatballs-hamburgers.html">meatballs-hamburgers</a> 
+  <a href="./recipes/rice.html">rice</a> 
+  <a href="./recipes/meatballs-hamburgers.html">meatballs-hamburgers</a>
+  <a href="./recipes/ratatouille.html">ratatouille</a>
 <b>Oven recipes</b>
   <a href="./recipes/gemista.html">gemista</a> 
   <a href="./recipes/kolokithokeftedes.html">kolokithokeftedes</a></pre> 
-</td>
-<td><pre><b>Breads</b>
-  <a href="./recipes/challah.html">hallah 🍞</a> 
-  <a href="./recipes/focaccia.html">focaccia 🍞</a> 
-  <a href="./recipes/oat bread.html">oat 🍞</a> 
-  <a href="./recipes/pizza.html">🍕 🍞</a> 
-  <a href="./recipes/portuguese bread.html">Portuguese 🍞</a> 
-  <a href="./recipes/sourdough.html">sourdough 🍞</a> 
-  <a href="./recipes/tsoureki.html">tsoureki 🍞</a>
-  <a href="./recipes/zopf.html">zopf 🍞</a> </pre>
+  <a href="./recipes/breads.html">Breads 🍞</a> 
 </td>
 </tr>
 </table>  
@@ -290,5 +280,6 @@ document.getElementById('inputText').addEventListener('keypress', function (e) {
 <script src="js/search.js"></script> <!-- searchContentsMain(debug, filePathsFilePath, labelsFilePath) -->
 <script src="js/search-labels.js"></script> 
 <script src="js/search-page-source.js"></script> 
+</div>
 </body>
 </html>

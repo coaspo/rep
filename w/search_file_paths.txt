@@ -3,26 +3,18 @@
 /arts/music.html
 /arts/videos.html
 /arts/websites.html
+/arts/word-etymology.html
 /arts/words-internet.html
 /arts/words-languages.html
 /arts/words.html
-/recipes/challah.html
-/recipes/focaccia.html
-/recipes/fried-rice.html
+/recipes/breads.html
 /recipes/gemista.html
 /recipes/kolokithokeftedes.html
 /recipes/mac-n-cheese.html
 /recipes/meatballs-hamburgers.html
-/recipes/oat bread.html
-/recipes/pizza.html
-/recipes/portuguese bread.html
 /recipes/potato-tortilla.html
-/recipes/prasorizo.html
-/recipes/rizogalo.html
-/recipes/sourdough.html
-/recipes/spanish-rice.html
-/recipes/tsoureki.html
-/recipes/zopf.html
+/recipes/ratatouille.html
+/recipes/rice.html
 /science/covid.html
 /science/emotional-intelligence.html
 /science/exercise.html
