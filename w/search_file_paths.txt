@@ -12,6 +12,7 @@
 /recipes/kolokithokeftedes.html
 /recipes/mac-n-cheese.html
 /recipes/meatballs-hamburgers.html
+/recipes/pizza.html
 /recipes/potato-tortilla.html
 /recipes/ratatouille.html
 /recipes/rice.html

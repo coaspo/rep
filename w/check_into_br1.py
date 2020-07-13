@@ -82,32 +82,33 @@ def save_search_labels(save_file):
     if 'problem' in p:
       continue
     log(p)
-    links = collect_links(p)
-    if len(links) > 0:
+    indexes = contents_indexes(p)
+    if len(indexes) > 0:
       with open(save_file, 'a') as f:
-        for atrs in links:
+        for atrs in indexes:
           if not is_first:
             f.write('\n')
           else:
             is_first = False
           print(atrs[0])
-          f.write(atrs[0]) # anchor label
+          f.write(atrs[0]) # anchor label or table header
           f.write('$$')
           f.write(str(i))  # file index number
-          f.write('$$')
-          f.write(atrs[1]) # url
+          if len(atrs) > 1:
+            f.write('$$')
+            f.write(atrs[1]) # url
   log('save_file= ', save_file)
   global msg
   msg += '\nSaved search labels to: ' + save_file
 
 
-def collect_links(file_path):
+def contents_indexes(file_path):
   with open(file_path) as f:
     lines = f.readlines()
   labels_urls = []
   for line in lines:
+    # search for anchors:
     i = line.find('<a ')
-    print(line)
     if i > -1:
       if '</a>' not in line:
         print('ERR mising </a> in: ' + line + 'ERR file_path = ' + file_path)
