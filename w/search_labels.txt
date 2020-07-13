@@ -68,6 +68,14 @@ internet archive$$4$$https://archive.org
  free books$$4$$https://www.freebookcentre.net/
  greek spell checker$$4$$https://www.neurolingo.gr/en/online_tools/speller
 list of languages by number of native speakers$$7$$https://en.wikipedia.org/wiki/List_of_languages_by_number_of_native_speakers
+          <th style="width: 127px;">Prasorizo<br />Leek rice 
+$$17
+          <th style="width: 102px;">Fried rice 
+$$17
+          <th style="width: 103px;">Rizogalo<br />Rice pudding 
+$$17
+          <th style="width: 39px;">Spanish rice 
+$$17
 the pandemic and the information network$$18$$https://www.cjr.org/analysis/covid-19-coronavirus-uncertainty.php
 why the coronavirus is so confusing$$18$$https://www.theatlantic.com/health/archive/2020/04/pandemic-confusing-uncertainty/610819/
 plato's five regimes$$18$$https://en.wikipedia.org/wiki/Plato%27s_five_regimes

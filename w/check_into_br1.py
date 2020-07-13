@@ -105,7 +105,7 @@ def save_search_labels(save_file):
 def contents_indexes(file_path):
   with open(file_path) as f:
     lines = f.readlines()
-  labels_urls = []
+  indexes = []
   for line in lines:
     # search for anchors:
     i = line.find('<a ')
@@ -115,8 +115,13 @@ def contents_indexes(file_path):
       ii = line.index('</a>',i) + 4
       link = line[i:ii]
       label_url = extract_url_label(link)
-      labels_urls.append(label_url)
-  return labels_urls
+      indexes.append(label_url)
+    # search for table headers:
+    i = line.find('<th ')
+    if i > -1:
+      headers = line.replace('<th>', ' ').replace('</th>', ' ')
+      indexes.append([headers])
+  return indexes
 
 def extract_url_label(link):
   """
