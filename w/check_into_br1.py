@@ -120,6 +120,7 @@ def contents_indexes(file_path):
     i = line.find('<th ')
     if i > -1:
       headers = line.replace('<th>', ' ').replace('</th>', ' ').strip()
+      print ('+++++++', headers)
       indexes.append([headers])
   return indexes
 
@@ -137,7 +138,7 @@ def extract_url_label(link):
   url = link[i:i2]
   i = link.index('>', i2) + 1
   i2 = link.index('</a>', i) 
-  label = link[i:i2].lower()
+  label = link[i:i2].lower().strip()
   attrs = (label, url) 
   return attrs
   

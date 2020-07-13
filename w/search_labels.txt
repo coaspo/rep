@@ -60,13 +60,13 @@ $$3$$
 $$3$$
 news in photos$$4$$https://www.theatlantic.com/photo/
 the electric typewriter$$4$$https://tetw.org
- spanish - stonehame middle school$$4$$https://quizlet.com/Dr_Darlington
- khan academy$$4$$https://www.khanacademy.org/
- coursera$$4$$https://www.coursera.org/
+spanish - stonehame middle school$$4$$https://quizlet.com/Dr_Darlington
+khan academy$$4$$https://www.khanacademy.org/
+coursera$$4$$https://www.coursera.org/
 edx$$4$$https://www.edx.org/
 internet archive$$4$$https://archive.org
- free books$$4$$https://www.freebookcentre.net/
- greek spell checker$$4$$https://www.neurolingo.gr/en/online_tools/speller
+free books$$4$$https://www.freebookcentre.net/
+greek spell checker$$4$$https://www.neurolingo.gr/en/online_tools/speller
 list of languages by number of native speakers$$7$$https://en.wikipedia.org/wiki/List_of_languages_by_number_of_native_speakers
 the pandemic and the information network$$18$$https://www.cjr.org/analysis/covid-19-coronavirus-uncertainty.php
 why the coronavirus is so confusing$$18$$https://www.theatlantic.com/health/archive/2020/04/pandemic-confusing-uncertainty/610819/
