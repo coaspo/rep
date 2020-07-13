@@ -119,7 +119,7 @@ def contents_indexes(file_path):
     # search for table headers:
     i = line.find('<th ')
     if i > -1:
-      headers = line.replace('<th>', ' ').replace('</th>', ' ')
+      headers = line.replace('<th>', ' ').replace('</th>', ' ').strip()
       indexes.append([headers])
   return indexes
 
