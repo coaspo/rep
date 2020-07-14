@@ -25,16 +25,12 @@ function searchFileIndex(inputText, searchFileUrls, searchLabels) {
       result.html += ' <a href="' + url + '">' + label + '</a>'
       result.url = url 
     } else {
-      result.html += label 
+      result.html += ' ' + label  
     }
   }
   if (result.urlCount > 1 && result.html.length > 0) {
     result.url = 'NA'
   }
-  console.log('*searchIndexedLabels() ====1=' + result.urlCount)
-  console.log('*searchIndexedLabels() r===2=' + result.html.length)
-  console.log('*searchIndexedLabels() ===3=' + result.html)
-  console.log('*searchIndexedLabels() ===4=' + result.url)
   if (window.DEBUG) console.log('*searchIndexedLabels() result.html=' + result.html)
   return result
 }
