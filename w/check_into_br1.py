@@ -114,8 +114,6 @@ def contents_indexes(file_path):
       ii = line.index('</a>',i) + 4
       link = line[i:ii]
       label_url = extract_url_label(link)
-      if len(label_url[0].strip()) ==0:
-        print('>>>>>>>', line)
       indexes.append(label_url)
     # search for italic keywords:
     i = line.find('<i>')
@@ -127,11 +125,11 @@ def contents_indexes(file_path):
 def extract_italicized_labels(line):
   """
   >>> extract_italicized_labels('aa <i>AAA</i> bbb <i>BBB</i> xxx<i>222</i>yyy<i>333</i>zzz')
-  'AAA BBB 222 333'
+  'aaa bbb 222 333'
   """
   s = re.sub("^(.*?)<i>", "", line)
   s = re.sub("</i>.*?<i>", " ", s)
-  s = re.sub("</i>.*", "", s).strip()
+  s = re.sub("</i>.*", "", s).strip().lower()
   return s
   
 def extract_url_label(link):
