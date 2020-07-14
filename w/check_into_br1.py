@@ -1,16 +1,16 @@
 #!/usr/bin/env python3
 from datetime import datetime
+from os import listdir
 from os import mkdir
 from os import path
-from os import listdir
-import os
-from datetime import datetime
 from shutil import copy
 from subprocess import Popen, PIPE
 from sys import exit
-import tkinter as tk
-from tkinter import simpledialog
 from tkinter import messagebox
+from tkinter import simpledialog
+import os
+import re
+import tkinter as tk
 import traceback
 
 LOG_FILE = path.basename(__file__) + '.log'
@@ -90,7 +90,6 @@ def save_search_labels(save_file):
             f.write('\n')
           else:
             is_first = False
-          print(atrs[0])
           f.write(atrs[0]) # anchor label or table header
           f.write('$$')
           f.write(str(i))  # file index number
@@ -115,21 +114,32 @@ def contents_indexes(file_path):
       ii = line.index('</a>',i) + 4
       link = line[i:ii]
       label_url = extract_url_label(link)
+      if len(label_url[0].strip()) ==0:
+        print('>>>>>>>', line)
       indexes.append(label_url)
-    # search for table headers:
-    i = line.find('<th ')
+    # search for italic keywords:
+    i = line.find('<i>')
     if i > -1:
-      headers = line.replace('<th>', ' ').replace('</th>', ' ').strip()
-      print ('+++++++', headers)
-      indexes.append([headers])
+      labels = extract_italicized_labels(line)
+      indexes.append((labels,))
   return indexes
 
+def extract_italicized_labels(line):
+  """
+  >>> extract_italicized_labels('aa <i>AAA</i> bbb <i>BBB</i> xxx<i>222</i>yyy<i>333</i>zzz')
+  'AAA BBB 222 333'
+  """
+  s = re.sub("^(.*?)<i>", "", line)
+  s = re.sub("</i>.*?<i>", " ", s)
+  s = re.sub("</i>.*", "", s).strip()
+  return s
+  
 def extract_url_label(link):
   """
   >>> extract_url_label('<a href="https://www.coursera.org/">Coursera- Free course</a>')
-  ('Coursera- Free course', 'https://www.coursera.org/')
+  ('coursera- free course', 'https://www.coursera.org/')
   >>> extract_url_label("<a href='https://www.coursera.org/'>Coursera- Free course</a>")
-  ('Coursera- Free course', 'https://www.coursera.org/')
+  ('coursera- free course', 'https://www.coursera.org/')
   """
   link=link.replace('href= ','href=')
   quote =  '"' if link.find('href="')>-1  else "'"
@@ -173,10 +183,9 @@ def run(*args: str):
             messagebox.showinfo("ERR", msg +'\n'+lavel)
             exit(2)
 
-if __name__ == '__main__22':
+if __name__ == '__main__x':
     import doctest
     doctest.testmod()
-
 
 if __name__ == '__main__':
     msg = ''

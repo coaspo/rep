@@ -22,13 +22,16 @@ def test_save_searcn_file_paths():
   assert expected == txt, 'save_searcn_file_paths() failed; expected:\n' + expected + '\nactual:\n' + txt
 
 
-def test_collect_links():
-  labels_urls = check_into_br1.collect_links('../tests/search-files/links.html')
+def test_contents_indexes():
+  indexes = check_into_br1.contents_indexes('../tests/search-files/links.html')
   expected = [('internet archive', 'https://archive.org'),
          ('free books', 'https://www.freebookcentre.net/'), 
          ('coursera- free course', 'https://www.coursera.org/'), 
          ('edx - mit, harvard', 'https://www.edx.org/')]
-  assert expected == labels_urls, 'collect_links() failed; expected:\n' + str(expected) + '\nactual:\n' +str(labels_urls)
+  assert expected == indexes, 'contents_indexes() failed; expected:\n' + str(expected) + '\nactual:\n' +str(indexes)
+  indexes = check_into_br1.contents_indexes('../tests/search-files/recipe.html')
+  expected = [('serve done',),]
+  assert expected == indexes, 'contents_indexes() failed; expected:\n' + str(expected) + '\nactual:\n' +str(indexes)
 
 
 def test_save_search_labels():
@@ -44,7 +47,8 @@ week in virology$$0$$https://www.microbe.tv/twiv/archive/
 internet archive$$1$$https://archive.org
 free books$$1$$https://www.freebookcentre.net/
 coursera- free course$$1$$https://www.coursera.org/
-edx - mit, harvard$$1$$https://www.edx.org/"""  # anchor label, file index, url
+edx - mit, harvard$$1$$https://www.edx.org/
+serve done$$4"""  # anchor label, file index, url
   assert expected == txt, 'save_search_labels() failed:\n' + expected + '\nactual:\n' + txt
 
 
@@ -63,7 +67,7 @@ if __name__ == '__main__':
   try:
     os.remove('check_into_br1.py.log')
     test_save_searcn_file_paths()
-    test_collect_links()
+    test_contents_indexes()
     test_save_search_labels()
     make_file_paths_sever_testable()
   except Exception as e:

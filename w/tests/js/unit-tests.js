@@ -62,7 +62,8 @@ function getSearchLabelsTest() {
             ["internet archive", "1", "https://archive.org"],
             ["free books", "1", "https://www.freebookcentre.net/"],
             ["coursera- free course", "1", "https://www.coursera.org/"],
-            ["edx - mit, harvard", "1", "https://www.edx.org/"]];
+            ["edx - mit, harvard", "1", "https://www.edx.org/"],
+            ["serve done", "4"]];
    updateTestMsg('2 searchFileIndex()', expected, searchLabels);
 }
 
@@ -81,7 +82,8 @@ week in virology$$0$$https://www.microbe.tv/twiv/archive/\n\
 internet archive$$1$$https://archive.org\n\
 free books$$1$$https://www.freebookcentre.net/\n\
 coursera- free course$$1$$https://www.coursera.org/\n\
-edx - mit, harvard$$1$$https://www.edx.org/'
+edx - mit, harvard$$1$$https://www.edx.org/\n\
+serve done$$4'
    updateTestMsg('4 readText()', expected, text)
 }
 
