@@ -13,7 +13,7 @@
 /recipes/mac-n-cheese.html
 /recipes/meatballs-hamburgers.html
 /recipes/pizza.html
-/recipes/potato-tortilla.html
+/recipes/potato.html
 /recipes/ratatouille.html
 /recipes/rice.html
 /science/covid.html
