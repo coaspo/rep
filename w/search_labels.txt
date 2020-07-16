@@ -14,7 +14,7 @@ white rabbit$$2$$https://music.youtube.com/watch?v=vgQ1Y1IFPao&list=RDAMVMoU6uUE
 son of a preacher$$2$$https://music.youtube.com/watch?v=ZSEKX8GAEYY&list=RDAMVMoU6uUEwZ8FM
 papa was a rolling stone$$2$$https://music.youtube.com/watch?v=ZQ1Eu3Z9IHU&list=RDAMVMZQ1Eu3Z9IHU
 short people$$2$$https://www.youtube.com/watch?v=8bfyS-S-IJs
-somewhere over the rainbow$$2$$https://www.youtube.com/watch?v=V1bFr2SWP1I
+over the rainbow$$2$$https://www.youtube.com/watch?v=V1bFr2SWP1I
 thrill is gone$$2$$https://www.youtube.com/watch?v=4fk2prKnYnI
 little prayer$$2$$https://www.youtube.com/watch?v=KtBbyglq37E
 morricone, good bad and ugly$$2$$https://www.youtube.com/watch?v=enuOArEfqGo
@@ -38,11 +38,11 @@ agni parthene$$2$$https://www.youtube.com/watch?v=C7vvPXz-Qes
 jesus prayer$$2$$https://www.youtube.com/watch?v=g4W4_EOXRLo
 ave maria$$2$$https://www.youtube.com/watch?v=3d4xXvF2ukY
 our father$$2$$https://www.youtube.com/watch?v=locW-9S00VU
-hymn of the cherubim$$2$$https://www.youtube.com/watch?v=SZQzW_QfPew
+cherubim$$2$$https://www.youtube.com/watch?v=SZQzW_QfPew
 praise the lord$$2$$https://www.youtube.com/watch?v=MKLwutElZ-s
-hurrian hymn$$2$$https://www.youtube.com/watch?v=QpxN2VXPMLc
+hurrian$$2$$https://www.youtube.com/watch?v=QpxN2VXPMLc
 armenian godess$$2$$https://en.wikipedia.org/wiki/Hurrian_songs
-delphic hymn to apollo$$2$$https://www.youtube.com/watch?v=bydqNRYgbuc
+apollo$$2$$https://www.youtube.com/watch?v=bydqNRYgbuc
 greek music$$2$$https://www.youtube.com/watch?v=4hOK7bU0S1Y
 pink panther - original$$3$$https://www.youtube.com/watch?v=59lKdaXX6Eo
 pink panther - new$$3$$https://www.youtube.com/watch?v=4E-rQwZYQ_4
@@ -71,38 +71,41 @@ greek spell checker$$4$$https://www.neurolingo.gr/en/online_tools/speller
 list of languages by number of native speakers$$7$$https://en.wikipedia.org/wiki/List_of_languages_by_number_of_native_speakers
 tsoureki$$9
 sourdough$$9
-potato tortilla$$15
-scalloped potatoes</th>$$15
-ratatouille$$16
-ciambotta$$16
-tourloú/briami$$16
-pisto$$16
-prasorizo$$17
-fried rice$$17
-rizogalo$$17
-spanish rice$$17
-the pandemic and the information network$$18$$https://www.cjr.org/analysis/covid-19-coronavirus-uncertainty.php
-why the coronavirus is so confusing$$18$$https://www.theatlantic.com/health/archive/2020/04/pandemic-confusing-uncertainty/610819/
-cognitive dissonance$$18$$https://www.theatlantic.com/ideas/archive/2020/07/role-cognitive-dissonance-pandemic/614074/
-cognitive dissonance$$18
-plato's five regimes$$18$$https://en.wikipedia.org/wiki/Plato%27s_five_regimes
-lydian$$18$$https://en.wikipedia.org/wiki/Lydia
-emotional intelligence tools$$19$$https://blog.dce.harvard.edu/professional-development/assessing-your-emotional-intelligence-4-tools-we-love
-emotional intelligence definition$$19$$https://www.psychologytoday.com/us/blog/the-personality-analyst/200909/what-emotional-intelligence-is-and-is-not
-the secret of becoming mentally strong$$20$$https://www.youtube.com/watch?v=TFbv757kup4
-the truth about mobile phone and wireless radiation$$21$$https://www.youtube.com/watch?v=BwyDCHf5iCY
-sugar: the bitter truth$$21$$https://www.youtube.com/watch?v=dBnniua6-oM
-hypersanity / psychology today$$22$$https://www.psychologytoday.com/us/blog/hide-and-seek/201908/hypersanity
-10 steps to conquer information overload$$23$$https://www.forbes.com/sites/laurashin/2014/11/14/10-steps-to-conquering-information-overload/#69ac78cd7b08
-the coming plague: newly emerging diseases$$24$$https://www.amazon.com/dp/0140250913/ref=rdr_ext_tmb
-i contain multitudes... by ed yong$$24$$https://www.amazon.com/Contain-Multitudes-Microbes-Within-Grander/dp/B01FY85L38/ref=sr_1_1?dchild=1&keywords=I+Contain+Multitudes&qid=1589194089&sr=8-1
-the hacking of the american mind by robert h. lustig$$24$$https://www.amazon.com/Hacking-of-American-Mind-audiobook/dp/B0753KYQLN/ref=sr_1_1?dchild=1&keywords=The+Hacking+of+the+American+Mind+by+Robert&qid=1589850091&sr=8-1
-pure, white, and deadly$$24$$https://www.amazon.com/Pure-White-and-Deadly-audiobook/dp/B077DKN9RC/ref=sr_1_1?dchild=1&keywords=Pure%2C+White%2C+and+Deadly&qid=1589850288&sr=8-1
-korean cdc interview$$25$$https://www.youtube.com/watch?v=gAk7aX5hksU
-virus course$$25$$https://www.youtube.com/watch?v=lj3NhPgOoX4
-week in virology$$25$$https://www.microbe.tv/twiv/archive/
-wolfram$$26$$https://www.wolfram.com/
-worldometers$$26$$https://www.worldometers.info/
+frech beans$$12
+lima beans$$12
+potato tortilla$$16
+scalloped potatoes</th>$$16
+ratatouille$$17
+ciambotta$$17
+tourloú/briami$$17
+pisto$$17
+prasorizo$$18
+fried rice$$18
+rizogalo$$18
+spanish rice$$18
+the pandemic and the information network$$19$$https://www.cjr.org/analysis/covid-19-coronavirus-uncertainty.php
+why the coronavirus is so confusing$$19$$https://www.theatlantic.com/health/archive/2020/04/pandemic-confusing-uncertainty/610819/
+cognitive dissonance$$19$$https://www.theatlantic.com/ideas/archive/2020/07/role-cognitive-dissonance-pandemic/614074/
+cognitive dissonance$$19
+plato's regimes$$19$$https://en.wikipedia.org/wiki/Plato%27s_five_regimes
+lydian$$19$$https://en.wikipedia.org/wiki/Lydia
+aristotle's modes of persuasion$$19$$https://en.wikipedia.org/wiki/Modes_of_persuasion
+emotional intelligence tools$$20$$https://blog.dce.harvard.edu/professional-development/assessing-your-emotional-intelligence-4-tools-we-love
+emotional intelligence definition$$20$$https://www.psychologytoday.com/us/blog/the-personality-analyst/200909/what-emotional-intelligence-is-and-is-not
+the secret of becoming mentally strong$$21$$https://www.youtube.com/watch?v=TFbv757kup4
+the truth about mobile phone and wireless radiation$$22$$https://www.youtube.com/watch?v=BwyDCHf5iCY
+sugar: the bitter truth$$22$$https://www.youtube.com/watch?v=dBnniua6-oM
+hypersanity / psychology today$$23$$https://www.psychologytoday.com/us/blog/hide-and-seek/201908/hypersanity
+10 steps to conquer information overload$$24$$https://www.forbes.com/sites/laurashin/2014/11/14/10-steps-to-conquering-information-overload/#69ac78cd7b08
+the coming plague: newly emerging diseases$$25$$https://www.amazon.com/dp/0140250913/ref=rdr_ext_tmb
+i contain multitudes... by ed yong$$25$$https://www.amazon.com/Contain-Multitudes-Microbes-Within-Grander/dp/B01FY85L38/ref=sr_1_1?dchild=1&keywords=I+Contain+Multitudes&qid=1589194089&sr=8-1
+the hacking of the american mind by robert h. lustig$$25$$https://www.amazon.com/Hacking-of-American-Mind-audiobook/dp/B0753KYQLN/ref=sr_1_1?dchild=1&keywords=The+Hacking+of+the+American+Mind+by+Robert&qid=1589850091&sr=8-1
+pure, white, and deadly$$25$$https://www.amazon.com/Pure-White-and-Deadly-audiobook/dp/B077DKN9RC/ref=sr_1_1?dchild=1&keywords=Pure%2C+White%2C+and+Deadly&qid=1589850288&sr=8-1
+korean cdc interview$$26$$https://www.youtube.com/watch?v=gAk7aX5hksU
+virus course$$26$$https://www.youtube.com/watch?v=lj3NhPgOoX4
 week in virology$$26$$https://www.microbe.tv/twiv/archive/
-flightradar24$$26$$https://www.flightradar24.com/airport/bos
-merk manual$$26$$https://www.merckmanuals.com/
+wolfram$$27$$https://www.wolfram.com/
+worldometers$$27$$https://www.worldometers.info/
+week in virology$$27$$https://www.microbe.tv/twiv/archive/
+flightradar24$$27$$https://www.flightradar24.com/airport/bos
+merk manual$$27$$https://www.merckmanuals.com/

@@ -10,6 +10,7 @@
 /recipes/breads.html
 /recipes/gemista.html
 /recipes/kolokithokeftedes.html
+/recipes/legumes.html
 /recipes/mac-n-cheese.html
 /recipes/meatballs-hamburgers.html
 /recipes/pizza.html
