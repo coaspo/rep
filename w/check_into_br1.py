@@ -24,7 +24,7 @@ def log(*args):
        f.write(' '+str(arg))
 
 
-def update_version_info_and_contents():
+def update_version_info_and_contents(file_paths):
   with open('help.html') as f:
     lines = f.read().splitlines()
     
@@ -47,10 +47,15 @@ def update_version_info_and_contents():
       if line.startswith('20'):
         dt = datetime.now().isoformat()[:10]
         line = dt + ';  ' + ver
+        get_contents(file_paths)
       f.write(line+'\n')
   global msg
   msg += '\nversion: ' + ver
   return ver
+
+
+def get_contents(file_paths):
+  [print('------', p) for p in file_paths]
   
 
 def save_searcn_file_paths(save_file):
@@ -188,7 +193,7 @@ if __name__ == '__main__':
     msg = ''
     try:
       file_paths = save_searcn_file_paths('search_file_paths.txt')
-      version = update_version_info_and_contents()
+      version = update_version_info_and_contents(file_paths)
       with open(LOG_FILE, 'w') as f:
         f.write(str(datetime.now()))
       save_search_labels(file_paths, 'search_labels.txt')
