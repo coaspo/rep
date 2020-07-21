@@ -1,6 +1,7 @@
 /arts/articles.html
 /arts/etymology.html
 /arts/music.html
+/arts/quotes.html
 /arts/videos.html
 /arts/websites.html
 /arts/word-etymology.html
@@ -19,10 +20,12 @@
 /recipes/rice.html
 /science/covid.html
 /science/emotional-intelligence.html
+/science/exercise-brain.html
 /science/exercise.html
 /science/healthVideos.html
 /science/hypersanity.html
 /science/information.html
+/science/science-words.html
 /science/scienceBooks.html
 /science/scienceLinks.html
 /science/scienceWebsites.html

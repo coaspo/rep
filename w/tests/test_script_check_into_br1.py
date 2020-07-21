@@ -37,8 +37,10 @@ def test_contents_indexes():
 def test_save_search_labels():
   check_into_br1.msg = ''
   #make_file_paths_relative()
-  check_into_br1.save_search_labels('search_labels__t.txt')
-  assert check_into_br1.msg == '\nSaved search labels to: search_labels__t.txt', 'save_links() failed\n' + check_into_br1.msg
+  file_paths = check_into_br1.save_searcn_file_paths('search_files_paths__t.txt')
+  check_into_br1.save_search_labels(file_paths, 'search_labels__t.txt')
+  expected = '\nSaved search file paths in: search_files_paths__t.txt\nSaved search labels to: search_labels__t.txt'
+  assert check_into_br1.msg == expected, 'test_save_search_labels() failed; msg=\n' + check_into_br1.msg+'\n but expected=\n'+expected
   with open ('search_labels__t.txt') as f:
     txt = f.read()
   expected = """wolfram$$0$$https://www.wolfram.com/

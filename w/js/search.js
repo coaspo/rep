@@ -113,7 +113,10 @@ function searchContents(inputText, searchFileUrls, searchLabels) {
   if (result.html.length === 0) {
     result.html = 'Did not find: "' + inputText + '"';
   } else  if ((problemsHtml.length + urlResult.numOfUrls + indexResult.urlCount) == 1) {
-     result.hitUrl = urlResult.url + indexResult.url
+    url = urlResult.url + indexResult.url // one of the '.url' fields is blank
+    if (url.indexOf('youtube.com') > -1) {
+      result.hitUrl = urlResult.url + indexResult.url  // this url will be opened automatically
+    }
   }
   return result;
 }

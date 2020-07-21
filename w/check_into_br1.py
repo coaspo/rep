@@ -24,7 +24,7 @@ def log(*args):
        f.write(' '+str(arg))
 
 
-def update_version_info():
+def update_version_info_and_contents():
   with open('help.html') as f:
     lines = f.read().splitlines()
     
@@ -52,10 +52,9 @@ def update_version_info():
   msg += '\nversion: ' + ver
   return ver
   
-file_paths = [] 
 
 def save_searcn_file_paths(save_file):
-  global file_paths 
+  file_paths = []  
   for f1 in os.listdir("."):
     if path.isdir(f1):
       for f2 in os.listdir(f1):
@@ -71,12 +70,12 @@ def save_searcn_file_paths(save_file):
   log('Updated '+ save_file)
   global msg
   msg += '\nSaved search file paths in: ' + save_file
+  return file_paths
 
 
-def save_search_labels(save_file):
+def save_search_labels(file_paths, save_file):
   with open(save_file, 'w') as f:
     f.write('')
-  global file_paths
   is_first = True
   for i, p in enumerate(file_paths):
     if 'problem' in p:
@@ -188,14 +187,14 @@ if __name__ == '__main__x':
 if __name__ == '__main__':
     msg = ''
     try:
-      ver = update_version_info()
+      file_paths = save_searcn_file_paths('search_file_paths.txt')
+      version = update_version_info_and_contents()
       with open(LOG_FILE, 'w') as f:
         f.write(str(datetime.now()))
-      save_searcn_file_paths('search_file_paths.txt')
-      save_search_labels('search_labels.txt')
+      save_search_labels(file_paths, 'search_labels.txt')
       run('git', 'add', '*')
       run('git', 'status')
-      run('git', 'commit', '-m', "'" + ver + "'")
+      run('git', 'commit', '-m', "'" + version + "'")
       run('git', 'push', 'origin', 'br1')
       run('git', 'diff')
 
