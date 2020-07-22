@@ -55,7 +55,7 @@ def update_version_info_and_contents(file_paths):
 
 
 def get_contents_file_list(file_paths):
-  file_paths.sort(key=lambda x: x[1])
+  file_paths.sort(key = lambda x: x[1], reverse = True)
   [print('------', p) for p in file_paths]
   
 from datetime import datetime
