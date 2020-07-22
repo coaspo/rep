@@ -47,17 +47,18 @@ def update_version_info_and_contents(file_paths):
       if line.startswith('20'):
         dt = datetime.now().isoformat()[:10]
         line = dt + ';  ' + ver
-        get_contents(file_paths)
+        get_contents_file_list(file_paths)
       f.write(line+'\n')
   global msg
   msg += '\nversion: ' + ver
   return ver
 
 
-def get_contents(file_paths):
+def get_contents_file_list(file_paths):
+  file_paths.sort(key=lambda x: x[1])
   [print('------', p) for p in file_paths]
   
-
+from datetime import datetime
 def save_searcn_file_paths(save_file):
   file_paths = []  
   for f1 in os.listdir("."):
@@ -67,11 +68,12 @@ def save_searcn_file_paths(save_file):
         log(p)
         if path.isfile(p) and not p.endswith('.log') and "test" not in p and \
                     "js/" not in p and "pycache" not in p and ".tmp" not in p:
-          file_paths.append(p)
-  file_paths.sort()
+          modified_date = str(datetime.fromtimestamp(os.path.getmtime(p)))[:10]
+          file_paths.append((p, modified_date))
+  file_paths.sort(key=lambda x: x[0])
   log('file_paths= ', file_paths)
   with open(save_file, 'w') as f:
-    f.writelines('/'+ p+'\n' for p in file_paths)
+    f.writelines('/'+ x[0] +'\n' for x in file_paths)
   log('Updated '+ save_file)
   global msg
   msg += '\nSaved search file paths in: ' + save_file
@@ -82,11 +84,11 @@ def save_search_labels(file_paths, save_file):
   with open(save_file, 'w') as f:
     f.write('')
   is_first = True
-  for i, p in enumerate(file_paths):
-    if 'problem' in p:
+  for i, x in enumerate(file_paths):
+    if 'problem' in x[0]:
       continue
-    log(p)
-    indexes = contents_indexes(p)
+    log(x[0])
+    indexes = contents_indexes(x[0])
     if len(indexes) > 0:
       with open(save_file, 'a') as f:
         for atrs in indexes:
