@@ -69,10 +69,18 @@ def make_file_paths_sever_testable():
     [f.write('/tests'+x) for x in lines]
 
 
-def test_get_contents(file_paths):
-  expected = ' ??'
-  actual = check_into_br1.get_contents(file_paths)
-  #assert expected == actual, 'test_get_contents() failed, expected:\n' + expected + '\nactual:\n' + actual
+def test_get_contents_file_list(file_paths):
+  expected = """search-files/links-2.html
+search-files/links.html
+search-files/problems-examples.html
+search-files/problems-solutions.html
+search-files/recipe.html"""   # sorted
+  actual = [x[0] for x in file_paths]
+  actual = '\n'.join(actual)
+  assert expected == actual, 'make_file_paths_sever_testable() failed: actual:\n' + actual + '\nexpected:\n' + expected
+
+  paths = check_into_br1.get_contents_file_list(file_paths)
+   #assert expected == actual, 'test_get_contents() failed, expected:\n' + expected + '\nactual:\n' + actual
 
 
 if __name__ == '__main__':
@@ -82,13 +90,13 @@ if __name__ == '__main__':
   try:
     os.remove('check_into_br1.py.log')
     file_paths = test_save_searcn_file_paths()
-    actual = [x[0] for x in file_paths]
+    actual = [x[0] for x in file_paths]  # x[1] is file mofify date
     expected = ['search-files/links-2.html', 'search-files/links.html', 'search-files/problems-examples.html',
                 'search-files/problems-solutions.html', 'search-files/recipe.html']
-    assert actual == expected, '__main__ failed; actual:\n' + actual + '\nexpected:\n' + expected
+    assert actual == expected, '__main__ failed; actual:\n' + str(actual) + '\nexpected:\n' + str(expected)
     test_contents_indexes()
     test_save_search_labels(file_paths)
-    test_get_contents(file_paths)
+    test_get_contents_file_list(file_paths)
     make_file_paths_sever_testable()
   except Exception as e:
     print(traceback.format_exc())
