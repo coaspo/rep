@@ -2,7 +2,7 @@
 window.SEARCH_FILE_URLS
 window.SEARCH_LABELS
 window.BASE_URL
-
+console.log('sssssssssss')
 
 function searchContentsMain(debug, filePathsFilePath, labelsFilePath) {
   'use strict';
@@ -121,8 +121,6 @@ function searchContents(inputText, searchFileUrls, searchLabels) {
   return result;
 }
 
-window.onload = displayWeather()
-
 function displayWeather() {
   const js = readText('https://api.weather.gov/gridpoints/BOX/68,81/forecast')
   console.log('*weather() js = '+js)  
@@ -166,7 +164,7 @@ function weatherPeriod(i, periods) {
   } 
   if (f.includes('thunderstorm')) {
     fore += '🌩️ '
-  } else if (f.includes('thunder')) {
+  } else if (f.includes('thunder ')) {
     fore += '⚡ '
   } 
   if (f.includes('fog')) {

@@ -24,41 +24,80 @@ def log(*args):
        f.write(' '+str(arg))
 
 
-def update_version_info_and_contents(file_paths):
+def update_version_and_contents(file_paths):
   with open('help.html') as f:
     lines = f.read().splitlines()
     
-  ver= 'update'
+  version= 'update'
   for line in lines:
-    if line.startswith('20'):
-        ver = line.split(';')[1].strip()
+    if line.startswith('<p style="font-size:12px;">'):
+      # for example: line = '2020-05-10; links',  version= 'links' 
+      version = line.split(';')[1].strip()
+      break
         
   root = tk.Tk()
   root.withdraw()
-  ver = simpledialog.askstring(title="Git check-in;  "+ __file__, prompt=
+  version = simpledialog.askstring(title="Git check-in;  "+ __file__, prompt=
                                ("\nUdate 'Search contents' related files and check into git.   "
                                "\nThis may take a while."
                                "\n\nVersion name:"), 
-                               initialvalue=ver)
-  if ver is None:
+                               initialvalue=version)
+  if version is None:
     exit()
   with open('help.html', 'w') as f:
     for line in lines:
-      if line.startswith('20'):
-        dt = datetime.now().isoformat()[:10]
-        line = dt + ';  ' + ver
-        get_contents_file_list(file_paths)
+      print('---', line)
+      if line.startswith('<br><br>'):
+        f.write(line+'\n')
+        append_version_and_content_links(version, file_paths, f)
+        break
       f.write(line+'\n')
   global msg
-  msg += '\nversion: ' + ver
-  return ver
+  msg += '\nversion: ' + version
+  return version
 
+def append_version_and_content_links(version, file_paths, f):
+  dt = datetime.now().isoformat()[:10]
+  print(dt)
+  print(version)
+  lines = get_contents_file_list(file_paths)
+  lines += '\n<br><p style="font-size:12px;">'+ dt + ';  ' + version
+  f.write(lines)
 
 def get_contents_file_list(file_paths):
-  file_paths.sort(key = lambda x: x[1], reverse = True)
-  [print('=-=-=-', p) for p in file_paths]
-  
-from datetime import datetime
+  file_paths.sort(key = lambda x: x[1], reverse = True)  # sort by ;ast modified TS
+  lines = '<table>'
+  lines += add_table_rows(file_paths, 'science')
+  lines += add_table_rows(file_paths, 'arts')
+  lines += add_table_rows(file_paths, 'recipes')
+  lines += add_table_rows(file_paths, 'tech')
+  lines += '</table>'
+  return lines;
+
+
+def add_table_rows(file_paths, topic):
+  i = 0
+  lines = ''
+  label = topic + '/'
+  for p in file_paths:
+    if label in p[0]:
+      i += 1
+      dt = datetime.utcfromtimestamp(p[1]).strftime('%Y-%m-%d')
+      link = create_link(p[0])
+      if i == 1:
+        lines += f"<tr><td>{topic}</td> <td>{link}</td> <td>{dt}</td><tr>\n"
+      else:
+        lines += f"<tr><td></td> <td>{link}</td> <td>{dt}</td><tr>\n"
+      dt_previous = dt
+  return lines
+
+def create_link(file_path):
+  i_start = file_path.index('/')+1
+  i_end = file_path.rindex('.html')
+  file_name = file_path[i_start:i_end].replace('-', ' ')
+  link = '<a href="./' + file_path + '">' + file_name + '</a>'
+  return link
+ 
 def save_searcn_file_paths(save_file):
   file_paths = []  
   for f1 in os.listdir("."):
@@ -68,8 +107,7 @@ def save_searcn_file_paths(save_file):
         log(p)
         if path.isfile(p) and not p.endswith('.log') and "test" not in p and \
                     "js/" not in p and "pycache" not in p and ".tmp" not in p:
-          modified_date = str(datetime.fromtimestamp(os.path.getmtime(p)))[:10]
-          file_paths.append((p, modified_date))
+          file_paths.append((p, os.path.getmtime(p)))
   file_paths.sort(key=lambda x: x[0])
   log('file_paths= ', file_paths)
   with open(save_file, 'w') as f:
@@ -195,7 +233,7 @@ if __name__ == '__main__':
     msg = ''
     try:
       file_paths = save_searcn_file_paths('search_file_paths.txt')
-      version = update_version_info_and_contents(file_paths)
+      version = update_version_and_contents(file_paths)
       with open(LOG_FILE, 'w') as f:
         f.write(str(datetime.now()))
       save_search_labels(file_paths, 'search_labels.txt')
@@ -215,4 +253,6 @@ if __name__ == '__main__':
       messagebox.showinfo(__file__, msg +'\ndone')
     except Exception as e:
       print(traceback.format_exc())
-      messagebox.showinfo(__file__, os.path.basename(__file__) + ' FAILED; \n\n' + str(e))
+      messagebox.showinfo(__file__, os.path.basename(__file__) + ' FAILED; \n\n' + \
+           str(e)  + '\n\nSee trace in: ' + LOG_FILE)
+      log(traceback.format_exc())
