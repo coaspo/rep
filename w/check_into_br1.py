@@ -82,11 +82,15 @@ def update_link_labels_in_main_page():
     with open('index.html', 'w') as f:
       for line in lines:
         if 'href' in line and '"./' in line:
-          (label, url) = extract_url_label(line)
+          if '</a>' not in line or '<a ' not in line:
+            raise Exception('Missing "<a " "</a>" or ".html" in: '+ line)
+          i = line.find('<a ')
+          ii = line.index('</a>',i) + 4
+          link = line[i:ii]
+          (label, url) = extract_url_label(link)
+          
           i = url.rfind('/') + 1
           i2 = url.rfind('.html')
-          if i2 < 0:
-            raise Exception('Missing ".html" in: '+ line)
           file_desc = url[i:i2].replace('_', ' ')
           line = line.replace('>'+label+'<', '>'+file_desc+'<')
         f.write(line+'\n')
