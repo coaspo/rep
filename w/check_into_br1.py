@@ -93,6 +93,10 @@ def update_link_labels_in_main_page():
           i2 = url.rfind('.html')
           file_desc = url[i:i2].replace('_', ' ')
           line = line.replace('>'+label+'<', '>'+file_desc+'<')
+          if 'in_different_languages' in line:
+            print('------->>>>>>label= ', labell)
+            print('------->>>>>>url= ', label)
+            print('------->>>>>>file_desc= ', file_desc)
         f.write(line+'\n')
   except Exception as e:
     print(traceback.format_exc())
