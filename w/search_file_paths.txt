@@ -7,7 +7,7 @@
 /arts/etymology_-_a_list_of_word_meanings.html
 /arts/fun_videos;_cartoons...html
 /arts/interesting_links_and_websites.html
-/arts/internet-words.html
+/arts/internet_words.html
 /arts/list_of_words;_the_good_the_bad_and_the_ugly.html
 /arts/music_-_links_to_various_music_genres.html
 /arts/notable_quotes.html

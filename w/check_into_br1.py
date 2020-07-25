@@ -87,11 +87,8 @@ def update_link_labels_in_main_page():
           i2 = url.rfind('.html')
           if i2 < 0:
             raise Exception('Missing ".html" in: '+ line)
-          file_name = url[i:i2]
-          line = line.replace(label, file_name)
-          line = line.replace('_', ' ')
-          print('hhhhhhhh')
-        print('------'+line)
+          file_desc = url[i:i2].replace('_', ' ')
+          line = line.replace('>'+label+'<', '>'+file_desc+'<')
         f.write(line+'\n')
   except Exception as e:
     print(traceback.format_exc())
