@@ -121,9 +121,9 @@ def add_table_rows(file_paths, topic):
       dt = datetime.utcfromtimestamp(p[1]).strftime('%Y-%m-%d')
       link = create_link(p[0])
       if i == 1:
-        lines += f"<tr><td>{topic}</td> <td>{link}</td> <td style=\"font-size:10px;\">{dt}</td><tr>\n"
+        lines += f"<tr><td>{topic}</td> <td>{link}</td> <td style=\"font-size:12px;\">{dt}</td><tr>\n"
       else:
-        lines += f"<tr><td></td> <td>{link}</td> <td>{dt}</td><tr>\n"
+        lines += f"<tr><td></td> <td>{link}</td> <td style=\"font-size:12px;\">{dt}</td><tr>\n"
       dt_previous = dt
   return lines
 
