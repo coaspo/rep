@@ -3,7 +3,7 @@
 /.idea/vcs.xml
 /.idea/w.iml
 /.idea/workspace.xml
-/arts/"yes"_"no"_"water"_"fire"_"one"_"two"_in_different_languages.html
+/arts/"yes",_"no",_"water",_"fire",_"one",_"two",_in_different_languages.html
 /arts/etymology_-_a_list_of_word_meanings.html
 /arts/fun_videos;_cartoons...html
 /arts/interesting_links_and_websites.html

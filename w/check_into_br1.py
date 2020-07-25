@@ -28,15 +28,23 @@ def update_version_and_contents(file_paths):
   (version,lines) = get_version()
   if version is None:
     exit()
-  with open('contents.html', 'w') as f:
-    for line in lines:
-      if line.startswith('<br><br>'):
+  try:
+    with open('contents.html', 'w') as f:
+      for line in lines:
+        if line.startswith('<br><br>'):
+          f.write(line+'\n')
+          append_version_and_content_links(version, file_paths, f)
+          break
         f.write(line+'\n')
-        append_version_and_content_links(version, file_paths, f)
-        break
-      f.write(line+'\n')
+  except Exception as e:
+    print(traceback.format_exc())
+    with open('contents.html', 'w') as f:
+      for line in lines:
+        f.write(line+'\n')
+    raise
+    
   global msg
-  msg += '\nversion: ' + version
+  msg += '\nupdated version: ' + version + ' and contents in contents.html'
   return version
 
 def get_version():
@@ -82,20 +90,16 @@ def update_link_labels_in_main_page():
     with open('index.html', 'w') as f:
       for line in lines:
         if 'href' in line and './' in line:
-          print('------->>>>>>line= ', line)
           if '</a>' not in line or '<a ' not in line:
             raise Exception('Missing "<a " "</a>" or ".html" in: '+ line)
           i = line.find('<a ')
           ii = line.index('</a>',i) + 4
           link = line[i:ii]
           (label, url) = extract_url_label(link)
-          print('   ---->>>>>>label= ', label)
-          print('   ---->>>>>>url= ', url)
           
           i = url.rfind('/') + 1
           i2 = url.rfind('.html')
           file_desc = url[i:i2].replace('_', ' ')
-          print('   --->>>>>>file_desc= ', file_desc)
           line = line.replace('>'+label+'<', '>'+file_desc+'<')
         f.write(line+'\n')
   except Exception as e:
@@ -104,6 +108,8 @@ def update_link_labels_in_main_page():
       for line in lines:
         f.write(line+'\n')
     raise
+  global msg
+  msg += '\nupdated link labels in index.html'
 
 def add_table_rows(file_paths, topic):
   i = 0
