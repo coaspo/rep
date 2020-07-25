@@ -61,8 +61,6 @@ def get_version():
 
 def append_version_and_content_links(version, file_paths, f):
   dt = datetime.now().isoformat()[:10]
-  print(dt)
-  print(version)
   lines = get_contents_file_list(file_paths)
   lines += '\n<br><p style="font-size:12px;">'+ dt + ';  ' + version
   f.write(lines)
@@ -80,18 +78,27 @@ def get_contents_file_list(file_paths):
 def update_link_labels_in_main_page():
   with open('index.html') as f:
     lines = f.read().splitlines()
-  with open('index.html', 'w') as f:
-    for line in lines:
-      if 'href' in line and '"./' in line:
-        (label, url) = extract_url_label(line)
-        i = url.rfind('/') + 1
-        i2 = url.rfind('.html')
-        if i2 < 0:
-          raise Exception('Missing ".html" in: '+ line)
-        file_name = url[i:i2]
-        line = line.replace(label, file_name)
-        line = line.replace('_', ' ')
-      f.write(line+'\n')
+  try:
+    with open('index.html', 'w') as f:
+      for line in lines:
+        if 'href' in line and '"./' in line:
+          (label, url) = extract_url_label(line)
+          i = url.rfind('/') + 1
+          i2 = url.rfind('.html')
+          if i2 < 0:
+            raise Exception('Missing ".html" in: '+ line)
+          file_name = url[i:i2]
+          line = line.replace(label, file_name)
+          line = line.replace('_', ' ')
+          print('hhhhhhhh')
+        print('------'+line)
+        f.write(line+'\n')
+  except Exception as e:
+    print(traceback.format_exc())
+    with open('index.html', 'w') as f:
+      for line in lines:
+        f.write(line+'\n')
+    raise
 
 def add_table_rows(file_paths, topic):
   i = 0
