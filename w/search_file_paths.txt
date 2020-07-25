@@ -1,7 +1,11 @@
-/arts/articles.html
-/arts/etymology.html
-/arts/music.html
-/arts/quotes.html
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/vcs.xml
+/.idea/w.iml
+/.idea/workspace.xml
+/arts/etymology_-_a_list_of_word_meanings.html
+/arts/music_-_links_to_various_music_genres.html
+/arts/notable_quotes.html
 /arts/videos.html
 /arts/websites.html
 /arts/word-etymology.html

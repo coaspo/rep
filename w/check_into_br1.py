@@ -25,7 +25,22 @@ def log(*args):
 
 
 def update_version_and_contents(file_paths):
-  with open('help.html') as f:
+  (version,lines) = get_version()
+  if version is None:
+    exit()
+  with open('contents.html', 'w') as f:
+    for line in lines:
+      if line.startswith('<br><br>'):
+        f.write(line+'\n')
+        append_version_and_content_links(version, file_paths, f)
+        break
+      f.write(line+'\n')
+  global msg
+  msg += '\nversion: ' + version
+  return version
+
+def get_version():
+  with open('contents.html') as f:
     lines = f.read().splitlines()
     
   version= 'update'
@@ -42,19 +57,7 @@ def update_version_and_contents(file_paths):
                                "\nThis may take a while."
                                "\n\nVersion name:"), 
                                initialvalue=version)
-  if version is None:
-    exit()
-  with open('help.html', 'w') as f:
-    for line in lines:
-      print('---', line)
-      if line.startswith('<br><br>'):
-        f.write(line+'\n')
-        append_version_and_content_links(version, file_paths, f)
-        break
-      f.write(line+'\n')
-  global msg
-  msg += '\nversion: ' + version
-  return version
+  return (version, lines)
 
 def append_version_and_content_links(version, file_paths, f):
   dt = datetime.now().isoformat()[:10]
@@ -74,6 +77,21 @@ def get_contents_file_list(file_paths):
   lines += '</table>'
   return lines;
 
+def update_link_labels_in_main_page():
+  with open('index.html') as f:
+    lines = f.read().splitlines()
+  with open('index.html', 'w') as f:
+    for line in lines:
+      if 'href' in line and '"./' in line:
+        (label, url) = extract_url_label(line)
+        i = url.rfind('/') + 1
+        i2 = url.rfind('.html')
+        if i2 < 0:
+          raise Exception('Missing ".html" in: '+ line)
+        file_name = url[i:i2]
+        line = line.replace(label, file_name)
+        line = line.replace('_', ' ')
+      f.write(line+'\n')
 
 def add_table_rows(file_paths, topic):
   i = 0
@@ -94,7 +112,7 @@ def add_table_rows(file_paths, topic):
 def create_link(file_path):
   i_start = file_path.index('/')+1
   i_end = file_path.rindex('.html')
-  file_name = file_path[i_start:i_end].replace('-', ' ')
+  file_name = file_path[i_start:i_end].replace('_', ' ')
   link = '<a href="./' + file_path + '">' + file_name + '</a>'
   return link
  
@@ -236,6 +254,7 @@ if __name__ == '__main__':
       version = update_version_and_contents(file_paths)
       with open(LOG_FILE, 'w') as f:
         f.write(str(datetime.now()))
+      update_link_labels_in_main_page()
       save_search_labels(file_paths, 'search_labels.txt')
       run('git', 'add', '*')
       run('git', 'status')

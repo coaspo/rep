@@ -2,7 +2,6 @@
 window.SEARCH_FILE_URLS
 window.SEARCH_LABELS
 window.BASE_URL
-console.log('sssssssssss')
 
 function searchContentsMain(debug, filePathsFilePath, labelsFilePath) {
   'use strict';

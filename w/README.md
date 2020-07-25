@@ -3,7 +3,7 @@ Static Website
 'w' is a static web site project.
 It contains useful/interesting links/info and
 the ability to search the contents of the site.
-See <./help.html> for more details.
+See <./content.html> for more details.
 
 
 Test

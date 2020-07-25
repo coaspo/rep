@@ -1,4 +1,6 @@
 tmp/**
+__pycache__/**
+.idea/**
 tmp*
 
 .idea
@@ -8,4 +10,4 @@ tmp*
 **.bak
 **.tmp
 a.py
-
+.geany
