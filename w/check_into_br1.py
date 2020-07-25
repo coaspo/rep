@@ -131,7 +131,7 @@ def create_link(file_path):
   i_start = file_path.index('/')+1
   i_end = file_path.rindex('.html')
   file_name = file_path[i_start:i_end].replace('_', ' ')
-  link = '<a href="./' + file_path + '">' + file_name + '</a>'
+  link = '<a href=\'./' + file_path + '\'>' + file_name + '</a>'
   return link
  
 def save_searcn_file_paths(save_file):
