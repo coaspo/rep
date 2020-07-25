@@ -81,7 +81,7 @@ def update_link_labels_in_main_page():
   try:
     with open('index.html', 'w') as f:
       for line in lines:
-        if 'href' in line and '"./' in line:
+        if 'href' in line and './' in line:
           print('------->>>>>>line= ', line)
           if '</a>' not in line or '<a ' not in line:
             raise Exception('Missing "<a " "</a>" or ".html" in: '+ line)
