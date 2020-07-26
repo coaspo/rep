@@ -13,18 +13,23 @@ import re
 import tkinter as tk
 import traceback
 
-LOG_FILE = path.basename(__file__) + '.log'
+LOG_FILE = None
 msg = ''
 
 def log(*args):
   global LOG_FILE
+  if LOG_FILE is None:
+    LOG_FILE = path.basename(__file__) + '.log'
+    with open(LOG_FILE, 'w') as f:
+      f.write(str(datetime.now()))
+
   with open(LOG_FILE, 'a') as f:
     f.write('\n')
     for arg in args:
        f.write(' '+str(arg))
 
 
-def update_version_and_contents(file_paths):
+def update_contents(file_paths):
   (version,lines) = get_version()
   if version is None:
     exit()
@@ -83,6 +88,29 @@ def get_contents_file_list(file_paths):
   lines += '</table>'
   return lines;
 
+def add_table_rows(file_paths, topic):
+  i = 0
+  lines = ''
+  label = topic + '/'
+  for p in file_paths:
+    if label in p[0]:
+      i += 1
+      dt = datetime.utcfromtimestamp(p[1]).strftime('%Y-%m-%d')
+      link = create_link(p[0])
+      if i == 1:
+        lines += f"<tr><td>{topic}</td> <td>{link}</td> <td style=\"font-size:12px;\">{dt}</td><tr>\n"
+      else:
+        lines += f"<tr><td></td> <td>{link}</td> <td style=\"font-size:12px;\">{dt}</td><tr>\n"
+      dt_previous = dt
+  return lines
+
+def create_link(file_path):
+  i_start = file_path.index('/')+1
+  i_end = file_path.rindex('.html')
+  file_name = file_path[i_start:i_end].replace('_', ' ')
+  link = '<a href=\'./' + file_path + '\'>' + file_name + '</a>'
+  return link
+ 
 def update_link_labels_in_main_page():
   with open('index.html') as f:
     lines = f.read().splitlines()
@@ -111,29 +139,6 @@ def update_link_labels_in_main_page():
   global msg
   msg += '\nupdated link labels in index.html'
 
-def add_table_rows(file_paths, topic):
-  i = 0
-  lines = ''
-  label = topic + '/'
-  for p in file_paths:
-    if label in p[0]:
-      i += 1
-      dt = datetime.utcfromtimestamp(p[1]).strftime('%Y-%m-%d')
-      link = create_link(p[0])
-      if i == 1:
-        lines += f"<tr><td>{topic}</td> <td>{link}</td> <td style=\"font-size:12px;\">{dt}</td><tr>\n"
-      else:
-        lines += f"<tr><td></td> <td>{link}</td> <td style=\"font-size:12px;\">{dt}</td><tr>\n"
-      dt_previous = dt
-  return lines
-
-def create_link(file_path):
-  i_start = file_path.index('/')+1
-  i_end = file_path.rindex('.html')
-  file_name = file_path[i_start:i_end].replace('_', ' ')
-  link = '<a href=\'./' + file_path + '\'>' + file_name + '</a>'
-  return link
- 
 def save_searcn_file_paths(save_file):
   file_paths = []  
   for f1 in os.listdir("."):
@@ -261,6 +266,16 @@ def run(*args: str):
             messagebox.showinfo("ERR", msg +'\n'+lavel)
             exit(2)
 
+def archive_log():
+      archive_dir = './logs-check-ins'
+      if not path.isdir(archive_dir):
+          mkdir(archive_dir)
+      log_archive_file = archive_dir + '/' + path.basename(__file__) + '-' + \
+                         str(datetime.now()).replace(':', '-') + '.log'
+      copy(LOG_FILE, log_archive_file)
+
+
+
 if __name__ == '__main__x':
     import doctest
     doctest.testmod()
@@ -269,24 +284,17 @@ if __name__ == '__main__':
     msg = ''
     try:
       file_paths = save_searcn_file_paths('search_file_paths.txt')
-      version = update_version_and_contents(file_paths)
-      with open(LOG_FILE, 'w') as f:
-        f.write(str(datetime.now()))
-      update_link_labels_in_main_page()
       save_search_labels(file_paths, 'search_labels.txt')
+      version = update_contents(file_paths)
+      update_link_labels_in_main_page()
       run('git', 'add', '*')
       run('git', 'status')
       run('git', 'commit', '-m', "'" + version + "'")
       run('git', 'push', 'origin', 'br1')
       run('git', 'diff')
 
-      archive_dir = './logs-check-ins'
-      if not path.isdir(archive_dir):
-          mkdir(archive_dir)
-      log_archive_file = archive_dir + '/' + path.basename(__file__) + '-' + \
-                         str(datetime.now()).replace(':', '-') + '.log'
-      copy(LOG_FILE, log_archive_file)
       log('done')
+      archive_log()
       messagebox.showinfo(__file__, msg +'\ndone')
     except Exception as e:
       print(traceback.format_exc())
