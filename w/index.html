@@ -1,4 +1,3 @@
-rice
 <!DOCTYPE html>
 
 <html lang="en">
@@ -71,13 +70,13 @@ rice
     <td class="w3-light-blue">
       <b>github projects:</b><br/>
       <a href="https://github.com/coaspo/rep/tree/br1">github br1</a>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br/>
-      &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/coaspo/rep/tree/br1/quizzer">quizzer</a><br/>
-      &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/coaspo/rep/tree/br1/translator">translator</a><br/>
-      &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/coaspo/rep/tree/br1/w">w(website)</a><br/>
+      &nbsp; &nbsp; <a href="https://github.com/coaspo/rep/tree/br1/quizzer">quizzer</a><br/>
+      &nbsp; &nbsp; <a href="https://github.com/coaspo/rep/tree/br1/translator">translator</a><br/>
+      &nbsp; &nbsp; <a href="https://github.com/coaspo/rep/tree/br1/w">w(website)</a><br/>
       <a href="https://github.com/coaspo/rep/tree/master">github master</a>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br/>
-      &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/coaspo/rep/tree/master/quizzer">quizzer</a><br/>
-      &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/coaspo/rep/tree/master/translator">translator</a><br/>
-      &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/coaspo/rep/tree/master/w">w(ebsite)</a><br/>
+      &nbsp; &nbsp; <a href="https://github.com/coaspo/rep/tree/master/quizzer">quizzer</a><br/>
+      &nbsp; &nbsp; <a href="https://github.com/coaspo/rep/tree/master/translator">translator</a><br/>
+      &nbsp; &nbsp; <a href="https://github.com/coaspo/rep/tree/master/w">w(ebsite)</a><br/>
     </td>
   </tr>
 </table>
@@ -153,15 +152,15 @@ rice
   <tr>
     <td  class="w3-pale-yellow" >
       <b>Links:</b><br/>
-      <a href="./arts/fun_videos;_cartoons...html">fun videos; cartoons..</a>.<br/>
-      <a href="./arts/interesting_links_and_websites.html">interesting links and websites</a><br/><br/>
-      <a href="./arts/music_-_links_to_various_music_genres.html">music - links to various music genres</a>; Greek, pop, classical, gospel<br/>
-      <b>Word lists:</b><br/>
-      <a href="./arts/etymology_-_a_list_of_word_meanings.html">etymology - a list of word meanings</a><br/>     
-      <a href="./arts/list_of_internet_words.html">list of internet words</a><br/>
-      <a href="./arts/list_of_words;_the_good_the_bad_and_the_ugly.html">list of words; the good the bad and the ugly</a><br/> 
-      <a href="./arts/notable_quotes.html">notable quotes</a><br/> 
-      <a href="./arts/yes,_no,_water,_fire,_one,_two,_in_different_languages.html">yes, no, water, fire, one, two, in different languages</a><br/>
+      &nbsp; &nbsp; <a href="./arts/fun_videos;_cartoons...html">fun videos; cartoons..</a>.<br/>
+      &nbsp; &nbsp; <a href="./arts/interesting_links_and_websites.html">interesting links and websites</a><br/>
+      &nbsp; &nbsp; <a href="./arts/music_-_links_to_various_music_genres.html">music - links to various music genres</a><br/>
+      <br/><b>Word lists:</b><br/>
+      &nbsp; &nbsp; <a href="./arts/etymology_-_a_list_of_word_meanings.html">etymology - a list of word meanings</a><br/>     
+      &nbsp; &nbsp; <a href="./arts/list_of_internet_words.html">list of internet words</a><br/>
+      &nbsp; &nbsp; <a href="./arts/list_of_words;_the_good_the_bad_and_the_ugly.html">list of words; the good the bad and the ugly</a><br/> 
+      &nbsp; &nbsp; <a href="./arts/notable_quotes.html">notable quotes</a><br/> 
+      &nbsp; &nbsp; <a href="./arts/yes,_no,_water,_fire,_one,_two,_in_different_languages.html">yes, no, water, fire, one, two, in different languages</a><br/>
     </td>
   </tr>
 </table>
@@ -283,7 +282,15 @@ document.getElementById('inputText').addEventListener('keypress', function (e) {
 <script src="js/search.js"></script> <!-- searchContentsMain(debug, filePathsFilePath, labelsFilePath) -->
 <script src="js/search-labels.js"></script> 
 <script src="js/search-page-source.js"></script>
-<script>window.onload = displayWeather()</script>
+<script>
+if (typeof(Worker) !== "undefined") {
+  document.getElementById("search-results").innerHTML='worker supported'
+} else {
+  document.getElementById("search-results").innerHTML='worker NOT supported'
+} 
+
+      window.onload = displayWeather()
+</script>
 </div>
 </body>
 </html>
