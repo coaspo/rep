@@ -62,21 +62,21 @@
   <tr>
     <td class="w3-cyan">
       <b>Web servers:</b><br/>
-      <a href="https://app.netlify.com/teams/coaspo/sites" >netlify</a><br/>
-      <a href="https://li.netlify.app/w/tests/test_search.html">netlify tests</a><br>
-      <a href="http://localhost:8080/w/">w-local</a><br>
-      <a href="http://localhost:8080/w/tests/test_search.html">w-local tests</a><br>
+      <a href="https://app.netlify.com/teams/coaspo/sites" >app.netlify.com</a><br/>
+      <a href="https://li.netlify.app/w/tests/test_search.html">li.netlify.app/w...test_search</a><br>
+      <a href="http://localhost:8080/w/">localhost:8080/w</a><br>
+      <a href="http://localhost:8080/w/tests/test_search.html">localhost:8080/w...test_search</a><br>
     </td>
     <td class="w3-light-blue">
       <b>github projects:</b><br/>
-      <a href="https://github.com/coaspo/rep/tree/br1">github br1</a>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br/>
-      &nbsp; &nbsp; <a href="https://github.com/coaspo/rep/tree/br1/quizzer">quizzer</a><br/>
-      &nbsp; &nbsp; <a href="https://github.com/coaspo/rep/tree/br1/translator">translator</a><br/>
-      &nbsp; &nbsp; <a href="https://github.com/coaspo/rep/tree/br1/w">w(website)</a><br/>
-      <a href="https://github.com/coaspo/rep/tree/master">github master</a>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br/>
-      &nbsp; &nbsp; <a href="https://github.com/coaspo/rep/tree/master/quizzer">quizzer</a><br/>
-      &nbsp; &nbsp; <a href="https://github.com/coaspo/rep/tree/master/translator">translator</a><br/>
-      &nbsp; &nbsp; <a href="https://github.com/coaspo/rep/tree/master/w">w(ebsite)</a><br/>
+      <a href="https://github.com/coaspo/rep/tree/br1">github.com/coaspo/rep/ br1</a><br/>
+      &nbsp; &nbsp; &nbsp; <a href="https://github.com/coaspo/rep/tree/br1/quizzer">quizzer</a><br/>
+      &nbsp; &nbsp; &nbsp; <a href="https://github.com/coaspo/rep/tree/br1/translator">translator</a><br/>
+      &nbsp; &nbsp; &nbsp; <a href="https://github.com/coaspo/rep/tree/br1/w">w(website)</a><br/>
+      <a href="https://github.com/coaspo/rep/tree/master">github.com/coaspo/rep/ master</a><br/>
+      &nbsp; &nbsp; &nbsp; <a href="https://github.com/coaspo/rep/tree/master/quizzer">quizzer</a><br/>
+      &nbsp; &nbsp; &nbsp; <a href="https://github.com/coaspo/rep/tree/master/translator">translator</a><br/>
+      &nbsp; &nbsp; &nbsp; <a href="https://github.com/coaspo/rep/tree/master/w">w(ebsite)</a><br/>
     </td>
   </tr>
 </table>
@@ -172,7 +172,7 @@
   <tr>
     <td  class="w3-pale-yellow" >
       <b>Summaries / notes:</b><br/>
-    📰 <a href="./science/covid_notes_-_info,_philosophy,_politics,_psychology,_science.html">covid notes - info, philosophy, politics, psychology, science</a>; why covid is confusing; governance<br/>
+    📰 <a href="./science/covid_notes_-_philosophy,_politics,_psychology,_science.html">covid notes - philosophy, politics, psychology, science</a>; why covid is confusing; governance<br/>
     📰 <a href="./science/how_to_cope_with_information_overload.html">how to cope with information overload</a>; how to cope<br/>
     📰 <a href="./science/hypersanity_-_different_way_of_looking_at_the_world.html">hypersanity - different way of looking at the world</a>; Diogenes and Jung, what is normal<br/>
        🎞 <a href="./science/health_youtube_video_notes.html">healthVideos</a>; cell phones, sugar..<br/><br/>
@@ -196,9 +196,9 @@ function opencontName(evt, tabName) {
   document.getElementById(tabName).style.display = "block";
   tablinks = document.getElementsByClassName("tablink");
   for (i = 0; i < x.length; i++) {
-    tablinks[i].className = tablinks[i].className.replace(" w3-blue", "yellow");
+    tablinks[i].className = tablinks[i].className.replace(" w3-blue", " yellow");
   }
-  evt.currentTarget.className += " w3-blue";
+  evt.currentTarget.className.replace(" yellow"," w3-blue")
 }
 function findAcronym() {
   var acronym = document.getElementById('inputText').value;
@@ -283,13 +283,19 @@ document.getElementById('inputText').addEventListener('keypress', function (e) {
 <script src="js/search-labels.js"></script> 
 <script src="js/search-page-source.js"></script>
 <script>
-if (typeof(Worker) !== "undefined") {
-  document.getElementById("search-results").innerHTML='worker supported'
-} else {
-  document.getElementById("search-results").innerHTML='worker NOT supported'
-} 
-
-      window.onload = displayWeather()
+w = new Worker("js/weather.js");
+  console.log('worker created')
+w.onmessage = function(event) {
+ console.log('onmessage activated')
+ console.log('event.data='+event.data)
+  document.getElementById("weather").innerHTML = event.data;
+  console.log('weather displayed')
+  w.terminate();
+  w = undefined;
+  console.log('worker terminated')
+};
+  console.log('waiting for worker')
+//window.onload = displayWeather()
 </script>
 </div>
 </body>

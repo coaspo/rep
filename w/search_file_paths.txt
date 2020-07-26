@@ -22,7 +22,7 @@
 /recipes/rice_-_prasorizo,_fried,_rizogalo,_spanish.html
 /recipes/vegetables_-_ratatouille,_ciambotta,_tourlou,_pisto.html
 /science/brain_exercise.html
-/science/covid_notes_-_info,_philosophy,_politics,_psychology,_science.html
+/science/covid_notes_-_philosophy,_politics,_psychology,_science.html
 /science/emotional-intelligence.html
 /science/exercise.html
 /science/health_youtube_video_notes.html
