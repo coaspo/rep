@@ -1,6 +1,5 @@
 function getWeather() {
   const js = readText('https://api.weather.gov/gridpoints/BOX/68,81/forecast')
-  console.log('*weather() js = '+js)  
   const w = JSON.parse(js)
   const url1 = weatherPeriod(0, w.properties.periods)
   const url2 = weatherPeriod(1, w.properties.periods)
@@ -36,7 +35,6 @@ function readText(url) {
 
 function weatherPeriod(i, periods) {
   const forecast = periods[i]['detailedForecast']
-  console.log(periods[i])
   t = periods[i]['temperature']
   tColor = '#0000FF;'  // blue
   if (t > 78) {
