@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
@@ -29,7 +28,7 @@
     <!-- class="w3-table"-->
     <tr>
       <td>
-	<!--traffic--><a href="https://www.google.com/maps/@42.4765179,-71.1097046,12z/data=!5m1!1e1?hl=en">Traffic</a> <br/><br/>
+        <!--traffic--><a href="https://www.google.com/maps/@42.4765179,-71.1097046,12z/data=!5m1!1e1?hl=en">Traffic</a> <br/><br/>
 	<!--npr--><a href="https://www.npr.org">NPR</a><br/><br/>
 	<!--duolingo--><a href="https://www.duolingo.com/?isLoggingIn=true">duolingo</a><br/><br/>
 	<!--covid--><a href="./science/covid_notes_-_info,_philosophy,_politics,_psychology,_science.html">Favorite</a>&nbsp;&nbsp;&nbsp;<br/><br/>
@@ -45,7 +44,7 @@
 	   <button onclick="wolfram();"   style="width:155px; text-align: left; color:#800517;" >Wolfram</button>
 	<p><button onclick="mayoclinic();"  style="width:155px; text-align: left;" >⚕️ Mayo C</button>
 	   <button onclick="nih();"  style="width:155px; text-align: left;" >⚕️ 💊 NIH</button>
-	 <p><button onclick="inSpanish();" style="width:155px; text-align: left;" >🇪🇸 traduc.</button>
+	 <p><button onclick="enEspañol();" style="width:155px; text-align: left;" >🇪🇸 traduc.</button>
 	   <button onclick="σταΕλληνικά();" style="width:155px; text-align: left;" >🇬🇷 μεταφ.</button>
 	<p><button onclick="googlemaps();"  style="width:155px; text-align: left;" >🗺️ Map</button>
 	   <button onclick="searchContentsMain(true, '/search_file_paths.txt', '/search_labels.txt');" style="width:155px; text-align: left; color:#009900; font-weight:bold" >Contents</button>
@@ -112,7 +111,7 @@
 	<!--Java IDE--><a href="https://onlinegdb.com/online_java_compiler">Java IDE (onlinegdb.com)</a><br/>
 	<!--Java repl--><a href="https://compilejava.net">Java repl (compilejava.net)</a><br/>
 	<!--python repl--><a href="https://python.org/shell" >Python repl (python.org)</a><br/>
-	<!--python repl--><a href="https://www.pythonanywhere.com">Python (pythonanywhere.com)</a><br/>
+	<!--pythonanywhere--><a href="https://www.pythonanywhere.com">Python (pythonanywhere.com)</a><br/>
 	<a href="https://plnkr.co/" >Plunker</a><br/>
 	<a href="https://play.kotlinlang.org" >Kotlin (kotlinlang.org)</a><br/>
       <td class="w3-pale-yellow">
@@ -120,7 +119,7 @@
 	<!--SQL Format--><a href="https://www.dpriver.com/pp/sqlformat.htm">SQL Format (dpriver.com)</a><br/>
 	<!--HTML valid.--><a href="https://validator.w3.org/#validate_by_input">HTML validator (w3.org)</a><br/>
 	<!--HTML format--><a href="https://www.freeformatter.com/html-formatter.html">HTML format (freeformatter.com)</a><br/><br/>
-	<!--HTML format--><a href="https://html5-editor.net/">HTML Editor (html5-editor.net)</a><br/><br/>
+	<!--HTML editor--><a href="https://html5-editor.net/">HTML Editor (html5-editor.net)</a><br/><br/>
        <a href="https://www.coursera.org/learn/algorithms-part1/home/welcome">Algorithms course (coursera.org)</a> <br/>
       <a href="https://www.edx.org">edx.org</a> <br/>
    </tr>
@@ -262,7 +261,7 @@ function σταΕλληνικά() {
   var win = window.open(url, "_self");
   win.focus();
 }
-function inSpanish() {
+function enEspañol() {
   var englishWord = document.getElementById('inputText').value;
   //var url = "https://translate.google.com/#en/es/" + englishWord;
   var url = "https://glosbe.com/en/es/" + englishWord;
@@ -279,23 +278,16 @@ document.getElementById('inputText').addEventListener('keypress', function (e) {
   }
 });
 </script>
-<script src="js/search.js"></script> <!-- searchContentsMain(debug, filePathsFilePath, labelsFilePath) -->
+<script src="js/search.js"></script> <!-- has: searchContentsMain(debug, filePathsFilePath, labelsFilePath) -->
 <script src="js/search-labels.js"></script> 
 <script src="js/search-page-source.js"></script>
 <script>
 w = new Worker("js/weather.js");
-  console.log('worker created')
 w.onmessage = function(event) {
- console.log('onmessage activated')
- console.log('event.data='+event.data)
-  document.getElementById("weather").innerHTML = event.data;
-  console.log('weather displayed')
-  w.terminate();
-  w = undefined;
-  console.log('worker terminated')
-};
-  console.log('waiting for worker')
-//window.onload = displayWeather()
+                document.getElementById("weather").innerHTML = event.data;
+                w.terminate();
+                w = undefined;
+              };
 </script>
 </div>
 </body>
