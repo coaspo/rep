@@ -19,11 +19,10 @@
 /* Style the buttons inside the tab */
 .tab button {
   background-color: inherit;
-  float: center;
   border: none;
   outline: none;
   cursor: pointer;
-  padding: 14px 0px;c
+  padding: 14px 0px;
   transition: 0.3s;
   font-size: 24px;
   width:100px;
@@ -56,7 +55,6 @@ button {
   </style>
 </head>
 <body>
-<div class="w3-container">
 <div class="tab"> 
   <button class="tablink"         onclick="opencontName(event, 'Main')" id="defaultOpen">Main</button>
   <button class="tablink"         onclick="opencontName(event, 'Projects')">Proj</button>
@@ -73,12 +71,13 @@ button {
       <td>
         <!--traffic--><a href="https://www.google.com/maps/@42.4765179,-71.1097046,12z/data=!5m1!1e1?hl=en">Traffic</a> <br/><br/>
 	<!--npr--><a href="https://www.npr.org">NPR</a><br/><br/>
+	<!--npr--><a href="https://en.wikipedia.org/wiki/Portal:Current_events">Current events</a><br/><br/>
 	<!--duolingo--><a href="https://www.duolingo.com/?isLoggingIn=true">duolingo</a><br/><br/>
-	<!--covid--><a href="./science/covid_notes_-_info,_philosophy,_politics,_psychology,_science.html">Favorite</a>&nbsp;&nbsp;&nbsp;<br/><br/>
+	<!--covid--><a href="./science/covid_notes_-_info,_philosophy,_politics,_psychology,_science.html">Popular</a>&nbsp;&nbsp;&nbsp;<br/><br/>
 	<!--contents--><a href="./contents.html">Contents</a>&nbsp;&nbsp;&nbsp;<br/><br/>
 	      </td>
       <td>
-	<input type="text" id="inputText"   style="width:355px; box-sizing: border-box; " placeholder='Enter text' >
+	<input type="text" id="inputText"   style="width:355px; box-sizing: border-box; font-size:24px;" placeholder='Enter text' >
 	<p><button onclick="defineWord();"  style=" color:#347235" >Dictionary</button>
 	   <button onclick="findAcronym();" style=" color:#347235;" >Acronym</button>
 	<p><button onclick="google();"     >10<sup>100</sup></button>
@@ -94,7 +93,6 @@ button {
       </td>
     </tr>
   </table>
-</id>
 <!--================================ weather & content search =========== style="line-height: 2.6;"====================-->
 <div id="weather"></div>
 <pre id="search-results" style="background-color:#FFFFDD; font-size:16px;"></pre>
@@ -174,7 +172,7 @@ button {
 <table><tr class="w3-pale-yellow" >
 <td><pre><b>Misc</b>
   <a href="./recipes/beans,_lima_beans.html">beans, lima beans</a> 
-  <a href="./recipes/german, greek,_sweedish,_..._meatballs-hamburgers.html">german, greek, sweedish, ... meatballs-hamburgers</a>
+  <a href="./recipes/italian,_german,_sweedish,_..._meatballs-hamburgers.html">italian, german, sweedish, ... meatballs-hamburgers</a>
   <a href="./recipes/mac-n-cheese.html">mac-n-cheese</a> 
   <a href="./recipes/potatoes_-_spanish_omelet,_scalloped.html">potatoes - spanish omelet, scalloped</a> 
   <a href="./recipes/rice_-_prasorizo,_fried,_rizogalo,_spanish.html">rice - prasorizo, fried, rizogalo, spanish</a> 
@@ -198,8 +196,9 @@ button {
       &nbsp; &nbsp; <a href="./arts/fun_videos;_cartoons...html">fun videos; cartoons..</a>.<br/>
       &nbsp; &nbsp; <a href="./arts/interesting_links_and_websites.html">interesting links and websites</a><br/>
       &nbsp; &nbsp; <a href="./arts/music_-_links_to_various_music_genres.html">music - links to various music genres</a><br/>
-      <br/><b>Word lists:</b><br/>
+      <br/><b>Lists:</b><br/>
       &nbsp; &nbsp; <a href="./arts/etymology_-_a_list_of_word_meanings.html">etymology - a list of word meanings</a><br/>     
+      &nbsp; &nbsp; <a href="./arts/list_of_expressions.html">list of expressions</a><br/>
       &nbsp; &nbsp; <a href="./arts/list_of_internet_words.html">list of internet words</a><br/>
       &nbsp; &nbsp; <a href="./arts/list_of_words;_the_good_the_bad_and_the_ugly.html">list of words; the good the bad and the ugly</a><br/> 
       &nbsp; &nbsp; <a href="./arts/notable_quotes.html">notable quotes</a><br/> 
@@ -219,6 +218,7 @@ button {
     📰 <a href="./science/how_to_cope_with_information_overload.html">how to cope with information overload</a><br/>
     📰 <a href="./science/hypersanity_-_different_way_of_looking_at_the_world.html">hypersanity - different way of looking at the world</a><br/>
        🎞 <a href="./science/health_youtube_video_notes.html">healthVideos</a><br/><br/>
+       🎞 <a href="./science/future_science_and_technologies.html">healthVideos</a><br/><br/>
       <b>Lists:</b><br/>
       📖🎞  <a href="./science/link-list_of_books_and_internet_resources.html">scienceBooks</a><br/>
       <a href="./science/sample_of_medical_science_words.html">sample of medical science words</a><br/>
@@ -336,6 +336,4 @@ w.onmessage = function(event) {
 <script src="js/search.js"></script> <!-- has: searchContentsMain(debug, filePathsFilePath, labelsFilePath) -->
 <script src="js/search-labels.js"></script> 
 <script src="js/search-page-source.js"></script>
-</div>
-</body>
-</html>
+</body></html>

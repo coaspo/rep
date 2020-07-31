@@ -194,8 +194,8 @@ def contents_indexes(file_path):
     # search for anchors:
     i = line.find('<a ')
     if i > -1:
-      if '</a>' not in line:
-        print('ERR mising </a> in: ' + line + 'ERR file_path = ' + file_path)
+      if line.find('</a>',i) < 1:
+        raise Exception('ERR mising </a> in: ' + line + 'ERR file_path = ' + file_path)
       ii = line.index('</a>',i) + 4
       link = line[i:ii]
       label_url = extract_url_label(link)

@@ -6,6 +6,7 @@
 /arts/etymology_-_a_list_of_word_meanings.html
 /arts/fun_videos;_cartoons...html
 /arts/interesting_links_and_websites.html
+/arts/list_of_expressions.html
 /arts/list_of_internet_words.html
 /arts/list_of_words;_the_good_the_bad_and_the_ugly.html
 /arts/music_-_links_to_various_music_genres.html
@@ -14,7 +15,7 @@
 /recipes/beans,_lima_beans.html
 /recipes/breads_-_challah,_focaccia,_oat,_tsoureki,_portuguese,_sourdough,_zopf.html
 /recipes/gemista_(stuffed_vegetables).html
-/recipes/german, greek,_sweedish,_..._meatballs-hamburgers.html
+/recipes/italian,_german,_sweedish,_..._meatballs-hamburgers.html
 /recipes/kolokithokeftedes_(pumkin_fritters).html
 /recipes/mac-n-cheese.html
 /recipes/pizza.html
@@ -25,6 +26,7 @@
 /science/covid_notes_-_philosophy,_politics,_psychology,_science.html
 /science/emotional-intelligence.html
 /science/exercise.html
+/science/future_science_and_technologies.html
 /science/health_youtube_video_notes.html
 /science/how_to_cope_with_information_overload.html
 /science/hypersanity_-_different_way_of_looking_at_the_world.html
