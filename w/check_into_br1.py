@@ -124,10 +124,12 @@ def update_link_labels_in_main_page():
           ii = line.index('</a>',i) + 4
           link = line[i:ii]
           (label, url) = extract_url_label(link)
+          print(label, url)
           
           i = url.rfind('/') + 1
           i2 = url.rfind('.html')
           file_desc = url[i:i2].replace('_', ' ')
+          print(label, url, file_desc)
           line = line.replace('>'+label+'<', '>'+file_desc+'<')
         f.write(line+'\n')
   except Exception as e:
