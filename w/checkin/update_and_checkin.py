@@ -31,12 +31,13 @@ def log(*args):
 
 def save_search_file_paths(save_file):
   file_paths = []
-  for subdir, dirs, files in os.walk(".."):
+  for subdir, dirs, files in os.walk("."):
     print('^^^^^^^', subdir)
     if subdir.startswith('./tech') or subdir.startswith('./science') or \
        subdir.startswith('./recipe') or subdir.startswith('./art'):
       for file in files:
         p = os.path.join(subdir, file)[2:]
+        print('ggggggg', p)
         log(p)
         file_paths.append((p, os.path.getmtime(p)))
   file_paths.sort(key=lambda x: x[0])
@@ -277,13 +278,7 @@ def archive_log():
                          str(datetime.now()).replace(':', '-') + '.log'
       copy(LOG_FILE, log_archive_file)
 
-
-
-if __name__ == '__main__x':
-    import doctest
-    doctest.testmod()
-
-if __name__ == '__main__':
+def main(version_branch):
     msg = ''
     try:
       file_paths = save_search_file_paths('search_file_paths.txt')
@@ -293,7 +288,7 @@ if __name__ == '__main__':
       run('git', 'add', '*')
       run('git', 'status')
       run('git', 'commit', '-m', "'" + version + "'")
-      run('git', 'push', 'origin', 'br1')
+      run('git', 'push', 'origin', version_branch)
       run('git', 'diff')
 
       log('done')
@@ -304,3 +299,11 @@ if __name__ == '__main__':
       messagebox.showinfo(__file__, os.path.basename(__file__) + ' FAILED; \n\n' + \
            str(e)  + '\n\nSee trace in: ' + LOG_FILE)
       log(traceback.format_exc())
+  
+
+if __name__ == '__main__x':
+  import doctest
+  doctest.testmod()
+
+if __name__ == '__main__':
+  main('br1')
