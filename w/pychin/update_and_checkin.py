@@ -40,6 +40,7 @@ def save_search_file_paths(save_file, target_dirs):
     if is_target_dir:
       for file in files:
         p = os.path.join(subdir, file)[2:]
+        print('{{{{{{{{}', 2)
         log(p)
         file_paths.append((p, os.path.getmtime(p)))
   file_paths.sort(key=lambda x: x[0])
@@ -286,7 +287,7 @@ def archive_log():
 
 def main(version_branch):
     msg = ''
-    target_dirs = ('./tech', './science', './recipes', './arts')
+    target_dirs = ('tech', 'science', 'recipes', 'arts')
     try:
       file_paths = save_search_file_paths('search_file_paths.txt', target_dirs)
       save_search_labels(file_paths, 'search_labels.txt')
