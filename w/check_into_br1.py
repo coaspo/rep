@@ -111,7 +111,7 @@ def create_link(file_path):
   link = '<a href=\'./' + file_path + '\'>' + file_name + '</a>'
   return link
  
-def update_link_labels_in_main_page():
+def update_links_in_main_page(file_paths):
   with open('index.html') as f:
     lines = f.read().splitlines()
   try:
@@ -139,7 +139,7 @@ def update_link_labels_in_main_page():
   global msg
   msg += '\nupdated link labels in index.html'
 
-def save_searcn_file_paths(save_file):
+def save_search_file_paths(save_file):
   file_paths = []  
   for f1 in os.listdir("."):
     if path.isdir(f1):
@@ -283,10 +283,10 @@ if __name__ == '__main__x':
 if __name__ == '__main__':
     msg = ''
     try:
-      file_paths = save_searcn_file_paths('search_file_paths.txt')
+      file_paths = save_search_file_paths('search_file_paths.txt')
       save_search_labels(file_paths, 'search_labels.txt')
       version = update_contents(file_paths)
-      update_link_labels_in_main_page()
+      update_links_in_main_page(file_paths)
       run('git', 'add', '*')
       run('git', 'status')
       run('git', 'commit', '-m', "'" + version + "'")
