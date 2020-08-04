@@ -29,15 +29,17 @@ def log(*args):
        f.write(' '+str(arg))
 
 
-def save_search_file_paths(save_file):
+def save_search_file_paths(save_file, target_dirs):
   file_paths = []
   for subdir, dirs, files in os.walk("."):
-    print('^^^^^^^', subdir)
-    if subdir.startswith('./tech') or subdir.startswith('./science') or \
-       subdir.startswith('./recipe') or subdir.startswith('./art'):
+    is_target_dir = False
+    for target_dir in target_dirs:
+      if subdir.startswith(target_dir):
+        is_target_dir = True
+        break
+    if is_target_dir:
       for file in files:
         p = os.path.join(subdir, file)[2:]
-        print('ggggggg', p)
         log(p)
         file_paths.append((p, os.path.getmtime(p)))
   file_paths.sort(key=lambda x: x[0])
@@ -102,6 +104,10 @@ def get_version():
 
 def get_contents_file_list(file_paths):
   file_paths.sort(key = lambda x: x[1], reverse = True)  # sort by ;ast modified TS
+  main_dirs = []
+  for file_path in file_paths:
+    print('ppppppp', file_path)
+    main_dir = ''
   lines = '<table>'
   lines += add_table_rows(file_paths, 'science')
   lines += add_table_rows(file_paths, 'arts')
@@ -280,8 +286,9 @@ def archive_log():
 
 def main(version_branch):
     msg = ''
+    target_dirs = ('./tech', './science', './recipes', './arts')
     try:
-      file_paths = save_search_file_paths('search_file_paths.txt')
+      file_paths = save_search_file_paths('search_file_paths.txt', target_dirs)
       save_search_labels(file_paths, 'search_labels.txt')
       version = update_contents(file_paths)
       update_links_in_main_page(file_paths)
