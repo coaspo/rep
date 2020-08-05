@@ -13,32 +13,33 @@ import pychin.update_and_checkin
 def check():
   pass
 
-def test_save_searcn_file_paths():
+def test_save_search_file_paths(target_dirs):
   pychin.update_and_checkin.msg = ''
-  file_paths = pychin.update_and_checkin.save_search_file_paths('search_files_paths__t.txt')
+  file_paths = pychin.update_and_checkin.get_search_file_paths(target_dirs)
+  pychin.update_and_checkin.save_search_file_paths('search_files_paths__t.txt', file_paths)
   actual = pychin.update_and_checkin.msg
   expected = '\nSaved search file paths in: search_files_paths__t.txt'
-  assert actual == expected, 'save_searcn_file_paths() failed; actual:\n' + actual + '\nexpected:\n' + expected
+  assert actual == expected, 'save_search_file_paths() failed; actual:\n' + actual + '\nexpected:\n' + expected
   
   with open ('search_files_paths__t.txt') as f:
     actual = f.read()
-  expected = """/search-files/links-2.html
-/search-files/links.html
-/search-files/problems-examples.html
-/search-files/problems-solutions.html
-/search-files/recipe.html
+  expected = """/tests/search-files/links-2.html
+/tests/search-files/links.html
+/tests/search-files/problems-examples.html
+/tests/search-files/problems-solutions.html
+/tests/search-files/recipe.html
 """
   assert expected == actual, 'save_searcn_file_paths() failed; actual:\n' + actual + '\nexpected:\n' + expected
 
 def test_contents_indexes():
-  actual = pychin.update_and_checkin.contents_indexes('../tests/search-files/links.html')
+  actual = pychin.update_and_checkin.contents_indexes('./tests/search-files/links.html')
   expected = [('internet archive', 'https://archive.org'),
          ('free books', 'https://www.freebookcentre.net/'), 
          ('coursera- free course', 'https://www.coursera.org/'), 
          ('edx - mit, harvard', 'https://www.edx.org/')]
   assert expected == actual, 'contents_indexes() failed; expected:\n' + str(expected) + '\nactual:\n' +str(actual)
   
-  actual = pychin.update_and_checkin.contents_indexes('../tests/search-files/recipe.html')
+  actual = pychin.update_and_checkin.contents_indexes('./tests/search-files/recipe.html')
   expected = [('serve done',),]
   assert expected == actual, 'contents_indexes() failed; expected:\n' + str(expected) + '\nactual:\n' +str(actual)
 
@@ -46,7 +47,7 @@ def test_contents_indexes():
 def test_save_search_labels(file_paths):
   pychin.update_and_checkin.msg = ''
   #make_file_paths_relative()
-  pychin.update_and_checkin.save_search_labels(file_paths, 'search_labels__t.txt')
+  pychin.update_and_checkin.save_search_labels('search_labels__t.txt', file_paths)
   expected = '\nSaved search labels to: search_labels__t.txt'
   actual = pychin.update_and_checkin.msg
   assert pychin.update_and_checkin.msg == expected, 'test_save_search_labels() failed; actual:\n' + actual + '\nexpected:\n' + expected
@@ -63,7 +64,6 @@ edx - mit, harvard$$1$$https://www.edx.org/
 serve done$$4"""  # anchor label, file index, url
   assert expected == actual, 'save_search_labels() failed: actual:\n' + actual + '\nexpected:\n' + expected
 
-
 def make_file_paths_sever_testable():
   with open ('search_files_paths__t.txt') as f:
     lines = f.readlines()
@@ -72,11 +72,11 @@ def make_file_paths_sever_testable():
 
 
 def test_get_contents_file_list(file_paths):
-  expected = """search-files/links-2.html
-search-files/links.html
-search-files/problems-examples.html
-search-files/problems-solutions.html
-search-files/recipe.html"""   # sorted
+  expected = """tests/search-files/links-2.html
+tests/search-files/links.html
+tests/search-files/problems-examples.html
+tests/search-files/problems-solutions.html
+tests/search-files/recipe.html"""   # sorted
   actual = [x[0] for x in file_paths]
   actual = '\n'.join(actual)
   assert expected == actual, 'make_file_paths_sever_testable() failed: actual:\n' + actual + '\nexpected:\n' + expected
@@ -91,14 +91,10 @@ def main():
 
   try:
     #os.remove('update_and_checkin.py.log')
-    test_save_searcn_file_paths()
-    file_paths = """/search-files/links-2.html
-/search-files/links.html
-/search-files/problems-examples.html
-/search-files/problems-solutions.html
-/search-files/recipe.html
-"""
+    target_dirs = ('./tests/search',)
+    test_save_search_file_paths(target_dirs)
     test_contents_indexes()
+    file_paths = pychin.update_and_checkin.get_search_file_paths(target_dirs)
     test_save_search_labels(file_paths)
     test_get_contents_file_list(file_paths)
     make_file_paths_sever_testable()

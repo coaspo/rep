@@ -29,7 +29,7 @@ def log(*args):
        f.write(' '+str(arg))
 
 
-def save_search_file_paths(save_file, target_dirs):
+def get_search_file_paths(target_dirs):
   file_paths = []
   for subdir, dirs, files in os.walk("."):
     is_target_dir = False
@@ -40,17 +40,17 @@ def save_search_file_paths(save_file, target_dirs):
     if is_target_dir:
       for file in files:
         p = os.path.join(subdir, file)[2:]
-        print('{{{{{{{{}', 2)
         log(p)
         file_paths.append((p, os.path.getmtime(p)))
   file_paths.sort(key=lambda x: x[0])
-  log('file_paths= ', file_paths)
+  return file_paths
+
+def save_search_file_paths(save_file, file_paths):
   with open(save_file, 'w') as f:
     f.writelines('/'+ x[0] +'\n' for x in file_paths)
   log('Updated '+ save_file)
   global msg
   msg += '\nSaved search file paths in: ' + save_file
-  return file_paths
 
 def update_contents(file_paths):
   (version,lines) = get_version()
@@ -170,7 +170,7 @@ def update_links_in_main_page(file_paths):
 
 
 
-def save_search_labels(file_paths, save_file):
+def save_search_labels(save_file, file_paths):
   with open(save_file, 'w') as f:
     f.write('')
   is_first = True
@@ -287,10 +287,11 @@ def archive_log():
 
 def main(version_branch):
     msg = ''
-    target_dirs = ('tech', 'science', 'recipes', 'arts')
+    target_dirs = ('./tech', './science', './recipes', './arts')
     try:
-      file_paths = save_search_file_paths('search_file_paths.txt', target_dirs)
-      save_search_labels(file_paths, 'search_labels.txt')
+      file_paths = get_search_file_paths(target_dirs)
+      save_search_file_paths('search_file_paths.txt', file_paths)
+      save_search_labels('search_labels.txt', file_paths)
       version = update_contents(file_paths)
       update_links_in_main_page(file_paths)
       run('git', 'add', '*')
