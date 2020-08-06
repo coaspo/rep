@@ -16,12 +16,12 @@ def check():
 def test_save_search_file_paths(target_dirs):
   py.update_and_checkin.msg = ''
   file_paths = py.update_and_checkin.get_search_file_paths(target_dirs)
-  py.update_and_checkin.save_search_file_paths('search_files_paths__t.txt', file_paths)
+  py.update_and_checkin.save_search_file_paths('tests/search_files_paths__t.txt', file_paths)
   actual = py.update_and_checkin.msg
-  expected = '\nSaved search file paths in: search_files_paths__t.txt'
+  expected = '\nSaved search file paths in: tests/search_files_paths__t.txt'
   assert actual == expected, 'save_search_file_paths() failed; actual:\n' + actual + '\nexpected:\n' + expected
   
-  with open ('search_files_paths__t.txt') as f:
+  with open ('tests/search_files_paths__t.txt') as f:
     actual = f.read()
   expected = """/tests/search-files/links-2.html
 /tests/search-files/links.html
@@ -47,12 +47,12 @@ def test_contents_indexes():
 def test_save_search_labels(file_paths):
   py.update_and_checkin.msg = ''
   #make_file_paths_relative()
-  py.update_and_checkin.save_search_labels('search_labels__t.txt', file_paths)
-  expected = '\nSaved search labels to: search_labels__t.txt'
+  py.update_and_checkin.save_search_labels('tests/search_labels__t.txt', file_paths)
+  expected = '\nSaved search labels to: tests/search_labels__t.txt'
   actual = py.update_and_checkin.msg
   assert py.update_and_checkin.msg == expected, 'test_save_search_labels() failed; actual:\n' + actual + '\nexpected:\n' + expected
   
-  with open ('search_labels__t.txt') as f:
+  with open ('tests/search_labels__t.txt') as f:
     actual = f.read()
   expected = """wolfram$$0$$https://www.wolfram.com/
 worldometers$$0$$https://www.worldometers.info/
@@ -65,10 +65,10 @@ serve done$$4"""  # anchor label, file index, url
   assert expected == actual, 'save_search_labels() failed: actual:\n' + actual + '\nexpected:\n' + expected
 
 def make_file_paths_sever_testable():
-  with open ('search_files_paths__t.txt') as f:
+  with open ('tests/search_files_paths__t.txt') as f:
     lines = f.readlines()
-  with open ('search_files_paths__t.txt', 'w') as f:
-    [f.write('/tests'+x) for x in lines]
+  with open ('tests/search_files_paths__t.txt', 'w') as f:
+    [f.write(''+x) for x in lines]
 
 
 def test_get_contents_file_list(file_paths):

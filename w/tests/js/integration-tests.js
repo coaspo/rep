@@ -5,6 +5,7 @@ PFX  = '<a href="'
 BASE = x.substring(0,iEnd);
 
 function integrationTestsMain() {
+   window.DEBUG = true
    console.log('-- integrationTestsMain() started');
    const tStart = new Date().getTime();
    blankTest();

@@ -1,27 +1,31 @@
 function unitTestsMain() {
-   window.DEBUG = true
-   console.log('-- unitTestsMain() started');
-   const tStart = new Date().getTime();
-   searchContentsMainTest()
-   getFileUrlsTest()
-   getUrlLabelTest()
-   getSearchLabelsTest()
-   readTextTest()
-   
-   searchUrlsTest()
-   searchFileIndexTest() 
-   findParagraphsTest();
-   highLightTest();
-    
-   if (window.testFailed) {
-      document.body.style.background = '#ff6666';
-   } else {
-      document.body.style.background = '#ccffcc';
-   }
-   const tEnd = new Date().getTime();
-   const dt = tEnd - tStart;
-   document.getElementById("search-results").innerHTML += '\n  ' + dt + ' msec';
-   console.log('-- unitTestsMain() done');
+  window.DEBUG = true
+  console.log('-- unitTestsMain() started');
+  const tStart = new Date().getTime();
+  try {
+      searchContentsMainTest()
+      getFileUrlsTest()
+      getUrlLabelTest()
+      getSearchLabelsTest()
+      readTextTest()
+      
+      searchUrlsTest()
+      searchFileIndexTest() 
+      findParagraphsTest();
+      highLightTest();
+       
+      if (window.testFailed) {
+         document.body.style.background = '#ff6666';
+      } else {
+         document.body.style.background = '#ccffcc';
+      }
+      const tEnd = new Date().getTime();
+      const dt = tEnd - tStart;
+      document.getElementById("search-results").innerHTML += '\n  ' + dt + ' msec';
+      console.log('-- unitTestsMain() done');
+  } catch (err) {
+    document.getElementById("search-results").innerHTML += '\n  ' + err
+  }
 }
 
 
