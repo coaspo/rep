@@ -12,20 +12,18 @@
     </style>
   </head>
   <body><pre>
-<input type="text" id="inputText" style="width:300px">       <a href='http://localhost:8080/w/tests/test_search.html'>http://localhost:8080/w/tests/test_search.html</a>
-  <button onclick="searchContentsMain(true, '/tests/search_files_file_paths__t.txt');"  style="width:300px; text-align: left;" >Contents   (manual test)</button>       <a href='http://localhost:8080/w/index.html'>http://localhost:8080/w/index.html</a>
+<input type="text" id="inputText" style="width:200px;" placeholder='Enter text for manual test'>       <a href='http://localhost:8080/w/tests/test_search.html'>http://localhost:8080/w/tests/test_search.html</a>
+  <button onclick="searchContentsMain(true, '/tests/search_files_file_paths__t.txt');"  style="width:200px; text-align: left;" >Contents   (manual test)</button>       <a href='http://localhost:8080/w/index.html'>http://localhost:8080/w/index.html</a>
 
-
-<button onclick="integrationTestsMain();"  style="width:300px; text-align: left;" >All Integration Tests</button>       <a href='https://li.netlify.app/w/index.html'>https://li.netlify.app/w/index.html</a>
-<button onclick="unitTestsMain();"  style="width:300px; text-align: left;" >All Unit Tests</button>       <a href='https://li.netlify.app/w/tests/test_search.html'>https://li.netlify.app/w/tests/test_search.html</a>
-<button onclick="testIntegrationTest();"  style="width:149px; text-align: left;" >An integration test</button><button onclick="testUnitTest();"  style="width:149px; text-align: left;" >A unit test</button> 
-<button onclick="clearResults();"  style="width:300px; text-align: left;" >Clear</button>
+       
+<button onclick="unitTestsMain();"  style="width:200px; text-align: left;" >All Unit Tests</button>        <a href='https://li.netlify.app/w/index.html'>https://li.netlify.app/w/index.html</a>
+<button onclick="testUnitTest();"  style="width:200px; text-align: left;" >A unit test</button>        <a href='https://li.netlify.app/w/tests/test_search.html'>https://li.netlify.app/w/tests/test_search.html</a>
+<button onclick="clearResults();"  style="width:200px; text-align: left;" >Clear</button>
 <pre id="search-results" style="background-color:#FFFFDD;"></pre></pre>
      <script src="../js/search.js"></script> 
      <script src="../js/search-labels.js"></script> 
      <script src="../js/search-page-source.js"></script> 
-     <script src="./js/unit-tests.js"></script> 
-     <script src="./js/integration-tests.js"></script> 
+     <script src="./unit-tests.js"></script> 
    <script>
        window.testFailed = false;
        const tStart = new Date().getTime();
