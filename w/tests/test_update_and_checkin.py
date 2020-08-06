@@ -5,7 +5,7 @@ from tkinter import messagebox
 import os
 import sys
 import traceback
-import pychin.update_and_checkin
+import py.update_and_checkin
 
 
 
@@ -14,10 +14,10 @@ def check():
   pass
 
 def test_save_search_file_paths(target_dirs):
-  pychin.update_and_checkin.msg = ''
-  file_paths = pychin.update_and_checkin.get_search_file_paths(target_dirs)
-  pychin.update_and_checkin.save_search_file_paths('search_files_paths__t.txt', file_paths)
-  actual = pychin.update_and_checkin.msg
+  py.update_and_checkin.msg = ''
+  file_paths = py.update_and_checkin.get_search_file_paths(target_dirs)
+  py.update_and_checkin.save_search_file_paths('search_files_paths__t.txt', file_paths)
+  actual = py.update_and_checkin.msg
   expected = '\nSaved search file paths in: search_files_paths__t.txt'
   assert actual == expected, 'save_search_file_paths() failed; actual:\n' + actual + '\nexpected:\n' + expected
   
@@ -32,25 +32,25 @@ def test_save_search_file_paths(target_dirs):
   assert expected == actual, 'save_searcn_file_paths() failed; actual:\n' + actual + '\nexpected:\n' + expected
 
 def test_contents_indexes():
-  actual = pychin.update_and_checkin.contents_indexes('./tests/search-files/links.html')
+  actual = py.update_and_checkin.contents_indexes('./tests/search-files/links.html')
   expected = [('internet archive', 'https://archive.org'),
          ('free books', 'https://www.freebookcentre.net/'), 
          ('coursera- free course', 'https://www.coursera.org/'), 
          ('edx - mit, harvard', 'https://www.edx.org/')]
   assert expected == actual, 'contents_indexes() failed; expected:\n' + str(expected) + '\nactual:\n' +str(actual)
   
-  actual = pychin.update_and_checkin.contents_indexes('./tests/search-files/recipe.html')
+  actual = py.update_and_checkin.contents_indexes('./tests/search-files/recipe.html')
   expected = [('serve done',),]
   assert expected == actual, 'contents_indexes() failed; expected:\n' + str(expected) + '\nactual:\n' +str(actual)
 
 
 def test_save_search_labels(file_paths):
-  pychin.update_and_checkin.msg = ''
+  py.update_and_checkin.msg = ''
   #make_file_paths_relative()
-  pychin.update_and_checkin.save_search_labels('search_labels__t.txt', file_paths)
+  py.update_and_checkin.save_search_labels('search_labels__t.txt', file_paths)
   expected = '\nSaved search labels to: search_labels__t.txt'
-  actual = pychin.update_and_checkin.msg
-  assert pychin.update_and_checkin.msg == expected, 'test_save_search_labels() failed; actual:\n' + actual + '\nexpected:\n' + expected
+  actual = py.update_and_checkin.msg
+  assert py.update_and_checkin.msg == expected, 'test_save_search_labels() failed; actual:\n' + actual + '\nexpected:\n' + expected
   
   with open ('search_labels__t.txt') as f:
     actual = f.read()
@@ -81,20 +81,20 @@ tests/search-files/recipe.html"""   # sorted
   actual = '\n'.join(actual)
   assert expected == actual, 'make_file_paths_sever_testable() failed: actual:\n' + actual + '\nexpected:\n' + expected
 
-  paths = pychin.update_and_checkin.get_contents_file_list(file_paths)
+  paths = py.update_and_checkin.get_contents_file_list(file_paths)
    #assert expected == actual, 'test_get_contents() failed, expected:\n' + expected + '\nactual:\n' + actual
 
 
 def main():
   sys.path.insert(1, '../')
-  import pychin.update_and_checkin
+  import py.update_and_checkin
 
   try:
     #os.remove('update_and_checkin.py.log')
     target_dirs = ('./tests/search',)
     test_save_search_file_paths(target_dirs)
     test_contents_indexes()
-    file_paths = pychin.update_and_checkin.get_search_file_paths(target_dirs)
+    file_paths = py.update_and_checkin.get_search_file_paths(target_dirs)
     test_save_search_labels(file_paths)
     test_get_contents_file_list(file_paths)
     make_file_paths_sever_testable()
@@ -104,5 +104,3 @@ def main():
   else:
     messagebox.showinfo(__file__, 'Tests suceesfull')
 
-if __name__ == '__main__':
-  main()
