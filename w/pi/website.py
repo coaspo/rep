@@ -1,11 +1,11 @@
-class UserInputError(Exception):
-    pass
+import os
 
 
 class WebSite:
     def __init__(self, target_dirs):
-        self._file_paths = get_search_file_paths(target_dirs)
+        self.__file_paths = WebSite.get_search_file_paths(target_dirs)
 
+    @staticmethod
     def get_search_file_paths(target_dirs):
         file_paths = []
         for subdir, dirs, files in os.walk("."):
@@ -17,7 +17,6 @@ class WebSite:
             if is_target_dir:
                 for file in files:
                     p = os.path.join(subdir, file)[2:]
-                    log(p)
                     file_paths.append([p, os.path.getmtime(p)])
         file_paths.sort(key=lambda x: x[0])
         return file_paths
@@ -51,6 +50,10 @@ class WebSite:
         global msg
         msg += '\nupdated version: ' + version + ' and contents in contents.html'
         return version
+
+    @property
+    def file_paths(self) -> list:
+        return self.__file_paths
 
     def __str__(self) -> str:
         return f'UserInput: src = {self.src_language},  dest = {self.destination_language}, ' + \

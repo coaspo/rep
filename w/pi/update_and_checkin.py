@@ -13,6 +13,7 @@ import re
 import tkinter as tk
 import traceback
 from pi.webpage import WebPage
+from pi.website import WebSite
 
 LOG_FILE = None
 msg = ''
@@ -29,22 +30,6 @@ def log(*args):
     for arg in args:
        f.write(' '+str(arg))
 
-
-def get_search_file_paths(target_dirs):
-  file_paths = []
-  for subdir, dirs, files in os.walk("."):
-    is_target_dir = False
-    for target_dir in target_dirs:
-      if subdir.startswith(target_dir):
-        is_target_dir = True
-        break
-    if is_target_dir:
-      for file in files:
-        p = os.path.join(subdir, file)[2:]
-        log(p)
-        file_paths.append([p, os.path.getmtime(p)])
-  file_paths.sort(key=lambda x: x[0])
-  return file_paths
 
 
 def save_search_file_paths(save_file, file_paths):
@@ -260,7 +245,8 @@ def main(version_branch):
     msg = ''
     target_dirs = ('./tech', './science', './recipes', './arts')
     try:
-      file_paths = get_search_file_paths(target_dirs)
+      website = WebSite(target_dirs)
+      file_paths = website.file_paths
       save_search_file_paths('search_file_paths.txt', file_paths)
       save_search_labels('search_labels.txt', file_paths)
       version = update_contents(file_paths)
