@@ -269,7 +269,7 @@ def main(version_branch):
       run('git', 'status')
       run('git', 'commit', '-m', "'" + version + "'")
       run('git', 'push', 'origin', version_branch)
-      run('git', 'diff')
+      #run('git', 'diff')
 
       log('done')
       archive_log()
