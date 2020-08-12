@@ -12,6 +12,7 @@ import os
 import re
 import tkinter as tk
 import traceback
+from pi.webpage import WebPage
 
 LOG_FILE = None
 msg = ''
@@ -41,9 +42,10 @@ def get_search_file_paths(target_dirs):
       for file in files:
         p = os.path.join(subdir, file)[2:]
         log(p)
-        file_paths.append((p, os.path.getmtime(p)))
+        file_paths.append([p, os.path.getmtime(p)])
   file_paths.sort(key=lambda x: x[0])
   return file_paths
+
 
 def save_search_file_paths(save_file, file_paths):
   with open(save_file, 'w') as f:
@@ -51,6 +53,7 @@ def save_search_file_paths(save_file, file_paths):
   log('Updated '+ save_file)
   global msg
   msg += '\nSaved search file paths in: ' + save_file
+
 
 def update_contents(file_paths):
   (version,lines) = get_version()
@@ -103,6 +106,7 @@ def get_version():
                                initialvalue=version)
   return (version, lines)
 
+
 def get_contents_file_list(file_paths):
   file_paths.sort(key = lambda x: x[1], reverse = True)  # sort by ;ast modified TS
   main_dirs = []
@@ -116,6 +120,7 @@ def get_contents_file_list(file_paths):
   lines += add_table_rows(file_paths, 'tech')
   lines += '</table>'
   return lines;
+
 
 def add_table_rows(file_paths, topic):
   i = 0
@@ -139,7 +144,19 @@ def create_link(file_path):
   file_name = file_path[i_start:i_end].replace('_', ' ')
   link = '<a href=\'./' + file_path + '\'>' + file_name + '</a>'
   return link
- 
+
+def extract_url_label(link):
+  link=link.replace('href= ','href=')
+  quote =  '"' if link.find('href="')>-1  else "'"
+  i = link.index('href=' + quote) + 6
+  i2 = link.index(quote, i)
+  url = link[i:i2]
+  i = link.index('>', i2) + 1
+  i2 = link.index('</a>', i)
+  label = link[i:i2].lower().strip()
+  attrs = (label, url)
+  return attrs
+
 def update_links_in_main_page(file_paths):
   with open('index.html') as f:
     lines = f.read().splitlines()
@@ -178,7 +195,8 @@ def save_search_labels(save_file, file_paths):
     if 'problem' in x[0]:
       continue
     log(x[0])
-    indexes = contents_indexes(x[0])
+    webPage = WebPage(x[0])
+    indexes = webPage.search_indexes
     if len(indexes) > 0:
       with open(save_file, 'a') as f:
         for atrs in indexes:
@@ -197,55 +215,7 @@ def save_search_labels(save_file, file_paths):
   msg += '\nSaved search labels to: ' + save_file
 
 
-def contents_indexes(file_path):
-  with open(file_path) as f:
-    lines = f.readlines()
-  indexes = []
-  for line in lines:
-    # search for anchors:
-    i = line.find('<a ')
-    if i > -1:
-      if line.find('</a>',i) < 1:
-        raise Exception('ERR mising </a> in: ' + line + 'ERR file_path = ' + file_path)
-      ii = line.index('</a>',i) + 4
-      link = line[i:ii]
-      label_url = extract_url_label(link)
-      indexes.append(label_url)
-    # search for italic keywords:
-    i = line.find('<i>')
-    if i > -1:
-      labels = extract_italicized_labels(line)
-      indexes.append((labels,))
-  return indexes
 
-def extract_italicized_labels(line):
-  """
-  >>> extract_italicized_labels('aa <i>AAA</i> bbb <i>BBB</i> xxx<i>222</i>yyy<i>333</i>zzz')
-  'aaa bbb 222 333'
-  """
-  s = re.sub("^(.*?)<i>", "", line)
-  s = re.sub("</i>.*?<i>", " ", s)
-  s = re.sub("</i>.*", "", s).strip().lower()
-  return s
-  
-def extract_url_label(link):
-  """
-  >>> extract_url_label('<a href="https://www.coursera.org/">Coursera- Free course</a>')
-  ('coursera- free course', 'https://www.coursera.org/')
-  >>> extract_url_label("<a href='https://www.coursera.org/'>Coursera- Free course</a>")
-  ('coursera- free course', 'https://www.coursera.org/')
-  """
-  link=link.replace('href= ','href=')
-  quote =  '"' if link.find('href="')>-1  else "'"
-  i = link.index('href=' + quote) + 6
-  i2 = link.index(quote, i) 
-  url = link[i:i2]
-  i = link.index('>', i2) + 1
-  i2 = link.index('</a>', i) 
-  label = link[i:i2].lower().strip()
-  attrs = (label, url) 
-  return attrs
-  
 def run(*args: str):
     global msg
     msg += '\n'+str(args)
@@ -309,10 +279,9 @@ def main(version_branch):
            str(e)  + '\n\nSee trace in: ' + LOG_FILE)
       log(traceback.format_exc())
   
-
-if __name__ == '__main__x':
+if __name__ == '__main__':
   import doctest
+  # This runs just a couple of tests;
+  #  to run more tests, use w/check_in_tests.py
   doctest.testmod()
 
-if __name__ == '__main__':
-  main('br1')

@@ -10,6 +10,7 @@
 /recipes/beans,_lima_beans.html
 /recipes/breads_-_challah,_focaccia,_oat,_tsoureki,_portuguese,_sourdough,_zopf.html
 /recipes/gemista_(stuffed_vegetables).html
+/recipes/granola_bars.html
 /recipes/italian,_german,_sweedish,_..._meatballs-hamburgers.html
 /recipes/kolokithokeftedes_(pumkin_fritters).html
 /recipes/mac-n-cheese.html

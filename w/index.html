@@ -63,7 +63,7 @@ button {
   <button class="tablink"         onclick="opencontName(event, 'Arts')">Arts</button>
   <button class="tablink"         onclick="opencontName(event, 'Science')">Science</button>
 </div>
-<!--======================================== Main ======================================-->
+<!--=================================== Main tab =================================-->
 <div id="Main" class="tabcontent" >
   <table>
     <!-- class="w3-table"-->
@@ -93,12 +93,12 @@ button {
       </td>
     </tr>
   </table>
-<!--================================ weather & content search =========== style="line-height: 2.6;"====================-->
+<!--======================== weather & content search ============================-->
 <div id="weather"></div>
 <pre id="search-results" style="background-color:#FFFFDD; font-size:16px;"></pre>
 </div>
-<!--======================================== Proj ======================================-->
 <div id="Projects" class="tabcontent" style="display:none">
+<!--=================================== Proj tab =================================-->
 <table class="w3-striped">
   <tr>
     <td class="w3-cyan">
@@ -122,8 +122,8 @@ button {
   </tr>
 </table>
 </div>
-  <!--======================================== Tech ======================================-->
 <div id="Tech" class="tabcontent" style="display:none" >
+<!--================================== tech dir tab ==============================-->
   <b>Reference/troubleshooting:</b>
   <table>
     <!-- class="w3-table"-->
@@ -167,8 +167,8 @@ button {
    </tr>
   </table>
 </div>
-<!--======================================== Recipes ======================================-->
 <div id="Recipes" class="tabcontent" style="display:none; font-size:24px;" >
+<!--================================ recipes dir tab =============================-->
 <table><tr class="w3-pale-yellow" >
 <td><pre><b>Misc</b>
   <a href="./recipes/beans,_lima_beans.html">beans, lima beans</a> 
@@ -186,8 +186,8 @@ button {
 </tr>
 </table>  
 </div>
-<!--======================================== Arts ======================================-->
 <div id="Arts" class="tabcontent" style="display:none" >
+<!--================================ arts dir tab ================================-->
 <table>
   <!-- class="w3-table"-->
   <tr>
@@ -207,7 +207,7 @@ button {
   </tr>
 </table>
 </div>
-<!--======================================== Science ======================================-->
+<!--================================ science dir tab =============================-->
 <div id="Science" class="tabcontent" style="display:none" >
 <table>
   <!-- class="w3-table"-->
@@ -319,12 +319,12 @@ function enEspañol() {
 if (document.URL.startsWith('file')) {
     document.body.style.background = "lightyellow"
 }
-//~ document.getElementById('inputText').addEventListener('keypress', function (e) {
-  //~ var key = e.which || e.keyCode;
-  //~ if (key === 13) { // 13 is enter
-    //~ duckDuckGo() 
-  //~ }
-//~ });
+document.getElementById('inputText').addEventListener('keypress', function (e) {
+  var key = e.which || e.keyCode;
+  if (key === 13) { // 13 is enter
+    duckDuckGo() 
+  }
+});
 
 w = new Worker("js/weather.js");
 w.onmessage = function(event) {

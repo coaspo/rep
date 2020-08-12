@@ -72,43 +72,43 @@ french beans$$9
 lima beans$$9
 tsoureki$$10
 sourdough$$10
-potato tortilla$$16
-scalloped potatoes</th>$$16
-prasorizo$$17
-fried rice$$17
-rizogalo$$17
-spanish rice$$17
-ratatouille$$18
-ciambotta$$18
-tourloú/briami$$18
-pisto$$18
-becoming mentally strong$$19$$https://www.youtube.com/watch?v=TFbv757kup4
-the pandemic and the information network$$20$$https://www.cjr.org/analysis/covid-19-coronavirus-uncertainty.php
-why the coronavirus is so confusing$$20$$https://www.theatlantic.com/health/archive/2020/04/pandemic-confusing-uncertainty/610819/
-virus$$20
-cognitive dissonance$$20$$https://www.theatlantic.com/ideas/archive/2020/07/role-cognitive-dissonance-pandemic/614074/
-plato's regimes (systems of government)$$20$$https://en.wikipedia.org/wiki/Plato%27s_five_regimes
-lydian$$20$$https://en.wikipedia.org/wiki/Lydia
-aristotle's modes of persuasion$$20$$https://en.wikipedia.org/wiki/Modes_of_persuasion
-logos$$20
-emotional intelligence tools$$21$$https://blog.dce.harvard.edu/professional-development/assessing-your-emotional-intelligence-4-tools-we-love
-emotional intelligence definition$$21$$https://www.psychologytoday.com/us/blog/the-personality-analyst/200909/what-emotional-intelligence-is-and-is-not
-nih.gov$$22$$https://www.nia.nih.gov/health
-the truth about mobile phone and wireless radiation$$24$$https://www.youtube.com/watch?v=BwyDCHf5iCY
-sugar: the bitter truth$$24$$https://www.youtube.com/watch?v=dBnniua6-oM
-10 steps to conquer information overload$$25$$https://www.forbes.com/sites/laurashin/2014/11/14/10-steps-to-conquering-information-overload/#69ac78cd7b08
-hypersanity$$26$$https://www.psychologytoday.com/us/blog/hide-and-seek/201908/hypersanity
-diogenes$$26
-the coming plague: newly emerging diseases$$27$$https://www.amazon.com/dp/0140250913/ref=rdr_ext_tmb
-i contain multitudes... by ed yong$$27$$https://www.amazon.com/Contain-Multitudes-Microbes-Within-Grander/dp/B01FY85L38/ref=sr_1_1?dchild=1&keywords=I+Contain+Multitudes&qid=1589194089&sr=8-1
-the hacking of the american mind by robert h. lustig$$27$$https://www.amazon.com/Hacking-of-American-Mind-audiobook/dp/B0753KYQLN/ref=sr_1_1?dchild=1&keywords=The+Hacking+of+the+American+Mind+by+Robert&qid=1589850091&sr=8-1
-pure, white, and deadly$$27$$https://www.amazon.com/Pure-White-and-Deadly-audiobook/dp/B077DKN9RC/ref=sr_1_1?dchild=1&keywords=Pure%2C+White%2C+and+Deadly&qid=1589850288&sr=8-1
-korean cdc interview$$27$$https://www.youtube.com/watch?v=gAk7aX5hksU
-virus course$$27$$https://www.youtube.com/watch?v=lj3NhPgOoX4
-week in virology$$27$$https://www.microbe.tv/twiv/archive/
-wolfram$$27$$https://www.wolfram.com/
-worldometers$$27$$https://www.worldometers.info/
-week in virology$$27$$https://www.microbe.tv/twiv/archive/
-flightradar24$$27$$https://www.flightradar24.com/airport/bos
-merk manual$$27$$https://www.merckmanuals.com/
-nih.gov$$28$$https://www.nia.nih.gov/health
+potato tortilla$$17
+scalloped potatoes</th>$$17
+prasorizo$$18
+fried rice$$18
+rizogalo$$18
+spanish rice$$18
+ratatouille$$19
+ciambotta$$19
+tourloú/briami$$19
+pisto$$19
+becoming mentally strong$$20$$https://www.youtube.com/watch?v=TFbv757kup4
+the pandemic and the information network$$21$$https://www.cjr.org/analysis/covid-19-coronavirus-uncertainty.php
+why the coronavirus is so confusing$$21$$https://www.theatlantic.com/health/archive/2020/04/pandemic-confusing-uncertainty/610819/
+virus$$21
+cognitive dissonance$$21$$https://www.theatlantic.com/ideas/archive/2020/07/role-cognitive-dissonance-pandemic/614074/
+plato's regimes (systems of government)$$21$$https://en.wikipedia.org/wiki/Plato%27s_five_regimes
+lydian$$21$$https://en.wikipedia.org/wiki/Lydia
+aristotle's modes of persuasion$$21$$https://en.wikipedia.org/wiki/Modes_of_persuasion
+logos$$21
+emotional intelligence tools$$22$$https://blog.dce.harvard.edu/professional-development/assessing-your-emotional-intelligence-4-tools-we-love
+emotional intelligence definition$$22$$https://www.psychologytoday.com/us/blog/the-personality-analyst/200909/what-emotional-intelligence-is-and-is-not
+nih.gov$$23$$https://www.nia.nih.gov/health
+the truth about mobile phone and wireless radiation$$25$$https://www.youtube.com/watch?v=BwyDCHf5iCY
+sugar: the bitter truth$$25$$https://www.youtube.com/watch?v=dBnniua6-oM
+10 steps to conquer information overload$$26$$https://www.forbes.com/sites/laurashin/2014/11/14/10-steps-to-conquering-information-overload/#69ac78cd7b08
+hypersanity$$27$$https://www.psychologytoday.com/us/blog/hide-and-seek/201908/hypersanity
+diogenes$$27
+the coming plague: newly emerging diseases$$28$$https://www.amazon.com/dp/0140250913/ref=rdr_ext_tmb
+i contain multitudes... by ed yong$$28$$https://www.amazon.com/Contain-Multitudes-Microbes-Within-Grander/dp/B01FY85L38/ref=sr_1_1?dchild=1&keywords=I+Contain+Multitudes&qid=1589194089&sr=8-1
+the hacking of the american mind by robert h. lustig$$28$$https://www.amazon.com/Hacking-of-American-Mind-audiobook/dp/B0753KYQLN/ref=sr_1_1?dchild=1&keywords=The+Hacking+of+the+American+Mind+by+Robert&qid=1589850091&sr=8-1
+pure, white, and deadly$$28$$https://www.amazon.com/Pure-White-and-Deadly-audiobook/dp/B077DKN9RC/ref=sr_1_1?dchild=1&keywords=Pure%2C+White%2C+and+Deadly&qid=1589850288&sr=8-1
+korean cdc interview$$28$$https://www.youtube.com/watch?v=gAk7aX5hksU
+virus course$$28$$https://www.youtube.com/watch?v=lj3NhPgOoX4
+week in virology$$28$$https://www.microbe.tv/twiv/archive/
+wolfram$$28$$https://www.wolfram.com/
+worldometers$$28$$https://www.worldometers.info/
+week in virology$$28$$https://www.microbe.tv/twiv/archive/
+flightradar24$$28$$https://www.flightradar24.com/airport/bos
+merk manual$$28$$https://www.merckmanuals.com/
+nih.gov$$29$$https://www.nia.nih.gov/health
