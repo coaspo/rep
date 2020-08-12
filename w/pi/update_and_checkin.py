@@ -80,10 +80,10 @@ def update_contents(file_paths):
 
 
 def append_version_and_content_links(version, file_paths, f):
-  dt = datetime.now().isoformat()[:10]
-  print (1111111111111, datetime.now().isoformat())
+  ts = datetime.now().isoformat()
+  num = ts[:10] + '/' + ts[21:]
   lines = get_contents_file_list(file_paths)
-  lines += '\n<br><p style="font-size:12px;">'+ dt + ';  ' + version
+  lines += '\n<br><p style="font-size:12px;">'+ num + ';  ' + version
   f.write(lines)
 
 
