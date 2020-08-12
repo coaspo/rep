@@ -6,16 +6,14 @@ import os
 import sys
 import traceback
 import pi.update_and_checkin
+import pi.website
+from pi.website import WebSite
 
-
-
-
-def check():
-  pass
 
 def test_save_search_file_paths(target_dirs):
   pi.update_and_checkin.msg = ''
-  file_paths = pi.update_and_checkin.get_search_file_paths(target_dirs)
+  website = WebSite(target_dirs)
+  file_paths = website.file_paths
   pi.update_and_checkin.save_search_file_paths('tests/search_files_paths__t.txt', file_paths)
   actual = pi.update_and_checkin.msg
   expected = '\nSaved search file paths in: tests/search_files_paths__t.txt'
@@ -80,8 +78,8 @@ def main():
     #os.remove('update_and_checkin.pi.log')
     target_dirs = ('./tests/search',)
     test_save_search_file_paths(target_dirs)
-    test_contents_indexes()
-    file_paths = pi.update_and_checkin.get_search_file_paths(target_dirs)
+    website = WebSite(target_dirs)
+    file_paths = website.file_paths
     test_save_search_labels(file_paths)
     test_get_contents_file_list(file_paths)
     make_file_paths_sever_testable()
