@@ -21,35 +21,12 @@ class WebSite:
         file_paths.sort(key=lambda x: x[0])
         return file_paths
 
-    def save_search_file_paths(save_file, file_paths):
+    def save_search_file_paths(self, save_file):
         with open(save_file, 'w') as f:
-            f.writelines('/' + x[0] + '\n' for x in file_paths)
-        log('Updated ' + save_file)
-        global msg
-        msg += '\nSaved search file paths in: ' + save_file
+            f.writelines('/' + x[0] + '\n' for x in self.file_paths)
+        # global msg
+        # msg += '\nSaved search file paths in: ' + save_file
 
-    def update_contents(file_paths):
-        (version, lines) = get_version()
-        if version is None:
-            exit()
-        try:
-            with open('contents.html', 'w') as f:
-                for line in lines:
-                    if line.startswith('<br><br>'):
-                        f.write(line + '\n')
-                        append_version_and_content_links(version, file_paths, f)
-                        break
-                    f.write(line + '\n')
-        except Exception as e:
-            print(traceback.format_exc())
-            with open('contents.html', 'w') as f:
-                for line in lines:
-                    f.write(line + '\n')
-            raise
-
-        global msg
-        msg += '\nupdated version: ' + version + ' and contents in contents.html'
-        return version
 
     @property
     def file_paths(self) -> list:

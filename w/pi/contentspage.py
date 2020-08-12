@@ -3,7 +3,7 @@ import re
 from datetime import datetime
 
 
-class WebPage:
+class ContentsPage:
     def __init__(self, file_path: str):
         self.__file_path = file_path
         mtime = os.path.getmtime(file_path)

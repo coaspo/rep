@@ -32,12 +32,6 @@ def log(*args):
 
 
 
-def save_search_file_paths(save_file, file_paths):
-  with open(save_file, 'w') as f:
-    f.writelines('/'+ x[0] +'\n' for x in file_paths)
-  log('Updated '+ save_file)
-  global msg
-  msg += '\nSaved search file paths in: ' + save_file
 
 
 def update_contents(file_paths):
@@ -247,7 +241,8 @@ def main(version_branch):
     try:
       website = WebSite(target_dirs)
       file_paths = website.file_paths
-      save_search_file_paths('search_file_paths.txt', file_paths)
+      #save_search_file_paths('search_file_paths.txt', file_paths)
+      website.save_search_file_paths('search_file_paths.txt')
       save_search_labels('search_labels.txt', file_paths)
       version = update_contents(file_paths)
       update_links_in_main_page(file_paths)
