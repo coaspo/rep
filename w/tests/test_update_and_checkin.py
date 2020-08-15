@@ -13,12 +13,9 @@ from pi.website import WebSite
 def test_save_search_file_paths(target_dirs):
   pi.update_and_checkin.msg = ''
   website = WebSite(target_dirs)
-  file_paths = website.file_paths
-  pi.update_and_checkin.save_search_file_paths('tests/search_files_paths__t.txt', file_paths)
-  actual = pi.update_and_checkin.msg
-  expected = '\nSaved search file paths in: tests/search_files_paths__t.txt'
-  assert actual == expected, 'save_search_file_paths() failed; actual:\n' + actual + '\nexpected:\n' + expected
-  
+
+  os.remove("tests/search_files_paths__t.txt")
+  website.save_search_file_paths('tests/search_files_paths__t.txt')
   with open ('tests/search_files_paths__t.txt') as f:
     actual = f.read()
   expected = """/tests/search-files/links-2.html

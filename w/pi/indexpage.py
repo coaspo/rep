@@ -1,37 +1,39 @@
-import os.path
-import re
-from datetime import datetime
+import traceback
 
 
 class IndexPage:
-    def __init__(self, file_path: str):
-        self.__file_path = file_path
-        mtime = os.path.getmtime(file_path)
-        self._modification_date = datetime.utcfromtimestamp(mtime)
-        with open(file_path) as f:
-            lines = f.readlines()
-        self.__num_of_lines = len(lines)
-        self.__search_indexes = self._find_indexes(lines)
-
     @staticmethod
-    def _extract_italicized_labels(line):
-        """
-        >>> WebPage._extract_italicized_labels('aa <i>AAA</i> bbb <i>BBB</i> xxx<i>222</i>yyy<i>333</i>zzz')
-        'aaa bbb 222 333'
-        """
-        s = re.sub("^(.*?)<i>", "", line)
-        s = re.sub("</i>.*?<i>", " ", s)
-        s = re.sub("</i>.*", "", s).strip().lower()
-        return s
+    def update_links(file_paths):
+        with open('index.html') as f:
+            lines = f.read().splitlines()
+        try:
+            with open('index.html', 'w') as f:
+                for line in lines:
+                    if 'href' in line and './' in line:
+                        if '</a>' not in line or '<a ' not in line:
+                            raise Exception('Missing "<a " "</a>" or ".html" in: ' + line)
+                        i = line.find('<a ')
+                        ii = line.index('</a>', i) + 4
+                        link = line[i:ii]
+                        (label, url) = IndexPage._extract_url_label(link)
+
+                        i = url.rfind('/') + 1
+                        i2 = url.rfind('.html')
+                        file_desc = url[i:i2].replace('_', ' ')
+                        line = line.replace('>' + label + '<', '>' + file_desc + '<')
+                    f.write(line + '\n')
+        except Exception as e:
+            print(traceback.format_exc())
+            with open('index.html', 'w') as f:
+                for line in lines:
+                    f.write(line + '\n')
+            raise
+        # global msg
+        # msg += '\nupdated link labels in index.html'
+
 
     @staticmethod
     def _extract_url_label(link):
-        """
-        >>> WebPage._extract_url_label('<a href="https://www.coursera.org/">Coursera- Free course</a>')
-        ('coursera- free course', 'https://www.coursera.org/')
-        >>> WebPage._extract_url_label("<a href='https://www.coursera.org/'>Coursera- Free course</a>")
-        ('coursera- free course', 'https://www.coursera.org/')
-        """
         link = link.replace('href= ', 'href=')
         quote = '"' if link.find('href="') > -1 else "'"
         i = link.index('href=' + quote) + 6
@@ -43,48 +45,9 @@ class IndexPage:
         attrs = (label, url)
         return attrs
 
-    def _find_indexes(self, lines):
-        indexes = []
-        for line in lines:
-            # search for anchors:
-            i = line.find('<a ')
-            if i > -1:
-                if line.find('</a>', i) < 1:
-                    raise Exception('ERR missing </a> in: ' + line + 'ERR file_path = ' + self.__file_path)
-                ii = line.index('</a>', i) + 4
-                link = line[i:ii]
-                label_url = WebPage._extract_url_label(link)
-                indexes.append(label_url)
-            # search for italic keywords:
-            i = line.find('<i>')
-            if i > -1:
-                labels = WebPage._extract_italicized_labels(line)
-                indexes.append((labels,))
-        return indexes
-
-    @property
-    def file_path(self) -> str:
-        return self.__file_path
-
-    @property
-    def modification_date(self) -> str:
-        return self._modification_date
-
-    @property
-    def num_of_lines(self) -> str:
-        return self.__num_of_lines
-
-    @property
-    def search_indexes(self) -> str:
-        return self.__search_indexes
-
-    def __str__(self) -> str:
-        return f'WebPage: file_path = {self.file_path}, ' + \
-               f' modification_date = {self.modification_date}, num_of_lines = {self.num_of_lines}, ' + \
-               f' search_indexes = {self.search_indexes} '
-
 
 if __name__ == '__main__':
-  import doctest
-  # This runs just a couple of tests;
-  doctest.testmod()
+    import doctest
+
+    # This runs just a couple of tests;
+    doctest.testmod()

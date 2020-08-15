@@ -1,269 +1,74 @@
 #!/usr/bin/env python3
 from datetime import datetime
-from os import listdir
 from os import mkdir
 from os import path
 from shutil import copy
-from subprocess import Popen, PIPE
-from sys import exit
 from tkinter import messagebox
-from tkinter import simpledialog
 import os
-import re
-import tkinter as tk
 import traceback
-from pi.webpage import WebPage
+
+from pi.checkin import CheckIn
+from pi.contentspage import ContentsPage
+from pi.indexpage import IndexPage
 from pi.website import WebSite
 
-LOG_FILE = None
-msg = ''
+
+
 
 def log(*args):
-  global LOG_FILE
-  if LOG_FILE is None:
-    LOG_FILE = path.basename(__file__) + '.log'
-    with open(LOG_FILE, 'w') as f:
-      f.write(str(datetime.now()))
+    global LOG_FILE
+    if LOG_FILE is None:
+        LOG_FILE = path.basename(__file__) + '.log'
+        with open(LOG_FILE, 'w') as f:
+            f.write(str(datetime.now()))
 
-  with open(LOG_FILE, 'a') as f:
-    f.write('\n')
-    for arg in args:
-       f.write(' '+str(arg))
+    with open(LOG_FILE, 'a') as f:
+        f.write('\n')
+        for arg in args:
+            f.write(' ' + str(arg))
 
-
-
-
-
-def update_contents(file_paths):
-  (version,lines) = get_version()
-  if version is None:
-    exit()
-  try:
-    with open('contents.html', 'w') as f:
-      for line in lines:
-        if line.startswith('<br><br>'):
-          f.write(line+'\n')
-          append_version_and_content_links(version, file_paths, f)
-          break
-        f.write(line+'\n')
-  except Exception as e:
-    print(traceback.format_exc())
-    with open('contents.html', 'w') as f:
-      for line in lines:
-        f.write(line+'\n')
-    raise
-    
-  global msg
-  msg += '\nupdated version: ' + version + ' and contents in contents.html'
-  return version
-
-
-def append_version_and_content_links(version, file_paths, f):
-  ts = datetime.now().isoformat()
-  num = ts[:10] + '/' + ts[21:]
-  lines = get_contents_file_list(file_paths)
-  lines += '\n<br><p style="font-size:12px;">'+ num + ';  ' + version
-  f.write(lines)
-
-
-def get_version():
-  with open('contents.html') as f:
-    lines = f.read().splitlines()
-    
-  version= 'update'
-  for line in lines:
-    if line.startswith('<p style="font-size:12px;">'):
-      # for example: line = '2020-05-10; links',  version= 'links' 
-      version = line.split(';')[1].strip()
-      break
-        
-  root = tk.Tk()
-  root.withdraw()
-  version = simpledialog.askstring(title="Git check-in;  "+ __file__, prompt=
-                               ("\nUdate 'Search contents' related files and check into git.   "
-                               "\nThis may take a while."
-                               "\n\nVersion name:"), 
-                               initialvalue=version)
-  return (version, lines)
-
-
-def get_contents_file_list(file_paths):
-  file_paths.sort(key = lambda x: x[1], reverse = True)  # sort by ;ast modified TS
-  main_dirs = []
-  for file_path in file_paths:
-    print('ppppppp', file_path)
-    main_dir = ''
-  lines = '<table>'
-  lines += add_table_rows(file_paths, 'science')
-  lines += add_table_rows(file_paths, 'arts')
-  lines += add_table_rows(file_paths, 'recipes')
-  lines += add_table_rows(file_paths, 'tech')
-  lines += '</table>'
-  return lines;
-
-
-def add_table_rows(file_paths, topic):
-  i = 0
-  lines = ''
-  label = topic + '/'
-  for p in file_paths:
-    if label in p[0]:
-      i += 1
-      dt = datetime.utcfromtimestamp(p[1]).strftime('%Y-%m-%d')
-      link = create_link(p[0])
-      if i == 1:
-        lines += f"<tr><td>{topic.title()}:</td> <td>{link}</td> <td style=\"font-size:12px;\">{dt}</td><tr>\n"
-      else:
-        lines += f"<tr><td></td> <td>{link}</td> <td style=\"font-size:12px;\">{dt}</td><tr>\n"
-      dt_previous = dt
-  return lines
 
 def create_link(file_path):
-  i_start = file_path.index('/')+1
-  i_end = file_path.rindex('.html')
-  file_name = file_path[i_start:i_end].replace('_', ' ')
-  link = '<a href=\'./' + file_path + '\'>' + file_name + '</a>'
-  return link
+    i_start = file_path.index('/') + 1
+    i_end = file_path.rindex('.html')
+    file_name = file_path[i_start:i_end].replace('_', ' ')
+    link = '<a href=\'./' + file_path + '\'>' + file_name + '</a>'
+    return link
 
-def extract_url_label(link):
-  link=link.replace('href= ','href=')
-  quote =  '"' if link.find('href="')>-1  else "'"
-  i = link.index('href=' + quote) + 6
-  i2 = link.index(quote, i)
-  url = link[i:i2]
-  i = link.index('>', i2) + 1
-  i2 = link.index('</a>', i)
-  label = link[i:i2].lower().strip()
-  attrs = (label, url)
-  return attrs
-
-def update_links_in_main_page(file_paths):
-  with open('index.html') as f:
-    lines = f.read().splitlines()
-  try:
-    with open('index.html', 'w') as f:
-      for line in lines:
-        if 'href' in line and './' in line:
-          if '</a>' not in line or '<a ' not in line:
-            raise Exception('Missing "<a " "</a>" or ".html" in: '+ line)
-          i = line.find('<a ')
-          ii = line.index('</a>',i) + 4
-          link = line[i:ii]
-          (label, url) = extract_url_label(link)
-                    
-          i = url.rfind('/') + 1
-          i2 = url.rfind('.html')
-          file_desc = url[i:i2].replace('_', ' ')
-          line = line.replace('>'+label+'<', '>'+file_desc+'<')
-        f.write(line+'\n')
-  except Exception as e:
-    print(traceback.format_exc())
-    with open('index.html', 'w') as f:
-      for line in lines:
-        f.write(line+'\n')
-    raise
-  global msg
-  msg += '\nupdated link labels in index.html'
-
-
-
-def save_search_labels(save_file, file_paths):
-  with open(save_file, 'w') as f:
-    f.write('')
-  is_first = True
-  for i, x in enumerate(file_paths):
-    if 'problem' in x[0]:
-      continue
-    log(x[0])
-    webPage = WebPage(x[0])
-    indexes = webPage.search_indexes
-    if len(indexes) > 0:
-      with open(save_file, 'a') as f:
-        for atrs in indexes:
-          if not is_first:
-            f.write('\n')
-          else:
-            is_first = False
-          f.write(atrs[0]) # anchor label or table header
-          f.write('$$')
-          f.write(str(i))  # file index number
-          if len(atrs) > 1:
-            f.write('$$')
-            f.write(atrs[1]) # url
-  log('save_file= ', save_file)
-  global msg
-  msg += '\nSaved search labels to: ' + save_file
-
-
-
-def run(*args: str):
-    global msg
-    msg += '\n'+str(args)
-    print('cmd:', args)
-    log('cmd:', args)
-
-    p = Popen(args, shell=False, stdout=PIPE, stderr=PIPE)
-    o, e = p.communicate()
-    output = o.decode("utf-8").replace('\r', '')
-    errs = e.decode("utf-8").replace('\r', '')
-
-    if len(output) > 0:
-        log('output: ', output)
-        print(output)
-        if 'FAILURES' in output:
-            messagebox.showinfo("FAILURES", msg +
-                 '\nMay have intermittent tkinter venv failure.\nTry rerunning')
-            exit(1)
-    if len(errs) > 0:
-        log('errs: ', errs)
-        print(errs)
-        if 'Everything up-to-date' in errs:
-            messagebox.showinfo("Git done", msg +'\nCode checked in')
-            exit(0)
-        label = 15 * 'ERR---' if 'br1 -> br1' not in str(errs) else ''
-        log(label)
-        print(label)
-        if 'ERR---' in label:
-            messagebox.showinfo("ERR", msg +'\n'+lavel)
-            exit(2)
 
 def archive_log():
-      archive_dir = './logs-check-ins'
-      if not path.isdir(archive_dir):
-          mkdir(archive_dir)
-      log_archive_file = archive_dir + '/' + path.basename(__file__) + '-' + \
-                         str(datetime.now()).replace(':', '-') + '.log'
-      copy(LOG_FILE, log_archive_file)
+    archive_dir = './logs-check-ins'
+    if not path.isdir(archive_dir):
+        mkdir(archive_dir)
+    log_archive_file = archive_dir + '/' + path.basename(__file__) + '-' + \
+                       str(datetime.now()).replace(':', '-') + '.log'
+    copy(LOG_FILE, log_archive_file)
 
-def main(version_branch):
+
+def main(git_branch):
     msg = ''
     target_dirs = ('./tech', './science', './recipes', './arts')
     try:
-      website = WebSite(target_dirs)
-      file_paths = website.file_paths
-      #save_search_file_paths('search_file_paths.txt', file_paths)
-      website.save_search_file_paths('search_file_paths.txt')
-      save_search_labels('search_labels.txt', file_paths)
-      version = update_contents(file_paths)
-      update_links_in_main_page(file_paths)
-      run('git', 'add', '*')
-      run('git', 'status')
-      run('git', 'commit', '-m', "'" + version + "'")
-      run('git', 'push', 'origin', version_branch)
-      #run('git', 'diff')
+        website = WebSite(target_dirs)
+        website.save_search_file_paths('search_file_paths.txt')
+        website.save_search_labels('search_labels.txt')
+        version = ContentsPage.update(website.file_paths)
+        IndexPage.update_links(website.file_paths)
+        CheckIn.runGitCommands(version, git_branch)
 
-      log('done')
-      archive_log()
-      messagebox.showinfo(__file__, msg +'\ndone')
+        log('done')
+        archive_log()
+        messagebox.showinfo(__file__, msg + '\ndone')
     except Exception as e:
-      print(traceback.format_exc())
-      messagebox.showinfo(__file__, os.path.basename(__file__) + ' FAILED; \n\n' + \
-           str(e)  + '\n\nSee trace in: ' + LOG_FILE)
-      log(traceback.format_exc())
-  
-if __name__ == '__main__':
-  import doctest
-  # This runs just a couple of tests;
-  #  to run more tests, use w/check_in_tests.py
-  doctest.testmod()
+        print(traceback.format_exc())
+        messagebox.showinfo(__file__, os.path.basename(__file__) + ' FAILED; \n\n' + \
+                            str(e) + '\n\nSee trace i...')
+        ##log(traceback.format_exc())
 
+
+if __name__ == '__main__':
+    import doctest
+
+    # This runs just a couple of tests;
+    #  to run more tests, use w/check_in_tests.py
+    doctest.testmod()

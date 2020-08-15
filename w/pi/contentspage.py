@@ -1,90 +1,98 @@
-import os.path
-import re
+import tkinter
+import traceback
 from datetime import datetime
+from tkinter import simpledialog
 
 
 class ContentsPage:
-    def __init__(self, file_path: str):
-        self.__file_path = file_path
-        mtime = os.path.getmtime(file_path)
-        self._modification_date = datetime.utcfromtimestamp(mtime)
-        with open(file_path) as f:
-            lines = f.readlines()
-        self.__num_of_lines = len(lines)
-        self.__search_indexes = self._find_indexes(lines)
+    @staticmethod
+    def update(file_paths):
+        (version, lines) = ContentsPage._get_version()
+        if version is None:
+            exit()
+        try:
+            with open('contents.html', 'w') as f:
+                for line in lines:
+                    if line.startswith('<br><br>'):
+                        f.write(line + '\n')
+                        ContentsPage._append_version_and_content_links(version, file_paths, f)
+                        break
+                    f.write(line + '\n')
+        except Exception as e:
+            print(traceback.format_exc())
+            with open('contents.html', 'w') as f:
+                for line in lines:
+                    f.write(line + '\n')
+            raise
+
+        # global msg
+        # msg += '\nupdated version: ' + version + ' and contents in contents.html'
+        return version
 
     @staticmethod
-    def _extract_italicized_labels(line):
-        """
-        >>> WebPage._extract_italicized_labels('aa <i>AAA</i> bbb <i>BBB</i> xxx<i>222</i>yyy<i>333</i>zzz')
-        'aaa bbb 222 333'
-        """
-        s = re.sub("^(.*?)<i>", "", line)
-        s = re.sub("</i>.*?<i>", " ", s)
-        s = re.sub("</i>.*", "", s).strip().lower()
-        return s
+    def _append_version_and_content_links(version, file_paths, f):
+        ts = datetime.now().isoformat()
+        num = ts[:10] + '/' + ts[21:]
+        lines = ContentsPage._get_contents_file_list(file_paths)
+        lines += '\n<br><p style="font-size:12px;">' + num + ';  ' + version
+        f.write(lines)
 
     @staticmethod
-    def _extract_url_label(link):
-        """
-        >>> WebPage._extract_url_label('<a href="https://www.coursera.org/">Coursera- Free course</a>')
-        ('coursera- free course', 'https://www.coursera.org/')
-        >>> WebPage._extract_url_label("<a href='https://www.coursera.org/'>Coursera- Free course</a>")
-        ('coursera- free course', 'https://www.coursera.org/')
-        """
-        link = link.replace('href= ', 'href=')
-        quote = '"' if link.find('href="') > -1 else "'"
-        i = link.index('href=' + quote) + 6
-        i2 = link.index(quote, i)
-        url = link[i:i2]
-        i = link.index('>', i2) + 1
-        i2 = link.index('</a>', i)
-        label = link[i:i2].lower().strip()
-        attrs = (label, url)
-        return attrs
+    def _get_version():
+        with open('contents.html') as f:
+            lines = f.read().splitlines()
 
-    def _find_indexes(self, lines):
-        indexes = []
+        version = 'update'
         for line in lines:
-            # search for anchors:
-            i = line.find('<a ')
-            if i > -1:
-                if line.find('</a>', i) < 1:
-                    raise Exception('ERR missing </a> in: ' + line + 'ERR file_path = ' + self.__file_path)
-                ii = line.index('</a>', i) + 4
-                link = line[i:ii]
-                label_url = WebPage._extract_url_label(link)
-                indexes.append(label_url)
-            # search for italic keywords:
-            i = line.find('<i>')
-            if i > -1:
-                labels = WebPage._extract_italicized_labels(line)
-                indexes.append((labels,))
-        return indexes
+            if line.startswith('<p style="font-size:12px;">'):
+                # for example: line = '2020-05-10; links',  version= 'links'
+                version = line.split(';')[1].strip()
+                break
 
-    @property
-    def file_path(self) -> str:
-        return self.__file_path
+        root = tkinter.Tk()
+        root.withdraw()
+        version = simpledialog.askstring(title="Git check-in;  " + __file__, prompt=
+        ("\nUdate 'Search contents' related files and check into git.   "
+         "\nThis may take a while."
+         "\n\nVersion name:"),
+                                         initialvalue=version)
+        return (version, lines)
 
-    @property
-    def modification_date(self) -> str:
-        return self._modification_date
+    @staticmethod
+    def _get_contents_file_list(file_paths):
+        file_paths.sort(key=lambda x: x[1], reverse=True)  # sort by ;ast modified TS
+        main_dirs = []
+        for file_path in file_paths:
+            print('ppppppp', file_path)
+            main_dir = ''
+        lines = '<table>'
+        lines += ContentsPage._add_table_rows(file_paths, 'science')
+        lines += ContentsPage._add_table_rows(file_paths, 'arts')
+        lines += ContentsPage._add_table_rows(file_paths, 'recipes')
+        lines += ContentsPage._add_table_rows(file_paths, 'tech')
+        lines += '</table>'
+        return lines
 
-    @property
-    def num_of_lines(self) -> str:
-        return self.__num_of_lines
+    @staticmethod
+    def _add_table_rows(file_paths, topic):
+        i = 0
+        lines = ''
+        label = topic + '/'
+        for p in file_paths:
+            if label in p[0]:
+                i += 1
+                dt = datetime.utcfromtimestamp(p[1]).strftime('%Y-%m-%d')
+                link = ContentsPage._create_link(p[0])
+                if i == 1:
+                    lines += f"<tr><td>{topic.title()}:</td> <td>{link}</td> <td style=\"font-size:12px;\">{dt}</td><tr>\n"
+                else:
+                    lines += f"<tr><td></td> <td>{link}</td> <td style=\"font-size:12px;\">{dt}</td><tr>\n"
+        return lines
 
-    @property
-    def search_indexes(self) -> str:
-        return self.__search_indexes
-
-    def __str__(self) -> str:
-        return f'WebPage: file_path = {self.file_path}, ' + \
-               f' modification_date = {self.modification_date}, num_of_lines = {self.num_of_lines}, ' + \
-               f' search_indexes = {self.search_indexes} '
-
-
-if __name__ == '__main__':
-  import doctest
-  # This runs just a couple of tests;
-  doctest.testmod()
+    @staticmethod
+    def _create_link(file_path):
+        i_start = file_path.index('/') + 1
+        i_end = file_path.rindex('.html')
+        file_name = file_path[i_start:i_end].replace('_', ' ')
+        link = '<a href=\'./' + file_path + '\'>' + file_name + '</a>'
+        return link
