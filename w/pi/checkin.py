@@ -11,7 +11,6 @@ class CheckIn():
         CheckIn._run('git', 'push', 'origin', git_branch)
         # CheckIn._run('git', 'diff')
 
-
     @staticmethod
     def _run(*args: str):
         # global msg
@@ -28,18 +27,18 @@ class CheckIn():
             # log('output: ', output)
             print(output)
             if 'FAILURES' in output:
-                messagebox.showinfo("FAILURES", msg +
-                                    '\nMay have intermittent tkinter venv failure.\nTry rerunning')
+                # messagebox.showinfo("FAILURES", msg +
+                #                     '\nMay have intermittent tkinter venv failure.\nTry rerunning')
                 exit(1)
         if len(errs) > 0:
-            log('errs: ', errs)
+            # log('errs: ', errs)
             print(errs)
             if 'Everything up-to-date' in errs:
-                messagebox.showinfo("Git done", msg + '\nCode checked in')
+                # messagebox.showinfo("Git done", msg + '\nCode checked in')
                 exit(0)
             label = 15 * 'ERR---' if 'br1 -> br1' not in str(errs) else ''
-            log(label)
+            # log(label)
             print(label)
             if 'ERR---' in label:
-                messagebox.showinfo("ERR", msg + '\n' + label)
+                # messagebox.showinfo("ERR", msg + '\n' + label)
                 exit(2)
