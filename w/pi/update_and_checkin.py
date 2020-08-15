@@ -15,17 +15,17 @@ from pi.website import WebSite
 
 
 
-def log(*args):
-    global LOG_FILE
-    if LOG_FILE is None:
-        LOG_FILE = path.basename(__file__) + '.log'
-        with open(LOG_FILE, 'w') as f:
-            f.write(str(datetime.now()))
-
-    with open(LOG_FILE, 'a') as f:
-        f.write('\n')
-        for arg in args:
-            f.write(' ' + str(arg))
+# def log(*args):
+#     global LOG_FILE
+#     if LOG_FILE is None:
+#         LOG_FILE = path.basename(__file__) + '.log'
+#         with open(LOG_FILE, 'w') as f:
+#             f.write(str(datetime.now()))
+#
+#     with open(LOG_FILE, 'a') as f:
+#         f.write('\n')
+#         for arg in args:
+#             f.write(' ' + str(arg))
 
 
 def create_link(file_path):
@@ -42,7 +42,7 @@ def archive_log():
         mkdir(archive_dir)
     log_archive_file = archive_dir + '/' + path.basename(__file__) + '-' + \
                        str(datetime.now()).replace(':', '-') + '.log'
-    copy(LOG_FILE, log_archive_file)
+    # copy(LOG_FILE, log_archive_file)
 
 
 def main(git_branch):
@@ -56,7 +56,7 @@ def main(git_branch):
         IndexPage.update_links(website.file_paths)
         CheckIn.runGitCommands(version, git_branch)
 
-        log('done')
+        # log('done')
         archive_log()
         messagebox.showinfo(__file__, msg + '\ndone')
     except Exception as e:
