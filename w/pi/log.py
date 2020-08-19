@@ -25,7 +25,7 @@ def _archive_log():
     archive_dir = './logs-check-ins'
     if not path.isdir(archive_dir):
         mkdir(archive_dir)
-    print (111111111, logging_file_name )
+    messagebox.showinfo('111111111'+ logging_file_name )
     log_archive_file = archive_dir + '/' + logging_file_name + '-' + \
                        str(datetime.now()).replace(':', '-') + '.log'
     shutil.copyfile(logging_file_name, log_archive_file)
