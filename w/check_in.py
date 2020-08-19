@@ -5,6 +5,7 @@ import sys
 from datetime import datetime
 from os import mkdir
 from os import path
+from tkinter import messagebox
 
 import pi.update_and_checkin
 
@@ -14,7 +15,10 @@ logging_file_name = __file__ + '.log'
 def exit_handler():
     archive_log()
     with open(logging_file_name) as f:
-        print(f.read())
+        if not logging.getLogger().isEnabledFor(logging.DEBUG):
+            messagebox.showinfo(logging_file_name, f.read())
+        else:
+            print(f.read())
 
 
 def archive_log():
@@ -38,6 +42,6 @@ def config_log():
 
 
 if __name__ == '__main__':
-    atexit.register(exit_handler)
     config_log()
+    atexit.register(exit_handler)
     pi.update_and_checkin.main('br1')
