@@ -14,8 +14,9 @@ class CheckIn:
 
     @staticmethod
     def _run(*args: str):
-        logging.info(str(args))
-        print('cmd:', args)
+        msg = ' '.join(args)
+        logging.info(msg)
+        print('cmd: ', msg)
 
         p = Popen(args, shell=False, stdout=PIPE, stderr=PIPE)
         o, e = p.communicate()
