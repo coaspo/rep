@@ -21,14 +21,6 @@ def create_link(file_path):
     return link
 
 
-def archive_log(logging_filename):
-    archive_dir = './logs-check-ins'
-    if not path.isdir(archive_dir):
-        mkdir(archive_dir)
-    log_archive_file = archive_dir + '/' + logging_filename + '-' + \
-                       str(datetime.now()).replace(':', '-') + '.log'
-    os.copy(logging_filename, log_archive_file)
-
 
 def main(git_branch, logging_filename):
     target_dirs = ('./tech', './science', './recipes', './arts')
@@ -42,7 +34,6 @@ def main(git_branch, logging_filename):
         CheckIn.run_git_commands(version, git_branch)
 
         logging.info('done')
-        archive_log(logging_filename)
     except Exception as e:
         logging.error(traceback.format_exc())
         print(traceback.format_exc())
