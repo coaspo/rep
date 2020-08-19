@@ -32,7 +32,8 @@ def config_log():
         log_format = '%(message)s'
     else:
         log_level = logging.DEBUG
-        log_format = '%(asctime)s - [%(levelname)s] - %(name)s - %(filename)s.%(funcName)s(%(lineno)d) - %(message)s'
+        # log_format = '%(asctime)s - [%(levelname)s] - %(name)s - %(filename)s.%(funcName)s(%(lineno)d) - %(message)s'
+        log_format = '[%(levelname)s] - %(name)s - %(filename)s.%(funcName)s(%(lineno)d) - %(message)s'
     logging.basicConfig(filename=logging_file_name, filemode='w', level=log_level, format=log_format)
 
 
