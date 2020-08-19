@@ -55,7 +55,7 @@ class WebSite:
                         if len(atrs) > 1:
                             f.write('$$')
                             f.write(atrs[1])  # url
-        logging.info('Saved labels in: ' + save_file)
+        logging.info('Created ' + save_file)
 
     def __str__(self) -> str:
         return f'WebSite: file_paths = {self.__file_paths} '
