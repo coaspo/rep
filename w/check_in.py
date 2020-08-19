@@ -1,7 +1,9 @@
+import os
 import shutil
 import sys
 from datetime import datetime
 from os import mkdir
+from os import path
 
 import pi.update_and_checkin
 import logging
@@ -17,7 +19,7 @@ def exit_handler():
 
 def archive_log():
     archive_dir = './logs-check-ins'
-    if not sys.path.isdir(archive_dir):
+    if not path.isdir(archive_dir):
         mkdir(archive_dir)
     log_archive_file = archive_dir + '/' + logging_file_name + '-' + \
                        str(datetime.now()).replace(':', '-') + '.log'
