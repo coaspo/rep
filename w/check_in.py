@@ -1,6 +1,14 @@
 import sys
 import pi.update_and_checkin
 import logging
+import atexit
+
+
+def exit_handler():
+    with open(__file__ + '.log') as f:
+        return f.read()
+
+
 
 
 def config_log():
@@ -10,12 +18,10 @@ def config_log():
     else:
         log_level = logging.DEBUG
         log_format = '%(asctime)s - [%(levelname)s] - %(name)s - %(filename)s.%(funcName)s(%(lineno)d) - %(message)s'
-    print(1111111111, log_format)
-    log_file_name2 = __file__ + '.log'
-    logging.basicConfig(filename=log_file_name2, filemode='w', level=log_level, format=log_format)
-    return log_file_name2
+    logging.basicConfig(filename=__file__ + '.log', filemode='w', level=log_level, format=log_format)
 
 
 if __name__ == '__main__':
-    log_file_name = config_log()
-    pi.update_and_checkin.main('br1', log_file_name)
+    atexit.register(exit_handler)
+    config_log()
+    pi.update_and_checkin.main('br1', __file__ + '.log')
