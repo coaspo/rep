@@ -1,5 +1,5 @@
-import os
 import logging
+import os
 
 from pi.webpage import WebPage
 
@@ -44,17 +44,17 @@ class WebSite:
             indexes = web_page.search_indexes
             if len(indexes) > 0:
                 with open(save_file, 'a') as f:
-                    for atrs in indexes:
+                    for attrs in indexes:
                         if not is_first:
                             f.write('\n')
                         else:
                             is_first = False
-                        f.write(atrs[0])  # anchor label or table header
+                        f.write(attrs[0])  # anchor label or table header
                         f.write('$$')
                         f.write(str(i))  # file index number
-                        if len(atrs) > 1:
+                        if len(attrs) > 1:
                             f.write('$$')
-                            f.write(atrs[1])  # url
+                            f.write(attrs[1])  # url
         logging.info('Created ' + save_file)
 
     def __str__(self) -> str:

@@ -69,15 +69,15 @@ class WebPage:
         return self.__file_path
 
     @property
-    def modification_date(self) -> str:
+    def modification_date(self) -> datetime:
         return self._modification_date
 
     @property
-    def num_of_lines(self) -> str:
+    def num_of_lines(self) -> int:
         return self.__num_of_lines
 
     @property
-    def search_indexes(self) -> str:
+    def search_indexes(self) -> list:
         return self.__search_indexes
 
     def __str__(self) -> str:
@@ -87,6 +87,6 @@ class WebPage:
 
 
 if __name__ == '__main__':
-  import doctest
-  # This runs just a couple of tests;
-  doctest.testmod()
+    import doctest
+    # This runs only a couple of tests;
+    doctest.testmod()

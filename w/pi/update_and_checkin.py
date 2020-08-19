@@ -1,16 +1,14 @@
 #!/usr/bin/env python3
-from datetime import datetime
-from os import mkdir
-from os import path
-from tkinter import messagebox
+import logging
 import os
 import traceback
+from datetime import datetime
+from tkinter import messagebox
 
 from pi.checkin import CheckIn
 from pi.contentspage import ContentsPage
 from pi.indexpage import IndexPage
 from pi.website import WebSite
-import logging
 
 
 def create_link(file_path):
@@ -21,8 +19,7 @@ def create_link(file_path):
     return link
 
 
-
-def main(git_branch, logging_filename):
+def main(git_branch):
     target_dirs = ('./tech', './science', './recipes', './arts')
     logging.info(str(datetime.now()))
     try:
@@ -32,18 +29,18 @@ def main(git_branch, logging_filename):
         version = ContentsPage.update(website.file_paths)
         IndexPage.update_links(website.file_paths)
         CheckIn.run_git_commands(version, git_branch)
-
         logging.info('done')
     except Exception as e:
         logging.error(traceback.format_exc())
         print(traceback.format_exc())
         if not logging.getLogger().isEnabledFor(logging.DEBUG):
-            messagebox.showinfo(__file__, os.path.basename(__file__) + ' FAILED; \n\n' + \
-                            str(e) + '\n\nSee trace i...')
+            messagebox.showinfo(__file__, os.path.basename(__file__) + ' FAILED; \n\n' +
+                                str(e) + '\n\nSee trace i...')
 
 
 if __name__ == '__main__':
     import doctest
+
     # This runs just a couple of tests;
     #  to run more tests, use w/check_in_tests.py
     doctest.testmod()

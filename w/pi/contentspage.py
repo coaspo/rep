@@ -1,8 +1,8 @@
+import logging
 import tkinter
 import traceback
 from datetime import datetime
 from tkinter import simpledialog
-import logging
 
 
 class ContentsPage:
@@ -19,7 +19,8 @@ class ContentsPage:
                         ContentsPage._append_version_and_content_links(version, file_paths, f)
                         break
                     f.write(line + '\n')
-        except Exception as e:
+        except Exception:
+            logging.exception('')
             print(traceback.format_exc())
             with open('contents.html', 'w') as f:
                 for line in lines:
@@ -51,19 +52,15 @@ class ContentsPage:
 
         root = tkinter.Tk()
         root.withdraw()
-        version = simpledialog.askstring(title="Git check-in;  " + __file__, prompt=
-        ("\nUdate 'Search contents' related files and check into git.   "
-         "\nThis may take a while."
-         "\n\nVersion name:"),
-                                         initialvalue=version)
-        return (version, lines)
+        version = simpledialog.askstring(title="Git check-in;  " + __file__,
+                                         prompt=("\nUpdate 'Search contents' related files and check into git.   "
+                                                 "\nThis may take a while."
+                                                 "\n\nVersion name:"), initialvalue=version)
+        return version, lines
 
     @staticmethod
     def _get_contents_file_list(file_paths):
-        file_paths.sort(key=lambda x: x[1], reverse=True)  # sort by ;ast modified TS
-        main_dirs = []
-        for file_path in file_paths:
-            main_dir = ''
+        file_paths.sort(key=lambda x: x[1], reverse=True)  # sort by last modified TS
         lines = '<table>'
         lines += ContentsPage._add_table_rows(file_paths, 'science')
         lines += ContentsPage._add_table_rows(file_paths, 'arts')
@@ -83,7 +80,8 @@ class ContentsPage:
                 dt = datetime.utcfromtimestamp(p[1]).strftime('%Y-%m-%d')
                 link = ContentsPage._create_link(p[0])
                 if i == 1:
-                    lines += f"<tr><td>{topic.title()}:</td> <td>{link}</td> <td style=\"font-size:12px;\">{dt}</td><tr>\n"
+                    lines += f"<tr><td>{topic.title()}:</td> <td>{link}</td> <td style=\"font-size:12px;\">{dt}</td" \
+                             f"><tr>\n "
                 else:
                     lines += f"<tr><td></td> <td>{link}</td> <td style=\"font-size:12px;\">{dt}</td><tr>\n"
         return lines

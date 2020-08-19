@@ -1,6 +1,6 @@
+import logging
 from subprocess import Popen, PIPE
 from tkinter import messagebox
-import logging
 
 
 class CheckIn:

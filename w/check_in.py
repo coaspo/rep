@@ -1,4 +1,5 @@
-import os
+import atexit
+import logging
 import shutil
 import sys
 from datetime import datetime
@@ -6,10 +7,9 @@ from os import mkdir
 from os import path
 
 import pi.update_and_checkin
-import logging
-import atexit
 
 logging_file_name = __file__ + '.log'
+
 
 def exit_handler():
     archive_log()
@@ -40,4 +40,4 @@ def config_log():
 if __name__ == '__main__':
     atexit.register(exit_handler)
     config_log()
-    pi.update_and_checkin.main('br1', logging_file_name)
+    pi.update_and_checkin.main('br1')
