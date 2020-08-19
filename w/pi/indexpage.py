@@ -1,3 +1,4 @@
+import logging
 import traceback
 
 
@@ -23,14 +24,13 @@ class IndexPage:
                         line = line.replace('>' + label + '<', '>' + file_desc + '<')
                     f.write(line + '\n')
         except Exception as e:
+            logging.error(str(e))
             print(traceback.format_exc())
             with open('index.html', 'w') as f:
                 for line in lines:
                     f.write(line + '\n')
             raise
-        # global msg
-        # msg += '\nupdated link labels in index.html'
-
+        logging.info('Updated index.html')
 
     @staticmethod
     def _extract_url_label(link):

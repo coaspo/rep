@@ -2,6 +2,7 @@ import tkinter
 import traceback
 from datetime import datetime
 from tkinter import simpledialog
+import logging
 
 
 class ContentsPage:
@@ -25,8 +26,7 @@ class ContentsPage:
                     f.write(line + '\n')
             raise
 
-        # global msg
-        # msg += '\nupdated version: ' + version + ' and contents in contents.html'
+        logging.info('Updated contents.html')
         return version
 
     @staticmethod
@@ -63,7 +63,6 @@ class ContentsPage:
         file_paths.sort(key=lambda x: x[1], reverse=True)  # sort by ;ast modified TS
         main_dirs = []
         for file_path in file_paths:
-            print('ppppppp', file_path)
             main_dir = ''
         lines = '<table>'
         lines += ContentsPage._add_table_rows(file_paths, 'science')

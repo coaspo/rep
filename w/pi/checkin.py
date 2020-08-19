@@ -1,10 +1,11 @@
 from subprocess import Popen, PIPE
 from tkinter import messagebox
+import logging
 
 
-class CheckIn():
+class CheckIn:
     @staticmethod
-    def runGitCommands(version, git_branch):
+    def run_git_commands(version, git_branch):
         CheckIn._run('git', 'add', '*')
         CheckIn._run('git', 'status')
         CheckIn._run('git', 'commit', '-m', "'" + version + "'")
@@ -13,10 +14,8 @@ class CheckIn():
 
     @staticmethod
     def _run(*args: str):
-        # global msg
-        # msg += '\n' + str(args)
+        logging.info(str(args))
         print('cmd:', args)
-        # log('cmd:', args)
 
         p = Popen(args, shell=False, stdout=PIPE, stderr=PIPE)
         o, e = p.communicate()
@@ -24,21 +23,24 @@ class CheckIn():
         errs = e.decode("utf-8").replace('\r', '')
 
         if len(output) > 0:
-            # log('output: ', output)
             print(output)
             if 'FAILURES' in output:
-                # messagebox.showinfo("FAILURES", msg +
-                #                     '\nMay have intermittent tkinter venv failure.\nTry rerunning')
+                logging.error(output)
+                if not logging.getLogger().isEnabledFor(logging.DEBUG):
+                    messagebox.showinfo("FAILURES", output +
+                                        '\nMay have intermittent tkinter venv failure.\nTry rerunning')
                 exit(1)
         if len(errs) > 0:
-            # log('errs: ', errs)
+            logging.error(errs)
             print(errs)
             if 'Everything up-to-date' in errs:
-                # messagebox.showinfo("Git done", msg + '\nCode checked in')
+                if not logging.getLogger().isEnabledFor(logging.DEBUG):
+                    messagebox.showinfo("Git done", errs + '\nCode checked in')
                 exit(0)
             label = 15 * 'ERR---' if 'br1 -> br1' not in str(errs) else ''
-            # log(label)
             print(label)
             if 'ERR---' in label:
-                # messagebox.showinfo("ERR", msg + '\n' + label)
+                logging.error(label)
+                if not logging.getLogger().isEnabledFor(logging.DEBUG):
+                    messagebox.showinfo("ERR", label)
                 exit(2)

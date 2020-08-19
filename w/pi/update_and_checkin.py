@@ -2,7 +2,6 @@
 from datetime import datetime
 from os import mkdir
 from os import path
-from shutil import copy
 from tkinter import messagebox
 import os
 import traceback
@@ -11,21 +10,7 @@ from pi.checkin import CheckIn
 from pi.contentspage import ContentsPage
 from pi.indexpage import IndexPage
 from pi.website import WebSite
-
-
-
-
-# def log(*args):
-#     global LOG_FILE
-#     if LOG_FILE is None:
-#         LOG_FILE = path.basename(__file__) + '.log'
-#         with open(LOG_FILE, 'w') as f:
-#             f.write(str(datetime.now()))
-#
-#     with open(LOG_FILE, 'a') as f:
-#         f.write('\n')
-#         for arg in args:
-#             f.write(' ' + str(arg))
+import logging
 
 
 def create_link(file_path):
@@ -45,32 +30,37 @@ def archive_log():
     # copy(LOG_FILE, log_archive_file)
 
 
-def main(git_branch):
-    msg = ''
+def log_contents(logging_filename):
+    with open(logging_filename) as f:
+        return f.read()
+
+
+def main(git_branch, logging_filename):
     target_dirs = ('./tech', './science', './recipes', './arts')
+    logging.info(str(datetime.now()))
     try:
         website = WebSite(target_dirs)
         website.save_search_file_paths('search_file_paths.txt')
         website.save_search_labels('search_labels.txt')
         version = ContentsPage.update(website.file_paths)
         IndexPage.update_links(website.file_paths)
-        CheckIn.runGitCommands(version, git_branch)
+        CheckIn.run_git_commands(version, git_branch)
 
-        # log('done')
+        logging.info('done')
         archive_log()
-        messagebox.showinfo(__file__, msg + '\ndone')
+        if not logging.getLogger().isEnabledFor(logging.DEBUG):
+            msg = log_contents(logging_filename)
+            messagebox.showinfo(__file__, msg)
     except Exception as e:
+        logging.error(traceback.format_exc())
         print(traceback.format_exc())
-        messagebox.showinfo(__file__, os.path.basename(__file__) + ' FAILED; \n\n' + \
+        if not logging.getLogger().isEnabledFor(logging.DEBUG):
+            messagebox.showinfo(__file__, os.path.basename(__file__) + ' FAILED; \n\n' + \
                             str(e) + '\n\nSee trace i...')
         ##log(traceback.format_exc())
 
-
-
-
 if __name__ == '__main__':
     import doctest
-
     # This runs just a couple of tests;
     #  to run more tests, use w/check_in_tests.py
     doctest.testmod()

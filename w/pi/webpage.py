@@ -1,3 +1,4 @@
+import logging
 import os.path
 import re
 from datetime import datetime
@@ -12,6 +13,7 @@ class WebPage:
             lines = f.readlines()
         self.__num_of_lines = len(lines)
         self.__search_indexes = self._find_indexes(lines)
+        logging.debug(file_path)
 
     @staticmethod
     def _extract_italicized_labels(line):

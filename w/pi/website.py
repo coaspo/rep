@@ -1,4 +1,5 @@
 import os
+import logging
 
 from pi.webpage import WebPage
 
@@ -21,6 +22,7 @@ class WebSite:
                     p = os.path.join(subdir, file)[2:]
                     file_paths.append([p, os.path.getmtime(p)])
         file_paths.sort(key=lambda x: x[0])
+        logging.info('WebSite; ' + str(len(file_paths)) + ' file paths')
         return file_paths
 
     def save_search_file_paths(self, save_file):
@@ -38,8 +40,8 @@ class WebSite:
         for i, x in enumerate(self.file_paths):
             if 'problem' in x[0]:
                 continue
-            webPage = WebPage(x[0])
-            indexes = webPage.search_indexes
+            web_page = WebPage(x[0])
+            indexes = web_page.search_indexes
             if len(indexes) > 0:
                 with open(save_file, 'a') as f:
                     for atrs in indexes:
@@ -53,9 +55,7 @@ class WebSite:
                         if len(atrs) > 1:
                             f.write('$$')
                             f.write(atrs[1])  # url
-        # log('save_file= ', save_file)
-        # global msg
-        # msg += '\nSaved search labels to: ' + save_file
+        logging.info('Saved labels in: ' + save_file)
 
     def __str__(self) -> str:
         return f'WebSite: file_paths = {self.__file_paths} '
