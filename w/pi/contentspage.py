@@ -10,6 +10,7 @@ class ContentsPage:
     def update(file_paths):
         (version, lines) = ContentsPage._get_version()
         if version is None:
+            print('stopped; version not given')
             exit()
         try:
             with open('contents.html', 'w') as f:

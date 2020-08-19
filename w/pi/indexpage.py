@@ -33,6 +33,31 @@ class IndexPage:
         logging.info('Updated index.html')
 
     @staticmethod
+    def update(file_paths):
+        (version, lines) = ContentsPage._get_version()
+        if version is None:
+            print('stopped; version not given')
+            exit()
+        try:
+            with open('index.tmp', 'w') as f:
+                for line in lines:
+                    if line.startswith('<br><br>'):
+                        f.write(line + '\n')
+                        ContentsPage._append_version_and_content_links(version, file_paths, f)
+                        break
+                    f.write(line + '\n')
+        except Exception:
+            logging.exception('')
+            print(traceback.format_exc())
+            with open('contents.html', 'w') as f:
+                for line in lines:
+                    f.write(line + '\n')
+            raise
+
+        logging.info('Updated contents.html')
+        return version
+
+    @staticmethod
     def _extract_url_label(link):
         link = link.replace('href= ', 'href=')
         quote = '"' if link.find('href="') > -1 else "'"
