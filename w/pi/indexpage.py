@@ -1,5 +1,8 @@
 import logging
+import shutil
 import traceback
+
+from pi.contentspage import ContentsPage
 
 
 class IndexPage:
@@ -33,13 +36,11 @@ class IndexPage:
         logging.info('Updated index.html')
 
     @staticmethod
-    def update(file_paths):
-        (version, lines) = ContentsPage._get_version()
-        if version is None:
-            print('stopped; version not given')
-            exit()
+    def update(file_paths: str):
+        shutil.copyfile('index.html', 'index.tmp')
         try:
             with open('index.tmp', 'w') as f:
+                lines = f.readlines()
                 for line in lines:
                     if line.startswith('<br><br>'):
                         f.write(line + '\n')
@@ -53,9 +54,8 @@ class IndexPage:
                 for line in lines:
                     f.write(line + '\n')
             raise
+        logging.info('Updated index.html')
 
-        logging.info('Updated contents.html')
-        return version
 
     @staticmethod
     def _extract_url_label(link):

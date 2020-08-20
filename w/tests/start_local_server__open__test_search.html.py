@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 
-from multiprocessing import Process
-from tkinter import messagebox
 import os
-import subprocess
 import time
 import traceback
 import webbrowser
+from multiprocessing import Process
+from tkinter import messagebox
+
 
 def f():
     # start local server:

@@ -7,13 +7,13 @@ from os import mkdir
 from os import path
 from tkinter import messagebox
 
-import pi.update_and_checkin
 
-logging_file_name = None
+logging_file_name: str = ''
 
 
 def _exit_handler():
     _archive_log()
+    global logging_file_name
     with open(logging_file_name) as f:
         if not logging.getLogger().isEnabledFor(logging.DEBUG):
             messagebox.showinfo(logging_file_name, f.read())
@@ -25,7 +25,7 @@ def _archive_log():
     archive_dir = './logs-check-ins'
     if not path.isdir(archive_dir):
         mkdir(archive_dir)
-    messagebox.showinfo('111111111'+ logging_file_name )
+    global logging_file_name
     log_archive_file = archive_dir + '/' + logging_file_name + '-' + \
                        str(datetime.now()).replace(':', '-') + '.log'
     shutil.copyfile(logging_file_name, log_archive_file)
@@ -43,4 +43,3 @@ def config_log(file_name):
         log_format = '[%(levelname)s] - %(name)s - %(filename)s.%(funcName)s(%(lineno)d) - %(message)s'
     logging.basicConfig(filename=logging_file_name, filemode='w', level=log_level, format=log_format)
     atexit.register(_exit_handler)
-
