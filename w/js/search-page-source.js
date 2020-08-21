@@ -1,8 +1,8 @@
-function scanProblemfiles(fileUrls, inputText) {
+function scanProblemFiles(fileUrls, inputText) {
   var html = '';   
   for (i = 0; i < fileUrls.length; i++) {
     var url = fileUrls[i];
-    if (window.DEBUG) console.log('*scanProblemfiles() url = '+url)  
+    if (window.DEBUG) console.log('*scanProblemFiles() url = '+url)
     if (url.indexOf('problem') < 0) {
        continue;
     }
@@ -18,7 +18,7 @@ function scanProblemfiles(fileUrls, inputText) {
       }
       html = html  + '<a href="' + url + '">' + getUrlLabel(url) + '</a>: ' + foundParagraphs;
     }
-    if (window.DEBUG) console.log('*scanProblemfiles() finished search in url= '+url);
+    if (window.DEBUG) console.log('*scanProblemFiles() finished search in url= '+url);
   }
   return html;
 }

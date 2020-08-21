@@ -17,7 +17,7 @@ def start_local_server():
     os.chdir('..')
     os.chdir('..')
     global msg
-    msg += '\n1. cwd= '+ os.getcwd()
+    msg += '\n1. cwd= ' + os.getcwd()
     # stop any local server:
     os.system('fuser -k 8080/tcp')
     msg += '\n2. process using 8080 stopped'
@@ -30,12 +30,12 @@ def start_local_server():
 
 if __name__ == '__main__':
     msg = ''
-    try: 
-      start_local_server()
-      webbrowser.open('http://localhost:8080/w/tests/test_search.html')
-      msg += '\n4/4. run local tests'
-      print(msg)
+    try:
+        os.system("run_all_pytests.py 1")
+        start_local_server()
+        webbrowser.open('http://localhost:8080/w/tests/test_search.html')
+        msg += '\n4/4. run local tests'
+        print(msg)
     except Exception as e:
-      print(traceback.format_exc())
-      messagebox.showinfo(__file__, os.path.basename(__file__) + ' FAILED; \n\n' + str(e))
-
+        print(traceback.format_exc())
+        messagebox.showinfo(__file__, os.path.basename(__file__) + ' FAILED; \n\n' + str(e))

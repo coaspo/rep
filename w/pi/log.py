@@ -26,8 +26,8 @@ def _archive_log():
     if not path.isdir(archive_dir):
         mkdir(archive_dir)
     global logging_file_name
-    log_archive_file = archive_dir + '/' + logging_file_name + '-' + \
-                       str(datetime.now()).replace(':', '-') + '.log'
+    archived_name = logging_file_name.replace('.log', str(datetime.now()).replace(':', '-') + '.log')
+    log_archive_file = archive_dir + '/' + archived_name
     shutil.copyfile(logging_file_name, log_archive_file)
 
 

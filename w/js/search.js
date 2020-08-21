@@ -53,7 +53,7 @@ function getFileUrls(baseUrl, filePathsFilePath) {
   var fileUrls = [];
 
   for (var i = 0; i < lines.length; i++) {
-    fileUrls[i] = window.BASE_URL + lines[i];
+    fileUrls[i] = window.BASE_URL + '/' + lines[i];
   }
   if (window.DEBUG) console.log('*getFileUrls() paths=\n' + 
                     String(fileUrls).replace(/,/g, '\n'));
@@ -102,7 +102,7 @@ function readText(url) {
 function searchContents(inputText, searchFileUrls, searchLabels) {
   if (window.DEBUG) console.log('*searchFiles() inputText = '+inputText)  
 
-  const problemsHtml = scanProblemfiles(searchFileUrls, inputText)
+  const problemsHtml = scanProblemFiles(searchFileUrls, inputText)
   const urlResult = searchUrls(inputText, searchFileUrls)
   const indexResult = searchFileIndex(inputText, searchFileUrls, searchLabels) 
   
@@ -112,10 +112,7 @@ function searchContents(inputText, searchFileUrls, searchLabels) {
   if (result.html.length === 0) {
     result.html = 'Did not find: "' + inputText + '"';
   } else  if ((problemsHtml.length + urlResult.numOfUrls + indexResult.urlCount) == 1) {
-    url = urlResult.url + indexResult.url // one of the '.url' fields is blank
-    if (url.indexOf('youtube.com') > -1) {
-      result.hitUrl = urlResult.url + indexResult.url  // this url will be opened automatically
-    }
+    result.hitUrl = urlResult.url + indexResult.url // one of the 'results' urls is blank
   }
   return result;
 }

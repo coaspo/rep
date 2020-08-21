@@ -1,3 +1,3 @@
-from pi import update_and_checkin
+from pi import checkin_controller
 
 __version__ = "1.0.0"

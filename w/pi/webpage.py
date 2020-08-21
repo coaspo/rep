@@ -7,13 +7,22 @@ from datetime import datetime
 class WebPage:
     def __init__(self, file_path: str):
         self.__file_path = file_path
-        mtime = os.path.getmtime(file_path)
-        self._modification_date = datetime.utcfromtimestamp(mtime)
+        self.__link = WebPage._create_link(file_path)
+        update_ts = os.path.getmtime(file_path)
+        self.__modification_date = str(datetime.utcfromtimestamp(update_ts))[:16]
         with open(file_path) as f:
             lines = f.readlines()
         self.__num_of_lines = len(lines)
         self.__search_indexes = self._find_indexes(lines)
         logging.debug(file_path)
+
+    @staticmethod
+    def _create_link(file_path):
+        i_start = file_path.index('/') + 1
+        i_end = file_path.rindex('.html')
+        file_name = file_path[i_start:i_end].replace('_', ' ')
+        link = '<a href=\'./' + file_path + '\'>' + file_name + '</a>'
+        return link
 
     @staticmethod
     def _extract_italicized_labels(line):
@@ -69,8 +78,12 @@ class WebPage:
         return self.__file_path
 
     @property
-    def modification_date(self) -> datetime:
-        return self._modification_date
+    def link(self) -> str:
+        return self.__link
+
+    @property
+    def modification_date(self) -> str:
+        return self.__modification_date
 
     @property
     def num_of_lines(self) -> int:
