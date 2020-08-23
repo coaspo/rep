@@ -16,9 +16,16 @@ def run(*args: str):
     print('errs:', errs)
 
 
+def make_paths_usable_by_local_server():
+    copyfile('./tests/search_file_paths__t.txt', 'search_file_paths.txt')
+    copyfile('./tests/search_labels__t.txt', 'search_label.txt')
+    print('made paths usable by local server')
+
+
 if __name__ == '__main__':
     print('Started', __file__)
     run(r'. venv/bin/activate')
     run('pytest',  './tests')
+    make_paths_usable_by_local_server()
     print('done')
     exit(0)

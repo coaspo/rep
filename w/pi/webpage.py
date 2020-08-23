@@ -9,16 +9,15 @@ class WebPage:
         self.__file_path = file_path
         self.__link = WebPage._create_link(file_path)
         update_ts = os.path.getmtime(file_path)
-        self.__modification_date = str(datetime.utcfromtimestamp(update_ts))[:16]
+        self.__modification_date = str(datetime.utcfromtimestamp(update_ts))[:10]
         with open(file_path) as f:
             lines = f.readlines()
-        self.__num_of_lines = len(lines)
-        self.__search_indexes = self._find_indexes(lines)
+        self.__search_indexes,  self.__num_of_lines = self._find_indexes(lines)
         logging.debug(file_path)
 
     @staticmethod
     def _create_link(file_path):
-        i_start = file_path.index('/') + 1
+        i_start = file_path.rindex('/') + 1
         i_end = file_path.rindex('.html')
         file_name = file_path[i_start:i_end].replace('_', ' ')
         link = '<a href=\'./' + file_path + '\'>' + file_name + '</a>'
@@ -56,7 +55,11 @@ class WebPage:
 
     def _find_indexes(self, lines):
         indexes = []
+        num_of_lines = 0
         for line in lines:
+            num_of_lines += 1
+            if line.find('<body>') > -1:
+                num_of_lines = 0
             # search for anchors:
             i = line.find('<a ')
             if i > -1:
@@ -71,7 +74,7 @@ class WebPage:
             if i > -1:
                 labels = WebPage._extract_italicized_labels(line)
                 indexes.append((labels,))
-        return indexes
+        return indexes, num_of_lines - 1
 
     @property
     def file_path(self) -> str:

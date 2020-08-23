@@ -4,20 +4,19 @@ from pi.website import WebSite
 from shutil import copyfile
 
 def make_paths_usable_by_local_server():
-    copyfile('./tests/search_files_paths__t.txt', 'search_files_paths.txt')
-    copyfile('./tests/search_labels__t.txt', 'search_labels.txt')
+    copyfile('./tests/search_file_paths__t.txt', 'search_file_paths.txt')
+    copyfile('./tests/search_labels__t.txt', 'search_label.txt')
 
-def test_save_search_file_paths():
+def test_website():
     if os.getcwd().endswith('/tests'):
         os.chdir('..')
-    print(99999999, os.getcwd())
     target_dirs = ('./tests/search-files',)
     website = WebSite(target_dirs)
 
-    if os.path.exists("./tests/search_files_paths__t.txt"):
-        os.remove("./tests/search_files_paths__t.txt")
-    website.save_search_file_paths('./tests/search_files_paths__t.txt')
-    with open('./tests/search_files_paths__t.txt') as f:
+    if os.path.exists("./tests/search_file_paths__t.txt"):
+        os.remove("./tests/search_file_paths__t.txt")
+    website.save_search_file_paths('./tests/search_file_paths__t.txt')
+    with open('./tests/search_file_paths__t.txt') as f:
         actual = f.read()
     expected = """tests/search-files/links-2.html
 tests/search-files/links.html
@@ -28,11 +27,8 @@ tests/search-files/recipe.html
     assert expected == actual, 'save_searcn_file_paths() failed; actual:\n' + actual + '\nexpected:\n' + expected
 
 
-def test_save_search_labels():
-    if os.getcwd().endswith('/tests'):
-        os.chdir('..')
-    target_dirs = ('./tests/search-files',)
-    website = WebSite(target_dirs)
+    if os.path.exists("./tests/search_labels__t.txt"):
+        os.remove("./tests/search_labels__t.txt")
     website.save_search_labels('./tests/search_labels__t.txt')
 
     with open('./tests/search_labels__t.txt') as f:
@@ -44,7 +40,11 @@ internet archive$$1$$https://archive.org
 free books$$1$$https://www.freebookcentre.net/
 coursera- free course$$1$$https://www.coursera.org/
 edx - mit, harvard$$1$$https://www.edx.org/
+pizza$$4
 serve done$$4"""  # anchor label, file index, url
     assert expected == actual, 'save_search_labels() failed: actual:\n' + actual + '\nexpected:\n' + expected
 
+    actual = len(website.web_pages)
+    expected = 5
+    assert expected == actual, 'save_search_labels() failed: actual:\n' + str(actual) + '\nexpected:\n' + str(expected)
     make_paths_usable_by_local_server()

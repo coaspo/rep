@@ -17,15 +17,15 @@ def start_local_server():
     os.chdir('..')
     os.chdir('..')
     global msg
-    msg += '\n1. cwd= ' + os.getcwd()
+    msg += 'start_local_server()\n  1. cwd= ' + os.getcwd()
     # stop any local server:
     os.system('fuser -k 8080/tcp')
-    msg += '\n2. process using 8080 stopped'
+    msg += '\n  2. process using 8080 stopped'
 
     p = Process(target=f)
     p.start()
     time.sleep(2)
-    msg += '\n3. local server started'
+    msg += '\n  3. local server started'
 
 
 if __name__ == '__main__':
@@ -34,7 +34,7 @@ if __name__ == '__main__':
         os.system("run_all_pytests.py 1")
         start_local_server()
         webbrowser.open('http://localhost:8080/w/tests/test_search.html')
-        msg += '\n4/4. run local tests'
+        msg += '\n 4/4. Ran javascript tests'
         print(msg)
     except Exception as e:
         print(traceback.format_exc())
