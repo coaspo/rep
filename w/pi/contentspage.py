@@ -61,45 +61,27 @@ class ContentsPage:
 
     @staticmethod
     def _get_file_list_table(web_pages):
-        web_pages.sort(key=lambda x: x.modification_date, reverse=True)
-        lines = '<table>'
-        topics = set()
-        for web_page in web_pages:
-            path = web_page.file_path
-            i_end = path.index('/')
-            topic = path[:i_end]
-            topics.add(topic)
+        web_pages.sort(key=lambda x: x.file_path, reverse=True)
+        lines = '<table><tr><td></td> <td></td> <td></td> <td>last update</td><td>line count</td></tr>\n'
 
         previous_topic = ''
         previous_sub_topic = ''
         for web_page in web_pages:
-            dt = web_page.modification_date
-            link = web_page.link
-            num_of_lines = web_page.num_of_lines
-
-            path = web_page.file_path  # path may be  topic/sub-topic/x.html or topic/x.html
-            i_end = path.index('/')
-            topic = path[:i_end]
-            if topic != previous_topic:
-                previous_topic = topic
-                display_topic = topic.title()
+            if web_page.topic != previous_topic:
+                previous_topic = web_page.topic
+                display_topic = web_page.topic.title()
             else:
                 display_topic = ''
 
-            path = path[i_end + 1:]
-            sub_topic = ''
-            if path.find("/") > 0:
-                i_end = path.index('/')
-                sub_topic = path[:i_end]
-
-            if sub_topic != previous_sub_topic:
-                previous_sub_topic = sub_topic
-                display_sub_topic = sub_topic.title()
+            if web_page.sub_topic != previous_sub_topic:
+                previous_sub_topic = web_page.sub_topic
+                display_sub_topic = web_page.sub_topic.title()
             else:
                 display_sub_topic = ''
 
-            lines += f"<tr><td><b>{display_topic} </b></td> <td>{display_sub_topic}</td> <td>{link}</td>" \
-                     f"> <td style=\"font-size:12px;\">{dt}</td><td>{num_of_lines}</td><tr>\n "
+            lines += f"<tr><td><b>{display_topic} </b></td> <td>{display_sub_topic}</td> <td>{web_page.link}</td>" \
+                     f"<td style=\"font-size:12px;\">{ web_page.modification_date}</td>" \
+                     f"<td>{web_page.content_line_count}</td></tr>\n "
 
         lines += '</table>'
         return lines

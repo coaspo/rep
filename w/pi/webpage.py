@@ -10,9 +10,10 @@ class WebPage:
         self.__link = WebPage._create_link(file_path)
         update_ts = os.path.getmtime(file_path)
         self.__modification_date = str(datetime.utcfromtimestamp(update_ts))[:10]
-        with open(file_path) as f:
-            lines = f.readlines()
-        self.__search_indexes,  self.__num_of_lines = self._find_indexes(lines)
+        self.__search_indexes,  self.__content_line_count = \
+            WebPage._find_indexes(file_path)
+        self.__topic, self.__sub_topic = \
+            WebPage._find_topics(file_path)
         logging.debug(file_path)
 
     @staticmethod
@@ -53,7 +54,10 @@ class WebPage:
         attrs = (label, url)
         return attrs
 
-    def _find_indexes(self, lines):
+    @staticmethod
+    def _find_indexes(file_path):
+        with open(file_path) as f:
+            lines = f.readlines()
         indexes = []
         num_of_lines = 0
         for line in lines:
@@ -64,7 +68,7 @@ class WebPage:
             i = line.find('<a ')
             if i > -1:
                 if line.find('</a>', i) < 1:
-                    raise Exception('ERR missing </a> in: ' + line + 'ERR file_path = ' + self.__file_path)
+                    raise Exception('ERR missing </a> in: ' + line + 'ERR file_path = ' + file_path)
                 ii = line.index('</a>', i) + 4
                 link = line[i:ii]
                 label_url = WebPage._extract_url_label(link)
@@ -75,6 +79,18 @@ class WebPage:
                 labels = WebPage._extract_italicized_labels(line)
                 indexes.append((labels,))
         return indexes, num_of_lines - 1
+
+    @staticmethod
+    def _find_topics(file_path):
+        i_end = file_path.index('/')
+        topic = file_path[:i_end]
+
+        sub_path = file_path[i_end + 1:]
+        sub_topic = ''
+        if sub_path.find("/") > 0:
+            i_end = sub_path.index('/')
+            sub_topic = sub_path[:i_end]
+        return topic, sub_topic
 
     @property
     def file_path(self) -> str:
@@ -89,16 +105,24 @@ class WebPage:
         return self.__modification_date
 
     @property
-    def num_of_lines(self) -> int:
-        return self.__num_of_lines
+    def content_line_count(self) -> int:
+        return self.__content_line_count
 
     @property
     def search_indexes(self) -> list:
         return self.__search_indexes
 
+    @property
+    def topic(self) -> str:
+        return self.__topic
+
+    @property
+    def sub_topic(self) -> str:
+        return self.__sub_topic
+
     def __str__(self) -> str:
         return f'WebPage: file_path = {self.file_path}, ' + \
-               f' modification_date = {self.modification_date}, num_of_lines = {self.num_of_lines}, ' + \
+               f' modification_date = {self.modification_date}, num_of_lines = {self.content_line_count}, ' + \
                f' search_indexes = {self.search_indexes} '
 
 

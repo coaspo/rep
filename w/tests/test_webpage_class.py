@@ -23,7 +23,7 @@ def test_webpage():
     expected = '2020-08-22'
     assert expected == actual, 'invalid modification_date; expected:\n' + expected + '\nactual:\n' + actual
 
-    actual = page.num_of_lines
+    actual = page.content_line_count
     expected = 5
     assert expected == actual, 'invalid num_of_lines; expected:\n' + str(expected) + '\nactual:\n' + str(actual)
 

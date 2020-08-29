@@ -36,7 +36,7 @@ class IndexPage:
         logging.info('Updated index.html')
 
     @staticmethod
-    def update(file_paths: str):
+    def update(web_pages: str):
         shutil.copyfile('index.html', 'index.tmp')
         try:
             with open('index.tmp', 'w') as f:
