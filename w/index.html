@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8"/>
+  <link rel="shortcut icon" href="#"> <!--prevents favicon.ico ERR-->
   <title>home</title>
    <style>
     body {font-size:24px;}
@@ -77,18 +78,20 @@ button {
 	<!--contents--><a href="./contents.html">Contents</a>&nbsp;&nbsp;&nbsp;<br/><br/>
 	      </td>
       <td>
-	<input type="text" id="inputText"   style="width:355px; box-sizing: border-box; font-size:24px;" placeholder='Enter text' >
-	<p><button onclick="defineWord();"  style=" color:#347235" >Dictionary</button>
-	   <button onclick="findAcronym();" style=" color:#347235;" >Acronym</button>
-	<p><button onclick="google();"     >10<sup>100</sup></button>
-	   <button onclick="duckDuckGo();" >🦆 🦆</button>
-        <p><button onclick="wikipedia();"   style=" color:#800517" >Wikipedia</button>
-	   <button onclick="wolfram();"     style=" color:#800517;" >Wolfram</button>
-	<p><button onclick="mayoclinic();" >⚕️ Mayo C</button>
-	   <button onclick="nih();"        >⚕️ 💊 NIH</button>
-	 <p><button onclick="enEspañol();" >🇪🇸 traduc.</button>
-	   <button onclick="σταΕλληνικά();">🇬🇷 μεταφ.</button>
-	<p><button onclick="googlemaps();" >🗺️ Map</button>
+
+
+	<input type="text" id="inputText"   style="width:355px; box-sizing: border-box; font-size:24px;" placeholder='Enter text, 🦆🦆 default' >
+	<p><button onclick="browse('https://www.thefreedictionary.com/zzzz?s=t');" style="color:#347235" >Dictionary</button>
+	   <button onclick="browse('https://www.acronymfinder.com/zzzz.html');"    style="color:#347235;">Acronym</button>
+	<p><button onclick="browse('https://www.google.com/search?q=zzzz  site:.org');">                  10<sup>100</sup></button>
+	   <button onclick="browse('https://duckduckgo.com/?q=zzzz  site:org');" >                        🦆 🦆</button>
+        <p><button onclick="browse('https://en.wikipedia.org/wiki/zzzz');" style="color:#800517" >   Wikipedia</button>
+	   <button onclick="browse('https://www.wolframalpha.com/input/?i=zzzz');" style=" color:#800517;">Wolfram</button>
+	<p><button onclick="browse('https://www.mayoclinic.org/search/search-results?q=zzzz');">           ⚕️ Mayo C</button>
+	   <button onclick="browse('https://vsearch.nlm.nih.gov/vivisimo/cgi-bin/query-meta?v%3Aproject=medlineplus&v%3Asources=medlineplus-bundle&query=zzzz')"        >⚕️ 💊 NIH</button>
+	 <p><button onclick="browse('https://translate.google.com/#view=home&op=translate&sl=es&tl=en&text=zzzz');" >🇪🇸 traduc.</button>
+	   <button onclick="browse('https://translate.google.com/#view=home&op=translate&sl=el&tl=en&text=zzzz');">  🇬🇷 μεταφ.</button>
+	<p><button onclick="googlemaps();" >    🗺️ Map</button>
 	   <button onclick="searchContentsMain(true, '/search_file_paths.txt', '/search_labels.txt');" style="width:155px; text-align: left; color:#009900; font-weight:bold" >Contents</button>
       </td>
     </tr>
@@ -244,91 +247,45 @@ function opencontName(evt, cityName) {
   evt.currentTarget.className += " active";
 }
 
-// Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
+document.getElementById("defaultOpen").click(); // open Main tab
 
-function findAcronym() {
-  var acronym = document.getElementById('inputText').value;
-  var url = "https://www.acronymfinder.com/" + acronym + ".html";
+function browse(url_template) {
+  var text = document.getElementById('inputText').value;
+  var url = url_template.replace('zzzz', text)
   var win = window.open(url, "_self");
-  win.focus();
+  win.focus(); 
 }
-function defineWord() {
-  var word = document.getElementById('inputText').value;
-  var url = "https://www.thefreedictionary.com/" + word + "?s=t";
-  var win = window.open(url, "_self");
-  win.focus();
-}
-function wikipedia() {
-  var word = document.getElementById('inputText').value;
-  var url = "https://en.wikipedia.org/wiki/" + word;
-  var win = window.open(url, "_self");
-  win.focus();
-}
-function wolfram() {
-  var word = document.getElementById('inputText').value;
-  var url = "https://www.wolframalpha.com/input/?i=" + word;
-  var win = window.open(url, "_self");
-  win.focus();
-}
-function mayoclinic() {
-  var word = document.getElementById('inputText').value;
-  var url = "https://www.mayoclinic.org/search/search-results?q=" + word;
-  var win = window.open(url, "_self");
-  win.focus();
-}
-function nih() {
-  var word = document.getElementById('inputText').value;
-  var url = "https://vsearch.nlm.nih.gov/vivisimo/cgi-bin/query-meta?v%3Aproject=medlineplus&v%3Asources=medlineplus-bundle&query=" + word;
-  var win = window.open(url, "_self");
-  win.focus();
-}
-function duckDuckGo() {
-  var word = document.getElementById('inputText').value;
-  var url = "https://duckduckgo.com/?q=" + word + ' site:org';+ "&t=hk&ia=web";
-  var win = window.open(url, "_self");
-  win.focus();
-}
-function google() {
-  var word = document.getElementById('inputText').value + ' site:.org';
-  var url = "https://www.google.com/search?q=" + word ;  //site%3A.edu
-  var win = window.open(url, "_self");
-  win.focus();
-}
+
 function googlemaps() {
   var words = String(document.getElementById('inputText').value.trim().split(" "));
   var suffix = words.replace(",", "+");
-  var url = "https://www.google.com/maps/place/" + words ;
+  url = "https://www.google.com/maps/place/" + suffix;
   var win = window.open(url, "_self");
-  win.focus();
+  win.focus(); 
 }
-function σταΕλληνικά() {
-  var englishWord = document.getElementById('inputText').value;
-  var url = "https://translate.google.com/#en/el/" + englishWord;
-  //var url = "https://glosbe.com/en/el/" + englishWord;
-  var win = window.open(url, "_self");
-  win.focus();
-}
-function enEspañol() {
-  var englishWord = document.getElementById('inputText').value;
-  var url = "https://translate.google.com/#en/es/" + englishWord;
-  //var url = "https://glosbe.com/en/es/" + englishWord;
-  var win = window.open(url, "_self");
-  win.focus();
-}
+
 if (document.URL.startsWith('file')) {
-    document.body.style.background = "lightyellow"
+    document.body.style.background = "lightyellow" // indicates server not running
 }
+
 document.getElementById('inputText').addEventListener('keypress', function (e) {
   var key = e.which || e.keyCode;
   if (key === 13) { // 13 is enter
-    duckDuckGo()
+    browse('https://duckduckgo.com/?q=zzzz  site:org');
   }
 });
 
+const GRAPHICAL_WEATHER_LINK = '&nbsp; &nbsp; <id style="font-size: 70%">' +
+   "<a href='https://forecast.weather.gov/MapClick.php?lat=42.48&lon=-71.1&unit=0&lg=english&FcstType=graphical'>Graphical weather</a>" + '</id>';
+   
+document.getElementById("weather").innerHTML = 'wait, or see: ' + GRAPHICAL_WEATHER_LINK;
+
 w = new Worker("js/weather.js");
 w.onmessage = function(event) {
-                document.getElementById("weather").innerHTML = event.data;
+                if (event.data == undefined) {
+                  event.data = 'unable to get weather; see '
+                }
+                document.getElementById("weather").innerHTML = event.data + GRAPHICAL_WEATHER_LINK;
                 w.terminate();
                 w = undefined;
               };

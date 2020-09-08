@@ -4,13 +4,11 @@ function getWeather() {
   const url1 = weatherPeriod(0, w.properties.periods)
   const url2 = weatherPeriod(1, w.properties.periods)
   const url3 = weatherPeriod(2, w.properties.periods)
-  graphLink = "<a href='https://forecast.weather.gov/MapClick.php?lat=42.48&lon=-71.1&unit=0&lg=english&FcstType=graphical'>Graphical weather</a>"
-  ref = ' &nbsp; &nbsp; <id style="font-size: 70%">' + graphLink + '</id>'
-  html = url1+ '<br>' + url2 + '<br>' + url3  + ref 
+  html = url1+ '<br>' + url2 + '<br>' + url3
   try {
     return html
   } catch (err) {
-    return 'weather ERR; refresh page or browse '+ graphLink
+    return 'get weather ERR '
   }
 }
 
