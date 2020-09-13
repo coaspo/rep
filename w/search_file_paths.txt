@@ -6,6 +6,7 @@ arts/list_of_internet_words.html
 arts/list_of_words;_the_good_the_bad_and_the_ugly.html
 arts/music_-_links_to_various_music_genres.html
 arts/notable_quotes.html
+arts/spanish-idioms.html
 arts/yes,_no,_water,_fire,_one,_two,_in_different_languages.html
 recipes/beans,_lima_beans.html
 recipes/breads_-_challah,_focaccia,_oat,_tsoureki,_portuguese,_sourdough,_zopf.html

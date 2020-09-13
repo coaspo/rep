@@ -89,9 +89,9 @@ button {
 	   <button onclick="browse('https://www.wolframalpha.com/input/?i=zzzz');" style=" color:#800517;">Wolfram</button>
 	<p><button onclick="browse('https://www.mayoclinic.org/search/search-results?q=zzzz');">           ⚕️ Mayo C</button>
 	   <button onclick="browse('https://vsearch.nlm.nih.gov/vivisimo/cgi-bin/query-meta?v%3Aproject=medlineplus&v%3Asources=medlineplus-bundle&query=zzzz')"        >⚕️ 💊 NIH</button>
-	 <p><button onclick="browse('https://translate.google.com/#view=home&op=translate&sl=es&tl=en&text=zzzz');" >🇪🇸 traduc.</button>
-	   <button onclick="browse('https://translate.google.com/#view=home&op=translate&sl=el&tl=en&text=zzzz');">  🇬🇷 μεταφ.</button>
-	<p><button onclick="googlemaps();" >    🗺️ Map</button>
+	<p><button onclick="browse('https://translate.google.com/#view=home&op=translate&sl=es&tl=en&text=zzzz');" >🇪🇸 ➜ 🇺🇲️</button>
+	   <button onclick="browse('https://translate.google.com/#view=home&op=translate&sl=en&tl=el&text=zzzz');">🇺🇲️  ➜ 🇬🇷</button>
+	<p><button onclick="browse('https://www.google.com/maps/place/zzzz');" >    🗺️ Map</button>
 	   <button onclick="searchContentsMain(true, '/search_file_paths.txt', '/search_labels.txt');" style="width:155px; text-align: left; color:#009900; font-weight:bold" >Contents</button>
       </td>
     </tr>
@@ -256,13 +256,6 @@ function browse(url_template) {
   win.focus(); 
 }
 
-function googlemaps() {
-  var words = String(document.getElementById('inputText').value.trim().split(" "));
-  var suffix = words.replace(",", "+");
-  url = "https://www.google.com/maps/place/" + suffix;
-  var win = window.open(url, "_self");
-  win.focus(); 
-}
 
 if (document.URL.startsWith('file')) {
     document.body.style.background = "lightyellow" // indicates server not running
@@ -275,7 +268,7 @@ document.getElementById('inputText').addEventListener('keypress', function (e) {
   }
 });
 
-const GRAPHICAL_WEATHER_LINK = '&nbsp; &nbsp; <id style="font-size: 70%">' +
+const GRAPHICAL_WEATHER_LINK = '<id style="font-size: 70%">' +
    "<a href='https://forecast.weather.gov/MapClick.php?lat=42.48&lon=-71.1&unit=0&lg=english&FcstType=graphical'>Graphical weather</a>" + '</id>';
    
 document.getElementById("weather").innerHTML = 'wait, or see: ' + GRAPHICAL_WEATHER_LINK;
@@ -285,7 +278,8 @@ w.onmessage = function(event) {
                 if (event.data == undefined) {
                   event.data = 'unable to get weather; see '
                 }
-                document.getElementById("weather").innerHTML = event.data + GRAPHICAL_WEATHER_LINK;
+		html = event.data.replace('graphic', GRAPHICAL_WEATHER_LINK)
+                document.getElementById("weather").innerHTML = html;
                 w.terminate();
                 w = undefined;
               };

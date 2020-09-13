@@ -68,48 +68,48 @@ armenian goddess$$6$$https://en.wikipedia.org/wiki/Hurrian_songs
 apollo$$6$$https://www.youtube.com/watch?v=bydqNRYgbuc
 greek music$$6$$https://www.youtube.com/watch?v=4hOK7bU0S1Y
 free speech$$7
-list of languages by number of native speakers$$8$$https://en.wikipedia.org/wiki/List_of_languages_by_number_of_native_speakers
-french beans$$9
-lima beans$$9
-tsoureki$$10
-sourdough$$10
-potato tortilla$$17
-scalloped potatoes</th>$$17
-prasorizo$$18
-fried rice$$18
-rizogalo$$18
-spanish rice$$18
-ratatouille$$19
-ciambotta$$19
-tourloú/briami$$19
-pisto$$19
-becoming mentally strong$$20$$https://www.youtube.com/watch?v=TFbv757kup4
-the pandemic and the information network$$21$$https://www.cjr.org/analysis/covid-19-coronavirus-uncertainty.php
-why the coronavirus is so confusing$$21$$https://www.theatlantic.com/health/archive/2020/04/pandemic-confusing-uncertainty/610819/
-virus$$21
-cognitive dissonance$$21$$https://www.theatlantic.com/ideas/archive/2020/07/role-cognitive-dissonance-pandemic/614074/
-plato's regimes (systems of government)$$21$$https://en.wikipedia.org/wiki/Plato%27s_five_regimes
-lydian$$21$$https://en.wikipedia.org/wiki/Lydia
-aristotle's modes of persuasion$$21$$https://en.wikipedia.org/wiki/Modes_of_persuasion
-logos$$21
-emotional intelligence tools$$22$$https://blog.dce.harvard.edu/professional-development/assessing-your-emotional-intelligence-4-tools-we-love
-emotional intelligence definition$$22$$https://www.psychologytoday.com/us/blog/the-personality-analyst/200909/what-emotional-intelligence-is-and-is-not
-nih.gov$$23$$https://www.nia.nih.gov/health
-the truth about mobile phone and wireless radiation$$25$$https://www.youtube.com/watch?v=BwyDCHf5iCY
-sugar: the bitter truth$$25$$https://www.youtube.com/watch?v=dBnniua6-oM
-10 steps to conquer information overload$$26$$https://www.forbes.com/sites/laurashin/2014/11/14/10-steps-to-conquering-information-overload/#69ac78cd7b08
-hypersanity$$27$$https://www.psychologytoday.com/us/blog/hide-and-seek/201908/hypersanity
-diogenes$$27
-the coming plague: newly emerging diseases$$28$$https://www.amazon.com/dp/0140250913/ref=rdr_ext_tmb
-i contain multitudes... by ed yong$$28$$https://www.amazon.com/Contain-Multitudes-Microbes-Within-Grander/dp/B01FY85L38/ref=sr_1_1?dchild=1&keywords=I+Contain+Multitudes&qid=1589194089&sr=8-1
-the hacking of the american mind by robert h. lustig$$28$$https://www.amazon.com/Hacking-of-American-Mind-audiobook/dp/B0753KYQLN/ref=sr_1_1?dchild=1&keywords=The+Hacking+of+the+American+Mind+by+Robert&qid=1589850091&sr=8-1
-pure, white, and deadly$$28$$https://www.amazon.com/Pure-White-and-Deadly-audiobook/dp/B077DKN9RC/ref=sr_1_1?dchild=1&keywords=Pure%2C+White%2C+and+Deadly&qid=1589850288&sr=8-1
-korean cdc interview$$28$$https://www.youtube.com/watch?v=gAk7aX5hksU
-virus course$$28$$https://www.youtube.com/watch?v=lj3NhPgOoX4
-week in virology$$28$$https://www.microbe.tv/twiv/archive/
-wolfram$$28$$https://www.wolfram.com/
-worldometers$$28$$https://www.worldometers.info/
-week in virology$$28$$https://www.microbe.tv/twiv/archive/
-flightradar24$$28$$https://www.flightradar24.com/airport/bos
-merk manual$$28$$https://www.merckmanuals.com/
-nih.gov$$29$$https://www.nia.nih.gov/health
+list of languages by number of native speakers$$9$$https://en.wikipedia.org/wiki/List_of_languages_by_number_of_native_speakers
+french beans$$10
+lima beans$$10
+tsoureki$$11
+sourdough$$11
+potato tortilla$$18
+scalloped potatoes</th>$$18
+prasorizo$$19
+fried rice$$19
+rizogalo$$19
+spanish rice$$19
+ratatouille$$20
+ciambotta$$20
+tourloú/briami$$20
+pisto$$20
+becoming mentally strong$$21$$https://www.youtube.com/watch?v=TFbv757kup4
+the pandemic and the information network$$22$$https://www.cjr.org/analysis/covid-19-coronavirus-uncertainty.php
+why the coronavirus is so confusing$$22$$https://www.theatlantic.com/health/archive/2020/04/pandemic-confusing-uncertainty/610819/
+virus$$22
+cognitive dissonance$$22$$https://www.theatlantic.com/ideas/archive/2020/07/role-cognitive-dissonance-pandemic/614074/
+plato's regimes (systems of government)$$22$$https://en.wikipedia.org/wiki/Plato%27s_five_regimes
+lydian$$22$$https://en.wikipedia.org/wiki/Lydia
+aristotle's modes of persuasion$$22$$https://en.wikipedia.org/wiki/Modes_of_persuasion
+logos$$22
+emotional intelligence tools$$23$$https://blog.dce.harvard.edu/professional-development/assessing-your-emotional-intelligence-4-tools-we-love
+emotional intelligence definition$$23$$https://www.psychologytoday.com/us/blog/the-personality-analyst/200909/what-emotional-intelligence-is-and-is-not
+nih.gov$$24$$https://www.nia.nih.gov/health
+the truth about mobile phone and wireless radiation$$26$$https://www.youtube.com/watch?v=BwyDCHf5iCY
+sugar: the bitter truth$$26$$https://www.youtube.com/watch?v=dBnniua6-oM
+10 steps to conquer information overload$$27$$https://www.forbes.com/sites/laurashin/2014/11/14/10-steps-to-conquering-information-overload/#69ac78cd7b08
+hypersanity$$28$$https://www.psychologytoday.com/us/blog/hide-and-seek/201908/hypersanity
+diogenes$$28
+the coming plague: newly emerging diseases$$29$$https://www.amazon.com/dp/0140250913/ref=rdr_ext_tmb
+i contain multitudes... by ed yong$$29$$https://www.amazon.com/Contain-Multitudes-Microbes-Within-Grander/dp/B01FY85L38/ref=sr_1_1?dchild=1&keywords=I+Contain+Multitudes&qid=1589194089&sr=8-1
+the hacking of the american mind by robert h. lustig$$29$$https://www.amazon.com/Hacking-of-American-Mind-audiobook/dp/B0753KYQLN/ref=sr_1_1?dchild=1&keywords=The+Hacking+of+the+American+Mind+by+Robert&qid=1589850091&sr=8-1
+pure, white, and deadly$$29$$https://www.amazon.com/Pure-White-and-Deadly-audiobook/dp/B077DKN9RC/ref=sr_1_1?dchild=1&keywords=Pure%2C+White%2C+and+Deadly&qid=1589850288&sr=8-1
+korean cdc interview$$29$$https://www.youtube.com/watch?v=gAk7aX5hksU
+virus course$$29$$https://www.youtube.com/watch?v=lj3NhPgOoX4
+week in virology$$29$$https://www.microbe.tv/twiv/archive/
+wolfram$$29$$https://www.wolfram.com/
+worldometers$$29$$https://www.worldometers.info/
+week in virology$$29$$https://www.microbe.tv/twiv/archive/
+flightradar24$$29$$https://www.flightradar24.com/airport/bos
+merk manual$$29$$https://www.merckmanuals.com/
+nih.gov$$30$$https://www.nia.nih.gov/health
