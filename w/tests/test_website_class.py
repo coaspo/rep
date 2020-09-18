@@ -18,7 +18,8 @@ def test_website():
     website.save_search_file_paths('./tests/search_file_paths__t.txt')
     with open('./tests/search_file_paths__t.txt') as f:
         actual = f.read()
-    expected = """tests/search-files/links-2.html
+    expected = """tests/search-files/category/words.html
+tests/search-files/links-2.html
 tests/search-files/links.html
 tests/search-files/problems-examples.html
 tests/search-files/problems-solutions.html
@@ -33,18 +34,18 @@ tests/search-files/recipe.html
 
     with open('./tests/search_labels__t.txt') as f:
         actual = f.read()
-    expected = """wolfram$$0$$https://www.wolfram.com/
-worldometers$$0$$https://www.worldometers.info/
-week in virology$$0$$https://www.microbe.tv/twiv/archive/
-internet archive$$1$$https://archive.org
-free books$$1$$https://www.freebookcentre.net/
-coursera- free course$$1$$https://www.coursera.org/
-edx - mit, harvard$$1$$https://www.edx.org/
-pizza$$4
-serve done$$4"""  # anchor label, file index, url
+    expected = """wolfram$$1$$https://www.wolfram.com/
+worldometers$$1$$https://www.worldometers.info/
+week in virology$$1$$https://www.microbe.tv/twiv/archive/
+internet archive$$2$$https://archive.org
+free books$$2$$https://www.freebookcentre.net/
+coursera- free course$$2$$https://www.coursera.org/
+edx - mit, harvard$$2$$https://www.edx.org/
+pizza$$5
+serve done$$5"""  # anchor label, file index, url
     assert expected == actual, 'save_search_labels() failed: actual:\n' + actual + '\nexpected:\n' + expected
 
     actual = len(website.web_pages)
-    expected = 5
+    expected = 6
     assert expected == actual, 'save_search_labels() failed: actual:\n' + str(actual) + '\nexpected:\n' + str(expected)
     make_paths_usable_by_local_server()

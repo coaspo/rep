@@ -5,8 +5,8 @@ function unitTestsMain() {
   try {
       searchContentsMainTest()
       getFileUrlsTest()
-      getUrlLabelTest()
       getSearchLabelsTest()
+      getUrlLabelTest()
       readTextTest()
       
       searchUrlsTest()
@@ -30,10 +30,10 @@ function unitTestsMain() {
 
 
 function testUnitTest() {
-    weather() 
+    testWeather()
 }
 
-function weather() {
+function testWeather() {
   js = readText('https://api.weather.gov/gridpoints/BOX/68,81/forecast')
   var w = JSON.parse(js)
   console.log(w.properties.periods[0]['detailedForecast'])
@@ -41,15 +41,16 @@ function weather() {
 
 function searchContentsMainTest() {
    document.getElementById('inputText').value = '  '
-   searchContentsMain(true, '/tests/search_files_paths__t.txt', '/tests/search_labels__t.txt')
+   searchContentsMain(true, '/tests/search_file_paths__t.txt', '/tests/search_labels__t.txt')
    const actual= document.getElementById("search-results").innerHTML
    updateTestMsg('0 searchContentsMain()  innerHTML ', '', actual);
 }
 
 
 function getFileUrlsTest() {
-   const searchFileUrls = getFileUrls(window.BASE_URL, '/tests/search_files_paths__t.txt')
-   const expected = [ window.BASE_URL + "/tests/search-files/links-2.html",
+   const searchFileUrls = getFileUrls(window.BASE_URL, '/tests/search_file_paths__t.txt')
+   const expected = [ window.BASE_URL + "/tests/search-files/category/words.html",
+                window.BASE_URL + "/tests/search-files/links-2.html",
                 window.BASE_URL + "/tests/search-files/links.html",
                 window.BASE_URL + "/tests/search-files/problems-examples.html",
                 window.BASE_URL + "/tests/search-files/problems-solutions.html",
@@ -60,15 +61,16 @@ function getFileUrlsTest() {
 
 function getSearchLabelsTest() {
    const searchLabels = getSearchLabels(window.BASE_URL, '/tests/search_labels__t.txt')
-   const expected = [["wolfram", "0", "https://www.wolfram.com/"],
-            ["worldometers", "0", "https://www.worldometers.info/"],
-            ["week in virology", "0", "https://www.microbe.tv/twiv/archive/"],
-            ["internet archive", "1", "https://archive.org"],
-            ["free books", "1", "https://www.freebookcentre.net/"],
-            ["coursera- free course", "1", "https://www.coursera.org/"],
-            ["edx - mit, harvard", "1", "https://www.edx.org/"],
-            ["serve done", "4"]];
-   updateTestMsg('2 searchFileIndex()', expected, searchLabels);
+   const expected = [["wolfram", "1", "https://www.wolfram.com/"],
+            ["worldometers", "1", "https://www.worldometers.info/"],
+            ["week in virology", "1", "https://www.microbe.tv/twiv/archive/"],
+            ["internet archive", "2", "https://archive.org"],
+            ["free books", "2", "https://www.freebookcentre.net/"],
+            ["coursera- free course", "2", "https://www.coursera.org/"],
+            ["edx - mit, harvard", "2", "https://www.edx.org/"],
+            ["pizza", "5"],
+            ["serve done", "5"]];
+   updateTestMsg('2 getSearchLabels()', expected, searchLabels);
 }
 
 
@@ -80,14 +82,15 @@ function getUrlLabelTest() {
 
 function readTextTest() {  
    const text = readText(window.BASE_URL + '/tests/search_labels__t.txt');
-   const expected = 'wolfram$$0$$https://www.wolfram.com/\n\
-worldometers$$0$$https://www.worldometers.info/\n\
-week in virology$$0$$https://www.microbe.tv/twiv/archive/\n\
-internet archive$$1$$https://archive.org\n\
-free books$$1$$https://www.freebookcentre.net/\n\
-coursera- free course$$1$$https://www.coursera.org/\n\
-edx - mit, harvard$$1$$https://www.edx.org/\n\
-serve done$$4'
+   const expected = 'wolfram$$1$$https://www.wolfram.com/\n\
+worldometers$$1$$https://www.worldometers.info/\n\
+week in virology$$1$$https://www.microbe.tv/twiv/archive/\n\
+internet archive$$2$$https://archive.org\n\
+free books$$2$$https://www.freebookcentre.net/\n\
+coursera- free course$$2$$https://www.coursera.org/\n\
+edx - mit, harvard$$2$$https://www.edx.org/\n\
+pizza$$5\n\
+serve done$$5'
    updateTestMsg('4 readText()', expected, text)
 }
 

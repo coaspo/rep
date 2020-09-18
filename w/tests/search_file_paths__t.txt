@@ -1,3 +1,4 @@
+tests/search-files/category/words.html
 tests/search-files/links-2.html
 tests/search-files/links.html
 tests/search-files/problems-examples.html

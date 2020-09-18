@@ -1,4 +1,4 @@
-Quizzer
+w (web site)
 =======
 The 'w' is a static web site project.
 It contains useful/interesting links/info and

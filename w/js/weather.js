@@ -81,17 +81,20 @@ function getTides() {
   url='https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?begin_date='+ ts1 +
   '&end_date=' + ts2 +'&station=8443970&product=predictions&interval=15&datum=mllw'+
   '&units=english&time_zone=lst_ldt&application=web_services&format=json';
+  //https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?begin_date=20200915 18:56&end_date=20200916 18:56&station=8443970&product=predictions&interval=15&datum=mllw&units=english&time_zone=lst_ldt&application=web_services&format=json weather.js:84:11
+
+  console.log(url)
   const js = readText(url)
   const w = JSON.parse(js)
-  var isTideGoingOut = w.predictions[0].v > w.predictions[1].v;
-  console.log(isTideGoingOut)
+  var isTideBecomingLow = w.predictions[0].v > w.predictions[1].v;
+  console.log(isTideBecomingLow)
   console.log(w)
-  if (isTideGoingOut) {
+  if (isTideBecomingLow) {
     lowTideIndex = getLowTideIndex(0, w.predictions)
     highTideIndex = getHighTideIndex(lowTideIndex+1, w.predictions)
     console.log('low '+lowTideIndex + ' high '+highTideIndex)
     nextTide =  w.predictions[lowTideIndex].t.substr(11) +
-               ' low tide</br>'+ w.predictions[highTideIndex].t.substr(11) + ' high'
+               ' L ⬇️</br>'+ w.predictions[highTideIndex].t.substr(11) + ' H'
     details = 'Low tide: '+ w.predictions[lowTideIndex].v + ' ft, at: ' + w.predictions[lowTideIndex].t +
                ';  High tide: '+ w.predictions[highTideIndex].v + ' ft, at: ' + w.predictions[highTideIndex].t 
   } else {  
@@ -99,7 +102,7 @@ function getTides() {
     lowTideIndex = getLowTideIndex(highTideIndex+1, w.predictions)
     console.log('high '+highTideIndex + ' low '+lowTideIndex)
     nextTide =  w.predictions[highTideIndex].t.substr(11) +
-               ' high tide</br>'+ w.predictions[lowTideIndex].t.substr(11) + ' low'
+               ' H ⬆️</br>'+ w.predictions[lowTideIndex].t.substr(11) + ' L'
     details = 'High tide: '+ w.predictions[highTideIndex].v + ' ft, at: ' + w.predictions[highTideIndex].t +
                ';  Low tide: '+ w.predictions[lowTideIndex].v + ' ft, at: ' + w.predictions[lowTideIndex].t 
   }
@@ -137,5 +140,8 @@ try {
 catch(err) {
   self.postMessage(err.message);
 }
+//new Date(milliseconds)
 
+// synodic month 29.530588853
+// 29:12:44:02.8768992
 

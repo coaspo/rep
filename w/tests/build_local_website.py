@@ -18,7 +18,7 @@ def run(*args: str):
 
 def make_paths_usable_by_local_server():
     copyfile('./tests/search_file_paths__t.txt', 'search_file_paths.txt')
-    copyfile('./tests/search_labels__t.txt', 'search_label.txt')
+    copyfile('./tests/search_labels__t.txt', 'search_labels.txt')
     print('made paths usable by local server')
 
 
