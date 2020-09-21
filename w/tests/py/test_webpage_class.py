@@ -6,6 +6,7 @@ from pi.webpage import WebPage
 def test_webpage():
     if os.getcwd().endswith('/tests'):
         os.chdir('..')
+        os.chdir('..')
     page = WebPage('tests/search-files/links.html')
     actual = page.search_indexes
     expected = [('internet archive', 'https://archive.org'),

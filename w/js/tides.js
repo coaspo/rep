@@ -48,6 +48,3 @@ url='https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?begin_date='+ ts1
 '&units=english&time_zone=lst_ldt&application=web_services&format=json';
 alert(url);</script>
 
-
-https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?begin_date=20200912 17:10&end_date=20200913 17:10&station=8443970&product=predictions&interval=15&datum=mllw&units=english&time_zone=lst_ldt&application=web_services&format=json
-https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?begin_date=20200912&range=24&station=8443970&product=air_temperature&interval=30&datum=mllw&units=english&time_zone=lst_ldt&application=web_services&format=json

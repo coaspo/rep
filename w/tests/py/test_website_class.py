@@ -5,10 +5,11 @@ from shutil import copyfile
 
 def make_paths_usable_by_local_server():
     copyfile('./tests/search_file_paths__t.txt', 'search_file_paths.txt')
-    copyfile('./tests/search_labels__t.txt', 'search_label.txt')
+    copyfile('./tests/search_labels__t.txt', 'search_labels.txt')
 
 def test_website():
     if os.getcwd().endswith('/tests'):
+        os.chdir('..')
         os.chdir('..')
     target_dirs = ('./tests/search-files',)
     website = WebSite(target_dirs)

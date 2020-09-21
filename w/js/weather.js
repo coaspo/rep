@@ -86,49 +86,60 @@ function getTides() {
   console.log(url)
   const js = readText(url)
   const w = JSON.parse(js)
-  var isTideBecomingLow = w.predictions[0].v > w.predictions[1].v;
+  const predictions = w.predictions
+  link = getTidesLink(predictions)
+  console.log(link)
+  return link
+}
+
+function getTidesLink(predictions) {
+  var isTideBecomingLow = Number(predictions[0].v) > Number(predictions[1].v);
   console.log(isTideBecomingLow)
-  console.log(w)
+  console.log(predictions)
   if (isTideBecomingLow) {
-    lowTideIndex = getLowTideIndex(0, w.predictions)
-    highTideIndex = getHighTideIndex(lowTideIndex+1, w.predictions)
+    lowTideIndex = getLowTideIndex(0, predictions)
+    highTideIndex = getHighTideIndex(lowTideIndex+1, predictions)
     console.log('low '+lowTideIndex + ' high '+highTideIndex)
-    nextTide =  w.predictions[lowTideIndex].t.substr(11) +
-               ' L ⬇️</br>'+ w.predictions[highTideIndex].t.substr(11) + ' H'
-    details = 'Low tide: '+ w.predictions[lowTideIndex].v + ' ft, at: ' + w.predictions[lowTideIndex].t +
-               ';  High tide: '+ w.predictions[highTideIndex].v + ' ft, at: ' + w.predictions[highTideIndex].t 
+    nextTide =  predictions[lowTideIndex].t.substr(11) +
+               ' L ⬇️</br>'+ predictions[highTideIndex].t.substr(11) + ' H'
+    details = 'Low tide: '+ predictions[lowTideIndex].v + ' ft, at: ' + predictions[lowTideIndex].t +
+               ';  High tide: '+ predictions[highTideIndex].v + ' ft, at: ' + predictions[highTideIndex].t 
   } else {  
-    highTideIndex = getHighTideIndex(0, w.predictions)
-    lowTideIndex = getLowTideIndex(highTideIndex+1, w.predictions)
+    highTideIndex = getHighTideIndex(0, predictions)
+    lowTideIndex = getLowTideIndex(highTideIndex+1, predictions)
     console.log('high '+highTideIndex + ' low '+lowTideIndex)
-    nextTide =  w.predictions[highTideIndex].t.substr(11) +
-               ' H ⬆️</br>'+ w.predictions[lowTideIndex].t.substr(11) + ' L'
-    details = 'High tide: '+ w.predictions[highTideIndex].v + ' ft, at: ' + w.predictions[highTideIndex].t +
-               ';  Low tide: '+ w.predictions[lowTideIndex].v + ' ft, at: ' + w.predictions[lowTideIndex].t 
+    nextTide =  predictions[highTideIndex].t.substr(11) +
+               ' H ⬆️</br>'+ predictions[lowTideIndex].t.substr(11) + ' L'
+    details = 'High tide: '+ predictions[highTideIndex].v + ' ft, at: ' + predictions[highTideIndex].t +
+               ';  Low tide: '+ predictions[lowTideIndex].v + ' ft, at: ' + predictions[lowTideIndex].t 
   }
   console.log(nextTide)
-  let url2 = '<a href="https://tidesandcurrents.noaa.gov/stationhome.html?id=8443970" title="'+
+  let link = '<a href="https://tidesandcurrents.noaa.gov/stationhome.html?id=8443970" title="'+
         details + '">' + nextTide + '</a>'
-  return url2
+  return link
 }
 
 function getLowTideIndex(iStart, ar) {
-  var minHeight = ar[iStart].v;
+  var minHeight =  Number(ar[iStart].v);
   for (var i=iStart+1; i < ar.length; i++) {
-      if (ar[i].v < minHeight)
-        minHeight = ar[i].v;
+      waterHeight = Number(ar[i].v)
+      if (waterHeight < minHeight)
+        minHeight = waterHeight;
       else
-        return i;
+        return i-1;
   }
 }
 
 function getHighTideIndex(iStart, ar) {
-  var maxHeight = ar[iStart].v;
+  var maxHeight = Number(ar[iStart].v);
+  console.log(maxHeight)
   for (var i=iStart+1; i < ar.length; i++) {
-      if (ar[i].v > maxHeight)
-        maxHeight = ar[i].v;
+     waterHeight = Number(ar[i].v)
+   console.log(i + ' ' + ar[i].v + ' ' + maxHeight + ' '+(ar[i].v > maxHeight))
+     if (waterHeight > maxHeight)
+        maxHeight = waterHeight;
       else
-        return i;
+        return i-1;
   }
 }
 
