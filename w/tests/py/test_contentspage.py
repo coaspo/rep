@@ -9,8 +9,9 @@ from pi.website import WebSite
 
 def test_contents_page():
     if os.getcwd().endswith('/py'):
-        os.chdir('')
-        os.chdir('')
+        os.chdir('..')
+    if os.getcwd().endswith('/tests'):
+        os.chdir('..')
     target_dirs = ('./tests/search-files',)
     website = WebSite(target_dirs)
     simpledialog.askstring = mock.Mock(return_value="ver-1")

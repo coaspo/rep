@@ -8,8 +8,9 @@ def make_paths_usable_by_local_server():
     copyfile('./tests/search_labels__t.txt', 'search_labels.txt')
 
 def test_website():
-    if os.getcwd().endswith('/tests'):
+    if os.getcwd().endswith('/py'):
         os.chdir('..')
+    if os.getcwd().endswith('/tests'):
         os.chdir('..')
     target_dirs = ('./tests/search-files',)
     website = WebSite(target_dirs)

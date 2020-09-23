@@ -15,6 +15,7 @@ function unitTestsMain() {
       searchFileIndexTest() 
       findParagraphsTest();
       highLightTest();
+      testWeatherMain();
        
       if (window.testFailed) {
          document.body.style.background = '#ff6666';
@@ -32,7 +33,7 @@ function unitTestsMain() {
 
 
 function testUnitTest() {
-    testGetTidesLink()
+    testWeatherMain()
 }
 
 function testReadText() {

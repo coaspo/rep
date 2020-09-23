@@ -5,17 +5,19 @@ function getWeather() {
   const url1 = weatherPeriod(0, w.properties.periods)
   const url2 = weatherPeriod(1, w.properties.periods)
   const url3 = weatherPeriod(2, w.properties.periods)
-  html = url1+ '<br>' + url2 + '<br>' + url3
+  const html = url1+ '<br>' + url2 + '<br>' + url3
   try {
     return html
   } catch (err) {
-    return 'get weather ERR '
+    console.log(err.message)
+    console.log(err.stack)
+    return 'get weather ERR, press F12'
   }
 }
 
 
 function readText(url) {
-  var req = new XMLHttpRequest();
+  const req = new XMLHttpRequest();
   req.open('GET', url, false); // `false` makes the request synchronous
   try {
     req.send(null);
@@ -23,9 +25,9 @@ function readText(url) {
     throw err + ' on reading: ' + url;
   }
   if (req.status === 200) {
-    text = req.responseText.trim();
+    var text = req.responseText.trim();
   } else {
-    text = req.status + ' on reading: ' + url;
+    var text = req.status + ' on reading: ' + url;
     throw text
   }
   return text
@@ -34,7 +36,7 @@ function readText(url) {
 
 function weatherPeriod(i, periods) {
   const t = periods[i]['temperature']
-  tColor = '#0000FF;'  // blue
+  let tColor = '#0000FF;'  // blue
   if (t > 78) {
     tColor = '#CC0000;' // dark red
   } else if (t > 65) {
@@ -42,7 +44,7 @@ function weatherPeriod(i, periods) {
   }
   
   const f = periods[i]['detailedForecast'].toLowerCase()
-  fore = "<span style='font-weight: bold; color:" + tColor + "'>" + t + '</span> '
+  let fore = "<span style='font-weight: bold; color:" + tColor + "'>" + t + '</span> '
   if (f.includes('partly sun')) {
     fore += '🌤️ '
   } else if (f.includes('sun')) {
@@ -71,58 +73,60 @@ function weatherPeriod(i, periods) {
   return url
 }
 
+function getTS(date) {
+  const time = date.toTimeString();
+  const ts = date.toISOString().replace(/-/g,'').substr(0,8) + ' ' + time.substr(0,5);
+  return ts
+}
 
 function getTides() {
-  var today = new Date();
-  time = today.toTimeString();
-  ts1 = today.toISOString().replace(/-/g,'').substr(0,8) + ' ' + time.substr(0,5);
-  var tommorow = new Date(new Date().getTime() + 24 * 60 * 60 * 1000);
-  ts2 = tommorow.toISOString().replace(/-/g,'').substr(0,8) + ' ' + time.substr(0,5);
-  url='https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?begin_date='+ ts1 +
+  const today = new Date();
+  const ts1 = getTS(today);
+  const tomorrow = new Date(today.getTime() + 24 * 60 * 60 * 1000);
+  const ts2 = getTS(tomorrow);
+  const url='https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?begin_date='+ ts1 +
   '&end_date=' + ts2 +'&station=8443970&product=predictions&interval=15&datum=mllw'+
   '&units=english&time_zone=lst_ldt&application=web_services&format=json';
-  //https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?begin_date=20200915 18:56&end_date=20200916 18:56&station=8443970&product=predictions&interval=15&datum=mllw&units=english&time_zone=lst_ldt&application=web_services&format=json weather.js:84:11
-
   console.log(url)
   const js = readText(url)
   const w = JSON.parse(js)
   const predictions = w.predictions
-  link = getTidesLink(predictions)
+  const link = getTidesLink(predictions)
   console.log(link)
   return link
 }
 
 function getTidesLink(predictions) {
-  var isTideBecomingLow = Number(predictions[0].v) > Number(predictions[1].v);
+  const isTideBecomingLow = Number(predictions[0].v) > Number(predictions[1].v);
   console.log(isTideBecomingLow)
   console.log(predictions)
   if (isTideBecomingLow) {
-    lowTideIndex = getLowTideIndex(0, predictions)
-    highTideIndex = getHighTideIndex(lowTideIndex+1, predictions)
+    const lowTideIndex = getLowTideIndex(0, predictions)
+    const highTideIndex = getHighTideIndex(lowTideIndex+1, predictions)
     console.log('low '+lowTideIndex + ' high '+highTideIndex)
-    nextTide =  predictions[lowTideIndex].t.substr(11) +
+    var nextTide =  predictions[lowTideIndex].t.substr(11) +
                ' L ⬇️</br>'+ predictions[highTideIndex].t.substr(11) + ' H'
-    details = 'Low tide: '+ predictions[lowTideIndex].v + ' ft, at: ' + predictions[lowTideIndex].t +
+    var details = 'Low tide: '+ predictions[lowTideIndex].v + ' ft, at: ' + predictions[lowTideIndex].t +
                ';  High tide: '+ predictions[highTideIndex].v + ' ft, at: ' + predictions[highTideIndex].t 
   } else {  
-    highTideIndex = getHighTideIndex(0, predictions)
-    lowTideIndex = getLowTideIndex(highTideIndex+1, predictions)
+    const highTideIndex = getHighTideIndex(0, predictions)
+    const lowTideIndex = getLowTideIndex(highTideIndex+1, predictions)
     console.log('high '+highTideIndex + ' low '+lowTideIndex)
-    nextTide =  predictions[highTideIndex].t.substr(11) +
+    var nextTide =  predictions[highTideIndex].t.substr(11) +
                ' H ⬆️</br>'+ predictions[lowTideIndex].t.substr(11) + ' L'
-    details = 'High tide: '+ predictions[highTideIndex].v + ' ft, at: ' + predictions[highTideIndex].t +
+    var details = 'High tide: '+ predictions[highTideIndex].v + ' ft, at: ' + predictions[highTideIndex].t +
                ';  Low tide: '+ predictions[lowTideIndex].v + ' ft, at: ' + predictions[lowTideIndex].t 
   }
   console.log(nextTide)
-  let link = '<a href="https://tidesandcurrents.noaa.gov/stationhome.html?id=8443970" title="'+
+  const link = '<a href="https://tidesandcurrents.noaa.gov/stationhome.html?id=8443970" title="'+
         details + '">' + nextTide + '</a>'
   return link
 }
 
 function getLowTideIndex(iStart, ar) {
-  var minHeight =  Number(ar[iStart].v);
+  let minHeight =  Number(ar[iStart].v);
   for (var i=iStart+1; i < ar.length; i++) {
-      waterHeight = Number(ar[i].v)
+      const waterHeight = Number(ar[i].v)
       if (waterHeight < minHeight)
         minHeight = waterHeight;
       else
@@ -131,11 +135,11 @@ function getLowTideIndex(iStart, ar) {
 }
 
 function getHighTideIndex(iStart, ar) {
-  var maxHeight = Number(ar[iStart].v);
+  let maxHeight = Number(ar[iStart].v);
   console.log(maxHeight)
   for (var i=iStart+1; i < ar.length; i++) {
-     waterHeight = Number(ar[i].v)
-   console.log(i + ' ' + ar[i].v + ' ' + maxHeight + ' '+(ar[i].v > maxHeight))
+     const waterHeight = Number(ar[i].v)
+     console.log(i + ' ' + ar[i].v + ' ' + maxHeight + ' '+(ar[i].v > maxHeight))
      if (waterHeight > maxHeight)
         maxHeight = waterHeight;
       else
@@ -143,16 +147,61 @@ function getHighTideIndex(iStart, ar) {
   }
 }
 
+function getWaterTemperature() {
+  const today = new Date();
+  const ts2 = getTS(today);
+  const yesterday = new Date(today.getTime() - 24 * 60 * 60 * 1000);
+  const ts1 = getTS(yesterday);
+  const url='https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?begin_date='+ ts1 +
+  '&end_date=' + ts2 +'&station=8443970&product=water_temperature&interval=h'+
+  '&units=english&time_zone=lst_ldt&application=web_services&format=json';
+
+  console.log(url)
+  const js = readText(url)
+  const w = JSON.parse(js)
+  const data = w.data
+  if (typeof data == 'undefined')
+    return ''
+  const link = getWaterTemperatureLink(data)
+  return link
+}
+
+function getWaterTemperatureLink(data) {
+  let min =  100;
+  let max =  -100;
+  let total = 0.0;
+  for (var i = 0; i < data.length; i++) {
+      const t = Number(data[i].v)
+      total = total + t
+      if (t < min)
+        min = t;
+      if (t > max)
+        max = t;
+  }
+  const average = Math.round(total / data.length)
+  const details = 'Last 24 hr. min/max/ave water temp: ' + Math.round(min) + '/' +
+     Math.round(max) + '/'+ average + ' F '
+  const link = '<a href="https://tidesandcurrents.noaa.gov/stationhome.html?id=8443970" title="'+
+        details + '">' + average + ' F 🌊️</a>'
+  return link
+}
+
+
 try {
   var html = '<table><tr><td>'+getWeather()+
-             '</td><td> &emsp; &emsp; </td><td>'+getTides()+'</br>graphic</td></tr></table>'
+             '</td><td> &emsp; &emsp; </td><td>'+getTides()+'</br>' +getWaterTemperature()+
+             '</td><td> &emsp; &emsp; </td><td>graphic</td></tr></table>'
+  console.log('========')
+             console.log(html)
   self.postMessage(html);
-}
-catch(err) {
-  self.postMessage(err.message);
+} catch(err) {
+  console.log(err.message)
+  console.log(err.stack)
+  self.postMessage('weather ERR, press F12')
 }
 //new Date(milliseconds)
 
 // synodic month 29.530588853
 // 29:12:44:02.8768992
+//https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?begin_date=20200915 18:56&end_date=20200915 20:56&station=8443970&product=water_temperature&interval=h&units=english&time_zone=lst_ldt&application=web_services&format=json')
 

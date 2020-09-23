@@ -19,6 +19,6 @@ def run(*args: str):
 if __name__ == '__main__':
     print('Started', __file__)
     run(r'../venv/bin/activate')
-    run('pytest',  '../tests')
+    run('pytest',  '../tests/py')
     print('done')
     exit(0)

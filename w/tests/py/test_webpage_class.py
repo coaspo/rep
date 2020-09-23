@@ -4,8 +4,9 @@ from pi.webpage import WebPage
 
 
 def test_webpage():
-    if os.getcwd().endswith('/tests'):
+    if os.getcwd().endswith('/py'):
         os.chdir('..')
+    if os.getcwd().endswith('/tests'):
         os.chdir('..')
     page = WebPage('tests/search-files/links.html')
     actual = page.search_indexes
