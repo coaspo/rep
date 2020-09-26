@@ -38,9 +38,26 @@ function searchContentsMain(debug, filePathsFilePath, labelsFilePath) {
 function getBaseUrl() {
   const url = String(document.URL);
   const i_base = url.indexOf('/w/') + 2;
-  baseUrl = url.substr(0, i_base);
+  const baseUrl = url.substr(0, i_base);
   if (window.DEBUG) console.log('*getBaseUrl() baseUrl= ' + baseUrl)
   return baseUrl
+}
+
+function readText(url) {
+  const req = new XMLHttpRequest();
+  req.open('GET', url, false); // `false` makes the request synchronous
+  try {
+    req.send(null);
+  } catch (err) {
+    throw err + ' on reading: ' + url;
+  }
+  if (req.status === 200) {
+    var text = req.responseText.trim();
+  } else {
+    var text = req.status + ' on reading: ' + url;
+    throw text
+  }
+  return text
 }
 
 

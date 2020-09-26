@@ -16,24 +16,6 @@ function getWeather() {
 }
 
 
-function readText(url) {
-  const req = new XMLHttpRequest();
-  req.open('GET', url, false); // `false` makes the request synchronous
-  try {
-    req.send(null);
-  } catch (err) {
-    throw err + ' on reading: ' + url;
-  }
-  if (req.status === 200) {
-    var text = req.responseText.trim();
-  } else {
-    var text = req.status + ' on reading: ' + url;
-    throw text
-  }
-  return text
-}
-
-
 function weatherPeriod(i, periods) {
   const t = periods[i]['temperature']
   let tColor = '#0000FF;'  // blue
@@ -44,7 +26,7 @@ function weatherPeriod(i, periods) {
   }
   
   const f = periods[i]['detailedForecast'].toLowerCase()
-  let fore = "<span style='font-weight: bold; color:" + tColor + "'>" + t + '</span> '
+  let fore = "<span style='font-weight: bold; color:" + tColor + "'>" + t + '°</span> '
   if (f.includes('partly sun')) {
     fore += '🌤️ '
   } else if (f.includes('sun')) {
@@ -104,24 +86,37 @@ function getTidesLink(predictions) {
     const lowTideIndex = getLowTideIndex(0, predictions)
     const highTideIndex = getHighTideIndex(lowTideIndex+1, predictions)
     console.log('low '+lowTideIndex + ' high '+highTideIndex)
-    var nextTide =  predictions[lowTideIndex].t.substr(11) +
-               ' L ⬇️</br>'+ predictions[highTideIndex].t.substr(11) + ' H'
-    var details = 'Low tide: '+ predictions[lowTideIndex].v + ' ft, at: ' + predictions[lowTideIndex].t +
-               ';  High tide: '+ predictions[highTideIndex].v + ' ft, at: ' + predictions[highTideIndex].t 
+    let lowTideTime = removeLeadingZero(predictions[lowTideIndex].t.substr(11)); 
+    let highTideTime = removeLeadingZero(predictions[highTideIndex].t.substr(11));
+    var nextTide =  lowTideTime +
+               ' L ⬇️</br>'+ highTideTime + ' H'
+    var details = 'Low tide: '+ predictions[lowTideIndex].v + ' ft, @ ' + predictions[lowTideIndex].t +
+               ';  High tide: '+ predictions[highTideIndex].v + ' ft, @ ' + predictions[highTideIndex].t
   } else {  
     const highTideIndex = getHighTideIndex(0, predictions)
     const lowTideIndex = getLowTideIndex(highTideIndex+1, predictions)
     console.log('high '+highTideIndex + ' low '+lowTideIndex)
-    var nextTide =  predictions[highTideIndex].t.substr(11) +
-               ' H ⬆️</br>'+ predictions[lowTideIndex].t.substr(11) + ' L'
-    var details = 'High tide: '+ predictions[highTideIndex].v + ' ft, at: ' + predictions[highTideIndex].t +
-               ';  Low tide: '+ predictions[lowTideIndex].v + ' ft, at: ' + predictions[lowTideIndex].t 
+    let lowTideTime = removeLeadingZero(predictions[lowTideIndex].t.substr(11)); 
+    let highTideTime = removeLeadingZero(predictions[highTideIndex].t.substr(11));
+    var nextTide =  highTideTime +
+               ' H ⬆️</br>'+ lowTideTime + ' L'
+    var details = 'High tide: '+ predictions[highTideIndex].v + ' ft, @ ' + predictions[highTideIndex].t +
+               ';  Low tide: '+ predictions[lowTideIndex].v + ' ft, @ ' + predictions[lowTideIndex].t 
   }
   console.log(nextTide)
   const link = '<a href="https://tidesandcurrents.noaa.gov/stationhome.html?id=8443970" title="'+
         details + '">' + nextTide + '</a>'
   return link
 }
+
+
+function removeLeadingZero(time) {
+  if (time.charAt(0) == '0') {
+    time = '&nbsp;' + time.substr(1);
+  }
+  return time;
+}
+
 
 function getLowTideIndex(iStart, ar) {
   let minHeight =  Number(ar[iStart].v);
@@ -132,6 +127,7 @@ function getLowTideIndex(iStart, ar) {
       else
         return i-1;
   }
+  return ar.length;
 }
 
 function getHighTideIndex(iStart, ar) {
@@ -145,6 +141,7 @@ function getHighTideIndex(iStart, ar) {
       else
         return i-1;
   }
+  return ar.length;
 }
 
 function getWaterTemperature() {
@@ -179,10 +176,10 @@ function getWaterTemperatureLink(data) {
         max = t;
   }
   const average = Math.round(total / data.length)
-  const details = 'Last 24 hr. min/max/ave water temp: ' + Math.round(min) + '/' +
-     Math.round(max) + '/'+ average + ' F '
+  const details = 'Last 24 hr. min/max/ave water temp: ' + Math.round(min) + 
+                  '/' + Math.round(max) + '/'+ average 
   const link = '<a href="https://tidesandcurrents.noaa.gov/stationhome.html?id=8443970" title="'+
-        details + '">' + average + ' F 🌊️</a>'
+               details + '°">' + average + '°</a>'
   return link
 }
 

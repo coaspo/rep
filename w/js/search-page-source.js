@@ -1,13 +1,13 @@
 function scanProblemFiles(fileUrls, inputText) {
-  var html = '';   
+  let html = '';   
   for (i = 0; i < fileUrls.length; i++) {
-    var url = fileUrls[i];
+    const url = fileUrls[i];
     if (window.DEBUG) console.log('*scanProblemFiles() url = '+url)
     if (url.indexOf('problem') < 0) {
        continue;
     }
     // scan text of problem files.
-    var text = readText(url);
+    let text = readText(url);
     const iStart = text.indexOf('<body');
     text = text.substr(iStart).trim().replace(/\r/, '');
     const foundParagraphs = findParagraphs(inputText, text)
@@ -33,8 +33,8 @@ function findParagraphs(inputText, text) {
   var foundParagraphs = '';
   const paragraphs = text.split('\n\n');
   
-  for (var j = 0; j < paragraphs.length; j++) {
-    var paragraph = paragraphs[j].toLowerCase();
+  for (let j = 0; j < paragraphs.length; j++) {
+    let paragraph = paragraphs[j].toLowerCase();
     if (paragraph.indexOf(inputText) > -1) {
       paragraph = paragraph.replace(/<br>/g, '');
       paragraph = paragraph.replace(/<li>/g, '');
@@ -57,7 +57,7 @@ const urlRe = new RegExp('<a href(.+?)##(.+?)@@(.+?)>', 'g');
 
 
 function highLight(html, inputText) {
-   var count = (html.match(/href/g) || []).length;
+   const count = (html.match(/href/g) || []).length;
    const re = new RegExp(inputText, 'g');
    if (count == 0) {
      html = html.replace(re, "<id style='color:red'>" + inputText + "</id>");

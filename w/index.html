@@ -278,7 +278,7 @@ w.onmessage = function(event) {
                 if (event.data == undefined) {
                   event.data = 'unable to get weather; see '
                 }
-		html = event.data.replace('graphic', GRAPHICAL_WEATHER_LINK)
+		const html = event.data.replace('graphic', GRAPHICAL_WEATHER_LINK)
                 document.getElementById("weather").innerHTML = html;
                 w.terminate();
                 w = undefined;

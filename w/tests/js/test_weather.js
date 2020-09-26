@@ -3,7 +3,6 @@ function testWeatherMain() {
     testGetTidesLink()
     testGetWaterTemperatureLink()
     testReadNoaaWebSite()
-
 }
 
 function testTideIndex() {
@@ -27,7 +26,7 @@ function testGetTidesLink() {
    {t:"2020-09-16 04:45", v:"-0.404"},
    {t:"2020-09-16 05:00", v:"-0.330"}]
    let link = getTidesLink(predictions)
-   let expected = '<a href="https://tidesandcurrents.noaa.gov/stationhome.html?id=8443970" title="High tide: 10.853 ft, at: 2020-09-15 22:15;  Low tide: -0.404 ft, at: 2020-09-16 04:45">22:15 H ⬆️</br>04:45 L</a>'
+   let expected = '<a href="https://tidesandcurrents.noaa.gov/stationhome.html?id=8443970" title="High tide: 10.853 ft, @ 2020-09-15 22:15;  Low tide: -0.404 ft, @ 2020-09-16 04:45">22:15 H ⬆️</br>&nbsp;4:45 L</a>'
    validate('3 weather.js:getTidesLink()   ', expected, link);
    predictions = [
    {t:"2020-09-15 18:45", v:"-0.599"},
@@ -36,7 +35,7 @@ function testGetTidesLink() {
    {t:"2020-09-16 04:45", v:"0.10"},
    {t:"2020-09-16 05:00", v:"0.05"}]
    link = getTidesLink(predictions)
-   expected = '<a href="https://tidesandcurrents.noaa.gov/stationhome.html?id=8443970" title="Low tide: -0.643 ft, at: 2020-09-15 22:15;  High tide: 0.10 ft, at: 2020-09-16 04:45">22:15 L ⬇️</br>04:45 H</a>'
+   expected = '<a href="https://tidesandcurrents.noaa.gov/stationhome.html?id=8443970" title="Low tide: -0.643 ft, @ 2020-09-15 22:15;  High tide: 0.10 ft, @ 2020-09-16 04:45">22:15 L ⬇️</br>&nbsp;4:45 H</a>'
    validate('4 weather.js:getTidesLink()   ', expected, link);
  }
 
@@ -48,7 +47,7 @@ function testGetWaterTemperatureLink() {
    {t:"2020-09-15 19:00", v:"68.2", f:"0,0,0"}]
 
    const link = getWaterTemperatureLink(data)
-   const expected = '<a href="https://tidesandcurrents.noaa.gov/stationhome.html?id=8443970" title="Last 24 hr. min/max/ave water temp: 60/68/65 F ">65 F 🌊️</a>'
+   const expected = '<a href="https://tidesandcurrents.noaa.gov/stationhome.html?id=8443970" title="Last 24 hr. min/max/ave water temp: 60/68/65°">65°</a>'
    validate('10 weather.js:getWaterTemperatureLink()   ', expected, link);
  }
 
@@ -56,15 +55,15 @@ function testGetWaterTemperatureLink() {
 function testReadNoaaWebSite() {
    // ref:  https://api.tidesandcurrents.noaa.gov/api/prod/
   try {
-     let js = readText('https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?begin_date=20200915 18:56&end_date=20200915 19:56&station=8443970&product=predictions&interval=15&datum=mllw&units=english&time_zone=lst_ldt&application=web_services&format=json')
-     let w = JSON.parse(js)
+     const js = readText('https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?begin_date=20200915 18:56&end_date=20200915 19:56&station=8443970&product=predictions&interval=15&datum=mllw&units=english&time_zone=lst_ldt&application=web_services&format=json')
+     const w = JSON.parse(js)
      validate('5 weather.js:readText()/tide   ', '5',  w.predictions.length);
   } catch (err) {
      validate('5 weather.js:readText()/tide   ', '', err);
   }
   try {
-     let js = readText('https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?begin_date=20200915 18:56&end_date=20200915 20:56&station=8443970&product=water_temperature&interval=h&units=english&time_zone=lst_ldt&application=web_services&format=json')
-     let w = JSON.parse(js)
+     const js = readText('https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?begin_date=20200915 18:56&end_date=20200915 20:56&station=8443970&product=water_temperature&interval=h&units=english&time_zone=lst_ldt&application=web_services&format=json')
+     const w = JSON.parse(js)
      console.log(w)
      validate('6 weather.js:readText()/water-temp   ', '2', w.data.length);
   } catch (err) {

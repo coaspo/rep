@@ -4,9 +4,9 @@ function searchFileIndex(inputText, searchFileUrls, searchLabels) {
   result.url = '';   
   result.urlCount = 0;   
   prevFileIndex = -1
-  for (var i=0; i<searchLabels.length; i++) {
+  for (let i=0; i<searchLabels.length; i++) {
     const fields = searchLabels[i]
-    var label = fields[0]
+    let label = fields[0]
     if (label.indexOf(inputText) < 0) {
       continue;
     }
@@ -41,9 +41,9 @@ function searchUrls(inputText, searchFileUrls) {
   result.html = '';   
   result.url = '';   
   result.numOfUrls = 0;
-  for (var i=0; i<searchFileUrls.length; i++) {
+  for (let i=0; i<searchFileUrls.length; i++) {
     const url = searchFileUrls[i]
-    var label = getUrlLabel(url).toLowerCase()
+    let label = getUrlLabel(url).toLowerCase()
     if (label.indexOf(inputText) > -1) {
       if (result.html.length > 0) {
         result.html += '\n'
