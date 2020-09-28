@@ -43,23 +43,6 @@ function getBaseUrl() {
   return baseUrl
 }
 
-function readText(url) {
-  const req = new XMLHttpRequest();
-  req.open('GET', url, false); // `false` makes the request synchronous
-  try {
-    req.send(null);
-  } catch (err) {
-    throw err + ' on reading: ' + url;
-  }
-  if (req.status === 200) {
-    var text = req.responseText.trim();
-  } else {
-    var text = req.status + ' on reading: ' + url;
-    throw text
-  }
-  return text
-}
-
 
 function getFileUrls(baseUrl, filePathsFilePath) {
   const url = baseUrl +filePathsFilePath

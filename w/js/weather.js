@@ -1,18 +1,35 @@
 function getWeather() {
-  const js = readText('https://api.weather.gov/gridpoints/BOX/68,81/forecast')
-  const w = JSON.parse(js)
-  console.log(w)
-  const url1 = weatherPeriod(0, w.properties.periods)
-  const url2 = weatherPeriod(1, w.properties.periods)
-  const url3 = weatherPeriod(2, w.properties.periods)
-  const html = url1+ '<br>' + url2 + '<br>' + url3
   try {
+    const js = readText('https://api.weather.gov/gridpoints/BOX/68,81/forecast')
+    const w = JSON.parse(js)
+    console.log(w)
+    const url1 = weatherPeriod(0, w.properties.periods)
+    const url2 = weatherPeriod(1, w.properties.periods)
+    const url3 = weatherPeriod(2, w.properties.periods)
+    const html = url1+ '<br>' + url2 + '<br>' + url3
     return html
   } catch (err) {
-    console.log(err.message)
+    console.log('ERR1 '+ err.message)
     console.log(err.stack)
-    return 'get weather ERR, press F12'
+    return  ''
   }
+}
+
+function readText(url) {
+  const req = new XMLHttpRequest();
+  req.open('GET', url, false); // `false` makes the request synchronous
+  try {
+    req.send(null);
+  } catch (err) {
+    throw err + ' on reading: ' + url;
+  }
+  if (req.status === 200) {
+    var text = req.responseText.trim();
+  } else {
+    var text = req.status + ' on reading: ' + url;
+    throw text
+  }
+  return text
 }
 
 
@@ -46,6 +63,9 @@ function weatherPeriod(i, periods) {
   if (f.includes('fog')) {
     fore += '🌫️ '
   }
+  if (f.includes('windy')) {
+    fore += '🌬️ '
+  }
   if (f.includes('snow')) {
     fore += '❄️ '
   }
@@ -70,12 +90,18 @@ function getTides() {
   '&end_date=' + ts2 +'&station=8443970&product=predictions&interval=15&datum=mllw'+
   '&units=english&time_zone=lst_ldt&application=web_services&format=json';
   console.log(url)
-  const js = readText(url)
-  const w = JSON.parse(js)
-  const predictions = w.predictions
-  const link = getTidesLink(predictions)
-  console.log(link)
-  return link
+  try {
+    const js = readText(url)
+    const w = JSON.parse(js)
+    const predictions = w.predictions
+    const link = getTidesLink(predictions)
+    console.log(link)
+    return link
+  } catch (err) {
+    console.log('ERR2 '+ err.message)
+    console.log(err.stack)
+    return ''
+  }
 }
 
 function getTidesLink(predictions) {
@@ -101,7 +127,7 @@ function getTidesLink(predictions) {
     var nextTide =  highTideTime +
                ' H ⬆️</br>'+ lowTideTime + ' L'
     var details = 'High tide: '+ predictions[highTideIndex].v + ' ft, @ ' + predictions[highTideIndex].t +
-               ';  Low tide: '+ predictions[lowTideIndex].v + ' ft, @ ' + predictions[lowTideIndex].t 
+               ';\n  Low tide: '+ predictions[lowTideIndex].v + ' ft, @ ' + predictions[lowTideIndex].t 
   }
   console.log(nextTide)
   const link = '<a href="https://tidesandcurrents.noaa.gov/stationhome.html?id=8443970" title="'+
@@ -112,7 +138,7 @@ function getTidesLink(predictions) {
 
 function removeLeadingZero(time) {
   if (time.charAt(0) == '0') {
-    time = '&nbsp;' + time.substr(1);
+    time = '&nbsp; ' + time.substr(1);
   }
   return time;
 }
@@ -154,13 +180,19 @@ function getWaterTemperature() {
   '&units=english&time_zone=lst_ldt&application=web_services&format=json';
 
   console.log(url)
-  const js = readText(url)
-  const w = JSON.parse(js)
-  const data = w.data
-  if (typeof data == 'undefined')
+  try {
+    const js = readText(url)
+    const w = JSON.parse(js)
+    const data = w.data
+    if (typeof data == 'undefined')
+      return ''
+    const link = getWaterTemperatureLink(data)
+    return link
+  } catch (err) {
+    console.log('ERR3 '+ err.message)
+    console.log(err.stack)
     return ''
-  const link = getWaterTemperatureLink(data)
-  return link
+  }
 }
 
 function getWaterTemperatureLink(data) {
@@ -176,7 +208,7 @@ function getWaterTemperatureLink(data) {
         max = t;
   }
   const average = Math.round(total / data.length)
-  const details = 'Last 24 hr. min/max/ave water temp: ' + Math.round(min) + 
+  const details = 'Last 24 hr. min/max/ave\nwater temp: ' + Math.round(min) + 
                   '/' + Math.round(max) + '/'+ average 
   const link = '<a href="https://tidesandcurrents.noaa.gov/stationhome.html?id=8443970" title="'+
                details + '°">' + average + '°</a>'
@@ -185,20 +217,13 @@ function getWaterTemperatureLink(data) {
 
 
 try {
-  var html = '<table><tr><td>'+getWeather()+
+  const html = '<table><tr><td>'+getWeather()+
              '</td><td> &emsp; &emsp; </td><td>'+getTides()+'</br>' +getWaterTemperature()+
              '</td><td> &emsp; &emsp; </td><td>graphic</td></tr></table>'
-  console.log('========')
-             console.log(html)
+  console.log(html)
   self.postMessage(html);
 } catch(err) {
   console.log(err.message)
   console.log(err.stack)
   self.postMessage('weather ERR, press F12')
 }
-//new Date(milliseconds)
-
-// synodic month 29.530588853
-// 29:12:44:02.8768992
-//https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?begin_date=20200915 18:56&end_date=20200915 20:56&station=8443970&product=water_temperature&interval=h&units=english&time_zone=lst_ldt&application=web_services&format=json')
-

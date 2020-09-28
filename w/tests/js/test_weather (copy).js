@@ -26,7 +26,7 @@ function testGetTidesLink() {
    {t:"2020-09-16 04:45", v:"-0.404"},
    {t:"2020-09-16 05:00", v:"-0.330"}]
    let link = getTidesLink(predictions)
-   let expected = '<a href="https://tidesandcurrents.noaa.gov/stationhome.html?id=8443970" title="High tide: 10.853 ft, @ 2020-09-15 22:15;  Low tide: -0.404 ft, @ 2020-09-16 04:45">22:15 H ⬆️</br>&nbsp; 4:45 L</a>'
+   let expected = '<a href="https://tidesandcurrents.noaa.gov/stationhome.html?id=8443970" title="High tide: 10.853 ft, @ 2020-09-15 22:15;  Low tide: -0.404 ft, @ 2020-09-16 04:45">22:15 H ⬆️</br>&nbsp;4:45 L</a>'
    validate('3 weather.js:getTidesLink()   ', expected, link);
    predictions = [
    {t:"2020-09-15 18:45", v:"-0.599"},
@@ -35,7 +35,7 @@ function testGetTidesLink() {
    {t:"2020-09-16 04:45", v:"0.10"},
    {t:"2020-09-16 05:00", v:"0.05"}]
    link = getTidesLink(predictions)
-   expected = '<a href="https://tidesandcurrents.noaa.gov/stationhome.html?id=8443970" title="Low tide: -0.643 ft, @ 2020-09-15 22:15;  High tide: 0.10 ft, @ 2020-09-16 04:45">22:15 L ⬇️</br>&nbsp; 4:45 H</a>'
+   expected = '<a href="https://tidesandcurrents.noaa.gov/stationhome.html?id=8443970" title="Low tide: -0.643 ft, @ 2020-09-15 22:15;  High tide: 0.10 ft, @ 2020-09-16 04:45">22:15 L ⬇️</br>&nbsp;4:45 H</a>'
    validate('4 weather.js:getTidesLink()   ', expected, link);
  }
 

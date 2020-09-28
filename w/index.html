@@ -234,46 +234,48 @@ button {
 </div>
 <script>
 function opencontName(evt, cityName) {
-  var i, tabcontent, tablinks;
+  var tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
-  for (i = 0; i < tabcontent.length; i++) {
+  for (let i = 0; i < tabcontent.length; i++) {
     tabcontent[i].style.display = "none";
   }
   tablinks = document.getElementsByClassName("tablink");
-  for (i = 0; i < tablinks.length; i++) {
+  for (let i = 0; i < tablinks.length; i++) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");
   }
   document.getElementById(cityName).style.display = "block";
   evt.currentTarget.className += " active";
 }
 
+
 document.getElementById("defaultOpen").click(); // open Main tab
-
-function browse(url_template) {
-  var text = document.getElementById('inputText').value;
-  var url = url_template.replace('zzzz', text)
-  var win = window.open(url, "_self");
-  win.focus(); 
-}
-
-
 if (document.URL.startsWith('file')) {
     document.body.style.background = "lightyellow" // indicates server not running
 }
 
+
+function browse(url_template) {
+  const text = document.getElementById('inputText').value;
+  const url = url_template.replace('zzzz', text)
+  const win = window.open(url, "_self");
+  win.focus(); 
+}
+
+
 document.getElementById('inputText').addEventListener('keypress', function (e) {
-  var key = e.which || e.keyCode;
+  const key = e.which || e.keyCode;
   if (key === 13) { // 13 is enter
     browse('https://duckduckgo.com/?q=zzzz  site:org');
   }
 });
 
+
+
 const GRAPHICAL_WEATHER_LINK = '<id style="font-size: 70%">' +
-   "<a href='https://forecast.weather.gov/MapClick.php?lat=42.48&lon=-71.1&unit=0&lg=english&FcstType=graphical'>Graphical weather</a>" + '</id>';
-   
+   "<a href='https://forecast.weather.gov/MapClick.php?lat=42.48&lon=-71.1&unit=0&lg=english&FcstType=graphical' title='Forecast graph; weather.gov'>Weather</a>" + '</id>';
 document.getElementById("weather").innerHTML = 'wait, or see: ' + GRAPHICAL_WEATHER_LINK;
 
-w = new Worker("js/weather.js");
+let w = new Worker("js/weather.js");
 w.onmessage = function(event) {
                 if (event.data == undefined) {
                   event.data = 'unable to get weather; see '
