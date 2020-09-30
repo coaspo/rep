@@ -22,30 +22,37 @@ function unitTestsMain() {
 }
 
 function testUnitTest() {
-   testWeatherMain()
+   moon()
 }
 
+
 function moon() {
-   const full_moon_ms = new Date(2000, 1, 24, 16, 42, 0, 0).getTime();
-  console.log(init_full_moon_dt)  //29 d 12 h 44 m 2.8016 s
-    const synodic_month_ms = 29 * 24 * 60 * 60000 + 12 * 60 * 60000 + 44 * 60000 + 2802
-    const moon_months = ((new Date()).getTime() - full_moon_ms) / synodic_month_ms
-    const moon_month_fraction = moon_months - Math.trunc(moon_months)
-    let moon_month_num = Math.trunc(moon_months)
-    var new_moon_dt = new Date(full_moon_dt.getTime() + Math.round((moon_month_num + .5)* synodic_month_ms))
-    if (moon_month_fraction > .5){
-       moon_month_num += 1
+   const new_moon_ms = new Date(2019, 4, 4, 18, 45, 0, 0).getTime();
+    // May 4	6:45 pm;  selected arbitrarily from  https://www.timeanddate.com/moon/phases/usa/boston
+    const synodic_month_ms = 29 * 24 * 60 * 60000 + 12 * 60 * 60000 + 44 * 60000 + 2802; 
+    //29 d 12 h 44 m 2.8016 s   https://en.wikipedia.org/wiki/Lunar_month
+    const periods = ((new Date()).getTime() - new_moon_ms) / synodic_month_ms
+    const fraction = periods - Math.trunc(periods)
+    console.log(fraction)
+    if (fraction <= .12) {
+       icon = '🌑'
+    } else if (fraction <= .21) {
+       icon = '️🌒'
+    } else if (fraction <= .31) {
+       icon = '🌓'
+    } else if (fraction <= .38) {
+       icon = '🌔️'
+    } else if (fraction <= .62) {
+       icon = '🌕️'
+    } else if (fraction <= .69) {
+       icon = '🌖'
+    } else if (fraction <= .79) {
+       icon = '️🌗'
+    } else if (fraction <= .88) {
+       icon = '🌘'
+    } else {
+       icon = '🌑'
     }
-    d = new Date(init_full_moon_dt.getTime() + synodic_month_ms)
-    
-   console.log ('+ ++ ++'+ synodic_month_ms)
-  console.log(init_full_moon_dt)  //29 d 12 h 44 m 2.8016 s
-//new Date(milliseconds)   
-
-// synodic month 29.530588853
-// 29:12:44:02.8768992
-//https://api.tidesandcurrents.noaa.gov/api/prod/datagetter?begin_date=20200915 18:56&end_date=20200915 20:56&station=8443970&product=water_temperature&interval=h&units=english&time_zone=lst_ldt&application=web_services&format=json')
-
 }
 
 

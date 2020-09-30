@@ -63,8 +63,11 @@ function weatherPeriod(i, periods) {
   if (f.includes('fog')) {
     fore += '🌫️ '
   }
-  if (f.includes('windy')) {
+  if (f.includes('windy') || f.includes('gusts')) {
     fore += '🌬️ '
+  }
+  if (f.includes('hurricane')) {
+    fore += '🌀 '
   }
   if (f.includes('snow')) {
     fore += '❄️ '
@@ -117,7 +120,7 @@ function getTidesLink(predictions) {
     var nextTide =  lowTideTime +
                ' L ⬇️</br>'+ highTideTime + ' H'
     var details = 'Low tide: '+ predictions[lowTideIndex].v + ' ft, @ ' + predictions[lowTideIndex].t +
-               ';  High tide: '+ predictions[highTideIndex].v + ' ft, @ ' + predictions[highTideIndex].t
+               ';\n  High tide: '+ predictions[highTideIndex].v + ' ft, @ ' + predictions[highTideIndex].t
   } else {  
     const highTideIndex = getHighTideIndex(0, predictions)
     const lowTideIndex = getLowTideIndex(highTideIndex+1, predictions)
@@ -199,15 +202,19 @@ function getWaterTemperatureLink(data) {
   let min =  100;
   let max =  -100;
   let total = 0.0;
+  let n = 0;
   for (var i = 0; i < data.length; i++) {
       const t = Number(data[i].v)
+      if (t==0)
+        continue;
+      n += 1
       total = total + t
       if (t < min)
         min = t;
       if (t > max)
         max = t;
   }
-  const average = Math.round(total / data.length)
+  const average = Math.round(total / n)
   const details = 'Last 24 hr. min/max/ave\nwater temp: ' + Math.round(min) + 
                   '/' + Math.round(max) + '/'+ average 
   const link = '<a href="https://tidesandcurrents.noaa.gov/stationhome.html?id=8443970" title="'+
@@ -216,14 +223,53 @@ function getWaterTemperatureLink(data) {
 }
 
 
+function getMoonPhase() {
+   const new_moon_ms = new Date(2019, 4, 4, 18, 45, 0, 0).getTime();
+    // May 4	6:45 pm;  selected arbitrarily from  https://www.timeanddate.com/moon/phases/usa/boston
+    const synodic_month_ms = 29 * 24 * 60 * 60000 + 12 * 60 * 60000 + 44 * 60000 + 2802; 
+    //29 d 12 h 44 m 2.8016 s   https://en.wikipedia.org/wiki/Lunar_month
+    const periods = ((new Date()).getTime() - new_moon_ms) / synodic_month_ms
+    const fraction = periods - Math.trunc(periods)
+    console.log(fraction)
+    if (fraction <= .12) {
+       emoji = '🌑'
+    } else if (fraction <= .21) {
+       emoji = '️🌒'
+    } else if (fraction <= .31) {
+       emoji = '🌓'
+    } else if (fraction <= .38) {
+       emoji = '🌔️'
+    } else if (fraction <= .62) {
+       emoji = '🌕️'
+    } else if (fraction <= .69) {
+       emoji = '🌖'
+    } else if (fraction <= .79) {
+       emoji = '️🌗'
+    } else if (fraction <= .88) {
+       emoji = '🌘'
+    } else {
+       emoji = '🌑'
+    }
+    full_moon_ms = Math.trunc(periods) * synodic_month_ms + synodic_month_ms / 2
+    if (fraction > .5) {
+      full_moon_ms += synodic_month_ms 
+    }
+    next_full_moon_dt = '' + new Date(new_moon_ms + full_moon_ms)
+    html = '<a href="https://www.almanac.com/astronomy/moon/calendar/MA/Boston" title="full moon on '+
+           next_full_moon_dt.substr(0,10) + '">';
+    html += emoji + '</a>'
+    return html
+}
+
 try {
   const html = '<table><tr><td>'+getWeather()+
              '</td><td> &emsp; &emsp; </td><td>'+getTides()+'</br>' +getWaterTemperature()+
-             '</td><td> &emsp; &emsp; </td><td>graphic</td></tr></table>'
+             '</td><td> &emsp; &emsp; </td><td>'+getMoonPhase()+'</br>graphic</td></tr></table>'
   console.log(html)
   self.postMessage(html);
 } catch(err) {
   console.log(err.message)
   console.log(err.stack)
+  console.log('---'+err.message)
   self.postMessage('weather ERR, press F12')
 }

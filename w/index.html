@@ -271,8 +271,8 @@ document.getElementById('inputText').addEventListener('keypress', function (e) {
 
 
 
-const GRAPHICAL_WEATHER_LINK = '<id style="font-size: 70%">' +
-   "<a href='https://forecast.weather.gov/MapClick.php?lat=42.48&lon=-71.1&unit=0&lg=english&FcstType=graphical' title='Forecast graph; weather.gov'>Weather</a>" + '</id>';
+const GRAPHICAL_WEATHER_LINK = '<id>' +
+   "<a href='https://forecast.weather.gov/MapClick.php?lat=42.48&lon=-71.1&unit=0&lg=english&FcstType=graphical' title='weather.gov\nforecast graph'>Weather</a>" + '</id>';
 document.getElementById("weather").innerHTML = 'wait, or see: ' + GRAPHICAL_WEATHER_LINK;
 
 let w = new Worker("js/weather.js");
