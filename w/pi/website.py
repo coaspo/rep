@@ -20,8 +20,9 @@ class WebSite:
                     break
             if is_target_dir:
                 for file in files:
-                    p = os.path.join(subdir, file)[2:]
-                    file_path_structures.append([p, os.path.getmtime(p)])
+                    if file.endswith('.html'):
+                        p = os.path.join(subdir, file)[2:]
+                        file_path_structures.append([p, os.path.getmtime(p)])
         file_path_structures.sort(key=lambda x: x[0])
         logging.info('WebSite; ' + str(len(file_path_structures)) + ' file paths')
         return file_path_structures
@@ -48,7 +49,8 @@ class WebSite:
         file_paths = WebSite._get_search_file_paths(target_dirs)
         web_pages = []
         for file_path in file_paths:
-            web_pages.append(WebPage(file_path))
+            if file_path.endswith('.html'):
+                web_pages.append(WebPage(file_path))
         return web_pages
 
     def save_search_file_paths(self, save_file):

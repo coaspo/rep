@@ -10,6 +10,7 @@
     p    {margin-left: 25px; margin-top: 5px; margin-bottom: 5px;}
     a    {text-decoration: none; color: #0000EE;}
     a:hover { text-decoration: underline; }
+    .button1 {border: none; background-color: white; cursor: pointer; width:auto;}
 /* Style the tab */
 .tab {
   overflow: hidden;
@@ -228,6 +229,8 @@ button {
       <br/><b>Health:</b><br/>
       🏋 <a href="./science/exercise.html">exercise</a><br/>
       😏️ <a href="./science/brain_exercise.html">brain exercise</a><br/>
+      <br/>
+      <a href="./science/sky.html">sky</a><br/>
     </td>
   </tr>
 </table>
@@ -271,16 +274,27 @@ document.getElementById('inputText').addEventListener('keypress', function (e) {
 
 
 
-const GRAPHICAL_WEATHER_LINK = '<id>' +
+const WEATHER = '<id>' +
    "<a href='https://forecast.weather.gov/MapClick.php?lat=42.48&lon=-71.1&unit=0&lg=english&FcstType=graphical' title='weather.gov\nforecast graph'>Weather</a>" + '</id>';
-document.getElementById("weather").innerHTML = 'wait, or see: ' + GRAPHICAL_WEATHER_LINK;
+const LOC = '<button class="button1" onclick="getLoc()" title="show map location">📍</button>'
+function getLoc() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showMap);
+  }
+}
+
+function showMap(position) {
+  url = 'https://www.google.com/maps/@'+position.coords.latitude +','+position.coords.longitude
+  window.open(url)
+}
+document.getElementById("weather").innerHTML = WEATHER+'<br>'+LOC;
 
 let w = new Worker("js/weather.js");
 w.onmessage = function(event) {
                 if (event.data == undefined) {
                   event.data = 'unable to get weather; see '
                 }
-		const html = event.data.replace('graphic', GRAPHICAL_WEATHER_LINK)
+                const html = event.data.replace('graphic', WEATHER+'<br>'+LOC)
                 document.getElementById("weather").innerHTML = html;
                 w.terminate();
                 w = undefined;

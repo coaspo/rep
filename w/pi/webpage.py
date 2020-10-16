@@ -19,6 +19,7 @@ class WebPage:
     @staticmethod
     def _create_link(file_path):
         i_start = file_path.rindex('/') + 1
+        print('--------', file_path)
         i_end = file_path.rindex('.html')
         file_name = file_path[i_start:i_end].replace('_', ' ')
         link = '<a href=\'./' + file_path + '\'>' + file_name + '</a>'
@@ -56,7 +57,7 @@ class WebPage:
 
     @staticmethod
     def _find_indexes(file_path):
-        with open(file_path) as f:
+        with open(file_path, encoding="utf-8") as f:
             lines = f.readlines()
         indexes = []
         num_of_lines = 0

@@ -118,17 +118,17 @@ function getTidesLink(predictions) {
     let lowTideTime = removeLeadingZero(predictions[lowTideIndex].t.substr(11)); 
     let highTideTime = removeLeadingZero(predictions[highTideIndex].t.substr(11));
     var nextTide =  lowTideTime +
-               ' L ⬇️</br>'+ highTideTime + ' H'
+               ' ⬇️</br>'+ highTideTime + ' H ️️⬆️'
     var details = 'Low tide: '+ predictions[lowTideIndex].v + ' ft, @ ' + predictions[lowTideIndex].t +
                ';\n  High tide: '+ predictions[highTideIndex].v + ' ft, @ ' + predictions[highTideIndex].t
   } else {  
     const highTideIndex = getHighTideIndex(0, predictions)
     const lowTideIndex = getLowTideIndex(highTideIndex+1, predictions)
     console.log('high '+highTideIndex + ' low '+lowTideIndex)
-    let lowTideTime = removeLeadingZero(predictions[lowTideIndex].t.substr(11)); 
+    let lowTideTime = removeLeadingZero(predictions[lowTideIndex].t.substr(11));
     let highTideTime = removeLeadingZero(predictions[highTideIndex].t.substr(11));
     var nextTide =  highTideTime +
-               ' H ⬆️</br>'+ lowTideTime + ' L'
+               ' ⬆️</br>'+ lowTideTime + ' L ⬇️'
     var details = 'High tide: '+ predictions[highTideIndex].v + ' ft, @ ' + predictions[highTideIndex].t +
                ';\n  Low tide: '+ predictions[lowTideIndex].v + ' ft, @ ' + predictions[lowTideIndex].t 
   }
@@ -230,7 +230,6 @@ function getMoonPhase() {
     //29 d 12 h 44 m 2.8016 s   https://en.wikipedia.org/wiki/Lunar_month
     const periods = ((new Date()).getTime() - new_moon_ms) / synodic_month_ms
     const fraction = periods - Math.trunc(periods)
-    console.log(fraction)
     if (fraction <= .12) {
        emoji = '🌑'
     } else if (fraction <= .21) {
@@ -250,6 +249,7 @@ function getMoonPhase() {
     } else {
        emoji = '🌑'
     }
+    const trend = fraction < .5 ? " ⬆️" : " ⬇️"
     full_moon_ms = Math.trunc(periods) * synodic_month_ms + synodic_month_ms / 2
     if (fraction > .5) {
       full_moon_ms += synodic_month_ms 
@@ -257,7 +257,7 @@ function getMoonPhase() {
     next_full_moon_dt = '' + new Date(new_moon_ms + full_moon_ms)
     html = '<a href="https://www.almanac.com/astronomy/moon/calendar/MA/Boston" title="full moon on '+
            next_full_moon_dt.substr(0,10) + '">';
-    html += emoji + '</a>'
+    html += emoji + trend + '</a>'
     return html
 }
 
