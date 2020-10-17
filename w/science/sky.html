@@ -3,7 +3,7 @@
     <title>Night sky</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-   img {
+img {
   border-radius: 50%;
 }
 .parent {
@@ -35,8 +35,9 @@
 button {
   transition: 0.3s;
   font-size: 18px;
-  width:130px;
+  width:115px;
   text-align: center;
+  margin:-5;
 }
 .backCanvas{ 
     position:absolute; top:0px; left:0px;
@@ -50,9 +51,10 @@ button {
   <canvas class="backCanvas" id="backgrd" width="525" height="525"></canvas>
   <img class="image2" src="./sky-horizon.jpg" />
   <img class="image1" src="./sky-stars.jpg" id="stars" onclick="nextHour();" />
-</div> <br><pre>     <span id="sunrise"  style="font-size: 18px;"></span>                 <span id="time"  style="font-size: 18px;"></span>                  <span id="sunset"  style="font-size: 18px;"></span> </pre>
- &nbsp; <button onclick="nextHour();">Next hour</button> &nbsp; 
-  <button onclick="nextMonth();">Next month</button> &nbsp;  &nbsp; 
+</div> <br><pre>     <span id="sunrise"  style="font-size: 18px;"></span>                 <span id="time"  style="font-size: 18px;"></span>   &nbsp;                <span id="sunset"  style="font-size: 18px;"></span> </pre>
+  <button onclick="nextMonth();" style="width:110px;">month ⬆️</button> &nbsp;   
+  <button onclick="nextDay();" style="width:85px;">day ⬆️</button> &nbsp; 
+  <button onclick="nextHour();" style="width:95px;">hour ⬆️</button> &nbsp; 
   <span style="color:blue;  width: 1550px; " id="date"></span>
  <br><br><br> &nbsp; &nbsp; <a href="https://skyandtelescope.org/interactive-sky-chart/">sky and telescope</a> &nbsp;
   &nbsp; &nbsp; 
@@ -62,8 +64,11 @@ button {
 <script>
    function nextHour() {
       date = new Date(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours()+1, 0, 0, 0)
-      rotateStars(date)
-      sunriseSunSet(date)
+      updateScreen(date) 
+   }
+   function nextDay() {
+      date = new Date(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours()+24, 0, 0, 0)
+      updateScreen(date) 
    }
    function nextMonth() {
       let year = date.getFullYear()
@@ -75,8 +80,7 @@ button {
         year += 1
       }
       date = new Date(year, month, date.getDate(), date.getHours(), 0, 0, 0)
-      rotateStars(date)
-      sunriseSunSet(date)
+      updateScreen(date) 
    }
    function daysAngle(date) {
       const year = date.getFullYear()
@@ -85,12 +89,12 @@ button {
       const angle = (days / 365.) * 360.
       return angle
    }
-   function hourAngle(date) {
+   function sunHourAngle(date) {
       const hours = date.getHours()
       const angle = (hours - 44/60) / 24. * 360.
       return angle
    }
-   function sunriseSunSet(date) {
+   function updateSunriseSunset(date) {
      const jan1Date = new Date((date.getFullYear(), 0, 1, 0, 0, 0, 0))
      const days = (date - jan1Date) / 1000/60/60/24
      // https://en.wikipedia.org/wiki/Position_of_the_Sun
@@ -108,30 +112,30 @@ button {
      const sunsetHour = 12.5 + hourAngle/15
      const hours = date.getHours() + date.getMinutes() / 60
       if (hours< sunriseHour || hours > sunsetHour) {
-        backgroundColor='#8C8C8C';
+        backgroundColor='#8C8C8C'
         sunColor = 'black'
       } else {
-        backgroundColor='#ECF9FF';
+        backgroundColor='#ECF9FF'
         sunColor = 'rgba(255,87,5,1)'
       }
-     drawSun(sunColor, backgroundColor)
      document.getElementById('sunrise').innerHTML = '🌅 '+ hourMin(sunriseHour)
      document.getElementById('sunset').innerHTML = '🌇 '+ hourMin(sunsetHour)
+     return [sunColor, backgroundColor]
    }
-   function drawSun (sunColor, backgroundColor) {
-     document.getElementById('backgrd').style.backgroundColor=backgroundColor;
+   function drawDisc (angle, discColor, backgroundColor) {
      var c = document.getElementById("backgrd");
-     var ctx = c.getContext("2d");
+     var ctx = c.getContext("2d")
      ctx.beginPath()
-     ctx.fillStyle = backgroundColor; 
-     ctx.fillRect(0, 0, c.width, c.height);
-     const a = (hourAngle(date) +180)* Math.PI/180.
+     ctx.fillStyle = backgroundColor 
+     ctx.fillRect(0, 0, c.width, c.height)
+     const a = (180 + angle) * Math.PI/180.
      const x = 262+ Math.round(260 * Math.sin (a))
      const y = 262+ Math.round(260 * Math.cos (a))
-     ctx.fillStyle = sunColor; 
-     ctx.arc(x, y, 5, 0, 2 * Math.PI, 1);
-     ctx.fill(); 
+     ctx.fillStyle = sunColor 
+     ctx.arc(x, y, 5, 0, 2 * Math.PI, 1)
+     ctx.fill() 
    }
+   
    function hourMin(decimalTime) {
      const hour = Math.trunc(decimalTime)
      const hh = hour < 13 ? hour : hour - 12
@@ -140,25 +144,30 @@ button {
      return hh + ':' + mm
    }
    function hourMinAmPm(date) {
-     let hours = date.getHours();
-     let minutes = date.getMinutes();
-     const ampm = hours >= 12 ? 'PM' : 'AM';
-     hours = hours % 12;
-     hours = hours ? hours : 12; // the hour '0' should be '12'
-     minutes = minutes < 10 ? '0'+minutes : minutes;
-     const strTime = hours + ':' + minutes + ' ' + ampm;
-     return strTime;
+     let hours = date.getHours()
+     let minutes = date.getMinutes()
+     const ampm = hours >= 12 ? 'PM' : 'AM'
+     hours = hours % 12
+     hours = hours ? hours : 12 // the hour '0' should be '12'
+     minutes = minutes < 10 ? '0'+minutes : minutes
+     const strTime = hours + ':' + minutes + ' ' + ampm
+     return strTime
    }
    function rotateStars(date) {
-     const angle = daysAngle(date) + hourAngle(date)
-     stars_img.style.transform = 'rotate(-'+angle+'deg)';
+     const angle = daysAngle(date) + sunHourAngle(date)
+     stars_img.style.transform = 'rotate(-'+angle+'deg)'
      document.getElementById('date').innerHTML = date.toString().substr(0,21)
      document.getElementById('time').innerHTML = hourMinAmPm(date)
    }
-   stars_img = document.getElementById('stars');
-   stars_img.style.transform = 'rotate(-2deg)';
+   function updateScreen(date) {
+     rotateStars(date)
+     ar = updateSunriseSunset(date)
+     angle = sunHourAngle(date)
+     drawDisc (angle, ar[0], ar[1])
+   }
+   stars_img = document.getElementById('stars')
+   stars_img.style.transform = 'rotate(-2deg)'
    date = new Date()
-   rotateStars(date)
-   sunriseSunSet(date)
+   updateScreen(date) 
 </script>
 </html>
