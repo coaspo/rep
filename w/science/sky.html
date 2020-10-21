@@ -15,12 +15,6 @@ img {
   position: relative;
   top: 10;
   left: 10;
-  opacity: 0.7;
-}
-.image2 {
-  position: absolute;
-  top: 10;
-  left: 10;
 }
 .bottom-right {
   position: absolute;
@@ -41,16 +35,15 @@ button {
 }
 .backCanvas{ 
     position:absolute; top:0px; left:0px;
-    background-color: rgba(255,0,0,.1);
+    background-color: rgba(0,0,0,0);
 }
 </style>
 </head>
 
 <body>
 <div class="parent" >  
-  <canvas class="backCanvas" id="backgrd" width="525" height="525"></canvas>
-  <img class="image2" src="./sky-horizon.jpg" />
   <img class="image1" src="./sky-stars.jpg" id="stars" onclick="nextHour();" />
+  <canvas class="backCanvas" id="backgrd" width="525" height="525"></canvas>
 </div> <br><pre>     <span id="sunrise"  style="font-size: 18px;"></span>                 <span id="time"  style="font-size: 18px;"></span>   &nbsp;                <span id="sunset"  style="font-size: 18px;"></span> </pre>
   <button onclick="nextMonth();" style="width:110px;">month ⬆️</button> &nbsp;   
   <button onclick="nextDay();" style="width:85px;">day ⬆️</button> &nbsp; 
@@ -62,13 +55,156 @@ button {
 </body>
 
 <script>
+   class Earth {
+     static LATIDUDE = 42.5* Math.PI / 180
+   }
+   class Sun {
+     constructor(date) {
+       this.hourAngle = Sun.hourAngle(date);
+       this.declination = Sun.declination(date);
+       this.setSunsetSunrise(Earth.LATIDUDE)
+     }
+     static hourAngle(date) {
+        const hours = date.getHours()
+        const angle = (hours - 44/60) / 24. * 360
+        return angle
+     }
+     static declination(date) {
+       const jan1Date = new Date((date.getFullYear(), 0, 1, 0, 0, 0, 0))
+       const days = (date - jan1Date) / 1000/60/60/24
+       // https://en.wikipedia.org/wiki/Position_of_the_Sun
+       const declination = -Math.asin(0.39779*Math.cos(0.98565 *Math.PI/180. *(days+10)+
+                           1.914 *Math.PI/180.* Math.sin(0.98565 *Math.PI/180.*(days-2))))
+       console.log('d='+(declination*180/Math.PI))
+       return declination
+     }
+     setSunsetSunrise(latitude) {
+       const sin_a = Math.sin(-.83 *Math.PI/180)
+       const sin_f = Math.sin(latitude)
+       const cos_f = Math.cos(latitude)
+       const sin_d = Math.sin(this.declination)
+       const cos_d = Math.cos(this.declination)
+       const hourAngle = Math.acos((sin_a - sin_f * sin_d) / cos_f / cos_d ) * 180 / Math.PI
+       const sunriseHour = 12.5 - hourAngle/15
+       const sunsetHour = 12.5 + hourAngle/15
+       const hours = date.getHours() + date.getMinutes() / 60
+       this.isDown = hours< sunriseHour || hours > sunsetHour 
+       console.log(this.sunriseTime)
+       console.log(this.sunsetTime)
+       this.sunriseTime = Sun.hourMin(sunriseHour)
+       this.sunsetTime = Sun.hourMin(sunsetHour)
+       console.log(this.sunriseTime)
+       console.log(this.sunsetTime)
+     }
+     static hourMin(decimalTime) {
+       const hour = Math.trunc(decimalTime)
+       const hh = hour < 13 ? hour : hour - 12
+       const minute = Math.trunc((decimalTime - hour) * 60)
+       const mm = minute < 10 ? '0'+minute : minute
+       return hh + ':' + mm
+     }
+   }
+   class NorthSky {
+     static EQUATOR_RADIUS = 229 // for Betelgeuse  R*cos(7.25 deg)=227 pixels
+     static drawZenith(sun) {
+       var ctx = NorthSky.getContext()
+       
+       ctx.beginPath();
+       // clockwise polygon covers image
+       var c = document.getElementById("backgrd");
+       ctx.moveTo(0, 0);
+       ctx.lineTo(c.height, 0);
+       ctx.lineTo(c.height, c.width);
+       ctx.lineTo(0, c.width);
+       ctx.closePath();
+       // hole to image is clockwise when sun is down
+       ctx.ellipse(261, 332, 214, 180, 0, 0, 2 * Math.PI, sun.isDown);
+       const backColor = sun.isDown ? 'black' : 'blue'
+       ctx.fillStyle = backColor;
+       ctx.globalAlpha = sun.isDown ? .2 : .1
+       ctx.strokeStyle = "rgba(0.1,0.5,0.5,0)";
+       ctx.lineWidth = 1;
+       ctx.fill();
+       ctx.globalAlpha = 1
+      
+       const y =  262 + NorthSky.EQUATOR_RADIUS * Math.sin(Earth.LATIDUDE)
+       ctx.font = "20px Arial";
+       ctx.fillText("Z", 262, y); 
+       ctx.fillText("N", 262, 172); 
+       ctx.fillText("S", 262, 502); 
+       ctx.fillText("E", 54, 350); 
+       ctx.fillText("W", 449, 350); 
+     }
+     static update(date, sun) {
+       NorthSky.clearCanvas()
+       NorthSky.rotate(date)
+       const sunRadius = NorthSky.EQUATOR_RADIUS * Math.cos(Earth.LATIDUDE+sun.declination)
+       updateSunriseSunset(sun) 
+       NorthSky.drawDisc (sun.hourAngle, sunRadius)
+       NorthSky.drawZenith(sun)
+     }
+     static rotate(date) {
+       const angle = NorthSky.daysAngle(date) + Sun.hourAngle(date)
+       var stars_img = document.getElementById('stars')
+       stars_img.style.transform = 'rotate(-'+angle+'deg)'
+       document.getElementById('date').innerHTML = date.toString().substr(0,21)
+       document.getElementById('time').innerHTML = hourMinAmPm(date)
+     }
+     static hourMinAmPm(date) {
+       let hours = date.getHours()
+       let minutes = date.getMinutes()
+       const ampm = hours >= 12 ? 'PM' : 'AM'
+       hours = hours % 12
+       hours = hours ? hours : 12 // the hour '0' should be '12'
+       minutes = minutes < 10 ? '0'+minutes : minutes
+       const strTime = hours + ':' + minutes + ' ' + ampm
+       return strTime
+     }
+     static daysAngle(date) {
+        const year = date.getFullYear()
+        const spring_equinox_date = new Date(year, 2, 21, 0, 0, 0, 0)
+        const days = (date - spring_equinox_date) / 1000/60/60/24
+        const angle = (days / 365.) * 360.
+        return angle
+     }
+     static clearCanvas() {
+       var c = document.getElementById("backgrd");
+       var ctx = c.getContext("2d")
+       ctx.clearRect(0, 0, c.width, c.height)
+     }
+     static getContext() {
+       var c = document.getElementById("backgrd");
+       var ctx = c.getContext("2d")
+       ctx.beginPath()
+       return ctx
+     }
+     static drawDisc (angle, pixelRadius) {
+       var ctx = NorthSky.getContext()
+       
+       const a = (180 + angle) * Math.PI/180.
+       const x = 262+ Math.round(pixelRadius * Math.sin (a))
+       const y = 262+ Math.round(pixelRadius * Math.cos (a))
+       ctx.fillStyle = 'red'
+       ctx.strokeStyle = 'black';
+       ctx.lineWidth = 10;
+       ctx.arc(x, y, 5, 0, 2 * Math.PI, 1)
+       ctx.fill() 
+   }
+
+   }
+   date = new Date()
+   sun  = new Sun(date)
+   NorthSky.update(date, sun);
+//---------------------------------------------------------------------------
    function nextHour() {
       date = new Date(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours()+1, 0, 0, 0)
-      updateScreen(date) 
+      sun  = new Sun(date)
+      NorthSky.update(date, sun) 
    }
    function nextDay() {
       date = new Date(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours()+24, 0, 0, 0)
-      updateScreen(date) 
+      sun  = new Sun(date)
+      NorthSky.update(date, sun) 
    }
    function nextMonth() {
       let year = date.getFullYear()
@@ -80,94 +216,21 @@ button {
         year += 1
       }
       date = new Date(year, month, date.getDate(), date.getHours(), 0, 0, 0)
-      updateScreen(date) 
+      sun  = new Sun(date)
+      NorthSky.update(date, sun) 
    }
-   function daysAngle(date) {
-      const year = date.getFullYear()
-      const spring_equinox_date = new Date(year, 2, 21, 0, 0, 0, 0)
-      const days = (date - spring_equinox_date) / 1000/60/60/24
-      const angle = (days / 365.) * 360.
-      return angle
-   }
-   function sunHourAngle(date) {
-      const hours = date.getHours()
-      const angle = (hours - 44/60) / 24. * 360.
-      return angle
-   }
-   function updateSunriseSunset(date) {
-     const jan1Date = new Date((date.getFullYear(), 0, 1, 0, 0, 0, 0))
-     const days = (date - jan1Date) / 1000/60/60/24
-     // https://en.wikipedia.org/wiki/Position_of_the_Sun
-     const declination = -Math.asin(0.39779*Math.cos(0.98565 *Math.PI/180. *(days+10)+
-                         1.914 *Math.PI/180.* Math.sin(0.98565 *Math.PI/180.*(days-2))))
-     // https://en.wikipedia.org/wiki/Sunrise_equation
-     const latitude = 42.5* Math.PI / 180.
-     const sin_a = Math.sin(-.83 *Math.PI/180)
-     const sin_f = Math.sin(latitude)
-     const cos_f = Math.cos(latitude)
-     const sin_d = Math.sin(declination)
-     const cos_d = Math.cos(declination)
-     const hourAngle = Math.acos((sin_a - sin_f * sin_d) / cos_f / cos_d ) * 180 / Math.PI
-     const sunriseHour = 12.5 - hourAngle/15
-     const sunsetHour = 12.5 + hourAngle/15
-     const hours = date.getHours() + date.getMinutes() / 60
-      if (hours< sunriseHour || hours > sunsetHour) {
+   function updateSunriseSunset(sun) {
+      if (sun.isDown) {
         backgroundColor='#8C8C8C'
         sunColor = 'black'
       } else {
         backgroundColor='#ECF9FF'
         sunColor = 'rgba(255,87,5,1)'
       }
-     document.getElementById('sunrise').innerHTML = '🌅 '+ hourMin(sunriseHour)
-     document.getElementById('sunset').innerHTML = '🌇 '+ hourMin(sunsetHour)
+     document.getElementById('sunrise').innerHTML = '🌅 '+ sun.sunriseTime
+     document.getElementById('sunset').innerHTML = '🌇 '+ sun.sunsetTime
      return [sunColor, backgroundColor]
    }
-   function drawDisc (angle, discColor, backgroundColor) {
-     var c = document.getElementById("backgrd");
-     var ctx = c.getContext("2d")
-     ctx.beginPath()
-     ctx.fillStyle = backgroundColor 
-     ctx.fillRect(0, 0, c.width, c.height)
-     const a = (180 + angle) * Math.PI/180.
-     const x = 262+ Math.round(260 * Math.sin (a))
-     const y = 262+ Math.round(260 * Math.cos (a))
-     ctx.fillStyle = sunColor 
-     ctx.arc(x, y, 5, 0, 2 * Math.PI, 1)
-     ctx.fill() 
-   }
    
-   function hourMin(decimalTime) {
-     const hour = Math.trunc(decimalTime)
-     const hh = hour < 13 ? hour : hour - 12
-     const minute = Math.trunc((decimalTime - hour) * 60)
-     const mm = minute < 10 ? '0'+minute : minute
-     return hh + ':' + mm
-   }
-   function hourMinAmPm(date) {
-     let hours = date.getHours()
-     let minutes = date.getMinutes()
-     const ampm = hours >= 12 ? 'PM' : 'AM'
-     hours = hours % 12
-     hours = hours ? hours : 12 // the hour '0' should be '12'
-     minutes = minutes < 10 ? '0'+minutes : minutes
-     const strTime = hours + ':' + minutes + ' ' + ampm
-     return strTime
-   }
-   function rotateStars(date) {
-     const angle = daysAngle(date) + sunHourAngle(date)
-     stars_img.style.transform = 'rotate(-'+angle+'deg)'
-     document.getElementById('date').innerHTML = date.toString().substr(0,21)
-     document.getElementById('time').innerHTML = hourMinAmPm(date)
-   }
-   function updateScreen(date) {
-     rotateStars(date)
-     ar = updateSunriseSunset(date)
-     angle = sunHourAngle(date)
-     drawDisc (angle, ar[0], ar[1])
-   }
-   stars_img = document.getElementById('stars')
-   stars_img.style.transform = 'rotate(-2deg)'
-   date = new Date()
-   updateScreen(date) 
 </script>
 </html>
