@@ -3,18 +3,27 @@
     <title>Night sky</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
-img {
-  border-radius: 50%;
-}
+
 .parent {
-  position: relative;
+  position: absolute;
   top: 0;
-  left: 0;
+  left: 295;
+}
+.cntrl {
+  position: absolute;
+  top: 0;
+  left: 10;
+}
+.parent2 {
+  position: absolute;
+  top: 530;
+  left: 5;
 }
 .image1 {
   position: relative;
   top: 10;
   left: 10;
+  border-radius: 50%;
 }
 .bottom-right {
   position: absolute;
@@ -44,17 +53,34 @@ button {
 <div class="parent" >  
   <img class="image1" src="./sky-stars.jpg" id="stars" onclick="nextHour();" />
   <canvas class="backCanvas" id="backgrd" width="525" height="525"></canvas>
-</div> <br><pre>     <span id="sunrise"  style="font-size: 18px;"></span>                 <span id="time"  style="font-size: 18px;"></span>   &nbsp;                <span id="sunset"  style="font-size: 18px;"></span> </pre>
-  <button onclick="nextMonth();" style="width:110px;">month ⬆️</button> &nbsp;   
-  <button onclick="nextDay();" style="width:85px;">day ⬆️</button> &nbsp; 
-  <button onclick="nextHour();" style="width:95px;">hour ⬆️</button> &nbsp; 
-  <span style="color:blue;  width: 1550px; " id="date"></span>
- <br><br><br> &nbsp; &nbsp; <a href="https://skyandtelescope.org/interactive-sky-chart/">sky and telescope</a> &nbsp;
-  &nbsp; &nbsp; 
- <a href="https://www.darkskymap.com/">darksky</a>
+</div>
+
+<div class="cntrl" >  
+  <br><pre style="font-size: 18px;"> <span style="color:blue;  width: 1550px; font-size: 16px;" id="date"></span>
+
+  <span id="sunrise"  style="font-size: 18px;"></span>   <span id="sunset"  style="font-size: 18px;"></span>          
+
+
+  Month  <button onmousedown="startWorker('month',1);" onmouseup="stopWorker();" style="width:40px;">+</button>   <button onmousedown="startWorker('month',-1);" onmouseup="stopWorker();" style="width:40px;">-</button> 
+
+  Day    <button onmousedown="startWorker('day',1);" onmouseup="stopWorker();" style="width:40px;">+</button>   <button onmousedown="startWorker('day',-1);" onmouseup="stopWorker();" style="width:40px;">-</button>  
+
+  Hour   <button onmousedown="startWorker('hour',1);" onmouseup="stopWorker();" style="width:40px;">+</button>   <button onmousedown="startWorker('hour',-1);" onmouseup="stopWorker();" style="width:40px;">-</button>
+
+
+  
+  <a href="https://skyandtelescope.org/interactive-sky-chart/">sky and telescope</a>
+  
+  <a href="https://www.darkskymap.com/">dark sky</a>
+
+<div class="parent2" >  
+  <img class="image2" src="./sky-stars-equator.jpg" id="stars" onclick="nextHour();" />
+  <br><pre> <span id="sunrise"  style="font-size: 18px;"></span>
+ </div>
 </body>
 
 <script>
+   var w
    class Earth {
      static LATIDUDE = 42.5* Math.PI / 180
    }
@@ -147,18 +173,18 @@ button {
        const angle = NorthSky.daysAngle(date) + Sun.hourAngle(date)
        var stars_img = document.getElementById('stars')
        stars_img.style.transform = 'rotate(-'+angle+'deg)'
-       document.getElementById('date').innerHTML = date.toString().substr(0,21)
-       document.getElementById('time').innerHTML = hourMinAmPm(date)
+       document.getElementById('date').innerHTML = NorthSky.dateAmPm(date)
      }
-     static hourMinAmPm(date) {
+     static dateAmPm(date) {
+       let ts = date.toString().substr(0,16)
        let hours = date.getHours()
        let minutes = date.getMinutes()
        const ampm = hours >= 12 ? 'PM' : 'AM'
        hours = hours % 12
        hours = hours ? hours : 12 // the hour '0' should be '12'
        minutes = minutes < 10 ? '0'+minutes : minutes
-       const strTime = hours + ':' + minutes + ' ' + ampm
-       return strTime
+       ts += ' '+hours + ':' + minutes + ' ' + ampm
+       return ts
      }
      static daysAngle(date) {
         const year = date.getFullYear()
@@ -196,24 +222,55 @@ button {
    sun  = new Sun(date)
    NorthSky.update(date, sun);
 //---------------------------------------------------------------------------
-   function nextHour() {
-      date = new Date(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours()+1, 0, 0, 0)
+function startWorker(type, increment) {
+  if (type == 'month') {
+    f = nextMonth
+    timeout= 800
+  } else if (type == 'day') {
+    f = nextDay
+    timeout= 200
+  } else if (type == 'hour') {
+    f = nextHour
+    timeout= 500
+  }
+  if(typeof(Worker) !== "undefined") {
+    if(typeof(w) == "undefined") {
+      w = new Worker("worker.js");
+    }
+    w.onmessage = function(event) {
+      f(increment)
+    };
+    w.postMessage({'timeout': timeout});
+  } else {
+    document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Workers...";
+  }
+}
+
+function stopWorker() { 
+  w.terminate();
+  w = undefined;
+}
+//---------------------------------------------------------------------------
+   function nextHour(increment) {
+      date = new Date(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours()+increment, 0, 0, 0)
       sun  = new Sun(date)
       NorthSky.update(date, sun) 
    }
-   function nextDay() {
-      date = new Date(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours()+24, 0, 0, 0)
+   function nextDay(increment) {
+      date = new Date(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours()+increment*24, 0, 0, 0)
       sun  = new Sun(date)
       NorthSky.update(date, sun) 
    }
-   function nextMonth() {
+   function nextMonth(increment) {
       let year = date.getFullYear()
       let month = date.getMonth()
-      if (month < 11) {
-        month+=1
-      } else {
-        month = 0
+      month = month + increment
+      if (month > 11) {
         year += 1
+        month = 0
+      } else if (month < 0) {
+        year -= 1
+        month = 11
       }
       date = new Date(year, month, date.getDate(), date.getHours(), 0, 0, 0)
       sun  = new Sun(date)
