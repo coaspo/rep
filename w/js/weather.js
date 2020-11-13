@@ -118,7 +118,7 @@ function getTidesLink(predictions) {
     let lowTideTime = removeLeadingZero(predictions[lowTideIndex].t.substr(11)); 
     let highTideTime = removeLeadingZero(predictions[highTideIndex].t.substr(11));
     var nextTide =  lowTideTime +
-               ' ⬇️</br>'+ highTideTime + ' H ️️⬆️'
+               ' L ⬇️</br>'+ highTideTime + ' H ️'
     var details = 'Low tide: '+ predictions[lowTideIndex].v + ' ft, @ ' + predictions[lowTideIndex].t +
                ';\n  High tide: '+ predictions[highTideIndex].v + ' ft, @ ' + predictions[highTideIndex].t
   } else {  
@@ -128,7 +128,7 @@ function getTidesLink(predictions) {
     let lowTideTime = removeLeadingZero(predictions[lowTideIndex].t.substr(11));
     let highTideTime = removeLeadingZero(predictions[highTideIndex].t.substr(11));
     var nextTide =  highTideTime +
-               ' ⬆️</br>'+ lowTideTime + ' L ⬇️'
+               ' H ⬆️</br>'+ lowTideTime + ' L '
     var details = 'High tide: '+ predictions[highTideIndex].v + ' ft, @ ' + predictions[highTideIndex].t +
                ';\n  Low tide: '+ predictions[lowTideIndex].v + ' ft, @ ' + predictions[lowTideIndex].t 
   }

@@ -10,8 +10,8 @@ class WebPage:
         self.__link = WebPage._create_link(file_path)
         update_ts = os.path.getmtime(file_path)
         self.__modification_date = str(datetime.utcfromtimestamp(update_ts))[:10]
-        self.__search_indexes,  self.__content_line_count = \
-            WebPage._find_indexes(file_path)
+        self.__search_indexes,  self.__content_line_count ,  self.__description = \
+            WebPage._scan_file(file_path)
         self.__topic, self.__sub_topic = \
             WebPage._find_topics(file_path)
         logging.debug(file_path)
@@ -19,7 +19,6 @@ class WebPage:
     @staticmethod
     def _create_link(file_path):
         i_start = file_path.rindex('/') + 1
-        print('--------', file_path)
         i_end = file_path.rindex('.html')
         file_name = file_path[i_start:i_end].replace('_', ' ')
         link = '<a href=\'./' + file_path + '\'>' + file_name + '</a>'
@@ -56,15 +55,19 @@ class WebPage:
         return attrs
 
     @staticmethod
-    def _find_indexes(file_path):
+    def _scan_file(file_path):
         with open(file_path, encoding="utf-8") as f:
             lines = f.readlines()
         indexes = []
         num_of_lines = 0
+        description = ''
         for line in lines:
             num_of_lines += 1
             if line.find('<body>') > -1:
                 num_of_lines = 0
+            # search for comment:
+            if line.find('<!--') > -1:
+                description = line.replace('<!--', '').replace('-->', '').replace('\n', '')
             # search for anchors:
             i = line.find('<a ')
             if i > -1:
@@ -79,10 +82,16 @@ class WebPage:
             if i > -1:
                 labels = WebPage._extract_italicized_labels(line)
                 indexes.append((labels,))
-        return indexes, num_of_lines - 1
+        return indexes, num_of_lines - 1, description
 
     @staticmethod
     def _find_topics(file_path):
+        """
+        >>> WebPage._find_topics('a/b/f.html')
+        ('a', 'b')
+        >>> WebPage._find_topics('a/f.html')
+        ('a', '')
+        """
         i_end = file_path.index('/')
         topic = file_path[:i_end]
 
@@ -120,6 +129,10 @@ class WebPage:
     @property
     def sub_topic(self) -> str:
         return self.__sub_topic
+
+    @property
+    def description(self) -> str:
+        return self.__description
 
     def __str__(self) -> str:
         return f'WebPage: file_path = {self.file_path}, ' + \

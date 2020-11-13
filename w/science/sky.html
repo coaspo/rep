@@ -1,7 +1,7 @@
 <html>
 <head>
     <title>Night sky</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1" charset=utf-8>
 <style>
 
 .parent {
@@ -25,20 +25,10 @@
   left: 10;
   border-radius: 50%;
 }
-.bottom-right {
-  position: absolute;
-  top: 480;
-  left: 420;
-}
-.bottom-left {
-  position: absolute;
-  top: 480;
-  left: 25;
-}
+
 button {
-  transition: 0.3s;
   font-size: 18px;
-  width:115px;
+  width:40px;
   text-align: center;
   margin:-5;
 }
@@ -46,12 +36,16 @@ button {
     position:absolute; top:0px; left:0px;
     background-color: rgba(0,0,0,0);
 }
+.backCanvas2{ 
+    position:absolute; top:0px; left:0px;
+    background-color: rgba(100,0,0,0);
+}
 </style>
 </head>
 
 <body>
 <div class="parent" >  
-  <img class="image1" src="./sky-stars.jpg" id="stars" onclick="nextHour();" />
+  <img class="image1" src="./sky-stars.jpg" id="stars" onclick="nextHour(1);" />
   <canvas class="backCanvas" id="backgrd" width="525" height="525"></canvas>
 </div>
 
@@ -61,21 +55,21 @@ button {
   <span id="sunrise"  style="font-size: 18px;"></span>   <span id="sunset"  style="font-size: 18px;"></span>          
 
 
-  Month  <button onmousedown="startWorker('month',1);" onmouseup="stopWorker();" style="width:40px;">+</button>   <button onmousedown="startWorker('month',-1);" onmouseup="stopWorker();" style="width:40px;">-</button> 
+  Month  <button onmousedown="startWorker('month',1);" onmouseup="stopWorker();">+</button>   <button onmousedown="startWorker('month',-1);" onmouseup="stopWorker();">-</button> 
 
-  Day    <button onmousedown="startWorker('day',1);" onmouseup="stopWorker();" style="width:40px;">+</button>   <button onmousedown="startWorker('day',-1);" onmouseup="stopWorker();" style="width:40px;">-</button>  
+  Day    <button onmousedown="startWorker('day',1);" onmouseup="stopWorker();">+</button>   <button onmousedown="startWorker('day',-1);" onmouseup="stopWorker();">-</button>  
 
-  Hour   <button onmousedown="startWorker('hour',1);" onmouseup="stopWorker();" style="width:40px;">+</button>   <button onmousedown="startWorker('hour',-1);" onmouseup="stopWorker();" style="width:40px;">-</button>
+  Hour   <button onmousedown="startWorker('hour',1);" onmouseup="stopWorker();">+</button>   <button onmousedown="startWorker('hour',-1);" onmouseup="stopWorker();">-</button>
 
 
   
   <a href="https://skyandtelescope.org/interactive-sky-chart/">sky and telescope</a>
   
   <a href="https://www.darkskymap.com/">dark sky</a>
-
+</pre>
 <div class="parent2" >  
   <img class="image2" src="./sky-stars-equator.jpg" id="stars" onclick="nextHour();" />
-  <br><pre> <span id="sunrise"  style="font-size: 18px;"></span>
+    <canvas class="backCanvas2" id="backgrd2" width="1104" height="375"></canvas>
  </div>
 </body>
 
@@ -88,7 +82,7 @@ button {
      constructor(date) {
        this.hourAngle = Sun.hourAngle(date);
        this.declination = Sun.declination(date);
-       this.setSunsetSunrise(Earth.LATIDUDE)
+       this.setSunsetSunrise(Earth.LATIDUDE, date)
      }
      static hourAngle(date) {
         const hours = date.getHours()
@@ -104,21 +98,20 @@ button {
        console.log('d='+(declination*180/Math.PI))
        return declination
      }
-     setSunsetSunrise(latitude) {
+     setSunsetSunrise(latitude, date) {
        const sin_a = Math.sin(-.83 *Math.PI/180)
        const sin_f = Math.sin(latitude)
        const cos_f = Math.cos(latitude)
        const sin_d = Math.sin(this.declination)
        const cos_d = Math.cos(this.declination)
        const hourAngle = Math.acos((sin_a - sin_f * sin_d) / cos_f / cos_d ) * 180 / Math.PI
-       const sunriseHour = 12.5 - hourAngle/15
-       const sunsetHour = 12.5 + hourAngle/15
+       const midHour = date.getTimezoneOffset() === 240 ? 12.5 : 11.5 //  11.5 is for standard time
+       this.sunriseHour = midHour - hourAngle/15
+       this.sunsetHour = midHour + hourAngle/15
        const hours = date.getHours() + date.getMinutes() / 60
-       this.isDown = hours< sunriseHour || hours > sunsetHour 
-       console.log(this.sunriseTime)
-       console.log(this.sunsetTime)
-       this.sunriseTime = Sun.hourMin(sunriseHour)
-       this.sunsetTime = Sun.hourMin(sunsetHour)
+       this.isDown = hours< this.sunriseHour || hours > this.sunsetHour 
+       this.sunriseTime = Sun.hourMin(this.sunriseHour)
+       this.sunsetTime = Sun.hourMin(this.sunsetHour)
        console.log(this.sunriseTime)
        console.log(this.sunsetTime)
      }
@@ -132,17 +125,18 @@ button {
    }
    class NorthSky {
      static EQUATOR_RADIUS = 229 // for Betelgeuse  R*cos(7.25 deg)=227 pixels
-     static drawZenith(sun) {
+     static updateNorthSkyCanvas(sun) {
        var ctx = NorthSky.getContext()
        
        ctx.beginPath();
        // clockwise polygon covers image
        var c = document.getElementById("backgrd");
        ctx.moveTo(0, 0);
-       ctx.lineTo(c.height, 0);
-       ctx.lineTo(c.height, c.width);
+       ctx.lineTo(c.width, 0);
+       ctx.lineTo(c.width, c.height);
        ctx.lineTo(0, c.width);
        ctx.closePath();
+       var southLat = 90 - Earth.LATIDUDE
        // hole to image is clockwise when sun is down
        ctx.ellipse(261, 332, 214, 180, 0, 0, 2 * Math.PI, sun.isDown);
        const backColor = sun.isDown ? 'black' : 'blue'
@@ -164,10 +158,13 @@ button {
      static update(date, sun) {
        NorthSky.clearCanvas()
        NorthSky.rotate(date)
-       const sunRadius = NorthSky.EQUATOR_RADIUS * Math.cos(Earth.LATIDUDE+sun.declination)
-       updateSunriseSunset(sun) 
+       const sunRadiusMin = NorthSky.EQUATOR_RADIUS * Math.cos(Earth.LATIDUDE+sun.declination)
+       const sunRadiusMax = NorthSky.EQUATOR_RADIUS * Math.cos(sun.declination + Math.PI/4)
+       const sunRadius = sunRadiusMin + Math.abs(.5* NorthSky.EQUATOR_RADIUS * Math.cos(sun.hourAngle *Math.PI/180./2))
+         // .5 is arbitrary
+       updateSunriseSunset(sun)
        NorthSky.drawDisc (sun.hourAngle, sunRadius)
-       NorthSky.drawZenith(sun)
+       NorthSky.updateNorthSkyCanvas(sun)
      }
      static rotate(date) {
        const angle = NorthSky.daysAngle(date) + Sun.hourAngle(date)
@@ -187,6 +184,7 @@ button {
        return ts
      }
      static daysAngle(date) {
+       console.log(':::::'+date)
         const year = date.getFullYear()
         const spring_equinox_date = new Date(year, 2, 21, 0, 0, 0, 0)
         const days = (date - spring_equinox_date) / 1000/60/60/24
@@ -214,13 +212,122 @@ button {
        ctx.strokeStyle = 'black';
        ctx.lineWidth = 10;
        ctx.arc(x, y, 5, 0, 2 * Math.PI, 1)
-       ctx.fill() 
+       ctx.fill()
+       ctx.setLineDash([10, 5]);//dashes,spaces
+       ctx.beginPath();
+       ctx.lineWidth = 1;
+       ctx.moveTo(262,262);
+       ctx.lineTo(x, y);
+       ctx.strokeStyle = 'red';
+       ctx.stroke();
+     }
+   }
+   class SouthSky {
+     static updateSouthSkyCanvas(sun) {
+       var ctx = SouthSky.getContext()
+       
+       ctx.beginPath();
+       // clockwise polygon covers image
+       var c = document.getElementById("backgrd2");
+       ctx.moveTo(0, 0);
+       ctx.lineTo(c.width, 0);
+       ctx.lineTo(c.width, c.height);
+       ctx.lineTo(0, c.width);
+       ctx.closePath();
+       var southLat = 90 - Earth.LATIDUDE
+       // hole to image is clockwise when sun is down
+       ctx.ellipse(26, 33, 500, 500, 0, 0, 2 * Math.PI, sun.isDown);
+       const backColor = sun.isDown ? 'black' : 'blue'
+       ctx.fillStyle = backColor;
+       ctx.globalAlpha = sun.isDown ? .2 : .1
+       ctx.strokeStyle = "rgba(0.1,0.5,0.5,0)";
+       ctx.lineWidth = 1;
+       ctx.fill();
+       ctx.globalAlpha = 1
+      
+      }
+     static updateSouthSkyCanvas2(sun) {
+       var c = document.getElementById("backgrd2");
+       var ctx = c.getContext("2d")
+       ctx.beginPath()
+       
+       ctx.beginPath();
+       // clockwise polygon covers image
+          ctx.moveTo(0, 0);
+       ctx.lineTo(c.width, 0);
+       ctx.lineTo(c.width, c.height);
+       ctx.lineTo(0, c.width);
+       ctx.closePath();
+       // hole to image is clockwise when sun is down
+       ctx.ellipse(26, 33, 21, 18, 0, 0, 2 * Math.PI, sun.isDown);
+       const backColor = sun.isDown ? 'black' : 'blue'
+       ctx.fillStyle = backColor;
+       ctx.globalAlpha = sun.isDown ? .2 : .1
+       ctx.strokeStyle = "rgba(0.1,0.5,0.5,0)";
+       ctx.lineWidth = 1;
+       ctx.fill();
+       ctx.globalAlpha = 1
+     }
+     static update(date, sun) {
+       SouthSky.clearCanvas()
+       SouthSky.rotate(date)
+       const sunRadiusMin = NorthSky.EQUATOR_RADIUS * Math.cos(Earth.LATIDUDE+sun.declination)
+       const sunRadiusMax = NorthSky.EQUATOR_RADIUS * Math.cos(sun.declination + Math.PI/4)
+       const sunRadius = sunRadiusMin + Math.abs(.5* NorthSky.EQUATOR_RADIUS * Math.cos(sun.hourAngle *Math.PI/180./2))
+// .5 is arbitrary
+       updateSunriseSunset(sun)
+       SouthSky.drawDisc (sun.hourAngle, sunRadius)
+       SouthSky.updateSouthSkyCanvas(sun)
+      }
+     static rotate(date) {
+       const angle = NorthSky.daysAngle(date) + Sun.hourAngle(date)
+       var stars_img = document.getElementById('stars')
+       stars_img.style.transform = 'rotate(-'+angle+'deg)'
+       document.getElementById('date').innerHTML = NorthSky.dateAmPm(date)
+     }
+     static daysAngle(date) {
+        const year = date.getFullYear()
+        const spring_equinox_date = new Date(year, 2, 21, 0, 0, 0, 0)
+        const days = (date - spring_equinox_date) / 1000/60/60/24
+        const angle = (days / 365.) * 360.
+        return angle
+     }
+     static clearCanvas() {
+       var c = document.getElementById("backgrd2");
+       var ctx = c.getContext("2d")
+       ctx.clearRect(0, 0, c.width, c.height)
+     }
+     static getContext() {
+       var c = document.getElementById("backgrd2");
+       var ctx = c.getContext("2d")
+       ctx.beginPath()
+       return ctx
+     }
+     static drawDisc (angle, pixelRadius) {
+       var ctx = SouthSky.getContext()
+       
+       const a = (180 + angle) * Math.PI/180.
+       const x = 26+ Math.round(pixelRadius * Math.sin (a))
+       const y = 26+ Math.round(pixelRadius * Math.cos (a))
+       ctx.fillStyle = 'red'
+       ctx.strokeStyle = 'black';
+       ctx.lineWidth = 10;
+       ctx.arc(x, y, 5, 0, 2 * Math.PI, 1)
+       ctx.fill()
+       ctx.setLineDash([10, 5]);//dashes,spaces
+       ctx.beginPath();
+       ctx.lineWidth = 1;
+       ctx.moveTo(262,262);
+       ctx.lineTo(x, y);
+       ctx.strokeStyle = 'red';
+       ctx.stroke();
    }
 
    }
    date = new Date()
    sun  = new Sun(date)
    NorthSky.update(date, sun);
+   SouthSky.update(date, sun);
 //---------------------------------------------------------------------------
 function startWorker(type, increment) {
   if (type == 'month') {
@@ -242,7 +349,8 @@ function startWorker(type, increment) {
     };
     w.postMessage({'timeout': timeout});
   } else {
-    document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Workers...";
+    f(increment)
+    concole.log("Sorry, your browser does not support Web Workers...");
   }
 }
 
@@ -254,12 +362,12 @@ function stopWorker() {
    function nextHour(increment) {
       date = new Date(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours()+increment, 0, 0, 0)
       sun  = new Sun(date)
-      NorthSky.update(date, sun) 
+      updateSkyImages(date, sun) 
    }
    function nextDay(increment) {
       date = new Date(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours()+increment*24, 0, 0, 0)
       sun  = new Sun(date)
-      NorthSky.update(date, sun) 
+      updateSkyImages(date, sun) 
    }
    function nextMonth(increment) {
       let year = date.getFullYear()
@@ -274,20 +382,16 @@ function stopWorker() {
       }
       date = new Date(year, month, date.getDate(), date.getHours(), 0, 0, 0)
       sun  = new Sun(date)
-      NorthSky.update(date, sun) 
+      updateSkyImages(date, sun) 
    }
    function updateSunriseSunset(sun) {
-      if (sun.isDown) {
-        backgroundColor='#8C8C8C'
-        sunColor = 'black'
-      } else {
-        backgroundColor='#ECF9FF'
-        sunColor = 'rgba(255,87,5,1)'
-      }
      document.getElementById('sunrise').innerHTML = '🌅 '+ sun.sunriseTime
      document.getElementById('sunset').innerHTML = '🌇 '+ sun.sunsetTime
-     return [sunColor, backgroundColor]
    }
-   
+  function updateSkyImages(date, sun) {
+      NorthSky.update(date, sun) 
+      SouthSky.update(date, sun) 
+   }
+  
 </script>
 </html>

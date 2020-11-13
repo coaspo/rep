@@ -22,7 +22,7 @@ def test_webpage():
     assert expected == actual, 'invalid file_path; expected:\n' + expected + '\nactual:\n' + actual
 
     actual = page.modification_date
-    expected = '2020-08-22'
+    expected = '2020-11-13'
     assert expected == actual, 'invalid modification_date; expected:\n' + expected + '\nactual:\n' + actual
 
     actual = page.content_line_count
@@ -36,3 +36,9 @@ def test_webpage():
     actual = page.link
     expected = "<a href='./tests/search-files/recipe.html'>recipe</a>"
     assert expected == actual, 'invalid search_indexes; expected:\n' + expected + '\nactual:\n' + actual
+
+    actual = page.description
+    print('------actual=', actual)
+    expected = "This is a description"
+    assert expected == actual, 'invalid search_indexes; expected:\n' + expected + '\nactual:\n' + actual
+

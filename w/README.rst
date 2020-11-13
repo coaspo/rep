@@ -9,28 +9,8 @@ See `<./contents.html>`__ for more details
 .. contents:: Contents:
 
 
-
-Notes
------
-|  **Best practice, create virtual env**:
-|    ``pip3 install virtualenv``
-|  From the project directory run:
-|    ``virtualenv venv``
-|
-|    **In pycharm:**
-|     >File >Settings >Project:quizzer
-|     Create ``venv`` in project folder and select project interpreter:
-|     ``c:\..\quizzer\venv\Scripts\python.exe``
-|
-|    **Outside pycharm:**
-|       . venv/bin/activate
-|
-|  **After using a new library**, update ``requirements.txt``:
-|   ``pip install pipreqs``
-|   ``pipreqs ltrans``
-
-View site from github
----------------------
+View web site from github
+-------------------------
 |To view ``br1/main`` branches in browser click:
 | <https://htmlpreview.github.io/?https://github.com/coaspo/rep/blob/br1/w/index.html>
 | <https://htmlpreview.github.io/?https://github.com/coaspo/rep/blob/master/w/index.html>
@@ -38,15 +18,15 @@ View site from github
 
 
 
-Run python check-in tests
--------------------------
+Run python (deploymnet-related) tests
+-------------------------------------
 |  Run <./tests/test_script_check_into_br1.py>
 |
 |    This tests the script that creates/updates files
 |    <./search_labels.txt> and <./search_file_paths.txt>
 |  From project dir, install pytest:
 |    ``pip install -r requirements.txt``
-|  May need to activate venv (see below) before doing this.
+|  May need to activate venv (see 'Notes'below) before doing this.
 |
 |  **In Pycharm:**
 |   >File >Settings >Tools >Python-Integrated-Tools,
@@ -54,12 +34,16 @@ Run python check-in tests
 |   select a test and > "run pytest"
 |
 |  **Outside pycharm:**
-|   In command window type  ``run_tests.py``
-|   Double clicking the file does not work (!)
+|   In command window, and in project dir, type:
+|     python tests/run_all_pytests.py
+|   May run individual doc tests, for example:
+|     python pi/webpage.py
 
-Run server tests
-----------------
-| Run <./tests/start_local_server__open__test_search.html.py>.
+
+Run javascript tests
+--------------------
+| 1. Local
+|   Run <./tests/start_local_server__open__test_search.html.py>.
 |
 |   The script stops/runs local server using:
 |    fuser -k 8080/tcp
@@ -67,9 +51,8 @@ Run server tests
 |   And displays
 |     <http://localhost:8080/w/tests/test_search.html>
 |
-|Open <https://li.netlify.app/w/tests/test_search.html>.
-|
-|   This runs unit and integration on the server.
+| 1. Remote
+| Open <https://li.netlify.app/w/tests/test_search.html>.
 |
 
 Run tests and check into github
@@ -79,28 +62,24 @@ Run tests and check into github
 
 Notes
 -----
-|  **Best practice, create virtual env**:
-|    ``pip install virtualenv``
-|  From the project directory run:
+|**Best practice**
+|  **Setup virtual env**:
+|    ``pip3 install virtualenv``
+|  Create env, from the project directory run:
 |    ``virtualenv venv``
 |
+|  Activate virtual env
 |    **In pycharm:**
-|     >File >Settings >Project:quizzer
+|     >File >Settings >Project:w
 |     Create ``venv`` in project folder and select project interpreter:
-|     ``c:\..\quizzer\venv\Scripts\python.exe``
+|     ``c:\..\w\venv\Scripts\python.exe``
 |
 |    **Outside pycharm:**
-|     Activate venv (add bin to ``%PATH%``)
-|       ``cd c:\..\quizzer``
-|       ``.\venv\Scripts\activate.bat``
-|       When done, deactivate Path. ``%PATH%``:
-|       ``.\venv\Scripts\deactivate.bat``
-|     Or run:
 |       . venv/bin/activate
 |
 |  **After using a new library**, update ``requirements.txt``:
 |   ``pip install pipreqs``
-|   ``pipreqs ltrans``
+|   ``pipreqs pi``
 
 Problems/Solutions
 ------------------

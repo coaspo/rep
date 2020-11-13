@@ -6,6 +6,7 @@ from tkinter import messagebox
 class CheckIn:
     @staticmethod
     def run_git_commands(version, git_branch):
+        CheckIn._run('python', 'tests/run_all_pytests.py')
         CheckIn._run('git', 'add', '*')
         CheckIn._run('git', 'status')
         CheckIn._run('git', 'commit', '-m', "'" + version + "'")
