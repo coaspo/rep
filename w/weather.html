@@ -1,0 +1,19 @@
+<html>
+wait...
+<script>
+function weather() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(localWeather);
+  } else {
+    boston_loc = 'lat=42.3587&lon=-71.0567'
+    window.open('https://forecast.weather.gov/MapClick.php?' + boston_loc + '&unit=0&lg=english&FcstType=graphical')
+  }
+}
+
+function localWeather(position) {
+  url = 'https://forecast.weather.gov/MapClick.php?lat='+position.coords.latitude +'&lon='+position.coords.longitude + '&unit=0&lg=english&FcstType=graphical' 
+  window.open(url)
+}
+weather()
+</script>
+</html>

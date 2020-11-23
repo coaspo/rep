@@ -1,8 +1,7 @@
 w (web site)
-=======
+============
 The 'w' is a static web site project.
-It contains useful/interesting links/info and
-the ability to search the contents of the site.
+It is like a dynamic searchable book.
 
 See `<./contents.html>`__ for more details
 
@@ -17,13 +16,8 @@ View web site from github
 |respectfully.
 
 
-
 Run python (deploymnet-related) tests
 -------------------------------------
-|  Run <./tests/test_script_check_into_br1.py>
-|
-|    This tests the script that creates/updates files
-|    <./search_labels.txt> and <./search_file_paths.txt>
 |  From project dir, install pytest:
 |    ``pip install -r requirements.txt``
 |  May need to activate venv (see 'Notes'below) before doing this.
@@ -35,30 +29,30 @@ Run python (deploymnet-related) tests
 |
 |  **Outside pycharm:**
 |   In command window, and in project dir, type:
-|     python tests/run_all_pytests.py
-|   May run individual doc tests, for example:
-|     python pi/webpage.py
+|     ``python tests/run_all_pytests.py``
+|   May run individual doc (limited) tests, for example:
+|     ``python pi/webpage.py``
 
 
 Run javascript tests
 --------------------
-| 1. Local
+| 1. Local tests
 |   Run <./tests/start_local_server__open__test_search.html.py>.
 |
 |   The script stops/runs local server using:
-|    fuser -k 8080/tcp
-|     python3 -m http.server 8080
+|     ``fuser -k 8080/tcp``
+|     ``python3 -m http.server 8080``
 |   And displays
 |     <http://localhost:8080/w/tests/test_search.html>
 |
-| 1. Remote
+| 2. Remote tests
 | Open <https://li.netlify.app/w/tests/test_search.html>.
 |
 
-Run tests and check into github
--------------------------------
-|   In command window type  or in Pycharm run:
-|   ``run_tests_and_check-in-br1.py``
+Run python tests and check into github
+--------------------------------------
+|   In command window type:
+|   ``python check_in.py``
 
 Notes
 -----

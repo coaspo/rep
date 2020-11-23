@@ -274,9 +274,6 @@ document.getElementById('inputText').addEventListener('keypress', function (e) {
 
 
 
-const WEATHER = '<id>' +
-   "<a href='https://forecast.weather.gov/MapClick.php?lat=42.48&lon=-71.1&unit=0&lg=english&FcstType=graphical' title='weather.gov\nforecast graph'>Weather</a>" + '</id>';
-const LOC = '<button class="button1" onclick="getLoc()" title="show map location">📍</button>'
 function getLoc() {
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(showMap);
@@ -287,7 +284,8 @@ function showMap(position) {
   url = 'https://www.google.com/maps/@'+position.coords.latitude +','+position.coords.longitude
   window.open(url)
 }
-document.getElementById("weather").innerHTML = WEATHER+'<br>'+LOC;
+document.getElementById("weather").innerHTML = "<id><a href='./weather.html'>Weather</a>'"+'<br>'+
+         '<button class="button1" onclick="getLoc()" title="show map location">📍</button>';
 
 let w = new Worker("js/weather.js");
 w.onmessage = function(event) {

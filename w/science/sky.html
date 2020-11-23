@@ -223,7 +223,7 @@ button {
      }
    }
    class SouthSky {
-     static updateSouthSkyCanvas(sun) {
+     static updateSouthSkyCanvas(date, sun) {
        var ctx = SouthSky.getContext()
        
        ctx.beginPath();
@@ -234,6 +234,18 @@ button {
        ctx.lineTo(c.width, c.height);
        ctx.lineTo(0, c.width);
        ctx.closePath();
+       const dayHours = sun.sunsetHour - sun.sunriseHour
+       console.log(dayHours+'++++++++')
+       const jan1Date = new Date((date.getFullYear(), 0, 1, 0, 0, 0, 0))
+       const days = (date - jan1Date) / 1000/60/60/24
+       x1 = (days / 365.25  - sun.sunriseHour / 24) * 1102 // 1102 is pixel width
+       x2 = (days / 365.25  + sun.sunsetHour / 24) * 1102
+       if (x1 < 0) {
+       } else if (x2 > 1102) {
+       } else {
+       }
+       xc = (x2 + x1) / 2
+       ctx.ellipse(x2 - x1, 33, xc, 374/2,  0, 0, 2 * Math.PI, sun.isDown);  
        var southLat = 90 - Earth.LATIDUDE
        // hole to image is clockwise when sun is down
        ctx.ellipse(26, 33, 500, 500, 0, 0, 2 * Math.PI, sun.isDown);
@@ -277,7 +289,7 @@ button {
 // .5 is arbitrary
        updateSunriseSunset(sun)
        SouthSky.drawDisc (sun.hourAngle, sunRadius)
-       SouthSky.updateSouthSkyCanvas(sun)
+       SouthSky.updateSouthSkyCanvas(date,sun)
       }
      static rotate(date) {
        const angle = NorthSky.daysAngle(date) + Sun.hourAngle(date)
