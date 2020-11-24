@@ -92,6 +92,8 @@ button {
 	   <button onclick="browse('https://vsearch.nlm.nih.gov/vivisimo/cgi-bin/query-meta?v%3Aproject=medlineplus&v%3Asources=medlineplus-bundle&query=zzzz')"        >⚕️ 💊 NIH</button>
 	<p><button onclick="browse('https://translate.google.com/#view=home&op=translate&sl=es&tl=en&text=zzzz');" >🇪🇸 ➜ 🇺🇲️</button>
 	   <button onclick="browse('https://translate.google.com/#view=home&op=translate&sl=en&tl=el&text=zzzz');">🇺🇲️  ➜ 🇬🇷</button>
+	<p><button onclick="browse('https://www.homedepot.com/s/zzzz');" >Home depo️</button>
+	   <button onclick="browse('https://www.walmart.com/search/?query=zzzz');">Walmart</button>
 	<p><button onclick="browse('https://www.google.com/maps/place/zzzz');" >    🗺️ Map</button>
 	   <button onclick="searchContentsMain(true, '/search_file_paths.txt', '/search_labels.txt');" style="width:155px; text-align: left; color:#009900; font-weight:bold" >Contents</button>
       </td>
@@ -258,7 +260,11 @@ if (document.URL.startsWith('file')) {
 
 
 function browse(url_template) {
-  const text = document.getElementById('inputText').value;
+  var text = document.getElementById('inputText').value;
+  text = text.replace(/  /g, " ")
+  if (url_template.includes('homedepot.com')) {
+     text = text.replace(/ /g, "%2520")
+  }
   const url = url_template.replace('zzzz', text)
   const win = window.open(url, "_self");
   win.focus(); 

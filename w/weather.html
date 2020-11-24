@@ -7,12 +7,14 @@ function weather() {
   } else {
     boston_loc = 'lat=42.3587&lon=-71.0567'
     window.open('https://forecast.weather.gov/MapClick.php?' + boston_loc + '&unit=0&lg=english&FcstType=graphical')
+    window.close()
   }
 }
 
 function localWeather(position) {
   url = 'https://forecast.weather.gov/MapClick.php?lat='+position.coords.latitude +'&lon='+position.coords.longitude + '&unit=0&lg=english&FcstType=graphical' 
   window.open(url)
+  window.close()
 }
 weather()
 </script>
