@@ -118,7 +118,7 @@ function getTidesLink(predictions) {
     let lowTideTime = removeLeadingZero(predictions[lowTideIndex].t.substr(11)); 
     let highTideTime = removeLeadingZero(predictions[highTideIndex].t.substr(11));
     var nextTide =  lowTideTime +
-               ' L ⬇️</br>'+ highTideTime + ' H ️'
+               ' ⬇️</br>'+ highTideTime + ' H ️'
     var details = 'Low tide: '+ predictions[lowTideIndex].v + ' ft, @ ' + predictions[lowTideIndex].t +
                ';\n  High tide: '+ predictions[highTideIndex].v + ' ft, @ ' + predictions[highTideIndex].t
   } else {  
@@ -128,7 +128,7 @@ function getTidesLink(predictions) {
     let lowTideTime = removeLeadingZero(predictions[lowTideIndex].t.substr(11));
     let highTideTime = removeLeadingZero(predictions[highTideIndex].t.substr(11));
     var nextTide =  highTideTime +
-               ' H ⬆️</br>'+ lowTideTime + ' L '
+               ' ⬆️</br>'+ lowTideTime + ' L '
     var details = 'High tide: '+ predictions[highTideIndex].v + ' ft, @ ' + predictions[highTideIndex].t +
                ';\n  Low tide: '+ predictions[lowTideIndex].v + ' ft, @ ' + predictions[lowTideIndex].t 
   }
@@ -255,21 +255,23 @@ function getMoonPhase() {
       full_moon_ms += synodic_month_ms 
     }
     next_full_moon_dt = '' + new Date(new_moon_ms + full_moon_ms)
-    html = '<a href="https://www.almanac.com/astronomy/moon/calendar/MA/Boston" title="full moon on '+
+    let html = '<a href="https://www.almanac.com/astronomy/moon/calendar/MA/Boston" title="full moon on '+
            next_full_moon_dt.substr(0,10) + '">';
     html += emoji + trend + '</a>'
     return html
 }
 
 try {
-  const html = '<table><tr><td>'+getWeather()+
+  const html = '<table><tr><td>graphicWeather</td><td>'+getWeather()+
              '</td><td> &emsp; &emsp; </td><td>'+getTides()+'</br>' +getWaterTemperature()+
-             '</td><td> &emsp; &emsp; </td><td>'+getMoonPhase()+'</br>graphic</td></tr></table>'
-  console.log(html)
+             '</td><td> &emsp; &emsp; </td><td>'+getMoonPhase()+'</td></tr></table>'
+  console.log('++++++++')
+ console.log(html)
+ console.log('-----------')
   self.postMessage(html);
 } catch(err) {
   console.log(err.message)
   console.log(err.stack)
   console.log('---'+err.message)
-  self.postMessage('weather ERR, press F12')
+  self.postMessage('weather ERR: '+ err.message)
 }

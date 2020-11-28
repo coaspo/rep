@@ -235,20 +235,26 @@ button {
        ctx.lineTo(0, c.width);
        ctx.closePath();
        const dayHours = sun.sunsetHour - sun.sunriseHour
-       console.log(dayHours+'++++++++')
-       const jan1Date = new Date((date.getFullYear(), 0, 1, 0, 0, 0, 0))
+       const midHour = (sun.sunsetHour - sun.sunriseHour) / 2
+       const jan1Date = new Date(date.getFullYear(), 0, 1, 0, 0, 0, 0)
        const days = (date - jan1Date) / 1000/60/60/24
-       x1 = (days / 365.25  - sun.sunriseHour / 24) * 1102 // 1102 is pixel width
-       x2 = (days / 365.25  + sun.sunsetHour / 24) * 1102
-       if (x1 < 0) {
-       } else if (x2 > 1102) {
-       } else {
-       }
-       xc = (x2 + x1) / 2
-       ctx.ellipse(x2 - x1, 33, xc, 374/2,  0, 0, 2 * Math.PI, sun.isDown);  
-       var southLat = 90 - Earth.LATIDUDE
+       const hour = date.getHours()
+       const x = (days / 365.25 - (hour -2.5)/ 24 - 70./360) * 1102 // 1102 is pixel width
+       const a = dayHours / 2 / 24 * 1102
+       const x1 = x - a   
+       const x2 = x + a   
+       const b = 200
        // hole to image is clockwise when sun is down
-       ctx.ellipse(26, 33, 500, 500, 0, 0, 2 * Math.PI, sun.isDown);
+       //ctx.ellipse(150, 50, 200, 1000, 0, 0, 2 * Math.PI, sun.isDown);
+       console.log(x+'++++++++'+a+'kkkk'+days)
+       ctx.ellipse(x, 33, a, b, 0, 0, 2 * Math.PI, sun.isDown);
+        ctx.closePath();
+       if (x1 < 0) {
+          ctx.ellipse(x+1102, 33, a, b, 0, 0, 2 * Math.PI, sun.isDown);
+       } else if (x2 > 1102) {
+           ctx.ellipse(x-1102, 33, a, b, 0, 0, 2 * Math.PI, sun.isDown);
+      } 
+       var southLat = 90 - Earth.LATIDUDE
        const backColor = sun.isDown ? 'black' : 'blue'
        ctx.fillStyle = backColor;
        ctx.globalAlpha = sun.isDown ? .2 : .1
@@ -258,28 +264,6 @@ button {
        ctx.globalAlpha = 1
       
       }
-     static updateSouthSkyCanvas2(sun) {
-       var c = document.getElementById("backgrd2");
-       var ctx = c.getContext("2d")
-       ctx.beginPath()
-       
-       ctx.beginPath();
-       // clockwise polygon covers image
-          ctx.moveTo(0, 0);
-       ctx.lineTo(c.width, 0);
-       ctx.lineTo(c.width, c.height);
-       ctx.lineTo(0, c.width);
-       ctx.closePath();
-       // hole to image is clockwise when sun is down
-       ctx.ellipse(26, 33, 21, 18, 0, 0, 2 * Math.PI, sun.isDown);
-       const backColor = sun.isDown ? 'black' : 'blue'
-       ctx.fillStyle = backColor;
-       ctx.globalAlpha = sun.isDown ? .2 : .1
-       ctx.strokeStyle = "rgba(0.1,0.5,0.5,0)";
-       ctx.lineWidth = 1;
-       ctx.fill();
-       ctx.globalAlpha = 1
-     }
      static update(date, sun) {
        SouthSky.clearCanvas()
        SouthSky.rotate(date)

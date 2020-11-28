@@ -75,6 +75,7 @@ button {
 	<!--voice--><a href="https://voicetotext.org/speech-to-text">voice ➔ text</a><br/><br/>
 	<!--duolingo--><a href="https://www.duolingo.com/?isLoggingIn=true">duolingo</a><br/><br/>
 	<!--popular--><a href="./science/covid_notes_-_philosophy,_politics,_psychology,_science.html">Popular</a>&nbsp;&nbsp;&nbsp;<br/><br/>
+	<!--popular--><a href="https://www.theatlantic.com/most-popular/">The Atlantic</a><br/><br/> 
 	<!--virology--><a href="https://www.microbe.tv/twiv/archive/">Virology</a><br/><br/> 
 	<!--contents--><a href="./contents.html">Contents</a>&nbsp;&nbsp;&nbsp;<br/><br/>
 	      </td>
@@ -87,15 +88,17 @@ button {
 	<p><button onclick="browse('https://www.google.com/search?q=zzzz  site:.org');">                  10<sup>100</sup></button>
 	   <button onclick="browse('https://duckduckgo.com/?q=zzzz  site:org');" >                        🦆 🦆</button>
         <p><button onclick="browse('https://en.wikipedia.org/wiki/zzzz');" style="color:#800517" >   Wikipedia</button>
-	   <button onclick="browse('https://www.wolframalpha.com/input/?i=zzzz');" style=" color:#800517;">Wolfram</button>
+	   <button onclick="browse('https://melrose.noblenet.org/eg/opac/results?query=zzzz&qtype=keyword&fi%3Asearch_format=&locg=1');" style=" color:#800517;">Library</button>
 	<p><button onclick="browse('https://www.mayoclinic.org/search/search-results?q=zzzz');">           ⚕️ Mayo C</button>
 	   <button onclick="browse('https://vsearch.nlm.nih.gov/vivisimo/cgi-bin/query-meta?v%3Aproject=medlineplus&v%3Asources=medlineplus-bundle&query=zzzz')"        >⚕️ 💊 NIH</button>
 	<p><button onclick="browse('https://translate.google.com/#view=home&op=translate&sl=es&tl=en&text=zzzz');" >🇪🇸 ➜ 🇺🇲️</button>
 	   <button onclick="browse('https://translate.google.com/#view=home&op=translate&sl=en&tl=el&text=zzzz');">🇺🇲️  ➜ 🇬🇷</button>
-	<p><button onclick="browse('https://www.homedepot.com/s/zzzz');" >Home depo️</button>
-	   <button onclick="browse('https://www.walmart.com/search/?query=zzzz');">Walmart</button>
+	<p><button onclick="browse('https://www.homedepot.com/s/zzzz');" style="color:#878700;">Home depo️</button>
+	   <button onclick="browse('https://www.walmart.com/search/?query=zzzz');" style="color:#878700;">Walmart</button>
+	<p><button onclick="browse('https://www.amazon.com/s?k=zzzz');"  style="color:#878700;">Amazon️</button>
+	   <button onclick="browse('https://www.target.com/s?searchTerm=zzzz');" style="color:#878700;">Target</button>
 	<p><button onclick="browse('https://www.google.com/maps/place/zzzz');" >    🗺️ Map</button>
-	   <button onclick="searchContentsMain(true, '/search_file_paths.txt', '/search_labels.txt');" style="width:155px; text-align: left; color:#009900; font-weight:bold" >Contents</button>
+	   <button onclick="searchContentsMain(true, '/search_file_paths.txt', '/search_labels.txt');" style="color:#009900; font-weight:bold" >Contents</button>
       </td>
     </tr>
   </table>
@@ -290,15 +293,17 @@ function showMap(position) {
   url = 'https://www.google.com/maps/@'+position.coords.latitude +','+position.coords.longitude
   window.open(url)
 }
-document.getElementById("weather").innerHTML = "<id><a href='./weather.html'>Weather</a>'"+'<br>'+
-         '<button class="button1" onclick="getLoc()" title="show map location">📍</button>';
+var graphicWeather = "<a href='./weather.html'>Weather &nbsp; &nbsp; </a>"+'<br>'+
+         '<button class="button1" onclick="getLoc()" title="show map location">📍</button>'
+document.getElementById("weather").innerHTML = graphicWeather;
 
 let w = new Worker("js/weather.js");
 w.onmessage = function(event) {
+  console.log('*******')
                 if (event.data == undefined) {
                   event.data = 'unable to get weather; see '
                 }
-                const html = event.data.replace('graphic', WEATHER+'<br>'+LOC)
+                const html = event.data.replace('graphicWeather', graphicWeather+'<br>')
                 document.getElementById("weather").innerHTML = html;
                 w.terminate();
                 w = undefined;

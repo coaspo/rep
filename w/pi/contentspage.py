@@ -80,7 +80,7 @@ class ContentsPage:
                 display_sub_topic = ''
 
             lines += f"<tr><td><b>{display_topic} </b></td> <td>{display_sub_topic}</td> <td>{web_page.link}</td>" \
-                     f"<td style=\"font-size:12px;\">{ web_page.modification_date}</td>" \
+                     f"<td style=\"font-size:12px;\">{ web_page.modification_date[2:]}</td>" \
                      f"<td>{web_page.content_line_count}</td></tr>\n "
 
         lines += '</table>'
