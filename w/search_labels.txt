@@ -124,6 +124,6 @@ week in virology$$29$$https://www.microbe.tv/twiv/archive/
 flightradar24$$29$$https://www.flightradar24.com/airport/bos
 merk manual$$29$$https://www.merckmanuals.com/
 nih.gov$$30$$https://www.nia.nih.gov/health
-nih.gov$$31$$https://www.nia.nih.gov/health
-sky and telescope$$33$$https://skyandtelescope.org/interactive-sky-chart/
-dark sky$$33$$https://www.darkskymap.com/
+nih.gov$$32$$https://www.nia.nih.gov/health
+sky and telescope$$34$$https://skyandtelescope.org/interactive-sky-chart/
+dark sky$$34$$https://www.darkskymap.com/

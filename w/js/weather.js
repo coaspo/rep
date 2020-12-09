@@ -118,7 +118,7 @@ function getTidesLink(predictions) {
     let lowTideTime = removeLeadingZero(predictions[lowTideIndex].t.substr(11)); 
     let highTideTime = removeLeadingZero(predictions[highTideIndex].t.substr(11));
     var nextTide =  lowTideTime +
-               ' ⬇️</br>'+ highTideTime + ' H ️'
+               ' ⬇️</br>'+ highTideTime + ' H'
     var details = 'Low tide: '+ predictions[lowTideIndex].v + ' ft, @ ' + predictions[lowTideIndex].t +
                ';\n  High tide: '+ predictions[highTideIndex].v + ' ft, @ ' + predictions[highTideIndex].t
   } else {  
@@ -128,7 +128,7 @@ function getTidesLink(predictions) {
     let lowTideTime = removeLeadingZero(predictions[lowTideIndex].t.substr(11));
     let highTideTime = removeLeadingZero(predictions[highTideIndex].t.substr(11));
     var nextTide =  highTideTime +
-               ' ⬆️</br>'+ lowTideTime + ' L '
+               ' ⬆️</br>'+ lowTideTime + ' L'
     var details = 'High tide: '+ predictions[highTideIndex].v + ' ft, @ ' + predictions[highTideIndex].t +
                ';\n  Low tide: '+ predictions[lowTideIndex].v + ' ft, @ ' + predictions[lowTideIndex].t 
   }
@@ -265,13 +265,9 @@ try {
   const html = '<table><tr><td>graphicWeather</td><td>'+getWeather()+
              '</td><td> &emsp; &emsp; </td><td>'+getTides()+'</br>' +getWaterTemperature()+
              '</td><td> &emsp; &emsp; </td><td>'+getMoonPhase()+'</td></tr></table>'
-  console.log('++++++++')
- console.log(html)
- console.log('-----------')
   self.postMessage(html);
 } catch(err) {
   console.log(err.message)
   console.log(err.stack)
-  console.log('---'+err.message)
   self.postMessage('weather ERR: '+ err.message)
 }

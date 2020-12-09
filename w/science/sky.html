@@ -68,12 +68,14 @@ button {
   <a href="https://www.darkskymap.com/">dark sky</a>
 </pre>
 <div class="parent2" >  
-  <img class="image2" src="./sky-stars-equator.jpg" id="stars" onclick="nextHour();" />
+  <img class="image2" src="./sky-stars-equator.jpg" id="stars2" />
     <canvas class="backCanvas2" id="backgrd2" width="1104" height="375"></canvas>
+    <canvas  id="starWindow" width="1104" height="375"  ></canvas>
  </div>
 </body>
 
 <script>
+
    var w
    class Earth {
      static LATIDUDE = 42.5* Math.PI / 180
@@ -239,21 +241,17 @@ button {
        const jan1Date = new Date(date.getFullYear(), 0, 1, 0, 0, 0, 0)
        const days = (date - jan1Date) / 1000/60/60/24
        const hour = date.getHours()
-       const x = (days / 365.25 - (hour -2.5)/ 24 - 70./360) * 1102 // 1102 is pixel width
+       let x = (days / 365.25 - (hour -2.5)/ 24 - 82./360) * 1102 // 1102 is pixel width
+       if (x >1102)
+         x = x - 1102
+       else if (x < 0 )
+         x = x + 1102
        const a = dayHours / 2 / 24 * 1102
-       const x1 = x - a   
-       const x2 = x + a   
        const b = 200
        // hole to image is clockwise when sun is down
-       //ctx.ellipse(150, 50, 200, 1000, 0, 0, 2 * Math.PI, sun.isDown);
-       console.log(x+'++++++++'+a+'kkkk'+days)
-       ctx.ellipse(x, 33, a, b, 0, 0, 2 * Math.PI, sun.isDown);
+       ctx.ellipse(552, 33, a, b, 0, 0, 2 * Math.PI, sun.isDown);
         ctx.closePath();
-       if (x1 < 0) {
-          ctx.ellipse(x+1102, 33, a, b, 0, 0, 2 * Math.PI, sun.isDown);
-       } else if (x2 > 1102) {
-           ctx.ellipse(x-1102, 33, a, b, 0, 0, 2 * Math.PI, sun.isDown);
-      } 
+ 
        var southLat = 90 - Earth.LATIDUDE
        const backColor = sun.isDown ? 'black' : 'blue'
        ctx.fillStyle = backColor;
@@ -262,6 +260,13 @@ button {
        ctx.lineWidth = 1;
        ctx.fill();
        ctx.globalAlpha = 1
+  const img = document.getElementById('stars2')
+       const c2 = document.getElementById("starWindow");
+      const ctx2 = c2.getContext("2d");
+  let xStart = x
+        console.log(x+'++++ xStart='+xStart+'  days='+days)
+ 
+ctx2.drawImage(img, xStart, 0, 1104, 525, 0, 0, 1104,525);
       
       }
      static update(date, sun) {
@@ -274,6 +279,7 @@ button {
        updateSunriseSunset(sun)
        SouthSky.drawDisc (sun.hourAngle, sunRadius)
        SouthSky.updateSouthSkyCanvas(date,sun)
+
       }
      static rotate(date) {
        const angle = NorthSky.daysAngle(date) + Sun.hourAngle(date)
@@ -324,6 +330,8 @@ button {
    sun  = new Sun(date)
    NorthSky.update(date, sun);
    SouthSky.update(date, sun);
+   
+
 //---------------------------------------------------------------------------
 function startWorker(type, increment) {
   if (type == 'month') {
@@ -388,6 +396,15 @@ function stopWorker() {
       NorthSky.update(date, sun) 
       SouthSky.update(date, sun) 
    }
+   
+//---------------------------------------------------------------------------
+window.onload = function() {
+  const img = document.getElementById('stars2')
+  img.style.display = "none";
+  const c = document.getElementById("starWindow");
+  const ctx = c.getContext("2d");
+  ctx.drawImage(img, 250, 0, 1104,375, 0, 0, 1104,375);
+}
   
 </script>
 </html>
