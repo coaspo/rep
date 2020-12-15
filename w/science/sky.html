@@ -61,6 +61,8 @@ button {
 
   Hour   <button onmousedown="startWorker('hour',1);" onmouseup="stopWorker();">+</button>   <button onmousedown="startWorker('hour',-1);" onmouseup="stopWorker();">-</button>
 
+  Minute <button onmousedown="startWorker('minute',1);" onmouseup="stopWorker();">+</button>   <button onmousedown="startWorker('minute',-1);" onmouseup="stopWorker();">-</button>
+
 
   
   <a href="https://skyandtelescope.org/interactive-sky-chart/">sky and telescope</a>
@@ -77,6 +79,9 @@ button {
 <script>
 
    var w
+   function degrees(rad) {
+     return rad * 180 / Math.PI 
+   }
    class Earth {
      static LATIDUDE = 42.5* Math.PI / 180
    }
@@ -87,7 +92,7 @@ button {
        this.setSunsetSunrise(Earth.LATIDUDE, date)
      }
      static hourAngle(date) {
-        const hours = date.getHours()
+        const hours = date.getHours() + date.getMinutes() / 60.
         const angle = (hours - 44/60) / 24. * 360
         return angle
      }
@@ -170,7 +175,7 @@ button {
      }
      static rotate(date) {
        const angle = NorthSky.daysAngle(date) + Sun.hourAngle(date)
-       var stars_img = document.getElementById('stars')
+      var stars_img = document.getElementById('stars')
        stars_img.style.transform = 'rotate(-'+angle+'deg)'
        document.getElementById('date').innerHTML = NorthSky.dateAmPm(date)
      }
@@ -186,11 +191,11 @@ button {
        return ts
      }
      static daysAngle(date) {
-       console.log(':::::'+date)
         const year = date.getFullYear()
         const spring_equinox_date = new Date(year, 2, 21, 0, 0, 0, 0)
-        const days = (date - spring_equinox_date) / 1000/60/60/24
+        const days = (date - spring_equinox_date) / 1000/60/60/24.
         const angle = (days / 365.) * 360.
+       console.log(angle+':::::'+date)
         return angle
      }
      static clearCanvas() {
@@ -239,17 +244,17 @@ button {
        const dayHours = sun.sunsetHour - sun.sunriseHour
        const midHour = (sun.sunsetHour - sun.sunriseHour) / 2
        const jan1Date = new Date(date.getFullYear(), 0, 1, 0, 0, 0, 0)
-       const days = (date - jan1Date) / 1000/60/60/24
-       const hour = date.getHours()
+       const days = (date - jan1Date) / 1000/60/60/24.
+       const hour = date.getHours() + date.getMinutes() / 60.
        let x = (days / 365.25 - (hour -2.5)/ 24 - 82./360) * 1102 // 1102 is pixel width
        if (x >1102)
          x = x - 1102
        else if (x < 0 )
          x = x + 1102
-       const a = dayHours / 2 / 24 * 1102
-       const b = 200
+       const a = (24-dayHours)/ 24 * 1102 / 2
+       const y = (45 - degrees(Earth.LATIDUDE)) * 375 / 90
        // hole to image is clockwise when sun is down
-       ctx.ellipse(552, 33, a, b, 0, 0, 2 * Math.PI, sun.isDown);
+       ctx.ellipse(552, y, a, 375, 0, 0, 2 * Math.PI, sun.isDown);
         ctx.closePath();
  
        var southLat = 90 - Earth.LATIDUDE
@@ -260,41 +265,23 @@ button {
        ctx.lineWidth = 1;
        ctx.fill();
        ctx.globalAlpha = 1
-  const img = document.getElementById('stars2')
+       const img = document.getElementById('stars2')
        const c2 = document.getElementById("starWindow");
-      const ctx2 = c2.getContext("2d");
-  let xStart = x
-        console.log(x+'++++ xStart='+xStart+'  days='+days)
- 
-ctx2.drawImage(img, xStart, 0, 1104, 525, 0, 0, 1104,525);
-      
+       const ctx2 = c2.getContext("2d"); 
+       ctx2.drawImage(img, x, 0, 1104, 525, 0, 0, 1104,525);
       }
      static update(date, sun) {
        SouthSky.clearCanvas()
-       SouthSky.rotate(date)
        const sunRadiusMin = NorthSky.EQUATOR_RADIUS * Math.cos(Earth.LATIDUDE+sun.declination)
        const sunRadiusMax = NorthSky.EQUATOR_RADIUS * Math.cos(sun.declination + Math.PI/4)
        const sunRadius = sunRadiusMin + Math.abs(.5* NorthSky.EQUATOR_RADIUS * Math.cos(sun.hourAngle *Math.PI/180./2))
 // .5 is arbitrary
        updateSunriseSunset(sun)
-       SouthSky.drawDisc (sun.hourAngle, sunRadius)
+       SouthSky.drawSun (sun.hourAngle, sunRadius)
        SouthSky.updateSouthSkyCanvas(date,sun)
 
       }
-     static rotate(date) {
-       const angle = NorthSky.daysAngle(date) + Sun.hourAngle(date)
-       var stars_img = document.getElementById('stars')
-       stars_img.style.transform = 'rotate(-'+angle+'deg)'
-       document.getElementById('date').innerHTML = NorthSky.dateAmPm(date)
-     }
-     static daysAngle(date) {
-        const year = date.getFullYear()
-        const spring_equinox_date = new Date(year, 2, 21, 0, 0, 0, 0)
-        const days = (date - spring_equinox_date) / 1000/60/60/24
-        const angle = (days / 365.) * 360.
-        return angle
-     }
-     static clearCanvas() {
+      static clearCanvas() {
        var c = document.getElementById("backgrd2");
        var ctx = c.getContext("2d")
        ctx.clearRect(0, 0, c.width, c.height)
@@ -305,21 +292,25 @@ ctx2.drawImage(img, xStart, 0, 1104, 525, 0, 0, 1104,525);
        ctx.beginPath()
        return ctx
      }
-     static drawDisc (angle, pixelRadius) {
+     static drawSun (angle, pixelRadius) {
        var ctx = SouthSky.getContext()
        
-       const a = (180 + angle) * Math.PI/180.
-       const x = 26+ Math.round(pixelRadius * Math.sin (a))
-       const y = 26+ Math.round(pixelRadius * Math.cos (a))
+       let x = (angle/360) * 1102 // 1102 is pixel width
+       if (x >1102)
+         x = x - 1102
+       else if (x < 0 )
+         x = x + 1102
+
        ctx.fillStyle = 'red'
        ctx.strokeStyle = 'black';
        ctx.lineWidth = 10;
+       const y = 375/2  + degrees(Earth.LATIDUDE) * 375 /90/2  * Math.cos(angle/1102)
        ctx.arc(x, y, 5, 0, 2 * Math.PI, 1)
        ctx.fill()
        ctx.setLineDash([10, 5]);//dashes,spaces
        ctx.beginPath();
        ctx.lineWidth = 1;
-       ctx.moveTo(262,262);
+       ctx.moveTo(x,0);
        ctx.lineTo(x, y);
        ctx.strokeStyle = 'red';
        ctx.stroke();
@@ -343,6 +334,9 @@ function startWorker(type, increment) {
   } else if (type == 'hour') {
     f = nextHour
     timeout= 500
+  } else if (type == 'minute') {
+    f = nextMinute
+    timeout= 500
   }
   if(typeof(Worker) !== "undefined") {
     if(typeof(w) == "undefined") {
@@ -363,13 +357,18 @@ function stopWorker() {
   w = undefined;
 }
 //---------------------------------------------------------------------------
+   function nextMinute(increment) {
+      date = new Date(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours(), date.getMinutes()+increment, 0, 0)
+      sun  = new Sun(date)
+      updateSkyImages(date, sun) 
+   }
    function nextHour(increment) {
-      date = new Date(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours()+increment, 0, 0, 0)
+      date = new Date(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours()+increment, date.getMinutes(), 0, 0)
       sun  = new Sun(date)
       updateSkyImages(date, sun) 
    }
    function nextDay(increment) {
-      date = new Date(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours()+increment*24, 0, 0, 0)
+      date = new Date(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours()+increment*24, date.getMinutes(), 0, 0)
       sun  = new Sun(date)
       updateSkyImages(date, sun) 
    }
