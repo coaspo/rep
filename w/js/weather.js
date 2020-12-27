@@ -3,6 +3,7 @@ function getWeather() {
     const js = readText('https://api.weather.gov/gridpoints/BOX/68,81/forecast')
     const w = JSON.parse(js)
     console.log(w)
+    // 0/1/2 is for current/next/next 12 hours
     const url1 = weatherPeriod(0, w.properties.periods)
     const url2 = weatherPeriod(1, w.properties.periods)
     const url3 = weatherPeriod(2, w.properties.periods)
@@ -72,7 +73,15 @@ function weatherPeriod(i, periods) {
   if (f.includes('snow')) {
     fore += '❄️ '
   }
-  const detailed = periods[i]['detailedForecast']
+  let detailed
+  if (i == 0) {
+    detailed = 'Current 12-hr period:  '
+  } else if (i == 1) {
+    detailed = '12-hr period after 12 hrs:  '
+  } else if (i == 2) {
+    detailed = '12-hr period after 24 hrs:  '
+  }
+  detailed += periods[i]['detailedForecast']
   const url = '<a href="https://forecast.weather.gov/MapClick.php?lat=42.482&lon=-71.0973&lg=english&&FcstType=text&bw=1" title="'+
                detailed+ '">' + fore + '</a>'
   return url

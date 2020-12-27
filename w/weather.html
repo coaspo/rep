@@ -6,12 +6,12 @@
       navigator.geolocation.getCurrentPosition(localWeather);
     } else {
       const boston_loc = 'lat=42.3587&lon=-71.0567'
-      window.location.href = 'https://forecast.weather.gov/MapClick.php?' + boston_loc + '&unit=0&lg=english&FcstType=graphical'
+      window.location.href = 'https://forecast.weather.gov/MapClick.php?' + boston_loc + '&unit=0&lg=english&FcstType=graphical', true;
     }
   }
 
   function localWeather(position) {
-    window.location.href = 'https://forecast.weather.gov/MapClick.php?lat='+position.coords.latitude +'&lon='+position.coords.longitude + '&unit=0&lg=english&FcstType=graphical' 
+    window.location.href = 'https://forecast.weather.gov/MapClick.php?lat='+position.coords.latitude +'&lon='+position.coords.longitude + '&unit=0&lg=english&FcstType=graphical', true; 
   }
   
   weather()

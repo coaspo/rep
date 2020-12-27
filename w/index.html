@@ -92,6 +92,8 @@ button {
 	   <button onclick="browse('https://vsearch.nlm.nih.gov/vivisimo/cgi-bin/query-meta?v%3Aproject=medlineplus&v%3Asources=medlineplus-bundle&query=zzzz')"        >⚕️ 💊 NIH</button>
 	<p><button onclick="browse('https://www.thefreedictionary.com/zzzz?s=t');" style="color:#347235" >Dictionary</button>
 	   <button onclick="browse('https://www.acronymfinder.com/zzzz.html');"    style="color:#347235;">Acronym</button>
+	<p><button onclick="browse('https://www.truepeoplesearch.com/details?phoneno=zzzz');"  style="font-weight:bold">Telephone️</button>
+	   <button onclick="browse('https://www.truepeoplesearch.com/results?name=zzzz');" style="font-weight:bold">Person</button>
 	<p><button onclick="browse('https://www.whois.com/whois/zzzz');" title="enter base URL; for example cnn.com">Whois</button>
 	   <button onclick="browse('https://www.google.com/maps/place/zzzz');" >    🗺️ Map</button>
 
@@ -299,7 +301,7 @@ function showMap(position) {
   url = 'https://www.google.com/maps/@'+position.coords.latitude +','+position.coords.longitude
   window.open(url)
 }
-var graphicWeather = '<a href="./weather.html">Weather</a> &nbsp; &nbsp; <br>'+
+var graphicWeather = '<a href="./weather.html">Weather</a> &nbsp; &nbsp; <br><br>'+
          '<button class="button1" onclick="getLoc()" title="show map location">map 📍</button>'
 
 document.getElementById("weather").innerHTML = '<br><table><tr><td>'+graphicWeather +'</td></tr></table>'
