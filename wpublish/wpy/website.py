@@ -16,9 +16,7 @@ class WebSite:
             for subdir, dirs, files in os.walk(target_dir):
                 for afile in files:
                     if afile.endswith('.html'):
-                        print('-----', subdir,'----', afile)
                         p = subdir + '/' + afile
-                        print('--=====---', p)
                         file_path_structures.append([p, os.path.getmtime(p)])
         file_path_structures.sort(key=lambda x: x[0])
         logging.info('WebSite; ' + str(len(file_path_structures)) + ' file paths')
@@ -52,7 +50,7 @@ class WebSite:
 
     def save_search_file_paths(self, save_file):
         with open(save_file, 'w') as f:
-            f.writelines(x[0] + '\n' for x in self.file_path_structures)
+            f.writelines(x[0][5:] + '\n' for x in self.file_path_structures)
 
     @property
     def file_path_structures(self) -> list:
