@@ -12,16 +12,13 @@ class WebSite:
     @staticmethod
     def _get_search_file_path_structures(target_dirs):
         file_path_structures = []
-        for subdir, dirs, files in os.walk("."):
-            is_target_dir = False
-            for target_dir in target_dirs:
-                if subdir.startswith(target_dir):
-                    is_target_dir = True
-                    break
-            if is_target_dir:
-                for file in files:
-                    if file.endswith('.html'):
-                        p = os.path.join(subdir, file)[2:]
+        for target_dir in target_dirs:
+            for subdir, dirs, files in os.walk(target_dir):
+                for afile in files:
+                    if afile.endswith('.html'):
+                        print('-----', subdir,'----', afile)
+                        p = subdir + '/' + afile
+                        print('--=====---', p)
                         file_path_structures.append([p, os.path.getmtime(p)])
         file_path_structures.sort(key=lambda x: x[0])
         logging.info('WebSite; ' + str(len(file_path_structures)) + ' file paths')
