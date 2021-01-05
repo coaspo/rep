@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 import logging
+import os
 from datetime import datetime
 
 from wpy.checkin import CheckIn
