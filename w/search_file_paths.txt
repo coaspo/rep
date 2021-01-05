@@ -1,8 +1,10 @@
 arts/etymology_sample.html
 arts/fun_videos;_cartoons...html
+arts/hi_hello_good_bye_in_different_languages.html
 arts/interesting_links_and_websites.html
 arts/list_of_expressions.html
 arts/list_of_internet_words.html
+arts/list_of_movies.html
 arts/list_of_words;_the_good_the_bad_and_the_ugly.html
 arts/music_-_links_to_various_music_genres.html
 arts/notable_quotes.html
@@ -18,6 +20,7 @@ recipes/italian,_german,_sweedish,_..._meatballs-hamburgers.html
 recipes/kolokithokeftedes_(pumkin_fritters).html
 recipes/mac-n-cheese.html
 recipes/pizza.html
+recipes/popcorn.html
 recipes/potatoes_-_spanish_omelet,_scalloped.html
 recipes/rice_-_prasorizo,_fried,_rizogalo,_spanish.html
 recipes/vegetables_-_ratatouille,_ciambotta,_tourlou,_pisto.html

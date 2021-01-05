@@ -1,3 +1,4 @@
+// create events as long as mouse is clicked on a button
 var i = 0;
 var timeout
 
