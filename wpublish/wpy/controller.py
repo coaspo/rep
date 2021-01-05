@@ -12,7 +12,7 @@ def main(git_branch):
     target_dirs = ('../w/tech', '../w/science', '../w/recipes', '../w/arts')
     logging.info(str(datetime.now()))
     website = WebSite(target_dirs)
-    website.save_search_file_paths('../w/search_file_paths.txt')
+    website.save_search_file_paths('../w/search_file_paths2.txt')
     website.save_search_labels('../w/search_labels.txt')
     version = ContentsPage.update(website.web_pages)
     IndexPage.update_links(website.file_path_structures)
