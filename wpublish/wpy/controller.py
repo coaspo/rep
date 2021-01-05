@@ -23,4 +23,5 @@ def main(git_branch):
     os.chdir('../w')
     print('22222222',os.getcwd()) 
     CheckIn.run_git_commands(version, git_branch)
+    os.chdir('../wpublish')
     logging.info('done')
