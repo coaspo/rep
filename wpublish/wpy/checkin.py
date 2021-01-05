@@ -26,6 +26,8 @@ class CheckIn:
         o, e = p.communicate()
         output = o.decode("utf-8").replace('\r', '')
         errs = e.decode("utf-8").replace('\r', '')
+        print('output    ', output)
+        print('errr????????', errs)
 
         if len(output) > 0:
             print(output)
