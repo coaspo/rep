@@ -21,5 +21,5 @@ def main(git_branch):
     CheckIn.run_git_commands(version, git_branch)
     os.chdir('../w')
     CheckIn.run_git_commands(version, git_branch)
-    os.chdir('../wpublish')
+    os.chdir('../wcheckin')
     logging.info('done')

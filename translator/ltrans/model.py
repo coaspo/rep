@@ -198,6 +198,11 @@ def translate_word(word: str, dictionary: Dictionary, translator: googletrans.cl
     if translated_word is None:
         src_language_abbr = LANGUAGE_NAMES_ABBR[dictionary.src_language]
         dest_language_abbr = LANGUAGE_NAMES_ABBR[dictionary.dest_language]
+        print('---', word)
+        print('---', src_language_abbr)
+        print('---', dest_language_abbr)
+        print('-  -  -', translator)
+        
         translation = translator.translate(word, src=src_language_abbr, dest=dest_language_abbr)
         if log.isEnabledFor(logging.DEBUG):
             log.debug(f'      translation={translation}')
