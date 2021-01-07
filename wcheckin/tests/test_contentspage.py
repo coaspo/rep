@@ -17,6 +17,6 @@ def test_contents_page():
     simpledialog.askstring = mock.Mock(return_value="ver-1")
     ContentsPage.update(website.web_pages)
 
-    with open('contents.html') as f:
+    with open('../w/contents.html') as f:
         source = f.read()
         assert "ver-1" in source, 'did not find "ver-1" in contents.html:\n' + source

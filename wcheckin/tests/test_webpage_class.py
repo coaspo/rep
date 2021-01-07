@@ -6,7 +6,8 @@ from wpy.webpage import WebPage
 def test_webpage():
     if os.getcwd().endswith('/tests'):
         os.chdir('..')
-    page = WebPage('../w/tests/search-files/links.html')
+    os.chdir('../w')
+    page = WebPage('tests/search-files/links.html')
     actual = page.search_indexes
     expected = [('internet archive', 'https://archive.org'),
                 ('free books', 'https://www.freebookcentre.net/'),
@@ -20,7 +21,7 @@ def test_webpage():
     assert expected == actual, 'invalid file_path; expected:\n' + expected + '\nactual:\n' + actual
 
     actual = page.modification_date
-    expected = '2020-11-13'
+    expected = '2021-01-07'
     assert expected == actual, 'invalid modification_date; expected:\n' + expected + '\nactual:\n' + actual
 
     actual = page.content_line_count

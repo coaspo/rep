@@ -58,7 +58,7 @@ class WebPage:
             print('for',link,'got:\n', ex)
             logging.exception(ex)
             raise ex
-            
+
 
     @staticmethod
     def _scan_file(file_path):
