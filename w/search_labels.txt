@@ -145,7 +145,6 @@ recalls$$34$$https://www.recalls.gov/nhtsa.html
 wolfram$$34$$https://www.wolfram.com/
 worldometers$$34$$https://www.worldometers.info/
 ourworldindata$$34$$https://ourworldindata.org/
-week in virology$$34$$https://www.microbe.tv/twiv/archive/
 flightradar24$$34$$https://www.flightradar24.com/airport/bos
 merk manual$$34$$https://www.merckmanuals.com/
 nih.gov$$35$$https://www.nia.nih.gov/health
