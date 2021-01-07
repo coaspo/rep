@@ -6,18 +6,29 @@
     </head>
    <body style="font-size:24px;"><pre>
 
-0.
-  git clone https://github.com/chantzis/chrepo
-  git pull origin {branch}
-1.
-  git checkout {branch}
-  git add *  # all unstaged files
-  git commit -m "message.."
-  git push origin {branch}
-2.
-  git checkout master
-  git merge {branch}
-  git push origin master
+ **** DELETE - do not try to fix clone !!! ****
+0. clone
+       git clone https://github.com/coaspo/rep
+       git pull origin {branch}
+   coaspo is user name, rep is repo name
+   open rep/.git/config and change
+      url = https://github.com/coaspo/rep  to:
+      url = ssh://git@github.com/coaspo/rep.git
+1. check in:
+       git checkout {branch}
+       git add *  # all unstaged files
+       git commit -m "message.."
+       git push origin {branch}
+2. merge:
+       git checkout master
+       git merge {branch}
+       git push origin master
+3. squash:
+       git checkout master
+       git merge {branch}
+       git reset origin/master
+       git add . --all
+       git push origin master
 
 git status
 git config -l
