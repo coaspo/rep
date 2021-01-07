@@ -1,207 +1,324 @@
 <!DOCTYPE html>
-
 <html lang="en">
-  <head>
-    <meta charset="utf-8"/>
-    <title>home</title>
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <style>
-      body {font-size:24px;}
-      td   {vertical-align:top}
-      p    {margin-left: 25px; margin-top: 5px; margin-bottom: 5px;}
-    </style>
-  </head>
-  <body>
-    <div class="w3-container">
-      <div class="w3-bar w3-white">
-        <button class="w3-bar-item w3-button tablink w3-blue" onclick="opencontName(event, 'Util')">Util</button>
-        <button class="w3-bar-item w3-button tablink"         onclick="opencontName(event, 'Projects')">Proj</button>
-        <button class="w3-bar-item w3-button tablink"         onclick="opencontName(event, 'Tools')">Tool</button>
-        <button class="w3-bar-item w3-button tablink"         onclick="opencontName(event, 'Recipe')">Recipe</button>
-        <button class="w3-bar-item w3-button tablink"         onclick="opencontName(event, 'Note')">Note</button>
-      </div>
-      <!--======================================== Util ======================================-->
-      <div id="Util" class="w3-container contName" >
-        <table>
-          <!-- class="w3-table"-->
-          <tr>
-            <td>
-		      <!--music--><a href="https://www.wqxr.org">Music</a><br/><br/>
-              <!--spanish--><a href="https://quizlet.com/Dr_Darlington">Spanish</a><br/><br/>
-              <!--npr--><a href="https://www.npr.org">NPR</a><br/><br/>
-              <!--traffic--><a href="https://www.google.com/maps/@42.4765179,-71.1097046,12z/data=!5m1!1e1?hl=en">Traffic</a> <br/><br/>
-              <!--weather--><a href="https://forecast.weather.gov/MapClick.php?lat=42.482&amp;lon=-71.0973&amp;unit=0&amp;lg=english&amp;FcstType=graphical">Weather</a>&nbsp;&nbsp;&nbsp;<br/><br/>
-		    </td>
-            <td>
-              <input type="text" id="inputText" style="width:205px">
-              <p><button onclick="defineWord();"  style="width:180px; text-align: left;" >define</button>
-              <p><button onclick="duckDuckGo();"  style="width:180px; text-align: left;" >&lt;duck duck&gt;</button>
-              <p><button onclick="findAcronym();" style="width:180px; text-align: left;" >Acronym</button>
-              <p><button onclick="mayoclinic();"  style="width:180px; text-align: left;" >mayoclinic</button>
-              <p><button onclick="podCasts();"    style="width:180px; text-align: left;" >podcast</button>
-              <p><button onclick="wikipedia();"   style="width:180px; text-align: left;" >Wikipedia</button>
-              <p><button onclick="σταΕλληνικά();" style="width:180px; text-align: left;" >Ελληνικά</button>
-            </td>
-          </tr>
-        </table>
-      </div>
-      <!--======================================== Projects ======================================-->
-      <div id="Projects" class="w3-container contName" style="display:none">
-        <table class="w3-striped">
-          <tr>
-            <td class="w3-cyan">
-              <a href="https://app.netlify.com/teams/coaspo/sites" >netlify</a><br/>
-            </td>
-            <td class="w3-light-blue">
-              <a href="https://github.com/coaspo/rep/tree/br1">github br1</a>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br/>
-              &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/coaspo/rep/tree/br1/quizzer">quizzer</a><br/>
-              &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/coaspo/rep/tree/br1/translator">translator</a><br/>
-              &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/coaspo/rep/tree/br1/w">w(ebsite)</a><br/>
-              <a href="https://github.com/coaspo/rep/tree/master">github master</a>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br/>
-              &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/coaspo/rep/tree/master/quizzer">quizzer</a><br/>
-              &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/coaspo/rep/tree/master/translator">translator</a><br/>
-              &nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/coaspo/rep/tree/master/w">w(ebsite)</a><br/>
-            </td>
-          </tr>
-        </table>
-      </div>
-      <!--======================================== Tools ======================================-->
-      <div id="Tools" class="w3-container contName" style="display:none" >
-        <table>
-          <!-- class="w3-table"-->
-          <tr>
-            <td class="w3-pale-blue">
-              <!--flowchart tuto.--><a href="https://creately.com/blog/diagrams/flowchart-guide-flowchart-tutorial/">flowchart</a><br/>
-              <!--quizlet--><a href="https://quizlet.com/">quizlet</a><br/><br/>
-              <!--python tuto.--><a href="https://python-course.eu">python-course.eu</a><br/>
-              <!--Java tuto.--><a href="https://www.vogella.com/tutorials/java.html">Java tutorial</a><br/>
-			</td><td class="w3-pale-green" >
-			  <!--Java IDE--><a href="https://onlinegdb.com/online_java_compiler">Java IDE</a><br/>
-			  <!--Java compile--><a href="https://compilejava.net">Java compile</a><br/>
-			  <!--Java repl--><a href="https://compilejava.net">Java repl</a><br/>
-			  <!--python IDE--><a href="https://onlinegdb.com/online_python_compiler" >Python IDE</a><br/>
-			  <!--python repl--><a href="https://python.org/shell" >Python repl</a><br/>
-			  <!--python repl--><a href="https://www.pythonanywhere.com/user/cphantzis/>PythonAnywhere/a><br/>
-			  <a href="https://plnkr.co/" >Plunker</a><br/>
-			  <a href="https://play.kotlinlang.org" >Kotlin</a><br/>
-            </td><td class="w3-pale-yellow">
-              <!--SQL Format--><a href="https://sqlformat.org/">SQL Format</a><br/>
-              <!--SQL Format--><a href="https://www.dpriver.com/pp/sqlformat.htm">SQL Format2</a><br/>
-              <!--HTML valid.--><a href="https://validator.w3.org/#validate_by_input">HTML valid.</a><br/>
-              <!--HTML format--><a href="https://www.freeformatter.com/html-formatter.html">HTML format</a><br/>
-         </tr>
-        </table>
-              <br><!--chromne--><a href="chrome://net-internals">chrome://net-internals</a><br/> <br/>
-      </div>
-      <!--======================================== Recipe ======================================-->
-      <div id="Recipe" class="w3-container contName" style="display:none" >
-        <table>
-          <!-- class="w3-table"-->
-          <tr>
-            <td  class="w3-pale-yellow" >
-				<a href="./recipes/fried-rice.html">fried rice</a> <br/>
-				<a href="./recipes/mac-n-cheese.html">mac and cheese</a> <br/>
-				<a href="./recipes/potato-tortilla.html">potato-tortilla</a> <br/>
-				<a href="./recipes/prasorizo.html">prasorizo</a> <br/>
-				<a href="./recipes/rizogalo.html">rizogalo</a> <br/>
-				<a href="./recipes/spanish-rice.html">Spanish rice</a> <br/>
-            </td>
-            <td  class="w3-pale-green" >
-				<a href="./recipes/gemista.html">gemista</a> <br/>
-				<a href="./recipes/kolokithokeftedes.html">kolokithokeftedes</a> <br/>
-				<a href="./recipes/oat bread.html">oat bread</a> <br/>
-				<a href="./recipes/pizza.html">pizza</a> <br/>
-				<a href="./recipes/portuguese bread.html">Portuguese bread</a> <br/>
-				<a href="./recipes/sourdough.html">sourdough</a> <br/>
-				<a href="./recipes/tsoureki.html">tsoureki</a> <br/>
-            </td>
-          </tr>
-        </table>
-      </div>
-      <!--======================================== Note ======================================-->
-      <div id="Note" class="w3-container contName" style="display:none" >
-        <table>
-          <!-- class="w3-table"-->
-          <tr>
-            <td  class="w3-pale-yellow" >
-              <a href="./notes/git.html">git</a> <br/>
-              <a href="./notes/ide.html">intellij</a> <br/>
-              <a href="./notes/keyboard-shortcuts.html">keyboard-shortcuts</a> <br/>
-              <a href="./notes/python.html">python</a> <br/>
-              <a href="https://www.coursera.org/learn/algorithms-part1/home/welcome">Algorithms course</a> <br/>
-              <a href="https://www.edx.org">edx</a> <br/>
-            </td>
-          </tr>
-        </table>
-      </div>
-    </div>
-    <script>
-      function opencontName(evt, tabName) {
-         var i;
-         var x = document.getElementsByClassName("contName");
-         for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";
-         }
-         document.getElementById(tabName).style.display = "block";
-         //
-         tablinks = document.getElementsByClassName("tablink");
-         for (i = 0; i < x.length; i++) {
-            tablinks[i].className = tablinks[i].className.replace(" w3-blue", "yellow");
-         }
-         evt.currentTarget.className += " w3-blue";
-       }
-      function findAcronym() {
-        var acronym = document.getElementById('inputText').value;
-        var url = "https://www.acronymfinder.com/" + acronym + ".html";
-        var win = window.open(url, "_self");
-        win.focus();
-      }
-      function σταΕλληνικά() {
-        var englishWord = document.getElementById('inputText').value;
-        var url = "https://translate.google.com/#en/el/" + englishWord;
-        var win = window.open(url, "_self");
-        win.focus();
-      }
-      function defineWord() {
-        var word = document.getElementById('inputText').value;
-        var url = "https://www.dictionary.com/browse/" + word + "?s=t";
-        var win = window.open(url, "_self");
-        win.focus();
-      }
-      function wikipedia() {
-        var word = document.getElementById('inputText').value;
-        var url = "https://en.wikipedia.org/wiki/" + word;
-        var win = window.open(url, "_self");
-        win.focus();
-      }
-      function mayoclinic() {
-        var word = document.getElementById('inputText').value;
-        var url = "https://www.mayoclinic.org/search/search-results?q=" + word;
-        var win = window.open(url, "_self");
-        win.focus();
-	    }
-      function duckDuckGo() {
-        var word = document.getElementById('inputText').value;
-        var url = "https://duckduckgo.com/?q=" + word + "&t=hk&ia=web";
-        var win = window.open(url, "_self");
-        win.focus();
-	    }
-      function podCasts() {
-        var word = document.getElementById('inputText').value;
-        var url = "https://www.listennotes.com/search/?q=" + word + "&sort_by_date=0&scope=episode&offset=0&language=Any%20language&len_min=0";
-        var win = window.open(url, "_self");
-        win.focus();
-	    }
-	  if (document.URL.startsWith('file')) {
-	    document.body.style.background = "lightyellow"
-	  }
-    document.getElementById('inputText').addEventListener('keypress', function (e) {
-    var key = e.which || e.keyCode;
-    if (key === 13) { // 13 is enter
-      duckDuckGo() 
-    }
+<head>
+  <meta charset="utf-8"/>
+  <link rel="shortcut icon" href="#"> <!--prevents favicon.ico ERR-->
+  <title>home</title>
+   <style>
+    body {font-size:24px;}
+    td   {vertical-align:top; white-space: nowrap;}
+    p    {margin-left: 25px; margin-top: 5px; margin-bottom: 5px;}
+    a    {text-decoration: none; color: #0000EE;}
+    a:hover { text-decoration: underline;}
+    .button1 {border: none; background-color: white; cursor: pointer; width:auto;}
+/* Style the tab */
+.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+}
+
+/* Style the buttons inside the tab */
+.tab button {
+  background-color: inherit;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 0px;
+  transition: 0.3s;
+  font-size: 24px;
+  width:100px;
+  font-weight: bold;
+}
+
+/* Change background color of buttons on hover */
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+  text-align: center;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+button {
+  transition: 0.3s;
+  font-size: 24px;
+  width:155px;
+  text-align: center;
+}
+  </style>
+</head>
+<body>
+<div class="tab"> 
+  <button class="tablink"         onclick="opencontName(event, 'Main')" id="defaultOpen">Main</button>
+  <button class="tablink"         onclick="opencontName(event, 'Projects')">Proj</button>
+  <button class="tablink"         onclick="opencontName(event, 'Tech')">Tech</button>
+  <button class="tablink"         onclick="opencontName(event, 'Recipes')">Recipes</button>
+  <button class="tablink"         onclick="opencontName(event, 'Arts')">Arts</button>
+  <button class="tablink"         onclick="opencontName(event, 'Science')">Science</button>
+</div>
+<!--=================================== Main tab =================================-->
+<div id="Main" class="tabcontent" >
+  <table>
+    <!-- class="w3-table"-->
+    <tr>
+      <td>
+	<!--traffic--><a href="https://www.google.com/maps/@42.4765179,-71.1097046,12z/data=!5m1!1e1?hl=en">Traffic</a> <br/><br/>
+	<!--voice--><a href="https://voicetotext.org/speech-to-text">voice ➔ text</a><br/><br/>
+	<!--duolingo--><a href="https://www.duolingo.com/?isLoggingIn=true">duolingo</a><br/><br/>
+	<!--popular--><a href="./science/covid_notes_-_philosophy,_politics,_psychology,_science.html">Popular</a>&nbsp;&nbsp;&nbsp;<br/><br/>
+	<!--popular--><a href="https://www.theatlantic.com/most-popular/">The Atlantic</a><br/><br/> 
+	<!--virology--><a href="https://www.microbe.tv/twiv/archive/">Virology</a><br/><br/>
+	<!--humor--><a href="https://xkcd.com">Humor</a><br/><br/>
+	<!--contents--><a href="./contents.html">Contents</a>&nbsp;&nbsp;&nbsp;<br/><br/>
+	      </td>
+      <td>
+
+
+	<input type="text" id="inputText"   style="width:355px; box-sizing: border-box; font-size:24px;" placeholder='Enter text, 🦆🦆 default' >
+	<p><button onclick="browse('https://www.google.com/search?q=zzzz  site:.org');">                  10<sup>100</sup></button>
+	   <button onclick="browse('https://duckduckgo.com/?q=zzzz  site:org');" >                        🦆 🦆</button>
+        <p><button onclick="browse('https://en.wikipedia.org/wiki/zzzz');" style="color:#800517" >   Wikipedia</button>
+	   <button onclick="browse('https://melrose.noblenet.org/eg/opac/results?query=zzzz&qtype=keyword&fi%3Asearch_format=&locg=1');" style=" color:#800517;">Library</button>
+	<p><button onclick="browse('https://www.mayoclinic.org/search/search-results?q=zzzz');">           ⚕️ Mayo C</button>
+	   <button onclick="browse('https://vsearch.nlm.nih.gov/vivisimo/cgi-bin/query-meta?v%3Aproject=medlineplus&v%3Asources=medlineplus-bundle&query=zzzz')"        >⚕️ 💊 NIH</button>
+	<p><button onclick="browse('https://www.thefreedictionary.com/zzzz?s=t');" style="color:#347235" >Dictionary</button>
+	   <button onclick="browse('https://www.acronymfinder.com/zzzz.html');"    style="color:#347235;">Acronym</button>
+	<p><button onclick="browse('https://www.truepeoplesearch.com/details?phoneno=zzzz');"  style="font-weight:bold">Telephone️</button>
+	   <button onclick="browse('https://www.truepeoplesearch.com/results?name=zzzz');" style="font-weight:bold">Person</button>
+	<p><button onclick="browse('https://www.whois.com/whois/zzzz');" title="enter base URL; for example cnn.com">Whois</button>
+	   <button onclick="browse('https://www.google.com/maps/place/zzzz');" >    🗺️ Map</button>
+
+	   
+	<p><button onclick="browse('https://translate.google.com/#view=home&op=translate&sl=es&tl=en&text=zzzz');" >🇪🇸 ➜ 🇺🇲️</button>
+	   <button onclick="browse('https://translate.google.com/#view=home&op=translate&sl=en&tl=el&text=zzzz');">🇺🇲️  ➜ 🇬🇷</button>
+	<p><button onclick="browse('https://www.homedepot.com/s/zzzz');" style="color:#878700;">Home depo️</button>
+	   <button onclick="browse('https://www.walmart.com/search/?query=zzzz');" style="color:#878700;">Walmart</button>
+	<p><button onclick="browse('https://www.amazon.com/s?k=zzzz');"  style="color:#878700;">Amazon️</button>
+	   <button onclick="browse('https://www.target.com/s?searchTerm=zzzz');" style="color:#878700;">Target</button>
+	<p><button onclick="browse('https://www.yellowpages.com/search?search_terms=zzzz&geo_location_terms=Boston%2C+MA');" style="color:#878700;" >Yellow pgs</button>
+	   <button onclick="searchContentsMain(true, '/search_file_paths.txt', '/search_labels.txt');" style="color:#009900; font-weight:bold" >Contents</button>
+      </td>
+    </tr>
+  </table>
+<!--======================== weather & content search ============================-->
+<div id="weather"></div>
+<pre id="search-results" style="background-color:#FFFFDD; font-size:16px;"></pre>
+</div>
+<div id="Projects" class="tabcontent" style="display:none">
+<!--=================================== proj tab =================================-->
+<table class="w3-striped">
+  <tr>
+    <td class="w3-cyan">
+      <b>Web servers:</b><br/>
+      <a href="https://app.netlify.com/teams/coaspo/sites" >app.netlify.com</a><br/>
+      <a href="https://li.netlify.app/w/tests/test_search.html">li.netlify.app/w...test_search</a><br>
+      <a href="http://localhost:8080/w/">localhost:8080/w</a><br>
+      <a href="http://localhost:8080/w/tests/test_search.html">localhost:8080/w...test_search</a><br>
+    </td>
+    <td class="w3-light-blue">
+      <b>github projects:</b><br/>
+      <a href="https://github.com/coaspo/rep/tree/br1">github.com/coaspo/rep/ br1</a><br/>
+      &nbsp; &nbsp; &nbsp; <a href="https://github.com/coaspo/rep/tree/br1/quizzer">quizzer</a><br/>
+      &nbsp; &nbsp; &nbsp; <a href="https://github.com/coaspo/rep/tree/br1/translator">translator</a><br/>
+      &nbsp; &nbsp; &nbsp; <a href="https://github.com/coaspo/rep/tree/br1/w">w(website)</a><br/>
+      <a href="https://github.com/coaspo/rep/tree/master">github.com/coaspo/rep/ master</a><br/>
+      &nbsp; &nbsp; &nbsp; <a href="https://github.com/coaspo/rep/tree/master/quizzer">quizzer</a><br/>
+      &nbsp; &nbsp; &nbsp; <a href="https://github.com/coaspo/rep/tree/master/translator">translator</a><br/>
+      &nbsp; &nbsp; &nbsp; <a href="https://github.com/coaspo/rep/tree/master/w">w(ebsite)</a><br/>
+    </td>
+  </tr>
+</table>
+</div>
+<div id="Tech" class="tabcontent" style="display:none" >
+<!--================================== tech dir tab ==============================-->
+  <b>Reference/troubleshooting:</b>
+  <table>
+    <!-- class="w3-table"-->
+    <tr>
+      <td  class="w3-pale-yellow" >
+	<a href="./tech/git_(version_control)_commands.html">git (version control) commands</a> <br/>
+	<a href="./tech/ide_(interactive_development_environment)_commands.html">ide (interactive development environment) commands</a> <br/>
+	<a href="./tech/linux_problems_solutions.html">linux problems solutions</a> <br/>
+	<a href="./tech/python_cool_features.html">python cool features</a> <br/>
+	<a href="./tech/python_problems_solutions.html">python problems solutions</a> <br/>
+	<a href="./tech/secutiry_problems_solutions.html">secutiry problems solutions</a> <br/>
+	<a href="./tech/windows_and_browser_key_shortcuts.html">windows and browser key shortcuts</a> <br/>
+      </td>
+    </tr>
+  </table>
+	<!--chromne--><a href="chrome://net-internals">chrome://net-internals</a><br/> <br/>
+  <b>On line tools:</b>
+  <table>
+    <!-- class="w3-table"-->
+    <tr>
+      <td class="w3-pale-blue">
+	<!--flowchart tuto.--><a href="https://creately.com/blog/diagrams/flowchart-guide-flowchart-tutorial/">flowchart</a><br/>
+	<!--quizlet--><a href="https://quizlet.com/">quizlet.com</a><br/><br/>
+	<!--python tuto.--><a href="https://python-course.eu">python-course.eu</a><br/>
+	<!--Java tuto.--><a href="https://www.vogella.com/tutorials/java.html">Java tutorial (vogella.com)</a><br/>
+      </td><td class="w3-pale-green" >
+	<!--Java IDE--><a href="https://onlinegdb.com/online_java_compiler">Java IDE (onlinegdb.com)</a><br/>
+	<!--Java repl--><a href="https://compilejava.net">Java repl (compilejava.net)</a><br/>
+	<!--python repl--><a href="https://python.org/shell" >Python repl (python.org)</a><br/>
+	<!--pythonanywhere--><a href="https://www.pythonanywhere.com">Python (pythonanywhere.com)</a><br/>
+	<!--whois--><a href="https://whois.whoisxmlapi.com/lookup">whois</a><br/>
+	<a href="https://plnkr.co/" >Plunker</a><br/>
+	<a href="https://play.kotlinlang.org" >Kotlin (kotlinlang.org)</a><br/>
+      <td class="w3-pale-yellow">  
+	<!--SQL Format--><a href="https://sqlformat.org/">SQL Format (sqlformat.org)</a><br/>
+	<!--SQL Format--><a href="https://www.dpriver.com/pp/sqlformat.htm">SQL Format (dpriver.com)</a><br/>
+	<!--HTML valid.--><a href="https://validator.w3.org/#validate_by_input">HTML validator (w3.org)</a><br/>
+	<!--HTML format--><a href="https://www.freeformatter.com/html-formatter.html">HTML format (freeformatter.com)</a><br/><br/>
+	<!--HTML editor--><a href="https://html5-editor.net/">HTML Editor (html5-editor.net)</a><br/><br/>
+       <a href="https://www.coursera.org/learn/algorithms-part1/home/welcome">Algorithms course (coursera.org)</a> <br/>
+      <a href="https://www.edx.org">edx.org</a> <br/>
+   </tr>
+  </table>
+</div>
+<div id="Recipes" class="tabcontent" style="display:none; font-size:24px;" >
+<!--================================ recipes dir tab =============================-->
+<table><tr class="w3-pale-yellow" >
+<td><pre><b>Misc</b>
+  <a href="./recipes/beans,_lima_beans.html">beans, lima beans</a>
+  <a href="./recipes/italian,_german,_sweedish,_..._meatballs-hamburgers.html">italian, german, sweedish, ... meatballs-hamburgers</a>
+  <a href="./recipes/mac-n-cheese.html">mac-n-cheese</a>
+  <a href="./recipes/potatoes_-_spanish_omelet,_scalloped.html">potatoes - spanish omelet, scalloped</a>
+  <a href="./recipes/rice_-_prasorizo,_fried,_rizogalo,_spanish.html">rice - prasorizo, fried, rizogalo, spanish</a>
+  <a href="./recipes/vegetables_-_ratatouille,_ciambotta,_tourlou,_pisto.html">vegetables - ratatouille, ciambotta, tourlou, pisto</a>
+<b>Oven recipes</b>
+  <a href="./recipes/breads_-_challah,_focaccia,_oat,_tsoureki,_portuguese,_sourdough,_zopf.html">breads - challah, focaccia, oat, tsoureki, portuguese, sourdough, zopf</a>
+  <a href="./recipes/gemista_(stuffed_vegetables).html">gemista (stuffed vegetables)</a>
+  <a href="./recipes/kolokithokeftedes_(pumkin_fritters).html">kolokithokeftedes (pumkin fritters)</a></pre>
+  <a href="./recipes/pizza.html">pizza</a>
+</td>
+</tr>
+</table>
+</div>
+<div id="Arts" class="tabcontent" style="display:none" >
+<!--================================ arts dir tab ================================-->
+<table>
+  <!-- class="w3-table"-->
+  <tr>
+    <td  class="w3-pale-yellow" >
+      <b>Links:</b><br/>
+      &nbsp; &nbsp; <a href="./arts/fun_videos;_cartoons...html">fun videos; cartoons..</a>.<br/>
+      &nbsp; &nbsp; <a href="./arts/interesting_links_and_websites.html">interesting links and websites</a><br/>
+      &nbsp; &nbsp; <a href="./arts/music_-_links_to_various_music_genres.html">music - links to various music genres</a><br/>
+      <br/><b>Lists:</b><br/>
+      &nbsp; &nbsp; <a href="./arts/etymology_-_a_list_of_word_meanings.html">etymology - a list of word meanings</a><br/>
+      &nbsp; &nbsp; <a href="./arts/list_of_expressions.html">list of expressions</a><br/>
+      &nbsp; &nbsp; <a href="./arts/list_of_internet_words.html">list of internet words</a><br/>
+      &nbsp; &nbsp; <a href="./arts/list_of_words;_the_good_the_bad_and_the_ugly.html">list of words; the good the bad and the ugly</a><br/>
+      &nbsp; &nbsp; <a href="./arts/notable_quotes.html">notable quotes</a><br/>
+      &nbsp; &nbsp; <a href="./arts/yes,_no,_water,_fire,_one,_two,_in_different_languages.html">yes, no, water, fire, one, two, in different languages</a><br/>
+    </td>
+  </tr>
+</table>
+</div>
+<!--================================ science dir tab =============================-->
+<div id="Science" class="tabcontent" style="display:none" >
+<table>
+  <!-- class="w3-table"-->
+  <tr>
+    <td  class="w3-pale-yellow" >
+      <b>Summaries / notes:</b><br/>
+    📰 <a href="./science/covid_notes_-_philosophy,_politics,_psychology,_science.html">covid notes - philosophy, politics, psychology, science</a><br/>
+    📰 <a href="./science/how_to_cope_with_information_overload.html">how to cope with information overload</a><br/>
+    📰 <a href="./science/hypersanity_-_different_way_of_looking_at_the_world.html">hypersanity - different way of looking at the world</a><br/>
+       🎞 <a href="./science/health_youtube_video_notes.html">health youtube video notes</a><br/>
+       🎞 <a href="./science/future_science_and_technologies.html">future science and technologies</a><br/>
+     <br/><b>Lists:</b><br/>
+       <a href="./science/link-list_of_books_and_internet_resources.html">link-list of books and internet resources</a><br/>
+      <a href="./science/sample_of_medical_science_words.html">sample of medical science words</a><br/>
+      <br/><b>Health:</b><br/>
+      🏋 <a href="./science/exercise.html">exercise</a><br/>
+      😏️ <a href="./science/brain_exercise.html">brain exercise</a><br/>
+      <br/>
+      <a href="./science/sky.html">sky</a><br/>
+    </td>
+  </tr>
+</table>
+</div>
+<script>
+function opencontName(evt, cityName) {
+  var tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (let i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (let i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+
+
+document.getElementById("defaultOpen").click(); // open Main tab
+if (document.URL.startsWith('file')) {
+    document.body.style.background = "lightyellow" // indicates server not running
+}
+
+
+function browse(url_template) {
+  var text = document.getElementById('inputText').value;
+  text = text.replace(/  /g, " ")
+  if (url_template.includes('homedepot.com')) {
+     text = text.replace(/ /g, "%2520")
+  } 
+  const url = url_template.replace('zzzz', text)
+  const win = window.open(url, "_self");
+  win.focus(); 
+}
+
+
+document.getElementById('inputText').addEventListener('keypress', function (e) {
+  const key = e.which || e.keyCode;
+  if (key === 13) { // 13 is enter
+    browse('https://duckduckgo.com/?q=zzzz  site:org');
+  }
 });
 
-    </script>
-  </body>
-</html>
+
+
+function getLoc() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showMap);
+  }
+}
+
+function showMap(position) {
+  url = 'https://www.google.com/maps/@'+position.coords.latitude +','+position.coords.longitude
+  window.open(url)
+}
+var graphicWeather = '<a href="./weather.html">Weather</a> &nbsp; &nbsp; <br><br>'+
+         '<button class="button1" onclick="getLoc()" title="show map location">map 📍</button>'
+
+document.getElementById("weather").innerHTML = '<br><table><tr><td>'+graphicWeather +'</td></tr></table>'
+
+let w = new Worker("js/weather.js");
+w.onmessage = function(event) {
+  if (event.data == undefined) {
+    event.data = 'unable to get weather; see '
+  }
+  const html = event.data.replace('graphicWeather', graphicWeather+'<br>')
+  document.getElementById("weather").innerHTML = '<br>'+html;
+  w.terminate();
+  w = undefined;
+};
+</script>
+<script src="js/search.js"></script> <!-- has: searchContentsMain(debug, filePathsFilePath, labelsFilePath) -->
+<script src="js/search-labels.js"></script> 
+<script src="js/search-page-source.js"></script>
+<script src="js/weather.js"></script>
+</body></html>

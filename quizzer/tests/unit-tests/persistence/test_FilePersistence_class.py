@@ -19,10 +19,7 @@ def _create_fake_domain_object(data_dict: dict) -> dict:
 
 def test_invalid_directories():
     FilePersistence('/non-dir/fake-dir')
-    assert "The system cannot find the path specified" in FilePersistence.file_storage_err_msg
-
-    FilePersistence('./xyz:\n')
-    assert "The directory name is invalid" in FilePersistence.file_storage_err_msg
+    assert "JsonFileStorage failed" in FilePersistence.file_storage_err_msg
 
 
 def test_obj_attrs():

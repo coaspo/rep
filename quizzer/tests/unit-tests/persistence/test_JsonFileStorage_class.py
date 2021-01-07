@@ -13,7 +13,7 @@ quz.util.set_logger(CONFIG)
 
 
 def test_invalid_directories():
-    with pytest.raises(Exception, match=r".*The system cannot find the path specified:"):
+    with pytest.raises(Exception, match=r".*JsonFileStorage failed"):
         JsonFileStorage('/non-dir/fake-dir', '', None)
 
 

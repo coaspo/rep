@@ -1,14 +1,15 @@
 tmp/**
+__pycache__/**
+.idea/**
 tmp*
-venv/**
-quizzes/**
-quz/quizzes/**
-.pytest_cache/**
 
 .idea
-*.pyc
+.geany
+
 **.log
 **.bak
 **.tmp
-**/quz.egg*
-**/a.py
+a.py
+a.html
+.geany
+

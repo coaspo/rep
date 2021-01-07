@@ -29,8 +29,7 @@ def run(*args: str):
 if __name__ == '__main__':
     with open(LOG_FILE, 'w') as f:
         f.write(str(datetime.now()))
-    run(r'venv\Scripts\activate.bat')
+    run(r'. venv/bin/activate')
     run('pytest',  './tests')
-    run(r'venv\Scripts\deactivate.bat')
     print('done')
     exit(0)

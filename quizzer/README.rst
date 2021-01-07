@@ -65,11 +65,7 @@ Notes
 |     ``c:\..\quizzer\venv\Scripts\python.exe``
 |
 |    **Outside pycharm:**
-|     Activate venv (add bin to ``%PATH%``)
-|       ``cd c:\..\quizzer``
-|       ``.\venv\Scripts\activate.bat``
-|       When done, deactivate Path. ``%PATH%``:
-|       ``.\venv\Scripts\deactivate.bat``
+|       . venv/bin/activate
 |
 |  **After using a new library**, update ``requirements.txt``:
 |   ``pip install pipreqs``
