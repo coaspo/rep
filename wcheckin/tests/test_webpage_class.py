@@ -6,7 +6,8 @@ from wpy.webpage import WebPage
 def test_webpage():
     if os.getcwd().endswith('/tests'):
         os.chdir('..')
-    os.chdir('../w')
+    if not os.getcwd().endswith('/w'):
+        os.chdir('../w')
     page = WebPage('tests/search-files/links.html')
     actual = page.search_indexes
     expected = [('internet archive', 'https://archive.org'),

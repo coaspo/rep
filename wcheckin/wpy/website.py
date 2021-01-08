@@ -25,7 +25,10 @@ class WebSite:
     @staticmethod
     def _get_search_file_paths(target_dirs):
         file_paths = []
+        print(')))))))', os.getcwd())
+        print('))))))) }}', target_dirs)
         for subdir, dirs, files in os.walk("."):
+            print('))))))) subdir ----', subdir)
             is_target_dir = False
             for target_dir in target_dirs:
                 if subdir.startswith(target_dir):
@@ -34,6 +37,7 @@ class WebSite:
             if is_target_dir:
                 for file in files:
                     p = os.path.join(subdir, file)[2:]
+                    print('))))))) =======', p)
                     file_paths.append(p)
         file_paths.sort(key=lambda x: x)
         logging.info('WebSite; ' + str(len(file_paths)) + ' file paths')

@@ -20,6 +20,6 @@ def main(git_branch):
     #CheckIn.run_tests()
     CheckIn.run_git_commands(version, git_branch)
     os.chdir('../w')
-    CheckIn.run_git_commands(version, git_branch)
+    #CheckIn.run_git_commands(version, git_branch)
     os.chdir('../wcheckin')
     logging.info('done')
