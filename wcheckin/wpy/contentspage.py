@@ -14,9 +14,7 @@ class ContentsPage:
             exit()
         try:
             with open('../w/contents.html', 'w') as f:
-                print ('start--------')
                 for line in lines:
-                    print ('line--------', line)
                     if line.startswith('<br><br>'):
                         f.write(line + '\n')
                         ContentsPage._append_version_and_content_links(version, web_pages, f)
