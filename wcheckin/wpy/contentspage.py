@@ -14,7 +14,13 @@ class ContentsPage:
             exit()
         try:
             with open('../w/contents.html', 'w') as f:
+<<<<<<< HEAD
                 for line in lines:
+=======
+                print ('start--------')
+                for line in lines:
+                    print ('line--------', line)
+>>>>>>> br1
                     if line.startswith('<br><br>'):
                         f.write(line + '\n')
                         ContentsPage._append_version_and_content_links(version, web_pages, f)
@@ -36,6 +42,10 @@ class ContentsPage:
         ts = datetime.now().isoformat()
         num = ts[:10] + '/' + ts[21:]
         lines = ContentsPage._get_file_list_table(web_pages)
+<<<<<<< HEAD
+=======
+        print ('lines???????--------', lines)
+>>>>>>> br1
         lines += '\n<br><p style="font-size:12px;">' + num + ';  ' + version
         f.write(lines)
 

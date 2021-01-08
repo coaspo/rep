@@ -58,7 +58,11 @@ class WebPage:
             print('for',link,'got:\n', ex)
             logging.exception(ex)
             raise ex
+<<<<<<< HEAD
             
+=======
+
+>>>>>>> br1
 
     @staticmethod
     def _scan_file(file_path):

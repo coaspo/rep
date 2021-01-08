@@ -25,6 +25,7 @@ class WebSite:
     @staticmethod
     def _get_search_file_paths(target_dirs):
         file_paths = []
+<<<<<<< HEAD
         for subdir, dirs, files in os.walk("."):
             is_target_dir = False
             for target_dir in target_dirs:
@@ -35,6 +36,13 @@ class WebSite:
                 for file in files:
                     p = os.path.join(subdir, file)[2:]
                     file_paths.append(p)
+=======
+        for target_dir in target_dirs:
+          for subdir, dirs, files in os.walk(target_dir):
+            for file in files:
+                p = os.path.join(subdir, file)
+                file_paths.append(p)
+>>>>>>> br1
         file_paths.sort(key=lambda x: x)
         logging.info('WebSite; ' + str(len(file_paths)) + ' file paths')
         return file_paths
