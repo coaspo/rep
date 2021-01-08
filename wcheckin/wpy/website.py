@@ -25,15 +25,10 @@ class WebSite:
     @staticmethod
     def _get_search_file_paths(target_dirs):
         file_paths = []
-        print(')))  ))))', os.getcwd())
-        print(')))  )))) }}', target_dirs)
         for target_dir in target_dirs:
           for subdir, dirs, files in os.walk(target_dir):
-            print('=====  ==subdir= ', subdir, '+++++++dirs= ', dirs)
             for file in files:
-                print('=======file =', file)
                 p = os.path.join(subdir, file)
-                print('=======p=', p)
                 file_paths.append(p)
         file_paths.sort(key=lambda x: x)
         logging.info('WebSite; ' + str(len(file_paths)) + ' file paths')
