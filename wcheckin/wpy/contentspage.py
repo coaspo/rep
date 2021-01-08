@@ -36,7 +36,6 @@ class ContentsPage:
         ts = datetime.now().isoformat()
         num = ts[:10] + '/' + ts[21:]
         lines = ContentsPage._get_file_list_table(web_pages)
-        print ('lines???????--------', lines)
         lines += '\n<br><p style="font-size:12px;">' + num + ';  ' + version
         f.write(lines)
 
