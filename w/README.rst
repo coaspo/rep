@@ -8,6 +8,8 @@ See `<./contents.html>`__ for more details
 .. contents:: Contents:
 
 
+
+
 View web site from github
 -------------------------
 |To view ``br1/main`` branches in browser click:
@@ -51,9 +53,9 @@ Run javascript tests
 
 Run python tests and check into github
 --------------------------------------
-|   In command window type:
-|   ``python check_in.py``
-
+|   see project ``wcheckin``
+|  CAUTION: do not checkin files manually
+|  python script updates search-content files, ``index.html`` and ``contents.html``
 Notes
 -----
 |**Best practice**
