@@ -10,6 +10,7 @@ class IndexPage:
     def update_links(file_paths):
         with open('../w/index.html') as f:
             lines = f.read().splitlines()
+        line = 'NA'
         try:
             with open('../w/index.html', 'w') as f:
                 for line in lines:
@@ -28,47 +29,52 @@ class IndexPage:
                     f.write(line + '\n')
         except Exception as e:
             logging.error(str(e))
-            print(traceback.format_exc())
+            print('ERR line: ', line, '\n', traceback.format_exc())
             with open('../w/index.html', 'w') as f:
                 for line in lines:
                     f.write(line + '\n')
-            raise
+            raise e
         logging.info('Updated index.html')
 
     @staticmethod
-    def update(web_pages: str):
+    def update(version: str, web_pages: str):
         shutil.copyfile('../w/index.html', 'index.tmp')
         try:
+            line = 'NA'
             with open('index.tmp', 'w') as f:
                 lines = f.readlines()
                 for line in lines:
                     if line.startswith('<br><br>'):
                         f.write(line + '\n')
-                        ContentsPage._append_version_and_content_links(version, file_paths, f)
+                        ContentsPage._append_version_and_content_links(version, web_pages, f)
                         break
                     f.write(line + '\n')
         except Exception:
             logging.exception('')
-            print(traceback.format_exc())
+            print('ERR line: ', line, '\n', traceback.format_exc())
             with open('../w/contents.html', 'w') as f:
                 for line in lines:
                     f.write(line + '\n')
             raise
         logging.info('Updated ../w/index.html')
 
-
     @staticmethod
     def _extract_url_label(link):
-        link = link.replace('href= ', 'href=')
-        quote = '"' if link.find('href="') > -1 else "'"
-        i = link.index('href=' + quote) + 6
-        i2 = link.index(quote, i)
-        url = link[i:i2]
-        i = link.index('>', i2) + 1
-        i2 = link.index('</a>', i)
-        label = link[i:i2].lower().strip()
-        attrs = (label, url)
-        return attrs
+        try:
+            link = link.replace('href= ', 'href=')
+            quote = '"' if link.find('href="') > -1 else "'"
+            i = link.index('href=' + quote) + 6
+            i2 = link.index(quote, i)
+            url = link[i:i2]
+            i = link.index('>', i2) + 1
+            i2 = link.index('</a>', i)
+            label = link[i:i2].lower().strip()
+            attrs = (label, url)
+            return attrs
+        except Exception:
+            logging.exception('')
+            print('ERR link: ', link, '\n', traceback.format_exc())
+            raise
 
 
 if __name__ == '__main__':
