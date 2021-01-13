@@ -12,6 +12,7 @@ def update_search_and_index_files_of_w_project_and_check_in_branch_br1():
         config_log(log_file_name)
         wpy.controller.main('br1')
     except Exception as e:
+
         logging.error(traceback.format_exc())
         print(traceback.format_exc())
         if not logging.getLogger().isEnabledFor(logging.DEBUG):
