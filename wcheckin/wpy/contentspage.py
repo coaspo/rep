@@ -17,13 +17,13 @@ class ContentsPage:
             with open('../w/contents.html', 'w') as f:
                 for line in lines:
                     if line.startswith('<br><br>'):
-                        f.write(line + '\n')
+                        f.write(line)
+                        f.write('\n<table><tr><td></td> <td></td> <td></td> <td>last update</td><td>line count</td></tr>\n')
                         ContentsPage._append_version_and_content_links(version, web_site, f)
                         f.close()
                         break
                     f.write(line + '\n')
         except Exception as ex:
-            print('&&&&&&&&&&&&&&&&&&&&&&&&&')
             logging.exception(ex)
             print(traceback.format_exc())
             with open('../w/contents.html', 'w') as f:
@@ -39,13 +39,10 @@ class ContentsPage:
     def _append_version_and_content_links(version, web_site, f):
         lines = ''
         for topic_name in web_site.topic_names:
-            print('------------', topic_name)
             lines += ContentsPage._get_file_list_table(web_site.web_page_dict[topic_name])
         ts = datetime.now().isoformat()
         num = ts[:10] + '/' + ts[21:]
         lines += '\n<br><p style="font-size:12px;">' + num + ';  ' + version
-        print('------------', len(lines))
-        print('------------', os.getcwd())
         f.write(lines)
 
     @staticmethod
@@ -71,10 +68,10 @@ class ContentsPage:
     @staticmethod
     def _get_file_list_table(web_pages):
         web_pages.sort(key=lambda x: x.file_path, reverse=True)
-        lines = '<table><tr><td></td> <td></td> <td></td> <td>last update</td><td>line count</td></tr>\n'
 
         previous_topic = ''
         previous_sub_topic = ''
+        lines=''
         for web_page in web_pages:
             if web_page.topic != previous_topic:
                 previous_topic = web_page.topic

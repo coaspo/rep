@@ -10,14 +10,14 @@ from wpy.website import WebSite
 
 
 def main(git_branch):
-    target_dirs = ('../w/tech', '../w/science', '../w/recipes', '../w/arts')
+    CheckIn.run_tests()
+    target_dirs = ('../w/tech', '../w/recipes', '../w/arts', '../w/science')
     logging.info(str(datetime.now()))
     website = WebSite(target_dirs)
     website.save_search_file_paths('../w/search_file_paths.txt')
     website.save_search_labels('../w/search_labels.txt')
     version = ContentsPage.update(website)
     IndexPage.update_links(website)
-    CheckIn.run_tests()
     print('Current dir:', os.getcwd())
     CheckIn.run_git_commands(version, git_branch)
     os.chdir('../w')
