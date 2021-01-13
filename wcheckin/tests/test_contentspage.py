@@ -13,7 +13,7 @@ def test_contents_page():
     target_dirs = ('../w/tests/search-files',)
     website = WebSite(target_dirs)
     simpledialog.askstring = mock.Mock(return_value="ver-1")
-    ContentsPage.update(website)
+    ContentsPage.update(website, '../w/contents.html')
 
     with open('../w/contents.html') as f:
         source = f.read()

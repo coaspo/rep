@@ -16,7 +16,7 @@ def main(git_branch):
     website = WebSite(target_dirs)
     website.save_search_file_paths('../w/search_file_paths.txt')
     website.save_search_labels('../w/search_labels.txt')
-    version = ContentsPage.update(website)
+    version = ContentsPage.update(website, '../w/contents.html')
     IndexPage.update_links(website)
     print('Current dir:', os.getcwd())
     CheckIn.run_git_commands(version, git_branch)

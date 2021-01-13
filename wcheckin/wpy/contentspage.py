@@ -8,13 +8,13 @@ from tkinter import simpledialog
 
 class ContentsPage:
     @staticmethod
-    def update(web_site):
-        (version, lines) = ContentsPage._get_version()
+    def update(web_site, contents_file_path):
+        (version, lines) = ContentsPage._get_version(contents_file_path)
         if version is None:
             print('stopped; version not given')
             exit()
         try:
-            with open('../w/contents.html', 'w') as f:
+            with open(contents_file_path, 'w') as f:
                 for line in lines:
                     if line.startswith('<br><br>'):
                         f.write(line)
@@ -27,7 +27,7 @@ class ContentsPage:
         except Exception as ex:
             logging.exception(ex)
             print(traceback.format_exc())
-            with open('../w/contents.html', 'w') as f:
+            with open(contents_file_path, 'w') as f:
                 for line in lines:
                     f.write(line + '\n')
                 f.close()
@@ -42,13 +42,14 @@ class ContentsPage:
         for topic_name in web_site.topic_names:
             lines += ContentsPage._get_file_list_table(web_site.web_page_dict[topic_name])
         ts = datetime.now().isoformat()
-        num = ts[:10] + '/' + ts[21:]
+        num = ts[2:10] + '/' + ts[11:13] + ts[14:16] + ts[17:19]
+
         lines += '\n<br><p style="font-size:12px;">' + num + ';  ' + version
         f.write(lines)
 
     @staticmethod
-    def _get_version():
-        with open('../w/contents.html') as f:
+    def _get_version(contents_file_path):
+        with open(contents_file_path) as f:
             lines = f.read().splitlines()
 
         version = 'update'
