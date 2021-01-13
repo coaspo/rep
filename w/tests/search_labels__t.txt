@@ -7,3 +7,7 @@ coursera- free course$$2$$https://www.coursera.org/
 edx - mit, harvard$$2$$https://www.edx.org/
 pizza$$5
 serve done$$5
+http://localhost:8080/w/tests/test_search.html$$6$$http://localhost:8080/w/tests/test_search.html
+http://localhost:8080/w/index.html$$6$$http://localhost:8080/w/index.html
+https://li.netlify.app/w/index.html$$6$$https://li.netlify.app/w/index.html
+https://li.netlify.app/w/tests/test_search.html$$6$$https://li.netlify.app/w/tests/test_search.html
