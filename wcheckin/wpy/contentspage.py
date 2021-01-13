@@ -1,4 +1,5 @@
 import logging
+import os
 import tkinter
 import traceback
 from datetime import datetime
@@ -41,6 +42,7 @@ class ContentsPage:
         num = ts[:10] + '/' + ts[21:]
         lines += '\n<br><p style="font-size:12px;">' + num + ';  ' + version
         print('------------', lines)
+        print('------------', os.getcwd())
         f.write(lines)
 
     @staticmethod
