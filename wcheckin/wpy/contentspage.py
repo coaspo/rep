@@ -20,6 +20,7 @@ class ContentsPage:
                         f.write(line)
                         f.write('\n<table><tr><td></td> <td></td> <td></td> <td>last update</td><td>line count</td></tr>\n')
                         ContentsPage._append_version_and_content_links(version, web_site, f)
+                        f.write('</table>')
                         f.close()
                         break
                     f.write(line + '\n')
@@ -89,7 +90,6 @@ class ContentsPage:
                      f"<td style=\"font-size:12px;\">{ web_page.modification_date[2:]}</td>" \
                      f"<td>{web_page.content_line_count}</td></tr>\n "
 
-        lines += '</table>'
         return lines
 
     @staticmethod
