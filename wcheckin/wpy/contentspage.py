@@ -35,6 +35,7 @@ class ContentsPage:
     def _append_version_and_content_links(version, web_site, f):
         lines = ''
         for topic_name in web_site.topic_names:
+            print('------------', topic_name)
             lines += ContentsPage._get_file_list_table(web_site.web_page_dict[topic_name])
         ts = datetime.now().isoformat()
         num = ts[:10] + '/' + ts[21:]
