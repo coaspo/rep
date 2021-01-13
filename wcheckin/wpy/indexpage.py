@@ -7,7 +7,7 @@ from wpy.contentspage import ContentsPage
 
 class IndexPage:
     @staticmethod
-    def update_links(file_paths):
+    def update_links(website):
         with open('../w/index.html') as f:
             lines = f.read().splitlines()
         line = 'NA'

@@ -7,7 +7,7 @@ from tkinter import simpledialog
 
 class ContentsPage:
     @staticmethod
-    def update(web_pages):
+    def update(web_site):
         (version, lines) = ContentsPage._get_version()
         if version is None:
             print('stopped; version not given')
@@ -17,7 +17,7 @@ class ContentsPage:
                 for line in lines:
                     if line.startswith('<br><br>'):
                         f.write(line + '\n')
-                        ContentsPage._append_version_and_content_links(version, web_pages, f)
+                        ContentsPage._append_version_and_content_links(version, web_site, f)
                         break
                     f.write(line + '\n')
         except Exception as ex:
@@ -32,10 +32,12 @@ class ContentsPage:
         return version
 
     @staticmethod
-    def _append_version_and_content_links(version, web_pages, f):
+    def _append_version_and_content_links(version, web_site, f):
+        lines = ''
+        for topic_name in web_site.topic_names:
+            lines += ContentsPage._get_file_list_table(web_site.web_page_dict[topic_name])
         ts = datetime.now().isoformat()
         num = ts[:10] + '/' + ts[21:]
-        lines = ContentsPage._get_file_list_table(web_pages)
         lines += '\n<br><p style="font-size:12px;">' + num + ';  ' + version
         f.write(lines)
 

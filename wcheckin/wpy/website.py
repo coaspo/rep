@@ -7,7 +7,7 @@ from wpy.webpage import WebPage
 class WebSite:
     def __init__(self, target_dirs):
         self.__file_path_structure = WebSite._get_search_file_path_structures(target_dirs)
-        self.__web_pages = WebSite._get_web_pages(target_dirs)
+        self.__topic_names, self.__pages_dict = WebSite._get_web_page_dict(target_dirs)
 
     @staticmethod
     def _get_search_file_path_structures(target_dirs):
@@ -23,10 +23,9 @@ class WebSite:
         return file_path_structures
 
     @staticmethod
-    def _get_search_file_paths(target_dirs):
+    def _get_search_file_paths(target_dir):
         file_paths = []
-        for target_dir in target_dirs:
-          for subdir, dirs, files in os.walk(target_dir):
+        for subdir, dirs, files in os.walk(target_dir):
             for file in files:
                 p = os.path.join(subdir, file)
                 file_paths.append(p)
@@ -35,13 +34,21 @@ class WebSite:
         return file_paths
 
     @staticmethod
-    def _get_web_pages(target_dirs):
-        file_paths = WebSite._get_search_file_paths(target_dirs)
-        web_pages = []
-        for file_path in file_paths:
-            if file_path.endswith('.html'):
-                web_pages.append(WebPage(file_path))
-        return web_pages
+    def _get_web_page_dict(target_dirs) -> dict:
+        web_page_dict = {}
+        topic_names = []
+        for target_dir in target_dirs:
+            print('== == == ==', target_dir)
+            i_start = target_dir.index('/w/') + 3
+            topic_name = target_dir[i_start: ]
+            pages = []
+            file_paths = WebSite._get_search_file_paths(target_dir)
+            for file_path in file_paths:
+                if file_path.endswith('.html'):
+                    pages.append(WebPage(file_path))
+            topic_names.append(topic_name)
+            web_page_dict[topic_name] = pages
+        return topic_names, web_page_dict
 
     def save_search_file_paths(self, save_file):
         with open(save_file, 'w') as f:
@@ -52,8 +59,12 @@ class WebSite:
         return self.__file_path_structure
 
     @property
-    def web_pages(self) -> list:
-        return self.__web_pages
+    def topic_names(self) -> list:
+        return self.__topic_names
+
+    @property
+    def web_page_dict(self) -> dict:
+        return self.__pages_dict
 
     def save_search_labels(self, save_file):
         with open(save_file, 'w') as f:
@@ -80,4 +91,5 @@ class WebSite:
         logging.info('Created ' + save_file)
 
     def __str__(self) -> str:
-        return f'WebSite: file_paths = {self.__file_path_structure} '
+        return f'WebSite: file_paths = {self.file_path_structures} \n' + \
+               f'         web_pages = {self.web_page_dict} '

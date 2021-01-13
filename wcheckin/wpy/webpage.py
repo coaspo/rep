@@ -66,14 +66,10 @@ class WebPage:
             lines = f.readlines()
         indexes = []
         num_of_lines = 0
-        description = ''
         for line in lines:
             num_of_lines += 1
             if line.find('<body>') > -1:
                 num_of_lines = 0
-            # search for comment:
-            if line.find('<!--') > -1:
-                description = line.replace('<!--', '').replace('-->', '').replace('\n', '')
             # search for anchors:
             i = line.find('<a ')
             if i > -1:
@@ -89,6 +85,12 @@ class WebPage:
             if i > -1:
                 labels = WebPage._extract_italicized_labels(line)
                 indexes.append((labels,))
+        description = ''
+        text = ''.join(lines).replace('\n', '')
+        i_start = text.find('<!--')
+        if i_start > -1:
+          i_end = text.index('-->', i_start)
+          description = text[i_start:i_end].replace('<!--', '').replace('-->', '').strip()
         return indexes, num_of_lines - 1, description
 
     @staticmethod
@@ -99,8 +101,9 @@ class WebPage:
         >>> WebPage._find_topics('a/f.html')
         ('a', '')
         """
-        i_end = file_path.index('/')
-        topic = file_path[:i_end]
+        i_start = file_path.index('/w/') + 3
+        i_end = file_path.index('/', i_start)
+        topic = file_path[i_start:i_end]
 
         sub_path = file_path[i_end + 1:]
         sub_topic = ''
@@ -142,9 +145,10 @@ class WebPage:
         return self.__description
 
     def __str__(self) -> str:
-        return f'WebPage: file_path = {self.file_path}, ' + \
+        return f'WebPage: file_path = {self.file_path}, link = {self.link}, ' + \
                f' modification_date = {self.modification_date}, num_of_lines = {self.content_line_count}, ' + \
-               f' search_indexes = {self.search_indexes} '
+               f' search_indexes = {self.search_indexes} topic = {self.topic} ' + \
+               f' sub_topic = {self.sub_topic}  description = {self.description}'
 
 
 if __name__ == '__main__':
