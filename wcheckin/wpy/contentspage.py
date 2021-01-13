@@ -40,6 +40,7 @@ class ContentsPage:
         ts = datetime.now().isoformat()
         num = ts[:10] + '/' + ts[21:]
         lines += '\n<br><p style="font-size:12px;">' + num + ';  ' + version
+        print('------------', lines)
         f.write(lines)
 
     @staticmethod
