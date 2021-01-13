@@ -1,7 +1,6 @@
-tests/search-files/category/word_list.html
-tests/search-files/links-2.html
-tests/search-files/links.html
-tests/search-files/problems-examples.html
-tests/search-files/problems-solutions.html
-tests/search-files/recipe.html
-tests/test_search.html
+ts/w/topic1/links-2.html
+ts/w/topic1/links.html
+ts/w/topic2/problems-examples.html
+ts/w/topic2/problems-solutions.html
+ts/w/topic2/recipe.html
+ts/w/topic2/subtopic/word_list.html

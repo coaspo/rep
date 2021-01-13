@@ -38,7 +38,6 @@ class WebSite:
         web_page_dict = {}
         topic_names = []
         for target_dir in target_dirs:
-            print('== == == ==', target_dir)
             i_start = target_dir.index('/w/') + 3
             topic_name = target_dir[i_start: ]
             pages = []

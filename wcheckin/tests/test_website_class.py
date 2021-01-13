@@ -10,13 +10,13 @@ def make_paths_usable_by_local_server():
 def test_website():
     if os.getcwd().endswith('/tests'):
         os.chdir('..')
-    target_dirs = ('../w/tests',)
+    target_dirs = ('./tests/w/topic1','./tests/w/topic2')
     website = WebSite(target_dirs)
 
-    if os.path.exists("../w/tests/search_file_paths__t.txt"):
-        os.remove("../w/tests/search_file_paths__t.txt")
-    website.save_search_file_paths('../w/tests/search_file_paths__t.txt')
-    with open('../w/tests/search_file_paths__t.txt') as f:
+    if os.path.exists("./tests/search_file_paths__t.txt"):
+        os.remove("./tests/search_file_paths__t.txt")
+    website.save_search_file_paths('./tests/search_file_paths__t.txt')
+    with open('./tests/search_file_paths__t.txt') as f:
         actual = f.read()
     expected = """tests/search-files/category/word_list.html
 tests/search-files/links-2.html
@@ -29,11 +29,11 @@ tests/test_search.html
     assert expected == actual, 'save_searcn_file_paths() failed;\n actual:\n' + actual + '\nexpected:\n' + expected
 
 
-    if os.path.exists("../w/tests/search_labels__t.txt"):
-        os.remove("../w/tests/search_labels__t.txt")
+    if os.path.exists("./tests/search_labels__t.txt"):
+        os.remove("./tests/search_labels__t.txt")
     website.save_search_labels('../w/tests/search_labels__t.txt')
 
-    with open('../w/tests/search_labels__t.txt') as f:
+    with open('./tests/search_labels__t.txt') as f:
         actual = f.read()
     expected = """wolfram$$1$$https://www.wolfram.com/
 worldometers$$1$$https://www.worldometers.info/
