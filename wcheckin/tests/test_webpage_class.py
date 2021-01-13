@@ -6,7 +6,7 @@ from wpy.webpage import WebPage
 def test_webpage():
     if os.getcwd().endswith('/tests'):
         os.chdir('..')
-    page = WebPage('../w/tests/search-files/links.html')
+    page = WebPage('tests/w/topic1/links.html')
     actual = page.search_indexes
     expected = [('internet archive', 'https://archive.org'),
                 ('free books', 'https://www.freebookcentre.net/'),
@@ -14,13 +14,12 @@ def test_webpage():
                 ('edx - mit, harvard', 'https://www.edx.org/')]
     assert expected == actual, 'contents_indexes() failed; expected:\n' + str(expected) + '\nactual:\n' + str(actual)
 
-    page = WebPage('../w/tests/search-files/links.html')
     actual = page.file_path
-    expected = '../w/tests/search-files/links.html'
+    expected = 'tests/w/topic1/links.html'
     assert expected == actual, 'invalid file_path; expected:\n' + expected + '\nactual:\n' + actual
 
     actual = page.link
-    expected = "<a href='./../w/tests/search-files/links.html'>links</a>"
+    expected = "<a href='./tests/w/topic1/links.html'>links</a>"
     assert expected == actual, 'invalid search_indexes; expected:\n' + expected + '\nactual:\n' + actual
 
     actual = page.modification_date
@@ -32,20 +31,16 @@ def test_webpage():
     assert expected == actual, 'invalid num_of_lines; expected:\n' + str(expected) + '\nactual:\n' + str(actual)
 
     actual = page.topic
-    expected = 'tests'
+    expected = 'topic1'
     assert expected == actual, 'invalid search_indexes; expected:\n' + expected + '\nactual:\n' + str(actual)
 
-    actual = page.sub_topic
-    expected = 'search-files'
-    assert expected == actual, 'invalid search_indexes; expected:\n' + expected + '\nactual:\n' + str(actual)
-
-    page = WebPage('../w/tests/search-files/category/word_list.html')
+    page = WebPage('tests/w/topic2/subtopic/word_list.html')
     actual = page.link
-    expected = "<a href='./../w/tests/search-files/category/word_list.html'>word list</a>"
+    expected = "<a href='./tests/w/topic2/subtopic/word_list.html'>word list</a>"
     assert expected == actual, 'invalid search_indexes; expected:\n' + expected + '\nactual:\n' + actual
 
     actual = page.sub_topic
-    expected = 'search-files'
+    expected = 'subtopic'
     assert expected == actual, 'invalid search_indexes; expected:\n' + expected + '\nactual:\n' + str(actual)
 
     actual = page.description
