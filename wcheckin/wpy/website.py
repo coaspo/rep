@@ -51,7 +51,10 @@ class WebSite:
 
     def save_search_file_paths(self, save_file):
         with open(save_file, 'w') as f:
-            f.writelines(x[0][5:] + '\n' for x in self.file_path_structures)
+            for p in self.file_path_structures:
+                i_start = p[0].index('/w/') + 3
+                f.write(p[0][i_start:])
+                f.write('\n')
 
     @property
     def file_path_structures(self) -> list:
