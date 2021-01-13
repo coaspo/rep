@@ -10,7 +10,7 @@ from wpy.website import WebSite
 
 
 def main(git_branch):
-    #CheckIn.run_tests()
+    CheckIn.run_tests()
     target_dirs = ('../w/tech', '../w/recipes', '../w/arts', '../w/science')
     logging.info(str(datetime.now()))
     website = WebSite(target_dirs)

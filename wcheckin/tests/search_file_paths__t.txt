@@ -1,6 +1,6 @@
-ts/w/topic1/links-2.html
-ts/w/topic1/links.html
-ts/w/topic2/problems-examples.html
-ts/w/topic2/problems-solutions.html
-ts/w/topic2/recipe.html
-ts/w/topic2/subtopic/word_list.html
+topic1/links-2.html
+topic1/links.html
+topic2/problems-examples.html
+topic2/problems-solutions.html
+topic2/recipe.html
+topic2/subtopic/word_list.html
