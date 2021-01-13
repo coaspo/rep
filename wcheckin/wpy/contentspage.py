@@ -19,14 +19,17 @@ class ContentsPage:
                     if line.startswith('<br><br>'):
                         f.write(line + '\n')
                         ContentsPage._append_version_and_content_links(version, web_site, f)
+                        f.close()
                         break
                     f.write(line + '\n')
         except Exception as ex:
+            print('&&&&&&&&&&&&&&&&&&&&&&&&&')
             logging.exception(ex)
             print(traceback.format_exc())
             with open('../w/contents.html', 'w') as f:
                 for line in lines:
                     f.write(line + '\n')
+                f.close()
             raise ex
 
         logging.info('Updated contents.html')
