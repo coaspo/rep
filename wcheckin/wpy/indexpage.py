@@ -19,12 +19,16 @@ class IndexPage:
                         i_end = line.index('-->')
                         topic = line[6:i_end]
                         webpages = website.web_page_dict[topic]
+                        is_first = True
                         for page in webpages:
                             f.write('\n<tr><td>')
                             if page.sub_topic == '':
                                 f.write(page.link)
                             else:
-                                f.write(page.sub_topic + '</td><td>' + page.link)
+                                if is_first:
+                                    f.write(page.sub_topic + '</td><td>' + page.link)
+                                else:
+                                    f.write('</td><td>' + page.link)
                             f.write('</td></tr>')
                         while line != '<!--*/END-->':
                             j += 1

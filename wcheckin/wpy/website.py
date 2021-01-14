@@ -34,20 +34,29 @@ class WebSite:
         return file_paths
 
     @staticmethod
-    def _get_web_page_dict(target_dirs) -> dict:
+    def _get_web_page_dict(target_dirs) -> (list, dict):
         web_page_dict = {}
         topic_names = []
         for target_dir in target_dirs:
             i_start = target_dir.index('/w/') + 3
-            topic_name = target_dir[i_start: ]
+            topic_name = target_dir[i_start:]
             pages = []
             file_paths = WebSite._get_search_file_paths(target_dir)
             for file_path in file_paths:
                 if file_path.endswith('.html'):
                     pages.append(WebPage(file_path))
+
+            pages.sort(key=WebSite.webpage_value)
             topic_names.append(topic_name)
             web_page_dict[topic_name] = pages
         return topic_names, web_page_dict
+
+    @staticmethod
+    def webpage_value(webpage: WebPage):
+        if webpage.sub_topic == '':
+            return 'aaaa' + webpage.file_path
+        else:
+            return webpage.sub_topic + webpage.file_path
 
     def save_search_file_paths(self, save_file):
         with open(save_file, 'w') as f:
