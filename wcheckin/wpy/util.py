@@ -3,17 +3,17 @@ from subprocess import Popen, PIPE
 from tkinter import messagebox
 
 
-class CheckIn:
+class Util:
     @staticmethod
     def run_tests():
-        CheckIn._run('python3', 'tests/run_all_pytests.py')
+        Util._run('python3', 'tests/run_all_pytests.py')
 
     @staticmethod
-    def run_git_commands(version, git_branch):
-        CheckIn._run('git', 'add', '*')
-        CheckIn._run('git', 'status')
-        CheckIn._run('git', 'commit', '-m', "'" + version + "'")
-        CheckIn._run('git', 'push', 'origin', git_branch)
+    def check_into_repository(version, git_branch):
+        Util._run('git', 'add', '*')
+        Util._run('git', 'status')
+        Util._run('git', 'commit', '-m', "'" + version + "'")
+        Util._run('git', 'push', 'origin', git_branch)
         # CheckIn._run('git', 'diff')
 
     @staticmethod

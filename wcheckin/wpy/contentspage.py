@@ -18,7 +18,8 @@ class ContentsPage:
                 for line in lines:
                     if line.startswith('<br><br>'):
                         f.write(line)
-                        f.write('\n<table><tr><td></td> <td></td> <td></td> <td>last update</td><td>line count</td></tr>\n')
+                        f.write(
+                            '\n<table><tr><td></td> <td></td> <td></td> <td>last update</td><td>line count</td></tr>\n')
                         ContentsPage._append_version_and_content_links(version, web_site, f)
                         f.write('</table>')
                         f.close()
@@ -33,7 +34,7 @@ class ContentsPage:
                 f.close()
             raise ex
 
-        logging.info('Updated contents.html')
+        logging.info('Updated ' + contents_file_path)
         return version
 
     @staticmethod
@@ -73,7 +74,7 @@ class ContentsPage:
 
         previous_topic = ''
         previous_sub_topic = ''
-        lines=''
+        lines: str = ''
         for web_page in web_pages:
             if web_page.topic != previous_topic:
                 previous_topic = web_page.topic
@@ -88,7 +89,7 @@ class ContentsPage:
                 display_sub_topic = ''
 
             lines += f"<tr><td><b>{display_topic} </b></td> <td>{display_sub_topic}</td> <td>{web_page.link}</td>" \
-                     f"<td style=\"font-size:12px;\">{ web_page.modification_date[2:]}</td>" \
+                     f"<td style=\"font-size:12px;\">{web_page.modification_date[2:]}</td>" \
                      f"<td>{web_page.content_line_count}</td></tr>\n "
 
         return lines

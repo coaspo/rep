@@ -1,62 +1,46 @@
 import logging
-import shutil
 import traceback
-
-from wpy.contentspage import ContentsPage
 
 
 class IndexPage:
     @staticmethod
-    def update_links(website):
-        with open('../w/index.html') as f:
+    def update_links(website, file_path):
+        with open(file_path) as f:
             lines = f.read().splitlines()
         line = 'NA'
         try:
-            with open('../w/index.html', 'w') as f:
-                for line in lines:
-                    if 'href' in line and './' in line:
-                        if '</a>' not in line or '<a ' not in line:
-                            raise Exception('Missing "<a " "</a>" or ".html" in: ' + line)
-                        i = line.find('<a ')
-                        ii = line.index('</a>', i) + 4
-                        link = line[i:ii]
-                        (label, url) = IndexPage._extract_url_label(link)
-
-                        i = url.rfind('/') + 1
-                        i2 = url.rfind('.html')
-                        file_desc = url[i:i2].replace('_', ' ')
-                        line = line.replace('>' + label + '<', '>' + file_desc + '<')
-                    f.write(line + '\n')
+            with open(file_path, 'w') as f:
+                f.write(lines[0])
+                j = 1
+                while j < len(lines):
+                    line = lines[j]
+                    if line.startswith('<!--*'):
+                        f.write('\n' + line)
+                        i_end = line.index('-->')
+                        topic = line[6:i_end]
+                        webpages = website.web_page_dict[topic]
+                        for page in webpages:
+                            f.write('\n<tr><td>')
+                            if page.sub_topic == '':
+                                f.write(page.link)
+                            else:
+                                f.write(page.sub_topic + '</td><td>' + page.link)
+                            f.write('</td></tr>')
+                        while line != '<!--*/END-->':
+                            j += 1
+                            line = lines[j]
+                        f.write('\n<!--*/END-->')
+                    else:
+                        f.write('\n' + line)
+                    j += 1
         except Exception as e:
             logging.error(str(e))
             print('ERR line: ', line, '\n', traceback.format_exc())
-            with open('../w/index.html', 'w') as f:
+            with open(file_path, 'w') as f:
                 for line in lines:
                     f.write(line + '\n')
             raise e
         logging.info('Updated index.html')
-
-    @staticmethod
-    def update(version: str, web_pages: str):
-        shutil.copyfile('../w/index.html', 'index.tmp')
-        try:
-            line = 'NA'
-            with open('index.tmp', 'w') as f:
-                lines = f.readlines()
-                for line in lines:
-                    if line.startswith('<br><br>'):
-                        f.write(line + '\n')
-                        ContentsPage._append_version_and_content_links(version, web_pages, f)
-                        break
-                    f.write(line + '\n')
-        except Exception:
-            logging.exception('')
-            print('ERR line: ', line, '\n', traceback.format_exc())
-            with open('../w/contents.html', 'w') as f:
-                for line in lines:
-                    f.write(line + '\n')
-            raise
-        logging.info('Updated ../w/index.html')
 
     @staticmethod
     def _extract_url_label(link):
