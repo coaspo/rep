@@ -39,11 +39,11 @@ def test_webpage():
     expected = "<a href='./tests/w/topic2/subtopic/word_list.html'>word list</a>"
     assert expected == actual, 'invalid search_indexes; expected:\n' + expected + '\nactual:\n' + actual
 
-    actual = page.sub_topic
+    actual = page.sub_dir
     expected = 'subtopic'
     assert expected == actual, 'invalid search_indexes; expected:\n' + expected + '\nactual:\n' + str(actual)
 
     actual = page.description
     expected = "This is a test"
     assert expected == actual, 'invalid search_indexes; expected:\n' + expected + '\nactual:\n' + actual
-    print (page)
+    print(page)

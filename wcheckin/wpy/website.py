@@ -7,7 +7,7 @@ from wpy.webpage import WebPage
 class WebSite:
     def __init__(self, target_dirs):
         self.__file_path_structure = WebSite._get_search_file_path_structures(target_dirs)
-        self.__topic_names, self.__pages_dict = WebSite._get_web_page_dict(target_dirs)
+        self.__topic_names, self.__pages_dict, self.__sub_dir_dict = WebSite._get_web_page_dicts(target_dirs)
 
     @staticmethod
     def _get_search_file_path_structures(target_dirs):
@@ -34,28 +34,35 @@ class WebSite:
         return file_paths
 
     @staticmethod
-    def _get_web_page_dict(target_dirs) -> (list, dict):
+    def _get_web_page_dicts(target_dirs) -> (list, dict):
         web_page_dict = {}
+        sub_dir_dict = {}
         topic_names = []
         for target_dir in target_dirs:
             i_start = target_dir.index('/w/') + 3
             topic_name = target_dir[i_start:]
             pages = []
+            sub_dirs = []
             file_paths = WebSite._get_search_file_paths(target_dir)
             for file_path in file_paths:
                 if file_path.endswith('.html'):
-                    pages.append(WebPage(file_path))
+                    page = WebPage(file_path)
+                    pages.append(page)
+                    if page.sub_dir not in sub_dirs:
+                        sub_dirs.append(page.sub_dir)
             pages.sort(key=WebSite.sort_value)
+            sub_dirs.sort()
             topic_names.append(topic_name)
             web_page_dict[topic_name] = pages
-        return topic_names, web_page_dict
+            sub_dir_dict[topic_name] = sub_dirs
+        return topic_names, web_page_dict, sub_dir_dict
 
     @staticmethod
     def sort_value(page: WebPage):
-        if page.sub_topic == '':
+        if page.sub_dir == '':
             return 'aaaa' + page.file_path
         else:
-            return page.sub_topic + page.file_path
+            return page.sub_dir + page.file_path
 
     def save_search_file_paths(self, save_file):
         with open(save_file, 'w') as f:
@@ -75,6 +82,10 @@ class WebSite:
     @property
     def web_page_dict(self) -> dict:
         return self.__pages_dict
+
+    @property
+    def sub_dir_dict(self) -> dict:
+        return self.__sub_dir_dict
 
     def save_search_labels(self, save_file):
         with open(save_file, 'w') as f:

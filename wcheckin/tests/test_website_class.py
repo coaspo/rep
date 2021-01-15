@@ -1,7 +1,7 @@
 import os
 
 from wpy.website import WebSite
-from shutil import copyfile
+
 
 def test_website():
     if os.getcwd().endswith('/tests'):
@@ -56,5 +56,5 @@ serve done$$4"""  # anchor label, file index, url
     assert expected == actual, "len(website.web_pages['tests']) failed:\n actual:\n" + actual + "\nexpected:\n" + expected
 
     actual = str(website.web_page_dict['topic2'][3])
-    expected = "WebPage: file_path = ./tests/w/topic2/subtopic/word_list.html, link = <a href='././tests/w/topic2/subtopic/word_list.html'>word list</a>,  modification_date = 2021-01-11, num_of_lines = 2,  search_indexes = [] topic = topic2  sub_topic = subtopic  description = This is a test"
+    expected = "WebPage: file_path = ./tests/w/topic2/subtopic/word_list.html, link = <a href='././tests/w/topic2/subtopic/word_list.html'>word list</a>,  modification_date = 2021-01-11, num_of_lines = 2,  search_indexes = [] topic = topic2  sub_dir = subtopic  description = This is a test"
     assert expected == str(actual), "website.topics['tests'][0] failed:\n actual:\n" + actual + "\nexpected:\n" + expected

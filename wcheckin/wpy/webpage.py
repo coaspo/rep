@@ -10,9 +10,9 @@ class WebPage:
         self.__link = WebPage._create_link(file_path)
         update_ts = os.path.getmtime(file_path)
         self.__modification_date = str(datetime.utcfromtimestamp(update_ts))[:10]
-        self.__search_indexes,  self.__content_line_count ,  self.__description = \
+        self.__search_indexes, self.__content_line_count, self.__description = \
             WebPage._scan_file(file_path)
-        self.__topic, self.__sub_topic = \
+        self.__topic, self.__sub_dir = \
             WebPage._find_topics(file_path)
         logging.debug(file_path)
 
@@ -55,10 +55,9 @@ class WebPage:
             attrs = (label, url)
             return attrs
         except Exception as ex:
-            print('for',link,'got:\n', ex)
+            print('for', link, 'got:\n', ex)
             logging.exception(ex)
             raise ex
-
 
     @staticmethod
     def _scan_file(file_path):
@@ -89,8 +88,8 @@ class WebPage:
         text = ''.join(lines).replace('\n', '')
         i_start = text.find('<!--')
         if i_start > -1:
-          i_end = text.index('-->', i_start)
-          description = text[i_start:i_end].replace('<!--', '').replace('-->', '').strip()
+            i_end = text.index('-->', i_start)
+            description = text[i_start:i_end].replace('<!--', '').replace('-->', '').strip()
         return indexes, num_of_lines - 1, description
 
     @staticmethod
@@ -106,11 +105,11 @@ class WebPage:
         topic = file_path[i_start:i_end]
 
         sub_path = file_path[i_end + 1:]
-        sub_topic = ''
+        sub_dir = ''
         if sub_path.find("/") > 0:
             i_end = sub_path.index('/')
-            sub_topic = sub_path[:i_end]
-        return topic, sub_topic
+            sub_dir = sub_path[:i_end]
+        return topic, sub_dir
 
     @property
     def file_path(self) -> str:
@@ -137,8 +136,8 @@ class WebPage:
         return self.__topic
 
     @property
-    def sub_topic(self) -> str:
-        return self.__sub_topic
+    def sub_dir(self) -> str:
+        return self.__sub_dir
 
     @property
     def description(self) -> str:
@@ -148,10 +147,11 @@ class WebPage:
         return f'WebPage: file_path = {self.file_path}, link = {self.link}, ' + \
                f' modification_date = {self.modification_date}, num_of_lines = {self.content_line_count}, ' + \
                f' search_indexes = {self.search_indexes} topic = {self.topic} ' + \
-               f' sub_topic = {self.sub_topic}  description = {self.description}'
+               f' sub_dir = {self.sub_dir}  description = {self.description}'
 
 
 if __name__ == '__main__':
     import doctest
+
     # This runs only a couple of tests;
     doctest.testmod()

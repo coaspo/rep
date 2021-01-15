@@ -1,7 +1,4 @@
 import os
-from tkinter import simpledialog
-
-import mock
 
 from wpy.indexpage import IndexPage
 from wpy.website import WebSite
@@ -16,4 +13,5 @@ def test_update_links():
 
     with open('./tests/index.html') as f:
         source = f.read()
-        #assert "ver-1" in source, 'did not find "ver-1" in contents.html:\n' + source
+        assert "tests/w/topic1" in source, 'did not find "tests/w/topic1" in contents.html:\n' + source
+        assert len(source) > 3000, 'index file too small; < 3,000 chars'

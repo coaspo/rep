@@ -72,29 +72,29 @@ class ContentsPage:
         web_pages.sort(key=lambda x: x.file_path, reverse=True)
 
         previous_topic = ''
-        previous_sub_topic = ''
+        previous_sub_dir = ''
         lines: str = ''
         for page in web_pages:
             line = '<tr>'
             topic = page.topic
-            sub_topic = page.sub_topic
+            sub_dir = page.sub_dir
             link = page.link
             if topic != previous_topic:
                 previous_topic = topic
                 line += '<td><b>' + topic + '</b></td>'
-                if sub_topic == '':
+                if sub_dir == '':
                     line += '<td colspan="2">'
                 else:
-                    line += '<td>' + sub_topic + '</td><td>'
+                    line += '<td>' + sub_dir + '</td><td>'
             else:
-                if sub_topic == '':
+                if sub_dir == '':
                     line += '<td></td><td colspan="2">'
                 else:
-                    if sub_topic == previous_sub_topic:
+                    if sub_dir == previous_sub_dir:
                         line += '<td></td><td></td></td><td>'
                     else:
-                        line += '<td></td><td>' + sub_topic + '</td><td>'
-            previous_sub_topic = sub_topic
+                        line += '<td></td><td>' + sub_dir + '</td><td>'
+            previous_sub_dir = sub_dir
             lines += line + f"{page.link}</td><td style=\"font-size:12px;\">{page.modification_date[2:]}" + \
                      f"</td><td>{page.content_line_count}</td></tr>\n"
         return lines

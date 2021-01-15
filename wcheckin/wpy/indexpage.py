@@ -19,19 +19,19 @@ class IndexPage:
                         i_end = line.index('-->')
                         topic = line[6:i_end]
                         webpages = website.web_page_dict[topic]
-                        prev_sub_topic = ''
+                        prev_sub_dir = ''
                         for page in webpages:
-                            sub_topic = page.sub_topic.capitalize()
-                            if len(sub_topic) > 0:
-                                sub_topic += ':'
-                            if sub_topic == '':
+                            sub_dir = page.sub_dir.capitalize()
+                            if len(sub_dir) > 0:
+                                sub_dir += ':'
+                            if sub_dir == '':
                                 f.write('\n<tr><td colspan="2">')
                             else:
-                                if sub_topic != prev_sub_topic:
-                                    f.write('\n<tr><td>' + sub_topic + '</td><td>')
+                                if sub_dir != prev_sub_dir:
+                                    f.write('\n<tr><td>' + sub_dir + '</td><td>')
                                 else:
                                     f.write('\n<tr><td></td><td>')
-                            prev_sub_topic = sub_topic
+                            prev_sub_dir = sub_dir
                             i = page.link.index('>') + 1
                             link = page.link[:i] + page.link[i:i+1].upper() + page.link[i+1:]
                             f.write(link)
