@@ -21,7 +21,7 @@ class IndexPage:
                         webpages = website.web_page_dict[topic]
                         prev_sub_topic = ''
                         for page in webpages:
-                            sub_topic = page.sub_topic
+                            sub_topic = page.sub_topic.capitalize() + ':'
                             print(topic, '----', sub_topic, '----', (sub_topic == ''))
                             if sub_topic == '':
                                 f.write('\n<tr><td colspan="2">')
@@ -31,7 +31,9 @@ class IndexPage:
                                 else:
                                     f.write('\n<tr><td></td><td>')
                             prev_sub_topic = sub_topic
-                            f.write(page.link)
+                            i = page.link.index('>') + 1
+                            link = page.link[:i] + page.link[i:i+1].upper() + page.link[i+1:]
+                            f.write(link)
                             f.write('</td></tr>')
                         while line != '<!--*/END-->':  # remove previous lines
                             j += 1
