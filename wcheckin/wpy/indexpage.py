@@ -21,8 +21,9 @@ class IndexPage:
                         webpages = website.web_page_dict[topic]
                         prev_sub_topic = ''
                         for page in webpages:
-                            sub_topic = page.sub_topic.capitalize() + ':'
-                            print(topic, '----', sub_topic, '----', (sub_topic == ''))
+                            sub_topic = page.sub_topic.capitalize()
+                            if len(sub_topic) > 0:
+                                sub_topic += ':'
                             if sub_topic == '':
                                 f.write('\n<tr><td colspan="2">')
                             else:
