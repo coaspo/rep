@@ -1,5 +1,4 @@
 import logging
-import os
 import tkinter
 import traceback
 from datetime import datetime
@@ -75,23 +74,29 @@ class ContentsPage:
         previous_topic = ''
         previous_sub_topic = ''
         lines: str = ''
-        for web_page in web_pages:
-            if web_page.topic != previous_topic:
-                previous_topic = web_page.topic
-                display_topic = web_page.topic.title()
+        for page in web_pages:
+            line = '<tr>'
+            topic = page.topic
+            sub_topic = page.sub_topic
+            link = page.link
+            if topic != previous_topic:
+                previous_topic = topic
+                line += '<td><b>' + topic + '</b></td>'
+                if sub_topic == '':
+                    line += '<td colspan="2">'
+                else:
+                    line += '<td>' + sub_topic + '</td><td>'
             else:
-                display_topic = ''
-
-            if web_page.sub_topic != previous_sub_topic:
-                previous_sub_topic = web_page.sub_topic
-                display_sub_topic = web_page.sub_topic.title()
-            else:
-                display_sub_topic = ''
-
-            lines += f"<tr><td><b>{display_topic} </b></td> <td>{display_sub_topic}</td> <td>{web_page.link}</td>" \
-                     f"<td style=\"font-size:12px;\">{web_page.modification_date[2:]}</td>" \
-                     f"<td>{web_page.content_line_count}</td></tr>\n "
-
+                if sub_topic == '':
+                    line += '<td></td><td colspan="2">'
+                else:
+                    if sub_topic == previous_sub_topic:
+                        line += '<td></td><td></td></td><td>'
+                    else:
+                        line += '<td></td><td>' + sub_topic + '</td><td>'
+            previous_sub_topic = sub_topic
+            lines += line + f"{page.link}</td><td style=\"font-size:12px;\">{page.modification_date[2:]}" + \
+                     f"</td><td>{page.content_line_count}</td></tr>\n"
         return lines
 
     @staticmethod

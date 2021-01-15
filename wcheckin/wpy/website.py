@@ -45,18 +45,17 @@ class WebSite:
             for file_path in file_paths:
                 if file_path.endswith('.html'):
                     pages.append(WebPage(file_path))
-
-            pages.sort(key=WebSite.webpage_value)
+            pages.sort(key=WebSite.sort_value)
             topic_names.append(topic_name)
             web_page_dict[topic_name] = pages
         return topic_names, web_page_dict
 
     @staticmethod
-    def webpage_value(webpage: WebPage):
-        if webpage.sub_topic == '':
-            return 'aaaa' + webpage.file_path
+    def sort_value(page: WebPage):
+        if page.sub_topic == '':
+            return 'aaaa' + page.file_path
         else:
-            return webpage.sub_topic + webpage.file_path
+            return page.sub_topic + page.file_path
 
     def save_search_file_paths(self, save_file):
         with open(save_file, 'w') as f:

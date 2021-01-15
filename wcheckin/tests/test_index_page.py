@@ -12,7 +12,6 @@ def test_update_links():
         os.chdir('..')
     target_dirs = ('tests/w/topic1', 'tests/w/topic2')
     website = WebSite(target_dirs)
-    print('cwdddddd', os.getcwd())
     IndexPage.update_links(website, './tests/index.html')
 
     with open('./tests/index.html') as f:

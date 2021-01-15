@@ -51,6 +51,8 @@ serve done$$4"""  # anchor label, file index, url
 
     actual = str(len(website.web_page_dict['topic1']))  # num of web pages
     expected = "2"
+    print('++++++++++', website.web_page_dict['topic1'])
+    [print(x) for x in website.web_page_dict['topic1']]
     assert expected == actual, "len(website.web_pages['tests']) failed:\n actual:\n" + actual + "\nexpected:\n" + expected
 
     actual = str(website.web_page_dict['topic2'][3])

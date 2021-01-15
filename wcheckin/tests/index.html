@@ -59,38 +59,31 @@ button {
 </head>
 <body>
 <div class="tab"> 
+  <button class="tablink"         onclick="opencontName(event, 'Main')" id="defaultOpen">Main</button>
   <button class="tablink"         onclick="opencontName(event, 'Topic1')">Tech</button>
   <button class="tablink"         onclick="opencontName(event, 'Topic2')">Recipes</button>
 </div>
 <!--=================================== Main tab =================================-->
-<div id="Main" class="tabcontent" >
-  <table>
-    <!-- class="w3-table"-->
-    <tr>
-      <td>
-	<!--contents--><a href="./contents.html">Contents</a>&nbsp;&nbsp;&nbsp;<br/><br/>
-	      </td>
-     </tr>
-  </table>
-<div id="Topic1" class="tabcontent" style="display:none" >
+<div id="Main" class="tabcontent">
+  <a href="./contents.html">Contents</a>&nbsp;&nbsp;&nbsp;<br/><br/>
+</div>
 <!--================================== ..... 1 ==============================-->
+<div id="Topic1" class="tabcontent" style="display:none" >
   <b>Reference/troubleshooting:</b>
   <table>
 <!--*/topic1-->
-<tr><td><a href='./tests/w/topic1/links-2.html'>links-2</a></td></tr>
-<tr><td><a href='./tests/w/topic1/links.html'>links</a></td></tr>
+<tr><td colspan="2"><a href='./tests/w/topic1/links-2.html'>links-2</a></td></tr>
+<tr><td colspan="2"><a href='./tests/w/topic1/links.html'>links</a></td></tr>
 <!--*/END-->
 </table>
-   </tr>
-  </table>
 </div>
+<!--================================== ..... 1 ==============================-->
 <div id="Topic2" class="tabcontent" style="display:none; font-size:24px;" >
-<!--================================ ..... 2 =============================-->
 <table>
 <!--*/topic2-->
-<tr><td><a href='./tests/w/topic2/problems-examples.html'>problems-examples</a></td></tr>
-<tr><td><a href='./tests/w/topic2/problems-solutions.html'>problems-solutions</a></td></tr>
-<tr><td><a href='./tests/w/topic2/recipe.html'>recipe</a></td></tr>
+<tr><td colspan="2"><a href='./tests/w/topic2/problems-examples.html'>problems-examples</a></td></tr>
+<tr><td colspan="2"><a href='./tests/w/topic2/problems-solutions.html'>problems-solutions</a></td></tr>
+<tr><td colspan="2"><a href='./tests/w/topic2/recipe.html'>recipe</a></td></tr>
 <tr><td>subtopic</td><td><a href='./tests/w/topic2/subtopic/word_list.html'>word list</a></td></tr>
 <!--*/END-->
 </table>
@@ -109,5 +102,5 @@ function opencontName(evt, cityName) {
   document.getElementById(cityName).style.display = "block";
   evt.currentTarget.className += " active";
 }
-console.log('aaaaaaaa')
+document.getElementById("defaultOpen").click(); // open Main tab
 </script></body></html>
