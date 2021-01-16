@@ -45,11 +45,11 @@ class WebSite:
             sub_dirs = []
             file_paths = WebSite._get_search_file_paths(target_dir)
             for file_path in file_paths:
-                if file_path.endswith('.html') or file_path.endswith('.txt'):
-                    page = WebPage(file_path)
-                    pages.append(page)
-                    if page.sub_dir not in sub_dirs:
-                        sub_dirs.append(page.sub_dir)
+                # if file_path.endswith('.html') or file_path.endswith('.txt'):
+                page = WebPage(file_path)
+                pages.append(page)
+                if page.sub_dir not in sub_dirs:
+                    sub_dirs.append(page.sub_dir)
             pages.sort(key=WebSite.sort_value)
             sub_dirs.sort()
             topic_names.append(topic_name)
