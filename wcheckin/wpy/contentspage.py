@@ -6,7 +6,7 @@ from tkinter import simpledialog
 
 
 class ContentsPage:
-    VERSION_LINE_MARKER = '<br><p style="font-size:12px;">'
+    VERSION_LINE_MARKER = '<br><br><p style="font-size:12px;">'
 
     @staticmethod
     def update(web_site, contents_file_path):
@@ -23,17 +23,12 @@ class ContentsPage:
         try:
             with open(contents_file_path, 'w') as f:
                 for line in lines:
-                    if line.startswith('<br><br>'):
-                        f.write(line)
+                    if line.startswith(ContentsPage.VERSION_LINE_MARKER):
                         ts = datetime.now().isoformat()
                         num = ts[2:10] + '/' + ts[11:13] + ts[14:16] + ts[17:19]
-                        line = '\n' + ContentsPage.VERSION_LINE_MARKER + num + ';  ' + version + '</p>'
-                        f.write(line)
-                        f.write(
-                            '\n<table><tr><td></td> <td></td> <td></td> <td>last update</td><td>line count</td></tr>\n')
+                        version_line = '\n' + ContentsPage.VERSION_LINE_MARKER + num + ';  ' + version + '</p>'
+                        f.write(version_line)
                         ContentsPage._append_content_links(web_site, f)
-                        f.write('</table>')
-                        f.close()
                         break
                     f.write(line + '\n')
         except Exception as ex:
@@ -47,10 +42,13 @@ class ContentsPage:
 
     @staticmethod
     def _append_content_links(web_site, f):
+        f.write(
+            '\n<table><tr><td></td> <td></td> <td></td> <td>last update</td><td>line count</td></tr>\n')
         lines = ''
         for topic_name in web_site.topic_names:
             lines += ContentsPage._get_file_list_table(web_site.web_page_dict[topic_name])
         f.write(lines)
+        f.write('\n</table>')
 
     @staticmethod
     def _get_version(contents_file_path):
@@ -61,6 +59,7 @@ class ContentsPage:
         for line in lines:
             if line.startswith(ContentsPage.VERSION_LINE_MARKER):
                 version = line.split('; ')[1].strip()
+                version = version[:len(version)-4]
                 break
 
         root = tkinter.Tk()
