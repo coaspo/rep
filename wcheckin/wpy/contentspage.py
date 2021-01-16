@@ -6,6 +6,8 @@ from tkinter import simpledialog
 
 
 class ContentsPage:
+    VERSION_LINE_MARKER = '<br><p style="font-size:12px;">'
+
     @staticmethod
     def update(web_site, contents_file_path):
         (version, lines) = ContentsPage._get_version(contents_file_path)
@@ -23,9 +25,13 @@ class ContentsPage:
                 for line in lines:
                     if line.startswith('<br><br>'):
                         f.write(line)
+                        ts = datetime.now().isoformat()
+                        num = ts[2:10] + '/' + ts[11:13] + ts[14:16] + ts[17:19]
+                        line = '\n' + ContentsPage.VERSION_LINE_MARKER + num + ';  ' + version + '</p>'
+                        f.write(line)
                         f.write(
                             '\n<table><tr><td></td> <td></td> <td></td> <td>last update</td><td>line count</td></tr>\n')
-                        ContentsPage._append_version_and_content_links(version, web_site, f)
+                        ContentsPage._append_content_links(web_site, f)
                         f.write('</table>')
                         f.close()
                         break
@@ -40,14 +46,10 @@ class ContentsPage:
             raise ex
 
     @staticmethod
-    def _append_version_and_content_links(version, web_site, f):
+    def _append_content_links(web_site, f):
         lines = ''
         for topic_name in web_site.topic_names:
             lines += ContentsPage._get_file_list_table(web_site.web_page_dict[topic_name])
-        ts = datetime.now().isoformat()
-        num = ts[2:10] + '/' + ts[11:13] + ts[14:16] + ts[17:19]
-
-        lines += '\n<br><p style="font-size:12px;">' + num + ';  ' + version
         f.write(lines)
 
     @staticmethod
@@ -55,19 +57,16 @@ class ContentsPage:
         with open(contents_file_path) as f:
             lines = f.read().splitlines()
 
-        version = 'update'
+        version = 'UNK?'
         for line in lines:
-            print(line)
-            if line.startswith('<p style="font-size:12px;">'):
-                # for example: 21-01-14/202440;  update
-                version = line.split(';')[1].strip()
+            if line.startswith(ContentsPage.VERSION_LINE_MARKER):
+                version = line.split('; ')[1].strip()
                 break
 
         root = tkinter.Tk()
         root.withdraw()
         version = simpledialog.askstring(title="Git check-in;  " + __file__,
                                          prompt=("\nUpdate 'Search contents' related files and check into git.   "
-                                                 "\nThis may take a while."
                                                  "\n\nVersion name:"), initialvalue=version)
         return version, lines
 
@@ -99,7 +98,7 @@ class ContentsPage:
                     else:
                         line += '<td></td><td>' + sub_dir + '</td><td>'
             previous_sub_dir = sub_dir
-            lines += line + f"{page.link}</td><td style=\"font-size:12px;\">{page.modification_date[2:]}" + \
+            lines += line + f"{page.link}</td><td style='font-size:12px;'>{page.modification_date[2:]}" + \
                      f"</td><td>{page.content_line_count}</td></tr>\n"
         return lines
 
