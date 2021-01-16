@@ -6,6 +6,7 @@ from tkinter import messagebox
 import wpy.controller
 from wpy.log import config_log
 
+
 def update_search_and_index_files_of_w_project_and_check_in_branch_br1():
     try:
         log_file_name = os.path.basename(__file__) + '.log'
@@ -18,3 +19,7 @@ def update_search_and_index_files_of_w_project_and_check_in_branch_br1():
         if not logging.getLogger().isEnabledFor(logging.DEBUG):
             messagebox.showinfo(__file__, os.path.basename(__file__) + ' FAILED; \n\n' +
                                 str(e) + '\n\nSee trace i...')
+
+
+if __name__ == '__main__':
+    update_search_and_index_files_of_w_project_and_check_in_branch_br1()

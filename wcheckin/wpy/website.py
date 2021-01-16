@@ -45,7 +45,7 @@ class WebSite:
             sub_dirs = []
             file_paths = WebSite._get_search_file_paths(target_dir)
             for file_path in file_paths:
-                if file_path.endswith('.html'):
+                if file_path.endswith('.html') or file_path.endswith('.txt'):
                     page = WebPage(file_path)
                     pages.append(page)
                     if page.sub_dir not in sub_dirs:

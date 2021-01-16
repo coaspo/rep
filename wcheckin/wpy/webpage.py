@@ -19,7 +19,10 @@ class WebPage:
     @staticmethod
     def _create_link(file_path):
         i_start = file_path.rindex('/') + 1
-        i_end = file_path.rindex('.html')
+        if file_path.endswith('.html'):
+            i_end = file_path.rindex('.html')
+        else:
+            i_end = len(file_path)
         file_name = file_path[i_start:i_end].replace('_', ' ')
         link = '<a href=\'./' + file_path + '\'>' + file_name + '</a>'
         return link
@@ -61,35 +64,40 @@ class WebPage:
 
     @staticmethod
     def _scan_file(file_path):
-        with open(file_path, encoding="utf-8") as f:
-            lines = f.readlines()
         indexes = []
         num_of_lines = 0
-        for line in lines:
-            num_of_lines += 1
-            if line.find('<body>') > -1:
-                num_of_lines = 0
-            # search for anchors:
-            i = line.find('<a ')
-            if i > -1:
-                if line.find('</a>', i) < 1:
-                    raise Exception('ERR missing </a> in: ' + line + 'ERR file_path = ' + file_path)
-                ii = line.index('</a>', i) + 4
-                link = line[i:ii]
-                if 'name=' not in link:
-                    label_url = WebPage._extract_url_label(link)
-                    indexes.append(label_url)
-            # search for italic keywords:
-            i = line.find('<i>')
-            if i > -1:
-                labels = WebPage._extract_italicized_labels(line)
-                indexes.append((labels,))
         description = ''
-        text = ''.join(lines).replace('\n', '')
-        i_start = text.find('<!--')
-        if i_start > -1:
-            i_end = text.index('-->', i_start)
-            description = text[i_start:i_end].replace('<!--', '').replace('-->', '').strip()
+        if file_path.endswith('.html') or file_path.endswith('.txt'):
+            try:
+                with open(file_path, encoding="utf-8") as f:
+                    lines = f.readlines()
+            except Exception as e:
+                print('ERR file_path=', file_path)
+                raise
+            for line in lines:
+                num_of_lines += 1
+                if line.find('<body>') > -1:
+                    num_of_lines = 0
+                # search for anchors:
+                i = line.find('<a ')
+                if i > -1:
+                    if line.find('</a>', i) < 1:
+                        raise Exception('ERR missing </a> in: ' + line + 'ERR file_path = ' + file_path)
+                    ii = line.index('</a>', i) + 4
+                    link = line[i:ii]
+                    if 'name=' not in link:
+                        label_url = WebPage._extract_url_label(link)
+                        indexes.append(label_url)
+                # search for italic keywords:
+                i = line.find('<i>')
+                if i > -1:
+                    labels = WebPage._extract_italicized_labels(line)
+                    indexes.append((labels,))
+            text = ''.join(lines).replace('\n', '')
+            i_start = text.find('<!--')
+            if i_start > -1:
+                i_end = text.index('-->', i_start)
+                description = text[i_start:i_end].replace('<!--', '').replace('-->', '').strip()
         return indexes, num_of_lines - 1, description
 
     @staticmethod

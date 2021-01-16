@@ -12,6 +12,12 @@ class ContentsPage:
         if version is None:
             print('stopped; version not given')
             exit()
+        ContentsPage._update_contents(version, lines, web_site, contents_file_path)
+        logging.info('Updated ' + contents_file_path)
+        return version
+
+    @staticmethod
+    def _update_contents(version, lines, web_site, contents_file_path):
         try:
             with open(contents_file_path, 'w') as f:
                 for line in lines:
@@ -33,9 +39,6 @@ class ContentsPage:
                 f.close()
             raise ex
 
-        logging.info('Updated ' + contents_file_path)
-        return version
-
     @staticmethod
     def _append_version_and_content_links(version, web_site, f):
         lines = ''
@@ -54,8 +57,9 @@ class ContentsPage:
 
         version = 'update'
         for line in lines:
+            print(line)
             if line.startswith('<p style="font-size:12px;">'):
-                # for example: line = '2020-05-10; links',  version= 'links'
+                # for example: 21-01-14/202440;  update
                 version = line.split(';')[1].strip()
                 break
 
@@ -102,7 +106,10 @@ class ContentsPage:
     @staticmethod
     def _create_link(file_path):
         i_start = file_path.rindex('/') + 1
-        i_end = file_path.rindex('.html')
+        if file_path.endswith('.html'):
+            i_end = file_path.rindex('.html')
+        else:
+            i_end = len(file_path)
         file_name = file_path[i_start:i_end].replace('_', ' ')
         link = '<a href=\'./' + file_path + '\'>' + file_name + '</a>'
         return link
