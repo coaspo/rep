@@ -42,8 +42,8 @@ class ContentsPage:
 
     @staticmethod
     def _append_content_links(web_site, f):
-        f.write(
-            '\n<table><tr><td></td> <td></td> <td></td> <td>last update</td><td>line count</td></tr>\n')
+        f.write('\n<table>\n<tr> <th> </th> <th> </t > <th onclick = "sortTable(1)"> File </th> <th onclick = "sortTable(2)">' +
+                ' last update </th> <th onclick = "sortTable(3)"> line count </th> </tr>')
         lines = ''
         for topic_name in web_site.topic_names:
             lines += ContentsPage._get_file_list_table(web_site.web_page_dict[topic_name])
