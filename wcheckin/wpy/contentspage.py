@@ -3,13 +3,14 @@ import tkinter
 import traceback
 from datetime import datetime
 from tkinter import simpledialog
+from wpy.website import WebSite
 
 
 class ContentsPage:
     VERSION_LINE_MARKER = '<br><br><p style="font-size:8px;">'
 
     @staticmethod
-    def update(web_site, contents_file_path):
+    def update(web_site: WebSite, contents_file_path: str):
         (version, lines) = ContentsPage._get_version(contents_file_path)
         if version is None:
             print('stopped; version not given')
@@ -41,14 +42,16 @@ class ContentsPage:
             raise ex
 
     @staticmethod
-    def _append_content_links(web_site, f):
+    def _append_content_links(web_site: WebSite, f):
         f.write('\n<table id="table">\n<tr> <th></th> <th></th> <th onclick = "sortTable(2)"> File ↕️</th> ' +
                 '<th onclick = "sortTable(3)">update ↕️</th> <th onclick = "sortTable(4)"> kB ↕️</th> </tr>\n')
         lines = ''
         for topic_name in web_site.topic_names:
-            lines += ContentsPage._get_file_list_table(web_site.web_page_dict[topic_name])
+            lines += ContentsPage._get_file_list_table_rows(web_site.web_page_dict[topic_name])
         f.write(lines)
-        f.write('\n</table>')
+        f.write('</table>\nall files: ')
+        f.write(str(web_site.total_kb_size))
+        f.write(' kB')
 
     @staticmethod
     def _get_version(contents_file_path):
@@ -59,7 +62,7 @@ class ContentsPage:
         for line in lines:
             if line.startswith(ContentsPage.VERSION_LINE_MARKER):
                 version = line.split('; ')[1].strip()
-                version = version[:len(version)-4]
+                version = version[:len(version) - 4]
                 break
 
         root = tkinter.Tk()
@@ -70,7 +73,7 @@ class ContentsPage:
         return version, lines
 
     @staticmethod
-    def _get_file_list_table(web_pages):
+    def _get_file_list_table_rows(web_pages):
         web_pages.sort(key=lambda x: x.file_path, reverse=True)
 
         previous_topic = ''
@@ -86,13 +89,13 @@ class ContentsPage:
                 line += '.</td><td>' if sub_dir == '' else sub_dir + '</td><td>'
             else:
                 line += '<td></td><td>'
-                if sub_dir =='':
-                   line += '.</td><td>' if sub_dir == previous_sub_dir else sub_dir + '</td><td>'
+                if sub_dir == '':
+                    line += '.</td><td>' if sub_dir == previous_sub_dir else sub_dir + '</td><td>'
                 else:
-                   line += '</td><td>' if sub_dir == previous_sub_dir else sub_dir + '</td><td>'
+                    line += '</td><td>' if sub_dir == previous_sub_dir else sub_dir + '</td><td>'
             previous_sub_dir = sub_dir
             lines += line + f"{page.link}</td><td style='font-size:12px;'>{page.modification_date[2:]}" + \
-                     f"</td><td>{page.kb_size}</td></tr>\n"
+                            f"</td><td>{page.kb_size}</td></tr>\n"
         return lines
 
     @staticmethod
