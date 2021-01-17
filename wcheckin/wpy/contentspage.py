@@ -6,7 +6,7 @@ from tkinter import simpledialog
 
 
 class ContentsPage:
-    VERSION_LINE_MARKER = '<br><br><p style="font-size:12px;">'
+    VERSION_LINE_MARKER = '<br><br><p style="font-size:8px;">'
 
     @staticmethod
     def update(web_site, contents_file_path):
@@ -93,7 +93,7 @@ class ContentsPage:
                     line += '<td></td><td colspan="2">'
                 else:
                     if sub_dir == previous_sub_dir:
-                        line += '<td></td><td></td></td><td>'
+                        line += '<td></td><td></td><td>'
                     else:
                         line += '<td></td><td>' + sub_dir + '</td><td>'
             previous_sub_dir = sub_dir
