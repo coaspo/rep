@@ -79,3 +79,51 @@ function validate(testName, expected, actual) {
 }
 
 
+function sortTable(i_column) {
+      console.log('- 00 00- - sortTable' )
+      var table, rows, sorted, i, x, y, sortFlag;
+      table = document.getElementById("table");
+      sorted = true;
+      document.getElementById("body").style.cursor = "wait";
+      while (sorted) {
+         sorted = false;
+         rows = table.rows;
+         for (i = 1; i < rows.length - 1; i++) {
+            sortFlag = false;
+            i_col = i_column
+            if (rows[i].cells.length >4) {
+                i_col++;
+            }
+            i_col2 = i_column
+            if (rows[i+1].cells.length >4) {
+                i_col2++;
+            }
+            x = rows[i].getElementsByTagName("TD")[i_col];
+            y = rows[i + 1].getElementsByTagName("TD")[i_col2];
+            x = x.innerHTML.toLowerCase()
+            y = y.innerHTML.toLowerCase()
+            if (i_column==3) {
+              x = parseInt(x);
+              y = parseInt(y);
+             } else if (i_column==1) {
+                // <a href="....">sample</a>
+                 ii = x.indexOf(">")+ 1;
+                 jj = x.indexOf("</");
+                 x = x.substring(ii,jj)
+                 ii = y.indexOf(">")+ 1;
+                 jj = y.indexOf("</");
+                 y = y.substring(ii,jj)
+             }
+            console.log(i_column+'==== ' + x+ '=='+y)
+            if (x > y) {
+               sortFlag = true;
+               break;
+            }
+         }
+         if (sortFlag) {
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            sorted = true;
+         }
+      }
+      document.getElementById("body").style.cursor = "auto";
+   }

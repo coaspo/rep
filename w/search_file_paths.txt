@@ -24,8 +24,8 @@ recipes/popcorn.html
 recipes/potatoes_-_spanish_omelet,_scalloped.html
 recipes/rice_-_prasorizo,_fried,_rizogalo,_spanish.html
 recipes/vegetables_-_ratatouille,_ciambotta,_tourlou,_pisto.html
-science/biology & medicine/microbes.html
-science/biology & medicine/sample_of_medical_science_words.html
+science/biology/microbes.html
+science/biology/sample_of_medical_science_words.html
 science/covid_notes_-_philosophy,_politics,_psychology,_science.html
 science/future_science_and_technologies.html
 science/health/brain_exercise.html
