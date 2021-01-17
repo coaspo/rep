@@ -27,7 +27,7 @@ class ContentsPage:
                     if line.startswith(ContentsPage.VERSION_LINE_MARKER):
                         ts = datetime.now().isoformat()
                         num = ts[2:10] + '/' + ts[11:13] + ts[14:16] + ts[17:19]
-                        version_line = '\n' + ContentsPage.VERSION_LINE_MARKER + num + ';  ' + version + '</p>'
+                        version_line = ContentsPage.VERSION_LINE_MARKER + num + ';  ' + version + '</p>'
                         f.write(version_line)
                         ContentsPage._append_content_links(web_site, f)
                         break
