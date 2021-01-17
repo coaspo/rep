@@ -3,9 +3,50 @@
 <head><meta charset="utf-8"/><title>website help</title>
 <style>a:hover { text-decoration: underline; }
 a{text-decoration: none; color: #0000EE;}
-tr:nth-child(even) {background-color: #f2f2f2; style="font-weight: bold;"}
+tr:nth-child(even) {background-color: #f2f2f2;}
 </style></head>
-<body style="font-size:14px;">
+<body>
+<script>
+function sortTable(i_column) {
+    console.log('- - - sortTable' )
+      var table, rows, sorted, i, x, y, sortFlag;
+      table = document.getElementById("table");
+      sorted = true;
+      while (sorted) {
+         sorted = false;
+         rows = table.rows;
+         for (i = 1; i < rows.length - 1; i++) {
+            sortFlag = false;
+            i_col = i_column
+            if (rows[i].cells.length >4) {
+                i_col++;
+            }
+            i_col2 = i_column
+            if (rows[i+1].cells.length >4) {
+                i_col2++;
+            }
+            x = rows[i].getElementsByTagName("TD")[i_column];
+            y = rows[i + 1].getElementsByTagName("TD")[i_column];
+            x = x.innerHTML.toLowerCase()
+            y = y.innerHTML.toLowerCase()
+            if (i_column==3) {
+              x = parseInt(x);
+              y = parseInt(y);
+             }
+            console.log('- - - ' + x+ '=='+y)
+            if (x > y) {
+               sortFlag = true;
+               break;
+            }
+         }
+         if (sortFlag) {
+            rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+            sorted = true;
+         }
+      }
+   }
+		</script>
+
 My web site provides easy access to convenient/educational/entertaining information.<br>
 <br>
 It contains links/content to:
@@ -29,7 +70,9 @@ Below is the list of all web pages with last mofified date.<br>
 <br>
 Christos
 
-<br><br><p style="font-size:12px;">21-01-15/220530;  456</p>
+
+
+<br><br><p style="font-size:8px;">21-01-17/120641;  UPD</p>
 <table><tr><td></td> <td></td> <td></td> <td>last update</td><td>line count</td></tr>
 <tr><td><b>tech</b></td><td colspan="2"><a href='./../w/tech/windows_and_browser_key_shortcuts.html'>windows and browser key shortcuts</a></td><td style='font-size:12px;'>21-01-08</td><td>56</td></tr>
 <tr><td></td><td colspan="2"><a href='./../w/tech/secutiry_problems_solutions.html'>secutiry problems solutions</a></td><td style='font-size:12px;'>21-01-07</td><td>42</td></tr>
@@ -52,34 +95,34 @@ Christos
 <tr><td></td><td colspan="2"><a href='./../w/recipes/beans,_lima_beans.html'>beans, lima beans</a></td><td style='font-size:12px;'>21-01-07</td><td>39</td></tr>
 <tr><td><b>arts</b></td><td colspan="2"><a href='./../w/arts/notable_quotes.html'>notable quotes</a></td><td style='font-size:12px;'>21-01-07</td><td>17</td></tr>
 <tr><td></td><td>lists</td><td><a href='./../w/arts/lists/yes,_no,_water,_fire,_one,_two,_in_different_languages.html'>yes, no, water, fire, one, two, in different languages</a></td><td style='font-size:12px;'>21-01-07</td><td>41</td></tr>
-<tr><td></td><td></td></td><td><a href='./../w/arts/lists/words;_the_good_the_bad_and_the_ugly.html'>words; the good the bad and the ugly</a></td><td style='font-size:12px;'>21-01-07</td><td>69</td></tr>
-<tr><td></td><td></td></td><td><a href='./../w/arts/lists/spanish-idioms.html'>spanish-idioms</a></td><td style='font-size:12px;'>21-01-07</td><td>47</td></tr>
-<tr><td></td><td></td></td><td><a href='./../w/arts/lists/movies.html'>movies</a></td><td style='font-size:12px;'>21-01-07</td><td>77</td></tr>
-<tr><td></td><td></td></td><td><a href='./../w/arts/lists/internet_words.html'>internet words</a></td><td style='font-size:12px;'>21-01-07</td><td>54</td></tr>
-<tr><td></td><td></td></td><td><a href='./../w/arts/lists/hi_hello_good_bye_in_different_languages.html'>hi hello good bye in different languages</a></td><td style='font-size:12px;'>21-01-07</td><td>42</td></tr>
-<tr><td></td><td></td></td><td><a href='./../w/arts/lists/expressions.html'>expressions</a></td><td style='font-size:12px;'>21-01-07</td><td>13</td></tr>
-<tr><td></td><td></td></td><td><a href='./../w/arts/lists/etymology_sample.html'>etymology sample</a></td><td style='font-size:12px;'>21-01-07</td><td>38</td></tr>
+<tr><td></td><td></td><td><a href='./../w/arts/lists/words;_the_good_the_bad_and_the_ugly.html'>words; the good the bad and the ugly</a></td><td style='font-size:12px;'>21-01-07</td><td>69</td></tr>
+<tr><td></td><td></td><td><a href='./../w/arts/lists/spanish-idioms.html'>spanish-idioms</a></td><td style='font-size:12px;'>21-01-07</td><td>47</td></tr>
+<tr><td></td><td></td><td><a href='./../w/arts/lists/movies.html'>movies</a></td><td style='font-size:12px;'>21-01-07</td><td>77</td></tr>
+<tr><td></td><td></td><td><a href='./../w/arts/lists/internet_words.html'>internet words</a></td><td style='font-size:12px;'>21-01-07</td><td>54</td></tr>
+<tr><td></td><td></td><td><a href='./../w/arts/lists/hi_hello_good_bye_in_different_languages.html'>hi hello good bye in different languages</a></td><td style='font-size:12px;'>21-01-07</td><td>42</td></tr>
+<tr><td></td><td></td><td><a href='./../w/arts/lists/expressions.html'>expressions</a></td><td style='font-size:12px;'>21-01-07</td><td>13</td></tr>
+<tr><td></td><td></td><td><a href='./../w/arts/lists/etymology_sample.html'>etymology sample</a></td><td style='font-size:12px;'>21-01-07</td><td>38</td></tr>
 <tr><td></td><td>links</td><td><a href='./../w/arts/links/visual_art.html'>visual art</a></td><td style='font-size:12px;'>21-01-07</td><td>12</td></tr>
-<tr><td></td><td></td></td><td><a href='./../w/arts/links/photography.html'>photography</a></td><td style='font-size:12px;'>21-01-07</td><td>12</td></tr>
-<tr><td></td><td></td></td><td><a href='./../w/arts/links/music_-_various_music_genres.html'>music - various music genres</a></td><td style='font-size:12px;'>21-01-07</td><td>86</td></tr>
-<tr><td></td><td></td></td><td><a href='./../w/arts/links/interesting_websites.html'>interesting websites</a></td><td style='font-size:12px;'>21-01-07</td><td>26</td></tr>
-<tr><td></td><td></td></td><td><a href='./../w/arts/links/fun_videos;_cartoons...html'>fun videos; cartoons..</a></td><td style='font-size:12px;'>21-01-07</td><td>36</td></tr>
+<tr><td></td><td></td><td><a href='./../w/arts/links/photography.html'>photography</a></td><td style='font-size:12px;'>21-01-07</td><td>12</td></tr>
+<tr><td></td><td></td><td><a href='./../w/arts/links/music_-_various_music_genres.html'>music - various music genres</a></td><td style='font-size:12px;'>21-01-07</td><td>86</td></tr>
+<tr><td></td><td></td><td><a href='./../w/arts/links/interesting_websites.html'>interesting websites</a></td><td style='font-size:12px;'>21-01-07</td><td>26</td></tr>
+<tr><td></td><td></td><td><a href='./../w/arts/links/fun_videos;_cartoons...html'>fun videos; cartoons..</a></td><td style='font-size:12px;'>21-01-07</td><td>36</td></tr>
 <tr><td><b>science</b></td><td colspan="2"><a href='./../w/science/sky.html'>sky</a></td><td style='font-size:12px;'>21-01-07</td><td>126</td></tr>
 <tr><td></td><td colspan="2"><a href='./../w/science/sky-stars.jpg'>sky-stars.jpg</a></td><td style='font-size:12px;'>21-01-07</td><td>-1</td></tr>
 <tr><td></td><td colspan="2"><a href='./../w/science/sky-stars-equator.jpg'>sky-stars-equator.jpg</a></td><td style='font-size:12px;'>21-01-07</td><td>-1</td></tr>
 <tr><td></td><td>psychology</td><td><a href='./../w/science/psychology/hypersanity_-_different_way_of_looking_at_the_world.html'>hypersanity - different way of looking at the world</a></td><td style='font-size:12px;'>21-01-07</td><td>44</td></tr>
-<tr><td></td><td></td></td><td><a href='./../w/science/psychology/how_to_cope_with_information_overload.html'>how to cope with information overload</a></td><td style='font-size:12px;'>21-01-07</td><td>40</td></tr>
-<tr><td></td><td></td></td><td><a href='./../w/science/psychology/emotional-intelligence.html'>emotional-intelligence</a></td><td style='font-size:12px;'>21-01-07</td><td>20</td></tr>
+<tr><td></td><td></td><td><a href='./../w/science/psychology/how_to_cope_with_information_overload.html'>how to cope with information overload</a></td><td style='font-size:12px;'>21-01-07</td><td>40</td></tr>
+<tr><td></td><td></td><td><a href='./../w/science/psychology/emotional-intelligence.html'>emotional-intelligence</a></td><td style='font-size:12px;'>21-01-07</td><td>20</td></tr>
 <tr><td></td><td>links</td><td><a href='./../w/science/links/internet_resources.html'>internet resources</a></td><td style='font-size:12px;'>21-01-14</td><td>26</td></tr>
-<tr><td></td><td></td></td><td><a href='./../w/science/links/books.html'>books</a></td><td style='font-size:12px;'>21-01-14</td><td>19</td></tr>
+<tr><td></td><td></td><td><a href='./../w/science/links/books.html'>books</a></td><td style='font-size:12px;'>21-01-14</td><td>19</td></tr>
 <tr><td></td><td>health</td><td><a href='./../w/science/health/health_youtube_video_notes.html'>health youtube video notes</a></td><td style='font-size:12px;'>21-01-07</td><td>44</td></tr>
-<tr><td></td><td></td></td><td><a href='./../w/science/health/exercise.html'>exercise</a></td><td style='font-size:12px;'>21-01-07</td><td>42</td></tr>
-<tr><td></td><td></td></td><td><a href='./../w/science/health/coursera-parenting.txt'>coursera-parenting.txt</a></td><td style='font-size:12px;'>21-01-07</td><td>30</td></tr>
-<tr><td></td><td></td></td><td><a href='./../w/science/health/brain_exercise.html'>brain exercise</a></td><td style='font-size:12px;'>21-01-07</td><td>37</td></tr>
+<tr><td></td><td></td><td><a href='./../w/science/health/exercise.html'>exercise</a></td><td style='font-size:12px;'>21-01-07</td><td>42</td></tr>
+<tr><td></td><td></td><td><a href='./../w/science/health/coursera-parenting.txt'>coursera-parenting.txt</a></td><td style='font-size:12px;'>21-01-07</td><td>30</td></tr>
+<tr><td></td><td></td><td><a href='./../w/science/health/brain_exercise.html'>brain exercise</a></td><td style='font-size:12px;'>21-01-07</td><td>37</td></tr>
 <tr><td></td><td colspan="2"><a href='./../w/science/future_science_and_technologies.html'>future science and technologies</a></td><td style='font-size:12px;'>21-01-07</td><td>42</td></tr>
 <tr><td></td><td colspan="2"><a href='./../w/science/flight-network.jpg'>flight-network.jpg</a></td><td style='font-size:12px;'>21-01-07</td><td>-1</td></tr>
 <tr><td></td><td colspan="2"><a href='./../w/science/covid_notes_-_philosophy,_politics,_psychology,_science.html'>covid notes - philosophy, politics, psychology, science</a></td><td style='font-size:12px;'>21-01-07</td><td>349</td></tr>
 <tr><td></td><td>biology & medicine</td><td><a href='./../w/science/biology & medicine/sample_of_medical_science_words.html'>sample of medical science words</a></td><td style='font-size:12px;'>21-01-07</td><td>30</td></tr>
-<tr><td></td><td></td></td><td><a href='./../w/science/biology & medicine/microbes.html'>microbes</a></td><td style='font-size:12px;'>21-01-07</td><td>48</td></tr>
+<tr><td></td><td></td><td><a href='./../w/science/biology & medicine/microbes.html'>microbes</a></td><td style='font-size:12px;'>21-01-07</td><td>48</td></tr>
 
 </table>
