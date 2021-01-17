@@ -86,7 +86,10 @@ class ContentsPage:
                 line += '.</td><td>' if sub_dir == '' else sub_dir + '</td><td>'
             else:
                 line += '<td></td><td>'
-                line += '.</td><td>' if sub_dir == previous_sub_dir else sub_dir + '</td><td>'
+                if sub_dir =='':
+                   line += '.</td><td>' if sub_dir == previous_sub_dir else sub_dir + '</td><td>'
+                else:
+                   line += '</td><td>' if sub_dir == previous_sub_dir else sub_dir + '</td><td>'
             previous_sub_dir = sub_dir
             lines += line + f"{page.link}</td><td style='font-size:12px;'>{page.modification_date[2:]}" + \
                      f"</td><td>{page.kb_size}</td></tr>\n"
