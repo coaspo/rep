@@ -42,8 +42,8 @@ class ContentsPage:
 
     @staticmethod
     def _append_content_links(web_site, f):
-        f.write('\n<table>\n<tr> <th> </th> <th> </t > <th onclick = "sortTable(1)"> File </th> <th onclick = "sortTable(2)">' +
-                ' last update </th> <th onclick = "sortTable(3)"> line count </th> </tr>')
+        f.write('\n<table id="table">\n<tr> <th></th> <th></th> <th onclick = "sortTable(2)"> File ↕️</th> ' +
+                '<th onclick = "sortTable(3)">update ↕️</th> <th onclick = "sortTable(4)"> kB ↕️</th> </tr>\n')
         lines = ''
         for topic_name in web_site.topic_names:
             lines += ContentsPage._get_file_list_table(web_site.web_page_dict[topic_name])
@@ -80,25 +80,16 @@ class ContentsPage:
             line = '<tr>'
             topic = page.topic
             sub_dir = page.sub_dir
-            link = page.link
             if topic != previous_topic:
                 previous_topic = topic
-                line += '<td><b>' + topic + '</b></td>'
-                if sub_dir == '':
-                    line += '<td colspan="2">'
-                else:
-                    line += '<td>' + sub_dir + '</td><td>'
+                line += '<td><b>' + topic + '</b></td><td>'
+                line += '.</td><td>' if sub_dir == '' else sub_dir + '</td><td>'
             else:
-                if sub_dir == '':
-                    line += '<td></td><td colspan="2">'
-                else:
-                    if sub_dir == previous_sub_dir:
-                        line += '<td></td><td></td><td>'
-                    else:
-                        line += '<td></td><td>' + sub_dir + '</td><td>'
+                line += '<td></td><td>'
+                line += '.</td><td>' if sub_dir == previous_sub_dir else sub_dir + '</td><td>'
             previous_sub_dir = sub_dir
             lines += line + f"{page.link}</td><td style='font-size:12px;'>{page.modification_date[2:]}" + \
-                     f"</td><td>{page.content_line_count}</td></tr>\n"
+                     f"</td><td>{page.kb_size}</td></tr>\n"
         return lines
 
     @staticmethod

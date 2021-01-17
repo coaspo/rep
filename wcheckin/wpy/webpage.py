@@ -9,11 +9,11 @@ class WebPage:
         self.__file_path = file_path
         self.__link = WebPage._create_link(file_path)
         update_ts = os.path.getmtime(file_path)
+
         self.__modification_date = str(datetime.utcfromtimestamp(update_ts))[:10]
-        self.__search_indexes, self.__content_line_count, self.__description = \
-            WebPage._scan_file(file_path)
-        self.__topic, self.__sub_dir = \
-            WebPage._find_topics(file_path)
+        self.__search_indexes, self.__description = WebPage._scan_file(file_path)
+        self.__kb_size = round(os.path.getsize(file_path) / 1000, 1)
+        self.__topic, self.__sub_dir = WebPage._find_topics(file_path)
         logging.debug(file_path)
 
     @staticmethod
@@ -65,7 +65,6 @@ class WebPage:
     @staticmethod
     def _scan_file(file_path):
         indexes = []
-        num_of_lines = 0
         description = ''
         if file_path.endswith('.html') or file_path.endswith('.txt'):
             try:
@@ -75,9 +74,6 @@ class WebPage:
                 print('ERR file_path=', file_path)
                 raise
             for line in lines:
-                num_of_lines += 1
-                if line.find('<body>') > -1:
-                    num_of_lines = 0
                 # search for anchors:
                 i = line.find('<a ')
                 if i > -1:
@@ -98,7 +94,7 @@ class WebPage:
             if i_start > -1:
                 i_end = text.index('-->', i_start)
                 description = text[i_start:i_end].replace('<!--', '').replace('-->', '').strip()
-        return indexes, num_of_lines - 1, description
+        return indexes, description
 
     @staticmethod
     def _find_topics(file_path):
@@ -132,8 +128,8 @@ class WebPage:
         return self.__modification_date
 
     @property
-    def content_line_count(self) -> int:
-        return self.__content_line_count
+    def kb_size(self) -> int:
+        return self.__kb_size
 
     @property
     def search_indexes(self) -> list:
@@ -153,7 +149,7 @@ class WebPage:
 
     def __str__(self) -> str:
         return f'WebPage: file_path = {self.file_path}, link = {self.link}, ' + \
-               f' modification_date = {self.modification_date}, num_of_lines = {self.content_line_count}, ' + \
+               f' modification_date = {self.modification_date}, kb_size = {self.kb_size}, ' + \
                f' search_indexes = {self.search_indexes} topic = {self.topic} ' + \
                f' sub_dir = {self.sub_dir}  description = {self.description}'
 
