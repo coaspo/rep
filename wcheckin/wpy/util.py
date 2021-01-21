@@ -29,7 +29,7 @@ class Util:
 
         if len(output) > 0:
             print(output)
-            if 'FAILURES' in output or 'ERROR' in output :
+            if 'FAILURES' in output or 'ERROR' in output:
                 logging.error(output)
                 if not logging.getLogger().isEnabledFor(logging.DEBUG):
                     messagebox.showinfo("FAILURES", output +
@@ -49,3 +49,27 @@ class Util:
                 if not logging.getLogger().isEnabledFor(logging.DEBUG):
                     messagebox.showinfo("ERR", label)
                 exit(2)
+
+    @staticmethod
+    def extract_url_label(link):
+        """
+        >>> Util.extract_url_label('<a href="https://www.coursera.org/">Coursera- Free course</a>')
+        ('coursera- free course', 'https://www.coursera.org/')
+        >>> Util.extract_url_label("<a href='https://www.coursera.org/'>Coursera- Free course</a>")
+        ('coursera- free course', 'https://www.coursera.org/')
+        """
+        link = link.replace('href= ', 'href=')
+        quote = '"' if link.find('href="') > -1 else "'"
+        try:
+            i = link.index('href=' + quote) + 6
+            i2 = link.index(quote, i)
+            url = link[i:i2]
+            i = link.index('>', i2) + 1
+            i2 = link.index('</a>', i)
+            label = link[i:i2].lower().strip()
+            attrs = (label, url)
+            return attrs
+        except Exception as ex:
+            print('for', link, 'got:\n', ex)
+            logging.exception(ex)
+            raise ex

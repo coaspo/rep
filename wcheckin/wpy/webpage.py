@@ -2,6 +2,7 @@ import logging
 import os.path
 import re
 from datetime import datetime
+from wpy.util import Util
 
 
 class WebPage:
@@ -24,6 +25,7 @@ class WebPage:
         else:
             i_end = len(file_path)
         file_name = file_path[i_start:i_end].replace('_', ' ')
+        file_name = file_name[0].upper() + file_name[1:]
         link = '<a href=\'./' + file_path + '\'>' + file_name + '</a>'
         return link
 
@@ -39,30 +41,6 @@ class WebPage:
         return s
 
     @staticmethod
-    def _extract_url_label(link):
-        """
-        >>> WebPage._extract_url_label('<a href="https://www.coursera.org/">Coursera- Free course</a>')
-        ('coursera- free course', 'https://www.coursera.org/')
-        >>> WebPage._extract_url_label("<a href='https://www.coursera.org/'>Coursera- Free course</a>")
-        ('coursera- free course', 'https://www.coursera.org/')
-        """
-        link = link.replace('href= ', 'href=')
-        quote = '"' if link.find('href="') > -1 else "'"
-        try:
-            i = link.index('href=' + quote) + 6
-            i2 = link.index(quote, i)
-            url = link[i:i2]
-            i = link.index('>', i2) + 1
-            i2 = link.index('</a>', i)
-            label = link[i:i2].lower().strip()
-            attrs = (label, url)
-            return attrs
-        except Exception as ex:
-            print('for', link, 'got:\n', ex)
-            logging.exception(ex)
-            raise ex
-
-    @staticmethod
     def _scan_file(file_path):
         indexes = []
         description = ''
@@ -70,7 +48,7 @@ class WebPage:
             try:
                 with open(file_path, encoding="utf-8") as f:
                     lines = f.readlines()
-            except Exception as e:
+            except Exception:
                 print('ERR file_path=', file_path)
                 raise
             for line in lines:
@@ -82,7 +60,7 @@ class WebPage:
                     ii = line.index('</a>', i) + 4
                     link = line[i:ii]
                     if 'name=' not in link:
-                        label_url = WebPage._extract_url_label(link)
+                        label_url = Util.extract_url_label(link)
                         indexes.append(label_url)
                 # search for italic keywords:
                 i = line.find('<i>')
@@ -128,7 +106,7 @@ class WebPage:
         return self.__modification_date
 
     @property
-    def kb_size(self) -> int:
+    def kb_size(self) -> float:
         return self.__kb_size
 
     @property

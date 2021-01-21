@@ -52,24 +52,6 @@ class IndexPage:
             raise e
         logging.info('Updated index.html')
 
-    @staticmethod
-    def _extract_url_label(link):
-        try:
-            link = link.replace('href= ', 'href=')
-            quote = '"' if link.find('href="') > -1 else "'"
-            i = link.index('href=' + quote) + 6
-            i2 = link.index(quote, i)
-            url = link[i:i2]
-            i = link.index('>', i2) + 1
-            i2 = link.index('</a>', i)
-            label = link[i:i2].lower().strip()
-            attrs = (label, url)
-            return attrs
-        except Exception:
-            logging.exception('')
-            print('ERR link: ', link, '\n', traceback.format_exc())
-            raise
-
 
 if __name__ == '__main__':
     import doctest

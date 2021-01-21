@@ -30,7 +30,7 @@ class WebSite:
             for file in files:
                 p = os.path.join(subdir, file)
                 file_paths.append(p)
-        file_paths.sort(key=lambda x: x)
+        file_paths.sort()
         logging.info('WebSite; ' + str(len(file_paths)) + ' file paths')
         return file_paths
 
@@ -39,7 +39,7 @@ class WebSite:
         web_page_dict = {}
         sub_dir_dict = {}
         topic_names = []
-        total_kb_size =0.
+        total_kb_size = 0.
         for target_dir in target_dirs:
             i_start = target_dir.index('/w/') + 3
             topic_name = target_dir[i_start:]
@@ -63,7 +63,7 @@ class WebSite:
     @staticmethod
     def sort_value(page: WebPage):
         if page.sub_dir == '':
-            return 'aaaa' + page.file_path
+            return 'a.a.a.a' + page.file_path
         else:
             return page.sub_dir + page.file_path
 

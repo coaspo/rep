@@ -7,7 +7,7 @@ from wpy.website import WebSite
 
 
 class ContentsPage:
-    VERSION_LINE_MARKER = '<br><br><p style="font-size:8px;">'
+    UPDATE_LINE_MARKER = '<br><br>'
 
     @staticmethod
     def update(web_site: WebSite, contents_file_path: str):
@@ -24,12 +24,13 @@ class ContentsPage:
         try:
             with open(contents_file_path, 'w') as f:
                 for line in lines:
-                    if line.startswith(ContentsPage.VERSION_LINE_MARKER):
+                    if line.startswith(ContentsPage.UPDATE_LINE_MARKER):
+                        f.write(ContentsPage.UPDATE_LINE_MARKER)
+                        ContentsPage._append_content_links(web_site, f)
                         ts = datetime.now().isoformat()
                         num = ts[2:10] + '/' + ts[11:13] + ts[14:16] + ts[17:19]
-                        version_line = ContentsPage.VERSION_LINE_MARKER + num + ';  ' + version + '</p>'
+                        version_line = '\n<p style="font-size:8px;">' + num + '; ' + version + '</p>\n</body></html>'
                         f.write(version_line)
-                        ContentsPage._append_content_links(web_site, f)
                         break
                     f.write(line + '\n')
         except Exception as ex:
@@ -43,11 +44,14 @@ class ContentsPage:
 
     @staticmethod
     def _append_content_links(web_site: WebSite, f):
-        f.write('\n<table id="table">\n<tr> <th></th> <th></th> <th onclick = "sortTable(2)"> File ↕️</th> ' +
-                '<th onclick = "sortTable(3)">update ↕️</th> <th onclick = "sortTable(4)"> kB ↕️</th> </tr>\n')
+        f.write('\n<table id="table">\n' +
+                '<tr> <th onclick = "sortTable(0)"> Topic ↕️</th> <th onclick = "sortTable(1)"> subdir ↕️</th>' +
+                '<th onclick = "sortTable(2)"> File ↕️</th> <th onclick = "sortTable(3)">update ↕️</th>' +
+                '<th onclick="sortTable(4)"> kB ↕️</th> <th onclick="desc()">Contents or first 2 lines️ 🔁</th></tr>\n')
         lines = ''
         for topic_name in web_site.topic_names:
-            lines += ContentsPage._get_file_list_table_rows(web_site.web_page_dict[topic_name])
+            web_pages = web_site.web_page_dict[topic_name]
+            lines += ContentsPage._get_file_list_table_rows(web_pages)
         f.write(lines)
         f.write('</table>\nall files: ')
         f.write(str(web_site.total_kb_size))
@@ -60,7 +64,7 @@ class ContentsPage:
 
         version = 'UNK?'
         for line in lines:
-            if line.startswith(ContentsPage.VERSION_LINE_MARKER):
+            if line.startswith('<p style='):
                 version = line.split('; ')[1].strip()
                 version = version[:len(version) - 4]
                 break
@@ -82,20 +86,23 @@ class ContentsPage:
         for page in web_pages:
             line = '<tr>'
             topic = page.topic
+            topic = topic[0].upper() + topic[1:]
             sub_dir = page.sub_dir
             if topic != previous_topic:
                 previous_topic = topic
                 line += '<td><b>' + topic + '</b></td><td>'
-                line += '.</td><td>' if sub_dir == '' else sub_dir + '</td><td>'
+                line += '.</td>' if sub_dir == '' else sub_dir + '</td>'
             else:
-                line += '<td></td><td>'
+                line += '<td class="i"><b>' + topic + '</b></td>'
                 if sub_dir == '':
-                    line += '.</td><td>' if sub_dir == previous_sub_dir else sub_dir + '</td><td>'
+                    line += '<td>.</td>'
+                elif sub_dir == previous_sub_dir:
+                    line += '<td class="i">' + sub_dir + '</td>'
                 else:
-                    line += '</td><td>' if sub_dir == previous_sub_dir else sub_dir + '</td><td>'
+                    line += '<td>' + sub_dir + '</td>'
             previous_sub_dir = sub_dir
-            lines += line + f"{page.link}</td><td style='font-size:12px;'>{page.modification_date[2:]}" + \
-                            f"</td><td>{page.kb_size}</td></tr>\n"
+            lines += line + f"<td>{page.link}</td><td style='font-size:12px;'>{page.modification_date[2:]}</td>" + \
+                            f"<td>{page.kb_size}</td></tr>\n"
         return lines
 
     @staticmethod
@@ -106,5 +113,6 @@ class ContentsPage:
         else:
             i_end = len(file_path)
         file_name = file_path[i_start:i_end].replace('_', ' ')
+        file_name = file_name[0].upper() + file_name[1:]
         link = '<a href=\'./' + file_path + '\'>' + file_name + '</a>'
         return link

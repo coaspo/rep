@@ -19,7 +19,7 @@ def test_webpage():
     assert expected == actual, 'invalid file_path; expected:\n' + expected + '\nactual:\n' + actual
 
     actual = page.link
-    expected = "<a href='./tests/w/topic1/links.html'>links</a>"
+    expected = "<a href='./tests/w/topic1/links.html'>Links</a>"
     assert expected == actual, 'invalid search_indexes; expected:\n' + expected + '\nactual:\n' + actual
 
     actual = page.modification_date
@@ -36,7 +36,7 @@ def test_webpage():
 
     page = WebPage('tests/w/topic2/subtopic/word_list.html')
     actual = page.link
-    expected = "<a href='./tests/w/topic2/subtopic/word_list.html'>word list</a>"
+    expected = "<a href='./tests/w/topic2/subtopic/word_list.html'>Word list</a>"
     assert expected == actual, 'invalid search_indexes; expected:\n' + expected + '\nactual:\n' + actual
 
     actual = page.sub_dir

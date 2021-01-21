@@ -16,7 +16,7 @@ def main(git_branch):
 
 
 def update_index_and_contents_pages():
-    target_dirs = ('../w/tech', '../w/recipes', '../w/arts', '../w/science')
+    target_dirs = ('../w/tech', '../w/recipes', '../w/art', '../w/science')
     logging.info(str(datetime.now()))
     website = WebSite(target_dirs)
     website.save_search_file_paths('../w/search_file_paths.txt')
