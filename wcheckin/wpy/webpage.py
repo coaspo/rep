@@ -12,9 +12,9 @@ class WebPage:
         update_ts = os.path.getmtime(file_path)
 
         self.__modification_date = str(datetime.utcfromtimestamp(update_ts))[:10]
-        self.__search_indexes, self.__description = WebPage._scan_file(file_path)
+        self.__search_indexes, self.__excerpt = WebPage._scan_file(file_path)
         self.__kb_size = round(os.path.getsize(file_path) / 1000, 1)
-        self.__topic, self.__sub_dir = WebPage._find_topics(file_path)
+        self.__topic, self.__sub_dir = WebPage._find_topic(file_path)
         logging.debug(file_path)
 
     @staticmethod
@@ -43,7 +43,7 @@ class WebPage:
     @staticmethod
     def _scan_file(file_path):
         indexes = []
-        description = ''
+        excerpt = ''
         if file_path.endswith('.html') or file_path.endswith('.txt'):
             try:
                 with open(file_path, encoding="utf-8") as f:
@@ -51,35 +51,35 @@ class WebPage:
             except Exception:
                 print('ERR file_path=', file_path)
                 raise
-            for line in lines:
-                # search for anchors:
-                i = line.find('<a ')
-                if i > -1:
-                    if line.find('</a>', i) < 1:
-                        raise Exception('ERR missing </a> in: ' + line + 'ERR file_path = ' + file_path)
-                    ii = line.index('</a>', i) + 4
-                    link = line[i:ii]
-                    if 'name=' not in link:
-                        label_url = Util.extract_url_label(link)
-                        indexes.append(label_url)
-                # search for italic keywords:
-                i = line.find('<i>')
-                if i > -1:
-                    labels = WebPage._extract_italicized_labels(line)
-                    indexes.append((labels,))
-            text = ''.join(lines).replace('\n', '')
-            i_start = text.find('<!--')
-            if i_start > -1:
-                i_end = text.index('-->', i_start)
-                description = text[i_start:i_end].replace('<!--', '').replace('-->', '').strip()
-        return indexes, description
+            WebPage._update_indexes(lines, indexes)
+
+        return indexes, excerpt
 
     @staticmethod
-    def _find_topics(file_path):
+    def _update_indexes(lines, indexes):
+        for line in lines:
+            # search for anchors:
+            i = line.find('<a ')
+            if i > -1:
+                if line.find('</a>', i) < 1:
+                    raise Exception('ERR missing </a> in: ' + line + 'ERR lines = ' + lines)
+                ii = line.index('</a>', i) + 4
+                link = line[i:ii]
+                if 'name=' not in link:
+                    label_url = Util.extract_url_label(link)
+                    indexes.append(label_url)
+            # search for italic keywords:
+            i = line.find('<i>')
+            if i > -1:
+                labels = WebPage._extract_italicized_labels(line)
+                indexes.append((labels,))
+
+    @staticmethod
+    def _find_topic(file_path):
         """
-        >>> WebPage._find_topics('a/b/f.html')
+        >>> WebPage._find_topic('a/b/f.html')
         ('a', 'b')
-        >>> WebPage._find_topics('a/f.html')
+        >>> WebPage._find_topic('a/f.html')
         ('a', '')
         """
         i_start = file_path.index('/w/') + 3
@@ -122,14 +122,14 @@ class WebPage:
         return self.__sub_dir
 
     @property
-    def description(self) -> str:
-        return self.__description
+    def excerpt(self) -> str:
+        return self.__excerpt
 
     def __str__(self) -> str:
         return f'WebPage: file_path = {self.file_path}, link = {self.link}, ' + \
                f' modification_date = {self.modification_date}, kb_size = {self.kb_size}, ' + \
                f' search_indexes = {self.search_indexes} topic = {self.topic} ' + \
-               f' sub_dir = {self.sub_dir}  description = {self.description}'
+               f' sub_dir = {self.sub_dir}  excerpt = {self.excerpt}'
 
 
 if __name__ == '__main__':

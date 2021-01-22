@@ -104,15 +104,3 @@ class ContentsPage:
             lines += line + f"<td>{page.link}</td><td style='font-size:12px;'>{page.modification_date[2:]}</td>" + \
                             f"<td>{page.kb_size}</td></tr>\n"
         return lines
-
-    @staticmethod
-    def _create_link(file_path):
-        i_start = file_path.rindex('/') + 1
-        if file_path.endswith('.html'):
-            i_end = file_path.rindex('.html')
-        else:
-            i_end = len(file_path)
-        file_name = file_path[i_start:i_end].replace('_', ' ')
-        file_name = file_name[0].upper() + file_name[1:]
-        link = '<a href=\'./' + file_path + '\'>' + file_name + '</a>'
-        return link

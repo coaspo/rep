@@ -7,7 +7,7 @@ from wpy.util import Util
 from wpy.contentspage import ContentsPage
 from wpy.indexpage import IndexPage
 from wpy.website import WebSite
-
+from wpy.excerptspage import ExcerptPage
 
 def main(git_branch):
     Util.run_tests()
@@ -22,7 +22,10 @@ def update_index_and_contents_pages():
     website.save_search_file_paths('../w/search_file_paths.txt')
     website.save_search_labels('../w/search_labels.txt')
     IndexPage.update_links(website, '../w/index.html')
+    # ExcerptPage.create(website, '../w/details.html')
     version = ContentsPage.update(website, '../w/contents.html')
+
+
     return version
 
 
