@@ -84,20 +84,11 @@ list of languages by number of native speakers$$7$$https://en.wikipedia.org/wiki
 theatlantic's feel good movies$$9$$https://www.theatlantic.com/culture/archive/2020/10/comfort-movies/616939/
 list of languages by number of native speakers$$12$$https://en.wikipedia.org/wiki/List_of_languages_by_number_of_native_speakers
 free speech$$13
-french beans$$14
-lima beans$$14
-tsoureki$$15
-sourdough$$15
-potato tortilla$$23
-scalloped potatoes</th>$$23
-prasorizo$$24
-fried rice$$24
-rizogalo$$24
-spanish rice$$24
-ratatouille$$25
-ciambotta$$25
-tourloú/briami$$25
-pisto$$25
+french beans lima beans$$14
+tsoureki sourdough$$15
+potato tortilla scalloped potatoes$$23
+prasorizo fried rice rizogalo spanish rice$$24
+ratatouille ciambotta tourloú/briami pisto$$25
 freedom of speech and thinking$$28$$#freedom
 coronavirus: from science to politics$$28$$#virus
 contagion math$$28$$#contagion
@@ -126,8 +117,10 @@ got to top$$28$$#top
 got to top$$28$$#top
 becoming mentally strong$$30$$https://www.youtube.com/watch?v=TFbv757kup4
 nih.gov$$31$$https://www.nia.nih.gov/health
+medlineplus.gov$$31$$https://medlineplus.gov/exerciseandphysicalfitness.html
 the truth about mobile phone and wireless radiation$$32$$https://www.youtube.com/watch?v=BwyDCHf5iCY
 sugar: the bitter truth$$32$$https://www.youtube.com/watch?v=dBnniua6-oM
+the hunt for a new killer virus$$33$$https://www.amazon.com/Hunt-New-Killer-Virus-ebook/dp/B00SLWGZG2/ref=sr_1_1?dchild=1&keywords=fever+virus&qid=1611357564&sr=8-1
 the coming plague: newly emerging diseases$$33$$https://www.amazon.com/dp/0140250913/ref=rdr_ext_tmb
 i contain multitudes... by ed yong$$33$$https://www.amazon.com/Contain-Multitudes-Microbes-Within-Grander/dp/B01FY85L38/ref=sr_1_1?dchild=1&keywords=I+Contain+Multitudes&qid=1589194089&sr=8-1
 the hacking of the american mind by robert h. lustig$$33$$https://www.amazon.com/Hacking-of-American-Mind-audiobook/dp/B0753KYQLN/ref=sr_1_1?dchild=1&keywords=The+Hacking+of+the+American+Mind+by+Robert&qid=1589850091&sr=8-1

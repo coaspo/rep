@@ -31,7 +31,6 @@ def start_local_server():
 if __name__ == '__main__':
     msg = ''
     try:
-        os.system("run_all_pytests.py 1")
         start_local_server()
         webbrowser.open('http://localhost:8080/w/tests/test_search.html')
         msg += '\n 4/4. Ran javascript tests'
