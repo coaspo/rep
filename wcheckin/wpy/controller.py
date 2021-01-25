@@ -22,10 +22,8 @@ def update_index_and_contents_pages():
     website.save_search_file_paths('../w/search_file_paths.txt')
     website.save_search_labels('../w/search_labels.txt')
     IndexPage.update_links(website, '../w/index.html')
-    # ExcerptPage.create(website, '../w/details.html')
     version = ContentsPage.update(website, '../w/contents.html')
-
-
+    # version = ExcerptPage.create_page(website, '../w/excerpts.html')
     return version
 
 

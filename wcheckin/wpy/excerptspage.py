@@ -6,7 +6,7 @@ from wpy.website import WebSite
 class ExcerptPage:
 
     @staticmethod
-    def create_excerpts(web_site: WebSite, details_file_path: str):
+    def create_page(web_site: WebSite, details_file_path: str):
         try:
             with open(details_file_path, 'w') as f:
                 f.write('\n<table id="table">\n' +
@@ -29,5 +29,5 @@ class ExcerptPage:
                 path = page.topic
                 path = path[0].upper() + path[1:]
                 path += '/' + page.sub_dir
-                lines += f'<tr><td><b>{path}/{page.link}</b><br>{page.link}</td><td>{page.modification_date[2:]}</td>\n'
+                lines += f'<tr><td><b>{path}/{page.link}</b><br>{page.excerpt}</td><td>{page.date_range[2:]}</td>\n'
         return lines

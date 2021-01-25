@@ -12,6 +12,8 @@ class ContentsPage:
     @staticmethod
     def update(web_site: WebSite, contents_file_path: str):
         (version, lines) = ContentsPage._get_version(contents_file_path)
+        print('------', version)
+        [print(x) for x in lines]
         if version is None:
             print('stopped; version not given')
             exit()
@@ -46,8 +48,8 @@ class ContentsPage:
     def _append_content_links(web_site: WebSite, f):
         f.write('\n<table id="table">\n' +
                 '<tr> <th onclick = "sortTable(0)"> Topic ↕️</th> <th onclick = "sortTable(1)"> subdir ↕️</th>' +
-                '<th onclick = "sortTable(2)"> File ↕️</th> <th onclick = "sortTable(3)">update ↕️</th>' +
-                '<th onclick="sortTable(4)"> kB ↕️</th> <th onclick="desc()">Contents or first 2 lines️ 🔁</th></tr>\n')
+                '<th onclick = "sortTable(2)"> File ↕️</th> <th onclick = "sortTable(3)">dates ↕️</th>' +
+                '<th onclick="sortTable(4)"> kB ↕️</th>/tr>\n')
         lines = ''
         for topic_name in web_site.topic_names:
             web_pages = web_site.web_page_dict[topic_name]
@@ -101,6 +103,6 @@ class ContentsPage:
                 else:
                     line += '<td>' + sub_dir + '</td>'
             previous_sub_dir = sub_dir
-            lines += line + f"<td>{page.link}</td><td style='font-size:12px;'>{page.modification_date[2:]}</td>" + \
+            lines += line + f"<td>{page.link}</td><td style='font-size:12px;'>{page.date_range}</td>" + \
                             f"<td>{page.kb_size}</td></tr>\n"
         return lines

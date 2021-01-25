@@ -22,9 +22,9 @@ def test_webpage():
     expected = "<a href='./tests/w/topic1/links.html'>Links</a>"
     assert expected == actual, 'invalid search_indexes; expected:\n' + expected + '\nactual:\n' + actual
 
-    actual = page.modification_date
+    actual = page.date_range
     expected = '2021-01-07'
-    assert expected == actual, 'invalid modification_date; expected:\n' + expected + '\nactual:\n' + actual
+    assert expected == actual, 'invalid date_range; expected:\n' + expected + '\nactual:\n' + actual
 
     actual = page.kb_size
     expected = 0.4
