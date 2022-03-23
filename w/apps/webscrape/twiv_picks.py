@@ -206,7 +206,7 @@ def create_link_files(pick_link_dict):
 
 def create_link_file(link_type, links):
     html_page = create_web_page(links, link_type)
-    file_path = './TWIV_PICKS/' + link_type + '.html'
+    file_path = './__twiv_picks/' + link_type + '.html'
     with open(file_path, 'w') as f:
         f.write(html_page)
     return file_path

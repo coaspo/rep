@@ -1,8 +1,9 @@
  **** DELETE - do not try to fix clone !!! ****
+ Note: 'main' was called 'master';  change due to cancel culture/social unrest...
 A. Add new repo:
       Google: Adding an existing project to GitHub using the command line
       open github link...
-B. CREATE & test REPO:
+B. CREATE & test REPO for user coaspo:
    a. setup:
         git config --global user.email "coaspo@gmail.com"
         git config --global user.name "coaspo"
@@ -14,21 +15,28 @@ B. CREATE & test REPO:
     b. create directories/files, & checkin changes
         git add *
         git commit -m "first commit"
-        git push origin master
-    c. apply & checkin tag
-        git tag --force 21-8-22 HEAD
-        git push --tags --force
-    d. create & checkout branch br1
+        git branch-M main        #changes master to main
+    c. log on to github account and create repo rep
+        make sure yout account has SSH hey
+    d. check in
+        git remote add origin https://github.com/coaspo/rep.git
+        git push -u origin main
+    e. create & checkout branch br1
         git checkout -b br1
        # make changes and apply new tag 21-9-1
-    e. switch to tagged nodes:
-        git checkout 21-8-22
-        git checkout 21-9-1
-
+    Optional
+      a. apply & checkin tag
+          git tag --force 21-8-22 HEAD
+          git push --tags --force
+      b. switch to tagged nodes:
+          git checkout 21-8-22
+          git checkout 21-9-1
 C. Clone remote
        git clone https://github.com/xxx/rep
        git pull origin {branch}
            xxx is user name, rep is repo name
+D. create web site
+
 1. Create branch br1:
        git checkout -b br1
        git branch -a
@@ -38,14 +46,14 @@ C. Clone remote
        git commit -m "message.."
        git push origin {branch}
 2. merge:
-       git checkout master
+       git checkout main
        git merge {branch}
-       git push origin master
+       git push origin main
        branch -d  {ranch}  # delete branch
 3. squash:
-       git checkout master
+       git checkout main
        git merge {branch}
-       git reset origin/master
+       git reset origin/main
        git add . --all
        git push
 4. update local:

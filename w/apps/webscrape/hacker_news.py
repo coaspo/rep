@@ -280,7 +280,7 @@ def date_parameters(month_abr, is_first_half_month):
         day_start = 16
         test_date = datetime.datetime(year, month, 1)
         day_end = calendar.monthrange(test_date.year, test_date.month)[1]
-    file_path = f'./HACKER_NEWS/{str(month).zfill(2)}_{month_abr}_{day_start}-{day_end}.html'
+    file_path = f'./__hacker_news/{str(month).zfill(2)}_{month_abr}_{day_start}-{day_end}.html'
     if DEBUG:
         print(' --file_path', file_path)
     return file_path, month, day_start, day_end
