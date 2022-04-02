@@ -10,7 +10,7 @@ class Util:
     def run_tests():
         logging.info('_' * 80 + '\n----- 0. cwd: ' + os.getcwd())
         msg = Util._run('python3', 'tests/run_all_pytests.py')
-        messagebox.showinfo('TESTS ' + os.getcwd()+' run_all_pytests.py', msg)
+        messagebox.showinfo('TESTS ' + os.getcwd() + ' run_all_pytests.py', msg)
 
     @staticmethod
     def check_into_repository(version, git_branch):
@@ -20,11 +20,11 @@ class Util:
         msg += '\n__4. ' + Util._run('git', 'push', 'origin', git_branch)
         yy_mm_dd = datetime.now().isoformat()[2:10]
         msg += '\n__5. ' + Util._run('git', 'tag', '--force', yy_mm_dd, 'HEAD')
-        #msg += '\n__6. ' + Util._run('git', 'push', '--tags', '--force')
+        # msg += '\n__6. ' + Util._run('git', 'push', '--tags', '--force')
         # failed fist run but not second run; replace with:
         msg += '\n__6. ' + Util._run('git', 'push', '-f', '--tags')
         print("msg=", msg)
-        messagebox.showinfo('CHECKIN: '+os.getcwd(), msg)
+        messagebox.showinfo('CHECKIN: ' + os.getcwd(), msg)
         logging.info('check_into_repository DONE')
 
     @staticmethod
@@ -94,3 +94,55 @@ class Util:
             print('for', link, 'got:\n', ex)
             logging.exception(ex)
             raise ex
+
+    @staticmethod
+    def _get_formattedText(sub_dir, sub_sub_dir, link, link_indent, page):
+        sub_dir = sub_dir.replace('_', '').replace('-', ' ')
+        sub_sub_dir = sub_sub_dir.replace('_', '').replace('-', ' ')
+        txt = ''
+        if len(sub_dir) > 0:
+            txt = sub_dir + '<br>\n'
+        if len(sub_sub_dir) > 0:
+            txt += 4 * '&nbsp;' + sub_sub_dir + '<br>\n'
+        if page is not None:
+            sfx = ' ' * (75 - len(link.split('>')[1].split('<')[0]) - link_indent)
+            link += sfx
+            date = page.date_range
+            pg_cnt = str(page.page_count)
+            link += date.ljust(10, ' ') + '  ' + pg_cnt
+        txt += link_indent * '&nbsp;' + link + '<br>\n'
+        return txt
+
+    @staticmethod
+    def get_web_page_links(webpages, is_for_contents_page):
+        page = webpages[0]
+        link_indent = 0
+        if len(page.sub_dir) > 0:
+            link_indent = 4
+        if len(page.sub_sub_dir) > 0:
+            link_indent = 8
+        pg = page if is_for_contents_page else None
+        txt = Util._get_formattedText(page.sub_dir, page.sub_sub_dir, page.link, link_indent, pg)
+        for i in range(1, len(webpages)):
+            page = webpages[i]
+            if is_for_contents_page and 'class="test"' in page.link:
+                continue
+            prev_page = webpages[i - 1]
+            link_indent = 0
+            if len(page.sub_dir) > 0:
+                link_indent = 4
+            if len(page.sub_sub_dir) > 0:
+                link_indent = 8
+            if page.sub_dir == prev_page.sub_dir:
+                sub_dir = ''
+            else:
+                sub_dir = page.sub_dir
+            if page.sub_sub_dir == prev_page.sub_sub_dir:
+                sub_sub_dir = ''
+            else:
+                sub_sub_dir = page.sub_sub_dir
+            pg = page if is_for_contents_page else None
+            txt += Util._get_formattedText(sub_dir, sub_sub_dir, page.link, link_indent, pg)
+        if is_for_contents_page:
+            txt = '    ' + txt.replace('<br>', '').replace('&nbsp;', ' ').replace('\n', '\n    ')
+        return txt

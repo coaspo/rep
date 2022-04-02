@@ -1,14 +1,6 @@
-<html lang="en">
-  <meta charset="utf-8"/>
-  <head>
-    <style>
-      a    {text-decoration: none; color: #0000EE; font-weight: bold;}
-      a:hover { text-decoration: underline; }
-    </style>
-    <title>videos</title>
-  </head>
-   <body style="font-size:12px;">
-<pre>The Secret of <a href="https://www.youtube.com/watch?v=TFbv757kup4">Becoming Mentally Strong</a> is to doo mental like physical exercise.
+Ref.: The Secret of Becoming Mentally Strong;
+     https://www.youtube.com/watch?v=TFbv757kup4"
+  oo mental like physical exercise.
    Envy leads to depression.             🗓 2015-12-4
    Unhealthy beliefs of:
      1. self - get self pity; focus on problem instead of solution
@@ -34,5 +26,3 @@ Secret of success:
 2  ''  why you want it 
 3  ''  what you need to become to achieve it 
 4 Program your mind to do it (Visualization, Affirmation)
-  </body>
-</html>

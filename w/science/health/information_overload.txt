@@ -1,14 +1,6 @@
-<html lang="en">
-  <meta charset="utf-8"/>
-  <head>
-    <style>
-      a    {text-decoration: none; color: #0000EE; font-weight: bold;}
-      a:hover { text-decoration: underline; }
-    </style>
-    <title>information</title>
-  </head>
-   <body style="font-size:12px;"
-<pre><a href="https://www.forbes.com/sites/laurashin/2014/11/14/10-steps-to-conquering-information-overload/#69ac78cd7b08">10 steps to conquer information overload</a>:   🗓 2014
+10 steps to conquer information overload                      🗓 2014
+https://www.forbes.com/sites/laurashin/2014/11/14/10-steps-to-conquering-information-overload/#69ac78cd7b08
+
 Overload is: 40,000 products in grocery store.
             300 exabytes(10^18) of internet information
 "The Organized Mind: Thinking Straight in the Age of Information Overload"
@@ -35,7 +27,6 @@ by: Daniel Levitin psychology professor.
 9. Daydream - let thoughts take over and run themselves, instead of directing them.
    Neural and glucose reset. Foster creativity by linking thoughts.
 10. Push down authority.  Let others decide/do.
-</body>
-</html>
+
 
 

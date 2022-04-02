@@ -7,7 +7,7 @@ def run_controller():
     if os.getcwd().endswith('/tests'):
         os.chdir('..')
     try:
-        wpy.controller.update_index_and_contents_pages()
+        wpy.controller._update_index_and_contents_pages()
         print('index and contents pages updated')
     except Exception:
         print(traceback.format_exc())
