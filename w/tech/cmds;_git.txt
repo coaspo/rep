@@ -34,8 +34,8 @@ B. CREATE & test REPO for user coaspo:
 C. Clone remote
        git clone https://github.com/xxx/rep
        git pull origin {branch}
-           xxx is user name, rep is repo name
-D. create web site
+           xxx is username, rep is repo name
+D. create website
 
 1. Create branch br1:
        git checkout -b br1

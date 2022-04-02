@@ -12,8 +12,8 @@ Answer: crate: ~/.local/share/nautilus/scripts/run-python
         with contents: python3 $1
         make file executable, right-click on python file, >Scripts >run-python
 
-how to run python script by bouble-clicking
-Answer: to to top of the script file add:
+how to run python script by double-clicking
+Answer: to top of the script file add:
           #!/usr/bin/env python3
           import tkinter as tk  # this is an example (input does not work)
           root = tk.Tk()
@@ -23,7 +23,7 @@ Answer: to to top of the script file add:
           sudo apt-get install python3.6-tk
         >Alt F2  type: dconf-editor
         >org >gnome >nautilus >preferences >executable-text-activation
-        from drop dowmn select "launch"
+        from drop-down select "launch"
 
 how to run flask in ubuntu
 Answer: pip install Flask

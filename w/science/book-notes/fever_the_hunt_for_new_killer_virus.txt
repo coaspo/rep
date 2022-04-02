@@ -53,7 +53,7 @@ influenza: Alphainfluenzavirus, Beta... RNA virus,A,B,C; air/touch;  6000BC;
            1918 A-H1N1 17 mil deaths, majority form
            bacterial pneumonia, 2 -20% fatality
 
-yellow fever: Flavivirus RNA virus in tropical oceans; hurricance preditions
+yellow fever: Flavivirus RNA virus in tropical oceans; hurricane predictions
 
 Cholera: Vibrio cholerae bacteria; 1640, India; (delusion))
 
@@ -70,4 +70,4 @@ Adenovirus vector:
    AstraZeneca
    Sputnik V
 Subunit protein/antigen:
-   Novavax (not as effecive on variant)
+   Novavax (not as effective on variant)

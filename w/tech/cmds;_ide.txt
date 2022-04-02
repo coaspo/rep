@@ -1,8 +1,8 @@
 Intelli-J
     Ctl-Sft-T  find class
             O  organize import
-            R find reousrce
+            R find resource
             G find attr/method
             J add javadoc
-    Crl-j run jumit
+    Crl-j run junit
     Ctl-Sft-j  debug

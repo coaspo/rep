@@ -103,7 +103,7 @@ PROLOGUE
 
   Instead of using viruses, inject DNA into cells:
     How do mice eggs incorporate injected DNA to next generations?
-      Homologous recombination: during formation of of egg and sperm cells - 2 sets
+      Homologous recombination: during formation of egg and sperm cells - 2 sets
         of chromosomes are pared to 1.  Each pair exchange large chunks of DNA
         ---> diversity;
         Gene-editing: mix DNA with calcium phosphate and mixed with cells:
@@ -120,17 +120,17 @@ PROLOGUE
     found dozens of other nucleases - but they only target 6 to 8 letters
     8-letter sequence can occur hundred of times in human genome
   1996 Chandrasegaran created chimeric nuclease by mixing section of natural nucleases
-    FokI (breaks any where) + zinc finder proteins (ZFN; matches 3-letter DNA)
+    FokI (breaks anywhere) + zinc finder proteins (ZFN; matches 3-letter DNA)
   2000s: ZFNs used in human, corn, tobacco, thale cress (small genome)
     not adopted - ZFNs very expensive to make; not consistent - cut too much or not at all..
-  2009 TALE (transcripion activator-like effectors) proteins in Xanthomonas
+  2009 TALE (transcription activator-like effectors) proteins in Xanthomonas
     (plant -infecting bacterium) - similar to ZFNs
-    eahc ZFN finger bind to 3 letters, each TALE bind to one
+    each ZFN finger bind to 3 letters, each TALE bind to one
     But TALE nucleases (TALENs)supplanted by CRISPR
 
 2. NEW DEFENSE
-   ribozymes (RNA enzyme catalyst- RNA both genetic & catlyst)
-     viriod: strand of cirular ribozymes < 30 letters
+   ribozymes (RNA enzyme catalyst- RNA both genetic & catalyst)
+     viriod: strand of circular ribozymes < 30 letters
        self-cleavages & replicates
      designed ribozymes as specific catalysts
      self-splicing ribozymes suggest life arose from RNA molecules
@@ -146,7 +146,7 @@ PROLOGUE
        Palidrome - word/phrase that read same backwards;
        Mr. Owl ate my metal worm; complement of ACCTAGGT is TGGATCCA
    CRISPRs in half bacteria & nearly all archaea -
-     most widely shared repeating DNA sequence in prokaryots
+     most widely shared repeating DNA sequence in prokaryotes
      CRISPR spacers: matching DNA of bacteria viruses
      More matches less chance for viral infection
      Interspaced sequences mathedviral DN sequences;
@@ -190,7 +190,7 @@ PROLOGUE
     same enzyme to splice their genome to bacteria
     ---> problem: find bacterial genes that blocks virus
   Danish company: strains of Streptococcus Thermophilus (yogurt) more phage resistance
-    CRISPR spacers varied in strains some matchedpart of phage genome
+    CRISPR spacers varied in strains some matched part of phage genome
     more spacers ---> better phage resistance
   Bacteria creates RNA (DNA T-->U) that matches the CRISPR DNA
     enzyme break RNA into smaller pieces each having a phage sequence
@@ -201,14 +201,14 @@ PROLOGUE
 3. CRACKING THE CODE
    Questions: How bacteria in middle of phage infection take phage DNA and add it
               to existing CRISPR array so that it can target virus?
-              How CRISPR RNA produced in side the ceslls and converted from long
+              How CRISPR RNA produced in side the cells and converted from long
               to short strands? - each one virus matching sequence
               Most important, how a piece of RNA paired up with the phage DNA and
               destroyed the phage?
    4 DNA letters --> 20 amino acids (protein letters)
      Find protein: lookup amino acid chains in known protein/amino-acids.
    Study of any gene: 1. clone gene into artificial mini chromosome (plasmid)
-                      2. engineer apdicalized strin of E.coli to add plasmid to its genome
+                      2. engineer apdicalized strain of E.coli to add plasmid to its genome
                       3. add other synthetic DNA
                         --> e. coli becomes a custom protein factory
    1. create Cas plasmid from E. coli and P. aeruginosa
@@ -232,12 +232,12 @@ PROLOGUE
    Type II (S.pyrogenes); different Cas
      Cas9 surgically cuts viral DNA without dismantling it
      similar to gene editing ZFNs &TALENs
-     S.themophilis has economic value, S.pyogenes have medical value;
+     S.themophilis has economic value, S.pyrogenes have medical value;
        causes toxic syndrome. scarlet fever,strep throat....flesh eating bacteria
   1. create artificial chromosome containing Cas9 from S.pyrogenes
   2. add it to strains of E. coli
   3. optimize parameters  for maximum yield
-  4. use chromatography totest different way of cracking E.coli
+  4. use chromatography to test different way of cracking E.coli
   5. test stability of Cas9 - was stable
   6. mix Cas9 with CRISPR RNA and target DNA: no DNA cutting
   7  added tracrRNA (trans-activating CRISPR RNA); DNA was cut
@@ -253,7 +253,7 @@ PROLOGUE
 4. COMMAND & CONTROL
   2013 genetic engineering for sickle cell - change A to T cure millions of people
     sickle cell DNA + genetic instructions to produce Cas9 from Streptococcus
-      + CRISPR derived guide RNA molecule to target the mutate cite
+      + CRISPR derived guide RNA molecule to target the mutated cite
       + synthetic DNA replacement
     --->  Edita Medicine $43 mil venture by Doudna & four others
          blindness therapy in clinical trials
@@ -302,7 +302,7 @@ PROLOGUE
            get started with CRISPER plasmid (artificial chromosome) from Addgene.org
    Addgene.org clone & advertise ... $65/plasmid
      2015 60,000 plasmids to 80 countries
-   Computer algorithms using emprical target sequences to design plasmida
+   Computer algorithms using empirical target sequences to design plasmid
    Years in sophisticated laboratory + millions --> days in high school + $2,000
    DIY gene editing for $169;  different beer flavors?
    CRISPER danger vs benefits....
@@ -311,7 +311,7 @@ PROLOGUE
 5. THE CRISPER MENAGERIE
   Tomatoes that slowly ripen, drought tolerant plants, mosquitoes without malaria,
   muscular dogs for police,cows WO horns, micro- pigs
-  Animla models for human disease: autism in monkeys, Parkinson's in pigs, flu in ferrets
+  Animal models for human disease: autism in monkeys, Parkinson's in pigs, flu in ferrets
   In future:  high yield crops, healthier livestock, more nutritious food,
     pigs as human organ donors, woolly mammoths, winged lizards, unicorns
   CRISPR vs natural or induced (x-rays or chemical) mutagenesis, hybrids
@@ -322,7 +322,7 @@ PROLOGUE
     no worries of bad side effects...
   Done: rice for bacterial blight, herbicide resistant corn/soybeans/potatoes
         mushrooms WO browning/spoiling, soybean oil WO trans fat - similar to olive oil
-  Attempts: Cavendish bananas protected from soil fungus, citrus from huangglongbing bacteria
+  Attempts: Cavendish bananas protected from soil fungus, citrus from huanglongbing bacteria (makes them green)
   Potato glucose fructose (from cold storage) + heat (frying)
     --> acrylamide (neurotoxin/carcinogen)
     15% potatoes in making chips thrown because sugar browning/bitter
@@ -362,7 +362,7 @@ PROLOGUE
       Blue eyes phenotype: dominant/recessive alleles
     Humans; heterozygotes --> professional athletes
       both alleles --> superman/bodybuilder
-      Deactivate gene to cure musclular dystrophy?
+      Deactivate gene to cure muscular dystrophy?
     Pigs: 10% more lean tender meat
     Shanbei goats: myostatin & growth --> more food & cashmere
   Working on:
@@ -439,7 +439,7 @@ PROLOGUE
   CRISPR:
     not good for Schizophrenia/obesity; genetics are complex, have small effect
     good for monogenic genetic diseases (delivery is hard):
-      white blood cells/immunodeficieny
+      white blood cells/immunodeficiency
       brain neurons/Huntington's'
       sickle cell/red blood cells
       lung cells/cystic fibrosis
@@ -555,10 +555,10 @@ PROLOGUE
         Oppenheimer: "do the technically sweet then argue what to do about it"
         fear of nuclear weapons --> fear of undermining trust of bio technology
       How to save CRISPR from itself
-    Paul Berg: 2070s gene spliced (chemical fusion) of: 1. lamda phage,
+    Paul Berg: 2070s gene spliced (chemical fusion) of: 1. lambda phage,
       2. E. coli, 3.simian virus 40 (SV40)  to study genes outside their environment
       Concerns:
-        Synthetic DNA get out of lab, SV40 causes cancer in mice...
+        Synthetic DNA gets out of lab, SV40 causes cancer in mice...
       "Berg letter": moratorium on: Creating antibiotic resistant bacteria,
                                     DNA hybrids with virus that causes cancer
         Later dFamilies of Sandy Hook victims say they have been harassed by Jones' followersecided to proceed with safeguards...
@@ -594,7 +594,7 @@ PROLOGUE
   2-10 DNA mutations every time a cell divides;
     each person: one million mutations/second
     In intestinal epithelium, every letter in the genome has mutated by 60
-    sex cells have new mutations
+    sex cells have new mutations'
     zygote starts with 50-100 random mutations
     genetic editing mutation is a drop in the maelstrom of natural mutations
       (CRISPR is safe?)
@@ -619,7 +619,7 @@ PROLOGUE
     US adults 50%/48% in-favor/against
   Christians oppose it, Jews/Muslims not so
   Evolution:
-    worked at it 3.85 billion years, can we do better without side-effects?
+    worked at it 3.85 billion years, can we do better without side effects?
     did nothing for modern life...
     more of tinkerer than engineer
   Natural vs unnatural:
@@ -633,7 +633,7 @@ PROLOGUE
     Slippery slope...
       Genes for enhancements:
         EPOR - erythropoietin (sport doping)
-        LRP5 - stong bones
+        LRP5 - strong bones
         MSTN (myostatin) - more muscle (super pigs & dogs)
         ABCC11 - lower armpit odor
         DEC2 - lower sleep requirement

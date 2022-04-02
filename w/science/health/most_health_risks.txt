@@ -1,0 +1,37 @@
+Survey of health concerns:
+obesity:           15%
+cancer:            14%
+diabetes:           2%
+drug/alcohol abuse: 2%
+heart disease:      1%
+flu:                1%
+mental illness:     1%
+AIDS:               1%
+
+Causes of death (mostly of no concern):
+1  Heart        660,000
+2  Cancer       600,000
+                      lung/bronchus  132,000
+                      colon/rectum    53,000
+                      pancreas        48,000
+                      breast          44,000
+                      other          330,000
+3  accidents    173,000
+                      poisoning       65,000
+                      fall            39,000
+                      cars            38,000
+                      other           31,000
+4  Chronic lung 156,000
+5  Stroke       150,000
+6  Alzheimer's  121,000
+7  diabetes      88,000
+8  nephritis     51,000
+9  flu/pneumonia 50,000
+10 suicide       47,000
+11 liver         44,000
+12 septicemia    38,000
+13 hypertension  36,00o
+14 Parkinson     35,000
+15 pneumonitis   19,000
+    (allergy)
+   other        584,000   flu 12,00-52,000/yr (2010-2020)

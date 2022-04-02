@@ -65,30 +65,19 @@ Zolpiden       16 insomnia
 
 (13/12/8 prescriptions for heart/depression/pain)
 
-Causes of death:
-1  Heart        660,000
-2  Cancer       600,000
-                      lung/bronchus  132,000
-                      colon/rectum    53,000
-                      pancreas        48,000
-                      breast          44,000
-                      other          330,000
-3  accidents    173,000
-                      poisoning       65,000
-                      fall            39,000
-                      cars            38,000
-                      other           31,000
-4  Chronic lung 156,000
-5  Stroke       150,000
-6  Alzheimer's  121,000
-7  diabetes      88,000
-8  nephritis     51,000
-9  flu/pneumonia 50,000
-10 suicide       47,000
-11 liver         44,000
-12 septicemia    38,000
-13 hypertension  36,00o
-14 Parkinson     35,000
-15 pneumonitis   19,000
-    (allergy)
-   other        584,000   flu 12,00-52,000/yr (2010-2020)
+60% of all drugs are non-prescription:
+1	Upper respiratory remedies	$8,799 millions
+2	Oral analgesics	            $4,323
+3 	Heartburn	                $3,229
+4	Antiperspirants	            $3,034
+5	Toothpaste	                $2,866
+6	Oral antiseptics / rinses	$1,461
+7	Laxatives               	$1,381
+8	First Aid	                $1,269
+9	Lip/oral treatment	        $1,189
+10	Sun protection	            $1,183
+11	Eye care	                $1,165
+12	Anti-smoking aids        	$1,006
+13	Topical analgesics            $861
+14	Sleep aids	                  $410
+15	Foot care	                  $356

@@ -2,7 +2,7 @@ On firefox search in new tab, get msg: Gah. Your tab just crashed?!!
 FIX: type addr.: about:config
      browser.tabs.remote.autostart = false
 
-Diable password request from sleep
+Disable password request from sleep
 FIX: gsettings set org.gnome.desktop.screensaver
      ubuntu-lock-on-suspend false
 

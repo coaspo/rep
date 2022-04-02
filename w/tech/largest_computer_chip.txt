@@ -12,7 +12,7 @@ Cerebras(American) and T.S.M.C. (Taiwan Semiconductor Manufacturing Company)
    15kW;
      Machine-learning software assigns tasks
      to prevent cold spots,
-     to ensure the wafer doesn’t crack.
+     to ensure the wafer does not crack.
    $2,000,000
 
 

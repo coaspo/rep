@@ -1,14 +1,5 @@
-<html lang="en">
-  <meta charset="utf-8"/>
-  <head>
-    <style>
-      a    {text-decoration: none; color: #0000EE; font-weight: bold;}
-      a:hover { text-decoration: underline; }
-    </style>
-    <title>Hypersanity</title>
-  </head>
-   <body style="font-size:12px;">
-<pre><a href="https://www.psychologytoday.com/us/blog/hide-and-seek/201908/hypersanity">Hypersanity</a>  / psychology today.  🗓 2019
+Hypersanity / psychology today.                            🗓 2019
+https://www.psychologytoday.com/us/blog/hide-and-seek/201908/hypersanity
 Hypersanity (since 1967): free state of higher consciousness via "madness" as a voyage of discovery.
   
 <i>Diogenes</i>:

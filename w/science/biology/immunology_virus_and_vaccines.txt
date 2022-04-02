@@ -24,7 +24,7 @@ IMMUNOLOGY______________________________________________________________________
         1. neutrophils - selfless; first to fight and die
         2. macrophages - adorable - eat and belch microbes alone
         3. dendritic   - like macrophages but talk and hang out together;
-                        winner of best immune cell contest
+                        winner of the best immune cell contest
       Adaptive immune
         1. B-cells - hide in tissues, too good at their job, compete among themselves
                      selfish;self-involved snobs
@@ -59,7 +59,7 @@ VACCINES________________________________________________________________________
       grow repeatedly in chicken embryos - virus looses
       virulence because it does not deal with immune system
       Now use genetic engineering to disable virulence genes
-      For measles, smallpox, chickenpox, rotavirus, yellowfever
+      For measles, smallpox, chickenpox, rotavirus, yellow-fever
 
     3. Subunit, recombinant, polysaccharide, and conjugate
        piece of virus

@@ -9,9 +9,9 @@ cause: 1. food/water, 2. farming/livestock 3. wild animals 4. insects 5.pets  6.
 Darwin: man connected with other animals in origin,descent, sickness and health.
 anthroponosis: spillover from humans to non-humans; via gorilla tourism
 
-zoonosis (60% of human infections): ebola, bubonic plague, flu, monkey pox, bovine tuberculosis,
+zoonosis (60% of human infections): ebola, bubonic plague, flu, monkeypox, bovine tuberculosis,
   Marburg virus, rabies, hantavirus pulmonary syndrome, anthrax, Lassa virus, Rift Valley fever,
-  scrub typhus, Bolivian hemorrhagic feve
+  scrub typhus, Bolivian hemorrhagic fever
   r, Kyasanur forest disease, Nipah encephalitis,
   ocular larva migrants, toxocariasis, AIDS, Hendra, Machupo, Hantaan, Junin, Borna,
   Simian foamy virus, Lyme, West Nile fever
@@ -43,7 +43,7 @@ Ebola hype; nothing like the Crimean–Congo hemorrhagic fever
 EVERYTHING COMES FROM SOMEWHERE ------------------------------------------------
 --------------------------------------------------------------------------------
 Measles virus is related to nipah and hendra viruses, hence has been zoonotic.
-Measles in London had 18 month cycle; mass-action principle:
+Measles in London had 18-month cycle; mass-action principle:
 susceptible (newborns) times infectious;  rate of the chemical reaction is proportional
 to the product of the activities or concentrations of the reactants
 
@@ -53,11 +53,13 @@ Malaria - 4 protists; Plasmodium falciparum is the worst; 36 day cycle:
    3. trophozoite feeds and grows inside blood cells
    4. schizont fattens and bursts releasing merozoite wand creates fever
    5. gametocyte sexual enter blood stream and picked up by mosquito
-   6. ookinete fertilized lodges in mosquitoes gut, ripens into a bag or sporozietes
+   6. ookinete fertilized lodges in mosquitoes gut, ripens into a bag or sporozoites
       which bursts and go to mosquitoes salivary glands.
 
-p. falciparumis from a African gorilla zoonosis (genetic analysis) kills 500K/year
-p. malariae if not treated can stay in blood liver for decades
+p. falciparumis (deadly/carcinogen..)from an African gorilla zoonosis (genetic analysis) kills 500K/year
+p. malariae (benign maleria) if not treated can stay in blood liver for decades - 3-day fever interval
+p. vivax  - Asia/Latin Latin America not as bad
+
 ACGT Adenine, Cytosine,Guanine, Thymine
 
 SIR model (Susceptible/Infected/Recovered) 1926; flu has no R (no immunity)
@@ -89,7 +91,7 @@ DINNER AT THE RAT FARM ---------------------------------------------------------
 2002 man gets SARS China keeps secret documents
 2003 SARS Hong Kong to Toronto, to 70 Chinese hospitals
 Seafood merchant 1st super-spreader (poison king)
-Doctor gets SAR from him and become a super spreader in Hong Kong.
+Doctor gets SAR from him and become a superspreader in Hong Kong.
 Doctors/nurses in Singapore wore no masks for treating the atypical pneumonia/
 people fined $300 for spitting; 200 infected, 33 died.
 
@@ -99,7 +101,7 @@ lung of aborted fetus; succeeded with rhesus kidney cells.
 Named it SARS-CoV not Guangzhou because of tourism.
 Chinese discovered it first but were overridden that it was chlamydia.
 
-Reservoir civet cat (mongoose like), In Guangdong Era of wild flavor (yewei)
+Reservoir civet cat (mongoose like), In Guangdong Era of wild flavor (yewei[bush meat])
 Wild animal market: "microbial swap-meet" - every specie in land/air/water.
 yewei is good luck ostentatious, gaining face.. in brothels, tiger penis
 2,000 wild restaurants in Guangdong. In ten years wild animal sales increased
@@ -108,18 +110,18 @@ Snake possibly farmed, endangered turtles, civet farms, bred wild animals are ta
 Total 8,000 infected ~800 died.  Chinese said civet cats not reservoir,
 but after resurfacing in 2004, killed 1,000 civets
 But horseshoe bats had antibodies, civets did not, they just amplified.
-Eating bats? "people in china will anything that flies except a plane"
-Era of Wild Flavor driven underground; people sill believe eating wild is healthy.
+Eating bats? "people in China will anything that flies except a plane"
+Era of Wild Flavor driven underground; people still believe eating wild is healthy.
 Symptoms appear before person becomes infectious; flu it is reversed
 
 THE DEER THE PARROT AND THE KID NEXT DOOR --------------------------------------
 --------------------------------------------------------------------------------
 Parrot fever (psittacosis) 1880, similar to Lyme, Chlamydia psittaci zoonotic
 From Argentina, to Australian parakeets - birds shed bacteria when stressed.
-In Australia it was not reported.
+In Australia, it was not reported.
 Q fever (1930)caused by Coxiella burnetii; infects cats, dogs, sheep , cows, bandicoots
 Q (Query) cause unknown, military stockpile until 1970
-1 bacteria needed to infect 50% (ID50), like virus it intracellular hides from immune
+1 bacteria needed to infect 50% (ID50), like virus is intracellular hides from immune
 system, large and small (airborne, highly durable) form.
 Can live in salt water for 6 months; everywhere except in New Zealand.
 
@@ -136,8 +138,8 @@ using amplifier hosts, insect/spider vectors. Susceptible host density helps...
 Lyme disease got political; "chronic Lyme is an illusion" advisory resulted
 to antitrust investigation. reported in 1909; in Europe and Asia
 "black-legged tick" was mistakenly split into new species: "deer tick";
-reducing deer did not effect Lyme disease, tick has more than 100 hosts:
-robins cows, squirrels, dogs, skinks, skunks...
+reducing deer did not affect Lyme disease, tick has more than 100 hosts:
+robins cows, squirrels, dogs, skunks, skunks...
 Tick cycle is 2 years, early on questing is close to ground - shrews provide 30% of meals.
 Ticks are born clean; 90% infected by white foot mice, shrews and chipmunks - forget deer!
 mice and shrews are poor groomers.  Acorn crops more important than lawns...
@@ -153,7 +155,7 @@ unlike Coxiella burnettii (Q fever) not airborne.
 GOING VIRAL---------------------------------------------------------------------
 --------------------------------------------------------------------------------
 1890 tobacco virus not filterable, efficacy not effected by diluting it;
-1898 foot-and-mouth virus virus; 1901 yellow fever virus, kill mosquitoes in Cuba
+1898 foot-and-mouth virus; 1901 yellow fever virus, kill mosquitoes in Cuba
 15 to 300 nm, 2K to 1.2M nucleotides (3B for mouse) 3nuc./amino acid, 250 amino acid/protein
 "bad news wrapped in a protein"
 DNA polymerase repairs DNA - mutations are low.  RNA most bad viruses wo repairing
@@ -162,7 +164,7 @@ Virus reservoir has no symptoms; ecological equilibrium.
 
 herpes B virus; (B initial of person died) minor to macaques by 70% lethal to humans
 Researches died while working on polio and HIV - latest on in 1997
-Herpes B, Ebola, Marbug, Crimean-Congo are BSL4.
+Herpes B, Ebola, Marburg, Crimean-Congo are BSL4.
 
 Simian foamy virus (SFV) foam like cell fusing - no disease but used as marker for the big one.
 Human foamy virus (HFV) "a retro virus in search of disease".
@@ -175,7 +177,7 @@ Pathogenicity: capacity to cause disease, latent infection is ideal parasitism.
 
 1859 wild rabbits freed in Australia, 1950 600 million.  Poxivirus (via myxoma) killed 99.6%
 within 2 weeks.  After 10 years rabbits rebounded; evolution lowered virulence;
-evolution improved mutual tolerance to 90%, ofaverage “spreadability”  3 strains one became dominant in 1980.
+evolution improved mutual tolerance to 90%, of average “spreadability”  3 strains one became dominant in 1980.
 
 
 Pathogen rule #1: not "do not kill your host", but "do not burn bridges before you cross them".
@@ -196,7 +198,7 @@ RNA virus: most common/evolvable/emerging pathogen, every living cell may suppor
 DNA viruses too stable; Varicella zoster (chicken pox), hides and comes back as shinges
 they use DNA polymarase for replication;
 Small RNA genome -> high mutations, high mutations -> small genome (bad replication); Eigens paradox.
-RNAs have no long-term security but able to adapt or jump species(zoonosis).
+RNAs have no long-term security but able to adapt or jump species (zoonosis).
 
 CELESTIAL HOSTS ---------------------------------------------------------------------
 --------------------------------------------------------------------------------
@@ -222,7 +224,7 @@ Nipah found on water apples eaten by bats and in bat urine.
 Nipah in Bangladesh 70% fatal - victims climbed trees, drank raw date-palm sap.
 Unlike Malaysia, person-person spread.  2 liter of sap /tree sold for $0.24.
 Sapper: "I get God's grace by birds chance to drink sap" and customer gets Nipah.
-Moore opportunities for a new host -> more chance of adapting to new immune system.
+More opportunities for a new host -> more chance of adapting to new immune system.
 It is random - not emotive; the revenge of the forest.....
 Ecology (human/animal contact) & evolution (no purpose; just results)
 
@@ -239,10 +241,10 @@ Metapopulation: population of populations;
 If virus goes through an isolated population (<500K for measles) may become extinct.
 Virus avoids this if it infects one isolated population at a time.
 Greater population isolation, more time for the virus to return,
-more time for susceptibles to be born, and the larger the outbreak.
+more time for susceptible to be born, and the larger the outbreak.
 Australian bats have become more isolated, hence virus is more abundant.
 
-Avian flu H5N1; haemagglutinin (H) and the neuraminidase (N) spikes;
+Avian flu H5N1; hemagglutinin (H) [binds to cells] and the neuraminidase (N) spikes;
 H hooks to receptors of victim cells, N removes receptors of infected cells to all spread.
 17 types of H, 9 types of N.
 H1N1 1918 (2%), H2N2 1957(0.6%), H3N2 1968 (0.2%); H1N1/H3N2 seasonal flu.
@@ -263,17 +265,17 @@ First known case 1977 doctor in Zaire.
 HIV trend - not a fluke.
 Retrovirus converts its RNA into DNA and infects the nucleus; virus replicates
 when the host cell replicate - causes cancer.
-First know human retrovirus: T-cell leukemia (HTLV).
+First know human retrovirus: T-cell leukemia (HTLV [human t-lymphotropic virus]).
 Discovery squabble: money, ego, national pride, Nobel prize, test patent lawsuit
 
-Work in cancer causing viruses -> simian immunodeficienty virus (SIV) in sick macaques
+Work in cancer causing viruses -> simian immuno-deficienty virus (SIV) in sick macaques
 African green monkeys was the reservoir, Found virus close to SIV (NOT HIV) in a prostitute.
 HIV-2 symptoms similar to HIV-1; less transmissible and virulent.
 
 SIV reservoir African sooty mangabey (sm), captivity infected Asian macaques (am)
 Three SIV variants: 1. (sm), 2. (am) 3. African green monkeys (afg)
 (sm) and (am) close to HIV-2 hence (sm) infected humans
-SIV zoonosis from mangabey to humans and evolved as HIV-2.
+SIV zoonosis from mangabey monkey to humans and evolved as HIV-2.
 
 HIV-1 in 1959 & 1960 tissue, suspect early as 1908.
 
@@ -290,16 +292,16 @@ Koprowski polio vaccine (1958) grown virus in chimpanzee kidney cells instead of
 HIV-1 is iatrogeric (generated by medical treatment). Some chimps had SIV.
 Molecular clock analysis put common ancestor of DRC60 and ZR59 at 1908 zoonosis of HIV-1.
 
-2002 SIVcpz found in 1 out of 58 central chimps urine in Gombe national park; chimps used to humans;
+2002 SIVcpz found in 1 out of 58 central chimps urine in Gombe Nigeria national park; chimps used to humans;
 Goodall study. Urine collection outside park would not work.
-Chemical RNAlater preserved RNA and antibodies in un-refrigerated feces.
+Chemical RNA later preserved RNA and antibodies in un-refrigerated feces.
 From feces found SIVcpz very close HIV-1 in southeastern Cameroon.
 
 Brazzaville, Congo in 1914 had hundreds of servant/prostitutes (low risk HIV)
 Leopoldville (Kinshasa) across the river had more; 1940 to 1960 grew 10x.
 Ebola and HIV-1 in the same location.
 
-Ape parts are consumed as part of a local 13 year old boy beka ceremony.
+Ape parts are consumed as part of a local 13-year-old boy beka ceremony.
 Use gorilla arms when chimps not available.
 Spillover could be from the ritual of hunger.
 
@@ -317,7 +319,7 @@ SIV from which HIV-a came is lethal to monkeys.
 
 Treatment for trypanosomiasis (sleeping sickness; tsetse fly) in Cameroon -
 36 injections for 3 years; malaria leprosy...  being jabbed in style
-lot of patients few syringes... 3.9M injections most intravenous
+a lot of patients few syringes... 3.9M injections most intravenous
 Syringe spread of HIV-a highly likely but not provable.
 Syphilis treated with arsenic/bismuth injections.
 
@@ -326,7 +328,7 @@ help Congo and get HIV-1. Plasma trade in Haiti increased spread; plasmapheresis
 can infect donor.  This also happened in Mexico and China.
 American company paid $3/liter, exporting 6K liter/month to US in 1972.
 
-20 year-old sample from 1980 of a Haitian had HIV-1 group M sub-type B - spread to
+20-year-old sample from 1980 of a Haitian had HIV-1 group M sub-type B - spread to
 US, Europe Japan, Australia... One person or infected bottle brought to US in 1969
 1981 was first patient with pneumonia and oral fungus.
 
@@ -336,14 +338,14 @@ Population outbreak: sudden increase of single species; lemmings, only some kind
 of mouse and starfish,tent caterpillars, gypsy moths...
 Most serious outbreak is homo sapiens; 1960 3 billion, then 1 billion/13 years
 On 6 billion we exceeded by 100 times the biomass of any large wild animal that
-has ever existed. 1.3 billion cows are more massive then us...
+has ever existed. 1.3 billion cows are more massive than us...
 
 Caterpillar outbreaks  5 to 11 year cycle; one cause is infectious disease.
 Nuclear polyhedrosis virus (NPV) melts gypsy moth caterpillars -epizootic (animal
 epidemic), Could humans have a caterpillar-like cycle?
 
 Typical flu 3M infections/year, 250K deaths/year. 4 types; species/genus:
-  A: aquatic birds reservoir; most severe to young/old, occasional pandemic
+  A: aquatic bird reservoir; most severe to young/old, occasional pandemic
   B: primarily in humans; seals, horses, pigs, dogs; effects children
   C: similar to B; asymptomatic; pigs, dogs, camels, cattle
   D: cattle reservoir; humans, horses, camels, goat, sheep; no human disease

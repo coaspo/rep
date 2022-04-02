@@ -4,7 +4,7 @@ Brian Christian born NJ 1984; computer science, philosophy, and poetry
 Tom Griffiths Australian cognitive scientist; Princeton computer science/psychology
 
 INTRODUCTION
-  Optimal stopping problems: how to find best apartment, parking, mate,...
+  Optimal stopping problems: how to find the best apartment, parking, mate,...
     how to reduce the Scylla-and-Charybdis ("choose the lesser of two evils")
       (six-headed sea monster and whirlpool in Messina strait)
       finding best versus getting nothing
@@ -36,8 +36,8 @@ INTRODUCTION
                     2. meaning of rationality
                     3. how to live
   Use chance, time/accuracy trade off, approximate
-  Behavioral economics: Humans are irrational & error prone because of buggy brain
-  Counter intuitive solutions:
+  Behavioral economics: Humans are irrational & error-prone because of buggy brain
+  Counterintuitive solutions:
     do not consider all options
     do go for outcome that seems best every time
     make mess on occasion
@@ -76,7 +76,7 @@ INTRODUCTION
    Look at at all go back to best - chances for best 61%
    "Secretary with know percentile rank"; "no-information game" --> "full information"
       Threshold rule - 58% of getting best
-      n to last / h percintile threshold of stop
+      n to last / h percentile threshold of stop
       2 /50 th
       3 /69 th
       4 /78th
@@ -85,10 +85,10 @@ INTRODUCTION
      $1  $499,553
      $2K $480K
      $50K any offer
-     how people look for jobs; unemplyed workers/unfilled vacancies
+     how people look for jobs; unemployed workers/unfilled vacancies
    "parking car": balance price, time walking, time searching, gas, passenger count
      Price should be adjusted to have 85% occupancy.
-     90% --> 95% occupancy accomodates 5% more cars but doubles the search time
+     90% --> 95% occupancy accommodates 5% more cars but doubles the search time
      Infinite long road:
        occupancy rate/wait this many spaces then take next free spot
        0 0
@@ -98,10 +98,10 @@ INTRODUCTION
        85 5
        99 69
    "when to quit" - "the burglar problem"
-      for novice 50/50 caught/succed, stop after 1 (50/50)
+      for novice 50/50 caught/succeed, stop after 1 (50/50)
       for pro 10%/90%: stop after 9 (90/10)
     for 50/50 winning chance - triple or nothing bet there is no optimum stopping
-      avoidnace is best
+      avoidance is best
     natural tendency to stop early - 31% instead of 37% for the secretary
                                      4/5 of times leaped sooner (from experiments)
        --> because time costs (of ones life)
@@ -126,23 +126,23 @@ INTRODUCTION
       Choosing restaurant or favorite movie is deciding which arm to pull in casino of life.
       Most rational is not the best.
       Decision is not isolated - depends on how long you are in casino.
-      Eat drink for tommorrow we may die.  --> inverse:
-        Learn new language, make small talk wiht stanger, life is long no one knows the all joys...
-      Intevals make stategy, boserve stategy to find interval:
-        Explore when you you will have time to resulting info, exploit when ready; interval is stategy.
+      Eat drink for tomorrow we may die.  --> inverse:
+        Learn new language, make small talk with stranger, life is long no one knows the all joys...
+      Intervals make strategy, observe strategy to find interval:
+        Explore when you will have time to resulting info, exploit when ready; interval is stategy.
         Movie sequels: guaranteed fan base,cash cow, an exploit.
-          --> Film industry signals that is near end of itsinterval.
+          --> Film industry signals that is near end of its interval.
               Profits have actually gone down; they play best slot machines before
               casinos turn them out.
       MAB algorithms for:
        Ads,
        price experiments,
-       crowdsourcing,
+       crowd sourcing,
        search
 
   Win-stay
    MAB solution: Win-stay, Lose Shift (Stay the winner)
-     Consider only two machines, keep playig one when winning,
+     Consider only two machines, keep playing one when winning,
        use you loose shift to other machine.
 
   Gittins Index
@@ -150,32 +150,32 @@ INTRODUCTION
     Gittins, professor of statistics, tried to optimize drug trials;
       multiple options, different reward probabilities/costs.
        COs: R&D new drugs/make current drugs more profitable
-       Drs: encourage experimental dugs/prescribe best drugs
-         Interval: not clear; idefinite future
+       Drs: encourage experimental drugs/prescribe best drugs
+         Interval: not clear; indefinite future
            present has higher priority, future is discounted
       Problem: maximize payoff, no interval, for discounted future.
         payoff decreases exponentially
         Visiting for 10 days and choose restaurant --> use interval
            staying indefinite --> no interval
-           If 1% chance of being hit by bus, tommorrow dinner is discunted 99%
-      Solution strategy: think each arm of multi-arm bandit seprately & use bribe
-        similar to Deal or no deal: open suitcases, or listenen to banker not to.
-        If offered a guaranttted rate, we can be content never to pull arm;
+           If 1% chance of being hit by bus, tomorrow dinner is discounted 99%
+      Solution strategy: think each arm of multi-arm bandit separately & use bribe
+        similar to Deal or no deal: open suitcases, or listener to banker not to.
+        If offered a guaranteed rate, we can be content never to pull arm;
           rate is Gittins index --> play arm with highest index
           (git when the Gitting is good)
         For next payoff = 90% of current,
           machine with 1-1 win/loss, index =.6346   --> chose this over 6-9
                        6-9                  .6300
-                       0-1                  .5001  Small explotation bonus
+                       0-1                  .5001  Small exploitation bonus
                        0-0                  .7029  Unknown machine is better than
                                                    is better than machine that pays 70% of time
                                                    (the exploitation bonus)
                                                    rookie worth more then veteran
-                      ♾️-♾️                 .5000  convergent value for all payofs
+                      ♾️-♾️                 .5000  convergent value for all payoffs
         For next payoff = 99% of current,
           machine with 1-1 win/loss, index =.7844
                        6-9                  .6997
-                       0-1                  .7005  larger explotation bonus
+                       0-1                  .7005  larger exploitation bonus
                        0-0                  .8699
         The grass is always greener --> because unknown has chance to be better
                                         even when expect to be no different
@@ -188,12 +188,12 @@ INTRODUCTION
         try internet which was going to be really big
     Regret = payoff of a strategy - maximum payoff (using the best slot machine)
       1. Total regret is always increasing
-      2. Increase is less if you pick best strategy
+      2. Increase is less if you pick the best strategy
          Rate of growth goes down as you learn about problem
       3. Minimum possible regret increases logarithmically;
          Make as many mistakes in 10 pulls as in 100 pulls
          Logarithmic growths: literacy, fitness, weight loss, music skill
-    Upper Confidence Bound algorithm: choose for arm with highest possible value
+    Upper Confidence Bound algorithm: choose for arm with the highest possible value
       no one that has performed the best;
       A restaurant with one medium review has more potential than one with may.
       --> Optimism in face of uncertainty
@@ -215,7 +215,7 @@ INTRODUCTION
     Explore/exploit algorithm --> colors, buttons, text, images...
        optimized for clicks --> user: not the gambler, but the jackpot.
        --> economic & technological internet power
-       Statisticians, engineers , bloggers contest best algorithms.
+       Statisticians, engineers , bloggers contest the best algorithms.
 
   Clinical Trials on Trial
     1932-1972 Tuskegee Syphilis Study; Peter Buxtun filed complaint 1966, went public 1972

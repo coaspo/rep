@@ -6,7 +6,7 @@ Python idioms etc..
     "".join(lst)
     dct_reverse = {v: k for k, v in dct.items()}
     f = lamda x: 2 *x
-    for (k, v in my_dixct.iteritems():
+    for (k, v in my_dict.iteritems():
     for i, x in enumerate(lst):
     if 2 > x > 10:
     min = x if x < y else y

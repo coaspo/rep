@@ -14,7 +14,7 @@ Science: Knowledge from study of structure/behaviour of the physical world, by
 
 Paradigms that defined research problems and methods:
     1. Aristotle's Physica (~350 BC): (nature) cause/chance, motion, void, time
-    2. Ptolemy's Almagest (~150): (al magisti; the greatest, arabic/greek)
+    2. Ptolemy's Almagest (~150): (Al Magisti; the greatest, arabic/greek)
                             astronomy, geography, mathematics
     3. Newton's Principia (1687): Motion of bodies, system of the world
                 Optiks (1704): geometrical. white = sum of colors
@@ -126,7 +126,7 @@ and experiment.
 Phenomena: 1. already explained; new paradigm not accepted  2. articulate with
 old paradigm (most research) 3. cannot use current paradigm -> new paradigm
 
-New theory has to have predictions different than old one.
+New theory has to have predictions different from the old one.
 
 New theory destroys old one. Energy conservation destroyed the caloric theory.
 
@@ -136,7 +136,7 @@ Today this is not the majority view because:
   2. Newtonian is approximation of relativity for speeds less than c
 
 Newtonian is scientific theory supported by evidence, but its high velocities
-claims were never parts of science and they were debunked by relativity.
+claims were never parts of science, and they were debunked by relativity.
 
 If theory binds only to existing applications there can be no anomalies, crisis
 ... hallmarks of extraordinary science.
@@ -146,7 +146,7 @@ Relativity for c<<c is not Newtonian; different concepts of mass, time...
 Newtonian theory, approximation of relativity, has utility but no science.
 
 New paradigms redefine science
-noncompatitable and incommensurable with the old.
+non-compatible and incommensurable with the old.
 
 "Stone fell because its nature drove to center of universe" recognized as
 tautology and rejected right before Newton. Appearances dependent on size,
@@ -161,7 +161,7 @@ No substantive difference between paradigms;
 Forces being innate helped with electric and chemical affinity theories.
 
 Maxwell's light theory gave no account of medium and was rejected.
-His insistence of ether looked electric like lip service but was not.  Eventually
+His insistence of ether looked electAppleasric like lip service but was not.  Eventually
 became OK to speak of displacement without saying what was displaced.
 Problem of ether gave rise to relativity.
 
@@ -171,7 +171,7 @@ Paradigm provides map and map-making for exploration.
 Paradigm changes are (how to look at) world changes.  Unlike visual gestalt
 perspective changes are permanent.
 What one sees depends on what he has learned to see; without any training
-one sees "a blomin'buzzing'confusion".
+one sees "a blaming'buzzing'confusion".
 
 Hipparchus saw Uranus, but Herschel first saw it (1801) as a disc/planet.
 Within 1850 20 asteroids were discovered.
@@ -182,7 +182,7 @@ Swinging stone was constrained fall/pendulum to Aristotle/Galileo.
 Pendulum is not falling stone and oxygen not dephlogisticated air.
 
 Aristotle saw stone impelled by its nature to fall and distance from an
-instant to the end point, instead from initial to current point. Galiao saw stone
+instant to the end point, instead from initial to current point. Galileo saw stone
 with impetus gained from starting point.  State versus process.
 
 Via paradigms of race/culture/profession, have planets, pendulums, condensers...
@@ -220,77 +220,77 @@ Newton lied that Galileo found that gravity creates motion with time squared.
 Textbooks imply scientists added a fact, theory... to the current knowledge.
 But most additions are result new problems after revolutions.
 
-Textbooks have Boyle's definition of element but he used it to argue againt the
+Textbooks have Boyle's definition of element, but he used it to argue against the
 theory of elements!  Element like time, energy, force... was never invented
 or discovered.  Boyle and Lavoisier changed its meaning but did not invent the
 notion or verbal definition.
 
 Pedagogical science determines our (fictitious) image of the nature of science.
 
-Theory verification: 1. probabalisicaly, but lack of neutral language/concepts
+Theory verification: 1. probabilistically, but lack of neutral language/concepts
                         this disguise verification
                      2. falsification; but this may be only an anomaly; then
                         all theories would be rejected.
 
 Proponents of different theories talk thru each other; their definitions and
 list of problems are different.  Newton's dynamics first rejected; no
-explaination of attractive force - this was forgetten until relativity.
+explanation of attractive force - this was forgotten until relativity.
 
 Relativity redefined space, time,,, Copernicus redefined earth motion...
 
-Competing pardigm are incommensurable.  Opposing scientists go thru paradigm
+Competing paradigm are incommensurable.  Opposing scientists go thru paradigm
 shift to be able to communicate.  Transition is not logic or one step at a time.
-It''s all or nothing.  Few converts to Copernicus iwithin 100 years. Newton's
+It''s all or nothing.  Few converts to Copernicus within 100 years. Newton's
 theory not accepted for 50 years.  Kelvin never accepted electromagnetic theory.
-Plank: "new theory triumphs after its oppents die"
+Plank: "new theory triumphs after its opponents die"
 
-Paradign conversion is experience conversion; not proof based; not forcible.
+Paradigm conversion is experience conversion; not proof based; not forcible.
 
-Nost effective persuasion of paradigm is the problem solved. Copenicus calendar,
-Newto celestial/terrestial motions, Lavosier gas-identity & weigtht relations,
-Einstein ecectromagnics and motion.  Plank's radiation and Bohr's atom adopted
+Most effective persuasion of paradigm is the problem solved. Copernicus calendar,
+Newton celestial/terrestrial motions, Lavosier gas-identity & weight relations,
+Einstein electromagnetics and motion.  Plank's radiation and Bohr's atom adopted
 - had more problems than solved.
-Asthetics play a role; general relativity.
+Aesthetics play a role; general relativity.
 
 Unlike engineer, doctor, theologian, scientist does not consider urgency, always
-regard tools used to solve probelms, and address only their peers.
+regard tools used to solve problems, and address only their peers.
 Thus science advances at a faster rate.
 
 In music, literature, history, social science on always has competing and
-incommensurable soultions.  Textbooks are secondary role.
+incommensurable solutions.  Textbooks are secondary role.
 
 Science: textbooks and latest published articles - no need to read Newton.
-Rigid, higly effective, but unresponsive to crisis.  Young or outsiders respond.
+Rigid, highly effective, but unresponsive to crisis.  Young or outsiders respond.
 
 Solving problems (progress), defined by paradigm, is faster than in other fields.
 
-All civilizations have art, tchnology, religion...  only helenistic descendants
+All civilizations have art, technology, religion...  only hellenistic descendants
 had rudimentary science.  Most science is European and in last 400 years.
 
 Rule of science: 1. Prohibit appeals to politicians or masses.
-                 2. Appleas only to competent group
+                 2. Appeals only to competent group
 
 Revolutions increase specialization and reduce communication.
-Probems solved and accurary always increases.
+Problems solved and accuracy always increases.
 
-Problem of Darwinism was not "man descendent from apes" - it was abolishing
-the teleologiocal (purposal) evolution.
-Pre-Darwin, God's creation and rule of evolution fopr continued improvement.
+Problem of Darwinism was not "man descendant from apes" - it was abolishing
+the teleological (proposal) evolution.
+Pre-Darwin, God's creation and rule of evolution for continued improvement.
 Origin of Species had no goals of God or nature.
 Only environment and organisms were responsible for change.
-Competion for survival producing man was most disturbing.
+Competition for survival producing man was most disturbing.
 
-Analogy of evolution of oranisms and science:  selection by conflict guided
+Analogy of evolution of organisms and science:  selection by conflict guided
 science revolutions, there was no goal or seeking of ultimate truth.
 
 1. What is about man/nature that makes science possible? (old and unsolved)
-2. Why does science reach firm concesus but other fields do not?
-3. Why should paradign change produce a more perfect instrument?
+2. Why does science reach firm consensus but other fields do not?
+3. Why should paradigm change produce a more perfect instrument?
 
-Proof-type conceptions that explain sciencific growth are evolutionary-like.
+Proof-type conceptions that explain scientific growth are evolutionary-like.
 
-Paradigm: 1. shared beliefs, values, techniques (socialogical)
-          2. examplary rule to solve puzzles
+Paradigm: 1. shared beliefs, values, techniques (sociological)
+          2. exemplary rule to solve puzzles
 
 
 

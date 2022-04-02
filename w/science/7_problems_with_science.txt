@@ -11,7 +11,7 @@ https://www.editage.com/insights/7-major-problems-science-is-facing-a-survey-ove
       researchers: 1. hype results to get published
                    2. focus on particular data & manipulate designs to make results attractive
    Biomedical “p-hacking”: report only those hypotheses that end in statistically significant results.
-   Published results are inincentivized; significant & waste of money and resources.
+   Published results are incentivized; significant & waste of money and resources.
 
 3. Lack of replication studies
    Most scientists; “crisis of reproducibility” is real. Inherent problems in studies also hinder replication, such as
@@ -35,8 +35,7 @@ https://www.editage.com/insights/7-major-problems-science-is-facing-a-survey-ove
    Problem of increasing subscription fees especially in developing countries.
      --> unauthorized access (Sci-Hub) to almost all paywalled papers.
 
-6. Adequate and accurate science communication
-   Communication gap between the scientific and the non-scientific community
+6. Adequate and accurate science communication gap between the scientific and the non-scientific community
      --> miscommunication, divided opinions, and lack of informed decision-making
    Researchers responsible; no time/inclination.
      --> media dependence, likely to misconstrue facts.

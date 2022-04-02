@@ -10,7 +10,7 @@ Enable SSH with git
                                    >user >settings >SSH-and-GPG-keys
 
 Blacklist time-wasting websites;
-  for example example news.google.com
+  for example news.google.com
     1. Windows edit:
          C:\Windows\System32\drivers\etc\hosts
        add:
@@ -57,6 +57,6 @@ Block adult websites
   for userId/password use admin/password
   In Parental-control, Manage-sites add for example:
     https://www.bad.com
-  But there are too many web sites to add!
+  But there are too many websites to add!
   Alternative, change DNS server, see:
     https://www.opendns.com
