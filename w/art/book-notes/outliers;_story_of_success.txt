@@ -1,7 +1,7 @@
 Outliers - the story of success  by Malcolm Gladwell        🗓 2008
 
 Intro:
-   1896 Italians in Roseto Pesssylvania were outliers in longevity/lack of heart disease.
+   1896 Italians in Roseto Pennsylvania were outliers in longevity/lack of heart disease.
    diet studies not relevant - church, social support/activism - 2,000 population 22 civic organizations
    Goal: find explanation of outliers
 
@@ -13,10 +13,10 @@ Intro:
    Older kids in same grade typically score higher.
 
 2. 10,000 rule
-   Bill Joy - Sun Microsystems founder - 1970's practiced 24/7 coding in new timesharing computer with a defect
-    (pentering k for time requested) that allowed hime to bypass time limit & practice for 10,000 hours.
+   Bill Joy - Sun Microsystems founder - 1970's practiced 24/7 coding in new time-sharing computer with a defect
+    (entering k for time requested) that allowed him to bypass time limit & practice for 10,000 hours.
 
-   Lennon/MacCartney played from 1957, 1960 while in High school played in Hamburg - Liverpool agent was in Londo
+   Lennon/McCartney played from 1957, 1960 while in High school played in Hamburg - Liverpool agent was in Londo
    by chance talked to Hamburg club owner - may connections in Hamburg - had alcohol & sex and played all night.
    Lennon: in Liverpool/Hamburg played for 1/8 hours.  Hamburg 7 day/week 3 times for 106/92/48 nights.
 
@@ -36,7 +36,7 @@ Intro:
 
 3. Trouble with geniuses, part 1
    Christopher Langan IQ 195, Einstein 150
-   Psychology professor Lewis Terman: foun 1,470 students with IQ > 140 (the Termites), thought they were destined...
+   Psychology professor Lewis Terman: found 1,470 students with IQ > 140 (the Termites), thought they were destined...
      some became famous authors... others failures --> intellect & achievement is not correlated !
      achievement dependent on family!
    education, money, longevity ∝ IQ  (proportionality stops at IQ 120)
@@ -57,12 +57,12 @@ Intro:
            bitter and angry of missing the intellect energy ""in the air";
            Harvard is great resource if he was to be work there - but is glorified corporation, they care about
            being big shots, if you accept a paycheck you have to go along - (he has it backwards!)
-           Published Cognitive-Theoretic Model of the Universe (CTMU) 2002
+           Published "Cognitive-Theoretic Model of the Universe" (CTMU) 2002
               prove the existence of god/afterlife using math;
               "can't afford to let logical approach to theology be prejudiced by religious dogma"
            Worked menial jobs - bouncer, rancher ... married chess champion
-           Supports 9/1t abler1 & white genocide conspiracy theories, (9/11 was Bushes distraction to CTMU)
-           against interracial marriages, dog whistle anti-semite, alt-right champion.
+           Supports 9/11 & white genocide conspiracy theories, (9/11 was Bushes distraction to CTMU)
+           against interracial marriages, dog whistle anti-Semite, alt-right champion.
            walked when 3 months old, read at age 3.
            at 50's has horse farm, read books, think of problem before going to bed and dreams of the answer
            reads Chomsky; says better to get the "original source"....
@@ -82,9 +82,11 @@ Intro:
        Practical/IQ intelligence is learned-from/given-by family
        Richer people have more practical intelligence.
    Rich to middle-class/poor parenting  (or high/low education):
-      heavily involved; concerted cultivation/natural growth accomplishment
-      learn teamwork, customize interaction, entitlement/good behavior, less whiny, distrust, submissive
-      well-dressed, alert, poised/no tso..
+      1. heavily involved; concerted cultivation/natural growth accomplishment
+         learn teamwork, customize interaction
+         /good behavior, less whiny, distrust, submissive
+      2. well-dressed, alert, poised / not so..
+    Langan: "have not anyone able to comprehend things more than me"
 
 5. Three Lessons of Joe Flom
    1. Advantage of being Jewish (underdog)
@@ -97,4 +99,156 @@ Intro:
        1930's demographic trough; lowest birthrate - kids grow up with more attention more college choices and
        more lawyer-job opportunities to service later baby boomers
        ---> sense of possibility comes from inside us, out parents, and time
-   3. Garment indust
+   3. Garment industry
+       East European Jews, prohibited from owning land, were shopkeepers, dress makers...
+         makers - coming to America and "worked like madmen at what they knew"
+         came right time with right skills - in 3 years had 20 people working for them
+           form 1880 to 1950 more clothes make in NY than any other place
+           in the world; 16,000companies
+         had autonomy, complexity, connection of effort and reward
+         type of work, not money, fulfills people
+         hard work is a prison sentence if it does not have meaning
+         By seeing the entrepreneur parents, children learned how to assert.
+           and become lawyers doctors...
+         But garment workers was brutal - worked 84/week average
+         Oppenheimer's father was a clothes manufacturer
+       Italians Irish did not have urban skills - were laborers
+       Mexican became feudal workers in Mexico
+    Success is not random - lots of precedents to become a lawyer.....
+      culture, generational/family history
+
+6. Legacy - Harlan Kentucky
+,    Howard/Turner feud has dozens killed;
+       mother told gunshot victim to die like a man, and he did
+     Similar in other towns; up to 2 hour battles of 100 men; after civil war
+       > 1,000 murder cases
+     "Culture of honor": a violence pattern - not isolated feuds
+       in rocky infertile lands; Sicily, Basque - herders not farmers
+       herds easily stolen, but crops; fight aggressively for reputation
+       --> man's reputation is his livelihood  & self-worth
+          stone thrown on his herd requires violent response
+       Scottish-Irish immigrants were at home in lawless southern borderlands
+       South homicides - murder and victim know the reason
+         no "stranger" killings
+     Weary of racial/ethnic stereotypes: want to believe we are no prisoners
+       of ethnic history.
+       But understand Kentucky killings -need to go back 400-500 years in Britain
+          --> look at cultural legacies
+    Michigan Univ. experiment:  confederate calling students ass hole.
+      Facial anger, cortisol, firm handshake, hypothetical revenge story response,
+      were different for southern than northern students
+          Southerners, not herdsmen, not from Kentucky, not herdsmen,
+          parents were Coke-Cola executives
+    Success depends on: where/when born, parents, how you grew up
+      AND traditions/attitudes from fore-bearers
+
+7. Ethnic theory of plane crashes
+     In real low-fuel emergency, co-pilot is nonchalant (mellow) ,a uses
+        "mitigated speech" - downplay when polite, embarrassed, or deferential
+           to authority; reduce the cockpit "power distance index"
+        Most crashes happen when captain instead of first officer is flying.
+      Korean Air: removed from Delta partnership, not used US military,e
+         threatened to be blocked from Canadian airspace, Korean president
+         switched to Asiana (other Korean airlines)
+         Crew becomes assertive too late; only when disaster stare at the face
+      Crew resource management: eliminate mitigation; teach junior offers to
+        communicate clearly and assertively; in steps:
+        1. "Captain I am concerned.."
+        2. "Captain I am uncomfortable.."
+        3. "Captain I believe that is no safe.."
+        4. take-over
+        ---> Better do not use "captain":
+             Captain and 1st officer should call each other by first name!
+        Tower: Is it OK with your fuel?
+        Co-pilot: I guess so. Thank you very much. (before crash)
+           Cause: pilots were Colombian (high PDI) - intimidated by Tower....
+     Hofstede psychologist worked for IBM, asked people how they solved
+       problems, how they worked together, how to deal with authority....
+       --> "individualism-collectivism scale";
+          USA (no health care) 91
+          --> Guatemala 6
+       --> "uncertainly avoidance"
+          Greece (most likely to stick to rules, regardless of cost)  100 -->
+              Singapore (best ambiguity tolerance) 8
+       Personality is on top tendencies/assumptions/reflexes handed down to us.
+       Danes Belgians: very close but different history, food, in uncertainly avoidance
+       "power Distance index": afraid to speak up to managers
+          low PDI country: Austrian prime minister uses street car
+          high PDI France, Belgium not so...
+          French (higher PDI) have more managers, pay them more than Germans
+          Malaysia (104), Guatemala (95) ---> Israel (13),  Austria (11)
+       Korean: 6 levels of addressing: 1 formal deference, 2 informal deference,
+         3 blunt, 4 familiar, 5 intimate, 6 plain
+         Lower rank: wait to sit down, eat, smoke, hide drinking glass,bow;
+         "There is order even in drinking cold water"
+         Superior: I kind of hungry [why don't you buy me something]
+         Inferior: How about a drink {i will buy a drink for you}
+       West/Asian communication is transmitter/receiver oriented;
+         speaker must be clear / listener must listen carefully
+       Korean air solution: English mandatory in the cockpit;
+         give crew opportunity to transform their work & they took it.
+       1994 Boeing published correlation of accident rates and PDI;
+         "we are not saying there something but we think there is something";
+         ignoring cultural disposition causes plane crashes
+
+8. Rice Paddies and Math Tests
+     "night soil" (human waste) traditional fertilizer
+     rice is life in south China
+     China, Japan, Korea: transparent math
+        ten-on, ten-two instead of eleven thirteen
+        --> kids learn to count sooner - easier to do 37+22
+         "out of 5 parts , take 3" instead of 3 fifths
+     China, Japan, Korea, Singapore 98% percentile
+     England, Germany...  26%-36%
+     Korean culture, not good for flying airplanes, good for math...
+     Rice paddy: as big as hotel room
+        skill oriented - weed, fertilize, water, keep clay-pan
+        (in Kalahari, gather Mongongo nuts instead of farming)
+        10x to 20x more work than wheat/corn
+        meaningful & complex, like NY garment industry, WO feudalism
+     Feudal Russia: "If God does not bring it, the earth will not give it";
+        fatalism, pessimism
+     China: "hard work, shrewd planning and self-reliance or corporation
+             with small group will in time bring recompense"
+            "no food WO blood & sweat"
+            "in winter lazy man freezes to death"
+            "no one who rises before dawn 360 days/year fails to be rich"
+     Moth more about attitude, doggedness, persistence than ability
+     Ability to excel math test, and answer questionnaire is same.
+       --> know the math score if you know how hard one works
+           (rice agriculture culture; Japan...top MIT students from south China)
+     American/American Japanese 1st graders worked 9.5/14 minutes on puzzle
+
+9. Marita's Bargain
+     Early education:in summer, 35 students/class;
+        published "Relation of Education and insanity"
+        tried to reduce time studying to protect the mind
+        effort balanced with rest
+     Rice paddy gets nutrients from water - more used the better
+     Wheat gets nutrient from soil - soil left fallow to recover
+     Similar for education
+     rich/poor 1st graders similar test scores
+        ''     5th graders have 6% achievement gap
+       --> June/September tests:
+          poor students same or better / rich students better
+          --> rich/poor kids do/do-not learn in summer
+    US/Korea/Japan school year: 180/220/243 days (260 max; 5/12 Japan/US vacations)
+    No school problem but summer vacation problem
+      KIPP (knowledge is Power Program) schools brought rice paddy to US
+        7:30AM - 5:00PM,  5:00-7:00PM optional
+        Saturday 9:00-1:00, Summer 8:00-2:00  incentives/rewards/discipline
+        Extra time for more relaxed atmosphere
+        Long commute - 12-yr olds wake up before 5:30, may go sleep at 11:00
+        Bargain:
+          free time --> school time --> college (80% of KIPP students)
+        success = opportunity + willingness to get it
+
+    Students do not need shiny school, phd teachers, big apartment, high IQ..
+      need only a chance, & knowing meaningful work
+
+10. Jamaican story
+      White with black concubines, have mulatto kids, ruthless to black slaves
+      Darker members of mulatto families kept out of way
+        White and light totem pole
+        Mother would disowned darker daughter
+      outliers products of  history, community, legacy, opportunity, chance

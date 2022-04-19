@@ -1,9 +1,12 @@
 apps/almanac/sky.html
+apps/browser_check/broweser_check.html
 apps/browser_extensions/popup.html
+apps/culture/cultural_dimensions.txt
 apps/gps/position.html
 apps/gps/position_test.html
 art/book-notes/bury_my_heart_at_wounded_knee.txt
 art/book-notes/outliers;_story_of_success.txt
+art/book-notes/tipping_point;_little_things_make_big_difference.txt
 art/book-notes/tyranny_of_merit_what_has_become_of_the_common_good.txt
 art/links/articles_and_websites.html
 art/links/books.html
@@ -25,6 +28,7 @@ art/lists/words;_good,_bad,_ugly.txt
 art/lists/words_internet.html
 art/lists/words_known_by_male_female.txt
 art/lists/words_new.txt
+art/notes/how_to_write_think_an_learn_clearly.txt
 food/__book-notes/fast_food_nation_the_dark_side_of_american_meal.txt
 food/__book-notes/secret_life_of_groceries;_dark_miracle_of_american_supermarket .txt
 food/__health/belly_fat.txt
@@ -106,6 +110,7 @@ science/psychology/psychological_tests.txt
 science/psychology/teens.txt
 tech/cmds;_git.txt
 tech/cmds;_ide.txt
+tech/computer_tool_links.html
 tech/future_technologies.txt
 tech/largest_computer_chip.txt
 tech/problems;_other.txt
@@ -116,5 +121,4 @@ tech/python_features.txt
 tech/tmp.python_built-in_functions.html
 tech/tmp.python_data_structures.html
 tech/tmp.python_keywords.html
-tech/tool_links.html
 tech/windows_and_browser_key_shortcuts.txt

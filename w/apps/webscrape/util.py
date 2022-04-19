@@ -6,17 +6,21 @@ def get_country(domain):
     country = '' if country is None or domain == country else country
     return country
 
-def get_domain(link):
+
+def get_host_and_domain(link):
     if ' href="http' not in link:
         raise ValueError(link + ' does not contain: href="https')
-    i = link.find('//') + 4
+    i = link.find('//') + 2
     j = link.find('"', i)
     i2 = link.find('/', i, j)
     if i2 < 0:
         i2 = j
-    i = link.rfind('.', i, i2) + 1  # http://www.overv.eu/
-    domain = link[i:i2]
-    return domain
+    fields = link[i:i2].split('.')
+    host = fields[len(fields)-2]
+    domain = fields[len(fields)-1]
+
+    return host, domain
+
 
 DOMAINS = {
     'ac': 'Ascension Island',

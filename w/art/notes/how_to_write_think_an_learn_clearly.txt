@@ -1,0 +1,111 @@
+Write/think/learn more clearly           Michael A. Covington
+http://www.covingtoninnovations.com/mc/WriteThinkLearn.pdf
+
+why write more clearly?:
+  to influence people
+  get clearer thinking
+  to know what you know
+
+Myths:
+  1. writing is mostly fiction
+     fact: most writing is for information
+           done be people that do not like fiction
+  2. need to memorize grammar rules
+     fact: Grammar is not the problem
+           if you know what you are trying to say.
+           Language is inborn, comes before grammar;
+           do not need to classify language parts.
+           Need ~3% of grammar book
+
+How to write:
+  1. Unselfish perspective
+     Do what is easy for reader
+     Write because reader is important
+     Not demand reader to put up with
+       your spelling/organization/sloppiness
+     Package info to enter your head as easily possible
+  2. Too complicated --> do it in steps:
+      1. Plan - what and how to write
+         Why write?
+         To who? -
+           if one gave you this info, how should it be
+         What does reader know/expect/want?
+         How to organize it?
+           Like a machine design or computer program
+             every section with purpose
+               with sub-sections/sub-purposes
+           May take random list of ideas and sort them.
+           No need to write sections in order;
+             may write intro last
+         What is the style/format requirements?
+      2. Draft - write once
+           not elegant/perfect
+           to get it off your brain
+           no worry with grammar/spelling
+           focus on what and how
+           3 rules : 3x "Get to the point"
+           State main point before the reasoning
+             (no detective story)
+             Main point in first paragraph sentence;
+               lot people read only that.
+           KISS: use clearest/simplest language
+             no stuffy/big words
+             no word that you know exactly
+      3. Revise - write it better
+           fun/easy with computers
+           better ways to put ideas into words
+           pretend to be your own worst enemy
+           can anything be misunderstood?
+           remove needless words
+           n words --> n^3 processing time
+             “One of the best things you can do for yourself
+              to improve your writing is to learn how to cut
+              out words that are not necessary.” (25) -->
+             "To improve your writing, cut out unnecessary words." (8)
+      4. Edit - spelling, grammar
+           computer does not know best
+           be better speller:
+             recognize related words
+             pronounce words carefully
+      5. Format - layout, fonts..
+          KISS
+          only standard layouts/practice
+          no meaningless variation - avoid distraction & looking stupid
+          2-3 fonts with clear purpose
+          do not get reader's eye to anything other than main point
+          do not mix “smart”/"straight"  quotes
+          reader expects format change means something
+
+2. How to think
+  1. Language (philosophy of) or other symbolic representation
+     How to know if you know what a word means?
+       know "dog" because you can see it among other things
+       we have imprecise meanings
+         maybe usable:
+            So and so has lots of elms (I cannot identify elms
+              but trust other people to do so)
+            Want "object-oriented database":
+              rely on authority of making a fool of oneself
+       should know meaning
+    How to know what a sentence means?
+      --> know if it is true or false
+      "all dogs are brown" --> find if all dogs in world are brown
+  2. Logic
+       "Murder is wrong": cannot be proved true/false by physical tests
+          (it is not neither of meaningless)
+        "There are undetectable elves here" : meaningless; true/false meaningless
+          "Everything happens exactly the way it was fated to happen"
+          deep sounding and as meaningless
+  3. Epistemology
+       (theory of knowledge;
+        the investigation of what distinguishes justified belief from opinion)
+       How to get knowledge by observation
+         goal: believe/disbelieve what is true/false
+       Scientific method is a part of epistemology
+       Form belief based on knowledge:
+         1. propose a belief (hypothesis)
+            (something worth knowing - not a waste of effort)
+         2. try to confirm if
+         3. try to disprove it
+       Conjecture (guess) --> opinion supported by evidence
+         --> firm belief, thoroughly tested
