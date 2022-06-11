@@ -1,0 +1,366 @@
+Daniel Kahneman  Princeton psychology professor  🗓 2011
+Priming effect below, according to 'science fictions' book cannot be replicated.
+H
+ow many others are irreplicable?
+
+Intro:
+  Goal to enrich vocabulary & discussion of judgment/choices of others
+    --> understand biases of intuition in others & ourselves
+  example: "hallo effect" for the bias to favor handsome/confident speaker;
+            easier to anticipate, recognize & understand
+  People are natural grammarians, but qualified no statisticians
+    even professional statisticians are not good intuitive statisticians
+  Steve is shy and withdrawn - is he farmer or librarian;
+    bias for librarian; but framer more likely because 20x more common
+    --> resemblance is the simplifying heuristic (rule of thumb)
+    heuristic:  mental shortcut to quick & efficient solutions/judgments
+  1. What is rate divorces - ease of memory search; people you know.
+  2. Adultery more common in politicians? power is an aphrodisiac & away from home
+     no so - more reports on politician than doctors - reporter's choice
+     1. & 2. --> availability heuristic
+  1970's social science: 1. people are rational with sound reasoning.
+                         2. fear, hate... emotions are not rational
+  Now: irrational thinking caused by faulty cognition not emotions
+  "Judgment under uncertainty: Heuristics & biases" outside psychology:
+     medical diagnosis, legal system, intelligence analysis, philosophy,
+     statistics, military strategy, economics
+     Mind is susceptible to systematic errors
+  "Prospect Theory: Analysis of decision under risk":
+     behavioral economics
+  Expert accurate intuition due to prolonged practice not heuristics.
+    but not always; stockbroker using affect heuristic (like/dislike WO reasoning)
+                    replace complex question with easier one
+  Neither (fast) expert or heuristic solution --> switch to slow deliberate thinking
+
+______________________________PART 1 TWO SYSTEMS________________________________
+1. Characters of the story:
+   Fast/slow: picture of angry person/multiplying 2 numbers --> System 1/2;
+     No effort, no control, impulsive / effort, concentration, algorithmic, lazy
+   System 1:
+     detect object distance
+     orient to source of sound
+     complete sentence "bread and ___"
+     make disgusted face when shown something horrible
+     drive car on empty road
+     understand simple sentences
+   System 2:
+     brace for starter gun in race
+     focus on circus clowns
+     search memory to identify sound
+     tell your phone number
+     fill out a form
+   Limited budget of attention;
+     car passenger stop talking when driver is passing truck
+     "invisible gorilla": intense focusing makes you blind
+       1/2 people do not see gorilla in video
+   Most of what you think (system 2) originates from system 1
+   Have both visual illusion & cognitive illusions;
+     Patient shares with you mistakes of psychiatric treatment & tells you
+     that you are different  --> do not treat him, he is psychopath
+       Sympathy coming from system 1 not controllable
+       System 2 was trained to reject it
+   Train system 2 to recognize when system 1 mistakes are likely;
+     easier to see others mistakes than own
+
+2. Attention and effort:
+  Limit: Add 3 to each digit of a number: pupils +50% and heart rate +7beats
+  Make if harder person gives up & pupils shrink
+    "cognitive pupillometry" --> measure system 1 activity
+  "law of least action" : physical & mental
+  System 2 uses "task sets" and adopts/terminates them via "executive control"
+  Ability to to switch tasks involving memory indicates general intelligence
+  Ability to control attention predicts performance of pilots...
+
+3. The lazy controller
+  If walking & asked to multiply numbers will stop, sitting better than standing
+  but not slow thing is intense...
+  "Flow": deep effortless concentration, loose sense of time, place, self, problems
+          --> pure joy; "optimal experience"; painting, motorcycle riding, writing book...
+  Challenged with cognitive task & temptation
+    (multiply number and offered chocolate/fruit, will choose chocolate;
+     System 1 more influence on behavior when system 2 is busy and has sweet tooth)
+  Cognitive busy --> likely to give to temptation, be selfish/sexist/superficial
+  All voluntary efforts (cognitive/physical/emotional) use shared mental energy.
+    energy is glucose
+  "Ego depletion": when forced to use self control, less willing to do it again
+      emotional effort reduces physical performance
+      select carrot instead of chocolate, reduces cognitive performance
+      undone by eating sugar; verified with glucose/splenda drink between tasks
+      tired
+      /hungry judges grant fewer paroles
+  Self control depleting (conflict) tasks:
+    inhibit emotions to a movie
+    make choice involving conflict
+    trying to impress others
+    interact with person of different race
+  Markers of depletion:
+    deviate from  ones diet
+    impulsive buying
+    be provocative or aggressive
+    persist less time in hand-grip task
+    perform poorly in cognitive test
+  Bat and ball problem:
+    Bat and ball cost $1.10
+    Bat costs one more dollar than ball
+    How much ball costs
+      50% MIT student wrong (lazy) ($0.10), 80% of other students wrong
+      System 1 wrong endorsed by lazy system 2
+  Rose problem:
+    all roses are flowers
+    Some flowers fade quickly
+    Thus some rose fade quickly
+      majority students wrong System 1 (true)
+  How many murders/year in Michigan?
+    will underestimate if miss to note Detroit, blame system 1 & 2
+  4-year old's - One cookie now, or 2 cookies in 15 min
+    more self-control --> more intelligent as young adults
+    Experiment: improved self-control --> improve intelligence months later
+  Intelligent: switch tasks quickly & efficiently
+  Rational: non-lazy system 2 ; engaged
+
+4. Associative machine
+  Look at:   Bananas  Vomit        (Associative activation)
+    --> experience automatically unpleasant images/memories via System 1
+    react physically - cognition is embodied - think with brain & body
+  Association: concrete, abstract, noun, verb, adjective, or clenched fist
+    ideas are node in network; virus-->cold, banana-->fruit
+    one idea activates others, only few are registered
+  Marvels of priming:
+    Hear wash/eat fill so_p as soap/soup - primed for other related .../...
+    Florida or ideomotor effect:
+      Reconstruct sentences containing: gray, Florida, wrinkled, bald, forgetful
+      and walk to next class room --> walking was slower
+      Reverse: walk 5 min 1/3 normal pace --> quicker to recognize old, lonely....
+    hold pencil with teeth tip pointing out (smile) rate cartoon funnier
+      parallel to lips (frown) rate cartoon less funny
+    if you nod/shake head --> more likely to accept/reject opinion
+      "act calm and kind regardless of how you feel"
+  Primes that guide us:
+    Voting for school funding increases if polling done in schools
+    Money primed people (dollars in screen saver)--> individualism;
+             try harder, more selfish, be alone, 38 cm further apart
+  "I made myself smile and I feel better"
+
+4. Cognitive ease
+     when relaxed, trust intuition, familiar situation
+     Repeated experience, clear display, primed idea, good mood ---> ease
+        --> feels: familiar, true, good, effortless
+   cognitive strain: vigilant, suspicious, make less errors, less creative/intuitive
+   Illusions of remembering:
+     see a random name, a few days later it will be  more familiar with out
+       remember why, if names are blurred it will be clearer
+   Illusions of truth:
+     Repetition will make people believe in falsehood, because familiarity is
+       not easily distinguished from truth - dictators/marketers know this
+       example: repeated exposure to "body temperature of chicken" more
+         likely to agree that it is 144 F
+   How to write persuasive message:
+     use bold, bright blue/red, simple, rhyming
+     --> because system 2 is lazy, stay away from anything difficult
+     (message still has to make sense...)
+     if motivated can overcome superficial factors that create illusion of truth
+   Strain and effort:
+     cognitive strain mobilizes system 2; a poorly legible riddle
+   Please of cognitive ease:
+     Investors believe that stock with fluent names earn higher returns
+     Mere exposure effect: more repeated words/pictures are more favored
+       even when shown quickly & observers are not aware of them
+       similar with animals - biological effect that improves survival
+     cognitive ease --> positive emotion
+   Ease mood and intuition:
+     Unhappy & uncomfortable --> poor intuition (system 1)
+     Clusters:
+      1. good mood/intuition/creativity/gullibility/reliance on system 1
+      2. sadness/vigilance/suspicion/analytic approach (system2)
+   Familiarity breed likes
+   Good mood --> strong/weak system 1/2
+
+5. Norms, Surprises, and causes
+  System 1 main function: update a model of your personal world;
+    associations that link: ideas or circumstance, events, actions, outcomes
+    notice one strange event, more like to notice others and link them
+    Moses illusion: "how many animals of each kind did Moses take into ark?"
+      Very few people see what's wrong - Noah not Moses...
+        Norm theory: Moses/Noah both in bible, same vowel, same syllables
+          --> cognitive ease  (Moses ---> Bush:  illusion --> joke)
+    "Earth revolves around the trouble every year"
+      --> distinct brain activity in 1/5 sec;  violates the norm
+    News headlines satisfy our need for coherence; large event must have consequences
+    1. Physical causality: do not infer it from repeated observation - see it like color
+      6 month babies do this
+    2. Intentional causality: we identify personality traits & intentions
+      < 1 yr babies can identify bully & victim
+    System 1 has religion built-in; we inherently 1 & 2
+    Mind metaphor: traits/intentions or mechanic regulations (associative machine)
+
+      psychology of causality: no need to be convince they are not real
+
+7. Machine for jumping to conclusions
+  System 1 jumps to conclusions to save time/effort if chance of error is acceptable.
+    Ann approached the bank. - money bank first, but it could be river bank
+      System 1/2 unaware/aware of uncertainty
+  Bias to believe and confirm:
+    Science test hypothesis by trying to refute it
+    System 2 (& scientists) seek data to confirm it; see if it is compatible
+      with beliefs (confirmatory bias of System 1). --> positive test strategy
+  Exaggerated emotional coherence (halo effect):
+    Tendency to like (or dislike) everything about a person including
+    things not witnessed.
+    Halo effect increases weight of first impressions.
+    Grading bias of 2 essay questions: grade of first biased second;
+      correcting grade #1 in all then #2: less happy & confident with grading.
+    Reduce halo effect: de-correlate error; get separate testimony of witnesses,
+      CO executes write their position before a meeting.
+  What you see is all there is (WSIATI):
+    --> coherence (SYS 1) & cognitive ease (SYS 2)to accept statement;
+    consistency matters more than  completeness;
+    people seeing one-sided evidence more confident of decision than seeing both
+    --> 1. overconfidence; story quality instead of evidence quantity/quality
+        2. framing effects: 90% fat free better than 10% fat
+        3. statistical neglect: think meek person as librarian not a farmer
+
+8. How judgments happens
+   System 2: infinite questions/answers form own thoughts or outside.
+             may trigger basic assessments
+   System 1: a. Basic assessments - continuous inside/outside mind; without intention  or effort
+                substituted for difficult questions - heuristics/biases
+             b. translate values across dimensions
+             c. mental shotgun
+   Basic assessment:
+     shaped by evolution for survival
+     good/bad; good mood/cognitive ease --> safe/familiar
+     Friend/enemy: judge stranger: 1. dominance (square chin = threat)
+                                   2. trust (smile = good intentions)
+     Politician pictures rated in competence & likability:
+       Facial competence (strength & trust) rating same as election results
+       Competence rating of TV watchers (info poor) = 3x normal
+     System 1 good/bad for average/sum
+       neglects quantity in emotional context
+   Intensity matching:
+     Intensity/amount dimension(more/less): happiness, popularity, criminal punishment
+     System 1 matches intensity in diverse dimensions;
+       Man's height analogous to child reading at 1.5 years: 7'8'';
+       statistically wrong; System 2 acceptable
+   Mental shotgun:
+     we compute more than we want/need.
+     Finding if word sounds rhyme is slower if words are shown
+
+
+9. Answering an easier question
+   Normal state of mind: intuitive feelings & opinions about everything
+   Substituting questions
+     via mental shotgun & intensity matching
+     if answer to hard question not found, system 1 find a simpler heuristic question
+       Heuristic: procedure to find adequate/imperfect answer to hard questions
+     How happy are with your life? --> What is your mood right now?
+     Lazy system 2 accepts heuristic answer;
+       you may not realize that question was difficult
+   3-D heuristic
+     2-D figures in drawing with vanishing point are substituted with 3-D --> illusion
+   Mood heuristic for happiness
+     Experiment:
+       How happy are you these days?
+       How many dates did you have this month?
+         Correlation of the 2 answers was zero;
+         Reversing order of questions --> high correlation; similar to 2-D illusion
+       Any emotional question that changes mood has same effect
+   Affect heuristic
+     persons like/dislikes determine their beliefs about the world
+       think costs are low and benefits are high
+     system 2 is endorser of system 1; it searches for information consistent
+       with current beliefs
+
+  System 1 characteristics:
+    Impression, feeling, inclination via System 2 --> belief, attitude, intention
+    Operates quickly WO effort or control
+    Can be directed by System 2 to pay attention
+    With training--> skilled intuition/response
+    Creates coherent pattern of ideas in associative memory
+    Links cognitive ease and illusion of truth / pleasant feelings / reduced vigilance
+    Differentiates surprise/normal
+    Infers/invents cause & intention
+    Neglects ambiguity & suppresses doubt
+    Biased to believe & confirm
+    Exaggerates emotional consistency (halo [or non] halo effect)
+    Focuses/neglects existing/absent evidence; What you see is all there is (WSIATI)
+    Creates limited set of basic assessments
+    Represents sets by norms/stereotypes
+    Match intensities across scales - color to loudness
+    Computes more than intended (mental shotgun)
+    Substitutes hard question with an easier (heuristic) one
+    More sensitive to change than state
+    Over-weights small probabilities
+    Less sensitive to quantity
+    Responds stronger to loss than gain
+    Isolates decision problems
+
+_________________________PART 2 HEURISTICS AND BIASES___________________________
+
+10. Small number law
+  System 2 (search)/system 1 (associative) hypothesis for:
+      "Cancer rate is lowest in rural / republican counties"
+        --> clean living not republican
+      "Highest cancer rate is in rural / republican counties"
+        --> poverty/healthcare not republican
+         both cannot be true;
+           rural/republican irrelevant; small population size is relevant;
+           have a statistics not an epidemiology problem
+  Random event has no cause
+    Sets of random events have pattern;
+    Coin tosses HHTT = 6x likely as HHHH or TTTT
+      Getting HHHH (4) = 8x likely as HHHHHHH (7)
+      For heads assign cancer cancer to each person
+         --> extreme cancer rates in small counties; nothing to explain
+             ---> small sampling size artifact
+        You knew, but not well enough, that large samples are more precise!
+  Small number law:
+     law of large numbers applies to small numbers as well.
+     Psychology research: sample size is risk and nuisance;
+       common to have small size with 50% chance to reproduce results
+         reflects intuitive misconceptions
+       statistics textbook authors made same mistakes
+  Bias of confidence over doubt
+    "A poll of 300 seniors - 60% support president": 60% gets attention not 300
+       eager for the story not source of story
+    small number law: bias for certainty over doubt;
+      exaggerate consistency and coherence of what we see
+    cause and chance
+      what is more likely HHHHH HHTHTT? - both same but HHTHTT looks more random
+      Bombing of London did not appear random - tended to cluster...
+      Basketball hot hand: cognitive illusion of players/fans/coaches
+      In 1,655 schools 6 of the top 50 were small
+        --> foundations & government wasted money on small school programs;
+            did not know that worst schools had same chance.
+   Stories behind small number law:
+     1. see only message instead of info (reliability) about message;
+        prefer simpler/coherent world view
+     2. wrong causal explanation of random (statistical) events
+
+11. Anchors (numbers)
+  Anchor effect: consider particular value of unknown before estimating it.
+    price willing to pay effected by asking price
+    Any number asked to consider triggers the the anchor effect
+  Anchoring as adjustment
+    start from anchor, then adjust - typically premature because of mental depletion
+  Anchoring as priming effect
+    suggestion & anchoring --> System 1 associative coherence
+  Anchor index
+     "is height of redwood less than 1,200 feet" "what is its height?"
+       1,200 --> 180; guess 844 --> 282 ; (844-282)/(1,200-180) = 55%
+     Real estate agents/business students effected by listing price 41%/48%
+     Environmentalists for no-anchor/$5/$400 contribution, gave 64/20/143
+       (143-20)/(400-5) = 30%
+     Random anchors as effective as informative anchors because people cannot
+       distinguish between the two.
+     Judges rolled loaded dice with 4/9, asked if sentence would be less or more
+       they sentenced 5/8 months; 50% anchoring
+  Uses and abuses of anchors
+    priming or insufficient adjustment --> gullibility
+    Marketing ploy: rationing; 12 limit --> for people to buy more
+    House seller makes fist move with listing price
+    Capping lawsuit wards helps large companies/offenders
+    Think the opposite to counter anchor effects
+  Thought behavior influenced by unaware stimuli (priming effect)
+  Aware of anchor but unaware how its effects; "how free are you?"
+
+

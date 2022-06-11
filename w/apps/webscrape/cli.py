@@ -2,9 +2,10 @@
 from tkinter import LEFT
 
 import twiv_picks
-import hacker_news
 import dictionary_look_up
 import tkinter as tk
+
+from apps.webscrape import hacker_news
 
 
 def main():
@@ -25,8 +26,8 @@ def add_widgets(root):
     b.place(x=x0, y=i * dy, width=350, height=30)
 
     i += 1
-    b = tk.Button(root, bg='#b1ffa3', command=hacker_news_sort.main,
-                  text="Hacker news; sort last week's links")
+    b = tk.Button(root, bg='#b1ffa3', command=hacker_news.main,
+                  text="Hacker news; scrape new for one week")
     b.place(x=x0, y=i * dy, width=350, height=30)
 
     i += 1

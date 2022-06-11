@@ -1,9 +1,13 @@
-The tipping point, how little things can make a big difference  by Malcolm Gladwell        🗓 2000
+The tipping point, how little things can make a big difference  by Malcolm Gladwell     🗓 2000
+(Principles of epidemic transmissions
+)
 
 Intro
   Hush Puppies shoes went from couple NY hipsters to every mall in America in 1996.
-  Within 5 years, in 1997, NY murder rate dropped 65%
-    --> products ideas behave like virus epidemics
+  Within 5 years, in 1997, NY murder rate dropped 65%, all crime 50%
+    --> products ideas behave like virus epidemics (correlation/causality criticism;
+        disorder / serious-crime relationship
+        is modest)
      (1. contagious behavior
          Yawing - seeing or reading it
       2. little has big difference - geometric progression
@@ -27,11 +31,11 @@ Intro
           (people-disease carriers)
    Similar, but more extreme, to 80/20 law:
      20% of people do 80% of work, 20% cause 80% of accidents...
-   Law of the few: few charmers set social trends
-   Stickiness (in mind): "Winston tastes good like a cigarette should" (as-->like)
-     make contagious messages memorable
-   Power of context:
-       woman attacked & no one called for help - everyone assumed others called
+   1. Law of the few: few charmers set social trends
+   2. Stickiness (in mind): "Winston tastes good like a cigarette should" (as-->like)
+      make contagious messages memorable
+   3. Power of context:
+      woman attacked & no one called for help - everyone assumed others called
    April 18, 1775: boy hears British saying "hell to pay tomorrow";
      same day 10:00 PM Paul Revere rides and warns in Lexington 12:00 AM
      (When Revere died a lot of people attended..)
@@ -46,8 +50,208 @@ Intro
      Friends: proximity; people that do the things that we do - not that they think alike
        --> we do not seek friends, connectors enable us to have friends
      Estimate number of friends/acquaintances: got trough a random list of last names
-  Connectors: have lots of "weak ties"- friendly & casual connections
+
+2. The law of the few:
+  1. Connector: have lots of "weak ties"- friendly & casual connections - persuade
     traits: curiosity, self-confidence, sociability, energy, live (ed) in many worlds
     by instinct can relate to people; "I never met a man I didn't like."
      honest, plain-spoken, decent, powerful
     Person or idea/product closer to connector more power & opportunity
+  2. Maven (expert; information specialists):
+    Price vigilantes; market mavens: know something is not a promotion; socially motivated
+    willing to solve their problem/needs by solving other people's problems
+    teacher/student; educate/help not persuade
+  Non-verbal cues:
+    Newscaster smiled more on Republican candidates --> Republican bias/persuasion
+    People nodding their head as exercise, more agreeable to pay more tuition
+  Cultural micro-rhythm (gesture & conversation):
+    speaker dances to his speech
+    thousands form motions that compels us to respond positively or negatively
+    babies-adults even human-ape interactions
+    Persuader has super-reflex to draw someone into their rhythm; cannot be resisted
+      good speakers/musicians/teachers/salesmen do this
+  3. Sender (salesman):
+     good at expressing emotions
+     "Emotional contagion": infect others with emotions by smiling, frowning...
+     --> like carrier of disease; other people are more susceptible
+   Affective communication test:
+     high scorers transferred their emotions to low scorers WO speaking in 2 min.
+   American revolution:
+     started by stable boy,  salesmen, connectors & mavens
+
+3. Stickiness factor:
+   Sesame street: learning epidemic; antidote to poverty/illiteracy epidemic
+     if you hold attention of children to educate them
+     shows tested with distracter slide show- Escher drawings, rainbows...
+       goal 85 to 90% attention
+       3 min sketches
+       did not like 2 people speaking at once
+     Defied psychologists by mixing reality/fantasy to hold attention
+     Eye tracking showed kids focuses more on letter than Muppet - no so with Oscar
+     Pay attention to material structure and format to increase stickiness
+   stickiness: quality of message - memorable
+   direct marketers, teachers, managers: stickiness students
+   Average American exposed to 254 messages/day;
+   Clutter problem: makes messages harder to stick
+   Blues clues: improvement of sesame st.
+     removed adult jokes, kept attention longer, used repetition
+     same show 5 times a week - kids repeated watching understanding more each time
+     order clues for suspense
+   The quality of the idea is not what makes an impact - nuanced packaging does
+
+4. Power of Context - part 1; NY crime
+   Broken windows theory:  People assume no one cares, will break more windows
+     --> graffiti, public disorder, aggressive panhandling embolden criminals
+     put in practice in NY:  train graffiti (3 night job) painted over when finished
+        fare cheaters handcuffed and daisy-chained for public display
+          bus converted to police station - quick arrests and screening;
+          criminals left their guns home
+        arrested for peeing
+     ***Elimination of minor quality of life crimes was the tipping point.****
+   Criminals, genetic, dis-functional environment, or amoral upbringing
+     are sensitive to environmental cues
+   Behavior is result of social context
+   Preferences/emotions influenced by newscaster smile, graffiti...
+   Zimbardo's mock prison experiment:
+     Are prisons bad because of people or the environment?
+     First night at 2:00 AM guards made prisoners do push ups
+     Second morning prisoners rebelled
+     Guards became more cruel and sadistic
+     After 36 hours some prisoners being hysterical were released
+     2-week experiment stopped after 6 days
+     Certain situations overwhelm inherent predispositions (genes, upbringing..)
+   Given the ability to cheat, test scores increased by 50%
+     smart or younger or happy family kids cheat less, girls as much as boys
+     cheating dependent on content and situation not time
+     --> lying, cheating, stealing depends on situation, age, intelligence...
+         Counter-intuitive because we think of it as absolute
+   Vervet monkeys very intelligent communicating withe other vervets
+      but no for seeing python tracks, see carcass hanging on tree
+   Fundamental Attribution Error (FAE): we are like vervets;
+     we underestimate overestimate character traits
+     and underestimate situation/context; examples:
+       People shooting baskets in well/poor lit gym....
+       Contestants think questioners are smarter, students vs teachers...
+       Birth order (domineering, conservative vs rebellious..)
+       People rushed on giving a talk were not good Samaritans;
+         context matters more than conviction
+     use shorthand avoid making lots of decisions
+     Character is not what it is - it is what we want it at a time/context
+   Idea epidemic = few people + sticky message + context
+   Peer/community influence more important than family (to how kids turn out)
+   Prison/New York experiments: better off in clean streets
+   If your are in combat situation, rat hole, thoughts/memory/vision is off
+   If you tell seminarian to hurry - he will ignore people in distress
+
+5. Power of Context - part 2; magic 150
+   Small close-knit groups (150 member) magnify idea epidemic
+     Book clubs read & imitated "Ya ya sisterhood"
+     Apostle Paul, Bill Graham, Wesley (created Methodist religion)...
+   Channel capacity: can separate 5 high pitch and 5 low pitch notes, mix them up
+     you can separate only 6, similar sweetness of drinks, remember a number...
+     ---> "The magic number 7" (limitation of nervous system)
+     A list of people whose death would devastate you  ~ 12
+       (limit is time/energy you can think about)
+   Social channel capacity (evolutionary psychology):
+     Size of neocortex is proportional to primate group size. Elephants too.
+     Belong to group of 5:
+       4 relationships with others + (4!/2!(4-2)! = 6 pair relationship of others)
+         =10
+       group of 20:
+         19 + 20!/2!(20-2)! = 19 + 20*19/2 ~ 200
+       4x group --> 20x relationships
+     Dunbar equation: group size ~ size ratio of neocortex to brain; 150 for humans
+       Walbiri of Australia, Tauade of New Guinea, Ammassalik of Greenland,
+       Ona of Tierra del Fuego average village size: 148.4
+       military groups < 200
+       Hutterites (anabaptist Germans --> Russia --> west Canada/US)
+         settlements split after 150 size - under 150 is most efficient management
+     Gore Associates: everyone is associate - no titles
+       founder found above 150/50,000ft^2 things get clumsy
+       peer pressure instead of boss pressure
+     When people know one another they create a joint memory system;
+       transactive memory: groups collectively encode, store, and retrieve knowledge
+         teen is computer expert because he has been assigned to it
+         women childcare experts
+         small hi-tech company - know passion abilities of others
+     to create a large epidemic have to create smaller epidemics
+
+6. Case study - rumors sneakers & power of transaction
+   Diffusion model: adoption of new corn seeds;
+     Innovators --> early adopters --> early majority --> late majority
+   For less sticky things:
+     liberals --> conservatives  (need translation to "diffuse")
+     create rumor; 1045 Chinese visitor asking for directions became  the Japanese spy
+     Memory changes to what is familiar & to what has emotional significance
+       search for meaning --> condense & fill in to get better Gestalt & closure
+   Connectors/Mavens/Salesmen translate innovators for
+    the rest of us.
+   Ad agency: innovator correspondents music, TV shows, clothes, aspirations
+     put same ideas in their ads - Tibet trend --> Tibet monk ad
+     piggy back on social epidemics
+     take cultural cues and level, sharpen them to more coherent
+   Going mainstream ended Airwalk shoe epidemic
+
+6. Case study - suicide, smoking & search if un-sticky cigarette
+   1:5,000 suicide US rate for 15-24 year males,
+     7x in Micronesia - for father yelling, not having graduation gown..
+       in songs, graffiti, T shirts, younger boys want to "try it"
+   contrarian teens smoke when they know smoking is bad;
+     smoking in US is like suicide in Micronesia
+   Suicides: +12% when Marilyn Monroe died
+     local/national suicide news increase local/national suicide & traffic accidents
+     like advertisements - it is Ok to do it
+     Permission for suicide is for specific people & situation
+       Suicide is form of language for a social subgroup
+     Advertisements for depressed persons: news, escape movies, religious sermon
+   Micronesia: suicides of wealthy man who had kids with 2 different women
+     more suicides for similar reasons
+   Hard core smoker: extrovert, takes chances, impulsive, sociable, aggressive,
+     19 year college girls: 15%/55% of non-smokers/smokers had sex
+     Smoking was never coll, smokers were cool
+   chipper: intermittent smoker not addicted to nicotine
+     similar to social drinker - all start as chippers some become heavy smokers
+     From mice studies, hard core smokers more nicotine tolerant;
+       chipper get nicotine pleasure but cannot handle large does
+   contagious/stickiness properties of messenger/message
+   1. Stop smoking contagion:
+      a. prevent the permission givers (the cool) - difficult do not listen
+      b. convince teens to look to adults instead of the cool teens
+         (parents think they influence kids but they do not)
+         Colorado Adoption Project: biological/adopted kids have/do not have
+           parent intelligence & personality
+           --> parents cannot raise us in their image
+           environmental influence is large but nothing to do with parents
+             it is about peers
+             kids of smokers 2x likely to smoke but not because of parent example
+             parents give genes but have no social influence
+             health risks is adult propaganda, but danger attracts teens
+   2. Stop smoking stickiness (forget the smoking salesman - is bad..):
+      Ideal: a nicotine lowering tolerance pill for heavy smokers
+      Actual: nicotine patch, but too slow; drip-drip is not a tipping point
+      a. Smoking linked to depression/psychiatric problems
+         50%/90% of depressed/schizophrenic smoke
+         Prozac (fluoxetine) delays the reuptake of serotonin, letting last longer
+         Nicotine similar with dopamine & neorepinephrine;
+           to smokers is self-medication --> ultimate stickiness
+           Bupropion (zyban)treats depression and enables smokers to quit
+      b. Nicotine addiction: 5 cigarettes/day (5 mg nicotine) 3 years  5 mg nicotine
+         Make cigarettes with 5mg/30 cigarettes
+         Teen can continue smoking & being cool
+         Accept experimentation but ensure that it is safer
+      Boys attempting suicide saw/heard when 8; imitate or experiment late when 11
+        no safer suicide but can have safer smoking
+
+Conclusion
+  Breast cancer awareness program not working in churches
+    worked in beauty salons
+  Solutions not intuitive:
+    big bird same set as adults, limit workers to less than 150
+  We are suggestible by what we see/hear & context
+  Social change is volatile & inexpicable
+  Manipulate:
+    size of group
+    presentation of info for stickiness
+  Find:
+    special people with social power
+  For intelligent action via tipping point

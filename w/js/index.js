@@ -1,4 +1,5 @@
 "use strict";
+
 // Default search button
 document.getElementById('inputText').addEventListener('keypress', function (e) {
   const key = e.which || e.keyCode;

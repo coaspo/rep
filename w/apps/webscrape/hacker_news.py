@@ -7,6 +7,7 @@ non-🦜/\U0001fab5/📰:\\n\\n🦜 twitter/facebook   \U0001fab5 BLOG   📰 ne
 import calendar
 import datetime
 import glob
+import random
 import time
 # import webbrowser
 import bs4
@@ -14,13 +15,18 @@ import requests
 import util
 
 HACKER_NEWS_URL = 'https://news.ycombinator.com/'
-DEBUG = 1
+DEBUG = False
+if DEBUG:
+    print('=== DEBUG IS TURNED ON ===')
+
 MONTH_ABRS = ['jan', 'feb', 'mar', 'apr', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec']
 MIN_POINTS = 200
 
 
 def get_web_page(url: str):
-    time.sleep(1)
+    sec = \
+        random.choice([5,10,20,15,3,8])
+    time.sleep(sec)
     page = requests.get(url)
     html = page.text
     return html
@@ -103,7 +109,8 @@ def get_url_desc(link):
             'npr.org' in link:
         desc += ' 📰'
     if 'java' in link or 'github' in link or 'linux' in link or 'computer' in link or '.net' in link or \
-            '.dev' in link or '.codes' in link or '.engineer' in link or '.software' in link:
+            '.dev' in link or '.codes' in link or '.engineer' in link or '.software' in link or \
+            'apple.com' in link or 'microsoft' in link or 'google' in link :
         desc += ' 💻'
     if '.pdf' in link:
         desc += ' PDF'
@@ -204,7 +211,7 @@ def create_web_page(links, points, comments, prev_file_path, next_file_path, top
     if prev_file_path is not None:
         html += f"<a href=\"{prev_file_path}\">prev</a> &#8198; &#8198;" + \
                 f"<a href=\"{next_file_path}\">next</a> &#8198; &#8198; &#8198; &#8198;" + \
-                "<a href=\"./hacker_news/top_of_all.html\">top of all</a>"
+                "<a href=\"./top_of_all.html\">top of all</a>"
     html += '<pre> \n' + str(top_count) + ' top points:\n'
     collected_links = []
     html = append_lines(html, points, links, ' points \n', top_count, collected_links)
@@ -319,7 +326,7 @@ def date_parameters(month_abr, month_range):
 
 def get_user_input():
     while True:
-        month = input('Enter 1-st 3 ltrs of month: ').lower()
+        month = input('Enter 1-st 3 ltrs or name of month: ').lower()[0:3]
         if month in MONTH_ABRS:
             break
         print('invalid input')
@@ -334,7 +341,8 @@ def get_user_input():
 def main():
     try:
         print('started')
-        month, period = 'apr', 1   # get_user_input()
+        # month, period = 'apr', 1   #
+        month, period = get_user_input()
         file_path, month, day_start, day_end, prev_file_path, next_file_path = \
             date_parameters(month, period)
         links, points, comments = \

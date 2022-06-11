@@ -237,8 +237,7 @@ function showPosition(position) {
     speed:  coords.speed
   }
   document.getElementById("position").innerHTML=
-    'Geolocation'
-        + '\n latitude:          ' + geo.lati
+    'Current geolocation'
         + '\n latitude:          ' + geo.lati
         + '\n longitude:         ' + geo.long
         + '\n accuracy:          ' + geo.accu + ' m'
@@ -255,7 +254,7 @@ function showPosition(position) {
     var prev_geo = JSON.parse(localStorage.getItem("prev_geo"));
     dis = distance (geo, prev_geo)
     document.getElementById("delta_position").innerHTML=
-    ' Change since: '+ new Date(prev_geo.ts).toISOString()
+    ' Change since: '+ new Date(geo.ts).toISOString()
         + '\n  ' + (geo.lati - prev_geo.lati) + '    (' + dis.toLocaleString("en-US") + ' m)'
         + '\n  ' + (geo.long - prev_geo.long)
         + '\n  ' + (geo.accu - prev_geo.accu)

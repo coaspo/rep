@@ -1,0 +1,238 @@
+Science fictions; fraud bias, negligence, and hype by Stuart Ritchie psychologist 🗓 2020
+
+Preface
+  Francis Bacon:
+    Peculiar & perpetual error to be excited more by affirmatives than negatives
+  2011 psychic powers: 1. 49.8%/53.1% correct guesses of boring/porn pictures
+      --> "time traveling porn" in talk shows
+    2. see 40 random words, write as many you remember, show 20 random words
+       students remembered words in the 20 set
+    Non reproducible results could not be published; journal had policy of
+      not publishing previous experiments
+    Bem (author): " I never worried about replication"
+  Science article: "coping with chaos": more prejudice in messier environments
+    "trash --> racism" in the papers
+    suspicions: data too perfect & collected by author not students:
+      Stapel: "I faked data, did not feel shame or regret",
+               printed question sheets & dumped when no one was looking
+  Books/media/heads filled with incorrect/exaggerated/misleading facts
+  Science: Skepticism, rationality, empiricism
+             --> incompetence, delusion,lies, self-deception.
+           Human thing:
+             irrational, bias, attention lapse, group favoritism, cheating
+  Fake science --> Prescriptions, treatments, diets, purchases, public policy
+  meta-science ideas to combat this
+
+1. Ought and Is
+  Science: social construct but best way of finding truth;
+    social --> persuade others of your discovery;
+               persuasion not always rational or objective
+  Letter-writing circle of like-minded peers --> Royal society (1660)
+    Newton 1643-1727
+  Henry Oldenburg: theologian, diplomat, and natural philosopher
+    created modern peer review, published first article in Royal society journal:
+    "Philosophical transactions: Giving accompt (account) of the present undertakings,
+     studies, and labours of the ingenious in many considerable parts of the world"
+       May 1664 Vol 1 Issue 1: Jupiter great spot in 12 ft telescope.. red spot moved
+       Journal renamed "Philosophical transactions of the Royal society"
+         A/B; physical/biological
+  Read journal -> find question -> make hypothesis -> get funding -> test hypothesis
+     -> analyze -> publish (
+                    intro[what is known, what is new],
+                    method [what you did]
+                    results [data, tables..]
+                    discussion [what it means, speculate wildly...]
+                    abstract [not behind a paywall])
+     -> send to journal -> senior academic decides (Science accepts 7%) -> peer review
+      (2-3 scientists, since 1970; Einstein withdrew paper because it was sent to other scientists)
+       rejection reviews: "some are pleasure to read but not this one"
+                          "weak as wet noodle"
+                          "3 claims: know for years, decades & centuries"
+                          "contributes to field's demise instead of its advancement"
+                          "did you have seizure while writing sentence?"
+    -> if rejected resubmit to different journal -> add to CV
+  Review (Mertonian norms) rules:
+    1. universalism: race gender has no effect on facts
+    2. disinterestedness: scientists are not in it for the money/politics/ideology/reputation
+       Darwin - "have no wishes/affections; have heart of stone"
+       NOT SO: competition for grants, prestige...
+    3. communality: knowledge should be shared (published)
+    4. organized skepticism: not is sacred - do peer review
+  Science is self correcting; Planck: "the stubborn take incorrect science to their grave"
+  Replication is the key
+    risk: confusion instead of enlightenment
+
+2. Replication crisis
+  Kahneman priming (Economics nobel for irrationality):
+     press when you see spoon - will be faster is you see fork first
+     similar with concepts - "Macbeth effect": copying unethical story make you buy soap;
+     brain connects morality/cleanliness...
+     --> hand-washing is ritual in many religions
+     "money priming": money in screen saver makes you feel less self-sufficient
+       & less caring for others (play/work alone & physical distance)
+     --> threaten autonomous self-image;  "you should accept for yourself"
+  Reading Florida, old, gray, wise & then walking more slowly (1996, 5K citations)
+    Not repeatable in 2012; used infra-red beams instead of stop-watches
+    Same for the Macbeth effect
+  Kahneman 6 years after "Thinking Fast & Slow" book
+    admitted "ideas were weaker than what I believed";
+    damage done: people believed Nobel Laureate that they had no choice but believe
+  Harvad's Amu Cuddy TED talk 2012 "power posing" increases/decreases testosterone/cortisol
+    before interview expand arms/legs;
+    "2 min power pose changes outcome of your life"
+    "presence" book, UK conservatives politicians used it
+    2015 not reproducible
+  1971 Zimbardo's prison / 1960's  Milgram's obedience experiments:
+    NOT replicated but
+    used in Abu Ghraib trials
+    Zimbardo gave sadistic instructions
+  2015: 39 of 100 replication were reproduced
+  2018: 62% of Nature/Science social experiments reproduced
+    lot more had exaggerations
+    (867 Pope Stephen dug up predecessor Formosus tried him & found him guilty)
+  Failed replications continued in textbooks & cited
+    --> Replication crisis
+  Known replications/problems:
+    2016 microeconomic: 61% replicated
+    2018 neuroscience MRI experiments 90% due to image/statistical software
+    Evolutionary psychology - domestication of Russian foxes exaggerated
+      - sexual selection of birds - putting red band on foot...
+    2020 Marine psychology - acidification does not effect fish behavior
+    Organic journal rejected 7.5% of submission because of failed replication
+    0.1%/1% of economics/psychology articles were replications
+  Failed reproducibility (use same data set)
+    tax policy vs economic growth - 22/67 reproducible, same data
+    geoscience 37/39
+    machine learning recommendations 7/18
+  Lack of reproducibility --> 1. downgrade science reputation
+    2. medical research cannot be disputable
+  11%, 20% of Pre-clinical (mice/human cells) replicated
+    3.4% of preclinical drugs are approved
+  1/268 biomedical papers had have enough replicability info
+    54% did not identify animals, chemicals..
+    45% of authors did not collaborate
+  "medical reversal": treatments based on non-replicable drugs
+  'bispectral index monitor' in 40 million operation on 2007
+    did not do anything for 'anesthesia awareness' - feeling pain
+  Practices based on invalid science:
+    1. Caesarean for twins is safest - no difference
+    2. Children under 3 & breast feeding mothers avoiding peanuts - made worst
+    3. Cooling heart arrest patient - no difference, may lead to 2nd heart attack
+    4. Early mobilization and platelet transfusion for stroke patients - made worse
+  45% of Cochrane reviewed treatments do not work
+  ~ 1/2 pre-clinical research is treatable, $28 billions/year wasted
+  52% researches think there is a replicability crisis
+  90%/80%/70% of chemists/biologists/physicists-engineers experienced this
+  "Why most published research findings are false" - many ways can go wrong
+  Trachea (windpipe) repair: transplant, plastic, stainless steel, collagen, glass
+    all failed
+    Macchianiri's: seed donor's trachea with recipient's stem cells before implant
+      so that it was not rejected by the immune system (2008);
+      (later related to Honk-Kong regenerative medicine center)
+      2011 first successful operation -> published paper WO patient dying,
+      but patients died 3 months to 2 years after operation,
+      Doctors became suspicious - university called police on them for privacy...
+      2015 - report of guilty of scientific misconduct - on 7 papers
+      Lancet editorial proclaimed innocence
+      2016 Vanity fair: Macchianiri's romance with NBC reporter while married
+        TV documentary 'the experiment'
+        Head rolls: Karolinska vice-chancellor, dean of research,
+                    chair of university board, member of Nobel committee
+        Macchianiri fired/moved to Russia to do esophagus (food-pipe) work
+      2017 Russia cut funding
+      2018 manslaughter charges
+      --> 1. trust in the science data/reports...
+          2. trust in the institutions
+          3. see no evil / denial attitude to science
+    1974 dermatologist claimed to solve rejection problem by using black marker on white mice
+    1961 fake picture of toxoplasma gondii (encephalitis/blindness) in chicken egg
+    2004 South Korean Hwang cloned human, 2005 first human stem cell lines embryos
+      first cloned animal - a dog; "hope of the world - dream of Korea"....
+      used identical pictures for different cells
+      people protested his persecution and he continues to work on stem cells
+      (dog clone was real, everything else fake)
+      more money spent chasing fake science than Hwang embezzled
+    Southern blots - detect DNA sequence - faked by Japanese scientist
+      fellow scientist hanged himself for not double checking results
+    6% of published papers had fake pictures
+    man is orderly animal; cannot imitate randomness in nature
+      neat data --> fraud flag
+    Paper retraction reasons: conflict of interest, forged authorship, misconduct, sabotage of ma
+    Retraction Watch leaderboard - worst offenders;
+      32 men, 1 woman, more likely Indian, Chinese, struggling with funding
+      100% of acupuncture trials were effective
+      Yoshitaka Fujii #1
+    Fraudster: young, smart, ambitious in biology/medicine
+               believe that they are injecting truth
+    2001 physicist Schon published 9/7 Science/Nature articles on carbon transistor
+      rumors of Nobel prize, after getting caught:
+      "I made mistakes.. lack of credibility ... believe effect is real"
+    Poehlman - obesity researcher fake data for 10 years- jailed
+      hormone replacement injections as menopause therapy
+      now works as academic adviser
+    zombie papers - cite retracted papers
+    1998 vaccine study by Wakefield: 12 children MMR (Measles, Mumps, Rubella)
+      causes autistic enterocolitis - 3 vaccines too much to handle
+      fabricated facts;
+        1. retained by lawyer to sue vaccine makers
+        2.applied for patent in his single does measles vaccine
+      paper funded by special trustees
+        Lancet (encourages flashy findings) retracted it after 12 years
+      Wakefield banned pacticing in UK, create Vaxxed film with DeNiro in US
+      2018 - 140,000 people died from measles
+      People still do not know who to trust
+
+4. Bias
+  "Science commits suicide when it adopts a creed" Huxley
+  1840 Morton found skulls of European can contain more mustard seeds
+    --> scientific racism
+    1978 review of his data: shook European skulls more, selected more males;
+      prior assumptions of white supremacy
+  Science journals - news bias; "finding something" instead of "what happened";
+    Positive versus null results: highest psychology 91.5%
+      true positive - neglect false positive, false negative, true negative
+    Scientists decide whether to publish
+      but any good hypothesis should be published
+  Publication bias or 'file-drawer problem' (where null results are kept)
+  p-value (probability value): distinguish effect from chance/errors
+    (sampling/measurement errors)
+    Statistical z,t,chi tests
+    "if hypothesis is false, probability that noise gives your results"
+    p-value=0.03 for male/female height; if no height difference, 3% for height >=10 cm
+  p-hacking
+    do multiple tests
+     and keep low p values
+  1920 Fisher - statistically significant (signal not noteworthy) threshold = 0.05 (arbitrary)
+    CERN Higgs boson 5 sigmas - p-value=0.000 000 3 (3x10^-5% that it was noise)
+    0.05 used - "discontinuous mind" - black/white in mind versus gray in nature
+    similar to when: becoming adult, species evolves, 17-degree tops-off
+  True effect? (vaccine preventing death, climate change and crop yield..)
+   Meta analysis:
+     Effect size: effected by sampling measurement errors
+       cannot rely on one study - meta analysis better than single study
+       Sampling versus effect (cone shape scatter - high sample size --> accurate effect size)
+          Publication bias dropped small sample/ small effect
+             Ad hoc rationalization if this is dropped; small sample/ large effect should be dropped
+             like archaeology - the dropping gives you info
+             --> Confirmation bias (interpretation is based on belief/desire)
+             Exaggerates & misleads
+             31%/91% medical-journals/cancer-articles have publication bias
+  Wansink: make healthy choices by adding elmo stickers to apples
+    shop when not hungry.... retracted; p=0.06 asked
+      p-hack: get it below 0.05
+        over-fit; model randomness
+          --> useless treatments/false hope
+    resigned from Cornell
+    Power posing author admitted p-hacking and in Twitter was a hero
+  65% psychologists admitted to p-hacking
+  30% biomedical researchers interpreted statistics based on expectations
+  32% economists select empirical  findings that support argument
+  publication bias, p-hack;
+    erase data that does not fit theory
+    "chrysalis effect": difference of thesis & published article
+  "lost in math": non-testable string theory
+  "outcome switching": a study of height versus obesity --> obesity vs TV time
+  Since 2005, human trials registered before starting
+    15% reported what they planned to report
+  Money bias: 1/3 of medical registered trials by pharmaceutical companies
+  Reputation bias: books, speeches based on good results

@@ -3,18 +3,21 @@ import requests
 import json
 
 DICTIONARY_URL = 'https://api.dictionaryapi.dev/api/v2/entries/en/'
-DEBUG = True
+DEBUG = False
+if DEBUG:
+    print('=== DEBUG IS TURNED ON ===')
 
 
 def get_user_word_input():
-    print('\n__Enter word(s) \
-      \n____add dash (-) prefix to first word to suppress example/origin,\
-      \n____hit Enter twice when done,\
-      \n__Or enter a non-letter and Enter to exit.\n')
+    print('\n  Enter word(s) \
+      \n    add dash (-) prefix to first word to suppress example/origin,\
+      \n    hit Enter twice when done,\
+      \n  Or enter a non-letter and Enter to exit.\n')
     words = []
     definition_only = False
     while True:
         line = input()
+        print ('===', line)
         if line == '' or (len(line) == 1 and not line[0].isalpha()):
             break
         if line[0] == '-':

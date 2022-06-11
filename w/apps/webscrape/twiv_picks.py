@@ -6,6 +6,10 @@ import requests
 from bs4 import BeautifulSoup
 
 TWIV_URL = 'https://www.microbe.tv/twiv/weekly-picks/'
+URL_BLACK_LIST = ['microbe.tv', 'virology.ws', 'nyti.ms', 'twit.tv', 'facebook.com']
+DEBUG = False
+if DEBUG:
+    print('=== DEBUG IS TURNED ON ===')
 
 
 def is_bad_link(url):
@@ -84,7 +88,6 @@ def create_pick_link_dict(links):
                    ('.net', 'NET'),
                    ('.org', 'ORG'),
                    ('.edu', 'EDU')]  # .com is filtered out
-    url_black_list = ['microbe.tv', 'virology.ws', 'nyti.ms', 'twit.tv', 'facebook.com']
     soup = BeautifulSoup('', 'html.parser')
     blacklist_count = 0
     non_existant_count = 0
@@ -92,7 +95,8 @@ def create_pick_link_dict(links):
     for link in links:
         url = link['href']
         url_desc = link.get_text()
-        print(url)
+        if DEBUG:
+            print(url)
         if is_url_blacklisted(url):
             blacklist_count += 1
             continue
@@ -166,6 +170,8 @@ def find_country(url):
     i = url.rfind('.', i, i2) + 1  # http://www.overv.eu/
     domain = url[i:i2]
     country = util.get_country(domain)
+    if DEBUG:
+        print ('url:', url, 'country:', country)
     return country, domain.upper()
 
 
@@ -173,7 +179,8 @@ def is_url_blacklisted(url):
     url_black_list = ['microbe.tv', 'virology.ws', 'nyti.ms', 'twit.tv', 'facebook.com']
     for black_url in url_black_list:
         if black_url in url:
-            print('   site is blacklisted; ', black_url)
+            if DEBUG:
+                print('   site is blacklisted; ', black_url)
             return True
     return False
 
@@ -228,7 +235,6 @@ def main():
 
 if __name__ == "__main__":
     print('Script creates html files with links from TWIV picks\n',
-          'Each file contains one type of URLs - for example; NEWS, BOK...\n',
-          'Script blacklists facebook and some web sites of no interest\n',
-          'which use javascript')
+          'Each file contains one type of URLs - for example; NEWS, BOOK...\n',
+          'Script skips urls: ', URL_BLACK_LIST )
     main()
