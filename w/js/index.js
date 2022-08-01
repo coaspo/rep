@@ -103,8 +103,9 @@ function browseUrl(url, name = "_self", txt) {
     text = latitude + ',' + longitude
   }
   url = url.replace('zzzz', text)
-  if (text.trim().length == 0):
+  if (text.trim().length == 0) {
     url = url.replace('site:org OR  site:edu', '')
+  }
   console.info('*browse() url= ' + url)
   const win = window.open(url, name);
   win.focus();
