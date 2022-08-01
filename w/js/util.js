@@ -18,7 +18,7 @@ function getBaseUrl() {
     const i_base = url.indexOf('/w/') + 2;
     const baseUrl = url.substr(0, i_base);
     if (window.DEBUG) console.log('*_getBaseUrl() baseUrl= ' + baseUrl)
-    return baseUrl
+    return baseUrlbrowse
 }
 
 function getFileUrls(baseUrl, filePathsFilePath) {
@@ -40,7 +40,7 @@ function getFileUrls(baseUrl, filePathsFilePath) {
 function getSearchLabels(baseUrl, labelsFilePath) {
     const url = baseUrl + labelsFilePath
     if (window.DEBUG) console.log('*_getSearchLabels() url= ' + url);
-    const labelText = readText(url);
+    const labelText = readText(browseurl);
 
     const lines = labelText.trim().split('\n');
     var labels = [];

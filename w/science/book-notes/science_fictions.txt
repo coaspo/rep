@@ -23,7 +23,9 @@ Preface
   Fake science --> Prescriptions, treatments, diets, purchases, public policy
   meta-science ideas to combat this
 
-1. Ought and Is
+PART I ======================== Ought and Is  ==================================
+
+1. how science works
   Science: social construct but best way of finding truth;
     social --> persuade others of your discovery;
                persuasion not always rational or objective
@@ -58,6 +60,7 @@ Preface
        NOT SO: competition for grants, prestige...
     3. communality: knowledge should be shared (published)
     4. organized skepticism: not is sacred - do peer review
+    (Merton father of modern sociology)
   Science is self correcting; Planck: "the stubborn take incorrect science to their grave"
   Replication is the key
     risk: confusion instead of enlightenment
@@ -124,7 +127,11 @@ Preface
   52% researches think there is a replicability crisis
   90%/80%/70% of chemists/biologists/physicists-engineers experienced this
   "Why most published research findings are false" - many ways can go wrong
-  Trachea (windpipe) repair: transplant, plastic, stainless steel, collagen, glass
+
+PART II ====================== Faults and Flaws  ===============================
+
+3.Fraud
+   Trachea (windpipe) repair: transplant, plastic, stainless steel, collagen, glass
     all failed
     Macchianiri's: seed donor's trachea with recipient's stem cells before implant
       so that it was not rejected by the immune system (2008);
@@ -194,8 +201,18 @@ Preface
     Scientists decide whether to publish
       but any good hypothesis should be published
   Publication bias or 'file-drawer problem' (where null results are kept)
-  p-value (probability value): distinguish effect from chance/errors
-    (sampling/measurement errors)
+  p-value: probability of results given that the null hypothesis is true
+    (distinguish effect from chance/errors)
+    p <= α  reject null hypothesis (HO)
+    p > α fail to reject HO
+      α: significance level (5% typical);
+         probability of rejecting HO if it were true;
+            make type I error:
+              Reject HO when there is no effect (false positive); p-value optimistically small.
+            (type II: Not reject HO when there is effect (false negative). The p-value is pessimistically large.
+    Statistical power:
+      probability of correctly rejecting HO - avoid type II error
+      (too many studies are small)
     Statistical z,t,chi tests
     "if hypothesis is false, probability that noise gives your results"
     p-value=0.03 for male/female height; if no height difference, 3% for height >=10 cm
@@ -236,3 +253,361 @@ Preface
     15% reported what they planned to report
   Money bias: 1/3 of medical registered trials by pharmaceutical companies
   Reputation bias: books, speeches based on good results
+  How can doctors/patients trust medical literature?
+  Biases --> group think
+    Alzheimer's amyloid plaque are symptoms not cause  - amyloid hypothesis was wrong
+    amyloid hypothesis proponents bullied dissenters
+  Psychologists are 10:1 liberal:conservative --> political bias; not so in other fields
+  Stereotype threat: girls reminded that boys are better in math
+  sexism in science: women representation in science
+                     use male mice instead of female because of hormones....
+                      (even though depression, PTSD 2x for women)
+  Everyone is biased; no one has view from nowhere;
+     feminist science- another blurred door to look through
+
+5. Negligence
+  Physics ->laws, Math -> proofs, Social science -> 'stylized facts'
+    example: more education --> higher income
+             2008 finance crisis: debt/GDP > 90% --> economy shrinks
+                                  (Reinhart, Rogoff; solution: austerity)
+                  mistake corrected growth -0.1% to 2.2%
+                  politicians used invalid stylized fact
+  1. statcheck (like spellcheck) 30K psychology papers: 50% had errors, 30% serious errors
+  2. GRIM (granularity-related inconsistency of means) test:
+      20 1-10 ratings have average increments of 0.05; 50% papers failed it
+      Classic 'cognitive dissonance' paper failed GRIM test
+  3. Randomness test: Top fraudster, Japanese anesthesiologist Yoshitaka Fujii hsd synchronized age,
+    height & weight distributions - odds are 1:10^21
+  Detailed analysis may catch more fraud - 26% psychologist willing to share data
+  Misidentified cell lines (unknown contamination):
+    32K papers, 500K citations; oncology has most
+    46% Chinese cell lines Misidentified
+    decades old; lackadaisical biologists still do not use DNA tools
+  Moral case:
+    1. peoples' lives
+    2. needless animal suffering/killing
+  0.7% of papers tell how they decided on sample size
+    1. open ended data - add & keep collecting until p < 0.05
+    2. no statistical power (small sample)
+       good statistical power: need 20 people for male/female height study
+                               46 for weight study
+  Small sample size problem (exaggeration):
+    economics,brain imaging, nursing, behavioral ecology, psychology
+    most effects are small &  need large size
+    justifications:
+      graduate students need to publish to be competitive
+      small grant money
+      make do with what you have
+      well-intentioned, forced to compromise
+    negative knowledge - better not to have done it
+  Most phenomena is made up of small effects - say economic income
+  Candidate gene studies:
+    specific genes linked to depression, cognitive ability (2000's)
+    cheaper DNA sequencing -.> genome wide association study (GWAS)
+      more statistical power --> got null results
+    detailed and false description of unicorns & big-foot
+    small samples --> large false effects
+    1918 complex traits (say intelligence) are polygenic
+    research gone extinct
+  Scientist know better, statistics, blinding, cell contamination
+    but continue to make mistakes
+
+6. Hype
+   GFAJ-1 (Give Felisa a job) bacteria discovered in Mono lake (NASA astrobiology)
+     Mono : 90 grams salt /liter, 9.8 pH. 200μMarsenic
+     arsenic life;  phosphorus to arsenic in DNA, truth bacteria is arsenate resistant
+     definition of life extended; life detected in Titan
+     contamination: arsenic fed to bacteria had phosphorus
+     Wolfe-Simon switched from research to teaching, NASA damaged
+     NASA hyped it to get more funding
+   Hype types
+     1. unwarranted advice
+          example: specific exercise; too simplistic
+     2. cross-species leap
+          90% of mice results do not apply to humans
+     3. correlation is not causation (elementary statistics)
+          IQ correlated with coffee
+     40/36/33% of press releases, respectively
+     6.5/20/56x hyped by news, respectively
+   Churnalism:
+     time pressed journalists repeat press releases
+     50% of media health studies are replicable
+       meta-analysis not covered by media;
+       hyped science flies, refutation limps after it
+   Book hype (worst); Stanford/Yale/Berkeley:
+
+     1. Growth mindset
+         believe if work hard brain power will improve
+         "Mindset: the new psychology of success" by Carol Dweck 4.6 rating in Amazon
+           57% of teachers got training
+           1% of grades variation correlated or caused after training --> weak effect
+             no shortage of science arrogance
+         Politicians/teachers make it panacea for education
+           money could be better spent
+     2. Priming idea to change behavior
+        Prime idea of elderly makes you walk slower - not replicable
+          10 years later:
+          "Before you know it: the unconscious reasons we do what we do" 4.6 stras in Amazon
+     3. "Why we sleep" 4.6 stars
+          TED talk "sleep is your superpower"
+          min 8 hour/day; less sleep --> short life, weak immune
+            No evidence for it
+   Race to bottom: let facts slide for good story
+   Pop-science: complex problems have simple causes & fixes
+   Science abstracts:
+     'innovative', 'promising', 'robust', 'unique', 'unprecedented'
+     positive word rate increased 9x in 40 years
+     papers fail to indicate non-significant results
+       put spin: fairly significant (p=0.09)
+       35/47/83% of cancer prognosis/obesity-treatments/antidepressants
+         failed to report limitations
+   spin -> fraud:
+     7% of Chinese randomized trials were randomized
+   hype --> simple story --> dumb down to get funding
+   Hype fields:
+     stem cells, genetics, epigenetics, machine learning, brain imaging
+        microbiome:
+          Clostridium difficile treated with fecal transplant
+          and (!) for treating obesity, depression, cancer, Alzheimer's, autism
+            mice autism study --> press release..
+          Products:
+            drinks with microbes found in athletes
+            'colonic irrigation' 16 gallons of water thru rectum
+            tests for 'microbiome nationality'
+     Nutrition (constant hype):
+       Resveratrol (red grape skin) Dipak Das, director of cardio research,
+          19 forged studies, was fired
+       Eating less/more saturate/unsaturated fat failed meta-analysis in 2017
+         small sample, not randomized, bad design
+       'Is everything we eat associated with cancer':
+          50 random items from cookbook - 80% associated with cancer
+       2013 Mediterranean diet in New England Journal of Medicine
+         not randomized - one diet per family
+         retracted and replaced in 2018 with stronger evidence (?)
+           tracked only strokes
+           stopped earlier because of good results
+    hype prone: what to eat, how to educate children, how to talk
+    Neutrino experiment:
+      neutrinos got 60.7 nsec faster than light from Germany to Italy
+      press release with caution
+      some media hype
+      faulty fiber connection
+      experimentt chairman lost no-confidence vote & resigned
+
+
+PART III ====================== Causes and cures ===============================
+
+7. Perverse incentives
+  2017 California wildfire cleanup - contractors paid by ton to clear debris
+     they used wet mud, excavate holes, 3.5 million to fill holes
+  others:
+    incentives for journalist to reward revenue not original reporting
+               teachers - school ranking - not learning
+               politician - vote gain - not long term solutions
+  Why people become scientists for love of science and behave badly?
+    incentive to obsess with publication
+  Darwin last true scientist from trips & letter correspondences
+    now cannot keep up with 400K/2.2M biology/science studies/year published
+    8% increase per year, double every 9 years
+  Chinese cash incentive to publish
+    same in Korea, Turkey,Qarar, Taiwan, Italy, UK, Australia...
+  University hiring based on publications
+    tenure - job for life
+    universities ranked & funded based on publications
+    "publish to get taxpayer money or perish"
+    grant money for salaries, equipment, buildings....
+  Mathew effect (good servants rewarded more; rich get richer...)
+    scientific grants given to whoever had grants before
+    --> others forced to hype
+    long CV is its own reward
+  Publish or perish: productivity incentive
+    but no so: speed- accuracy trade off
+    more and faster --> less accuracy
+  1. Salami slicing:
+    for cash, professor published 279 crystal articles in 5 years in same journal
+      similar to cleaning up wet debris, or the Status Quo band
+    GWAS (genome wide association study) for psychiatric illness:
+       23 papers instead of one - one for each chromosome pair
+    tactical salami slicing:
+      private clinical trials in multiple papers to make results look good
+      and reach more doctors (in different journals)
+      duloxwtine 2 papers white-black, white-hispanic
+  2. Fake journals
+    Potemkin (Potemkin build village to show Catherine the great) journals:
+    pay to publish then have a tainted reputation
+  3. Peer review fraud
+    Scientists can suggest reviewers for their paper;
+      fraudster suggested himself with different name or colleagues in different accounts
+    Harm is reduced; 10%-30% papers have no citations after 5 years
+  h-index: h papers each has been cited at least h times
+    google updates h-index in scholar page in real time
+    h5-index is h-index in last 5 years
+
+  4.self-citations
+    1/3 of all citations in first 3 years - gray area
+    editor resigned because of too many self-citations
+  5. cite suggestions from anonymous peer reviewer - 29% to reviewer's own work
+  6. self plagiarism - reuse published paper - whole or part
+     or simply rename and publish in different journal
+     60% authors plagiarized 10% or more
+  7. impact factor fixing:
+    average citations of recent articles in a year
+    help librarians pick journals
+    to increase it, journals publish editorials citing their publications
+  8. coercive citation
+     in peer review demand citations of papers published in same journal
+     20% scientist experienced this
+  9. citation cartels
+     review articles cite articles in specific journals
+  Goodhart's law:
+    when a measure becomes a target it stops being a good measure (British economist)
+  Scientists:
+    Be au fait (to the point) with statistics and play the metrics game
+  publish incentives --> science degradation (motive fits crime)
+  publishing models:
+    evolutionary - large CV for job vs flamboyant behavior to attract mates
+    by cognitive scientist & ecologist
+      virtual labs - reproduce when the publish false positives
+      natural selection of bad science
+    other model:
+      given preference for novelty, do may small studies to publish many papers
+
+8. Fixing science
+   2018 meta science paper on 105 trials of FDA approved antidepressants:
+     53/52  positive/negative (null) or questionable
+     literature laundering:
+       1. publication bias; 52/25 of the 53/52 published
+       2. p-hacking, outcome switching  10 of 52 change to positive
+       3. spin in abstract of 10 of 15 remaining of the 52 negative
+          5 of 52 remained negative
+       4. citation bias; positive trials cited 3x as negative
+   how to save science from scientists? (BBC documentary)
+     1. name/shame fraudsters
+          universities have little incentive
+            independent misconduct investigation
+     2. algorithms to spot fake data
+        automate statcheck, GRIM, plagiarism check
+     3. automate paper writing (rmarkdown); data and text to create paper
+        eliminates negligence
+        Need some manual checking;
+          Excel auto-correct changed MARCH1 gene to date
+     4.create journals specializing on null results;
+        Emphasis of 'groundbreaking' leaves holes instead of building in the ground
+        but:
+          2002 Journal of negative bio-medicine results shut down in 2017
+          --> alternative mega journals (plos one) that publish both positive & negative
+            (remains to be seen if it will work)
+     5. make researchers that publish responsible to publish replications
+          you break it you own it
+          meta scientists watching replication publications
+     6. p-hacking (p 0.05 is arbitrary)
+          abandon statistical significance? - report error for all numbers
+            all science may become like nutrition science
+          use Bayesian statistics
+             use prior evidence
+          change significance to 0.005; reduce false positives
+            but sample size needs to increase
+     7. collect data and give it to statistician
+           run all analysis that can be run on data set (near infinite?)
+             'specification curve analysis' or 'multiverse analysis'
+             requires supercomputer
+             do it for screen time; include TV, games, gender, grades...
+               combinations in hundreds, thousands or millions
+               some effects were good, bad or neutral - average was weak negative
+                 similar to well-being and wearing glasses
+                 --> look beyond screen time to explain mental health
+          does not prevent cherry picking
+     8. Preregister analysis plan
+          (Preregistration of clinical trials is mandatory since 2000)
+          Ulysses pact - tie yourself to mast before hearing Sirens of p-hacking
+          allows accidental discoveries but prevent spin of being planned
+            (penicillin, Viagra discovered accidentally)
+          clarifies if data used exploratory or confirmatory
+          55% or trials were late in reporting results (broke the law)
+            --> need enforcement ; hold 10% of money before publication...
+          Registered report:
+            peer review registration & journal will publish no matter what the results
+            gets publication bias & p-hacking with one stone
+            --> Open Science; data & analysis on line
+                Exceptions... details remove in paper of making H5N1 (bird flu)
+                    more contagious in 2011
+          Team science; particle physics & genetics
+             (elimination of candidate gene false positives)
+      9. European 'Plan S (shock)' tax funded research to be open access
+         researchers pay to publish in Science Nature
+         not supported by US, publishing companies...
+        Journals 'rent seek' - more profits without more value;
+          State pays for research, reviewers do if for free, state buys back
+            the published product
+      10. Reduce hype;
+          Pre-prints: post on-line before peer review, started in physics & economics
+            peer reviewers grade paper, journal become curators/amplifiers instead of gatekeepers
+            Low quality used by media...
+            will not stop Wakefield'sd MMR (measles-mumps-rubella)
+            study...
+          happens because most science is boring
+      11. Reduce funding arms race
+            better rewarding, eliminate research parasites (only analyze data)
+            lottery for funding
+      12. Reasons to work reproducibly:
+          1. open data --> easier to spot errors
+          2. automation --> easier to write paper
+          3. open analysis --> easier to convince reviewers
+          4. documented analysis --> good for 'future you'
+          5. make everything available --> build your reputation
+    Mertonian nobility:
+     universalism, communicalism, disinterestdness, organized skepticism
+     veruss
+     hype, jealous guarding of data, corner cutting, prestige hunting, fraud
+   What if climate change is a hoax and we create a better world for nothing?
+   What if replication crisis is a hoax, and we create better science for nothing?
+
+Epilogue
+  Marvels
+    First picture of black hole
+    Gene therapy for 90% of cystic fibrosis
+    Teleportation in a diamond
+    Nano particles gives mice infrared vision
+  Frauds
+    Duke medical researcher falsified data in39 papers worth $200 million
+    Reckless researcher contaminates lab but refuses to resign
+    Anti-plagiarism algorithm finds 70K Russian language papers published 2 to 17 times
+    US biophysicist coerced authors he edited to cite his papers
+  Welcome global monitor; positive attitude in science:
+    72% overall
+    93% in Australia & New Zealand
+    48% Africa
+    65% Central America
+  Royal Society motto: nullius in verba - take nobody's word for it
+    Reagan - trust & verify
+    There is no alternative medicine - only the one that works
+    There no open science - only science or unverified science
+  Lysenko
+    https://www.theatlantic.com/science/archive/2017/12/trofim-lysenko-soviet-union-russia/548786/
+      illiterate until 13, barefoot scientist
+      head of Soviet agriculture, hated genetics
+      Marxist idea that the environment alone shapes plants and animals
+      “educate” Soviet crops to sprout at different times of year by soaking them in freezing water
+      bragging about growing orange trees in Siberia
+      plant seeds very close together, since according to his “law of the life of species,”
+         plants from the same “class” never compete with one another.
+      forbade all use of fertilizers and pesticides
+      convert the empty Russian interior into vast farms
+      forced millions of people to join collective, state-run farms
+      killed at least 7 million people 1932 to 1933
+        China in the late 1950s, had 30 million deaths
+      called fruit fly researchers fly lovers and people haters.
+      epigenetics which can pass from parent to child
+        and science mistrust enabled his comeback
+      47% Russians in 2017 approved Stalin
+      US Lysenkoism:
+        global warming on the right
+        GMO hysteria, "blank slate" human nature on the left.
+      Politicians
+        US - creationism
+        Italy - anti-vax
+        S. Africa - HIV & AIDS
+        India - stem cell technology in ancient India
+        Scotland - GMO ban
+    Science:
+      human activity with human failings

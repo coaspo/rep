@@ -7,6 +7,7 @@ non-🦜/\U0001fab5/📰:\\n\\n🦜 twitter/facebook   \U0001fab5 BLOG   📰 ne
 import calendar
 import datetime
 import glob
+import os
 import random
 import time
 # import webbrowser
@@ -19,14 +20,14 @@ DEBUG = False
 if DEBUG:
     print('=== DEBUG IS TURNED ON ===')
 
-MONTH_ABRS = ['jan', 'feb', 'mar', 'apr', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec']
+MONTH_ABBRS = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec']
 MIN_POINTS = 200
 
 
 def get_web_page(url: str):
     sec = \
-        random.choice([5,10,20,15,3,8])
-    time.sleep(sec)
+        random.choice([5, 10, 20, 15, 3, 8])
+    time.sleep(sec)  # spoof webscrape detection
     page = requests.get(url)
     html = page.text
     return html
@@ -36,6 +37,7 @@ def parse_web_page(html: str):
     soup = bs4.BeautifulSoup(html, 'lxml')
     table = soup.find_all('table')[0]
     links = table.findAll('a', {"class": "titlelink"})
+    [print('====', x) for x in links]
     is_last_page = len(links) < 30
     descs = table.findAll('td', {"class": "subtext"})
 
@@ -57,40 +59,51 @@ def extract_points_and_comments(comments, descs, links, points):
         point_spans = descs[i].find_all('span', {"class": "score"})
 
         if len(point_spans) == 0 or 'ycombinator.com' in links[i] \
-                or 'http' not in str(links[i]):
+                or 'https' not in str(links[i]):
             print('    removed; no points/https;', str(links[i])[1:50])
             del (descs[i])
             del (links[i])
             continue
-        point = int(point_spans[0].text[:-7])
-        if point < MIN_POINTS:
-            print(f'   removed link {point} < {MIN_POINTS}(min)')
+        if point_spans[0].text[:-7].isdigit():
+            point = int(point_spans[0].text[:-7])
+            if point < MIN_POINTS:
+                print(f'   removed link {point} < {MIN_POINTS} min pts, {links[i]}')
+                del (descs[i])
+                del (links[i])
+                continue
+        else:
+            print(f'   * removed  {links[i]} no points in: {point_spans[0].text}')
             del (descs[i])
             del (links[i])
             continue
-        points.append(point)
+
         txt = str(descs[i])
         i_end = txt.find('comments') - 1
         i_start = txt.find('>', i_end - 20) + 1
-        comment = int(txt[i_start:i_end])
-        comments.append(comment)
-        links[i] = str(links[i]).replace('class="titlelink" ', '')
-        i += 1
+        if txt[i_start:i_end].isdigit():
+            comment = int(txt[i_start:i_end])
+            comments.append(comment)
+            points.append(point)
+            links[i] = str(links[i]).replace('class="titlelink" ', '')
+            i += 1
+        else:
+            print(f'   ** removed  {links[i]} no comment in: {txt}')
+            del (descs[i])
+            del (links[i])
+            continue
 
 
 def get_url_desc(link):
     host, domain = util.get_host_and_domain(link)
     desc = ''
-    if host == 'facebook' or host == 'linkedin' or host == 'twitter':
-        desc = '🦜'
-    elif host == 'youtube':
-        desc = '🎞️'
-    elif '.edu' in link:
-        desc = '🏫'
     desc += host
     if domain != 'io':
         desc += '.' + domain + ' ' + util.get_country(domain)
 
+    if host == 'facebook' or host == 'linkedin' or host == 'twitter':
+        desc = '🦜'
+    elif '.edu' in link:
+        desc = '🏫'
     if 'blog' in link:
         desc += ' 🪵'
     elif 'nature.com' in link or 'scien' in link or 'sci-news' in link or \
@@ -110,10 +123,10 @@ def get_url_desc(link):
         desc += ' 📰'
     if 'java' in link or 'github' in link or 'linux' in link or 'computer' in link or '.net' in link or \
             '.dev' in link or '.codes' in link or '.engineer' in link or '.software' in link or \
-            'apple.com' in link or 'microsoft' in link or 'google' in link :
+            'apple.com' in link or 'microsoft' in link or 'google' in link:
         desc += ' 💻'
     if '.pdf' in link:
-        desc += ' PDF'
+        desc += ' 📄'
     if 'video' in link or 'youtube' in link:
         desc += '🎞️'
     return desc.strip()
@@ -125,7 +138,7 @@ def get_url_legend(html):
         legend += '🦜 twitter/facebook'
     if '🪵' in html:
         legend += '   🪵 BLOG'
-    if '🎞️' in html:
+    if '🎞' in html:
         legend += '   🎞️ youtube'
     if '🏫' in html:
         legend += '   🏫 .edu'
@@ -133,6 +146,8 @@ def get_url_legend(html):
         legend += '   🧪️ science'
     if '📰' in html:
         legend += '   📰 news'
+    if '📄' in html:
+        legend += '   📄 PDF'
     if '💻' in html:
         legend += '   💻 computer'
     return legend
@@ -143,6 +158,7 @@ def scrape_ycombinator_links(month, day_start, day_end):
     links = []
     points = []
     comments = []
+    day_start = int(day_start)
     for day in range(day_start, day_end + 1):
         publish_date = f'{year}-{month:02d}-{day:02d}'
         print('Scraping', publish_date)
@@ -184,6 +200,30 @@ def annotate_links_i(links_i, comments_i, points_i, publish_date):
         links_i[j] = link
 
 
+def is_gossip_or_computer_related(link):
+    return '🦜' in link or '🪵' in link or '📰' in link or '💻' in link \
+           or 'apple.com' in link or 'gitlab' in link
+
+
+def find_page_title(link):
+    if '.pdf' in link:
+        return ''
+    i_start = link.find('https')
+    i_end = link.find('">', i_start)
+    url = link[i_start:i_end]
+    try:
+        page = requests.get(url)
+    except Exception as exc:
+        return 'INVALID URL'
+    html = page.text
+    soup = bs4.BeautifulSoup(html, 'lxml')
+    titles = soup.find_all('title', limit=1)
+    if len(titles) == 0:
+        return ''
+    title = titles[0].get_text()
+    return title
+
+
 def append_lines(html, sort_order, links, sfx, max_link_cnt, collected_links):
     zipped = zip(sort_order, links)
     links_sorted = list(zipped)
@@ -191,13 +231,19 @@ def append_lines(html, sort_order, links, sfx, max_link_cnt, collected_links):
     # if DEBUG:
     #     print('    ---append_lines; links_sorted 1:\n     ', links_sorted[0:1])
     i = 0
-    is_non_etc = sfx == '\n'
+    filter_gossip = sfx == ''
     for x in links_sorted:
         link = x[1]
-        if is_non_etc and ('🦜' in link or '🪵' in link or '📰' in link or '💻' in link):
+        if filter_gossip and is_gossip_or_computer_related(link):
             continue
         if link not in collected_links:
-            html += link + ', ' + "{:,}".format(x[0]) + sfx
+            labeled_link = link
+            title = find_page_title(labeled_link)
+            if title in labeled_link:
+                title = ''
+            else:
+                labeled_link = labeled_link.replace(title, '...')
+            html += labeled_link + ', ' + "{:,}".format(x[0]) + sfx + ' ' + title + '\n'
             collected_links.append(link)
             i += 1
             if i == max_link_cnt:
@@ -214,13 +260,13 @@ def create_web_page(links, points, comments, prev_file_path, next_file_path, top
                 "<a href=\"./top_of_all.html\">top of all</a>"
     html += '<pre> \n' + str(top_count) + ' top points:\n'
     collected_links = []
-    html = append_lines(html, points, links, ' points \n', top_count, collected_links)
+    html = append_lines(html, points, links, ' points', top_count, collected_links)
 
     html += '\n' + str(top_count) + ' top comments:\n'
-    html = append_lines(html, comments, links, ' comments \n', top_count, collected_links)
+    html = append_lines(html, comments, links, ' comments', top_count, collected_links)
 
     html += '\n' + str(top_count) + ' top non-🦜/🪵/📰/💻 points:\n'
-    html = append_lines(html, points, links, '\n', top_count, collected_links)
+    html = append_lines(html, points, links, '', top_count, collected_links)
 
     html += '\n' + get_url_legend(html)
     html += '</pre></body></html>'
@@ -281,7 +327,7 @@ def prev_next_dates(month, month_range):
     elif month_range == 2:
         prev_month = month
         prev_day_start = 1
-        prev_day_end = 11
+        prev_day_end = 10
 
         next_month = month
         next_day_start = 21
@@ -294,16 +340,16 @@ def prev_next_dates(month, month_range):
 
         next_month = month + 1 if month < 12 else 1
         next_day_start = 1
-        next_day_end = 11,
+        next_day_end = 10
     return prev_month, prev_day_start, prev_day_end, next_month, next_day_start, next_day_end
 
 
 def date_parameters(month_abr, month_range):
-    if month_abr not in MONTH_ABRS:
-        raise ValueError(month_abr + ' is not in: ' + str(MONTH_ABRS))
+    if month_abr not in MONTH_ABBRS:
+        raise ValueError(month_abr + ' is not in: ' + str(MONTH_ABBRS))
     if month_range not in [1, 2, 3]:
         raise ValueError(month_range + ' is not 1,2,3')
-    month = MONTH_ABRS.index(month_abr) + 1
+    month = MONTH_ABBRS.index(month_abr) + 1
     year = datetime.datetime.today().year
     if month_range == 1:
         day_start = 1
@@ -315,34 +361,59 @@ def date_parameters(month_abr, month_range):
         day_start = 21
         test_date = datetime.datetime(year, month, 1)
         day_end = calendar.monthrange(test_date.year, test_date.month)[1]
-    file_path = f'./hacker_news/{str(month).zfill(2)}_{month_abr}_{day_start}-{day_end}.html'
+    file_path = f'./hacker_news/{str(month).zfill(2)}_{month_abr}_{str(day_start).zfill(2)}-{day_end}.html'
     prev_month, prev_day_start, prev_day_end, next_month, next_day_start, next_day_end = \
         prev_next_dates(month, month_range)
-    prev_file_path = f'./{str(prev_month).zfill(2)}_{MONTH_ABRS[prev_month - 1]}_{prev_day_start}-{prev_day_end}.html'
-    next_file_path = f'./{str(next_month).zfill(2)}_{MONTH_ABRS[next_month - 1]}_{next_day_start}-{next_day_end}.html'
-    print(' --file_path', file_path, prev_file_path, next_file_path)
+    prev_day_start = str(prev_day_start).zfill(2)
+    next_day_start = str(next_day_start).zfill(2)
+    prev_file_path = f'./{str(prev_month).zfill(2)}_{MONTH_ABBRS[prev_month - 1]}_{prev_day_start}-{prev_day_end}.html'
+    next_file_path = f'./{str(next_month).zfill(2)}_{MONTH_ABBRS[next_month - 1]}_{next_day_start}-{next_day_end}.html'
+    print(' --file_paths,  current:', file_path, '  prev:', prev_file_path, '  next:', next_file_path)
     return file_path, month, day_start, day_end, prev_file_path, next_file_path
 
 
 def get_user_input():
     while True:
         month = input('Enter 1-st 3 ltrs or name of month: ').lower()[0:3]
-        if month in MONTH_ABRS:
+        if month in MONTH_ABBRS:
             break
         print('invalid input')
     while True:
-        period = input('Enter month period (1,2,3): ')
+        period = input('Enter mon{}th period (1,2,3): ')
         if period.isdigit() and 0 < int(period) < 4:
             break
         print('invalid period')
     return month, int(period)
 
 
+def get_next_month_period():
+    files = os.listdir("./hacker_news")
+    files = [x for x in files if x[0:2].isdigit()]  # remove unnumbered files
+    files.sort(key=lambda x: x[0:2] + x[7:])  # sort without the month name
+    last_month = files[-1][3:6]
+    last_start_date = files[-1][7:9]
+    print(files[-1], last_month, last_start_date)
+    if last_start_date == '01':
+        period = 2
+        month = last_month
+    elif last_start_date == '11':
+        period = 3
+        month = last_month
+    else:
+        period = 1
+        index = MONTH_ABBRS.index(last_month) + 1
+        if index == len(MONTH_ABBRS):
+            index = 0
+        month = MONTH_ABBRS[index]
+    return month, period
+
+
 def main():
     try:
         print('started')
         # month, period = 'apr', 1   #
-        month, period = get_user_input()
+        # month, period = get_user_input()
+        month, period = get_next_month_period()
         file_path, month, day_start, day_end, prev_file_path, next_file_path = \
             date_parameters(month, period)
         links, points, comments = \
@@ -355,7 +426,6 @@ def main():
         html = create_web_page(links, points, comments, None, None, top_count=40)
         write_file(html, './hacker_news/top_of_all.html')
         # webbrowser.open_new_tab(file_path)
-
         print('done')
     except Exception as exc:
         print(exc)

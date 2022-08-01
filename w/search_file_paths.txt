@@ -83,6 +83,7 @@ science/book-notes/being_mortal.txt
 science/book-notes/crack_in_creation;_gene_editing.txt
 science/book-notes/entangled_life,_how_fungi_make_our_world...txt
 science/book-notes/fever_the_hunt_for_new_killer_virus.txt
+science/book-notes/microbe_hunters.txt
 science/book-notes/science_fictions.txt
 science/book-notes/silent_spring.txt
 science/book-notes/spillover_animal-infections_and_the_next_human_pandemic.txt
@@ -104,6 +105,7 @@ science/links/internet_resources.html
 science/math/logic.txt
 science/math/numbers.txt
 science/math/sensitivity_specificity_predictive_value.txt
+science/math/stat-course.txt
 science/physics/web_telescope.txt
 science/psychology/coursera-parenting.txt
 science/psychology/emotional-intelligence.txt

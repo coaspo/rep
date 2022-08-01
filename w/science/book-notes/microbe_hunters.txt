@@ -1,0 +1,442 @@
+Paul de Kruif, American microbiologist 🗓 1926
+https://www2.nau.edu/lrm22/lessons/microbiology/microbiology.html
+
+Now: comfortable science professor at tidy little salary in cozy college
+Then: Servetus burned to death for studying anatomy
+
+1. Leeuwenhoek, Dutch tradesman, first microbe hunter, fighter of death
+  born 1632 made perfect 1/8 inch lens
+  sent hundreds of letters to Royal Society of England
+  found little animals in rain water... silent assassins
+    like Alexander finding elephants in India..
+    proved that little animals come from soil
+  Disbelieve in miracles and believe in miraculous facts
+  at 50 well preserved teeth - cleaned with quill & rinsed with salt water
+    put white plaque into rain water and found bacteria
+    found that hot coffee kills them
+  his secrecy for building microscope --> took 150 years to rediscover his results
+  Leibnitz did not convince him to teach others
+  from an older man that never cleaned mouth found new "little animals"
+  capillary blood vessels, human sperm
+  queen of England, Peter the great of Russia visited him at Delft
+  was famous after Robert Boyle & Issac Newton
+  honest, accurate, showman, secretive
+
+2. Spallanzani - microbes must have parents
+  born 1729 in northern Italy
+  studied in university, became priest to support himself
+  questioned everything except existence of God
+  scientists believed that life (little animals) was spontaneous - without parents
+    "beetles, wasps were generated in cow dung" similar for mice
+  read how Redi proved maggots have mother using open/veiled covered jars of meat
+    little animals must be same;
+    Redi born 1697 father of experimental biology
+  Needham boiled gravy in flasks, corked them and found little animals
+  Spallanzani sealed gravy in sealed glass flasks boiled and boiled them
+    for minutes, hours... repeated same with cork seals
+    no little animals in flasks sealed with glass boiled for hours
+  disproved spontaneous creation of bacteria - life comes from life
+    but Needham made a Royal fellow, with Buffon ignored facts:
+      Vegetative force invents life, like the force that got Eve from Adams ribs
+      Needham: fierce heat destroyed the Vegetative force
+      Spallanzani used fierce heat with corks and still found little animals
+        repeated with baking  instead of boiling
+      Needham: heat destroyed elastisity of air
+        Spallanzani closed had flask with pinhole then closed it; boiling did
+        damage air
+  friend of Voltaire - forerunner of French revolution
+  experimented with animals, ingested saw dust with meat
+  accused of stealing specimens from Pravda Austria
+    recommended independent investigation - cleared although guilty
+  isolated single bacteria and saw it multiply
+
+3. Pasteur - microbes are a menace
+  9 years old witnessed rabies
+  lectured that work/will/success = human existence
+  26 discovers 4 types of tartaric acid
+  tried magnets on living things, swung plants..
+  1837
+    Cagniard de la Tour discovers yeast in beer vats - turns barley to yeast
+    Schwann meat becomes putrid only when microbes get into it
+  beet-sugar distiller had problem
+    Pasteur found rod shaped bacteria produce lactic acid - yeast produced alcohol
+  his wife loved him to the point of understanding his work
+    wrote papers which he dictated
+  disproved theory that albumen (egg white) creates alcohol
+  by accident discovered yeast uses ammonia salt C4H12N2O6 Ammonium tartrate
+    used retort to get the alcohol
+  made lots of enemies because of "am I not clever to have found this and aren't
+    all you fools not to believe it at once"
+  claimed to discover anaerobic bacteria;  Leeuwenhoek/Spallanzani had done it
+  Opened sealed sterile flasks filled with yeast broth in train station, alps,
+    still air and proved that microbes come from dust
+    This was disproved by boiling boiled hay soup;
+      boiling does not kill bacteria
+  Examined wine in microscope to find type of spoilage (different bacteria)
+    found that heating wine after fermentation below boiling kills bad bacteria
+    --> pasteurization
+  scum in vinegar kegs was acetobacter, created vinegar 10,000 their weight
+    thought that other bacteria can enter man and kill him....
+    became John the baptist of Germ Theory
+  silk worm parasite problem:
+    mistakenly thought disease was in moths belly, grinding moth disproved it
+  had, brain hemorrhage paralyzed, read Self Help and continued to work
+  "man can destroy parasitic disease; 'spontaneous generation' (biogenesis) is wrong"
+  son fought in Franco-Prussian war 1870
+    revenge for Prussia: make French beer better than German
+    --> beer pasteurization
+    not a good taster of beer - like tobacco he hated it
+  proved that yeast is on, not in, the grapes; bacteria comes from outside
+  Lister (sterilized surgery tools) thanked him
+  Build hot house covered soil with glass to prove that yeast sticks to grapes
+    after they ripen - did this after attacking dead Claude Bernard (homeostasis, double blind..)
+
+4. Robert Koch - the death fighter
+  intern in insane asylum in Hamburg
+  at urge of girlfriend practiced medicine instead of going tiger hunting
+  did not hear of Pasteur or Lister
+  wife brought him a microscope on 28th birthday
+    (later divorced, married actress)
+  could not cure diphtheria (10% fatality via toxin) - did not know cause
+    cure was to hitch 4 widows to their plow
+  found stick/rod bacteria (bacilli) in sheep that died of anthrax
+    used blood soaked wood sliver to infect mice with anthrax
+    next morning dead mouse had bacilli in the blood
+    invented hanging-drop method to ensure only anthrax infected ox eye liquid
+    grew only anthrax for 8 generations and reinfected mice
+    identified cause of disease but did not publish
+    infected guinea pigs, rabbits and sheep with virus in hanging drops
+  how anthrax is transmitted?
+    farmers claimed that their fields were cursed
+    bacteria on slide died in 2 days but lived thru winter
+    at mouse temperature for 24 hours, oval beads formed inside the rods (bacteria)
+      dried the rods with beads, kept for month, added it to ox eye liquid --> rods
+      the beads were spores - spore form only if dead animal is kept warm
+      burn dead animals or bury them deep where ground is cold and spores cannot form
+  demonstration
+    packed mice, spores, microscope and visited his university professor
+    professor invited others
+      --> great discovery 1876 - 7 years after Pasteur's prophesy
+        Breslau Prussia, now Wroclaw Poland
+  Koch invented  bacteria photography
+  1880 called to Berlin
+    by accident noted different colored spots on boiled potato
+       --> different bacteria colonies
+    grew single bacteria species in gelatin and beef broth
+      superior did not believe it; set out to haunt tuberculosis
+  tuberculosis - found blue stain to identify bacteria
+    in brain, bones....
+    took bodies of dead people and infected cats, chickens, rabbits, dogs, pigeons
+    grew bacteria in blood-serum jelly
+      serum from slaughtered animals, pasteurized with heat
+      sterilized equipment with mercury chloride (highly poisonous)
+      tested grown bacteria even in frogs, eels, goldfish, tortoise
+    infected animals with mist
+    presented findings - nobody said anything
+      news rocked the world, everyone wanted to meet Koch
+      "This discovery of mine is not such a great advance"
+      one of this students used streptococcus to cure cancer, killing people
+      another rubbed staphylococcus on this arm to prove that it causes boils
+  Pasteur/Koch teams went to Alexandria to identify the Asiatic cholera
+    French researcher died of cholera (humans are the only host)
+    outbreak died down --> Koch went to India - founded bug in polluted waters
+  Opponent drank a test tube of cholera & nothing happened
+    to prove that disease is caused by disposition not germs
+    others infected accidentally died
+  Koch was logical: reported success and failures
+
+5. Pasteur and the mad dog
+   in 1/19 births, mother died in French hospitals - one called House of Crime
+     told doctors that they were passing germs from one mother to another
+   young doctor assistants:
+     Roux, Chamberland, Thuillier
+   chicken cholera:
+     just for fun, injected chickens with weeks-old culture - got sick but recovered
+     by accident, due to supply shortage - shot the same chickens again
+     and they were not effected
+       --> discovered vaccine - old (weak) germs - prevent death...
+           used germs against themselves
+     "Jenner could not do it with smallpox, I showed the germ that kills
+      is the same that protects"
+      an old doctor was sarcastic, Pasteur attacked this projects,
+      doctor tried to hit him, then challenged him to a duel, Pasteur backed off
+      published and never retracted that the cholera vaccine protects against anthrax
+    made anthrax vaccine that killed mice but not guinea-pigs
+      horse doctor challenged him to demonstrate it
+      he did it with 46 sheep  - like Jesus turning water into wine
+      one of his enemies repented - asked to do the experiment on himself
+      news: Pasteur the new messiah, every wanted anthrax vaccine
+      turned lab into factory
+        in one year hundreds of thousands of sheet were vaccinated
+          some sheep died from vaccination other were not protected
+          people snickered,
+          Koch: vaccine killed sheep
+                contaminated with other microbes
+                if Pasteur was for truth, why he did not report bad results
+                "good for advertising but not for science"
+          --> French response: Pasteur elected to Academie Francaise
+    rabies (hydrophobia)
+      Roux injected virus into brain of dogs
+      vaccine: 14 doses from 14 day dried infected brain
+      wanted to vaccinate all dogs....
+        then vaccinate just infected dog
+      used in an infected boy 1885 and
+        19 Russians bitten by a mad wolf 19 days prior - all but 3 survived
+        Tsar sent him diamond cross and 100K francs to built Institute Pasteur
+    Last speech:
+      Do not b tainted by deprecating and barren skepticism
+      Ask what you have done for your instruction
+      and contributed to progress and good of humanity
+
+6. Roux and Behring massacre the guinea-pigs
+   diphtheria antitoxin
+   Loefffler guided by Koch:
+     bacteria only in child's throat and in injection in point in animals
+     claimed that toxin causes death - Roux read this......
+   Roux: grew  bacteria for 4 days and filtered bacteria broth and injected 35 grams into guinea-pig
+     (small doses had no effect) to see effect
+     with 42 day growth, tiny amount of filtered broth was lethal
+     1 oz pure toxin could kill 600K guinea-pigs
+   Behring under Koch:
+     tried chemicals to cure diphtheria
+     chemical cure killed even faster
+     iodine tri-chloride sometimes worked but burned holes into their hides
+       found blood of cured animals had antitoxin and prevented death
+       created antitoxin from sheep serum
+     1891 antitoxin cure
+   Roux
+     with serum 50% fatality reduced to 26%
+     in England 30% reduced to 29% without serum
+   Currently:
+     grow diphtheria in laboratory
+     harvest toxin
+     inject horses
+     horse immune response creates antitoxin
+     collect horse blood and remove serum which has antitoxin
+     purify antitoxin
+
+7. Metchnikoff- the nice phagocytes
+  fed carmine (crimson dye from cochineal bugs) to starfish larvae (transparent)
+    wondering cells in larvae ate the carmine
+    (Peruvian carmine is common red dye in food; carminic acid 1/4 of bug weight
+      14K bugs/kg of dye; 650 tons/year; cochineal feed on cactus
+      1570's very profitable trade)
+    ---> they eat microbes too --> white cells eat bacteria too
+    with this guess he wrote that he became pathologist
+    had explanation of disease immunity --> phagocytes
+  published and gave speeches without having seen a phagocyte
+    Koch snubbed him - Germans did not believe his theory;
+    Behing had proved that the serum of blood fights disease
+  proof:
+    use water fleas and find something that infects them
+    lucky to see yeast be digested by a phagocyte
+    when phagocytes were to slow, yeast multiplied killing the flea
+    published results & made professor in Odessa
+    considered himself a theoretician; send assistant to France to learn to make vaccines
+  lab was chaotic, people demanded vaccines;
+    Metchnikoff spread chicken cholera to meadow mice
+    press reported that it could turn to human cholera
+    ordered to give anthrax vaccine and thousand of sheep died
+  went to Paris, Pasteur liked the theory and gave him his own laboratory
+    (Pasteur kept the show going..)
+    20 year dispute with Germans about blood/phagocytes
+    could not see that it is both and more....
+    not being like Koch, he did not help...
+    claimed to do better experiments if pretty girls were close by
+    lab was like a country fair
+    always did experiments to defend phagocyte theory
+    lab assistant swallowed virulent cholera bacilli to prove that
+      blood has nothing to do with immunity (no cholera antigen!)
+    but phagocytes sometimes eat bacteria others do not... immunity varies
+  gave up phagocyte work for gerontology & thanatology
+    interviewed 100+ years old for instinct to die
+    investigate theory that hardening of arteries is cause of aging
+      with Roux inoculated monkeys with syphilis
+         scratched ear with syphilis virus, then cut it off
+         invented calomel ointment (Hg2Cl2) - Persian used it in 850
+           treat syphilis, bronchitis, cholera, ingrown toenails, teething, gout,
+           tuberculosis, influenza, and cancer
+         infected volunteer with syphilis to prove calomel effectiveness
+       artery hardening caused by auto-intoxication - putrefying bacilli in large intestine
+         heard story of longevity Bulgaria
+         bacteria that makes sour milk chases wild bacteria out
+         drank sour milk for years
+         English journal: larget scientific break through sine Darwin
+       did not smoke, no alcohol, drank sour milk but died at 71
+
+8. Theobald Smith
+   after medical school, worked at Animal industry in Washington
+   read Koch in German
+   Texas fever problem:
+    northern cattle died when grazed with cattle in Texas
+    ranchers had tick theory
+      experiments: removed all ticks from 3 southern cows
+                   feed cows with grass that has ticks
+      found baby ticks carry pathogen;
+        calves get sick and become immune, mother cows die
+      cure: dip cows to kill ticks
+            keep northern cow where there are no ticks
+
+9. Bruce - trail of the tsetse
+  out of medical school joined army to be able to marry
+  in Malta made agar & beef broth to find cause of Malta fever
+  in Africa:
+    Nagana - livestock fever
+      found Trypanosoma in infected horses
+        not contagious, not on dry land
+      explanation:
+        Europeans: the tsetse fly
+        Locals: buffalo discharge contaminates grasses
+      experiment:
+        muzzle horses so they could not eat/drink - got sick
+        is it in air? (no):  took tsetse flies to horses - they got sick
+    prescription: get rid of tsetse flies
+  African sleeping sickness:
+    central Africa
+    fever --> laziness --> open mouth while eating --> sleep --> comma --> death
+    infected people had Trypanosomas in their spinal cord
+      Bruce got spinal fluid from people with broken bones... and no sleeping sickness
+        --> Trypanosoma causes sleeping sickness
+      problem: where the reservoir?, how does it transmit?
+      sickness was along narrow strip of water;
+        everyone said no tsetse in Uganda - only Kivu blood suckers
+      Bruce found the Kivu is the name of tsetse in Uganda
+        had tsetse files feed on dying patients
+          had flies infect monkeys --> monkeys died
+        told Uganda prime minister to collect tsetse flies
+        got envelopes full of flies - marked map if there was sleeping sickness
+        prime minister evacuated 16 miles within lake shoreline
+          people stopped dying
+        Bruce promoted colonel, dubbed knight
+        Africa safe for natives and open to benevolent whites
+        after 2 years in another part of lake, sleeping sickness erupted
+          a microbe hunter died after going to investigate
+          Bruce found Trypanosomas in cattle and antelope
+            sleeping sickness wiped out from lake Victoria
+        German microbe injected himself with animal blood with Trypanosomas
+          to prove nagana does not kill men
+          he did not die; Bruce "regretful it did not work"
+
+10. Ross vs Grassi - malaria
+  Ronald Ross, son of a artist-general, born in India
+    tried writing music, novels, poetry, mathematics
+    ship doctor on New York liner, married
+    back in India, with microscope failed to find germ of malaria
+     "failure drove to lofty peak of solitude ... no fears, friends, loves, hates"
+    met doctor Monson who discovered that mosquitoes can suck worms from Chinese blood
+      showed Toss the malaria bacterium - red cells burst --> person has chills
+      told him the problem: "how does it transmit"
+        and his theory: "mosquitoes carry malaria"
+    did not find mosquito info in library- overlooked the natural museum
+    went to India to do Monson's experiments
+      had mosquitoes bite infected low cast Indians
+      could not find bacteria in mosquitoes
+    made stories of fight of phagocyte and malaria bacteria
+    fed people soup of mosquitoes with malaria
+    after failures, used brown mosquitoes
+      found growing black dots on mosquito stomachs & wrote poem
+    1898 proved mosquito bite  transmits malaria with  birds
+      published, bragged, wrote to Laveran (discover of the bacteria)
+      but human transmission? (Koch failed in Italy)
+        tried to proved it, in glory of England, but failed
+     got Nobel prize
+   Giovanni Grassi, doctor interested in zoology
+     wrote about white ants & their bacteria
+     eel expert, professor at 29
+     mosquitoes without malaria, malaria always with mosquitoes
+       --> find type of mosquito
+     mosquito expert, found each type and declared it innocent..
+       zeroed in Anopheles claviger
+     had mosquitoes bite him -no dice
+     found elder volunteer in Rome to do same
+        Anopheles (zanzarone) infected him and showed symptoms after 10 days
+     grew Anopheles in sugar water, melon..
+       repeated human experiments, newspapers were sarcastic...
+     with his friends disproved Koch that baby mosquitoes
+       get malaria from their mother - like the Texas fever
+     hundreds of experiments - prove human/bird malaria do not mingle
+     preached to avoid Anopheles
+     human experiment:
+       in infected region where people fled in the summer
+         had people use screens and not go outside at dusk
+         gave money prizes to enforce rules
+         lived there himself
+     did not get Nobel prize
+     made senator for life
+   Ross/Grassi fight:
+    Grassi is a thief, charlatan
+    "facts of science are greater than little men who find those facts"
+
+11. Walter Reed - in the interest of science and humanity
+  yellow fever human guinea pigs in Cuba got 200 dollars each
+    common theory: in the air, Dr. Finlay in Cuba it is the mosquitoes
+    killed more American soldiers than Spaniard bullets
+  Reed did not find bacteria
+    noticed nurses soiled by sick were never infected
+    outbreak made him believe air transmission
+    called Dr. Finlay who gave him mosquito eggs
+      cannot use animals to experiment - not effected
+      use humans? up to 80% fatality
+        Reed asked commission to be bitten first; Lazear, Carroll volunteered
+          left instructions how to do it and left for Washington;
+            not approved by military
+        Lazear with 7 volunteers got bit but remained healthy
+        Carroll got bit with the worst mosquito, got sick, and nearly died
+          4 men bit 2 died
+        Lazear not convinced, accidentally got bit, infected
+          died Sep. 25 1900
+        Reed comes back to Cuba, got military funding to experiment with
+          himself and 7 paid volunteers - set up 7 tents in camp Lazear
+             volunteers isolated weeks before injection
+          let all soldiers know about another war...
+          2 soldiers volunteered and wanted no money
+          5 paid Spanish immigrants
+          8 men got it 1 died
+            paralysis returned to some later...
+    mosquitoes transmit, but is it in clothes?
+      experiment: build small house with soiled hospital pillows, sheets ..
+         guinea pigs: doctor and 2 soldiers, beat sheets.. around the house
+           stayed 20 days - no infections
+           repeat this 2 more times with more volunteers ,- no infections
+             2 infected with yellow fever (survived) to prove that they were not immune
+         a volunteer in a clean house with infected mosquitoes got sick
+           in a room separated by fine screen did not get sick
+    mosquitoes eliminated --> Havana free of yellow fever
+    what causes yellow fever:
+      Carroll strained any bacteria from brood, injected into 3 volunteers 2 got sick
+         (virus not bacteria causes it)
+         Reed asked him to stop it
+    Reed died age 51 - rapture appendix
+      congress gave pensions to his wife ant to Lazear & Carroll
+    Bruce's "not possible to experiment with humans" was not right
+
+12. Paul Ehrlich - the magic bullet
+  smoked cigars drank beer
+  "we must learn to shoot microbes with magic bullets"
+  10 years younger than Koch, had seen tubercle germ in liver before Koch
+    thought little rods were crystals
+  found way to stain germ, caught tb and went to Egypt
+  stained live animal - injected rabbit with methylene blue
+    stained ending of nerves blue - did not cure pain
+    instead of staining kill bacteria?
+    "must be mathematical laws that govern poisons, vaccines..."
+  Trypanosoma killed 100% of mice - find cure (Arsenic only helps a little)
+    trial and sweating to find cure
+    (by Sahachiro Hata and Ehrlich respectively)
+    added sulfo-groups to red dye ("Trypan red")
+      mouse pupils turned pinks but mice did not die
+    publication: atoxyl (not poison) almost cured mice, but
+      always killed them - Ehrlich veracious reader
+    problem: how change and improve atoxyl
+      preparation 606: "dioxy-diamino-arsenobenzol-dyhydro-chloride"
+        (or Arsphenamine,  Salvarsan)
+        killed Trypanosoma but not the mouse
+        cured rabbit infected with spirochete (syphilis)
+          --> found magic bullet
+        biblical proportions....
+        but few people died after injection
+        (replaced by penicillin in 1940)
+    admirer: "606 great work of the mind and wonderful scientific achievement"
+    Ehrlich: "after 7 years of misfortune, had one moment of luck"
+
+
