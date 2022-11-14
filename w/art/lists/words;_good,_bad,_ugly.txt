@@ -15,6 +15,7 @@ BAD
   caprice        sudden desire
   deign          do something be below one's dignity
   diffidence     lack of self-assurance
+  double bind    situation  of two irreconcilable demands or undesirable choices
   ennui          listlessness dissatisfaction from lack of work/excitement
   fatuous        devoid of intelligence
   flimflam       skillfully manipulate/swindle
@@ -24,6 +25,7 @@ BAD
   moral hazard   lack of incentive to avoid risk - insurance, bank bailout
   ostentatious   showing off money, power, or wealth
   rout           overwhelming defeat
+  solipsism      theory: self is all that can be known to exist (psychology/philosophy)
   superannuate   retire (someone) on a pension because of age or infirmity
   thrall         being under the control of another person
   truther        doubter of general fact; conspiracy theorist
@@ -35,7 +37,6 @@ UGLY
   condescend     feel superior; be patronizing
   cynical        distrusting or disparaging the motives of others
   deprave        corrupt morally
-  double bind    situation  of two irreconcilable demands or undesirable choices
   enervate       weaken mentally or morally
   gaslight       Cause (a person) to doubt his or her sanity
   idiocracy      society governed/populated by idiots

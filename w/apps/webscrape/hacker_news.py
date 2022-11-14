@@ -14,9 +14,11 @@ import time
 import bs4
 import requests
 import util
+import re
 
 HACKER_NEWS_URL = 'https://news.ycombinator.com/'
 DEBUG = False
+URL = 'not set'
 if DEBUG:
     print('=== DEBUG IS TURNED ON ===')
 
@@ -25,75 +27,85 @@ MIN_POINTS = 200
 
 
 def get_web_page(url: str):
-    sec = \
-        random.choice([5, 10, 20, 15, 3, 8])
-    time.sleep(sec)  # spoof webscrape detection
-    page = requests.get(url)
+    headers = {'Accept-Language' : "en-US", \
+               'User-Agent' : "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36",\
+  #             'HTTP header Accept-Encoding' : "gzip, deflate", \
+               'HTTP headers Accept' : "text/html"}
+    headers = {'User-Agent' : "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36"}
+    page = requests.get(url, timeout=5, headers=headers)
     html = page.text
     return html
 
 
-def parse_web_page(html: str):
-    soup = bs4.BeautifulSoup(html, 'lxml')
-    table = soup.find_all('table')[0]
-    links = table.findAll('a', {"class": "titlelink"})
-    [print('====', x) for x in links]
-    is_last_page = len(links) < 30
-    descs = table.findAll('td', {"class": "subtext"})
-
-    print(f'  BeautifulSoup extracted {len(links)} links, {len(descs)} desc, in {len(html)} HTML chars')
-    if len(links) == 0:
-        print(' ERR did not find any links; html=\n', html)
-    if len(links) != len(descs):
-        raise ValueError('ERR len links/descs: ' + str(len(links)) + '!=' + str(len(descs)))
+def parse_web_page_text(text: str):
+    lines = text.split('\n')
+    is_previous_line_desc =  False
+    descs = []
     points = []
     comments = []
-    extract_points_and_comments(comments, descs, links, points)
-    print(f'  after filtering {len(links)} links, {len(descs)} desc')
+    for line in lines:
+      if is_previous_line_desc:
+        points_i = 0
+        comments_i = 0
+        parts = line.split(' ')
+        if parts[0].isnumeric():
+          points_i = int(parts[0])
+        points.append(points_i)
+        if 'comments' in line:
+          parts = line.split('|')
+          parts = parts[2].strip().split('comments')
+          comments_i = int(parts[0].strip())
+        comments.append(comments_i)
+      i = line[0:3].find('.')
+      j = line.find('(')
+      if i > -1 and  j > -1:
+        desc = line[i+1:j].strip()  # line is numbered has link with description
+        desc = re.sub('\[.*?\]', '', desc).strip()
+        descs.append(desc)
+        is_previous_line_desc = True
+      else:
+        is_previous_line_desc = False
+    if len(descs) != len(points) != len(comments):
+      raise ValueError('ERR descs/points/comments  ' \
+                 +f'{len(descs)}/{len(points)}/{len(comments)} length not same')
+    return descs, points, comments
+
+
+def parse_web_page(html: str):
+    soup = bs4.BeautifulSoup(html, 'lxml')
+    descs, points, comments =  parse_web_page_text(soup.get_text())
+    links = extract_links(html ,descs)
+    is_last_page = len(links) < 28
+    for i in range(len(links)-1):
+      if i > len(links) - 1:
+        break
+      if 'https' not in links[i]:
+        print('  Deleting', i, links[i])
+        del links[i]
+        del points[i]
+        del comments[i]
+        i -= 1
+    print(f'  after filtering non-https, {len(links)} links')
     return links, points, comments, is_last_page
 
-
-def extract_points_and_comments(comments, descs, links, points):
-    i = 0
-    while i < len(links):
-        point_spans = descs[i].find_all('span', {"class": "score"})
-
-        if len(point_spans) == 0 or 'ycombinator.com' in links[i] \
-                or 'https' not in str(links[i]):
-            print('    removed; no points/https;', str(links[i])[1:50])
-            del (descs[i])
-            del (links[i])
-            continue
-        if point_spans[0].text[:-7].isdigit():
-            point = int(point_spans[0].text[:-7])
-            if point < MIN_POINTS:
-                print(f'   removed link {point} < {MIN_POINTS} min pts, {links[i]}')
-                del (descs[i])
-                del (links[i])
-                continue
-        else:
-            print(f'   * removed  {links[i]} no points in: {point_spans[0].text}')
-            del (descs[i])
-            del (links[i])
-            continue
-
-        txt = str(descs[i])
-        i_end = txt.find('comments') - 1
-        i_start = txt.find('>', i_end - 20) + 1
-        if txt[i_start:i_end].isdigit():
-            comment = int(txt[i_start:i_end])
-            comments.append(comment)
-            points.append(point)
-            links[i] = str(links[i]).replace('class="titlelink" ', '')
-            i += 1
-        else:
-            print(f'   ** removed  {links[i]} no comment in: {txt}')
-            del (descs[i])
-            del (links[i])
-            continue
+# <a href="https://github.com/apenwarr/blip">Blip: A tool for seeing your Internet latency</a>
+def extract_links(html ,descs):
+    links = []
+    for desc in descs:
+      i = html.find(desc)
+      i_start = html.rfind('<', 0, i)
+      i_end = html.find('</a>', i)+4
+      link = html[i_start:i_end]
+      links.append(link)
+      # print(i, '--', html[i_start:i_end])
+    if len(descs) != len(links):
+      raise ValueError(f'ERR descs/links  {len(descs)}/{len(links)} length not same')
+    return links
 
 
 def get_url_desc(link):
+    if 'https' not in link:
+      link = link.replace('href="', 'href="https://news.ycombinator.com/')
     host, domain = util.get_host_and_domain(link)
     desc = ''
     desc += host
@@ -165,11 +177,13 @@ def scrape_ycombinator_links(month, day_start, day_end):
         url_sfx = 'front?day=' + publish_date
         ith_page = 1
         while True:
-            url = HACKER_NEWS_URL + url_sfx + '&p=' + str(ith_page)
-            # example: url = 'https://news.ycombinator.com/front?day=2022-01-01&p=1'
-            if DEBUG:
-                print(f' ----page:{ith_page}, url:{url} ----')
-            html = get_web_page(url)
+            URL = HACKER_NEWS_URL + url_sfx + '&p=' + str(ith_page)
+            # example: URL = 'https://news.ycombinator.com/front?day=2022-01-01&p=1'
+            print(f' {URL}')
+            if not day_start == day_end:
+                sec =  random.choice([5, 10, 20, 15, 3, 8])
+                time.sleep(sec)  # spoof webscrape detection
+            html = get_web_page(URL)
             links_i, points_i, comments_i, is_last_page = parse_web_page(html)
             if len(links_i) == 0:
                 break
@@ -183,6 +197,7 @@ def scrape_ycombinator_links(month, day_start, day_end):
             ith_page += 1
             if is_last_page:
                 break
+    print('scraped', len(links), 'links')
     return links, points, comments
 
 
@@ -211,25 +226,28 @@ def find_page_title(link):
     i_start = link.find('https')
     i_end = link.find('">', i_start)
     url = link[i_start:i_end]
-    try:
-        page = requests.get(url)
-    except Exception as exc:
-        return 'INVALID URL'
-    html = page.text
-    soup = bs4.BeautifulSoup(html, 'lxml')
-    titles = soup.find_all('title', limit=1)
-    if len(titles) == 0:
+    if len(url) > 150:
         return ''
-    title = titles[0].get_text()
-    return title
+    try:
+        html = get_web_page(url)
+        i_start = html.find('<title>') + 7
+        if i_start < 7:
+            return ''
+        i_end = html.find('</title>')
+        title =  html[i_start:i_end].lower().strip()
+        if 'not found' in title or '404' in title:
+            return ''
+        return title.title()
+    except Exception as exc:
+        return ''
 
 
 def append_lines(html, sort_order, links, sfx, max_link_cnt, collected_links):
     zipped = zip(sort_order, links)
     links_sorted = list(zipped)
     links_sorted.sort(reverse=True, key=lambda y: y[0])
-    # if DEBUG:
-    #     print('    ---append_lines; links_sorted 1:\n     ', links_sorted[0:1])
+    if DEBUG:
+        print('    ---append_lines; links_sorted 1:\n     ', links_sorted[0:1])
     i = 0
     filter_gossip = sfx == ''
     for x in links_sorted:
@@ -248,6 +266,7 @@ def append_lines(html, sort_order, links, sfx, max_link_cnt, collected_links):
             i += 1
             if i == max_link_cnt:
                 break
+    print(  "appended", i, "links")
     return html
 
 
@@ -264,7 +283,8 @@ def create_web_page(links, points, comments, prev_file_path, next_file_path, top
 
     html += '\n' + str(top_count) + ' top comments:\n'
     html = append_lines(html, comments, links, ' comments', top_count, collected_links)
-
+    global DEBUG
+    DEBUG = True
     html += '\n' + str(top_count) + ' top non-🦜/🪵/📰/💻 points:\n'
     html = append_lines(html, points, links, '', top_count, collected_links)
 
@@ -278,11 +298,11 @@ def read_all_previous_sorts():
     points = []
     comments = []
     html_files = glob.glob('./hacker_news/*.html')
-    print(html_files)
+    html_files.sort()
     for file_i in html_files:
-        if 'top_of_all.html' in file_i:
+        if 'top_of_all.html' in file_i or 'tmp' in file_i:
             continue
-        print('read_all_previous_sorts', file_i)
+        print('  reading', file_i)
         with open(file_i) as f:
             lines = f.readlines()
         links_i = [x for x in lines if x.startswith('<a href="http')]
@@ -309,7 +329,7 @@ def read_all_previous_sorts():
 def write_file(html, file_path):
     with open(file_path, 'w') as f:
         f.write(html)
-    print('Created ', file_path)
+    print('Created', file_path)
 
 
 def prev_next_dates(month, month_range):
@@ -410,7 +430,7 @@ def get_next_month_period():
 
 def main():
     try:
-        print('started')
+        print('started hacker_news.py')
         # month, period = 'apr', 1   #
         # month, period = get_user_input()
         month, period = get_next_month_period()
@@ -421,16 +441,19 @@ def main():
         html = create_web_page(links, points, comments, prev_file_path, next_file_path, top_count=20)
         write_file(html, file_path)
 
+        file_path = './hacker_news/top_of_all.html'
+        print ("Updating", file_path)
         links, points, comments = \
             read_all_previous_sorts()
         html = create_web_page(links, points, comments, None, None, top_count=40)
-        write_file(html, './hacker_news/top_of_all.html')
+        write_file(html, file_path)
         # webbrowser.open_new_tab(file_path)
         print('done')
     except Exception as exc:
         print(exc)
         import traceback
         traceback.print_exc()
+        print('URL=', URL)
 
 
 if __name__ == "__main__":

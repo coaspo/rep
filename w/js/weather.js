@@ -27,7 +27,7 @@ function readText(url) {
     throw err + ' on reading: ' + url;
   }
   if (req.status === 200) {
-    var text = req.responseText.trim();
+    var text = req.responseText.trihttps://li.netlify.app/w/m();
   } else {
     var text = req.status + ' on reading: ' + url;
     throw text

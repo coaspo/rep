@@ -222,13 +222,13 @@ Osteoporosis videos
 
 
 Treatment to:
-  combat disease
+  combat diseaseOb
   improve mood
   increase energy
   improve cognitive level
   control weight
   improve muscle/bone stength
-  improve sleep/quality of life
+  improve sleep/quality ofOb life
   reduce pain
     --> exercise
 
@@ -262,16 +262,179 @@ Exercise during treatment:
     3, pace
     Adapt, be flexible, give yourself time
 
+Exercise and common sport injuries
+  Injury risk factors
+    intrinsic: age, gender, flexibility, previous injury, anatomy, skill
+        muscle protects against injury
+      modifiable intrinsic factors
+    extrinsic: equipment, environment, human factor
+    acute/chronic injuries: one-moment/repeated-loading
+      sprain: ligaments (bone-bone connection); around joints
+      strain: tendon/muscle
+      fracture: bone disruption
+      contusion: bruise
+      effusion: swelling in a joint
 
+    common sports injuries:
+      knee - 3 joints (bend & straighten):
+        tibiofemoral: tibia/femur (bottom/top) bones
+        patellofemoral: patella/femur (kneecap/top)
+        superior tibial/fibur: (bottom/small-bottom)bones
+      1. ACL (abterior cruciate ligament; inside knee) tear
+          basketball, soccer...; quick change in direction
+          young/old athletes: surgery/brace
+            strengthen other parts of knee
+      2. patellofemoral pain syndrome - when increasing training
+          cause: knee cap muscle imbalance
 
+      shoulder
+        humerus (arm bone)
+        scapula (shoulder blade)
+        clavicle (collar bone)
+        4 rotator-cuff muscles - humerus/scapula muscles
+      3. shoulder impingement - overhead sports
+         pinching of rorator-cuff tendons
+         cause: muscle imbalance & poor thoracic/spine posture
+      4. shoulder dislocation - throwing
+            humerus ball is outside joint soccet
+            hospital treatment; surgery for chronic problem
+      4. shoulder separation - fall/hit to shoulder
+            collarbone/shoulder-blade ligaments disrupted;
+              see bump - clavicle elevated at shoulder
+            sling/therapy right away
 
+      elbow - 3 joints  (humerus/)
+        humero-ulnar: (upper/lower arm bones)
+        radiohumeral: (lower-near-thumb/upper arm bones)
+        superior radio-ulnar: (lower-near-thumb/lower-near-palm)
+      5. lateral epicondylosis- tennis (or typing) elbow
+        (overuse of elbow-wrist/finger extensors)
+        cause: irritate/degrade or elbow extensor tendon
+        change in equipment or technique
+        can become chronic if not addressed
+      ankle - tibia/fibula (major/minor lower leg bones) & libaments
+      6. lateral ankle sprain (inversion sprain - roll foot to outside)
+         ligament damage
+      7. concussion - head/face/neck hit --> force to brain
+         headaches, vision, memory...
+         concussion recognition tool
+         80%-90% resolved in few weeks
 
+      Treatment; RICE
+        Rest - rest/modify activity
+        Ice - reduce inflammation - heat better for chronic injury
+              for 1st 24-48 hours
+        Compression - reduce inflammation - much more important than ice
+        Elevate - drain inflammation of injury
+        Physical therapy - most important
 
-
-
-
-
-
+Exercise and Arthritis
+ (Rheumatoid arthritis is autoimmune disorder,
+   Infectious - bacteria/viral related
+   metabolic (Gout) - uric acid crystals - metabolic; breakdown of purines [adenine and guanine])
+  Osteoathritis (arth=joint, itis=inflamation), most common
+    micro/macro damage --> maladaptive repair response
+    --> molecular derangement, abnormal metabolism
+    --> cartilage degrade, bone remodeling, osteophyte (bone spurs)
+        cartilage has no no blood vessels or pain sensors
+    --> loss of function
+    cartilage: shock absorption (a wet sponge)
+    effects mostly weight-bearing joints: knees, hip
+   articular (joint) capsule: joint sac
+   synovial membrane: lines capsule, produces fluid
+   knees- bow out, hips, thumbs, fingers
+   early signs:
+    knee/hip joint hurts and may feel stiff in the morning,
+    or when you have been sitting still for a period of time
+    symptoms without visible change on x-ray and vice versa
+    no known way of curing cartilage loss
+  signs:
+    swelling, deformation, tenderness,
+    muscle shrinkage & warmth around joint
+    loss of movement, strength, & stability, abnormal walking
+  treatments:
+    education (moving is better than standing),
+      exercise (less pain, better heart),
+      weight control (obesity breaks down cartlidge faster)
+    drugs
+    surgery
+      in USA 10% get physiotherapy before surgery!
+  exercise benefits:
+    decreases: pain, medication, fatigue, stiffness, & doctor visits
+    increases: strength, coordination
+    group aquatic increases long-term adherence
+  Physical therapy:
+    type, dose (resistance, repetitions, hold length), frequency
+    Exercise as medicine – evidence for prescribing exercise as therapy in 26 different chronic diseases
+      https://pubmed.ncbi.nlm.nih.gov/26606383/
+         Anxiety
+         Back pain
+         Bronchial asthma
+         Cerebral apoplexy (unconscious, from stoke...)
+         Chronic obstructive pulmonary disease
+         Coronary heart disease
+         Cystic fibrosis (lung infections)
+         Dementia
+         Depression
+         Heart failure
+         Hyperlipidemia
+         Hypertension
+         Intermittent claudication (exercise induced leg cramps)
+         Metabolic syndrome
+         Multiple sclerosis (auto-immune attacks nerves/brain)
+         Obesity
+         Osteoarthritis
+         Osteoporosis
+         Parkinson's disease
+         Polycystic ovarian syndrome
+         Rheumatoid arthritis
+         Schizophrenia
+         Stress
+         Type 1 diabetes
+         Type 2 diabetes
+     Exercise types:
+       1. range of motion
+       2. flex/stretch
+       3. strength
+       4. hydrotherapy
+       5. sports
+           contact/non-contact
+           low/high impact
+       Progression
+         no-weights
+         gravity eliminated
+         sitting
+         standing
+         resistance - weights/bands
+         dynamic - Swiss ball, sports
+     Exercise prescription considerations:
+       stiffness
+       pain
+       inflammation
+       fatigue
+       soft tissue involvement
+       joint involvement
+       diabetes, hypertension, obesity...
+       medication; bleeding- contact sports not good
+     Shorter and more frequent instead of longer
+       retrain brain not to link exercise and pain
+     Rx for knee arthritis:
+       land-based - resistance, walking, tai chi
+       weight management
+       strength training
+       hydrotherapy - swimming, water aerobics
+     European Rx for hip/knee arthritis:
+       strengthen (sustained isometric)- quadriceps & proximal hip girdle
+       aerobic
+       adjunctive range of movement/stretching
+         adjunctive treatments: mindfulness, wellness, and exercise
+     British Rx:
+       Type/level should match condition
+     Canadian Rx:
+       right mix of flex, strength, endurance
+       for reduced pain, strong heart, good health
+     American Rx:
+       For knee hip OA: cardiovascular - resistance, water, land...
 
 
 

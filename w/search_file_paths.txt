@@ -8,10 +8,12 @@ art/book-notes/bury_my_heart_at_wounded_knee.txt
 art/book-notes/outliers;_story_of_success.txt
 art/book-notes/tipping_point;_little_things_make_big_difference.txt
 art/book-notes/tyranny_of_merit_what_has_become_of_the_common_good.txt
+art/book-notes/when we ease to understand the world.txt
 art/links/articles_and_websites.html
 art/links/books.html
 art/links/funny_stuff.html
 art/links/music_-_a_genre_mix.html
+art/links/music_-_tree-story_playlist (copy).html
 art/links/music_-_tree-story_playlist.html
 art/links/photography.html
 art/links/videos.html
@@ -78,6 +80,7 @@ science/20_big_popular_questions_in_science.txt
 science/7_problems_with_science.txt
 science/biology/immunology_virus_and_vaccines.txt
 science/biology/microbes.txt
+science/book-notes/ahead of the curve - viruses....txt
 science/book-notes/algorithms_to_live_by.txt
 science/book-notes/being_mortal.txt
 science/book-notes/crack_in_creation;_gene_editing.txt
@@ -100,6 +103,7 @@ science/health/most_common_drugs.txt
 science/health/most_health_risks.txt
 science/health/phone;_sugar;_sleep.txt
 science/health/social_anxiety.txt
+science/health/water.txt
 science/links/books.html
 science/links/internet_resources.html
 science/math/logic.txt
