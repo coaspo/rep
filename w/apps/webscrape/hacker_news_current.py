@@ -16,7 +16,7 @@ def create_html_page(links, points, month, day):
 
 def main():
     try:
-        print('started hacker_news_current.py')
+        print('Started', __name__)
         import hacker_news
         hacker_news.DEBUG = True
         hacker_news.MIN_POINTS = 0
@@ -31,8 +31,9 @@ def main():
         html = create_html_page(links, points, month, day)
         file_path = './hacker_news/tmp_current_sorted.html'
         write_file(html, file_path)
+        print('Created', file_path, '\n  wait ... opening it in browser')
         webbrowser.open_new_tab(file_path)
-        print('done')
+        print('Done')
     except Exception as exc:
         print(exc)
         import traceback

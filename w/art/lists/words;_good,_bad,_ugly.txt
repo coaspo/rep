@@ -3,6 +3,7 @@ GOOD
   august         respected and dignified (to increase)
   edify          to instruct/benefit morally or spiritually (build house)
   epiphany       manifestation of divine or truth
+  frisson        aesthetic shiver by music, literature, science/math...
   intrepid       invulnerable to fear or intimidation
   inviolable     never broken, infringed, or dishonored
   politic        shrewd or prudent; tactful; diplomatic
@@ -71,3 +72,6 @@ OTHER
   atavism        reappearance of an earlier characteristic
   hubris/nemesis pride/retribution
 
+NEW
+  meliorism      belief that humans can improve the world (environmentalism)
+  transhumanism  belief that human can involve by science and technology

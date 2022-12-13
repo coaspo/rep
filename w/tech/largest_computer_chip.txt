@@ -1,4 +1,4 @@
-Cerebras(American) and T.S.M.C. (Taiwan Semiconductor Manufacturing Company)
+Cerebras(American) and TS.M.C. (Taiwan Semiconductor Manufacturing Company)
  WSE-2
    21x21 cm2
    2.6 trillion (10*12) transistors

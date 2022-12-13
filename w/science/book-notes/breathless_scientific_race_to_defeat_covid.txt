@@ -1,0 +1,462 @@
+David Quammen , English major/writer    🗓 2022
+
+
+1. CITIZENS NEED NOT PANIC
+  Worst novel virus: RNA like the flu and cornoviruses
+  1,000 genome letters attaggcc... were off - Dec 2019
+  promed.org - global disease reports - free, relentless, & arcane
+    emailed warning Dec 30 11:59 PM
+    delivery man went to hospital Dec 18, Dec 24 lung liquid sequenced
+    Jan 1 Hubei health dept ordered halt to testing and destruction of samples
+    secret orders for labs not to publish
+  Adenine Cytosine Guanine Uracil - 4 nucleotide bases
+    3 bases = 1 amino acid;  4^3=64
+      61 encode amino acids and 3 specify termination of translation
+        AUG (ATG in DNA): start codon, UAA, UAG, and UGA: stop codons
+        20 amino acids (or 21..); 18 have codon redundancy
+         2 methionine (AUG) and tryptophan (UGG) do not
+        11 non-essential:nonessential amino acids:
+           Alanine, arginine, asparagine, aspartic acid, cysteine, glutamic acid,
+           glutamine, glycine, proline, serine, and tyrosine
+             7 are conditional (if sick or bad diet) essential:
+               arginine, cysteine, glutamine, glycine, proline, serine,
+               and tyrosine
+        9 essential; cannot be synthesized by human body:
+           Histidine, isoleucine, leucine, lysine, methionine, phenylalanine,
+           threonine, tryptophan, and valine
+           Leucine, most common = 10x more prevalent than least common: cysteine
+  Jan 11 10 year old boy with lung damage and no symptoms; published Jan 24
+    --> advice: wear masks, not adopted
+  Jan 20: spread to Japan, Thailand, S. Korea
+    Chinese declared person to person transmission
+
+2. WARNINGS
+  RNA viruses mutate more (less stable) than DNA virus
+    recombine - shuffles genes - sperm/egg cells do this also
+      to remove genetic debris and produce fit hybrids
+      sex: produce offspring that are genetically different from parents & siblings
+        adds variation and ability to evolve
+      RNA do it (recombine) with other RNAs when replicating
+  Virtual virus simulation parameters:
+    1. rate of mutation
+    2. recombine or not
+    3. random or section recombination
+    Optimal efficiency was similar to RN virus
+  Predict virus treats (1997); criteria, does family virus:
+    1. caused recent pandemics? HIV yes
+    2. widespread disease in animals?
+         Flu in wild birds
+         Newcastle disease in chicken, canine distemper in dogs, raccons...
+         mouse corona virus, feline corona virus, canine corona virus
+         turkey corona virus,
+         porcine (pig) epidemic diarrhea virus (PEDV - fecal-oral, of fecal-nasal)
+    3. evolvability - mutation speed, ease of recombination
+         prone to zoonosis
+  Strategy/funding for threats:
+    predict-prevent versus surveillance-response;
+    prediction is extremely difficult (and extremely arrogant)
+  SAR-CoV 2003 - patient-->doctor (get sick and well to travel to Honk Kong)
+     --> 9th floor hotels guests spread virus to Toronto Singapore & Hanoi
+     neutral virus name unlike the Ebola -a river in Zaire
+     asymptotic people did not transmit
+     Singapore stopped spread by isolation; camera, random phone calls,
+       material/financial support, fines  - not possible say in Kinshasa
+  Bat viruses: rabies, Hendra Australia, Nipah Malaysia, Marbug Uganda, (Ebola suspected)
+  MERS quickly spread in South Korea because first patient visited 4 hospitals
+    Nosocomical spread - free national health care contributed to it.
+  COVID detected Jan 21 - every day after was a day missed by US government
+    Scientist knew - but president said "nobody had any idea"
+    US dodged SAR-CoV, Canada & S.Korea learned from it.
+  1997 Honk Kong killed 1.5M chickens;
+   in few years mandated chicken vaccinations.
+  Zhengli Chi 2003 - bat lady - did not find SAR-CoV in bats after 9 month search
+    of fruit bats using RT-PCR (reverse transcription polymerase  chain reaction)
+    convert RNA to DNA and amplify it; RNA rises & falls in hosts
+    used ELISA (enzyme-linked immunosorbant assay, similar to rapid test):
+      antibodies in blood tested with specific enzyme (another protein)
+      2004 found them in horse shoe bats, got genome from feces; 92% match to Canadian
+    simutaneous independent discovery by Hokong's K.Y. Yuen
+    SAR-CoV has ACE2 (Angiotensin-converting enzyme 2) receptor
+      ACE2 is attached to membrane of cells in the intestines, kidney,
+      testis, gallbladder, heart and lung epithelia includes upper respiratory
+      regulates of circulating angiotensin
+      angiotensin is hormone (protein) that restrict bloods vessel increasing blood pressure
+      ACE2 regulates blood pressure
+      receptor-binding domain (RBD) of the SARS-CoV-2 spike protein (S)
+        binds to the ACE2 receptor
+        1. SARS like spike proteins mounted on pseudo virus --> no bind to ACE2
+        2. Replaced RBD of bat virus with RBD of SAR-CoV    --> bind; bat virus can infect humans
+          --> *** Lab theory ***
+      cultured 95% similar virus from bat feces - proof of reservoir
+      found 293 different viruses, 9 were coronas, in multiple bat species
+        --> more chance for zoonosis;
+      genome of 11 viruses had SAR-CoV genetic similarity
+        smoking gun of the origin of SAR-CoV
+        2017 paper warned the deaf and uninterested
+          the need to prepare for SARS-like virus
+
+3. MESSAGE IN A BOTTLE
+   Dec 31 Chi found that SAR-CoV-2 genome did not match any of the 11 viruses
+     (take her word for it!)
+     "in the beginning it is not necessary to explain too much"
+   SAR-CoV-2 79.5% match to SAR-CoV - decades of divergent evolution
+   Publication on similarity of SAR-CoV-2 and snake & HIV genome....
+   Furin cleavage site on the genome indicate easy cell entry
+     Furin is  cellular endoprotease that activates proprotein substrates;
+       pathogenic agents,growth factors, receptors, and extracellular matrix proteins
+         protease: hydrolytic enzyme; protein turnover, growth, adaptation,
+            germination,.... disease, & death
+     SAR-CoV did not have the cleavage site
+     Other viruses did not have such exact RBD - virus made in the lab?
+       Fauci discussed as a possibility... how science works
+  Malay pangolins had virus with similar RBD - made in nature not in the lab
+    Pangolin scales (keratin-hair/nails) cure ant bites, evil spirits, malaria,
+      pinworm, stimulate lactation in women in China
+      but most pangolin skin sent to N. Ameria for boots....
+      CITES (the Convention on International Trade in Endangered Species of Wild Fauna and Flora)
+        made Asian trade illegal in 2000
+        2012 Vietnam: pangolin dinner $700, served fresh  blood W alcohol
+        Africa: consumed  & scales exported to China/Vietnam
+        2016: CITES makes all trade illegal
+        2017: China arrests for 5 tons of scales
+        2019 Oct: report of corona-virus in seized pengolins
+  Chinese overstated that pangolin virus was 99% match
+    99% match to some parts of genome! - not overall
+  Microbiome: viruses, bacteria, fungi, archaea, protozoa
+  Found the RBD segment from pangolin match 97% match to SAR-CoV-2 RBD
+    --> virus came from nature not the lab ... but did not have cleavage site
+  March: ***6 out 9 Diamond Princess passengers with asymptotic ***
+    --> 2nd warning for those that needed 2.
+  Fauci steel/antifreeze in spine/veins:
+    "Virologists anthropomologize... if virus was nefarious person...
+     how can I do most damage? cause very little harm, give no symptoms
+     to 1/2 people, and be deadly to vulnerable people"
+     Virus follows 3 evolution laws:
+       1. maximize copying your self
+       2. extend in space
+       3. extend in time
+  Bad viruses: rabies, polio, ebola, measles, mumps, influenza, HIV1 & 2,
+    Nipah, Hendra, Machupo, Sin Nombre,dengue, rotavirus, Zika, Yellow fever,
+    Herpes B, chicken pox, hepatitis, shingles, common cold, variola (smallpox),
+    SAR-Cov, MERS-CoV, OC43, SAR-Cov2
+  More viruses in oceans than stars in universe, mammals have 320K types
+  All animals/plants/bacteria have viral DNA in their genes
+    8% of human genome is viral
+  Viruses like fire is not all bad or all good.
+  They give advantage or destruction.
+  Stuff wrapped in capsid is genetic dispatch - a good or bad message in a botle.
+  Virus evolution hypotheses:
+     1. viruses first (before cells)
+     2. escape - genes leaked from cells
+     3. reduction - cells downsized
+        support for 3: giant Mimivirus in amoeba (mimic bacteria)
+          1.3M base (flue/corona/smallpox 13K/30K/19OK)
+          contained enzyme genes
+          descendant for extinct ancestral proto-cell
+          (like birds descendants from dinosaurs)
+  Multiple lineages of pangolin corona-viruses related to SAR-Cov2
+    implies pangolin could have been the source facilitated by we-markets
+
+4. MARKET DYNAMICS
+  WHO team toured Huanan market - where vendors suppliers got sick,
+    what the sold... and Chinese insisted touring
+     seafood...
+  Nov 17 Brazilian wastewater in Florianopolis was SAR-Cov2 positive
+  Harvard study found crowded Wuhan hospital parking lots in August
+    but was not published
+  Molecular phylogenetics; HIV-1 jumped from chimp to human around 1908
+    in south-east Cameroon
+  OPV hypothesis: HIV spread by polio vaccine;
+   Sabine live polio vaccine: attenuate virus by passing it
+   through chimpanzee (which may had SIV virus) instead of monkey cells
+     --> prove it by testing chimp feces for SIV
+     (Sabin/Salk: attenuate/dead  oral/injection polio vaccine)
+     found that SIV in east Congo (where polio was given) was not the SIV that evolved in HIV
+     research died from faciparum malaria (humans are prime reservoir of malaria)
+  To find source of COVID need similar phylogenetics....
+    GISAID (Global Initiative on Sharing Avian Influenza Data) has 8 million SAR-Cov2 sequences
+  German patient zero variant had one nucleotide difference (out of 30K)
+    Sequence tree analysis: German patient zero only had 15  infections
+       and several outbreaks were successfully contained
+       Washington & German containment: delayed spread by few weeks
+         Washington activated hundreds of people for one case...
+         big deal in a pandemic...
+  Santa Clara county California
+    40% immigrates - people travel...
+    First US death Feb 6 - slumped in breakfast bar
+    Testing first done only by CDC in Washington
+      quarantine or not while waiting?
+    CDC then shipped test kids which got positive results for plain water
+      --> Don't look won't find
+      prohibited gathering of 1,000 people then 100 then shelter in place
+      when people started dying (when 96 dead in US)
+  Feb 24 Dow Jones fell 1,032 points (3.5% to 28K) - March 2020 fell by 3,000
+    price-weighted index that tracks 30 large, publicly-owned companies trading
+    on the New York Stock Exchange and the Nasdaq
+  Navaro, economist, pwasteublished "Death by China" & "The coming China wars"
+    Trump likes it... Feb 23: called it crisis in Fox
+    Feb 24 drop --> Trump take a fit
+      Nancy Messonier, CD, gave the bad news, uncertainty....
+      Trump complained to Alex Azar her boss
+    spread had taken off, why:
+      "rugged individualism" - self concern to detriment of community
+      cowboy do not wear masks
+      not aligned with Trump reelection
+  Dec 2019 2 virus lineages/sources:
+    A Dec 20: in 1 of other 3 markets in Wuhan
+    B Dec 24: Huanan market
+      Wuhan 38 species sold - luxury/prestige/illegal food;
+        Raccoon dogs, badgers $8/lb = 3x pork
+        other factor:
+          African swine fever (ASFV, DNA virus/tick vector)
+          150 million pigs effected
+          commodities analysts: ASFV "will lift all protein boats"
+          "one pandemic lead to another" narrative; no real data
+    Most recent common ancestor (MRCA) via:
+      Computer analysis & simulations:
+        Nov 2019 virus was circulating - not earlier than Oct
+        Mar 2019 Italian report was bogus
+        extinction rate of simulated lineages:
+          spillovers are frequent even if pandemics are rare
+          MRCA: critical point - branches diverge --> big lineage crown
+
+4. Variables and constants
+  Will the virus mutate?  All viruses mutate
+    Deprive its opportunities to evolve - masks, vaccines....
+  Purifying selection:
+    First 9 months evolved very slowly - transmitted more than it could evolve
+    RNA corona-viruses: long stable genome via nsp14 proofreading protein
+    D614G: D (aspartic scid) in location 614 (spike protein) changed to G (amino acid glycine)
+      loose sense of smell - early in China then Europe
+  R.A. Fisher mathematized Darwin
+    mathematician, statistician, biologist, geneticist, and academic - favored eugenics
+    a smoker; lung cancer correlation does not imply causation
+    evolution: changes in frequency of alleles (different forms of same gene)
+      Peppered moths turned from white to black when trees were covered with black soot
+      change of the allele population was evolution
+  D614G: 10% to 67%,78% in 1,2 months - improved transmission efficiency - not lethality
+  Italy:
+    variant B form China not Germany
+    followed WHO advice to test people linked to China
+    ignored advice: first patient Feb 21 first positive test
+    by June 3, 33,691 deaths - most at home?
+    Does God hate Italy?
+    Football match, 40K fans in Bergamo fueled spread; "no one knew virus was here"
+  B1 lineage from Lombardy spread to Europe and NY
+  then B1.1, B1.1.7 (UK)
+    by end of 2020, UK has 250K sequences 40% of global
+    variant more contagious --> lock-down
+    B1.1.7 tracked was most transmissible even with masks..
+    Alpha B1.1.7 Beta B1.351
+  South Africa: 60 million - 7.5 million have AIDS - easier evolution of virus
+  Manaus Brazil: rich people paid for opera house, poor for cathedral
+    by Oct 2020 76% had antibodies (attack rate)
+    heard immunity estimated 67%, but 2nd wave hit on Jan 2021
+    fist wave variants not effective?, 76% was wrong? gamma more transmissible;
+    24% uninfected was enough?
+  India:
+    similar independent mutations - had adaptive value
+    convergent evolution
+    Delta variant - breakthrough cases -despite vaccination
+      a response to lock-downs and vaccinations
+      tested positive in 4 instead of 6 days after exposure
+      1,260x bigger viral loads than other variants
+  Evolution happens - it is a constant
+
+6. FOUR KINDS OF MAGIC
+  1. wish it away
+     "We have an incredible job - on day like a miracle it will disappear"
+       didn't happen
+  2. herd immunity
+     Veterinarian Salmon on pigs: breed wisely, varied diet, clean sties
+       "they will get power of resistance...herd immunity"
+       no definition of herd immunity
+      Herd immunity:
+        got mathematical definition, worked well for smallpox
+        not so for polio, measles, influenza
+      Johnson's clear plan: self-isolate, keep infections low, buy time, no lock-down...
+        suppress it - cannot eliminate it, flatten the curve
+        why? scientific advisor: herd immunity (not have enough hospital beds)
+      SIR (Susceptible, Infected, Recovered) model:
+        Epidemic does not end when susceptible is zero - forest fire does not stop
+        until every tree is burned
+      Basic reproduction rate (Ro): infection from the first case
+      herd immunity: when R-naught < 1.0
+        it worked for smallpox because it is symptomatic
+        does not work for polio because it is asymptomatic
+        threshold = 1 - 1/Ro  for Ro=3  threshold is 67%
+      Assumptions:
+        1. recovered do not become susceptible
+        2. virus does not evolve
+        3. homogeneous mixing; isolated groups may not immunity
+        4. no immigrants - no additional susceptibles
+      Measles: from rinderpest in cows for 2,000 years, Ro=12-18
+        eradicated 1945-2011 with vaccine - $5.5B 2017 dollars
+        measles stayed as humans only disease
+        easier to control cow behavior than our own
+        310K/6K 2019 cases/deaths in Democratic Congo - lack of vaccination
+        1966 Rhode Island: End Measles Sunday
+          Some in isolated community did not get vaccinated
+          Virus brought back from Portugal a year later
+      Even in ideal case herd immunity, does not makes infection zero -
+         it only reduces the probability
+  3. Drug therapies
+    Hydroxychloroquine(malaria, rheumatoid arthritis, lupus):
+      fox news Laura Ingraham (Reagan speechwriter), Larry Ellison (Oracle)
+      planted convinced Trump...
+      synthetic version of quinine
+      used as malaria prophylactic - parasite is poisoned by its waste as it
+      grows inside a red blood cell
+      chloroquine resistant malaria --> repurposed for SAR in 2003
+        reduced SAE-CoV in cultured cells (in vitro; glass studies)
+      Navaro praised French study (Didier Raoult- reputation of forging data),
+       Fauci not impressed
+       emergency use authorized, study came up negative
+    Remddesivir (2009 hepatitis C virus & RSV)
+      1017 effective for corona viruses
+      China study: marginally effective
+          study ended because of no new cases
+    Ivermectin
+      for parasite in people, pets cows, horses.., cheap easily accessible
+      claw hammer good for carpentry not so for dentistry
+      black flies gives river blindness (Onchocerciasis)
+        Ivermectin is used as prophylactic
+    Molnupiravir
+      prodrug - taken orally - metabolized and activated
+        10% of all drugs - activated in or outside the cell
+      effective but mutagenic (like some cancer drugs) - cancer.... OK for elderly not so for younger
+      is a nucleoside analog - mimics cytosine and uracil
+        broad spectrum antiviral
+  4. vaccines
+     Barnie Graham workd on mRNA type vaccines for MERS and Nipah
+     4 days after Jan 10 (genome release) Moderna started vaccine manufacturing
+     9 weeks after first human trial
+     VRC (Vaccine research center)- Graham direcor
+       Clinton after Fauci presentation
+       issued executive order to create VRC to create HIV vaccine
+       previous RSV vaccines not so good: "vaccine-enhance disease"
+       to fix that Graham had mRNA instruct creation of antigens in patients body
+       problem mRNA degrades too quickly in the body
+       BioNTech started work in January and in 3 months partnered with Pfizer
+   Speedy vaccine: solve protein structure, design right antigen,
+     coding them into synthetic mRNA, wrapping mRNA into lipid,
+     to do it fast, some of this was done simultaneously
+     2017 Grahan partnered with Stephan Bancel, not a scientist, CEO Moderna..
+     Graham create Nipah antigen, Moderna create mRNA vacine
+       2019 Nipah vaccine ready for clinical trial
+    Nianshuang Wang generated genomic changes that would jam the spike on s weekend
+      send sequences to company that created DNA
+      used the DNA in cultured cells to create 10 types of modified spike protein
+    Graham selected the most promising protein
+    Nov 2020: after clinical trial 94.1 efficacy  100% against serious disease
+    Dec 18 emergency use; 3,171 died of covid
+    June 2021 43% Americans vaccinated 2.4% Africans
+
+7. THE LEOPARDS OF MUMBAI
+   Human viruses come from mammals & birds
+     theoretically possible from reptiles, amphibians & plants
+     West Nile virus found in captive snakes/alligators via mosquitoes?
+   Bolivian hemorrhage fever (Manchupo virus) 5-30% mortality 1963
+     Karl Johnson caught it and survived;
+       found reservoir: vesper (evening) mouse - mouse urine + dust --> outbreak
+       lucky that 14/17 mice had virus
+   Marburg virus 1967 from African monkeys
+     5/23 researchers died, In DRC up to 80% mortality in miners & families
+     some virus in bats using PCR - not reservoir - virus not be grown in la
+     after 41 years found 5% fruit bats had virus - virus from 5/611 bats grown in lab
+       eliminated 3,000 mice in 2 weeks, imported cats
+   SARA-Cov-2:
+     opinion that it came from the lab or cleavage site (12 RNA letters) inserted
+     but almost same 12 letters found in HKU9 bat virus
+     possible the polymerase that copies the RNA bumped from one virus to another
+       --> natural recombination
+     Vector artificial virus to deliver
+      genomes to treat human genetic disorders
+     Palindrome sequence before & after cleavage site
+        --> copy-choice error
+     Alina Chan:
+       Virus was mutating as all viruses do but it was not evolving (adapting to new host)
+         did not need to evolve because it was adapted to infect humans
+         Possibilities: 1. virus circulated for months before being detected
+       Publish lab-origin book with science writer:
+        "Viral: the search for the origin of covid-19"
+                        2. adapted to humans while dwelling in bats
+                        3. adapted while being studied - in human ells
+    Cats get covid from the owners (globally)
+      Some for minks - millions farmed and a wild mink in Utah
+        minks escape from farms...
+        --> sylvatic cycle (enzootic of non-human pandemic) - malaria has sylvatic (forest) cycle
+      Sylvatic virus is like traveling salesman - 2 wives, 2 families...
+        Yellow fever: mosquitoes spread it to humans (urban cycle) and monkeys (sylvatic cycle)
+        Sylvatic SARA-Cov-2 --> no end to it...no heard immunity
+        Human infection with mink (variant 5) virus --> Denmark culls 17 million minks
+          Variant 5 became extinct in humans
+        Late 2021 virus in wild deer in Iowa 82%, NY 30%, Illinois 67%...
+        ---> generalist virus
+    RaTG13
+      killed 3 people in MOjjang mine in 2012
+      96.2% similar to SARA-Cov-2: 50 years of evolutionary divergence
+      Expert virologists: RaTG13 W/WO lab manipulation is not the source
+    Gain of function
+      2005 PPP (Potential Pandemic Pathogen)
+        CDC reconstructed 1918 influenza virus
+          from victims buried in Alaska permafrost
+      2011
+        creation of virulent H5N1 virus using ferrets
+           -->
+           paused 2014-2017
+      2017
+        Shi (Hu et cl) hybrid virus for 2 viruses that could not be grown
+        constructed laboratory approximation (hybrid virus) of what exists in the wild
+        alerted us of what exists in the wild
+    Principle of parsimony (simplest explanation):
+      of Occam's razor (1287–1347);
+        razor: allows one to eliminate ("shave off") unlikely explanations
+      “If you hear hoof-beats, think horse -- not zebra.”
+      Most likely source is zoonosis
+    Ascertainment bias: if you think a factor is important you will most likely
+      find it because you are looking for it.
+      If people thought it people thought Huanan was the source
+      they would have looked harder.
+      People did not suspect Huanan in the first cases.
+      Cannot explain first cases if it did not start in Huanan;
+        1. Dec 10 shrimp seller become sick
+        2.  Dec 16accountant not having visited the market
+
+8. NOBODY KNOWS EVERYTHING
+   Egregious political malfeasance
+   (bad-shocking; knowingly violate the law) political  (public official wrongdoing)
+   WHO report:
+     Chinese insisted that "frozen food" be likely while lab-leak was "unlikely"
+             argued that live wild animals were not sold because it was illegal
+     China is embarrassed and covering an animal leak - not a lab leak
+       Nov. 2019 Chinese researchers reported live animals
+       Jan 1 2020 market closed emptied and sterilized
+       to protect politicians that looked the other way
+       Illegal animal trade: $18-$75 billion/year.
+    May 2021, 2 weeks after WHO report, Biden asks for report on virus origin
+      result: we are not sure and we do not agree with each other
+    Virus will never be eradicated:
+      measles and polio are only in humans and has not been eradicated,
+      will be in humans and other animals forever
+    Omicron Nov 2021:
+      43 mutations from Wuhan - most in spike and receptor binding domain
+      strangely  no intermediary - say with half the mutations; possibilities:
+        1. sparse S. African testing
+        2. intermediary was in an immune compromised person
+        3. sylvatic cycle - came from wildlife; similar to variant 5 in Denmark
+    Did natural selection favor each amino acid changes or all as a bundle
+  Bundle: "positive epistasis"
+    double mutation is fitter than 2 single mutations
+    "the epistatic fucking cirque du soleil of this virus is discombobulating"
+      circus of sun ... confusing bewilder
+  Poor man's uncertainty principle:
+    scientist who knows some aspects will remain ignorant or uncertain of thers
+  Faulkner:
+    truth of and event or a person is fragmented
+    fragments are available from diverse points of view;
+    The sound and the fury
+    Absalom Absalom
+
+Live pathogen tracking:
+https://promedmail.org/

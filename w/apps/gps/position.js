@@ -62,9 +62,11 @@ function showPosition(position) {
     display("x", metersFeetMiles(x))
     display("y", metersFeetMiles(y))
     heading = polarAngle(pt)
+    speed = ds_dt(pt)
+    total_distance = sum_ds(pt)
     display("head-dx/dy", heading, "&deg; ", northSouth(heading))
-    display("speed-ds/dt",function showPosition(position) mSecKphMph(ds_dt(pt)))
-    display("sum(ds)", metersFeetMiles(sum_ds(pt)))
+    display("speed-ds/dt", mSecKphMph(speed))
+    display("sum(ds)", metersFeetMiles(total_distance))
     display("R", metersFeetMiles(radius(pt).toFixed(1)))
     pt.xPrev = x
     pt.yPrev = y

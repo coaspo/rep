@@ -24,7 +24,7 @@ Yeasts and Molds
 Virus
   parasitic
   infect one species, or related species
-  zoonotis, can infect human beings
+  zoonosis, can infect human beings
     (bacterium, virus, parasite or prion) that has jumped from an animal
   Food importance:
     bacteriophage of lactic or other fermentative bacteria.
@@ -90,8 +90,12 @@ pH
       Green Beans (5.3), Beans with pork (5.3) Asparagus (5.5), Potatoes (5.5)
   6.0 Lima beans (5.9), Tuna (5.9), Tamales (5.9) Codfish (6.0), Sardines (6.0)
       Beef (6.0) Pork (6.1), Evaporated milk (6.1) Frankfurters (6.2) C
-      chicken (6.2) Corn (6.3) Salmon (6.4)
+      chicken (6.2) Corn (6.3) Salmon (6.4), rice (6-6.8)
   7.0 Crab meat (6.8), Milk (6.8) Ripe olives (6.9) Hominy (7.0)
+
+  vinegar 2-3
+  albumen/yolk: 7.6/6.0; exposed album loses CO2 --> 9.5
+  stomach 2-3.5, blood 7.36-7.44
 
   The minimal growth pH:
     Salmonella                 4.0
@@ -148,6 +152,7 @@ Food-borne infections:
       Japanese wanted Norwalkvirus name because Noro is a last name
 
     2. Salmonella (genus) (Salmon, veterinary pathologist):
+       in meat, poultry, fish and eggs
       Salmonella enterocolitis (intestine colon) - most food poisoning
         Reservoir: domestic/wild animals & humans
       Salmonella Typhi (ethereal cloud causing madness)- causes typhoid fever
@@ -168,7 +173,7 @@ Food-borne infections:
       Reservoirs: Soil, water, air, dust, vegetation, human/animal intestines
       Heat-resistant and cold-tolerant
       gram-negative - amoxicillin
-      Grows best in cooked meat, poultry, gravies in 40°F–140°F
+      Grows best in cooked food; meat, poultry, gravies in 40°F–140°F
       Bacteria form spores and releases toxins in intestines
 
     4. Campylobacter jejuni;   (campylos (curved) and baktron (rod))
@@ -176,14 +181,17 @@ Food-borne infections:
       catch it from raw/under-cooked poultry; causes  campylobacteriosis
       1st worldwide to cause gastroenteritis (stomach/intestine; vommit, diarrea)
       gram-negative - Azithromycin
+      found mostly in milk
       dies rapidly in ambient temperature/atmosphere, and grows poorly in food.
 
     5. Staphylococcus aureus (Grapes-berry golden) / "staph":
       On skin, mucous membranes, in pimples/boils of humans and animals
+      can infect respiratory passages
       Food poisoning strains generally come from humans
+        common in potato salads & sandwich spreads
         MRSA (Methicillin-Resistant Staphylococcus aureus) - no risk getting from food
           eradicated with whole body wash and nasal ointment
-      Heat destroys it, but not its toxin
+      Heat destroys it, but *** not its TXIN ****
       100,000/gram when bacteria allowed to grow in food
       Food free from staph is difficult or impossible
         1. reduce exposure of cooked foods - use gloves or clean hands
@@ -204,21 +212,34 @@ Food-borne infections:
       Toxins inactivated after boiling for 10 min.
       Concern in low acid foods pH>4.6
       Canned meats have salt & nitrite
+      30% percent death rate
+      mostly in home-canned foods - may not have smell
       gram-positive, heat resistant spores; penicillin G or metronidazole
 
     7.Listeria (Lister Joseph, British surgeon)
       Reservoirs: originally in cattle or sheep, now in refrigerated, ready-to-eat foods
       Invades macrophages leads to septicimia, 30% mortality for very young.
       survived pH 5 in cottage cheese and Cheddar
+      Survives refrigeration
+      grows ph 5 to 9.5 & salt tolerant up to 30%
+      refrigeration resistant
       Doubles in  1.5 days at 39.2°F, 175°F inactivates it
       gram-positive; ampicillin
+      flu-like symptoms may go unnoticed
+      30% death rate in immumocompromised
 
-    8. Escherichia coli: (Theodor Escherich paediatrician, Large intestine)
+
+    8. Enteropathogenic Escherichia coli: (Theodor Escherich paediatrician, Large intestine)
       few in human feces are pathogenic; 6% food handlers have pathogenic
       gram-negative;  asciprofloxacin, Azithromycin
+      travelers diarrhea
+      E. coli0157:H7 associated hemorrhagic colitis (latest in nursing home)
+      4 E. coli strains: enterotoxigenic, enterinvasive, hemorrhagic, and enteropathogenic
+      food handler hygiene
 
     9. Vibrio parahaemolyticus (Vibrate against blood disintegration)
       Reservoirs:  brackish saltwater in US & Canada; shell fish (oysters)
+      found in seafoods - problem in Japan (raw)
       similar to Vibrio cholerae that causes cholera
       anaerobic in meat or poultry dishes, stews, or gravies kept warm
       Sporulation in human intestines, causes cell dissolve and release toxins.
@@ -239,6 +260,8 @@ Food-borne infections:
       Reservoirs: wild and domestic animals
       causes gastroenteritis
       Like Listeria, grows in refrigerator, sensitive to  122°F
+      Arthritis can be sequel to infection
+      not common in US
 
     12. Taxoplasma gondii (arc/bow-shape gundi[African rat])
       Intracellular parasitic protozoan
@@ -319,6 +342,20 @@ Spoilage prevention
       2. pasteurize
       3. store pickles with brine to inhibit molds & yeast
 
+90% food poisoning caused by:
+ Staphylococcus aureus, Salmonella, Clostridium perfringens, Campylobacter,
+ Listeria monocytogenes, Vibrio parahaemolyticus, Bacillus cereus,
+ and Entero-pathogenic Escherichia coli.
+
+
+Prevention:
+1. Wash hands, food preparation surfaces and utensils before and after handling raw foods
+   to prevent contamination of cooked foods.
+2. Keep refrigerated foods below 40 degrees F.
+3. Serve hot foods immediately or keep them heated above 140 degrees F.
+4. Divide large volumes of food into small portions for rapid cooling in the refrigerator.
+5. Heat canned foods thoroughly before tasting.
+6. When in doubt, throw it out
 
 Ref:
   https://aggie-horticulture.tamu.edu/food-technology/food-processing-entrepreneurs/microbiology-of-food/

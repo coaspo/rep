@@ -1,5 +1,5 @@
 1. Artificial intelligence (AI)): mimic human intelligence;
-    anything from a thermostat to whatever hasn't been done yet
+   anything from a thermostat to whatever hasn't been done yet
      https://www.cleverbot.com/
    Video game bot
    Hydraulic conductivity - movement of water in plant, soil, rocks...
@@ -15,11 +15,11 @@
      sustainability: data centers cooling, landfill waste, food waste, targeted advertising
 
 2. Advanced semiconductors & computer hardware
-carbon nanotubes'
- hafnium diselenide and zirconium diselenide
-graphene, which includes boron and nitrogen
-gallium-nitride for electrical grid system, converting power for
-antimonides and bismuthides for infrared sensing
+   carbon nanotubes
+   hafnium diselenide and zirconium diselenide for smaller circuits
+   graphene, which includes boron and nitrogen
+   gallium-nitride for electrical grid system, converting power for
+   antimonides and bismuthides for infrared sensing
 3. Quantum computing
 4. Robotics
 5. Natural & anthropogenic disaster prevention
@@ -30,4 +30,4 @@ antimonides and bismuthides for infrared sensing
    Data storage/management
 9. Advanced energy
 10. Material science
-</html>
+

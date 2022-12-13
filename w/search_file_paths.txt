@@ -4,6 +4,7 @@ apps/browser_extensions/popup.html
 apps/culture/cultural_dimensions.txt
 apps/gps/position.html
 apps/gps/position_test.html
+apps/health/relax-breathing.html
 art/book-notes/bury_my_heart_at_wounded_knee.txt
 art/book-notes/outliers;_story_of_success.txt
 art/book-notes/tipping_point;_little_things_make_big_difference.txt
@@ -18,6 +19,7 @@ art/links/music_-_tree-story_playlist.html
 art/links/photography.html
 art/links/videos.html
 art/links/visual_art.html
+art/lists/7_books_to_make_you_smarter.txt
 art/lists/etymology_sample.html
 art/lists/expressions.html
 art/lists/language_basic_words_list.html
@@ -83,10 +85,12 @@ science/biology/microbes.txt
 science/book-notes/ahead of the curve - viruses....txt
 science/book-notes/algorithms_to_live_by.txt
 science/book-notes/being_mortal.txt
+science/book-notes/breathless_scientific_race_to_defeat_covid.txt
 science/book-notes/crack_in_creation;_gene_editing.txt
 science/book-notes/entangled_life,_how_fungi_make_our_world...txt
 science/book-notes/fever_the_hunt_for_new_killer_virus.txt
 science/book-notes/microbe_hunters.txt
+science/book-notes/sapiens_a_brief_history_of_mankind.txt
 science/book-notes/science_fictions.txt
 science/book-notes/silent_spring.txt
 science/book-notes/spillover_animal-infections_and_the_next_human_pandemic.txt

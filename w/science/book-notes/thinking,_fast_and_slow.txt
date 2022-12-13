@@ -1,7 +1,7 @@
 Daniel Kahneman  Princeton psychology professor  🗓 2011
-Priming effect below, according to 'science fictions' book cannot be replicated.
-H
-ow many others are irreplicable?
+Pseudo-science alert:
+  Priming effect listed below, according to 'science fictions' book cannot be replicated.
+  How many others listed are irreplicable?
 
 Intro:
   Goal to enrich vocabulary & discussion of judgment/choices of others
@@ -292,7 +292,7 @@ ______________________________PART 1 TWO SYSTEMS________________________________
     Over-weights small probabilities
     Less sensitive to quantity
     Responds stronger to loss than gain
-    Isolates decision problems
+    Isolates corpusdecision problems
 
 _________________________PART 2 HEURISTICS AND BIASES___________________________
 

@@ -82,14 +82,14 @@ function localPosition(position) {
 // Main search button
 function browse(url, name = "_self") {
   if (window.DEBUG) console.log('browse, url=' + url)
-  var text = document.getElementById('inputText').value;
+  var text = document.getElementById('inputTextMain').value;
   browseUrl(url, name, text)
 }
 
 // Projects search button
 function browse2(url, name = "_self") {
   if (window.DEBUG) console.log('browse2, url==' + url)
-  var text = document.getElementById('inputText2').value;
+  var text = document.getElementById('inputTextProj').value;
   browseUrl(url, name, text)
 }
 

@@ -15,6 +15,8 @@
       z-index: -1;
     }
   </style>
+    <script src="position.js"></script>
+    <script src="gps-util.js"></script>  
 </head>
 
 <body>
@@ -40,8 +42,10 @@
   <pre><span id="info"></span></pre>
 
   <script src="position.js"></script>
+  <script src="gps-util.js"></script>
   <script>
     function resize() {
+      console.log('resizing')
       var c = document.getElementById("canvas");
       c.height = Number(window.innerHeight);
       c.width = window.innerWidth
@@ -52,15 +56,15 @@
       ctx.fillStyle = grd;
       ctx.fillRect(0, 0, c.width, c.height);
       return [c.width, c.height]
-    }pt
+    }
 
     window.addEventListener('resize', function () {
       resize();
     }, true);
-
     resize()
-    document.getElementById("iarGradient(0, 0, 600, 600);
-      grd.addColorStop(0, "#FFcccc");
-      grd.addColorStop(1, "#ccFFcc");
-      ctx.fillStyle = grd;
+    var intervalId = window.setInterval(function(){
+      getLocation()}, 5000);   // get location every 5 sec
+    getLocation()
+    </script>
+  </body>
 </html>
