@@ -63,8 +63,8 @@ function opencontName(evt, tabName) {
     // Display a random set of recipes;  see cook.js
     document.getElementById("recipes").innerHTML = getRecipes(3)
   }
-  var inputText = document.getElementById('inputText');
-  var inputText2 = document.getElementById('inputText2');
+  var inputText = document.getElementById('inputTextMain');
+  var inputText2 = document.getElementById('inputTextProj');
   if (tabName == 'Projects' && inputText2.value == '') {
     // use Main input in Projects tab
     inputText2.value = inputText.value

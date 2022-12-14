@@ -2,7 +2,7 @@
 
 function searchContentsMain(baseUrl, filePathsFilePath, labelsFilePath, searchFileUrls, searchLabels) {
   try {
-    const inputText = document.getElementById('inputText').value.toLowerCase().trim();
+    const inputText = document.getElementById('inputTextMain').value.toLowerCase().trim();
     if (window.DEBUG) console.log('*searchContentsMain() inputText= ' + inputText);
     if (window.DEBUG) console.log('*searchContentsMain() labelsFilePath= ' + labelsFilePath);
     if (inputText.length == 0) {
