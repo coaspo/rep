@@ -139,6 +139,8 @@ David Quammen , English major/writer    🗓 2022
     Nipah, Hendra, Machupo, Sin Nombre,dengue, rotavirus, Zika, Yellow fever,
     Herpes B, chicken pox, hepatitis, shingles, common cold, variola (smallpox),
     SAR-Cov, MERS-CoV, OC43, SAR-Cov2
+    (smallpox: tianhua (“heaven’s flowers.”) in Chinese, variola(“spotted”) in Europe;
+     syphilis was the "great pox[pocket]")
   More viruses in oceans than stars in universe, mammals have 320K types
   All animals/plants/bacteria have viral DNA in their genes
     8% of human genome is viral
@@ -149,8 +151,9 @@ David Quammen , English major/writer    🗓 2022
      1. viruses first (before cells)
      2. escape - genes leaked from cells
      3. reduction - cells downsized
-        support for 3: giant Mimivirus in amoeba (mimic bacteria)
-          1.3M base (flue/corona/smallpox 13K/30K/19OK)
+        support for 3:
+          giant Mimivirus in amoeba (mimic bacteria)
+          has  1.3M bases (flue/corona/smallpox 13K/30K/19OK)
           contained enzyme genes
           descendant for extinct ancestral proto-cell
           (like birds descendants from dinosaurs)

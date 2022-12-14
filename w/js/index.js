@@ -1,7 +1,18 @@
 "use strict";
+// Curron postion; for weather.js and position link
+var latitude = 'lat=42.3587' // Boston
+var longitude = 'lon=-71.0567'
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(localPosition);
+}
+
+function localPosition(position) {
+  latitude = 'lat=' + position.coords.latitude
+  longitude = 'lon=' + position.coords.longitude
+}
 
 // Default search button
-document.getElementById('inputText').addEventListener('keypress', function (e) {
+document.getElementById('inputTextMain').addEventListener('keypress', function (e) {
   const key = e.which || e.keyCode;
   if (key === 13) { // 13 is enter
     browse('https://duckduckgo.com/?q=zzzz  site:org');
@@ -67,17 +78,6 @@ if (document.URL.startsWith('file')) {
   //document.body.style.background = "lightyellow" // indicates server not running
 }
 
-// Curron postion; for weather.js and position link
-var latitude = 'lat=42.3587' // Boston
-var longitude = 'lon=-71.0567'
-if (navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition(localPosition);
-}
-
-function localPosition(position) {
-  latitude = 'lat=' + position.coords.latitude
-  longitude = 'lon=' + position.coords.longitude
-}
 
 // Main search button
 function browse(url, name = "_self") {
