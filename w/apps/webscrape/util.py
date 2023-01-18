@@ -9,7 +9,7 @@ def get_country(domain):
 
 def get_host_and_domain(link):
     if ' href="http' not in link:
-        raise ValueError(link + ' does not contain: href="https')
+        raise ValueError('"' + link + '" does not contain: href="https')
     i = link.find('//') + 2
     j = link.find('"', i)
     i2 = link.find('/', i, j)

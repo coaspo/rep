@@ -29,7 +29,7 @@ art/lists/movies.html
 art/lists/notable_quotes.html
 art/lists/spanish-idioms.html
 art/lists/words;_good,_bad,_ugly.txt
-art/lists/words_internet.html
+art/lists/words_internet_slang.html
 art/lists/words_known_by_male_female.txt
 art/lists/words_new.txt
 art/notes/how_to_write_think_an_learn_clearly.txt

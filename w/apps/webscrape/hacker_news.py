@@ -56,7 +56,7 @@ def parse_web_page_text(text: str):
           parts = parts[2].strip().split('comments')
           comments_i = int(parts[0].strip())
         comments.append(comments_i)
-      i = line[0:3].find('.')
+      i = line.find('.')
       j = line.find('(')
       if i > -1 and  j > -1:
         desc = line[i+1:j].strip()  # line is numbered has link with description
@@ -71,22 +71,31 @@ def parse_web_page_text(text: str):
     return descs, points, comments
 
 
-def parse_web_page(html: str):
+def parse_web_page(html: str, prev_file_path):
     soup = bs4.BeautifulSoup(html, 'lxml')
     descs, points, comments =  parse_web_page_text(soup.get_text())
     links = extract_links(html ,descs)
     is_last_page = len(links) < 28
-    for i in range(len(links)-1):
-      if i > len(links) - 1:
-        break
-      if 'https' not in links[i]:
-        print('  Deleting', i, links[i])
-        del links[i]
-        del points[i]
-        del comments[i]
-        i -= 1
-    print(f'  after filtering non-https, {len(links)} links')
-    return links, points, comments, is_last_page
+    print(f'  before filtering, {len(links)} links')
+    links_filtered, points_filtered, comments_filtered =[], [],[]
+    if len(prev_file_path) == 0:
+        previous_file_text = ''
+    else:
+        with open(prev_file_path) as f:
+            previous_file_text = f.read()
+    for i, link in enumerate(links):
+      if 'http' not in links[i]:
+        print('  Skipping', i, 'th link: "', links[i], '"; does not have "http"')
+      elif len(previous_file_text) > 0 and links[i] not in previous_file_text:
+        print('  Skipping', i, 'th link: "', links[i], '"; is in previous file')
+      else:
+        links_filtered.append(links[i])
+        points_filtered.append(points[i])
+        comments_filtered.append(comments[i])
+    print(f'  after filtering non-https, {len(links_filtered)} links')
+    if DEBUG:
+        [print('"',i,'"') for i in links_filtered]
+    return links_filtered, points_filtered, comments_filtered, is_last_page
 
 # <a href="https://github.com/apenwarr/blip">Blip: A tool for seeing your Internet latency</a>
 def extract_links(html ,descs):
@@ -165,8 +174,7 @@ def get_url_legend(html):
     return legend
 
 
-def scrape_ycombinator_links(month, day_start, day_end):
-    year = datetime.datetime.today().year
+def scrape_ycombinator_links(year, month, day_start, day_end, prev_file_path):
     links = []
     points = []
     comments = []
@@ -184,7 +192,7 @@ def scrape_ycombinator_links(month, day_start, day_end):
                 sec =  random.choice([5, 10, 20, 15, 3, 8])
                 time.sleep(sec)  # spoof webscrape detection
             html = get_web_page(URL)
-            links_i, points_i, comments_i, is_last_page = parse_web_page(html)
+            links_i, points_i, comments_i, is_last_page = parse_web_page(html, prev_file_path)
             if len(links_i) == 0:
                 break
             elif ith_page > 4:
@@ -207,6 +215,8 @@ def annotate_links_i(links_i, comments_i, points_i, publish_date):
         title = '" ' + 'title="' + str(points_i[j]) + ' pts, ' \
                 + str(comments_i[j]) + ' comments ' \
                 + publish_date + '">'
+        if DEBUG:
+            print('+++', j, '==', link, title)
         link = link.replace('">', title)
         desc = get_url_desc(link)
         if desc != '':
@@ -329,7 +339,7 @@ def read_all_previous_sorts():
 def write_file(html, file_path):
     with open(file_path, 'w') as f:
         f.write(html)
-    print('Created', file_path)
+    print('Created', file_path, len(html), ' characters')
 
 
 def prev_next_dates(month, month_range):
@@ -370,7 +380,7 @@ def date_parameters(month_abr, month_range):
     if month_range not in [1, 2, 3]:
         raise ValueError(month_range + ' is not 1,2,3')
     month = MONTH_ABBRS.index(month_abr) + 1
-    year = datetime.datetime.today().year
+    today = datetime.datetime.today()
     if month_range == 1:
         day_start = 1
         day_end = 10
@@ -379,7 +389,7 @@ def date_parameters(month_abr, month_range):
         day_end = 20
     else:
         day_start = 21
-        test_date = datetime.datetime(year, month, 1)
+        test_date = datetime.datetime(today.year, month, 1)
         day_end = calendar.monthrange(test_date.year, test_date.month)[1]
     file_path = f'./hacker_news/{str(month).zfill(2)}_{month_abr}_{str(day_start).zfill(2)}-{day_end}.html'
     prev_month, prev_day_start, prev_day_end, next_month, next_day_start, next_day_end = \
@@ -389,7 +399,8 @@ def date_parameters(month_abr, month_range):
     prev_file_path = f'./{str(prev_month).zfill(2)}_{MONTH_ABBRS[prev_month - 1]}_{prev_day_start}-{prev_day_end}.html'
     next_file_path = f'./{str(next_month).zfill(2)}_{MONTH_ABBRS[next_month - 1]}_{next_day_start}-{next_day_end}.html'
     print(' --file_paths,  current:', file_path, '  prev:', prev_file_path, '  next:', next_file_path)
-    return file_path, month, day_start, day_end, prev_file_path, next_file_path
+    year = today.year - 1 if month > today.month else today.year
+    return file_path, year, month, day_start, day_end, prev_file_path, next_file_path
 
 
 def get_user_input():
@@ -434,10 +445,10 @@ def main():
         # month, period = 'apr', 1   #
         # month, period = get_user_input()
         month, period = get_next_month_period()
-        file_path, month, day_start, day_end, prev_file_path, next_file_path = \
+        file_path, year, month, day_start, day_end, prev_file_path, next_file_path = \
             date_parameters(month, period)
         links, points, comments = \
-            scrape_ycombinator_links(month, day_start, day_end)
+            scrape_ycombinator_links(year, month, day_start, day_end, prev_file_path)
         html = create_web_page(links, points, comments, prev_file_path, next_file_path, top_count=20)
         write_file(html, file_path)
 

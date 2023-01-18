@@ -22,12 +22,13 @@ def main():
         hacker_news.MIN_POINTS = 0
         from datetime import datetime
         today = datetime.today()
-        month = today.month - 1
+        year = today.year
+        month = today.month
+        year = today.year
         day = int(today.day)
-        if hacker_news.DEBUG:
-            print(f'month:{month:02d}  day: {day:02d}')
+        print(f'Current year:{year}  month:{month:02d}  day: {day:02d}')
         links, points, comments = \
-            scrape_ycombinator_links(month, day, day)
+            scrape_ycombinator_links(year, month, day, day, '')
         html = create_html_page(links, points, month, day)
         file_path = './hacker_news/tmp_current_sorted.html'
         write_file(html, file_path)

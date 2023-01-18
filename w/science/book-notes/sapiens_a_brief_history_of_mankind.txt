@@ -1,14 +1,15 @@
 Sapiens - a brief history of mankind by Yval Harari  🗓 2015
-Israeli historian/philosopher
+Israeli historian/philosopher;
+History is study of change not of the past.
+Convince millions to kill: hack the disgust region of the brain
+(region used to protect against disease).
 
 Timeline of history; b/m/k=billion/million/thousand years
 13.5 b universe created
 4.5    earth created
 3.8    life created
 6    m common ancestor of humans & chimps
-2.5    stone tools, Australopithecus
-
- (southern ape)
+2.5    stone tools, Australopithecus(southern ape)
 2      Europe/Asia migration
 0.5    Neanderthals in Europe/Middle east
 0.3    daily use of fire
@@ -33,14 +34,23 @@ Part I: THE COGNITIVE REVOLUTION
 
 1. An animal of no significance
    Specie  Sapiens
-   Genus   Homo: habilis, erectus, rudolfensis, heidelbergensis, floresiensis, neanderthalensis, naledi, and luzonensis.
+   Genus   Homo: sapiens, habilis, erectus, rudolfensis, heidelbergensis, floresiensis, neanderthalensis, naledi, and luzonensis.
    Family  Hominid: Great Apes or hominids; orangutans, chimps, gorillas, homos
    Order   Primates: hominids, lemurs, monkeys, tamarins, gibbons
    Class   Mammalia: 26 orders
    Phylum  Chordata (backbones): fish, amphibians, reptiles, mammals and birds
    Kingdom Animalia: 31 phylum
-   Domain  Eukarya: Animalea, Plantea, Fungi, Chromista(photosynth without storage), Protista (algae,  molds)
-   Life    Archea (alophiles, methanogens, and thermophiles), Bacteria, Eukarya
+   Domain  Eukarya: Animalea, Plantea,
+                  Fungi; unicellular (Yeast) or multicellular (Penicillium, ...)
+                  Chromista(photosynthesis without storage), Protista (algae,  molds)
+   Life    Archea (Halophiles (salt), methanogens, and thermophiles),
+           Bacteria,
+           Eukarya (nuclei of organelles) animals, fungi, plants, and
+              protists:
+                 Plasmodium (parasite; malaria),
+                 slime moulds - move eat bacteria, fungi (fungi have cilia)
+                 euglena (good eye) one cell mobile with photosynthesis
+                   powdered euglena: dried sardine flakes
 
    Homo erectus, east Asia for 2 million years - most durable species ever
    Homo florwsiensis: Flores Indonesia 3.5' max height - hobits
@@ -263,3 +273,2386 @@ Part II: THE AGRICULTURE REVOLUTION
       sapiens not made for digging, & clearing rocks
               made for climbing and running
       evidence: slipped discs, arthritis, hernias
+    Changes were slow - nobody noticed.
+      miscalculation - no one could have foreseen the big changes
+    Increased population made going back impossible
+       → the trap snapped shut
+    Pursuit of easier life → more hardship
+      similar to current demanding jobs, family, vacations…
+    History iron law:
+      Luxuries become necessities
+        washing machines, telephones, computers invented to make life easier
+          end up making it more busy
+    Few Luddite cannot stop the luxury trap - there is no going back;
+
+    Divine intervention
+      Gobekli Tepe in Turkey monuments from 9.5K BC (Stonehenge is 2.5K BC) built by hunters gathers.
+        Monuments built for cultural reasons
+        common religion could do that
+        variant of wheat originated 20 miles from site
+        people farmed so they built the monument
+        Temple built first and villages grew around it.
+
+  Victims of the Revolution
+    Selective hunting --> captive animals --> select breeding
+      mouflon --> fatter, submissive, less curious sheep
+    1B each: sheep, pigs, >1B cattle, 25B chicken
+      Evolutionary success but most miserable animals
+        success is meaningless
+      New Guinea:
+        farms cut of part of pig's nose so that it is painful to smell
+        cannot find find or move around --> dependent on humans
+        other part, pigs are blinded
+      Milk supply:
+        1. slaughter newborn kids/calves
+        2. milk mother as long as possible
+        3. get mother pregnant
+      Cows: live for four years as milking cows
+            impregnated 60 to 120 days after giving birth (gestation is 9 months)
+            impregnated 1 ear after birth
+      Tribes: killed calf, stuffed, and placed new cow to encourage milk production
+              make suckling painful:
+                 cut of upper camel's lip
+                 put sing of thorns around calf's mouth
+      Exceptions to this:
+        Caligula (Roman tyrant) wanted to make his horse a consul
+
+6. Building pyramids
+    Agricultural revolution:
+      prosperity or perdition (eternal punishment and damnation)
+      symbiosis with nature --> greed & alienation
+      population 10K BC: 5-8M, 100AD: 250M
+        Africa/America/Australia 1-2M hold out hunters
+      farmers: attached to mouse/fields; self-centered
+        more artifacts than entire hunting tribe
+
+  The coming of the future
+    concern/anxiety of future from cyclical seasons/uncertainty
+    farming stress --> social/political systems
+    forfeited surplus --> politics,wars, art, philosophy
+                          forts, palaces, monuments
+    90% peasants until recent;
+       10% rulers,soldiers, priests, artisans, thinkers (fill history books)
+
+  An imagined order
+    Food surplus conflicts: distribution, storage, land, water
+      for villages, towns, cities ---> famine(not always) --> war
+    Çatalhöyük: first city in the world 7K BC, 5K-10K
+    Akkadia of Sargon: >1M people
+    Assyrian, Babylonian, Persian empires millions of people
+    Qin dynasty in China 221 BC, 40M
+    Roman empire 100M, 0.5M army
+    "cooperation networks":
+        goal: peasants produce food and build cities for the wealthy
+        "imagined orders" sustained by belief on shared myths
+           1. Code of Hammurabi
+               deities appointed the king to make justice
+                 --> list of "if this happens, this is the judgment"
+                 cost of life, eye.. for:
+                    men, women, superior people, commoners, slaves
+               if a superior kills another superior's daughter, the first superior's
+                 daughter is killed
+           2. American Declaration of Independence
+               universal eternal justice inspired by god
+               all people are created equal by their Creator
+                 (in Hammurabi all people are not equal)
+           Both 1 &2 are wrong - justice is from the imagination of sapie
+
+             According to biology people were not created but evolved
+             Equality is from Christianity - all have equal souls
+             "created equal" --> "evolve differently"
+             "Creator endow them" --> "blind evolution evolved them"
+             "unalienable rights" --> "mutable characteristics"
+             "happiness" --> "pleasure"
+             no liberty in biology...
+     Believe (1&2) in an order to enable cooperation and built better society
+
+  True Believers
+    Voltaire: "there is no God, don't tell my servant lest he murder me"
+    Sapiens does not have natural rights as chimps spiders have natural rights
+    Gravity does not change, but imagined order may always collapse
+      Myth enforcement via violence: army, police, prison
+        "eye for an eye", civil war when majority considered blacks humans...
+      Prince Talleyrand: clergy, politician, diplomat work for king and Napoleon
+        (crafty cynical diplomacy)
+         "you ca do a lot with bayonets but cannot sit on them"
+    1 priest = 100 soldiers
+    Military/violence order very difficult;
+      need true belief in God, honor, motherland, manhood, money
+    Cynics cannot built empire...
+      "Diogenes told Alexander to move - he was blocking the sun"
+    Christianity, democracy, modern economy last because of true believers
+
+  The prison walls
+    Insist that imagined order (IO) is not imagined;
+    People are equal not because Jefferson said so, but because of God...
+    Free markets are best not because of Adam Smith, but because of natural laws
+    Imagined order(IO) reinforcement via:
+      fairy tales, dramas, songs, architecture, recipes, fashions..
+      rich wear blue jeans...
+    Factors preventing realizing that what if effecting life is imaginary:
+      1. IO embedded in physical world
+         Worship individualism - if others make fun of you ignore it.
+         Houses with rooms for privacy/autonomy - rock stars in wall, socks on floor
+         Medieval castles - no privacy/individualism -
+           east sleep with others - position in hierarchy and what others said
+      2. IO shapes our desires
+         cherished western desires: romantic, nationalist, capitalist, humanist myths
+         "follow your heart"  "diet coke. do what feels good."
+         "take holiday abroad"; romantic consumerism - pharaohs did not have it..
+         A. Romanticism:
+           have different experiences, emotions, relationships, food, music
+           "how new experience opened my eyes and changed my life"
+         B. Consumerism:
+           consume goods & services to be happy; commercials remind us
+         Both A & B:
+           tourism industry sells experience
+           fix  relationship - go on a trip
+           different forms of pyramids: pool, beach view, cottage...
+     3. IO is inter-subjective
+        IO is not just in my imagination - it is inter-subjective order
+        subjective: exists depending on individual consciousness/beliefs
+                    disappears when belief changes
+        inter-subjective: in communication network linking people
+                          disappears if most people in network change belief
+                          examples: money, law, gods, nations, human rights
+                          start/maintain complex organizations
+       no way out of IO; break out of jail cell run in the yard of prison
+
+7. Memory overload
+   Can play basketball with strangers because of share imaginary rules
+   For nations, churches, trade networks: work with millions
+   Laws customs not in genome - but must be maintained; problems:
+     too large; cannot be kept in brain
+     people die, information dies
+     brain adapted for: botanical, zoological, topographical, social info
+       needed number memory;
+         Sumerians solved it with writing --> enable cities empires....
+
+   Signed Kushim
+     Sumerian symbols for 1, 10, 60, 600, 3,600, 36,000  (-->24 hr/360 degrees)
+              symbols for people, places, animals, dates....
+                 partial script - not for poetry...
+     Incas: quipu: hundreds of colorful cords with thousands of knots
+            record tax collection and ownership for 10-12M people
+            Spaniards kept them and later phased them out
+            few surviving quipus are undecipherable
+
+   The Wonders of bureaucracy
+     Full scripts:
+       Cuneiform/hieroglyphics 2.5K BC  Chinese 1.2K BC, central America 1K BC
+       Hebrew bile, Iliad, Mahabharata, Tripitaka
+       Taxes & bureaucracies Siamese twins
+     Scribes went to school - used catalogs, dictionaries, calendars, forms...
+       used Sumerian instead of the common Akkadian language
+       think as accountants (like a filing cabinet) instead as humans
+     Free association & holistic thought --> categorizing & bureaucratic thought
+
+   The language of numbers
+     Arabic numbers are actually Hindu - do no look like common numbers
+     Poverty, happiness, honesty expressed in numbers
+     Physics engineering lost all touch with spoken language
+     Binary system everything in 0/1
+     Writing:
+       slave --> master
+       sapiens talks fells dreams in numbers which are understood by computers
+       ruler:
+         sapiens --> series of 0 /1
+
+8. There in no justice in history
+   How did humans organize into cooperation networks?
+      1. imagined orders 2. devised scripts
+      imagined order:  not neutral or fair
+      "equality  of all men" - woman and blacks were not men
+      Aristotle:
+        slave has "slavish nature" - status reflects their innate nature
+      Hindus:
+        gods created world out of body of Purusa
+        sun from eye, moon from brain, Brahmins (priests) from mouth,
+        warriors from arms...peasants/merchants from thighs, Shudras (servants) from legs
+      Chinese:
+        goddess Nu Wa created aristocrats from yellow soil, commoners from brown mud
+      Current:
+        blacks should not be discriminated,
+        rich/poor discrimination is OK
+
+  The vicious circle
+    Indian cast, Ottoman religion, American race
+      type base on historical accident
+    Hindu cast system invented by Indo-Aryan invaders
+     inter-cast marriage, sharing meals prohibited
+     purity/impurity essential elements
+       purity(health) comes from biological survival mechanisms
+       to isolate women, black, gays, Roma, Jews label them pollutants
+       new group or profession of people
+          --> new cast; 3,000 sub-casts (jati [birth])
+       people without a cast --> untouchables (Dalits ["broken/scattered"])
+
+  Purity in America
+    Importation of millions of slaves from Africa:
+      1. Africa closest
+      2. Africa already a slave trade (exporting mostly to middle east)
+      3. American plantation plagued by malaria and yellow fever
+         blacks had partial genetic immunity
+      ruling white Europeans/subjugated black Africans
+        religious myth:blacks were descendants of Ham cursed by his father Noah
+        science myths: blacks less intelligent than whites
+                       black spread diseases
+        after freedom of slaves (1865),
+          blacks still considered source of violence, theft, rape, and disease
+          Jim Crow laws: segregation backed by 'scientific' studies
+        black that applied to white university (1958) was committed to mental asylum
+        black man + white woman --> KKK lynching
+       Aesthetic culture: light skin, straight hair, small upturned nose...
+       Vicious cycles for centuries or millennia:
+         money comes to money, same for poverty, education, ignorance
+         victims more likely to be victims
+         privileged ...
+      Reasons to study history:
+        hierarchies are no logical or biological
+        perpetuation of chance events supported by myths
+        understand by studying:
+          events, circumstances, power relations
+           that transformed imaginations in cruel social structures
+
+  He and She
+    Gender hierarchy common to all societies
+    In China 3K years ago and in child Communist rule, families preferred boys
+    women were property of fathers/husbands/brothers
+    Rape:
+      Bible: man pays the owner and gets victim as wife
+      husband raping wife: oxymoron
+      no crime if woman does not belong to anyone
+      1997 German law for marital rape
+    Ancient Athens:
+      women excluded from politics philosophy...
+      homosexuality not taboo;
+         Achilles & Patroclus  of Alexander the great & Hepaestion
+    'Biology enables and culture forbids'
+      natural according to Christian theology
+    Chimps use sex for political alliance and to defuse tensions
+
+  Sex and gender
+    Myths define gender roles, rights, duties
+    Now dominant men dress dull - for first time ever
+    Sex/gender are biological/cultural
+    Man/women prove/convince their muscularity/femininity
+
+  What is so good about men?
+    Men in all societies valued more; Patriarchal societies across continents
+    Exceptions: Elizabeth I, Cleopatra, Wu Zetian of China 700 AD
+    Biological reason for patriarchies?
+      no convincing theories;
+      1. muscle power
+         men control food production, have more clout
+         but: women excluded from non-physical jobs
+                    have more stamina
+              generally there is no relation of human strength and social power
+              social skills more important than strength, age...
+              alpha chip is best to form coalitions....
+              mental and social skills (not strength) of sapiens placed them on top
+      2. aggression
+         men evolved to fight wars
+         men fighting does not mean that management & benefits of wars need to be by men
+         soldiers controlled by male aristocrats
+         Chinese: 'do not waste good iron(bureaucrats/ware managers) to make nails(soldiers)'
+         women have better social skills to be managers than men...
+      3. patriarchal genes
+         men compete to get women
+         women need help and became more submissive
+         but bonobo monkeys & elephants are matriarchal
+    Cause of patriarchy is unknown
+    But recently has changed dramatically
+
+9. The arrow of history
+   Culture == network of artificial instincts
+     enabled millions to cooperate
+     set of norms, beliefs, values.. that are in constant flux
+       changes via 1. environment
+                   2. contact with other cultures
+                   3. resolution of internal conflicts
+     internal conflict example:
+       1. Chivalry: better to die than live in shame
+         Christianity: turn the other cheek
+           never fully resolved
+           but culture changed as people tried to resolve it
+           resolution attempts: crusades
+             Templars, Hospitallers. legends of King Arthur, Lancelot, Guinevere
+       2. modern political order
+          French revolution 1789 --> social equality & individual freedom
+            --> contradiction of equality/freedom
+            Dickens novels: freedom at expense of poverty...
+            Solzhenitsyn: brutality of Communist equality
+            Democrats: equitable society & infringement of freedom of spending ones money
+            Republicans: maximize freedom at the expense of wider wealth gap
+     Conflict: engine of cultural development
+       all great works of art are about conflict
+       cognitive dissonance: is not failure but asset;
+         no contradictory beliefs --> no culture
+       to understand Muslim culture, learn their catch-22s not their pristine values
+
+  The spy satellite
+    Is cultural flux not random; does history have direction?
+      Yes: simple cultures coalesce to bigger ones (on macro level)
+           not visible from centuries perspective
+    Cosmic spy satellite millennia perspective:
+      Separate human worlds:
+        Tasmania isolated from Australia for 12K years
+        Ancient Rome,
+        Mayan city states
+        20KBC: thousands
+        2KBC: hundreds
+        1450: 1. Afro-Asia-Europe (90%)
+              2. Meso-American; collapsed 1521
+              3. Andean; collapsed 1532
+              4. Australian; collapsed 1788 (discovered 1606)
+              4. Oceanic - Pacific islands; Hawaii--> New Zealand
+                (from Zeeland - dutch region in Netherlands, not for Zealand in Denmark)
+     Afro-Asian world (entire planet):
+       capitalist market forces
+       legal system of theoretical human rights & international law
+       scientific system
+     There is no clash of civilization (dialogue of the deaf)
+       current enemies use the same language of economy, science....
+     No authentic (independent) cultures
+       in few hundred years cultures changed beyond recognition
+     Globalization:
+       Ethnic cuisine: Italian: tomatoes spaghetti
+                       Polish/Irish: potatoes
+                       Argentine: beef
+                       Indian: hot chilies with anything
+       All are not native; tomatoes/chilies Mexican, beef Afro-Asian....
+       Indians fought with horses
+         horses were not native - part of the modern culture
+     Practical global unification:
+       last few centuries
+       large empires and increased trade
+     Ideological unification:
+       1K BC idea of global universal orders:
+         1. economic monetary order; merchants - only customers
+         2. imperial; conquerors - one planet
+         3. religious; prophets - one truth
+       (transcendence of binary us versus them)
+
+10. The scent of money
+  Money succeeds where gods & kings fail
+  Aztecs asked Cortes why gold is important, reply:
+    "we suffer from heart disease which is only cured with gold"
+  300 years before Cortes:
+    Victor Christians minted gold coins with cross & millares coin with Allah
+    Muslims accepted gold coins with or without cross
+
+  How much is it?
+    Up to small scale agriculture:
+      exchange goods via barter (limited range of products)
+      Barter of 100 goods:
+        100!/2!(100-2)! = 100*999/2 = 50*999 = 49,950 exchange rates
+        for 1,000 goods: 499,500 exchange rates
+    Cities, kingdoms --> labor, locality specializations
+      --> problem of exchanging goods
+      Solutions:
+        1. Central barter experiment in Soviet Union
+           'Working according to abilities and receive according to needs'
+            Similar system in Inca empire
+        2. money
+
+    Shells and cigarettes
+      money, like agriculture, independently invented in multiple places
+      Money:
+        shells, cattle, skins, salt, grain, beads, cloth, IOUs
+        Cowry shells: Africa, Asia, Oceania for 4K years
+          in British Uganda up to 1900
+          Canadian Indians used them in ceremonies
+          shells found mostly in Indian ocean
+        Cigarettes: POWs in Auschwitz
+          loaf of bread:   12 cigarettes
+          10 oz margarine: 30
+          watch:           80
+          quart alcohol:  400
+      All money in world 60 trillion; coins/notes: 6 trill.
+        90% >50 trill. are only in computers
+      Everyone wants money because everyone else wants money
+        Universal medium of converting everything into something else:
+          Brawn into brain (soldier uses education benefits)cowrie
+          Land to loyalty (selling land to support servants)
+          Health to justice (doctor hires lawyer)
+          Sex to salvation (1400s prostitutes brought Catholic indulgences)
+      Money stores wealth but not time or beauty
+        Enables complex networks & dynamic markets
+
+  How does money work
+    Money is psychological construct;
+      the most universal and efficient system of mutual trust ever
+      Trust --> finance is linked to political, social and ideological systems
+    First money:
+      Sumerian barley money 3,000BC (same as writing)
+        sila = 1 quart
+          male/female laboror 60/30 silas/month
+          foreman 1.2K-5K silas/month
+        difficult to store and transport
+      Money WO inherent value: silver shekel - 0.3 oz (not a coin)
+        Pay 20 silver shekels fro killing a slaves wife- 6 oz of silver
+        Joseph sold for 20 shekels..
+        silver value is cultural - silver jewelry...
+      First coin 640 BC by Alyattes of Lydia
+        standard weight and issuer
+        solved weight/authenticity problems
+        trust on dollar is trust on USA
+      Roman denarius coin:
+        3.9 g of silver. later 3 g
+        =10 asses copper coins, later 16 asses
+          as: assārius‎ ("of an as")
+        25 denari = 1 nummus aureus (“gold money”), or
+                    1 denarius aureus
+        enabled taxation ... maintained the empire
+
+  Gospel of gold
+    Strong trust in Roman coins:
+      100 AD accepted in India,
+      Indians made copies of the coins
+      Arabs adopted & named it dinar - in Jordan, Iraq, Serbia, Macedonia, Tunisia
+    China:
+      bronze coins & silver/gold ingots
+    Late modern era:
+      gold, silver, pound, dollar universal money
+      --> global economic unification
+          with different languages/religions
+      --> gold from Americas enabled trade with East Asia
+          not possible if Chinese did not suffer same "disease of the heart" as Spaniards
+
+  Why common belief in gold?
+    (and disagreement in everything else)
+    answer: when trade connects 2 areas, supply/demand equalize transportable goods
+      gold demand in Europe makes gold go up in India where it may be very low
+    The belief in bit coin, makes us believe the people that use it.
+    Religion asks to believe in something
+      Moneys asks to believe that others believe in something
+    Money is root of all evil, but:
+      more open minded than:
+        language, laws, cultures codes, religious beliefs, social habits
+      does not discriminate
+      enables cooperation with total strangers
+
+  The price of money
+    Money base on universal:
+      1. convertibility; money is alchemist
+          turns justice to health, violence to knowledge...
+      2. trust;
+           money in between any two people can cooperate
+    Cost:
+      human values (honor, loyalty, morality, love)
+      replaced with supply/demand
+        children should be sold to slavery
+        mortal sins should not be committed
+          (lust, gluttony, avarice, sloth, anger, envy and pride)
+        ancestral land should be sold to foreigners
+    Money dark side:
+      slavery, buy forgiveness, sell land (identity)...
+    Darker side:
+      trust is about money itself not the humans
+      money brings down dams of community, religion, state
+         --> world: heartless marketplace
+    People destroy dams the hod movement of money
+      AND build dams to protect society, religion environment..
+    Naive to think markets always prevail;
+      warriors,fanatics, concerned citizens have reshaped economies
+    Unification of humankind is no just economic
+      Steel is as important as gold....
+
+II Imperial visions
+  Numantia in Spain repelled Romans  50 BC
+    134 BC Rome sent Scipio Aemilianus (leveled Carthage) with 30K troop
+      1 year siege: hunger did the work
+        Numantia burned their houses and killed themselves
+    --> symbol of Spanish independence
+      in art literature, comic books in 1950/60s in Spanish Romance language
+        but Numantias spoke Celtic which originate in central Europe
+        story is known only because of Roman historians
+  No just in history;
+    most past cultures were obliterated by a ruthless empire
+    Empires fall but they leave something behind
+      We are all offspring of one empire or another
+
+  What is Empire?
+    1. rule over distinct peoples/cultures >~10
+    2. flexible borders - can swallow more without changing
+       100 years ago any place could have become part of British empire
+    Able to unite diverse ethnic groups and ecological zones
+    Defined NOT by origin, government, or size
+      Athenian began as a league
+      Hapsburg from marriage alliances
+      British ruled by democracy
+        Other democratic: Dutch, French, Belgian, American, Athenian,
+           Novgorod (north Russia/Baltic), Rome, Carthage
+      Athenian was tiny, but gobbled hundreds of different cities
+      Aztec small but ruled 371 tribes
+      In past there were a lot more tribes/ethnic groups
+    Empires have reduced human diversity
+
+  Evil Empires?
+    Imperialist 2nd to fascist as bad
+    Critiques:
+      1. Empires do not work
+          (historical non-sense)
+      2. the should form because they bring destruction and exploitation
+    Empires:
+      most common government in last 2.5K years
+      form of stable government
+      toppled only by outsiders or internal power class split
+      conquered cultures slowly cease to exist
+    When Rome was conquered in 476 AD,
+      people conquered before had forgotten their language....
+    Destruction of one empire --> another empire (not freedom)
+      example middle east passed around empires for 3K years
+      when British collapsed, people first conquered by Assyrians had disappeared
+      Jews, Armenians, Georgians are an exaggerated exception
+      King David in a modern synagogue, surprised by:
+       clothes, German dialect (Yiddish), Talmud (Babylonian test), Torah
+    Empire building/maintaining:
+      wars, enslavement, deportation, genocide
+      Roman historian Tacitus
+        Made up Caledonian (Scottish) ruler Calgacus, and his speech:
+        "To ravage, to slaughter, to usurp under false titles, they call empire;
+         and where they make a desert, they call it peace."
+      To call all empires evil is to reject most of human culture.
+      Empires supported philosophy, art, justice, charity
+        provided the leisure of thinkers...
+        Taj Mahal could be built WO Mughal exploitation of Indians
+        Hungarians, Romanians, Slavs under Habsburg empire paid Hayden/Mozart
+      Most pf us speak think and dream in imperial languages
+        that was forced on our ancestors;
+        Souteast Asia: Mandarin from the Han empire
+        N./S. America: English/French/Spanish/Portuguese
+        Egypt: Arabic, Egyptians see themselves as Arabs
+        Zulus in S. Africa: most are descents from tribes that Zulus conquered
+
+  It's for your own good
+    Akkadian empire of Sargon (2,250 BC):
+      After Sargon, Assyrian, Babylonians, Hittites used Sargon as a role model
+      (they too conquered the whole world)
+    Persian of Cyrus (550BC):
+      "we conquering you for your own good"
+      Cyrus helped Jews built their temple in Judea;
+         Persian king wanting also to be king of the Jews
+         Counter to evolution's we vs them; for example:
+           Dinka in Sudan means people, Nuer (enemies of Dinka) means 'original people'
+           Yapik (Siberia) means 'real people'
+      After Cyrus, humankind see as a family;
+         privilege of parent goes with responsibility
+         Benevolent vision:
+         Cyrus --> Alexander --> Hellenistic kings --> Roman emperors
+           --> Muslim caliphs --> Indian dynasts --> Soviet premiers, American Presidents
+      Benevolent vision in China:
+        Heaven (Tian) mandate enables rulers
+        a legitimate (mendated) authority is always universal
+        1st Chinese emperor, Qin Shi Huangdi:
+          'all in universe, on every human footprint, belongs to emperor...
+           his kindness even reaches oxen and horses... all benefit and all are safe'
+        Chines political/historical thinking:
+          imperial ages == golden ages
+          when empire collapsed, theory goaded powers to try unification
+        Western idea:
+          independent states == justice
+
+  When they become us
+    Empires spread culture; ideas, people, goods technology,to:
+      1. make it easier for themselves
+      2. gain legitimacy - from war to road-building, conquered gained more
+    Benefits: law, planing, standard measures
+              not so: taxes, conscription, emperor worship....
+      China: Mandate of Haven required emperor to educate humanity
+      Romans: peace, justice, and refinement for the barbarians
+      Mauryan (India) 300 BC spread Buddhism
+      Muslims spread Islam peaceful or forceful if necessary
+      Spanish/Portuguese: sought converts to new faith
+      British: spread liberalism  (development & civilization) and free trade
+      Soviets facilitate switch from Capitalism to Utopian dictatorship of the proletariat
+        proletariat/bourgeoisie: ('producing offspring')/('town dweller')
+      America:  bring democracy & human rights to 3-rd world countries
+        even if by force
+    Most Empires adopted from conquered;
+      Roman culture was Greek as much as Roman
+      Abbasid (Arab Golden age): was Persian, Greek, Arabic,
+      Mongol: Chinese copy-cat
+      America: president with Kenyan roots, likes Italian pizza, Lawrence
+        of Arabia (British story about Arabs)
+    Assimilation was painful and traumatic
+      Conquered peoples adoption to acceptance took decades to centuries
+        (acceptance: elite accepts 'them' as 'us')
+      Gandhi got a law degree, dressed like and Englishman
+        but was thrown out of train in South Africa when he tried to travel 1st class
+    200 AD Roman rulers descendant from Iberia
+      then had Libyan, Syrian emperors, 'Phillip the Arab' 244-9
+    Arab Empire: Arabs versus non-Muslim
+       Egyptians, Syrians, Iranians, Berbers (Morocco, Algeria, Tunisia)
+         eventually they saw themselves as Arabs
+         and Iranians, Turks, Berbers dominated the Arabs
+    China Empire : barbarians incorporated into empire: the Hans (in the Han empire)
+      now empire intact, and 90% of Chinese see themselves as Han
+    Last fee decades: Africans, Arabs, Chinese, Maoris learned English Spanish...
+       adopted West ideologies  Capitalism Communism....
+       anti-colonial struggles used these ... according to their needs & traditions....
+
+  Good guys and bad guys in history
+    Most empires founded on blood;
+      but not all were bad
+    Most of today's cultures are from imperial legacies
+      all empires cannot be bad
+    Anti-imperialism school:
+      purge all imperialism & leave pure civilization without sin
+      this: naive at best
+            bigoted at worst; there is no culture without sin
+    Example: India versus British Raj (king)
+       British conquest: millions of Indian lives & more mullions humiliated/exploited
+         but Indians adopted self-determination, human rights
+             gained shared national consciousness, built railroads, legal system...
+         Previous Indian empire was no less brutal
+         If all British buildings were to be destroyed what about Taj Mahal?
+         Question of cultural inheritance is thorny...
+         If we have past with good and bad guys, then we must admit that
+         we followed that bad buys.
+
+  New global empire
+    Since 200BC most have lived in empires.
+    In future most we live in one;
+      Common interest & culture ruled by multi-ethnic elite
+    Current 200 inter-dependent states
+      Cultural trends spread instantly - music, movies, food
+      Multi-ethnic professional class (same language, views, interests) forms above the state
+      Share global problems - climate, pollution,bio-engineering, AI, new life forms
+      Global cooperation is required
+        peacefully, via war.
+      All empires since Cyrus the great(600BC) promised promised and failed to help all
+      No empire was universal
+
+12. The law of religion
+   Religion 3rd unifier of humans
+     more durable than money/empire; superhuman legitimacy to imagined hierarchies
+   Religion == human norms and values founded on belief of superhuman order
+     1. entire system of norms/values
+        reincarnation is no this, hence is not religion
+     2. based on superhuman laws instead of human decisions
+        soccer has rules but is not a religion
+     2. Universal and missionary; after 1,000BC
+        for example: Islam/Buddhism
+        old religions: local and exclusive
+
+  Silencing the labs
+    Animism:
+      human norms/values took into account animals, plants, ghosts...
+      very local in outlook,
+      understanding of the superhuman order of environment for survival
+    Hunters:
+      Hunting wild animals did not make them inferior;
+      Being hunted by tigers did not make tigers superior
+    Farmers:
+      owned animals - no need to negotiate with possessions
+      first religions did not have animals/plants on equal spiritual footing
+      problem: how to ensure fertility/health of animals/plants?
+      solution: Fertility goddess, health god, sky god
+         --> ancient mythology:
+              humans promise devotion to gods
+              in exchange for the mastery over animals
+              sacrifice of animals/wine/cakes for abundant harvest
+              Trade increase --> rocks, springs, demons... replaced by other gods
+    Animism ---> Polytheism (Animist spirits persisted but were less powerful)
+    Animists:
+      humans were one of many creatures
+    Polytheists:
+      world is a reflection of relationship of gods and people;
+      Prayers, sins, good deeds determine fate of everything;
+      Few sapients angered the gods and there was a big flood...
+      Gods/humans exalted everything else muted decor...lambs silenced
+
+  Benefits of Idolatry
+    Polytheism seen as childish is from 2K years exposure to monotheism
+    Both polytheism and animism admit to single power;
+      Zeus, Apollo... were subject to Moira
+      Nordic gods subject to fate, Urðr
+      Yoruba in West Africa, gods born from Olodumare
+      Hindu, myriad of gods from Atman (Self)
+      -->supreme power is unconcerned with humans; (THE MAIN INSIGHT)
+         no Moira or Atman temples;
+           Adhus Hindus: renounce all desires embrace all and devote to Atmain
+           Stoics: Accept the things to which fate binds you
+    Polytheism:
+      insight: supreme power unconcerned with humans
+      tolerant - accepts more gods..
+      open minded; no heretics or infidels
+    Empires did not spread polytheism;
+      Egyptians/Romans/Aztecs did not spread Osiris/Jupiter/Huitzilopochtli
+        Osiris: fertility, agriculture, dead, resurrection, life, and vegetation
+        Jupiter: sky and thunder, and king of the gods
+        Huītzilōpōchtli ("the left (or south) side of the hummingbird"):
+          war, sun, human sacrifice, patron of Tenochtitlan-city/Mexicas-tribe
+      Adopted local gods; Romans/Greeks adopted Cybele (Phrygian mother-goddess)
+          & Isis (daughter of Osiris, mother of first pharaoh; goddess of health)
+
+    Romans did not require Christians to give up their beliefs
+      but expected political royalty; respect for protector gods and emperor
+      Christians refused & persecution began;
+      In 300 years only 4 persecutions - a few thousand Christians
+        Next 1,500 years Christians killed millions of other Christians
+        for slightly different interpretation of love...
+    Catholic/Protest war:
+      Protestant: God was incarnated in flesh redeeming the original sin
+      Catholic: same and tone must attend church rituals and do good deeds
+        Protestants: additional is a quid pro quo that belittles God's love'
+          favor expected in return for something
+          "whoever thinks entry to heaven depends on deeds magnifies their importance"
+    St. Bartholomew massacre
+      Aug. 23 1572, France 5K-10K protestants slaughtered in 24 hours
+        ***** more than the Romans in their entire existence *****
+      Pope organized a festival and decorated a room with a fresco of the massacre
+    1562 to 1598 French Wars of Religion
+        --> 8%-10% decline population
+    Benefits of Idolatry?:
+      less violence
+
+  God is One
+    Fondness a particular patron god --> drift way from polytheism
+      Particular god became all  powerful and only god
+    Egypt 1st monotheism:
+      1350 Pharaoh Akhenaten declared Aten (sun god) supreme ruler
+         lasted briefly ..
+    Local monotheism:
+      Judaism - God's chief interest was on the obscure land of Israel
+    Christianity:
+      Jewish sect tried to  convince Jews that Jesus was their messiah
+      Paul of Tarsus (Paul the Apostle) %AD-65AD:
+        realized the need to spread the gospel;
+          supreme power incarnated and died on the cross for all humans
+    Christianity success--> model for Islam
+      small sect created immense empire from Atlantic to India
+    Monotheism
+     last 2K years violently tied to eliminate competition
+     500AD Roman empire was Christian
+     1,000ADEurope, West Asia, North America Empires ordained by single God.
+     Today all outside east Asia, and theworld political order
+       built on monotheistic foundations
+     Belief that supreme power has interests and biases;
+       what it the point to worshiping partial powers?
+       yet polytheism continued with monotheism;
+     Monotheism expelled gods through the front door
+       and took them back from the side window;
+         --> Christian pantheon of saints
+     Jupiter defended Rome, Huitzilopochtli Aztecs  -\-->
+       one patron saint for each kingdom
+       St George England
+       St Andrew Scotland
+       St Stephen Hungry
+       St Martin France
+       St Ambrose Milan
+       St Mark Venice
+      for headaches St Agathius, toothaches St Apollonia
+      chimney cleaners St Florian
+      Celtic chief goddess in Ireland: Brigid
+        After Christianization --> St Brigid
+
+  Battle of good and evil
+    Dualist religions:
+      evil is independent power neither create by or subordinate to God
+        Simple answer to the 'problem of evil';
+        problem: 'Why is there evil?, suffering?, bad things happen to good people?'
+        answer:  'If no evil, no free will'
+            freedom allow humans to choose evil
+    If God knew someone would choose evil and
+      then punished why did he create them?
+      Monotheists: hard time with it
+      Dualists: easy- evil is an independent power
+          but has problem or order - who enforces the good/evil struggle laws?
+    Monotheism:
+      explain order, puzzled wiht evil
+    Dualism:
+      explains evil, puzzled by order
+   Zoroastrianism 1.5k-1K BC:
+     main dualistic religion
+     good/evil gods Ahura-Mazda/Angra-Mainyu
+     in Persian empire 550-330 BC
+     inspired
+       1. Gnosticism (material existence is flawed or evil) and
+       2. Manichaenism (primeval conflict between light and darkness)
+          originally more widespread than Christianity
+     for both:
+       good/bad god created the soul/body
+       man serves as battleground of good (soul) versus evil (body)
+       this became Christian/Muslim cornerstone
+       similar for heaven/hell;
+         old testament does not have neither soul life after death
+   Monotheism adopted dualism:
+     Jewish/Christian/Islamic belief on evil force
+     Humans accommodate contradictions;
+       Jews/Christians/Muslims imagine that God needs are help to fight the Devil
+          --> jihad/crusade inspirations
+   Historical monotheism:
+     kaleidoscope of monotheist, dualist, polytheist, animist legacies
+     Average Christian believes in:
+       monotheistic god, dualist devil, polytheistic saint, animist ghost
+      --> syncretism (opposite of fundamentalism)
+        adoption of contradicting idea, combination of of rituals
+
+  The laws of nature
+    1,000BC religions WO god;
+      India: Buddhism “Suffering”; everyone  “Origin of suffering”
+      China: Daoism; Tao: source of everything and underlying principle of reality
+                     achieve perfection through self-cultivation
+             Confucianism; response to Buddhism and Taoism
+                           regards "the secular as sacred"
+                           renaissance by academics in China
+      Mediterranean: Stoicism: "virtue is the only good" for human beings
+                     Cynicism: purpose of life is to live in virtue, in agreement with nature
+                     Epicureanism: atomic materialism; tranquility and freedom from fear
+                                   and absence of bodily pain
+    Super human order in the world is from natural laws not from divine will
+    Some admitted existence of god but subject to natural laws as humans/animals/plants
+    Buddhism central figure:
+      Siddhartha Gautama, 500BC, Himalayan king
+        sensitive to universal anxiety, frustration in everyone
+        how to escape the pointless rat-race?
+        29 years old, after 6 year mediation:
+          cause of suffering caused by one's mind;
+          no matter the experience, mind reacts with craving
+            when bad, mind craves to eliminate it
+            when good, mind craves for permanence and more of it
+            dream years of true love, and never satisfied when we find it
+            even kings are doomed...
+          to exit the circle, accept pain, joy;
+          experience reality without craving -
+          focus on what you experience instead of what you rather...
+          Nirvana (extinguishing fire): no craves; contentment
+            no craving/desire --> no suffering
+          --> Buddha ('the enlightened one')
+          Dharma law: 1. suffering comes from craving; like E=mc2
+                      2. only way to escape suffering is to have no craving,
+                      3. only way to escape craving is to train
+                         the mind to experience reality as it is
+          Dharma: "righteousness", "merit" or "religious and moral duties"
+                  governing individual conduct
+    God exists, what does he want from me?
+       --> Suffering exists, how do I escape it?
+    99% of Buddhists do not attain nirvana so they continue to worship
+      Hind, Bon (Tibet platue), Shinto (Japan, polytheistic and animistic)
+      or a human and non-human pantheon of Buddhas & bodhisattvas
+       (being who is able to reach nirvana but delays out of compassion to save suffering beings);
+       they help to get nirvana or rain, stop plagues, winning wars...
+       in exchange of prayers, flowers, incense or candy
+
+  The worship of man
+    New natural-law religions:
+      Communism, Capitalism, nationalism, Nazism (national social.), liberalism
+      - more bloodshed than previous religious wars
+      The do not like to be called religions they prefer ideologies.
+        -- moot semantic exercise, if religion is a system of human norms/values
+        Communism is a religion as Islam
+          commissars/manifesto instead of priests/scripture ...
+        Buddhism gives short shrift to gods - is superhuman not supernatural...
+    Buddhist can believe in Hindu gods
+    Monotheist believe in Satan
+    Typical American believes in:
+      1. nationalism (America's special role in history)
+      2. capitalism (competition is best way to create prosperity)
+      3. liberal humanism (creator has given humans inalienable rights)
+    Theist/humanistic religions sanctify gods/humans
+    Humanism: sapiens in unique and sacred in nature
+              other being exist for benefit of sapiens
+              sanctifies humanity - but humanity has different definitions
+      1. Liberal humanism (most import now):
+        liberty of individuals is sacrosanct,
+        sacred nature of humanity is in every single human;
+        have a moral or political problem? listen to our inner voice....
+          commandments == human rights; no torture no death penalty
+        Pre-liberalism:
+          criminals torture and executed publicly to restore cosmic order
+        Current liberalism:
+          human punishment - right what murder has wronged
+        Source:
+          Christian monotheism
+        commandment:
+          protect individual freedom
+     2. Socialist humanism:
+       humanity collectively than individualistic
+       freedom --> equality
+        Source:
+          monotheism - all are equal before God
+        commandment:
+          protect equality within all humans
+     3. Evolutionary humanism
+        Nazis: most famous supporters
+        unlike 1 & 2: not based on monotheism
+                      humanity not universal or eternal
+          humanity: can evolve or degenerate
+          Nazis: prevent degeneration
+            Aryans (Indo-Iranian) fostered; evolve to new advanced specie?
+            Jews, Rom,a, homosexuals, mentally ill exterminated
+         commandment:
+           prevent degeneration and foster evolution to superhumans
+        Racism
+          1933 Western scholars published studies of white superiority
+            America, Britain, Australia restricted non-white immigration.
+          Extreme Nazi racism slowly discredited racism
+            (not the newer scientific evidence)
+            White supremacy remained mainstream until 1960's
+            Australian immigration changed in 1966
+          Nazis inspired by Darwin fought 1 & 2 because they admired humanity
+            and believed in human potential;
+            Liberals & Communists gave unfit person chance to reproduce
+              undermined natural selection
+            1942 German biology textbook:
+              all being locked into remorseless struggle for survival;
+              "Battle for life is hard but it is only way to maintain life...
+               It eliminates everything unfit and selects survivors...
+               Natural laws are incontrovertible (indisputable),
+                 those that resist them are wiped out...
+               Biology tells us about animals & plants and how to live our lives.
+               Meaning of life is struggle.
+             Mein Kampf:
+               "He who fights laws of nature fights the principles that he must
+                thank for his life as human....
+                To fight against nature is to bring one's own destruction"
+          Humanism-evolution link: taboo 60 years after Nazis
+            Now it is back; no extermination; only improvements
+          Liberal-humanism/biology gap:
+            Life sciences last 200 years undermined Christian belief in soul;
+              behavior determined by hormones, genes, synapses instead of free will
+              ---> Political/judicial sweeping under the rug;
+                   Artificial wall between biology, law and political sciences
+
+13. The secret of success
+   Commerce + empires + universal religion ---> current globalism
+   Many small cultures ---> few large cultures ---> global culture
+   But why:
+     English instead of Danish?
+     Christians/Muslims and no Zoroastrians?
+     Monotheism and little dualism?
+
+  1. Hindsight fallacy
+     One road from past to present.
+     Infinite roads from present to future.
+     Constantine after a century of civil war choose Christianity
+       Can never know why - causal
+       Can only describe how - description of events
+     Some historians:
+       deterministic explanations via biology ecology economics
+     But the more you know something the harder it is to explain why.
+       People that know best (alive at the time) are most clueless;
+       Now: Will there be a large global economic crisis?
+            Will China become a superpower?
+            Will USA loose the hegemony?
+            Is monotheistic fundamentalism here to stay?
+            Are we heading for ecological disaster or technological paradise?
+              (Climate change imbalance?)
+       In few decades people will say that it was obvious...
+     The current unlikely possibilities are often realized;
+       At 306 Constantine became emperor, suggesting that Christianity
+         will be the state religion when  was outrageous.
+       At 1913, could not predict that Bolsheviks would take over in 4 years.
+       At 600AD could predict that a small band of Arabs would create a large empire
+     Determinism:
+       world and our beliefs are natural and inevitable result of history
+       if not deterministic,
+         nationalism, capitalism, human rights are coincidences
+     Chaotic systems:
+       Level 1: chaos does not react to predictions about it;
+                - the weather
+       Level 2: chaos reacts to predictions about it;
+                Markets (price react to forecasts)
+                Politics- fall of the Soviet Union, rise of Arab spring
+                History - interactions are so complex;
+                          small disturbance --> large effect
+     Why study history?
+       Not for predictions
+       Understand that current situation is not natural or inevitable
+       Realize that we more possibilities than we can imagine
+
+  2. Blind Clio (muse of history)
+     Do not know why monotheism..., but we know:
+       History 's choices are not the benefit of humans;
+       No Proof that:
+         cultures that benefit humans succeed
+         Christianity was better choice than Manichaeism
+            (dualistic with Christian, Gnostic, and pagan elements)
+            "Manichaean paranoia": that USA is with light and enemies with darkness
+         Arab Empire more beneficial than Sassanid Persia (the golden empire)
+         No proof because no scale of benefit;
+           Definition of benefit:
+             depend on culture,
+             given by victors - why believe them?
+
+    Culture:
+      mental infection or parasite,
+      like virus,
+      cultural idea: Christian heave above clouds
+                     Communist paradise on earth
+        can compel one to spread it until he dies
+          human dies and idea keeps spreading
+        Cultures are not conspiracies (as Marxist think),
+          but mental parasites that emerge randomly and take advantage of
+          all the people that are infected by them
+          ---> Memetics: study of information and culture
+          Most scholars see it as a rude biological analogy.
+          but adhere to its twin sister postmodernism
+  Postmodernism
+    (distrust of grand modern 20th century theories and ideologies)
+    Nationalism: deadly plague in 19 & 20-th centuries causing wars,
+                 hate and genocide.
+                 One country infected, next country got infected.
+    Nationalist virus presented itself as being beneficial for humans,
+      but it was beneficial to itself.
+    Game theory: in a multi-player system, views and behavior pattern that harm
+                 all players, take root and spread.
+           example: Arms race bankrupts all who play without changing
+                    military balance.
+                    Arms race, a behavior pattern, spread itself like a virus
+                    harming everyone and benefits itself according to evolutionary
+                    criteria of survival and reproducibility.
+                    Arms race like a gene has no awareness.
+    Whatever the name: game-theory/postmodernism/memetics, dynamics of history
+      are for the benefit of humans;
+      The most successful culture is not the best for humans.
+    Humans too weak and ignorant to influence history.
+    1500 AD: Scientific Revolution; change the fate of humans and life on earth.
+      Why in Europe and not in China, why not sooner or later?
+        Dozen of non-convincing theories - we do not know.
+
+SCIENTIFIC REVOLUTION
+
+14. Discovery of ignorance
+   1500AD 500M/$250B/13T, 2023 8B/$95T/1,500T (x15/x400/x120) world population/GDP/Cal/day
+   5:29:45 16 July 1945 at Alamogordo New Mexico first nuclear explosion
+     Humans capable of ending history
+   Pre 1500, king gave money to priests, philosophers, and poets
+     to legitimize his rule and maintain social order.
+   Last 500, rich people and governments fund science and research for gains;
+     government funds nuclear energy --> cheap electricity --> more production
+       --> more collected taxes --> more funding;
+     Feedback loop:
+       power --> resources --> research ---> power....
+
+  Ignoramus
+    Modern science:
+      1. willingness to admit ignorance
+         Science is based on 'we do not know'.
+         No idea, theory is sacred beyond challenge.
+      2. Observation/math is central
+         To gain knowledge and create new theories.
+      3. Acquire new power (technologies)
+    Starting point: Admit ignorance to most important questions
+    Before: Islam, Christianity, Buddhism, Confucianism:
+            Everything important in the world is known.
+            Tradition:
+              Inconceivable the Koran, Bible, Vedas was missing a crucial fact.
+              2 types of ignorance:
+                1. individual ignorance; ask someone wiser
+                2. ignorance or unimportant things
+                   (not in scripture? - not important)
+                   if something new discovered it was trivia;
+                     not necessary for prosperity and salvation;
+                     not relevant to fundamental truth, politics, economics
+            Some people: some important things are not in scriptures
+                         (persecuted, marginalized)
+            Muhammed followers called him "the seal of the Prophets"
+            Darwin never call himself "the seal of biology"
+    Established theories can change with new evidence
+    Serious problem:
+      Admission of ignorance extends to shared myths that enable cooperation;
+      How can society, countries, international order be stabilized?
+        1. Pick a scientific theory and declare it final
+           (Nazis/Communists did it)
+        2. Leave science out - live with a non-scientific absolute truth
+           (Liberal Humanists; nothing to do with Anthropology)
+        Both are unscientific; no surprise;
+           but science gets funding from religious/ideologies.
+      Modern social order holds because of religious-like belief
+        in technology and research (wish has partially replaced shared myths)
+
+  The scientific dogma
+    No dogma, share methods to collect data.
+    Theory construction with math;
+      General laws in scripture given by narrative, for example:
+      Manichaen religion: world is battleground of good and evil.
+                          good created souls, evil created matter
+                          Mani did not calculate force = acceleration of spirit
+                            divide by mass of his body.
+      Newton "Mathematical Principles of Natural Philosophy" 1687:
+        explain and predict motion of apples, planets... fro 2 laws:
+        1. sum of forces = zero or
+        2. sum of forces = ma
+        3. force of A on B = force of B on A
+        Book of nature is written in math
+    Biology, economy, psychology is written in statistics
+    Scottish clergymen Webster & Wallace (1744) with mathematician MacLaurin:
+      set up life-insurance;
+      to find how much to set the payments, need to find out:
+        1. how many minister die  2. how many orphans/widows left
+        3. how may years widows outlived their husbands
+      discovered
+        Law of Large numbers (Bernoulli)
+        cannot predict 1 event, but can accurately predict average
+        930 clergy, 27 die each year
+        time before widow remarriage, or death
+        pay £2/yr, get £10/yr life benefits
+        predicted by 1765 fund would have £58,348, and had £58,347
+        --> prophecy better than Habakkuk, Jeremiah
+        --> Scottish Widows - one of largest pension/insurance CO in the world
+    Malthus: similar demographics; used by Darwin (almost became pastor)
+    Even physics updated theory with probability clouds of quantum mechanics.
+    Medieval education: logic, grammar, rhetoric, for science theology
+        and sometimes esoteric math (arithmetic & geometry) - no statistics
+    Now: few study rhetoric, logic merged with philosophy, theology into seminars
+         all study math, and sciences that use math -linguistics, psychology...
+    To understand human mind, must study statistics
+
+  Knowledge is power
+    Francis Bacon 1620: Knowledge is power
+      Typical 100% correct; not relevant if knowledge is true
+      relevant if theory enables us to do new things (power)
+      --> connected science & tech.
+      pre-1900s: no government/business support for science
+                 education for supporting social order
+      1900s: science/tech inseparable
+             education mostly for science/tech
+    Science: new mental tools - predict death rate
+             new technological tools
+        Science/tech confusion: no new tech WO new science
+                                science research --> new tech
+    Eisenhower warned of government-military power should have warned of
+               government-military-science
+               (military support most of science research)
+    WWI bogged down - science produce aircraft, poison gas, submarines,
+                      tanks, machine guns, rifles, bombs.....
+    WWII 1944 Germany:
+      V-2 did not defeat Britain - made Germans wait for a technological miracle
+    Fear of extended war --> use of atomic bomb
+    Belief of eliminating terrorism with technology:
+      send robotic flies to every cave hideout...
+      read terrorists' minds
+      --> fund robotics & brain research
+    Previous wars fought/lost via organizational advantage
+      Rome had best organized army but no better technology
+      Loosers sometimes had better technology
+        China invented gunpowder/canon 808/1128  (Europe 1326)
+          first used for fireworks;
+      Kings/scholars/business: no link of technology/wealth
+      Napoleon (1805) used logistics/strategy, did not listen
+        to pleas for airplanes, rockets, submarines...
+
+  The Ideal of Progress
+    Before scientific revolution, no belief in progress;
+      If Muhammad, Jesus, Buddha, Confucius did not sole hunger/poverty/disease
+      how could we? --> belief in messiah...
+      Tower of Babel, Icarus --> progress is hubris
+    After: hunger/poverty/disease are fruits of ignorance
+      Lighting, God's anger --> electric current
+      Franklin with lightning rod  disarmed the gods
+    Poverty
+      Jesus anointed with 300 denarii (one year's wages)
+        "you will always have the poor, but not me..."
+      Now: policies based on agronomy, economics, medicine, sociology
+        Social poverty (opportunities) not solved,
+          Biological (lack of food/shelter) solved;
+            safety nets: insurance, social security, local/international NGOs
+        Most people in danger of obesity no hunger
+
+  The Gilgamesh project
+    Problem of death:
+      Pre-modern: religions: death is meaning of life; invest in afterlife
+      Gilgamesh (2,000 BC) of Uruk in Sumer
+        His best friend, Enkidu, dies
+        After several days worm comes out of his nose
+        Vows that he will never die
+        Fails after long quest, learns that
+        gods created man's inevitable destiny and must learn to live with
+      1199 King Richard died 2 weeks after arrow in shoulder
+        Now minor injury
+      Battle of Waterloo 1815: heaps of sawed off arms/legs next to hospital,
+        by carpenters & butchers.
+        life expectancy 25-40, no 67, 80(in developed countries)
+      Before 1900, ~30% children died before adulthood, 0.7%
+      King Edward 1241-1290, children deaths:
+        1. birth, daughter
+        2. 1-3 year old daughter
+        3. six months daughter
+        4. 5 year old son
+        5. six year old son
+        6. 29 year old daughter
+        7. 5 month old daughter
+        8. 35 year old daughter
+        9. 10 year old son
+        10. 58 year old daughter
+        11. 2 year old daughter
+        12. daughter after birth
+        13. 53 year old daughter
+        14. son after birth
+        15. 34 year old daughter
+      #16 son became King Edward II, 62% died before adulthood
+      miscarriages not included, Edward II wife had him murdered when he was 43
+      Project Gilgamesh: make man immortal by 2050.
+      After 1700 religions lost interest in after-life.
+      Nationalism only ideology that award death,
+        whoever dies in conflict will live in collective memory
+
+  Sugar daddy of Science
+    Let scientists/technologists create heaven on earth;
+      but they are shaped by economic/political/religious interests
+    Success of science in last 500 years is result of massive investments
+      NOT because of individual persons, Darwin....
+      Funding was not altruistic
+        it was to benefit economic/political/religious interests
+        1500s expedition for economic interest
+        1940s nuclear physics to win wars
+        Finding is limited; must answer
+          'what is important'
+      Scientists not aware of this - act of pure curiosity
+        almost never dictate science agenda
+        explain what maybe in future but not 'what should be'
+          only religion/ideology can do that
+    Science cannot set priorities or what to do with discoveries;
+      use genetics to cure cancer create better cows...
+    Capitalism and imperialism: biggest influences of science
+
+15. The marriage of Science and Empire
+    Measure earth-sun distance:
+      measure the 1761 Venus transit at Siberia, N. America, S. Africa
+      at 1769 at W. Pacific - Tahiti under captain Cook
+        set astronomer, botanists, artists...
+        (founded with 4% accuracy)
+        Cook:
+          returned 1777 with proof that scurvy is cured with citrus fruits
+          recorded political and military value data:
+            anthropological, astronomic, geographical, meteorological
+          took claim of:
+            Australia, Tasmania and New Zealand
+              result in extermination of native culture and (90%) population
+              most fertile land taken over by Europeans
+              local catastrophe without recovery
+    Tasmania:
+      10K years in isolation
+      entire population wiped out 100 years after Cook
+        settlers took over fertile parts and hunted and killed locals
+        remaining natives refused to learns new ways stopped having kids and died
+        corpses of last Tasmanian used by anthropologists and curators
+          Royal College of Surgeons held samples of skin and hair
+            of Truganini(last native Tasmanian) until 2002
+    Was Cook's ship a scientific expedition protected by military force
+     or military expedition with scientists tagging along?
+       half empty or half full? - it was both
+       ---> science and imperialism were inseparable;
+       Cook, astronomer, botanists, local could distinguish science from empire.
+
+  Why Europe?
+    Roman empire, wealth from: N. Africa, Balkans, middle East
+      Poor W. Europe provided minerals and slaves
+    1500-1750 Europe master of the 'outer world'; America's & oceans'
+      Asian empires: Ottoman, Safavid, Mughal, Ming and Qing
+      1775 80% of world economy; not interested in 'outer world'
+    1750-1850 wars and conquering of Asia
+    1900 control most of world economy and territory
+    1950 USA/ Europe production > 50%
+         China 5%
+    Now all humans European in dress, thought, and taste
+    Chinese economy built on European model
+    Why European military supremacy 1850+?
+      Science
+        "We have machine guns they don't"
+        Logistics: Canned goods, railroads, ships, medicine more important
+      Before 1850:
+        scientific fruits unripe, but
+        Europeans thought/behaved in a scientific/capitalist way.
+      After 1850:
+        Britain leaped forward(1830 1st railroad), France, Germany, US followed
+        Russia, Italy, Austria close the industrial gap
+        Persia, Egypt, Ottomans, China did nothing
+        25,000 track miles, Asia/Africa 2,500
+        1880 220,000 vs 22,000 (most in India by the British)
+      China, Persia lacked values, myths, judicial, social-political for change
+
+  The mentality of conquest
+    Science grew along expansion of Spain, Portugal,Britain, France, Russia, Netherlands
+    Colonialist/Scientist admitted ignorance -"I do not know what is out there"
+      both hope discoveries would make them masters of the world
+      sought new knowledge
+        Previous empire sought power and wealth
+    Napoleon invaded Egypt in 1798 with 165 scholars
+      important discoveries in Egyptology, religion, linguistics, botany
+    British 1831 sent ship to map S. America with Darwin on board
+    Comedian joke:
+      Apollo 11 astronauts came up to a local Indian in dessert
+        He asked them to memorize a message in his language to take to the moon
+        Later found message was "Do not believe a single word, these people
+        have come to steal your lands"
+
+  Empty maps
+    'Explore & conquer'/scientific mindset:
+       1400s & 1500s world map had empty spaces - scientific mindset
+       Salviati map was mostly empty
+    Columbus: Japan 4,375 miles west (actually 12,500)
+      landed in Indies, convinced he knew the whole world
+    Discovery of America: foundational event of scientific revolution;
+      favor observation instead of tradition
+      desire to conquer
+      search for new knowledge
+    Europeans drawn to empty spots on the map and filled them in.
+      1400s & 1500s created bases, colonies - global network
+      histories of isolate people --> history of the world
+    Took 400 years for Romans to get to Britain
+      could conceive of sailing directly and conquering Britain
+      Alexander the great did not create new empire;
+        he conquered the Persian empire
+    Zheng He of Ming dynasty, 1405-1433:
+      7 armadas - 300 ships 30,000 men
+      visited India, Africa
+      assisted pro-Chinese rulers; did not conquer or colonize
+        Qin (north province)(221-206 B.C.E.) unified China, ruling system,  language
+           Great Wall and famous Terracotta Army
+        Yuan (center) Dynasty (1279-1368)
+          Kublai Khan grandson of Genghis Khan; first Mongolian ruler
+        Ming (bright) Dynasty (1368-1644)
+        Qing (blue) Dynasty (1644-1912)- stopped exploration
+          Manchus from north China - Manchuria
+      proved that European did not have technological edge
+        they more ambition to explore and conquer
+        (China did not even conquer Japan)
+   European fever:
+     go to distant land: 'I claim all these territories for my king'
+
+  Invasion from outer space
+    1492 Columbus comes, in 20 years entire Caribbean population gone
+    1517 Spaniard heard of Mexican empire
+    4 years later Cortes put Aztec capital in ruins
+      Cortes ignored last minute mission cancellation by Cuban governor
+    1532 Pizarro conquers Incas
+      King of Spain gave him permission
+    Incas/Aztecs did not know: each other or the Spaniards
+    Aztecss:
+      white skin aliens,
+      lots of face hair
+      sun-color hair
+      stank horribly - natives assigned to accompany them with incense
+      giant ships
+      rode huge terrifying animals
+      produce lighting an thunder out of metal sticks
+      long swords/impenetrable armor
+      some thought they were gods
+      others they were demons
+      saw no urgency - 550 men against millions
+    Spaniards
+      1492 + 27 = 1519 + 14 = 1532
+      Cortes: born 1485
+        knew earth full of unknown men
+        experience dealing with new men
+        plunging in unknown was a challenge
+        550 men, 'We come in peace, take us to you leader' - 1519
+        marched from Vera Cruz to Tenochtitlan (Mexico city) ~250 miles
+        brought before Montezuma
+        honored guest killed bodyguards & took Montezuma hostage
+        Montezuma pretended he was in charge
+        for several moths learned local dialects
+        sent expeditions to learn about tribes
+        were expelled from Tenochtitlan
+        convinced local Aztec enemies to join the fight
+          got an army of tens of thousands
+          together conquered Tenochtitlan - 1521
+        100 years after arriving 90% of the local population gone
+        honored by Charles V Spanish holy Roman emperor - 1528
+        dies of dysentery 1547
+      Pizarro: born 1478
+        168 men
+        1530 starts S. expedition
+        1532 plagiarized Cortes, captured Inca leader Atahualpa
+        1533 kills Atahualpa, capture capital Cuzco.
+        conquered Incas with help from local allies
+        assassinated 1541 - organized by Diego de Almagro II
+          his mother was native Panamanian
+    Ottoman, Safavid, Mughal, China empires do not react
+      think world revolves around Asia
+      send no expeditions
+      only non-European military expedition:
+         1942 Japan captured Kiska & Attu - Alaskan islands, 10 US soldiers and a dog
+      300 years European conquests and wars between themselves
+      Algeria, Vietnam successfully fought greater powers
+        What if Incas/Aztec had help from Spain rivals?
+
+  Rare spiders and forgotten scripts
+    Science and empire motivated by discoveries but
+      building empire was a science project
+      When Muslsims invade India, they did not bring archaeologists/anthropologists
+      geologists, zoologists to study history/culture/soils/fauna
+      1802 British started the Great survey of India
+        alsted 60 years - measured height of mount everest 8,839.2 m,
+        actual 8,844.4 ±0.2
+        military resources
+        location of Gold mines
+        spiders, butterflies
+        forgotten languages
+        dig up ruins
+        1922 discovered civilization that perished 1,900BC
+          previous rulers n notice it
+      Cuneiform script:
+        1618 Spanish ambassador to Persia noticed it
+        1657 script published; not deciphered
+        1830 Behistun Inscription 500BC old Persian, Elamite, Babylonian
+           Rawlinson deciphered old Persian (new modern Persian)
+           Elamite disa[eared after Alexander the great]
+        William Jones found similarities of Sanskrit (in Hindu rituals)
+         and Greek, Latin,Gothic, Celtic... languages
+         matar is mother in Sanskrit
+         method used to study other languages
+    British: 5K officials, 40-70K soldiers, 100K business people
+      ruled 300M Indians
+    Study of language, botany, history... gave empire ideological justification
+      new knowledge always good
+      Any science history says something good about first explorers
+      but not much about suffering of natives
+      empires were for improving not exploiting local population
+      Kipling's "the white man's burden":
+         bind your sons to exile
+         to serve your captive's need
+         ...
+         your new-caught, sullen peoples,
+         half devil, half child
+       Counter to this:
+       British conquer Bengal 1764
+          economic policy --> great Bengal famine 1769-1773,
+                              7-10M deaths  1/3 population
+          East India Company (1600 - 1874) had 250K army = 2x British army
+    Empires did lots of good and bad;
+      cannot be labeled good or evil
+    Science provided proof that Europeans are superior - have right and duty
+      to rule
+      Earliest speakers of Sanskrit were Aryans
+      + Darwin's evolution = Aryan superior race - light-hair/blue-eyes/hard-working
+    Now: racism is liability after empires crumbled
+      Superiority is justified with cultism
+        it is their blood --> it is in their culture
+        supported with studies
+    Culturism, unlike racism: harder for historians/anthropologists to disavow.
+      If cultural difference are trivial why study them?
+    Science provided imperialists with:
+      practical knowledge, ideological justification, technology
+    Imperialists provided science with:
+      funding, information, protections, opportunity to spread scientific thinking
+    Businessmen wanting to make money, capitalism, made both possible.
+
+16. The Capitalist Creed
+   Money needed for empire & science
+   Most of history production per capita constant
+   1950 $550/yr 2020 8,800/yr ~x20
+   USA deposit multiplier x10, for $100 bank keeps 10% loans up to 90%
+     Trust in imaginary future: sole backing for most money in the world.
+     Money is trust in future (credit)
+   Old money:
+     People used credit but did not want to extend
+        did not trust the future
+        (believed total total wealth was limited;
+         business was zero sum game)
+     Zero sum game;
+       one wins another looses --> money is sinful;
+       Jesus: 'easier for camel to pass through eye of needle than for
+               rich man to enter the kingdom of god'
+       If pie is static, I must have taken it from someone-
+         rich must repent for evil deeds
+       Global pie stays the same --> no margin credit;
+         loans: small, short term, high interest rates
+       Entrepreneur's dilemma:
+         no product --> no money --> no contractor --> no factory
+         --> loose-loose (no growth);
+             expectation of stagnation fulfilled itself
+
+  A growing pie
+    Scientific revolution:
+      Admit ignorance & invest in research --> belief in progress
+    Economic revolution:
+      Beliefs in: progress --> geographic discoveries, inventions, organizational
+                  developments.
+      --> increase in total production/trade/wealth
+      Via roller coaster progress over 500 years
+    Adam Smith, Scottish economist:
+      'The wealth of nations': When landlord, weaver,... has more profits
+      than he needs, he hires assistants
+      Revolutionary economic/moral/political idea:
+        Selfish urge for more profit --> increase of collective wealth.
+        Greed is good.
+        Egoism is altruism.
+        I become rich, I benefit everyone.
+        win-win
+      Thew that gates of heaven open for the rich.
+    New ethic:
+      Profits should be reinvested in production;
+        bigger factory, more research, new products ---> more production
+      Capitalism:
+        Capital: money, goods, resources.
+          invested in production
+        Pharaoh who builds a pyramid is not a capitalist.
+    Medieval nobility:
+      Generosity & conspicuous consumption;
+        tournaments, palaces, wars, cathedrals
+      Colorful robes & gold decorations
+    Modern elites:
+      CEOs, industrialists, stock traders
+        richer than nobility
+        less spending on non-production
+        Dreary uniforms/suits
+        Private jets
+        Versace $3,000 suit
+    Investors:
+      private citizens
+      governments:
+        new ports --> more exports --> more taxes
+        more education --> high paying jogs....
+    Capitalism:
+      descriptive and prescriptive
+      economic growth is supreme growth;
+        free enterprise, thrift, self-reliance
+        justice, freedom, happiness depends on it
+    Science research:
+      only for increasing production
+      (nutrition does not, hence less funding)
+    Capitalism depends on Science:
+      Perpetual growth counter to natural laws.
+      Perpetual scientific discoveries foot the the bill.
+      Banks governments print money
+        hoping for new discoveries (AI, bio-engineering...) before bubble bursts
+
+  Columbus searches for investor
+    Asia until lat 1700s had more capital than Europe
+      no interest in credit/merchants
+      interest in wars via taxes/plunder
+    Europe
+      kings/generals adopted capitalism
+      conquest finance with credit- not taxes
+      --> mercantile empires
+    Columbus, 1484, proposed: Portugal, Italy, France, England, Portugal,Spain
+      (last one hit the jackpot - gold, sugar, tobacco
+        made royalty, bankers, merchants rich)
+    100 years later more money for exploration;
+      Financial momentum increase from conquest to conquest
+    Expedition/financial duds:
+      North-western passage, storm losses....
+        ---> limited liability joint-stock companies, no cap on profits
+             small investment --> millionaire
+    Spanish empire:
+      N. & S. America, Philippines, Africa
+      ruled around Netherlands 1556 to 1714.
+      1568 Dutch (protestant) revolt
+        in 80 years built their own empire
+        Used credit to built fleet and hire mercenaries to fight
+        Amsterdam: most important port & finance center
+        meanwhile Spanish king squandered the trust  of investors
+    Dutch success:
+      1. Always repaid loans
+      2. Independent (from king) judicial protected property rights
+      3. Empire built by merchants not kings
+    Stock exchanges in major European cities
+    Vereenigde Oostindische Compagnie (VOC)
+      (Dutch East-India Company) (1602 - 1795)
+      Silver and copper from Japan traded with Mughal India and Qing China,
+      for silk, cotton, porcelain, and textiles
+      financed military against competitors, pirates
+         ruled Indonesia for 200 years:
+           400% return
+           conquest sold as civilizing mission
+           hired European, Indonesian, Indian, Japanese mercenaries
+       (Dutch government rule of Indonesia
+         1816 to 1941
+         Japan invasion 1941
+         1945-1949 Dutch Indonesian war)
+       Current warning for large corporations
+     Dutch West Indies company (WIC)
+       built New Amsterdam settlement
+       British captured it in 1664 named New York
+       Wall street paved over the settlement wall
+     ~1700 Dutch lost financial center status
+     British, smaller than French pick it up...
+       Mississippi Bubble:
+          Mississippi company, connected to Louis XV sold shares
+            CEO was also finance minister
+            company had swamps & alligator but claimed riches
+            shares started 500 at 1717 --> 2,750 by Aug. 1719 --> 10,000 in 4 months
+              --> French euphoria  --> sell panic
+              CEO as finance minister bought shares but ran out of money
+              share value dropped to zero
+              small investors committed suicide
+          --> French empire collapsed
+          --> British empire took over (French and Indian War 1754–1763)
+          1789 Louis XVI found 1/2 budget was for interest loan
+                 convened French parliament --> start of French revolution
+                                                Louis XVI executed
+     British finance expansion via stock exchange;
+       London Co  1607  Jamestown - indentured servitude
+       Virginia Co 1606 tobacco
+       Dorchester Co  1623, 14 fishermen settled in Gloucester
+       Massachusetts Bay Co. 1628 after failure of Dorchester Co Puritans
+                             settlers were shareholders
+       British East India Company: ruled India for ~100 years
+                                   had 350k army
+                                   nationalized in 1858
+     Napoleon: BritaiBengaln is nation of shopkeepers
+               (after 23 years the shopkeepers defeated him at 1815;
+                scavenged "Waterloo teeth" (from healthy young men) in demand;
+                they created the largest empire ever seen)
+
+  In the name of capital
+     Indonesia/India were nationalized in 1800/1858
+     Large stakeholders made government look after their interests-
+       Marx: western governments became capitalist trade union
+     First opium war (1840-42):
+       government bidding of big money
+       British East India Company (MPs ministers were stock holders)
+         exported opium to China --> millions of Chinese addicts
+       China banned opium, confiscate & destroyed cargo
+       1840 Britain declared war in the name of "free trade"; used
+          steamboats, heavy artillery, rockets, rapid fire rifles
+       Chinese lost, compensated for damages, gave up control of Honk Kong
+       10% of Chinese were drug addicts
+     Suez canal project (1859 - 1869):
+       French/British huge loans to Egypt
+       Egyptian nationals default on loans
+       Britain became British protectorate until WWII
+     Greek rebellion
+       (war like opium a commodity)
+       British proposed to rebel leaders Greek Rebellion Bonds
+       36-year bond  £472,000   9.17% interest 1824
+                     £1,100,000 9.80%          1825
+                      120% of the country’s GDP
+       Bonds rose/fell according to the war
+         global fiscal crisis began in December 1825,
+         1826 government suspended debt payments
+         Before imminent defeat British with intentional fleet 1827
+           sank Ottoman flotilla in Navarino (Pylos)
+           --> Greek economy mortgaged to British for decades
+         1831 Kapodistrias assassinated
+         1833 King Otto & 60M franc (odious) loan
+         1843 loan default
+         1854 British and French navies occupied Piraeus
+         payments continued into the 1930s
+       Capital/politics bear-hug:
+         credit determined by production/inventions AND
+         regime change, foreign policy...
+       Battle of Navarino
+         --> more risky loans because of British government backing
+       Credit rating:
+         economic/political/social/cultural factors
+           oil producers with bad ratings
+           poor countries with good ratings
+
+  The Cult of the Free market
+    Ardent capitalists:
+      capital free in influence politics
+      politics should not influence capital
+      with reinvestment increase the common good
+    Reality:
+      No market WO polical influence
+        Most important resource - trust in future
+          is always threatened by thieves....
+        Politics not markets can protect against theft
+        Proof:
+          Mississippi bubble, 2007 housing crisis...
+
+  The Capitalist Hell
+    Adam Smith: greedy shoe profits --> more hiring;
+                egoistic greed benefits all
+      but monopoly; greedy shoe profits --> less wages, more hours
+        even --> limit freedom of movement...slavery
+    Slavery:
+      unknown in medieval Europe
+      rose with capitalism
+    Gold, silver, sugar, cotton, tobacco
+       Sugar:
+         secret food & pseudo-medicine ingredient;
+         0-->18lbs/yr 1600--> 1800
+         labor intensive, malaria problems
+           --> slavery
+               10M Africans 1500s --> 1800s  70% in sugar plantations
+              for people/businessmen to enjoy sweets/profits
+    Private slave COs:
+      stocks traded in London/Paris/Amsterdam
+      traded sugar, cocoa, coffee, tobacco, cotton, run
+      in 1700s had 6% investment yield
+      profit not racism driven
+      Unrestricted growth --> catastrophe
+         Millions killed:
+            Capitalism: indifference & greed
+            Christianity/Nazism: hatred
+    Capitalist catastrophes:
+      1. Slave trade
+      2. Great Bengal famine (British East India Co & monsoons)
+         (Another Bengal famine (1943):
+             1-4M deaths,  malaria biggest killer
+             food diversion for WWII
+             --> cloth famine, social inequality...)
+         (1971 ware of independence 0.5-3M deaths)
+      3. Industrial revolution - millions of workers made poor
+    Belgian Congo
+      Congo Free State
+      1876 Belgian king Leopold II set up NGO:
+        explore Central Africa and fight slave trade
+          real aim growth & profit
+        20-30M people, in land x70 Belgium's
+        hospitals/schools --> mines/rubber-plantations with forced labor
+          villages punished (hands cut off) for failing rubber quotas
+      1885-1905 ~6M deaths, 20% population
+      2020 Belgian king issued apology WO mention of Leopold II
+   After 1945, fear of Communism reined in greed
+     2014 economic pie much larger, but
+     poor in Africa/Indonesia worse off than 500 years ago
+     economic growth and hunger continues concurrently
+   Capitalism's reply to criticism:
+     1. nobody but capitalist can run the world
+        communism was so much worse no one supports it
+        In 8,500 BC Agricultural revolution was cruel, but
+          there was no turning back - similar with capitalism
+     2. patience - capitalistic paradise is around the corner
+        mistakes made but we have learned
+        proof: life expectancy, child mortality, calorie intake
+               despite exponential population growth
+
+17. The wheels of industry
+    Capitalism (economic growth) requirements:
+      reinvest profits, energy, raw materials
+    Counter-intuitive:
+      energy/raw-material use increase ---> availability increase
+        (form science/technology investments)
+    Pre-industrial:
+      Problems:
+        not enough or inconvenient use of forests/hydro-wind-power
+        energy could not be converted from one type to another
+          except human/animal conversion of food energy to physical energy
+      Energy
+        sun --> plants --> animals --> muscle-power
+        human history:
+           1. annual growth cycle
+           2. daily solar cycle
+        Everyone powered with solar energy stored in wheat....
+
+  The secret in the kitchen
+    Thousands of years people saw water boil without seeing the potential...
+    1st breakthrough: 900AD gunpowder in China
+    2nd               1500AD artillery
+    3rd British coal mines
+          population growth --> loss of forests --> flooded coal mines --> steam engine
+    4th Improved steam engine;
+          connected to looms and gins (cotton engines) --> cheap textiles
+    5th Mobile steam engines (train) 1825
+          13 miles from mine to port
+    6th Passenger trains 1830
+          Liverpool to Manchester ~ 25 miles
+          20 years later: thousands of miles of rail lines
+    Physicists found way to harness atomic power:
+      make electricity, power subs, annihilate cities
+    600 years from Chinese gunpowder to Turkish cannon pulverizing Constantinople
+    40 years from E=mc2 to Hiroshima
+    100 years for Internal combustion engine to revolutionize transportation
+    Electricity: the genie in a lamp
+      prints books, sews clothes, keep vegetables fresh, cook dinner,
+      execute criminals, registers thoughts, records smiles, lights the night
+      countless TV shows
+
+  An Ocean of Energy
+    Industrial revolution == energy conversion revolution
+    solar energy on earth: 3.8*10^24 joules/year  ~ 4 yotta joules /year
+                           1.2*10^17 watts ~ 0.1 exa Watts
+                  verify:  1380 W/m2 * 3.14 * (6.4*10^9)^2 =~0.1 exa Watts
+       Photosynthesis 3*10^21 J/yr  = 3,100 exa Joules/year
+                                    = 10^14 W = 100 tera watts
+       Global energy consumption:  2021 6*10^20 = 600 exa joules / year
+                                   6*10^20 J /365/24/3600 = 1.8*10^13 W
+                                   ~ 20 tera watts
+                                   ~ 10^-4 solar power ~ 1 hour solar
+                                   10% of photosynthesis
+       1 Joule = 1 N*m  ~ .1 kg * 9.8 m/sc^2 * 1 m
+                 100 grams (3.5 oz) lifted for one meter
+    Aluminum, 1820, more expensive than gold
+      Napoleon III used aluminum cutlery for distinguished guests
+    People used olive oil for dry skin
+      now use hand lotion with materials discovered last 200 years
+    Haber's discovered to make ammonia from air
+      without it Germany would have surrendered before 1918
+
+  Life in the conveyor belt
+    Industrial revolution = cheap energy/raw-materials -
+      --> human productivity explosion;
+      2nd agricultural revolution
+        muscle --> machine
+        fertilizers, insecticides, hormones, medicine, refrigerators, ships/airplanes
+  Humanist religions --> homo sapiens divine status
+    --> animals viewed as machines
+    hens in 10x8.5 in space
+    pigs in pens cannot turn around
+    dairy cows  stand sit in their urine excrement
+      food/hormones/medicine for one machine
+      milked by another
+  Atlantic slave trade/animal industry motivate by profit not hatred
+  Science that created the meat/milk/egg industries
+    demonstrated the complex sensory/emotional life of animals;
+    Evolutionary psychology:
+      emotional/social need of domesticated animals evolved in the wild
+        essential for survival & reproduction
+        playing, bonding...
+        (Mammalian playing = learning social behavior)
+  Harlow's' monkey experiment (1950):
+    monkeys preferred cloth mother than wire-cage mother with milk bottle
+    orphaned monkey had problems socializing
+      anxiety and aggression problems
+    similar results with other animals
+  Mechanized  livestock/cultivation --> modern socio-economic order
+   90% farmers --> 2% food production + more factory hands/brains
+   More hands/brains --> more steel, clothing, mobile phones,...
+   ---> more supply than demand
+
+  The age of shopping
+    Frugality historical norm:
+      examples: Puritans, Spartans
+    Consumerism:
+      ensure demand for the increased supply
+      treat yourself, even if you kill yourself slowly
+      Packaging:
+        "treats without remorse"
+        "thin slim", "healthy lifestyle"
+      Popular psychology:
+        "just do it"
+        frugality=self-oppression
+      Christmas, Memorial day = shopping holidays
+      short-term goods
+      Old thinking:
+        selfish, decadent, morally corrupt
+     Consumerism flowering:
+      obesity
+      US spending on diets > money needed for the hungry in the world
+      double win - more food/diet consumption
+    Turn of tables:
+      medieval rich/poor extravagant/frugal --> modern frugal/extravagant
+    Capitalist/consumerist ethic:
+      invest/buy
+      Previous ethics:
+        tough deal: compassion, restraint.. for paradise
+          most Christians/Buddhists/Confucians did not dot it...
+      "invest/buy" ethic:
+        greed, free rein on cravings and passions
+        religion that is easy to follow
+        how do we know we will get paradise?
+          we have seen it on TV...
+
+18. A permanent revolution
+   Total mass:
+     Home sapiens:             300 million tons
+     Domesticated animals:     700
+     Large/small wild animals: 100 (books, TVs are full of them)
+        80K giraffe, 1.5B cattle
+        200K wolves, 400M dogs
+        250K chimps, 8B sapiens
+   Doomsday prophesies:
+     Resource scarcity - misplaced
+     Ecological degradation - well founded
+       May endanger sapiens;
+         global warming, pollution,
+       --> race of human power & human induced disasters
+           'change of nature' not 'destruction of nature';
+             rats roaches are doing well
+             future 'intelligent rats' may look back as wee look at dinosaurs
+
+  Modern time
+    agricultural rhythms --> precise industrial schedule
+    Before:
+      no sense of hour or year
+      no uniform working day
+      sun/season/growth cycle timekeeping
+    Now:
+      no care of sun/season
+      assembly line dependence --> precise schedule
+    factory time schedule
+      --> school, hospital, government, store schedule
+    factory closes at 5:0o - pub better be open by 5:02
+    Transportation:
+      1784 carriage service had departure times
+        each city/town had its own local time
+      1874 train companies standardized in Greenwich time
+      1880 British government did same for all Britain
+        time legalized for first time in history
+      BBC broadcast live Big Ben tolling
+        replaced with recording after German physicists could tell the weather...
+      Assyrians, Sassanian(224 to 651 AD Persia), Incas had few sun dials
+        now: one home more clocks than a medieval country
+             $1,000/sec commercials
+             50 min to unload angst on a therapist
+  Industrial revolution:
+   industrial time
+    urbanization
+    disappearance of peasants
+    industrial proletariat
+    empowerment of common person
+    democratization
+    youth culture
+    disintegration of patriarchy
+    collapse of family/community
+      basic blocks of tribes, cities empires... blown to atoms
+
+  The collapse of family and community
+    Before industrial revolution:
+      family business, farm....
+      family/community was welfare, education, health, entertainment, policing systems...
+        many transactions few payments
+      Empires build roads palaces waged war
+        using taxes and soldiers
+        stayed out of family/community
+          (exception Qin dynasty 200 BC converted family heads to government agents)
+        Ottoman empire allowed family vendettas
+          instead of imperial police force
+      Ming (1368-1644) baoja system:
+        10 families= 1 jia
+          10 jia = bao
+        bao member committed crime, bao elder punished
+        bao elders collected taxes
+      Kingdoms/empires
+        king was the capo di tutti capi "leader of all leaders" (mafia boss)
+        collected protection money
+      Person WO family/community ~1750:
+        good as dead
+        military or brothel
+    After industrial revolution:
+      weakened family/community leaders
+      police stopped vendettas
+      hawkers replaced traditions with fashions
+      "fifth column":
+        (group that undermine a larger group from within, in favor of an enemy;
+         1936 early Spanish civil war; Franco 4 columns to attack Madrid
+         and fifth to attack within; Russians against Ukraine war are 5th column)
+        become individuals
+        marry who you like
+        live where ever you wish
+        state not family will take care of you
+          pension, food, shelter...
+    Romantic literature myth:
+      individual against state/market
+      truth:
+        state/market is father/mother of individual
+        market: work, insurance, pension
+        state: education, safety
+               treat us as individuals
+                 - no payment/punishment for relatives
+      cost:
+        alienated, loss of family ties
+    State versus market rights;
+      individuals exploited
+    Millions of years evolved to think communally
+      last 200 years become alienated individuals
+        --> awesome power of culture
+    Previously:
+      money passed from one father to another
+    Now:
+      Money passes to waitresses, fashion designers, gym managers, dietitians,
+      cosmeticians, plastic surgeons  for the market's  ideal beauty
+      State requires parents to send kids to school
+      Abusive parents sent to jail
+      Parental authority reduced
+      Kids excused for disobeying
+      Parents blamed for everything that goes wrong
+
+  Imagined communities:
+    people that do not know each other but imagine that they do
+    like money, limited liability company, human rights...
+    old:
+      kingdom, empire, church
+      Chinese emperor was the father
+      Muslim brothers and sisters of Islam
+    new:
+      consumer tribe of the market
+      nationalism
+      Madona fans
+      Manchester United fans
+      vegetarians
+      environmentalists
+    Imagination not lie:
+      common: past, interest, future
+    Syria, Iraq, Lebanon, Jordan nations of haphazard borders
+      drawn by French/British diplomats
+      hollow bombastic speeches about Iraqi/Syrian nation
+
+  Perpetuum mobile
+     Social order:
+      old:
+        static; "this is how it was and will be"
+      new:
+        dynamic/malleable
+        universal politics for social, educational, & economic reforms
+     Revolutions:
+       wars: French 1789, Liberal 1848, Russian 1917
+             WWI, WWII, cold war
+       genocides: Armenian, Jewish, Rwandan
+       totalitarians: Robespierre, Lenin, Hitler
+       longest peace-times
+     Tectonics of history moving, but volcanoes are silent
+
+  Peace in our time
+    2000, wars/crime deaths: 310K/520K         2002: 172K/569K
+       1.6% of the 56M that died
+       2.25% automobile deaths (1.26M)
+       1.45% suicide deaths (815K)                   873K (more than wars/crime)
+    Large state --> less violence
+      Early farmers WO state had more violence
+    Europe 1 murder/100K,
+     global aver 9 - mostly in weak states ...Somalia, Columbia
+     medieval 40
+     1900s state killed tens of millions of own citizens
+     1964-1985 Brazil dictatorship killed thousand, but
+       25% to 50% of indigenous men died over prestige, women, or property
+
+  Imperial retirement after 1945
+    British empire 1/4 globe --> few islands in 30 yrs
+      peaceful except for Malaya (Malaysia) & Kenya
+    French empire
+      peaceful except for bloody collapse in Algeria & Vietnam
+    Soviet 1989
+     fastest and quietest collapse; no rebellion, no invasions...
+     Soviets/Communists/Gorbachev had arms but choose not to use them
+
+  Pax Atomica
+    Since 1945 war is no longer the norm
+      similar to 1871 - 1914
+    Previous wars:
+      1879-84 Chile Bolivia-Peru
+      1932-5 Bolivia Paraguay
+      1941 Peru Equator
+      1970 Syria Jordan
+      1990 Iraq Kuwait
+    Africa
+      civil wars
+    Iron law of international politics:
+      "For every 2 polities war is plausible within in 1 year" -law of jungle
+      China, medieval Europe, Ancient Greece
+      Israel/Syria USA/Iran Ethiopia/Eritrea are exceptions
+    Cause of peace:
+      1. cost of war gone up
+         Peace prize to end all peace prizes to Oppenheimer/nuke-bomb makers
+           avoid collective suicide
+      2. Profits declined
+           materials; looting gold, occupy fields
+           not as profitable as human capital & know-how
+             California first had gold, but now entertainment/software
+                engineers, script writers, special effects wizards
+      3. Lucrative peace
+         foreign trade & investments
+      4. Peace loving elites (politicians/businessmen)
+         Pacifists in power - old elites viewed war as good
+      5. Positive feedback of 1-4
+         nuke fear --> pacifism --> trade increases --> war obstacle
+         --> global empire (borders is the globe itself)
+    Too early to tell;
+      history to decide where we will end up
+
+19. And they lived happily after
+    Last 500 years:
+      one ecological/historical sphere
+      exponential wealth
+      super human powers
+      unlimited energy
+      politics/daily-life/psychology transformations
+      BUT are we happier?
+          is the world better place to live?
+    Happiness
+      Nationalists: self-determination
+      Communists: proletariat dictatorship
+      Capitalists: free market
+    Historians typically avoid happiness topic;
+      Agriculture revolution:
+        more collective power but,
+        work harder, more disease/exploitation
+      European empires:
+        more science/technology but,
+        oppression/genocide of natives
+      Likely misuse of power --> more clout != more happiness
+    Romantic spin:
+      More power --> mechanistic world; not for hunter instincts
+      Every invention pulls out of Eden further
+    Medicine, reduction of violence, elimination of famines, large war
+      oversimplification?
+      1. small number of years
+          1850-1851 China's Great Leap forward
+            10 to 50M people starved to death
+          Truganini is no less important than Homer Simpson
+      2. golden age of last half century --> seeds of future catastrophe
+           reckless consumption --> ecological disaster
+      3. Industrial/medical exploitation of animals
+            consider only happiness of humans?
+
+  Counting happiness
+    Happiness = f(health,diet,wealth; objective conditions)
+              = f(social, ethical, spiritual); studied for millennia
+              = f(subjective expectations)
+    Questions to measure happiness:
+      how one feels
+    Money bring happiness only if you are poor
+      if not temporary
+    Illness decreases happiness in short term
+      Diabetes get depressed for a short while
+    Money/illness over time have little impact
+    Family/community far more important
+      good/bad marriage --> happiness/misery
+    Current immense material improvements offset by collapse of family/community
+    Happiness --> objective condition versus subjective expectations
+      winning lottery or debilitating car accident both have little long impact
+      poets philosophers have known this
+      now backed with data
+    Happiness depends on expectations:
+      media/advertising are depleting happiness
+    Third world discontent
+      more about exposure to first world standards than
+      poverty, disease, corruption...
+      Egyptian uprising was about comparison to the west
+    Magic cures/immortality
+      --> discontent for the that will not afford them
+
+  Chemical happiness
+    Biology: happiness depends on biochemistry shaped by evolution
+             not by external parameters (salary, house, true love..)
+             serotonin - neurotransmitter/hormone
+                         happy, focused, calm
+                         memory, sleep; depression, anxiety, blood clotting
+                         90%/10% produced in intestines/brain
+                         tryptophan-containing foods - eggs, seeds, pineapple
+                         sunlight, exercise
+             dopamine - neurotransmitter/hormone
+                        rewards/motivation
+                        happy, alert, focused
+                        memory, sleep; depression, anxiety
+                        Parkinson’s loss of movement
+                        sugar addiction
+                        produced by adrenal(on kidney) gland, hypothalamus
+             oxytocin - love/hug hormone
+                         male/female hormone
+                         labor/delivery/lactation
+                         produced by hypothalamus release by pituitary gland
+                         induce /speed labor, semen ejection
+                         trust, romantic attachment, bonding
+                         linked to prostate cancer, low levels--> autism
+             cortisol - steroid hormone
+                        increases blood sugar
+                        aids metabolism
+                        adrenal gland
+                        stress prone:
+                          abused children, airplane crash survivor, military, police
+    Happiness = pleasant reactions in body
+                reaction to chemicals from winning lottery...
+    Evolution has made happiness constant
+      no natural selection for more happiness
+    Human biochemistry--> air condition; return to same set point
+      brain setting 7/10 - happy no matter what
+      brain setting 5/10 - gloomy no matter what...
+    Married people happier than single
+      correlation not causation; could be happier people get married
+      People born with cheerful biochemistry (serotonin...) tend to get married
+    Happiness depends on biochemistry much less on history
+      French revolutionaries executed king, gave land to peasants,
+        declared rights of man, abolished noble privileges, fought all of Europe
+        but did not change French happiness.
+        Biologist would have never done this, other people get tricked in doing it.
+      Stop wasting time in politics, social reforms, ideologies...
+        Only thing that works: prozac (fluoxetine) depression, obsessive compulsive
+    "Happiness Begins Within":
+       comes only from serotonin, dopamine, oxytocin
+       Brave new world: 'soma' make people happy, no wars, one world government..
+
+  The meaning of life
+    Nietzche: 'if you have a why to live, you can bear an how'
+      parents have more hard moments raising kids but are happy doing it
+      --> cognitive and ethical dimension to happiness
+    Medieval peasants may have happier than us
+      they believed in the afterlife delusion
+      Now-scientists, soldiers, businessmen have delusions:
+        increase knowledge, defend homeland, create jobs
+    Happiness is synchronizing personal delusion with the collective delusions
+      --> self-delusion
+
+  Know thyself
+    Increase happiness:
+      1. re-engineer biochemistry
+      2. self-delude with meaning
+      3. know thyself (Apollo temple in Delphi)
+           Liberal
+             politics: voter knows best
+             economics: customer ...
+             art: beauty is relative
+           'what I feel is good is good' Rousseau
+           (Paradox: people know their happiness
+                    but need help to free them from unhappiness)
+           Most religions very different form this;
+           Christians: having sex increases sin not happiness
+             most people are like addicts - they are happy when they shoot up
+           Selfish gene theory: people choose reproduction
+                                instead what is good for them (DNA like Satan
+                                uses pleasure to place them in its power)
+    Buddhism:
+      consistent with science - happiness is within not from outside
+      most people want more pleasure and less pain
+      feelings are fleeting vibrations like ocean waves
+        joy can be gone in 5 minutes
+        one keeps chasing it
+        if one catches it, he have to start over
+        Why chase something that disappears?
+        Root of suffering:
+          Never-ending and pointless pursuit of ephemeral feelings,
+            causes: tension, restlessness & dissatisfaction
+          NOT pain, sadness, or meaningless
+        Liberation from suffering:
+          know that feelings are not permanent & stop craving for them
+          Meditation: observe mind/body witness coming/going of feelings
+                      realize how pointless the pursuit is and stop it
+                      Stop pursuit:
+                        mind relaxed, clear, satisfied
+                        feelings accepted for what they are
+    West New Age movement (1970s):
+      turn Buddhism on its head:
+      "Happiness is what you feel inside; stop chasing wealth status
+       and connect with inner feelings" or
+       'Happiness Begins Within' - exactly what biologists say
+                                   but opposite of Buddha
+        Buddhism is stopping pursuit of achievements AND inner feelings
+    Most religions key to happiness:
+      know thyself
+      cannot identify with feelings/thoughts/likes/dislikes
+    History of happiness:
+      Not about fulfilled expectations or feeling pleasure
+      About knowing oneself
+      Field just starting; needs questions, evidence...
+    History is about: social structures
+                      empires
+                      discovery/spread of technologies
+                      nothing about individual happiness/suffering (lacuna)
+
+20. The End of Home Sapiens
+   Natural selection:
+     for 4 billion years
+     no need for intelligent design to explain giraffes...
+     gave Sapiens advantage over other life forms
+     sets Sapiens boundaries
+       but Sapiens is beginning to break them
+   Intelligent design:
+     10K years ago - breeding of chickens - accelerate natural selection
+       symbiosis of sapiens/chicken
+   Engineering of life forms
+     bio-artist Kac created fluorescent green rabbit Alba; jelly fish genes
+     most import since life began
+   natural selection --> intelligent design:
+     1. bio-engineering
+     2. cyborg (mixture of 1 &2)
+     3. engineering of in-organic life
+
+  Of mice and men
+    bio-engineering:
+      castration of bulls to create oxen for 10K years
+      castrated of males for sopranos and for the sultan's harem
+      change sex via surgery & hormones
+      artificial ear in mouses back
+    push-back: monotheists, atheist, animal-rights, human-rights
+      to many possibilities and we are not wise...
+    Organism with weakest political lobbies:
+      plants, fungi, bacteria, insects;
+        E. Coli makes bio-fuel
+        Fungi maker insulin
+        Frost resistant potatoes with gene from Artic fish
+    Mammals:
+      cows with milk containing lysostaphin (antibacterial enzyme)
+        to prevent mastitis
+      pigs with omega 3 fat using a worm gene
+    Others:
+      worms with 6x life expectancy
+      smart mice
+      monogamous voles
+
+
+  The return of the Neanderthals
+    2003 pyrenean ibex cloned - died minutes after birth
+    Russian/Korean/Japanese reconstruct mammoth DNA and implant egg into elephant
+    Church in Harvard university:
+      $30M funding & volunteer women to produce Neanderthal child (after 30K years)
+    Better Sapiens:
+      Sapiens/mouse: 2.9B/2.5B nucleobases (14% difference)
+      genius mouse --> genius sapiens...
+      ethics/politics only obstacles
+      tinkering will not kill us but we will not be sapiens
+
+  Bionic life
+    Cyborgs: eyeglasses, pacemakers, orthotics (feet bottoms), computers, phones
+    Cyborg implants:
+       US military: cyborg flies(to spy), sharks (to detect mines)
+       bionic ear - covered by Medicare
+       retina implants - experimental, 20/460 acuity
+       Bionic arms with sensation of touch
+    Rhesus monkey:
+      controlled additional bionic arms/legs
+    Locked-in syndrome:
+      paralysis from stroke brain damage
+      possible cure: ability to talk to move
+    Two-way brain computer interface:
+      machine learning -  medical alarm, mental state, emotional state,and thalamocortical dysrhythmia
+      link brain to internet or to other brains?
+      collective memory?  follow collective dream....
+
+  Another life
+    computer programs that can undergo evolution
+      play chess, drive car, diagnose disease, invest money
+      we may work for these programs;
+        hire people, who to give mortgage, who to send to jail...
+    Human brain project 2005
+      brain in a computer
+      2019 hard to find major contribution
+
+  The singularity
+    Mapping first human genome: 15 years $3B
+      now: few weeks for few hundred dollars
+        --> personalized medicine
+      ethics: privacy, insurance companies, patents of human genome
+      Universal Declaration of Human Rights 1948:
+        need to prevent and heal sickness
+        include enhancing human abilities?
+    Superiority of upper class up top now was a delusion
+      now it may become reality
+    Future technology change Sapiens - emotions, desires..
+      not just vehicles and weapons
+    Singularity:
+      physics: before big bang time did not exist
+      evolution: me, you, men, women concepts become irrelevant
+
+  The Frankenstein prophesy
+    1918 Nary Shelley's Frankenstein:
+      science tries to create super human but creates monster;
+      myth signifies last days are approaching;
+        unless a nuclear of ecological disaster
+        sapiens will be replaced by a different being
+        (not about interplanetary travel)
+        We like to think that Dr. Frankenstein can only create monsters
+      Hype:
+        Nuclear age in 1940 ---> everything nuclear by 2000
+        Apollo 1969 --> colonies in Mars
+      Likely not hype; future:
+        technological transformation
+        50 or hundreds of  years for immortality?
+      Human enhancement:
+        natural, artificial, or technological alteration of the human body
+        --> different level of consciousness
+           --> different religious/economic/self-identification concepts
+        would starting point be Islam, feminism...
+        all about Gilgamesh project;
+          doing all to cure disease and improve human life
+          Dr. Frankenstein is piggy-backing on Gilgamesh;
+          impossible to stop Gilgamesh --> impossible to stop Frankenstein
+    Can only influence the direction:
+      'what do we want to become?' --> real question: 'what do we want to want?'
+
+Afterword: The animal that became God:
+  70K years ago Sapiens was insignificant animal
+  Now master of entire planet and terrorist of ecosystem
+    poised for eternal youth an divine abilities of creation/destruction
+  Historically, increase of power:
+     no improvement of individual sapiens
+     misery and destruction of other animals
+  Last decades:
+    reduction of war, famine, disease (too soon to tell)
+    deterioration of other animals/species
+  Unsure of our goals, disconnected
+    Advanced from canoes but do not know where we are going
+    Have power but do not know what to do with it
+    More irresponsible than ever
+    We are self made gods with laws of physics for company
+      Wrecking havoc to animals/ecosystems for comfort & amusement WO satisfaction
+  Anything more dangerous than dissatisfied/irresponsible gods
+    that do not know what they want?

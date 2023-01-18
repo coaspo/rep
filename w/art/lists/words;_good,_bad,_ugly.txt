@@ -25,6 +25,7 @@ BAD
   infomania      news/info compulsiveness/overload
   moral hazard   lack of incentive to avoid risk - insurance, bank bailout
   ostentatious   showing off money, power, or wealth
+  pedant         excessively/ostentatious with precision or learning
   rout           overwhelming defeat
   solipsism      theory: self is all that can be known to exist (psychology/philosophy)
   superannuate   retire (someone) on a pension because of age or infirmity
@@ -43,6 +44,7 @@ UGLY
   idiocracy      society governed/populated by idiots
   odium          disgrace from hateful behavior
   perfidy        promise to act in good faith with intention of breaking promise
+  perdition      eternal punishment and damnation (Latin destroy)
   schadenfreude  Harm joy - pleasure felt at someone else's misfortune.
   sycophant      tries to please someone to gain an advantage
   lackadaisical  carelessly lazy - alack (regret) the day
