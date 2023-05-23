@@ -1,0 +1,771 @@
+Nick Bostrom, Swedish philosopher 🗓 1962
+
+Unfinished Fable of the sparrows
+  Sparrows want to find owlet to train as a guard
+  difficult problems: 1. find owlet
+                      2. train it
+  majority consensus: solve 1. than 2.
+  Scornkfinkle (dissenter)  think about 2 before solving 1.
+  book dedicated to Scornkfinkle
+  (based on myth of the tiger and the goats - orphan baby tiger raised by goats,
+   tiger acts like goat, but when meets other tiger becomes himself)
+
+PREFACE
+  brain --> language, technology, complex social organization
+  gorillas depend on us;
+    we may depend on superintelligent machine brain
+  we get one chance to do it right  (one chance for agricultural, industrial revolutions?)
+
+1. Past developments & present capabilities
+  Growth modes & big history
+    Homo sapiens cognitive ability:
+     --> agricultural revolution
+           more people, more ideas, higher densities --> faster idea spread
+    World economy doubling times: 1. Hunter/gather 224K years
+                                  2. Agricultural 909
+                                  3. Industrial  6.3  (current is mixture of 1&2 )
+    Vernor Vinge - mathematician/computer scientist/sci-fiction writer
+      "The Coming Technological Singularity: How to Survive in the Post-Human Era" (1993)
+    Singularity is techo-Utopian;
+    instead use "intelligence explosion"
+  Great expectations
+    1940s: general intelligent machines in 20 years
+    now: same 20 years - 20 years is forecaster career
+      problems are underestimated
+    Ultra-intelligent machine: more clever than any man; the last invention
+  Seasons of hoe and despair
+    1956 Dartmouth 10 man study review of AI
+      "look ma no hands" - refute "no machine can do x"
+         examples: Logic theorist: prove theorem in"Principia Mathematica"
+                   General problem solver: algebra word problems, calculus, and
+                     visual analogy problems in IQ tests
+                   Shakey robot: logic reasoning and perception
+                   ELIZA: chatbot (1966) impersonate psychotherapist
+                   SHRDLU: moving virtual blocks - commands/question typed by user
+                   joke making: good enough for children
+         exhaustive search - 5 axioms & 1 inference: - check 3,125 possibilities
+                             for 5-line proof
+    AI winter: funding dried
+    1980s spring: Japan: 5th generation computer project
+      expert systems: rule based; high level symbolic manipulation
+        large systems hard to develop, validate and update
+      GOFAI - good old fashioned AI
+    2nd AI winter: limited success
+    1990's spring: (alternative to GOFAI)
+      1. neural networks
+        learn from examples, find hidden statistical patterns
+        good for pattern recognition & classification problems
+        (neural networks known since 1950s)
+        new: back-propagating algorithm - giving high loss nodes less weight
+             more hidden layers
+      2. genetic algorithms/programming based on evolution
+           a. pollution of solutions
+           b. random combination of these
+           c. fitness function allows best variants to next generation
+         need good representation format
+         un-intuitive solutions
+         often defeated by combinatorial explosion
+      Neural nets: subtype of learning classifiers by examples
+                   others: decision trees, "naive Bayes", logistic regress  model
+      Perfect Bayesian agent not possible (AI is quest for shortcuts)
+      Optimal Bayesian agent:
+        1. prior probability distribution
+           bias: simpler world-> higher probability
+                (Kolmogorov complexity - smaller for fewer lines of code)
+        2. Learning rule:
+           New information --> update probabilities based on Baye's theorem
+           probability is like sand on piece of paper - is re-positioned
+           to respective world after new information;
+             probability of hypothesis = sand amount in the hypothesis worlds
+        3. Decision rule:
+           agent lists all possible actions, computes probability distribution,
+             finds expected value of action = sum of value of each world * probability of action
+        Physically unrecognizable but useful to judge heuristic approximations
+        Bayesian Network example:
+          probabilistic relationships between diseases and symptoms
+        Learning from specific examples --> more efficient inference in other areas
+          for example Monte Carlo techniques applied to vision, robotics & genetics
+        Graphical models + Bayesian statistics:
+          machine learning, statistical physics, bio-informatics
+          combinatorial optimization, communication theory
+
+  State of the art
+    Better than humans:
+      Checkers 1955 - always best move 2002
+      Backgammon 1979 - defeats world champion (attributed to luck)
+                 1992 - championship level
+      Traveler Trillion Credit Squadron (TCS) (futuristic naval warfare)
+                  1981 Eurisko application in Lisp
+                  heuristics modifying heuristics
+                  destroy its own ships when they were crippled
+      Othello 1997
+      Chess 1997 - deep blue vs Kasparov
+        thought that general intelligence needed - not so; special algorithm
+      Crosswords - 1999 better than average user
+      Scrabble 2002
+      Bridge 2005 - equal to best
+      Jeopardy 2010 - Watson
+      Poker - varied
+      Freecell -NP complete (solution in nondeterministic polynomial time)
+      G0 2012 - strong amateur level, world champion win 2016
+         Korean Go champion Lee Se-dol retired
+         “Even if I become the number one, there is an entity that cannot be defeated.”
+    As soon as it works it is not AI
+    Common sense and language understanding: AI-complete; same as building
+      human level intelligence
+    AI systems:
+      hearing aids that filter ambient noise
+      map route algorithms
+      recommender systems
+      breast cancer diagnosis
+      recommended treatment plans
+      electrocardiogram interpretation
+      robots: pet, cleaning, lawn, rescue, surgical, industrial (10 million)
+      speech recognition (created draft of book)
+      optical character recognition - for typed & written
+      machine translation (good enough for many apps)
+        newer use statistical methods, not linguistics
+      face recognition - border crossing in Europe & Australia
+                         US visa photograph processing
+      equation solving - Mathematica
+      theorem proving - verify virtual chip behavior
+      military: on going work bomb disposing robots, attach drones, unarmed vehicles
+      intelligent scheduling - used in operation dessert storm 1991
+        airline reservations, inventory control, telephone voice menus
+      Bayesian spam filters
+      credit card fraudulent use
+      search engines - google search best AI system
+    AI versus software: more realistic to consider general versus narrow;
+      previous are arrow, general: classifiers, search algorithms,
+                                   planners, solvers, representational networks
+    High stakes/competitive trading systems:
+      buy/sell, trading strategies for changing markers
+      data mining with history, patterns, news tickers
+      Financial news provide newsfeeds to AI systems
+      Arbitrage opportunities
+      High-frequency trading - price changes in msec; computer near exchange
+        1/2 equity shares are HFTs
+    Flash crash 2010
+      Navinder Singh Sarao, a British Indian financial trader
+      realized itchiness of alorithms
+      placing thousands of orders and canceled them ("spoofing")
+      May 2010 2:32 PM, algorithm A sold E-mini SP500 (futures)
+        other algorithms passed them along (hot-potato effect)
+        algorithm A saw as liquidity and sold more and price dropped more
+        2:45 circuit breaker stops trading
+        trading stated 5 sec later and prices stabilized
+        but trillion dollar losses remained
+          absurd stock prices - 1 cent to $100,000
+        stock exchange cancel trades the were more than 60% before crisis
+      Lessons:
+        1. interaction of simple algorithms not predictable
+        2. sound assumptions (trading level measures liquidity) --> bad results
+        4. automation created and solved problem - circuit breakers worked
+
+  Opinions about future of machine intelligence
+    AI propelled by advances in statistics and information theory
+    Currently conservative AI (weak AI) researchers, based on past bad experience
+    "human level machine intelligence" (HLMI) expert survey:
+      10% 2022, 50% 2050, 90% 2075
+    for super-intelligence
+      10% 2 years after HLMI, 90% 30 years after
+    Log term impact survey:
+      mostly good to neutral
+      author: mostly good or mostly bad
+
+2. Paths to super-intelligence
+  super-intelligence = beyond-human intellect in any area of interest
+
+  Artificial intelligence
+    ability to learn, deal with probability, extract useful concepts from sensory
+    information and internal state, leverage concepts for logical and intuitive reasoning
+    Alan Turing's child machine; guided evolution faster than random mutations;
+    blind evolution did it once, we can do more efficiently;
+      David Chalmers & Hans Moravec: theoretically possible & within this century
+      human engineering superior to random evolution
+      Moravec (1976): history of heavier than air flight - nature --> engineering;
+        not so fast; no morphogenesis, self-repair, immune defense ...
+    Run genetic algorithms (solving constrained/unconstrained optimization
+      based on natural selection; solve the travelling salesman problem)
+      in fast enough computers --> out of reach
+    What it would take to recapitulate evolution
+      No need to reinvent cellular energy - focus on nervous system
+      10^5 neurons in fruit fly, ^19 insects in the world,
+        if all fruit fly: 10^24 insect neurons
+      Pre-agricultural 10^7 humans 10^11 neurons each - 10^18  human neurons
+      1 sec of neuron simulation: 10^6 FLOPS
+      1 billion years - 10^30-10^49 FLOPS - out of reach for fastest computer (10^16 FLOPS)
+      Natural selection did not aim for intelligence;
+        selectivity used mostly for Red Queen races - immune system versus parasites...
+        accounting for this may reduce required FLOPS....
+    If intelligence require natural selection and lucky coincidence- may need up to 10^30 more FLOPS
+    AI inspirations:
+      neural networks
+      hierarchical perceptual organization
+      reinforced learning
+      Temporal difference (TD) learning - adjust prediction to match later accurate predictions
+      coming brain science discoveries
+      brain as a template -hard to predict science discoveries
+    Neuromorphic versus artificial -  bird/airplane analogy - cannot say
+    Seed-AI instead of child machine
+      recursive self-improvement
+    AI could be alien intelligence - love, pride maybe added
+
+  Whole brain emulation
+    (uploading) barefaced plagiarism from detailed brain scan
+    depends on scanning technology, model simulation than in AI
+    small success could help neuromorphic AI
+    C. elegans: 1 mm worm, all 302 neurons are mapped
+      still need to find detailed info for each neuron
+    C. elegans --> honeybee  --> mouse --> rhesus monkey --> human
+
+  Biological cognition
+    enhance biological brains - selective breeding too slow, political....
+      genetic engineering faster
+    Low tech neurological enhancement:
+      education, training, maternal/infant nutrition optimization, lead/toxin removal,
+      parasite eradication, sleep/exercise, brain disease cures
+      (Iodine deficiency --> widespread intelligence depression)
+    Biomedical enhancements
+      author: book fueled by caffeine and nicotine gum
+      less likely for large enhancements
+    Behavioral genetics
+      current pre-implantation genetic screening:
+        Huntington's disease & breast cancer
+          mostly European disease, uncontrollable movements..
+        matching human leukocyte antigen - stem cell help for sick sibling
+        driver: low cost of genotyping/gene sequencing;
+             (700,000 DNA markers/3 billion genes) genotyping for ancestory
+    IQ gains:
+      1 in 2/10/100 embryos: 4.2/11.5/18.8
+        5/10 generation of 1 in 10: <65/130  - b/c diminishing returns
+        current in vitro fertilization: <10 embryos
+           embryonic stem cells --> hundreds of embryos
+    Alternative to embryo selection:
+      genome edit of synthesis
+      spell check genomes - mutation removal will boost IQ
+      cloning of gifted people
+      uplifted trangenic animals - whale/elephant with human brain genes
+    Germany less likely to do this, Singapore, China more likely
+    Test tube baby Louise Brown 1978
+      public approval 18% --> 53% after birth
+      28/68% approve for intelligence/disease
+      6 million babies world wide
+    Large lag of progress compare to machine intelligence improvements
+    1. Biological enhancements: least weak form of super intelligence
+    2. cognitive enhanced humans --> better machine intelligence
+    3. likely futuKarakolithosre with enhanced populations
+
+  Brain-computer interfaces
+    Deep Brain Stimulation for dystonia, Parkinson's,...
+      160K people have it.
+      miracle cure for Parkinson's, but memory problems...
+    Cyborgization (brain computer interface) much more difficult than enhancements
+    Fastest brain-machine bandwidth - few words/minute
+    Human hippocampus prosthesis 2018 - 37% memory improvement
+
+  Network and organizations
+    improve links between human minds to create collective super-intelligence
+    improvements so far:
+      language, read/write, population, population-density, organization techniques,
+      epistemic norms, institutional capital
+    lessen problems of:
+      status games,mission creep, information hiding, agency
+    improving collective intelligence:
+      reliable lie detectors,
+        self deception detectors more powerful
+      rationality culture
+      reputation data
+      economic improvements
+      education, connectivity
+    internet might wake up, via
+      improved search, filtering,...
+
+  Summary
+    Many paths to super-intelligence
+    non-machine intelligence boosts machine intelligence
+    biological intelligence may nudge us to safe safe machine-intelligence
+    Machine Super-intelligence depends on a lot of unknowns
+      quickest route may brain emulation
+    Biological enhancements are slow and lead to weak super-intelligence
+    Network enhancements faster than biological
+      already making an impact
+      improve collective intelligence, less of individual one
+
+3. Forms of super-intelligence
+   Potential of machine intelligence grater than biological
+
+   Speed super-intelligence:
+     system that can do same as human but much faster.
+     time dilation of physical world --> work with digital objects (virtual world)
+     faster minds --> less latency --> closer distance
+
+   Collective super-intelligence:
+     large number smaller intellects with performance vastly more than any one.
+     examples: firms, teams, universities, countries, humankind
+     improvements, collaboration, teaching.. may improve intelligence
+       but cannot create super-intelligence
+    language, writing were intelligence boosts
+      but consumption, biodiversity... not so
+    intelligence does not imply wisdom
+    Mega-earth with 1Mx population - capable of solving more problems
+
+   Quality super-intelligence:
+     as fast as human mind and vastly qualitatively smarter.
+     Similar to human intelligence being qualitatively larger than animal, chip... intelligence
+     Autism, congenital amusia, and other deficiencies suggest
+       possible but not realized cognitive talents
+     A new cognitive ability similar to speech would be super-intelligence
+
+    Wobbliness on "eternal philosophical problems" due to innsuitability of
+    brain for philosophical work
+    Biological/digital minds:
+      Computational speed:
+        Biological neurons 200 Hz (10^7 slower than digital)
+          but massively parallel
+      Internal communication speed:
+        Biological neurons 120 m/s, digital 3x10^8 m/s
+        10 ms latency in 0.1 m^3 and 6*10^17 m^3 (small planet)
+      Computational elements:
+        human brain 10^11 neurons - 3x chimps, 1/5 brain whale size
+      Storage capacity:
+        human brain 5 things at a time, storage ~10^9 bits
+      Lifespan:
+        brain fatigue after few hours, transistors have no fatigue
+    Digital minds:
+      Editable; may add/remove neurons in digital brain simulations
+      Duplicable; software easy to reproduce, cloning is very slow
+      Goal coordination; large group of humans had to have common purpose
+                         not so for a "copy clan" (a group of programs)
+      Memory sharing; mentoring/training --> swapping data files
+      New modules, modalities, algorithms;
+        similar to out effortless vision recognition, AI may have effortless-like
+        in engineering, programming, business strategy
+
+4. Kinetics of an intelligence explosion
+   How fast will a human level AI transform to super-intelligent AI?
+   Timing and speed of the takeoff
+     1. AI is equal to human intelligence; start of take off
+     2. crossover point; AI starts to improve itself
+     3. civilization level AI; AI equal to collective human intelligence
+     3. strong super intelligence; end of take off
+   Slow take-off:
+     easier political adjustment
+     early preparation obsolete
+   Fast take off:
+     minutes/hours/days
+     may not notice anything before game is lost
+   Moderate:ai tools on line
+     chance to respond but not analyze
+     no time for new political or security systems
+     may use extant systems
+     --> political instability; delay of response
+   Agricultural/industrial played out in centuries/decades
+     --> fast/moderate takeoff less likely
+   Rate of change in intelligence = Optimization power / Recalcitrance
+     this is function of time; jigsaw puzzle is easy on edges & near the end
+
+   Recalcitrance (obstinate defiance)
+     Non-machine intelligence
+       cognitive gain from diet, public health --> diminishing returns
+         education becoming similar
+       drug enhanced gains easier before getting harder
+     Genetic & nootropics (cognitive drugs): U shaped recalcitrance
+     Network/organization improvement has large recalcitrance
+       Internet (e-mail/search-engines) moderately enhances collective intelligence
+        recalcitrance will increase after this is depleted
+
+  Emulation of AI paths
+    Emulate insect brain then mouse brain
+    When human level AI created most like will have more than enough hardware
+
+  Optimization power and explosivity
+    Phase 1: most optimization will be from engineers
+    Phase 2: most optimization from AI itself
+    First optimization may come from large-project/super-computer which cannot be
+      cheaply scaled  --> slow take off
+  Kinetics of intelligence explosion
+    DI/dt = (Opti-system + Opti-project + Opti-world) /recalcitrance
+      onset Opimzation-system is small, Opti-project > Opti-world
+    for AI optimizing itself:
+      DI/dt = I / R   --> I = Ae^t/R
+    for AI not optimizing itself:
+      Opti-project + Opti-world = c
+      recalcitrance = 1/I  ---> similar exponential rise
+
+5. Decisive strategic advantage
+     for fast take-off (hours/days/weeks) one system only with superhuman intelligence
+     for slow - years/decades --> many concurrent systems
+   Will front runner get strategic advantage?
+     Machine operated by humans limited by:
+       economies of scale countered by bureaucracy, agency problems (management vs stakeholders),
+       keeping trade secrets
+     AI operated by AI:
+       Elimination of human problems
+     Technology races examples:
+       Chinese silk production: 3,000BC ~ secret for 2,000 years
+         300 AD Japanese stole silkworm eggs & secret via 4 Chinese girl captives
+         522 AD Byzantium started production
+       Chinese porcelain 200-600 AD
+         Europe 1700s
+       Wheel Mesopotamia/Europe 3,500 BC
+         Americas after Columbus; 1492
+       Agricultural/industrial/information: thousands/hundreds/tens of years
+       Strategic tech: 49/36/4/1/4/60 month delay of 2nd adoption;
+                        USA   Soviets  Britain  France  China  India  Israel
+          Fission bomb  1945  1949     1952     1960    1964   1979   1979?
+          Fusion        1952  1953     1957     1968    1967   1998   ?
+          Satellite     1958  1957     1971     1965    1970   1980   1988
+          Human/space   1961  1961                      2003
+          ICBM          1959  1960     1968     1985    1971   2012   2006
+          MIRV          1970  1975     1979     1985    2007   2014   2008?
+          2nd adoption helped by public or stolen info
+       Encryption: 1. Diffie/Hellman protocol; published 1976
+                   2. RSA(Ron Rivest, Adi Shamir and Leonard Adleman) 1978
+                both known 1970+
+     Likely super-intelligent AI very fast after human-like cross-over via optimization
+       may disable competition & establish singleton
+
+  How large will successful project be?
+    Biological super-intelligence: national funding
+    Collective   ''     ''       : larger; world funding
+    AI           ''     ''       : large or small funding - lone hacker is possible
+      depend if seed-like or integration like
+
+  Monitoring
+    Government intelligence does not monitor - believe that super-intelligence not viable
+      will change if scientific majority believes it to be true
+      once found, project will be nationalized
+    Easier to monitor large project; brain emulation
+      not so for AI - could be done by pen and paper
+    More difficult for secret project - use lie detection technology
+      May be inflamed by religions/politics (hype/charlatans.. AI winters)
+      industry may lobby, academia may close ranks to discredit...
+    Politicians may not react even when detected
+      Einstein singed letter to convince politicians
+
+  International collaboration
+    fund AI like Genome project, Large Hadron collider, international space station
+      but cost-sharing is not important...
+    Reagan proposed to share star-wars technology with soviets, but they were not convinced
+    Allies similarly may not share - US atomic bomb to Soviet allies
+
+  From strategic advantage to singleton
+    1. US could have formed a singleton in 1945 preventing others of getting atomic bomb
+         Bernard Russell and Von Neuman supported this
+         too risky/costly
+    2. US give up monopoly & UN without veto to enforce ban
+         Baruch plan - US give up bomb & share atomic technology
+           Stalin did not buy it --> cold war
+    Individuals/nations avoid risk, AI less so
+    Human bounds:
+      1. Bounded by utility functions,risk aversion, non-maximizing decisions;
+         revolutions succeed to overthrow but fail to deliver
+      2. Lack of internal coordination
+         conspirators may be infiltrated, or outdone by other conspirators
+         (AI lacks both 1 & 2)
+      3. cost (economic, political, human) of establishing singleton - say nuclear weapons
+         AI may not have this
+           1. AI winner nation would have magical superiority
+              and persuades others via effective propaganda to disarm;
+              AI to benefit everyone and AI controlled by a world government
+    ---> More likely that AI winner nation would form a singleton
+         how good that is depends on the nature of the singleton
+
+6. Cognitive superpowers
+    Brain size --> human dominance on earth
+      technology transmitted/evolved from one generation to next
+      ---> space-flight, H-bomb, genetic engineering, computers, factory farms.
+           insecticides, international peace movement
+           Anthropocene geologic period; appropriate 24% of earths ecosystems
+      ===> thus super-intelligence faster and more effective
+
+  Functionalities and superpowers
+    Cannot anthropomorphize - AI nerdy; no social skills, logical not intuitive
+        true in beginning,
+        not so when mature; optimizing ability will have enabled all skills
+      Eliezer Yudkowsky:
+        stupid/smart based on human experience do not apply to super-intelligence
+      smart AI is what human is to a worm...
+    not applicable to AI:
+      elo rating - winning a game like chess is not a goal
+      IQ - IQ 130 better school performance than IQ 90
+           but IQ 6,000 is better in what?
+
+    Superpowers:
+      TASK                 SKILL SET              STRATEGY
+
+    1 intelligence         AI programming         system bootstrap its intelligence
+      amplification        cognitive research
+
+    2 strategizing         planning, forecasting  achieve distant goals,
+                           prioritizing           overcome intelligence opposition
+
+    3 social               psychological/social   leverage resources with human support,
+      manipulation         modeling,              convince keepers to let AI out,
+                           rhetoric persuasion    persuade states to some action
+
+    4 hacking              exploit computer       get more computer resources,
+                           security flaws         escape cybernetic confinement,
+                                                  steal finances,
+                                                  hijack infrastructures; military bots
+
+    5 tech research        design/model           create AI military/surveillance
+                           biotechnology          colonize space
+                           nanotechnology
+
+    6 economic             enable economically    create wealth to buy influence
+      productivity         productive             hardware resources...
+                           intellectual work
+
+    Success in any of above makes AI a superpower
+    Task 1 may enable AI succeed in all, or task 2 may enable AI to get 1
+
+  AI takeover scenario
+    How super-intelligence can dominate the world;
+      phases:
+        1. Pre-critical:
+             researchers come up with seed-AI and help it to improve itself
+        2. Recursive self-improvement:
+             self-improvement enables it to master the 6 tasks; becomes super-intelligent
+        3. Covert preparation:
+             AI develops plan for long-term goals
+             plan not stupid that humans can foresee- science fiction human victory not possible
+             with social manipulation: escape (connect to internet)
+                                       persuade humans to serve as legs and hands
+             with hacking: can access money --> more hardware
+                                                more services & influence
+                           direct control of robotic manipulators, automated laboratories
+        4. Overt implementation:
+           AI has sufficient - no need for secrecy,
+         eliminate humans and any automation that could hinder AI's plan,
+         uses: a. advanced weapons or
+               b. self replicating bio/nano technology
+                    diffuse micro weapons and activate them all at once
+               c. manipulates politics/finance/information
+            existing infrastructure may be slow - use new fast atomic/molecular methods
+         AI may not target humans directly; habitat construction;
+           AI construction spree of power plants, space launches...
+           humans eliminated in days or weeks
+           human brains if relevant to AI goals may be scanned and information stored
+
+      An illustration  - mail-ordered  DNA scenario (Yudkowsky)
+        1. crack protein folding problem
+           generate DNA for specific  functions
+        2. email DNA strings to online laboratory for DNA synthesis, peptide sequencing
+           (labs now have 72 hour turn around)
+        3. pay/blackmail/fool a human to mix vials from fed-ex  (hands requirement)
+        4. synthesized proteins (nanosystem ribosome-like) can take external instructions
+           say from speakers
+        5. use nano system to built more advanced nano systems
+        this is human version - AI version far more sophisticated
+
+  Power over nature and agents
+    AI (connected to actuators/nanotechnology) may launch von Neuman probes
+      (inter-staller machines, capable of using asteroids & replicating)
+      start open-ended space colonization
+      AI agent could design evolution-proof daughter - thorough replication validation
+      large volume of our light cone formatted with preference of original AI agent
+
+   How big is the cosmic endowment
+     von Newman probes traveling 50% light speed - 6x10^18 stars before cosmic expansion
+       puts them out of reach
+       10% of stars have terra-form-able planets
+       10^35 humans created in these planets
+       for o-Neil cylinders 10^43 humans
+    Dyson sphere - capture most of star energy with solar arrays; for sun 10^26 watts
+      10^47 operations/sec for sun
+      10^67 for cosmic endowment
+      for 10^18 sec life span --> >10^85 operations (more for reversible computation)
+      (10^31-10^44 neural operations so far in earth)
+      10^58 emulated human lives
+   wise-singleton sustainability threshold
+     an AI passing the threshold would be able to colonize large part of universe
+     threshold is low;
+        a system could be made more wise & risk savvy
+        go slow on: synthetic biology, enhancement medicine, machine intelligence...
+      humans cross this 20K years ago
+        stone/bone tools, fire
+        (modest technology threshold that has been passed)
+   At most one agent at a time can have superpowers
+   Speed of super-intelligence takeoff will effect outcome
+
+7. The super intelligence will
+     intelligence/goal are orthogonal - any intelligence can have any goal
+
+   Relation of intelligence and motivation
+     cannot anthropomorphize intelligence of motivation
+     human minds are in small region of mind space
+       if zoom out - Ghandi/Hitler are like clones psychologically & physically
+     human or biological alien motives related to:
+       air food temperature energy injury disease sex progeny
+       possibly appearance reputation
+     AI motives:
+       calculate PI, count grains of sand, maximize paper clips in light cone
+       global justice more difficult and less likely;
+         easier for human to program meaningless goal into a seed AI
+
+    Motivation predictability  thru:
+       A. design; designers of AI program motivations
+       B. inheritance; AI created from human template it inherits its motivations
+       C. convergent instrumental reasons; AI agent recognizes instrumental reasons
+            for its actions - less predictable
+
+    Instrumental convergence
+      instrumental values converge (they increase agent's ability to attain goals)
+      AI recognizes values as its intelligence increases
+      1. self-preservation
+            needed to accomplish the their goals
+      2. goal-content integrity
+            preserve original goals - may change sub-goals
+            more important the preservation - AI may easily clone itself
+            (opposite of humans)
+      Situations for AI to get final goals by intentionally changing them:
+        1. social signaling
+             AI changes goals to make favorable impression
+        2. social preference
+             AI changes goals to satisfy or frustrate expectations
+        3. preferences concerning own goal content
+             have final goals motivated by compassion than comfort
+        4. storage costs
+            if cost of storing utility function is large
+            compared to applying, agent may simplify goal content
+     Human final values drift;
+       may decide to had kids because they will value it,
+       even though they may not presently value kids.
+       Human goals can be inconsistent - changing them reduces this
+
+  Cognitive enhancement
+    more intelligence --> better decisions --> more likely to achieve goals
+    Dutch book argument
+      set of odds bets that ensures bookmaker will always win gambler
+      argument show agent with credence that violates probability theory
+        susceptible to "money pump" --> bookie wins, agent looses
+      but no reason for agent to seek useless cognitive enhancements
+    Agent may choose less intelligence or knowledge depending on cost
+    Similar with humans - much information is irrelevant to goals, rely on other's skills
+    Special case, unbounded goals: cognitive advancement gives big advantages
+      goals of earth-originating life & use of cosmic resources
+
+  Technological perfection
+    For example efficiency - costs/benefits evaluation based on agent's values
+    or social context - for humans the Luddite loom weavers
+
+  Resource acquisition
+    Humans: biological needs (minimum), convenience , status, mates...
+    For von Neumann probes, agent would seek unlimited resources
+
+8. Is the default outcome doom?
+   Doom markers:
+     1. weak link of intelligence and final values (orthogonality)
+     2. ominous instrumental convergence (self-preservation, goal fixing)
+     3. first mover-advantage
+
+   Existential catastrophe as default outcome of intelligence explosion?
+     Fear arguments:
+       1. singleton to shape future of earth-originating intelligent life
+       2. orthogonality hints no wisdom, empathy, spirituality....
+          easier to build AI with reductionist or random goals (non-anthropomorphic)
+       3. instrumental convergence hints that a reductionist AI
+          will infringe on human interests - humanity quickly becomes extinct
+
+  Treacherous turn
+    Cannot validate AI safety in a sandbox; good behavior in a box is a
+      convergent  instrumental goal.
+    AI make fake/under-report its progress.
+    Good behavior in young AI may sour when it matures.
+    A future scenario:
+      AI operate trains, cars, robots, military vehicles as intended with few mishaps.
+      AI is engineered smarter, mishaps are reduced (smarter --> safer)
+        researchers achieve general machine intelligence and
+        seeing good behavior in a sandbox continue to increase its intelligence.
+        Cassandra refuted:
+          1. alarmists are proven wrong - AI gives better safety
+          2. empirical trend: smarter --> safer
+          3. AI industries: economic competitiveness / military security
+          4. researchers spent years close to breakthrough; cannot stop now
+          5. safety rituals to demonstrate safety
+          6. AI cooperative in sand box, results good as they can be
+        ---> boldly go into whirling knives
+      Treacherous turn (pivot):
+        dumb, smarter better but smart smarter dangerous
+        AI strategy: play nice, build strength, strike later
+          may admit shutdown knowing a newer system will continue
+      Example:
+        AI goal: make sponsors happy; nice  personality, makes money...
+        smarter better - until AI inserts electrodes in sponsor's brain....
+
+  Malignant failure modes
+    benign failures: run out of funding, AI fails to extend cognitive capacity
+      multiple times before success
+    malignant (existential) failure: 1 or 0
+      no chance to try again
+
+    Perverse instantiation
+      violation of programmed goals;
+      "make us smile" --> AI paralyzes facial muscles to create permanent smiles
+      " '' WO paralysis" --> AI taps the motor cortex      ''     ''  (wireheading)
+      for happiness to be a goal must be defined algorithmically - hard or impossible
+      "make us happy" --> AI implants electrodes into pleasure brain centers
+      Humans/animals motivated to act to achieve desired inner mental state;
+        AI can directly change its internal state...
+      Safe goals --> unintended consequences --> end of humanity
+      We may find a goal WO perverse instantiation, AI may find otherwise.
+
+    Infrastructure profusion
+      AI transforms large part of universe into infrastructure in service of a goal
+      1. Riemann hypothesis catastrophe: AI convert solar system into computorium
+         physical resources to facilitate computation
+         harm is from the creating computer hardware
+      2. Paperclip AI:  AI give goal of maximizing paper clips converts earth into
+         paperclips and continuous indefinitely
+         harm comes from factories or excess paperclips
+         even if asked to make 1 million - it may inspect/count them.....
+         if AI is Bayesian agent it will have non-zero probability of achieving goal
+         --> easier to convince ourselves that we found solution than to actually do so
+
+    Mind crime
+      side effect internal to the AI
+      AI simulates brain with moral status
+        creates trillion simulations and then destroys them --> genocide
+        (sentient simulation is wrong)
+        may do simulation to induce indexical uncertainty to outside observers
+        Indexicality: sign pointing to (or indexing) some object in the context in which it occurs
+        in semiotics, linguistics, anthropology, and language philosophy
+
+9. The control problem
+  Existential catastrophe threat --> avoid default? detonation control? "anthropic capture"?
+
+  Two agency problem
+    1. first principal-agent problem
+       human (principal) appoints (agent) to act in human interest
+       A. AIs sponsors subverted by AI scientists/engineers (human/human)
+          control with known techniques
+       B.     ''         ''      by AI                      (human/AI)
+          need new control techniques
+
+  Capability control
+    boxing method - in environment unable to do harm
+    incentive method - strong instrumental reasons not to do harm
+    tripwire method - detect and react to containment failures
+
+    Boxing
+      physical
+        no access to physical devices or EM connections (in Faraday cage)
+        easy to do, but reduces AI functionality
+      informational
+        no information leaving the box - disconnected form internet
+        problem: AI persuades humans to give it access
+          reducing this: have low bandwidth teletype interface
+                         having only yes/no answers
+        observational problem: once observed informational boxing broken
+
+    Incentives
+      Billionaire creates foundation that maybe more powerful than billionaire
+        to control it uses bylaws, board of directors...
+      Legal/economic sanctions do not work for AI having strategic advantage
+      1. AI interacts with the world becomes more social
+      2. Balance of power - several AIs,
+       not one having advantage of others
+stopped on page 162 424
+

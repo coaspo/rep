@@ -1,0 +1,711 @@
+AI 2041 the ten visions of our future   Kai-fu Lee computer scientist  🗓 2021
+Chen Qifan science fiction writer
+
+
+1. Deep learning
+     sub-field of machine learning
+     2016 AlphaGo (google) beat human Go champion
+     neural networks - inspired by neurons in brain
+       deep --> thousand of layers between input and output
+       training: massive input data with required output
+     omni-use technology:
+       any domain of recognition, prediction, classification, decision-making, synthesis
+     vision recognition
+       25%/2% error rate before/after AI (2010/2017)
+
+   Amazing capabilities & limitations
+     1st paper 1967
+     matured in 2010s from cheap technology & large training data
+     massive training data --> better than human performance
+     discover correlations in obscure, subtle, or complex data
+     customize users
+       maximize spending/attention
+       Facebook maximizes time spent on Facebook
+       Amazon maximizes your spending
+     no: sense of experience, abstract concepts, common sense
+     requirements:
+       1. massive data --> internet companies first deep-learning users
+       2. narrow domain
+       3. concrete objective function to optimize
+     Users:
+       1. internet companies
+       2. finance; banks & insurance COs; lemonade/waterdrop-inc in US/China
+            lower default/fraud/cost(no humans), instant (via app)(no humans)
+     Google inputs: search, google play, maps, gmail & youtube
+     Deep-learning:
+      deep neural networks,
+      deep belief networks,
+      deep reinforcement learning,
+      recurrent neural networks,
+      convolutional neural networks
+      transformers
+        Human or better-than humans applications:
+          computer vision,
+          speech recognition,
+          natural language processing,
+          machine translation,
+          bioinformatics,
+          drug design (Pfizer: “Supercomputing and advanced analytics"")
+          medical image analysis,
+          climate science,
+          material inspection
+          board game programs
+
+   Deep learning downsides
+     tech is double-edge;
+       electricity: convenient/lethal (rare)
+       internet: convenient/time-stealing; shortens attention span (norm)
+     downsides:
+       AI knows you better than you know yourself
+         recommends products, mates...
+       watch one short youtube video --> spend 3 hours
+       click on provocative facebook link --> see more extreme content, spend more time
+     2020 documentary: The social dilemma:
+        Nothing vast enters the life of mortals without a curse - Sophocles
+        A sufficiently advanced technology is indistinguishable from magic - Arthur Clark
+
+        If you are not paying for product you are the product
+        Product: gradual, slight, imperceptible change in behavior and perception;
+          how you think who you are
+
+        New market: Human future trading
+        Data --> predict actions; virtual avatar
+          1. engagement - usage (time)
+          2. growth - invite friends (growth)
+          3. advertisement - money
+               dial as needed
+        The age or Surveillance Capitalism,  Shoshama Zuboff
+        Persuasive technology - modify positive intermittent reinforcement
+        slot machine like
+        growth hacking - more engagement
+          ab testing of small changes - everyone is a lab rat
+        massive contagion experiments
+          how to get people to vote - users are clueless
+        Tool technology (waiting) -->  addiction/manipulation (demanding)
+        Smart scientists do not know how there mind is vulnerable
+        kitchen safe
+        social media is drug - biological imperative to connect - propagate species
+        self-harm/suicide hospital admission 1008(social media in phone)-2015:
+          +62%/+70% 15-19 girls
+          +189%/+151% 10-14
+        algorithms - opinions embedded in code
+        how to wake from matrix when you do not know you are in matrix
+        utopia & dystopia at same time
+        Tristan Harris:
+           your click caused supercomputer to be aimed at your brain
+           billions of dollars of computing power that has learned
+             to trick 2 billion+ human animals to click again
+   Core issue: simplicity of the objective function; maximize money
+     Solution 1: more AI - make function more complex;
+       add fairness,  time well spent, happiness...
+   ESG (Environmental, Social, and Governance)
+     investors to identify risks & growth opportunities
+     Solution 2: third party watchdogs or
+                 AI owner 100% interest aligned with user
+   AI able to infer sexual orientation form facial micro-expressions
+     Fairness/bias problem; solution:
+      1. AI CO disclosure - where/why AI is used
+      2. AI engineers adopt Hippocratic oath to protect users
+      3. test AI and provide warnings
+      4. AI audits for privacy/fairness
+   Explain how AI makes decisions - on-going work
+   History:
+     early errors of new tech will be fixed
+
+
+Computer vision
+  1. Image capture/processing - @D array of numbers
+  2. Object segmentation - dive image into sections/objects
+  3. Object recognition - recognize cars, dogs...
+  4. object tracking - follow moving objects
+  5. gesture/movement recognition - dance, smile...
+  6. scene understand - hungry dog looking at bone..
+  Websites/app required by law to have ant-deepfake software (like antivirus)
+  Applications:
+    Driver assist to detect if driver nods off
+    Autonomous stores (Amazon Go) - cameras recognized what you put in your cart
+    Airport security - recognize terrorists, count people
+    Gesture recognition - Xbox dancing game
+    Facial recognition to unlock phone
+    Smart cameras extract people & blur background
+    Military - separate enemy soldiers from civilians
+    Autonomous drones/cars
+  Image/video apps:
+    Photo smart editing - remove red eyes, beautify selfies
+    Medical imaging - cancer in CT scans
+    Content moderation - pornographic/violent content in social media
+    Advertisement selection based on content of video
+    Image search
+    deep fakes - replace face in video
+  Convolutional neural networks (CNN)
+    modeled after visual cortex; cortical neurons respond to stimuli
+      in a restricted region of the visual field
+    little pre-processing; network learns to optimize the filters through   automated learning
+    have problem: identifying small/thin object; ants, pant stems,
+                  distorted images from digital cameras
+    better than humans: small details; dog breeds, bird species
+    applications:
+      face recognition
+      Natural language processing
+      drug discovery;
+         Ebola, multiple sclerosis treatment
+      Checkers/Go games
+  Deep fakes
+    Buzzfeed & Peele 2018 Obama deep fake - "Tump is deepsh*t"
+    2021 Avatarify app took selfie and made person laugh/sing
+    Generative adversarial network (GAN):
+      pair of adversarial deep learning neural networks:
+        1. forger network: generate real-like synthetic image
+        2. detective network: compare synthetic & actual image and determine is synthetic is fake
+        based on feedback forger adjusts..
+      can age/de-age photos, colorize black-white films, discover new drugs,
+        predict climate change, predict gravitational lensing, model high-energy
+        physics,
+      complex GAN:
+        facial expression, gait, hands/fingers, speech, vein, gestures
+    By 2041 deep fake detectors common as anti-viral software
+    100% detection possible by block-chain?
+      but all devices cannot have block-chain
+    2019 California deep fake porn law
+  Human verification using bio-metrics
+    AI outperforms human facial/speech recognition
+    using in crime investigations should reduce crime rate
+  AI security
+    exploit AI decision boundaries; use sun glasses, stickers on road
+    poisoning: corrupt training data
+
+Language processing
+  Natural language processing (NLP)
+    Human language: speech/writing/body via social/educational environment
+    Turing test - NPL being human like
+    Deep learning neural networks with large data sets has gone beyond it
+  Supervised NLP
+    AI is provided with right answer for each input
+      examples: UN multilingual translations
+                speech recognition/synthesis
+                optical character recognition
+    complex NLP; recognition--> understanding; play Bach --> play music of Bach
+      data labeling in last 20 years facilitates this
+      expensive, time consuming to lable all data
+      domain specific
+  Self-supervised NLP
+    sequence transduction neural network:  (fancy auto complete)
+      input: sequence of words up to a point
+      output: sequence of words after that point
+    2017 Google transformer:
+      sequence transduction model with selective memory
+      AI can teach itself a language from scratch
+    2020 Open AI GPT-3 (generative pre-trained transformer)
+      super computer + 45 TB (10^12) text --> 175*10^9 parameters
+        (ChatGPT 570 GB / 20*10^6 params [faster, more accurate])
+      transfer learning:
+        GPT-3 trained with smaller domain-specific text
+      weak on knowing truth, causality, abstraction, common sense...
+      TOXIC political influence engine
+        much worse than Cambridge Analytica in 2016
+          (200 elections around the world, with help from facebook)
+  NPL platform for applications
+    GPT-3 foundation ---> quick music composition, digital art (DALL.E)
+      possible: senior companion, child tutors, emergency medical helpers
+      write game/stock reports, summarize text
+      tool for: writers, reporters, analysts.... any language worker
+  Turing test, AGI (artificial general intelligence), and consciousness
+    GPT-3 accurately critiques itself but is not AGI
+    one large breakthrough in 60 years
+      --> unlike to see AGI (need dozens of breakthroughs)
+    stop using AGI
+      --> AI mind is different from human mind
+          AI will keep on beating humans but humans will still other tasks
+          --> AI symbiosis
+      AGI is narcissistic human tendency
+  AI in education
+    Teaching = lectures + exercises + exams + tutoring
+      AI can customize all
+      effective and fun
+        teacher roles: mentors/connectors
+          empathy, critical thinking, teamwork
+          confront, comfort
+          program AI
+
+Healthcare
+  Digital healthcare and AI
+    life span 31/72 years in 1900/2017
+    1. digitized records --> AI boom
+    2. radiology, 3D  imagery
+    3. wearable devices
+    4. dPCR to detect viruses
+    5. drug/vaccine  discovery
+    Cancer cure to big - cannot use IBM Watson, need to be more modest
+    Next-generation sequencing (NGS) or Massive parallel sequencing:
+      since 2005 up to 43 billion short reads $1K/genome
+  Drug/vaccine  discovery
+    1. use mRNA sequencing to find pathogens protein sequence
+    2. find protein 3D structure (protein folding)
+       cryo-electron microscopy - expensive may take years
+    3. identify target on 3D structure
+    4. generate likely treatment molecules
+    phase II/II trial.. time consuming
+  AI protein folding, drug discovery
+    2020 DeepMind's AlphaFold 2 - AI's greatest achievement - solved 50 year problem
+      trained on known structures (0.1% of important proteins)
+    Given target (3D model) AI looks for an available drug
+      2021 Insilico found AI drug for idiopathic pulmonary fibrosis
+        saved 90% of drug cost
+    NPL to mine data from research papers (steps 3&4)
+      do 'in silico' experiments to find best fit
+    Robotics to do in vitro trials 24/7
+  Precision medicine
+    radiology ophthalmology
+    robot-assisted surgeries: 1.8%/15.1% 2012/2018
+      colonoscopy, suturing, intestinal anatomists, teeth implants
+      nanobots: DNA strands inject blood clotting drugs around tumors
+    smart beds, toilets..
+  Robotics
+    no machine learning, slower development
+    computer vision is mature
+  Industrial robotics
+    warehouses 100% in 20 years, factories less so
+    agriculture: pick apples, lettuce....
+    COVID-19: spur robotic screening, drug delivery,
+  Commercial robotics
+    delivery
+    robotic waiters
+  Digitized work
+    COVID was an automation forcing event - work from home
+    digitized work as input to AI
+    large job displacements
+
+Extended Reality (XR)
+  Brennan  Spiegel:
+    "XR is dreaming with your eyes open"
+  sight, hearing, smell, taste and touch
+  augmented/virtual/mixed reality (AR)/(VR)/(MR)
+    VR: computer
+    AR: real + computer
+    MR: real + computer interaction (advanced AR)
+  Six senses
+    immersive: unable to distinguish real from simulated
+    head mounded display (HMD)
+  Microsoft hololens - 1.3 lbs  $3.5K large/dorky
+    training, health care, aeronautics
+    $22 billion to US army for situational awareness, info sharing
+     decision making
+  Google lens, snapchat glasses failed - low fidelity
+  XR contact lenses
+  1 cm thick VR  glasses
+  haptic gloves - feel object
+  somatosensory suits to fell cold/hot punched/caressed
+  games/training/simulation
+  scent emitters - theaters used for 100 years; pipe perfume
+  taste simulator via electrodes;
+     electricity, color, heat and scent
+     sour and salty sensations via ion channels
+     sweetness through thermal stimulating
+  Input
+    eye/movement/gesture tracking
+    Omni-directional treadmill
+    obstacles
+      content creation - similar to 3D game but more complex
+      nausea caused by latency
+      world moving slowly - bandwidth related
+  Naked-eye & brain/computer interface
+    Light Field Lab naked-Eye Holograms - most natural output
+    brain-computer interface - most natural input -spinal cord injuries
+  Ethics with XR
+    infinite memory repository
+    laws for digital reincarnation
+    AI+XR --> understand/amplify ourselves
+
+Autonomous vehicles (AV)
+  Google started 2011, Carnegie Mellon demo in 1991
+  AV maturity ~2040
+  uses neural networks
+    expert rules (statistical estimation)
+      expert system LISP/Prolog 1971
+  Society of Automotive engineers
+    LO (no automation) - human drives, AI warns human
+    L1 (hand on) -AI does one task if turned on (say steering)
+    L2 (hand off) -AI does multiple tasks - steer break.. human may take over
+    L3 (eyes off) - AI drives, human ready to take over when AI requests
+       (takeover may worse things?)
+    L4 (mind off) - AI drives on AI usable environment
+    L5 (steering optional) - no human required for any environment
+  L0-L3 commercially available
+  L4 experimental started 2018
+  L5 difficult because of environment variability
+     possible in augmented roads/cities - car only roads...
+     6G (by 2030) enough bandwidth to allow remote takeover
+  simplest AVs now: mobile robots, autonomous forklifts
+  next: autonomous trucks in fixed routes - airport, mines
+  L1-L3: smart park, smart-summon
+  Implication of L5
+    AI managed fleet for better utilization
+    today 1.35m auto deaths/year
+    more data--> better AI -->  greater efficiency --> reduced cost
+      -->more free time --> better productivity
+    less: traffic, fuel, pollution, accidents
+    car economy will change as much as horse transportation did
+  Non-tech obstacles
+    ethics, liability, sensationalism
+      trolley problem:
+         kill person A, or persons B & C
+         what if A is a child, your car and your child
+      for humans use justice, for AI not easy;
+        "explainable AI" is hard, or stupid AI WO common sense
+        (AI sees drunk humans as stupid)
+      Will AI fatalities be accepted, when AI reduces current deaths by 50%?
+    approaches:
+      1. Waymo avoid fatalities use controlled environment
+      2. Tesla use AI when reasonably safe and collect data to improve it
+    Liability; AI fatality responsibility:
+      manufacturer? algorithm provider? human backup?
+      Credit card company is accountable to fraud
+        similar decision needed for AI
+      Example: google ($100 billion assets) is liable
+        --> field day for ambulance chasing lawyers
+        2018 Uber death --> national headline
+          if every AI death becomes a headline no AI & no saving million lives
+
+Quantum computing
+  80% chance of working by 2040
+  new general purpose technology
+  electrons/photons:
+    1. superposition
+       qubit be in multiple states at same time
+    2. entanglement
+       for connected qubits, action on one effects the other
+       to double quantum computing add another qubit
+  down side: extremely sensitive;
+    need vacuum, low temperature..
+  2/65/433 qubits in 1998/2019/2022
+  4K/1M logic logic/physical qubits to break bitcoin
+  decoherence errors increase as more qubits are added
+  apps:
+    drug discovery
+    model chemical reactions
+
+  security
+    Bitcoins limited to 21M
+      2023: $54.7K/coin*19M coins = $1 trillion
+      inflation/quantitative easing safe
+    asymmetric cryptography:
+      RSA (Rivest–Shamir–Adleman) algorithm 1K-4Kbit keys
+        base on 2 large secret prime numbers (private key)
+        private-->public easy
+        public-->private difficult
+        slow / fast for asymmetric / symmetric(more common)
+      bitcoin trx = wallet address + public key (P2PK)
+        after 2010, hide address (P2PKH)
+        2M bitcoins with P2PK,  4M bitcoins lost ($140B)
+  autonomous weapons
+    Israeli Harpy drone (fire & forget)
+    Slaughterbot - bird size nearly killed Venezuelan president
+    Similar to AV - smart, precise, cheap, swarms...
+    10K drones ($10M) wipe out half city
+    problems:
+      1. morality:
+         machines with discretion & power to kill
+      2. accountability
+         when something goes wrong
+      3. selective genocide
+  existential threat
+    many more ways to win - smallest, fastest, stealthiest...
+    small counties (Israel) in an arms race
+    limited by physics than AI
+    nuclear weapon deterrence: MAD mutually assured destruction
+    AI weapons: no MAD (no traceability)
+      nuclear war triggered by terrorists using drones....
+  possible solutions to AI weapons:
+    1. human-in loop
+       hard to enforce, big advantage loss..
+    2. ban
+       letter signed by Musk(?) and AI experts
+         ban of chemicals, blinding lasers has worked
+       problem:
+         US, UK, Russia oppose it
+         US National commission on AI headed by Google's Schmidt recommended no ban
+    3. regulate
+       complex, wishful thinking
+       wage war only with robots only (not harming any humans)
+
+
+AI job displacement
+  routine, entry-level (cognitive/physical) jobs most at risk
+    --> poor become poorer
+
+  How AI displaces jobs
+    AI advantage: detect subtle patters in large data
+      example: insurance underwriting
+        take over white-collar jobs; similar to data entry & bookkeeping
+      robotics take over blue-collar jobs
+    AI could take over 40% jobs by 2033
+      Robotic process automation (RPA)
+        mimic humans-software interaction --> does high-volume, repeatable tasks
+        examples: resume processing payroll, web scraping, call center..
+   AI displacement gradual and total
+   Industrial revolution took more than 100 years to spread beyond Europe
+     AI almost already adopted all across world.
+
+  AI displacement causes serious problems
+    unemployment
+    fewer jobs --> lower wages
+    inequality bad to worse;
+      1. plutocratic AI elite
+      2. small workforce with complex jobs
+      3. powerless struggling masses
+    loss of meaning
+      industrial revolution --> work ethic; careers --> life meaning
+      AI --> futility & obsolescence --> drugs, depression, suicide
+
+  Universal basic income (UBI)
+    Andrew Yang(the Freedom dividend); from taxing the ultra-rich
+      only politician to see the new economy
+    "give a man fish you feed him for a day, teach him how to fish you
+     feed him for lifetime"
+       help people use UBI to train for new jobs
+
+  What can AI not do
+    1. creativity
+       AI cannot set its goals or think creatively
+    2. empathy
+       AI can no make people feel understood and cared for
+    3. Dexterity
+       precise eye-hand coordination / unknown unstructured spaces
+    Asocial routine jobs: AI takes over
+    Asocial creative '' : AI helps humans
+    Social    ''     '' : humans shine
+    Social routine jobs, AI-human collaboration - example teaching
+
+    Cognitive:
+      social
+         +   creative: Merge & Acquisition (M&A) expert
+         -           : artist, scientist
+         +   routine : receptionist, tour guide
+         -             resume matching
+    Physical:
+      social
+         +   dexterous: elderly home caretaker
+         -            : aerospace mechanic
+         +   mechanical: bartender
+         -             : visual inspector
+
+  How to transform workers
+    1. Relearn
+       more skills;
+       more healthcare workers
+       volunteer jobs may become regular jobs; blood bank assistants
+         elderly care, youth mentors..
+    2. Re-calibrate
+       train for future AI assisted jobs
+         software AI tools;
+           molecular simulation for pharmaceuticals,
+           advertising for marketing,
+           fact checking for journalist
+           medial diagnosis for doctors
+    3. Renaissance
+       14th century Italian cities/merchants --> science & art renaissance
+       AI for creativity, compassion and humanity
+       big impact on education, arts, science...
+       John Adams: "I study war/politics so that my sons can study
+         mathematics, philosophy, commerce...
+         and their children music, poetry..."
+
+  AI economy & new social contract
+    blurring of "made-up job",  "practical training", "real job"
+    need astronomical money for millions of workers
+    education for creative/social/multi-discipline workers
+    Examples:
+      "gifted and talented" (GATE) in Korea:
+         teachers warned of detrimental social and emotional effects
+       Massive open online courses MOOC
+       Minerva school
+         online seminars capped at 19 students, quiz before/after lecture
+       Swiss craftsmanship culture
+       Japanese excellence
+      Volunteering in Canada
+      Caring for elders in China
+      "gross national happiness" (GNH) in Bhutan
+          economic/moral metric introduced in 1970s; alternative GDP
+            1. sustainable and equitable socio-economic development;
+            2. environmental conservation;
+            3. preservation and promotion of culture; and
+            4. good governance.
+          but poor Bhutan expelled Hindus (1/6 population)
+
+
+
+AI and happiness
+  Optimizing happiness is hard; problems:
+    1. problem definition;
+       what is happiness?
+         1. Maslow's hierarchy of needs (1943);
+            physiological, safety, love and belonging, esteem, and self-actualization
+         2. Seligman's positive psychology
+             Well-being: positive emotions, intense engagement, good relationships,
+                         meaning, and accomplishment (PERMA)
+             humanity, temperance and persistence;
+               virtue ethics of Confucius, Mencius and Aristotle
+    2. measurement problem
+       happiness is abstract subjective...
+    3. data
+       need extensive personal data
+       General Data Protection Regulation (GDPR) EU law enforced 2018
+       Safe storage (principal-agent have aligned interest)
+
+  What is happiness
+    for many people material wealth
+    research: not so
+    Hedonic (pleasure) treadmill:
+      constantly adjust to a fixed level regardless of material wealth (winning lottery)
+    Eudaimonic ('good spirit') happiness;
+       meaningful, even if difficult to achieve;
+       (growth, meaning, authenticity, excellence)
+    AI may help after it understands:
+      electrical (brain waves), structural (brain structures), chemical (hormones)
+    Happiness is long-term;
+      need new algorithms for stimulus response
+
+  Data for AI
+    Google knows more about you than you do;
+      infer ethnicity, sexual orientation, what makes you angry
+    GDPR
+      own your personal data
+      not practical - will handicap AI; no data --> stupid apps
+      Alternative:
+        trusted AI has all data & determines whether someone access it
+        new social contract for AI
+
+  Who to trust to store our data
+    trusted AI will have more or our data than google facebook does
+    data guesses our emotions even when we try to hide them
+    AI owner/user conflict: user always looses
+      Owners (google...) are business that optimize profit
+      Users have no optimization
+    Wise king may have interests that align with our:
+      Frederick the great(1712 – 1786):
+        "My principal occupation is to enlighten minds, cultivate morality,
+        and make people happy"
+      enlightened kings --> age of enlightenment
+    possible trusts: 1. strong leaders with popular support
+                     2. digital communes - current academic projects
+                     3. non-profit AI - like Wikipedia
+                     4. use a block-chain - more difficult than bitcoin
+      use 3rd party like we use banks....
+      no experience with AI, need open mind
+    Privacy computing
+      supports any operations performed on private data
+      1. Federate learning:
+         AI training using local data & exchanging parameters;
+         nobody sees or touches your data
+      2. homomorphic encryption:
+         data converted ciphertext that can be analyzed as if in its original form
+         might work with deep learning
+      3. Trusted execution environment (TEE)
+         TEE decrypts data for AI training on a chip that guarantees it will not leave it
+
+Plenitude; new economy
+  1st Industrial Revolution: Coal in 1765.
+  2nd: Gas in 1870.
+  3rd: Electronics and Nuclear in 1969.
+  4th: Internet and Renewable Energy in 2000.
+       energy, material, production cost dropping
+
+  Renewable revolution; solar/wind/batteries
+    2010-2020 solar/wind/battery cost dropped 82%/46%/87%
+    RethinkX
+      $2T investment --> 2030 3 cents/kW-hr ?????
+      zero cost super power when batteries are full ????
+    100% nonrenewable --> 50% greenhouse reduction
+
+  Material infinite supply
+    dematerialization: phone/software absorbed camera, radio, maps....
+    vertical farming: cheap vegetables/fruits
+    synthetic biology: lab-grown meat, eliminate fertilizers
+                       rubber, green chemicals
+    Material genome project (2011): AI and open source methods for new materials
+      artificial muscle, nano-materials
+
+  Production; AI + automation
+    self replicating/repairing robotics
+    3D printing
+
+  Plenitude
+    almost free: food, water, clothes, shelter, energy
+    similar to now: books, movies, music, online search
+    USA: $218B food wasted, $25B to eliminate hunger
+         5x houses as homeless
+
+  Scarcity/post-scarcity models
+    scarcity: wars, civilization development
+    economics: limited/unlimited resources/demand
+    Adam Smith:
+      freedom to produce and consume --> economy balances & grows
+    Karl Marx:
+      increasing power of capital invalidates Adam Smith
+    John Maynard Keynes:
+      balance takes to long, use monetary policy
+    Trekonomics:
+      replicator creates anything
+
+  Plenitude & money
+    Harari in 21 lesson for 21th century:
+      Human society developed on thousands of years of stories - stories we tell
+      ourselves. We are the only animals that can cooperate with strangers
+      because we can invent fictional stories, spread them around, and convince
+      millions millions to believe in them. Money is the most successful story
+      ever invented and told because it is the only story everyone believes.
+    Money used for a least 7,00 years.
+      stores value, facilitates exchange, safety, survival, respect, vanity,
+      greed, purpose, sense of purpose.
+      Story cannot be just eliminated....
+    Plan:
+      1. Basic life card (BLC): money only for food....
+      2. Moola: new money for moving up the Maslow pyramid
+         AI drives people for empathy, compassion...
+         consider gaming, vanity...
+      3. AI to recognize and reward respect, accomplishment, self-actualization
+    Not either/or "useless class" or self-actualization
+    Failure is failing to live to one's own possibilities
+
+  Plenitude challenges
+    Problems:
+      1. Plenitude means price/market collapses
+         Banks/stock-markets replaced
+         Transitioning will be hard
+      2. Companies will try to create artificial scarcity;
+         De Beers released limited quantity of diamonds to keep prices up,
+         and industry advertised that diamonds mean love.
+         Fashion industry indoctrinates that old designs are embarrassing;
+         Burberry destroyed $40M clothes.
+         Microsoft charges $139 to $309 for new operating system
+         $109 is same as $309 (more scarce) with features turned off.
+    Disruptions --> social unrest, class polarization, revolutions
+      implausible to let go of greed & vanity
+      Big challenges/rewards
+
+  After plenitude-singularity
+    singularity:
+      by 2045, self directed AI gains super-intelligence
+      faster than we can imagine because we cannot understand exponential change
+      utopias:
+        solve all our problems
+        become cyborg with AI
+      dystopians:
+        "AI is biggest risk of civilization"
+        AI will control or eliminate us
+    With exponential computing power we still need scientific breakthroughs
+      In 65 years of AI one breakthrough - deep learning
+        need dozens for super-intelligence - cannot happen
+
+  Happy ending?
+    AI:
+      good: amplify capabilities, create plenitude
+      bad:  biases, privacy, deep-fakes, autonomous weapons, job displacements
+        Bad solved by:
+          creativity, wisdom, love ...
+    Paths:
+      1. full fill self prophesy of becoming "useless class"
+      2.
+      believe that AI can help us "boldly go where no one has gone before"
+    The story we write is the story of ourselves.
+      The right AI-human dance --> greatest achievement in human history

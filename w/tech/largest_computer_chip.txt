@@ -1,3 +1,5 @@
+August 20, 2021
+
 Cerebras(American) and TS.M.C. (Taiwan Semiconductor Manufacturing Company)
  WSE-2
    21x21 cm2
@@ -29,6 +31,8 @@ Workloads:
 Google trained an A.I. to floorplan a tensor-processing unit (TPU)
 
 Moore’s Second Law: costs of chip-fabrication plants, growing exponentially
+
+singularity: technology improving itself at a rate beyond human control
 
 From:
 https://www.newyorker.com/tech/annals-of-technology/the-worlds-largest-computer-chip

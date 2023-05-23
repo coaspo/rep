@@ -40,20 +40,21 @@ Part I: THE COGNITIVE REVOLUTION
    Class   Mammalia: 26 orders
    Phylum  Chordata (backbones): fish, amphibians, reptiles, mammals and birds
    Kingdom Animalia: 31 phylum
-   Domain  Eukarya: Animalea, Plantea,
+   Domain  Eukarya: Animalea,
+                  Plantea,
                   Fungi; unicellular (Yeast) or multicellular (Penicillium, ...)
-                  Chromista(photosynthesis without storage), Protista (algae,  molds)
+                  Chromista(photosynthesis without storage),
+                  Protista (protists):
+                     Plasmodium (parasite; malaria),
+                     slime moulds - move eat bacteria, fungi (fungi have cilia)
+                     euglena (good eye) one cell mobile with photosynthesis
+                       powdered euglena: tastes like dried sardine flakes
    Life    Archea (Halophiles (salt), methanogens, and thermophiles),
            Bacteria,
-           Eukarya (nuclei of organelles) animals, fungi, plants, and
-              protists:
-                 Plasmodium (parasite; malaria),
-                 slime moulds - move eat bacteria, fungi (fungi have cilia)
-                 euglena (good eye) one cell mobile with photosynthesis
-                   powdered euglena: dried sardine flakes
+           Eukarya (nuclei of organelles) animals, fungi, plants, and protists
 
    Homo erectus, east Asia for 2 million years - most durable species ever
-   Homo florwsiensis: Flores Indonesia 3.5' max height - hobits
+   Homo floresiensis: Flores Indonesia 3.5' max height - hobbits 50K years ago
    Brain 2-3% body weight, uses 25% energy (apes use 8%)
      why evolution
      to lager brain? unknown...
@@ -64,9 +65,9 @@ Part I: THE COGNITIVE REVOLUTION
      with fears and anxieties --> wars, ecological calamities ...
    Fire --> Cooking --> less time to eat, shorter intestines, bigger brains, smaller jaw/teeth
       --> power and control of environment
-   1-4% European DNA is Neanderthal, 6% Australian aborigines in Denisovan
+   1-4% European DNA is Neanderthal, 6% Australian aborigines is Denisovan
    Last Homo Neanderthal/Flores 30/12K years ago
-     Sapiens is left because of his language
+     Sapiens is left because of his language ability
 
 2. Tree of knowledge
   30K-70K years Sapiens invented bows/arrows, oil lamps, boats, needles (warm clothing)
@@ -106,7 +107,7 @@ Part I: THE COGNITIVE REVOLUTION
         appearance of fiction; believe in common myths;
         city, church, state...
         Judicial system with legal myths
-        "There is no God, nations,money, human rights, laws, justice
+        "There is no God, nations, money, human rights, laws, justice
         outside the common imagination of humans"
         Lawyers are like sorcerers with stranger tales
         A company - say Peugeot is figment of collective imagination; "legal fiction"
@@ -125,7 +126,7 @@ Part I: THE COGNITIVE REVOLUTION
       Culture:
         Homo Erectus tools did not change for 2 million years; genetic not cultural
         30K yrs, Sapiens traded shells for hundred of miles, Neanderthal did not
-        Pacific islanders used Obsidian glass form other island 25O miles away
+        Pacific islanders used Obsidian glass form other islands 25O miles away
         common fictions --> trust --> trade
         Sapiens hunted collectively - evidence of herd slaughters
         mythical glue to go beyond the 150 person society limit
@@ -153,13 +154,13 @@ Part I: THE COGNITIVE REVOLUTION
     good diet/health/work --> 'original affluent societies'
     but also hard;
       accident --> death sentence
-      unwanted babies alder slain
+      unwanted babies, older slain
       human sacrifices...
   Farmers more prone to:
     hunger via drought, floods, fire
     disease (?) (tuberculosis, measles came from domesticated animals)
     dense population to foster disease
-  Ache, modern foragers in Paraguay until 1960
+  Aché, modern foragers in Paraguay until 1960 - Paraguay genocide 1970's
     valued dead elder buried with a killed little girl
     abandoned middle aged man faced vultures, recovered then
       his name became "vulture droppings"
@@ -184,7 +185,7 @@ Part I: THE COGNITIVE REVOLUTION
       thousand of different religions, cults & beliefs
   Theism
     pre-modern agriculturists
-    universal order: hierarchical; humans a samll group of gods
+    universal order: hierarchical; humans a small group of gods
     Aztecs, Jews, Christians, Muslims
   30K old burial in Sungir Russia
     boy/girl with 5,000/5,250 ivory beads, 250/0 fox teeth
@@ -202,13 +203,13 @@ Part I: THE COGNITIVE REVOLUTION
     Unique animals:
       450 lb 6 ft kangaroo
       Thylacoleo-marsupial lion,
-      Dromornis stirtoni - flightless 1,100lb bird
-      Diprotodon 3,500lb elephant-like marsupial
+      Dromornis stirtoni - flightless 1,100 lb bird
+      Diprotodon 3,500 lb elephant-like marsupial
     Last million years:
-      ice-age every 100K
+      ice-age every 100K yrs
       last one 70K & 30K peak
       Diprotodon disappeared 45K years ago
-        90% of land mega-fauna disappeared but not any oceanic
+        90% of land mega-fauna disappeared but not any oceanic mega-fauna
         cause:
           lack of fear of humans
           burning forest
@@ -227,7 +228,7 @@ Part I: THE COGNITIVE REVOLUTION
       16K yrs Siberian migration
       10K Tierra del Fuego
       giant sloths extinct
-      with 2K years 34/47 large mammals extinct
+      within 2K years 34/47 large mammals extinct
       evidence: poop analysis
         latest sloth poop in Cuba 7K years, when humans appeared
     Madagascar
@@ -264,8 +265,7 @@ Part II: THE AGRICULTURE REVOLUTION
     need to defend land (more violence)
     15/25% all/male violent deaths
       New Guinea: 30-35% male violent deaths
-      Wao
-      ranis in Ecuador 50%
+      Waorani in Ecuador 50%
     protection from weather
   culprits:
     plants; wheat, rice, potatoes
@@ -286,8 +286,9 @@ Part II: THE AGRICULTURE REVOLUTION
     Few Luddite cannot stop the luxury trap - there is no going back;
 
     Divine intervention
-      Gobekli Tepe in Turkey monuments from 9.5K BC (Stonehenge is 2.5K BC) built by hunters gathers.
-        Monuments built for cultural reasons
+      Gobekli Tepe ("Potbelly Hill") in Turkey
+        monuments from 9.5K BC (Stonehenge is 2.5K BC) built by hunters gathers.
+        built for cultural reasons
         common religion could do that
         variant of wheat originated 20 miles from site
         people farmed so they built the monument
@@ -295,27 +296,27 @@ Part II: THE AGRICULTURE REVOLUTION
 
   Victims of the Revolution
     Selective hunting --> captive animals --> select breeding
-      mouflon --> fatter, submissive, less curious sheep
+      mouflon(wild sheep) --> fatter, submissive, less curious sheep
     1B each: sheep, pigs, >1B cattle, 25B chicken
       Evolutionary success but most miserable animals
         success is meaningless
       New Guinea:
         farms cut of part of pig's nose so that it is painful to smell
         cannot find find or move around --> dependent on humans
-        other part, pigs are blinded
+        other parts, pigs are blinded
       Milk supply:
         1. slaughter newborn kids/calves
         2. milk mother as long as possible
         3. get mother pregnant
       Cows: live for four years as milking cows
             impregnated 60 to 120 days after giving birth (gestation is 9 months)
-            impregnated 1 ear after birth
+            impregnated 1 year after birth
       Tribes: killed calf, stuffed, and placed new cow to encourage milk production
               make suckling painful:
                  cut of upper camel's lip
                  put sing of thorns around calf's mouth
       Exceptions to this:
-        Caligula (Roman tyrant) wanted to make his horse a consul
+        Caligula (Roman insane tyrant) wanted to make his horse a consul
 
 6. Building pyramids
     Agricultural revolution:
@@ -338,6 +339,7 @@ Part II: THE AGRICULTURE REVOLUTION
     Food surplus conflicts: distribution, storage, land, water
       for villages, towns, cities ---> famine(not always) --> war
     Çatalhöyük: first city in the world 7K BC, 5K-10K
+    Sumer: earliest civilization 5K-6K BC, Sumerian until 1K BC
     Akkadia of Sargon: >1M people
     Assyrian, Babylonian, Persian empires millions of people
     Qin dynasty in China 221 BC, 40M
@@ -356,8 +358,7 @@ Part II: THE AGRICULTURE REVOLUTION
                universal eternal justice inspired by god
                all people are created equal by their Creator
                  (in Hammurabi all people are not equal)
-           Both 1 &2 are wrong - justice is from the imagination of sapie
-
+           Both 1 & 2 are wrong - justice is from the imagination of sapiens
              According to biology people were not created but evolved
              Equality is from Christianity - all have equal souls
              "created equal" --> "evolve differently"
@@ -368,9 +369,9 @@ Part II: THE AGRICULTURE REVOLUTION
      Believe (1&2) in an order to enable cooperation and built better society
 
   True Believers
-    Voltaire: "there is no God, don't tell my servant lest he murder me"
+    Voltaire: "there is no God, don't tell my servant lest he murders me"
     Sapiens does not have natural rights as chimps spiders have natural rights
-    Gravity does not change, but imagined order may always collapse
+    Gravity does not change, but imagined order may always collapses
       Myth enforcement via violence: army, police, prison
         "eye for an eye", civil war when majority considered blacks humans...
       Prince Talleyrand: clergy, politician, diplomat work for king and Napoleon
@@ -429,14 +430,14 @@ Part II: THE AGRICULTURE REVOLUTION
        needed number memory;
          Sumerians solved it with writing --> enable cities empires....
 
-   Signed Kushim
+   Signed by Kushim (3400–3000 BC) in Uruk Sumer
      Sumerian symbols for 1, 10, 60, 600, 3,600, 36,000  (-->24 hr/360 degrees)
               symbols for people, places, animals, dates....
                  partial script - not for poetry...
-     Incas: quipu: hundreds of colorful cords with thousands of knots
-            record tax collection and ownership for 10-12M people
-            Spaniards kept them and later phased them out
-            few surviving quipus are undecipherable
+   Incas: quipu: hundreds of colorful cords with thousands of knots
+          record tax collection and ownership for 10-12M people
+          Spaniards kept them and later phased them out
+          few surviving quipus are undecipherable
 
    The Wonders of bureaucracy
      Full scripts:
@@ -483,7 +484,7 @@ Part II: THE AGRICULTURE REVOLUTION
      inter-cast marriage, sharing meals prohibited
      purity/impurity essential elements
        purity(health) comes from biological survival mechanisms
-       to isolate women, black, gays, Roma, Jews label them pollutants
+       to isolate women, black, gays, Roma, Jews: label them pollutants
        new group or profession of people
           --> new cast; 3,000 sub-casts (jati [birth])
        people without a cast --> untouchables (Dalits ["broken/scattered"])
@@ -527,7 +528,7 @@ Part II: THE AGRICULTURE REVOLUTION
     Ancient Athens:
       women excluded from politics philosophy...
       homosexuality not taboo;
-         Achilles & Patroclus  of Alexander the great & Hepaestion
+         Achilles & Patroclus  of Alexander the great & Hephaestion
     'Biology enables and culture forbids'
       natural according to Christian theology
     Chimps use sex for political alliance and to defuse tensions
@@ -566,14 +567,14 @@ Part II: THE AGRICULTURE REVOLUTION
 
 9. The arrow of history
    Culture == network of artificial instincts
-     enabled millions to cooperate
+     enables millions to cooperate
      set of norms, beliefs, values.. that are in constant flux
        changes via 1. environment
                    2. contact with other cultures
                    3. resolution of internal conflicts
      internal conflict example:
        1. Chivalry: better to die than live in shame
-         Christianity: turn the other cheek
+          vs Christianity: turn the other cheek
            never fully resolved
            but culture changed as people tried to resolve it
            resolution attempts: crusades
@@ -600,14 +601,14 @@ Part II: THE AGRICULTURE REVOLUTION
         Tasmania isolated from Australia for 12K years
         Ancient Rome,
         Mayan city states
-        20KBC: thousands
+        20KBC: thousands worlds
         2KBC: hundreds
         1450: 1. Afro-Asia-Europe (90%)
               2. Meso-American; collapsed 1521
               3. Andean; collapsed 1532
               4. Australian; collapsed 1788 (discovered 1606)
               4. Oceanic - Pacific islands; Hawaii--> New Zealand
-                (from Zeeland - dutch region in Netherlands, not for Zealand in Denmark)
+                (from Zealand - dutch region in Netherlands, not for Zealand in Denmark)
      Afro-Asian world (entire planet):
        capitalist market forces
        legal system of theoretical human rights & international law
@@ -641,6 +642,7 @@ Part II: THE AGRICULTURE REVOLUTION
   300 years before Cortes:
     Victor Christians minted gold coins with cross & millares coin with Allah
     Muslims accepted gold coins with or without cross
+    $60 trillion world money - 10% in physical money
 
   How much is it?
     Up to small scale agriculture:
@@ -705,12 +707,14 @@ Part II: THE AGRICULTURE REVOLUTION
         25 denari = 1 nummus aureus (“gold money”), or
                     1 denarius aureus
         enabled taxation ... maintained the empire
+    $1 = CH¥6.78 Yuan(round)/Renminbi currency unit/name ~sterling/pound (JN¥ yen[circle])
 
   Gospel of gold
     Strong trust in Roman coins:
       100 AD accepted in India,
       Indians made copies of the coins
-      Arabs adopted & named it dinar - in Jordan, Iraq, Serbia, Macedonia, Tunisia
+      Arabs adopted & named it dinar (from denerius)-
+        --> currently in Jordan, Iraq, Serbia, Macedonia, Tunisia
     China:
       bronze coins & silver/gold ingots
     Late modern era:
@@ -740,8 +744,8 @@ Part II: THE AGRICULTURE REVOLUTION
       2. trust;
            money in between any two people can cooperate
     Cost:
-      human values (honor, loyalty, morality, love)
-      replaced with supply/demand
+      Human values (honor, loyalty, morality, love) are
+      replaced with supply/demand; conflicts:
         children should be sold to slavery
         mortal sins should not be committed
           (lust, gluttony, avarice, sloth, anger, envy and pride)
@@ -752,8 +756,8 @@ Part II: THE AGRICULTURE REVOLUTION
       trust is about money itself not the humans
       money brings down dams of community, religion, state
          --> world: heartless marketplace
-    People destroy dams the hod movement of money
-      AND build dams to protect society, religion environment..
+    People destroy dams the restrict movement of money
+      AND build dams to protect society, religion, environment..
     Naive to think markets always prevail;
       warriors,fanatics, concerned citizens have reshaped economies
     Unification of humankind is no just economic
@@ -782,19 +786,20 @@ II Imperial visions
       Athenian began as a league
       Hapsburg from marriage alliances
       British ruled by democracy
-        Other democratic: Dutch, French, Belgian, American, Athenian,
+        Other democratic: Dutch, French, Belgian, American,
            Novgorod (north Russia/Baltic), Rome, Carthage
       Athenian was tiny, but gobbled hundreds of different cities
       Aztec small but ruled 371 tribes
+      Incas ~ 100 ethnic groups
       In past there were a lot more tribes/ethnic groups
     Empires have reduced human diversity
 
   Evil Empires?
     Imperialist 2nd to fascist as bad
-    Critiques:
-      1. Empires do not work
+    Critiques, empires:
+      1. do not work
           (historical non-sense)
-      2. the should form because they bring destruction and exploitation
+      2. bring destruction and exploitation
     Empires:
       most common government in last 2.5K years
       form of stable government
@@ -803,7 +808,7 @@ II Imperial visions
     When Rome was conquered in 476 AD,
       people conquered before had forgotten their language....
     Destruction of one empire --> another empire (not freedom)
-      example middle east passed around empires for 3K years
+      example: middle east passed around empires for 3K years
       when British collapsed, people first conquered by Assyrians had disappeared
       Jews, Armenians, Georgians are an exaggerated exception
       King David in a modern synagogue, surprised by:
@@ -844,13 +849,14 @@ II Imperial visions
            --> Muslim caliphs --> Indian dynasts --> Soviet premiers, American Presidents
       Benevolent vision in China:
         Heaven (Tian) mandate enables rulers
-        a legitimate (mendated) authority is always universal
-        1st Chinese emperor, Qin Shi Huangdi:
-          'all in universe, on every human footprint, belongs to emperor...
-           his kindness even reaches oxen and horses... all benefit and all are safe'
+        a legitimate (mandated) authority is always universal
+        1st Chinese emperor, Qin Shi Huangdi (259–210 BC):
+           all in universe, on every human footprint, belongs to emperor...
+           his kindness even reaches oxen and horses... all benefit and all are safe
+           brutal, built foundation of great wall
         Chines political/historical thinking:
           imperial ages == golden ages
-          when empire collapsed, theory goaded powers to try unification
+          when empire collapsed, they goaded powers to try unification
         Western idea:
           independent states == justice
 
@@ -889,7 +895,7 @@ II Imperial visions
          and Iranians, Turks, Berbers dominated the Arabs
     China Empire : barbarians incorporated into empire: the Hans (in the Han empire)
       now empire intact, and 90% of Chinese see themselves as Han
-    Last fee decades: Africans, Arabs, Chinese, Maoris learned English Spanish...
+    Last few decades: Africans, Arabs, Chinese, Maoris learned English Spanish...
        adopted West ideologies  Capitalism Communism....
        anti-colonial struggles used these ... according to their needs & traditions....
 
@@ -910,7 +916,7 @@ II Imperial visions
          If all British buildings were to be destroyed what about Taj Mahal?
          Question of cultural inheritance is thorny...
          If we have past with good and bad guys, then we must admit that
-         we followed that bad buys.
+         we followed that of the bad buys.
 
   New global empire
     Since 200BC most have lived in empires.
@@ -921,7 +927,7 @@ II Imperial visions
       Multi-ethnic professional class (same language, views, interests) forms above the state
       Share global problems - climate, pollution,bio-engineering, AI, new life forms
       Global cooperation is required
-        peacefully, via war.
+        peacefully, or via war.
       All empires since Cyrus the great(600BC) promised promised and failed to help all
       No empire was universal
 
@@ -1028,7 +1034,7 @@ II Imperial visions
      last 2K years violently tied to eliminate competition
      500AD Roman empire was Christian
      1,000ADEurope, West Asia, North America Empires ordained by single God.
-     Today all outside east Asia, and theworld political order
+     Today all outside east Asia, and the world political order
        built on monotheistic foundations
      Belief that supreme power has interests and biases;
        what it the point to worshiping partial powers?
@@ -1445,20 +1451,20 @@ SCIENTIFIC REVOLUTION
       Lighting, God's anger --> electric current
       Franklin with lightning rod  disarmed the gods
     Poverty
-      Jesus anointed with 300 denarii (one year's wages)
+      Jesus anointed with 300 denari (one year's wages)
         "you will always have the poor, but not me..."
       Now: policies based on agronomy, economics, medicine, sociology
-        Social poverty (opportunities) not solved,
-          Biological (lack of food/shelter) solved;
-            safety nets: insurance, social security, local/international NGOs
-        Most people in danger of obesity no hunger
+           Social poverty (opportunities) not solved,
+           Biological (lack of food/shelter) solved;
+             safety nets: insurance, social security, local/international NGOs
+           Most people in danger of obesity no hunger
 
   The Gilgamesh project
     Problem of death:
       Pre-modern: religions: death is meaning of life; invest in afterlife
       Gilgamesh (2,000 BC) of Uruk in Sumer
-        His best friend, Enkidu, dies
-        After several days worm comes out of his nose
+        His best friend, Enkidu, dies;
+        after several days worm comes out of his nose
         Vows that he will never die
         Fails after long quest, learns that
         gods created man's inevitable destiny and must learn to live with
@@ -1518,7 +1524,7 @@ SCIENTIFIC REVOLUTION
         (founded with 4% accuracy)
         Cook:
           returned 1777 with proof that scurvy is cured with citrus fruits
-          recorded political and military value data:
+          recorded political and military valued data:
             anthropological, astronomic, geographical, meteorological
           took claim of:
             Australia, Tasmania and New Zealand
@@ -1543,7 +1549,8 @@ SCIENTIFIC REVOLUTION
     Roman empire, wealth from: N. Africa, Balkans, middle East
       Poor W. Europe provided minerals and slaves
     1500-1750 Europe master of the 'outer world'; America's & oceans'
-      Asian empires: Ottoman, Safavid, Mughal, Ming and Qing
+      Asian empires: Ottoman(1299-1922), Safavid(1501-1736), Mughal(1500-1900),
+                     Ming(1368- 1644) and Qing(1636-1912)
       1775 80% of world economy; not interested in 'outer world'
     1750-1850 wars and conquering of Asia
     1900 control most of world economy and territory
@@ -1623,7 +1630,7 @@ SCIENTIFIC REVOLUTION
     1532 Pizarro conquers Incas
       King of Spain gave him permission
     Incas/Aztecs did not know: each other or the Spaniards
-    Aztecss:
+    Aztecs:
       white skin aliens,
       lots of face hair
       sun-color hair
@@ -1635,7 +1642,7 @@ SCIENTIFIC REVOLUTION
       some thought they were gods
       others they were demons
       saw no urgency - 550 men against millions
-    Spaniards
+    Spaniards:
       1492 + 27 = 1519 + 14 = 1532
       Cortes: born 1485
         knew earth full of unknown men
@@ -1675,24 +1682,24 @@ SCIENTIFIC REVOLUTION
   Rare spiders and forgotten scripts
     Science and empire motivated by discoveries but
       building empire was a science project
-      When Muslsims invade India, they did not bring archaeologists/anthropologists
+      When Muslims invade India, they did not bring archaeologists/anthropologists
       geologists, zoologists to study history/culture/soils/fauna
       1802 British started the Great survey of India
-        alsted 60 years - measured height of mount everest 8,839.2 m,
-        actual 8,844.4 ±0.2
+        lasted 60 years - measured height of mount Everest 8,839.2 m,
+           actual 8,844.4 ±0.2 (Olympus 2,917, Kilimanjaro 5,895, Elbrus 5,642)
         military resources
         location of Gold mines
-        spiders, butterflies
+        spiders, butterflies...
         forgotten languages
         dig up ruins
         1922 discovered civilization that perished 1,900BC
-          previous rulers n notice it
+          previous rulers did not notice it
       Cuneiform script:
         1618 Spanish ambassador to Persia noticed it
         1657 script published; not deciphered
         1830 Behistun Inscription 500BC old Persian, Elamite, Babylonian
            Rawlinson deciphered old Persian (new modern Persian)
-           Elamite disa[eared after Alexander the great]
+           Elamite (Iran) [disappeared after Alexander the great]
         William Jones found similarities of Sanskrit (in Hindu rituals)
          and Greek, Latin,Gothic, Celtic... languages
          matar is mother in Sanskrit
@@ -1886,7 +1893,7 @@ SCIENTIFIC REVOLUTION
        British East India Company: ruled India for ~100 years
                                    had 350k army
                                    nationalized in 1858
-     Napoleon: BritaiBengaln is nation of shopkeepers
+     Napoleon: Britain is nation of shopkeepers
                (after 23 years the shopkeepers defeated him at 1815;
                 scavenged "Waterloo teeth" (from healthy young men) in demand;
                 they created the largest empire ever seen)
@@ -1941,7 +1948,7 @@ SCIENTIFIC REVOLUTION
       politics should not influence capital
       with reinvestment increase the common good
     Reality:
-      No market WO polical influence
+      No market WO political influence
         Most important resource - trust in future
           is always threatened by thieves....
         Politics not markets can protect against theft

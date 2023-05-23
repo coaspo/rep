@@ -44,9 +44,11 @@
       var table = document.getElementById("table")
       for (let i = 1; i < table.rows.length; i++) {
          let row = table.rows[i]
-         if (row.cells[1].innerHTML != '') {
-           for (let j = 1; j < row.cells.length; j++) {
-               row.cells[j].setAttribute('title', words[j-1])
+         if (row.cells.length > 2) {
+           if (row.cells[1].innerHTML != '') {
+             for (let j = 1; j < row.cells.length; j++) {
+                 row.cells[j].setAttribute('title', words[j-1])
+             }
            }
          }
       }

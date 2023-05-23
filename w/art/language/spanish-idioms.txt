@@ -1,9 +1,3 @@
-<html lang="en">
-  <meta charset="utf-8"/>
-  <head>
-    <title>Spanish idioms</title>
-  </head>
-   <body style="font-size:14px;"><pre>
 Cada loco con su tema
 Every crazy with his topic
 
@@ -41,8 +35,3 @@ More ok late what never
 En tierra de ciegos, el tuerto es rey
 In Earth from blind, he one-eyed is king
 
-</pre>
-<br>
-</body>
-
-</html>

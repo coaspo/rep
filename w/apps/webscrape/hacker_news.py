@@ -76,7 +76,7 @@ def parse_web_page(html: str, prev_file_path):
     descs, points, comments =  parse_web_page_text(soup.get_text())
     links = extract_links(html ,descs)
     is_last_page = len(links) < 28
-    print(f'  before filtering, {len(links)} links')
+    print(f'  before filtering, {len(links)} links; prev_file_path:', prev_file_path)
     links_filtered, points_filtered, comments_filtered =[], [],[]
     if len(prev_file_path) == 0:
         previous_file_text = ''
@@ -85,14 +85,16 @@ def parse_web_page(html: str, prev_file_path):
             previous_file_text = f.read()
     for i, link in enumerate(links):
       if 'http' not in links[i]:
-        print('  Skipping', i, 'th link: "', links[i], '"; does not have "http"')
-      elif len(previous_file_text) > 0 and links[i] not in previous_file_text:
-        print('  Skipping', i, 'th link: "', links[i], '"; is in previous file')
+        print('  Skipping (missing "http")', i, 'th link: "', links[i])
+      elif len(previous_file_text) > 0 and links[i] in previous_file_text:
+        print('  Skipping (is in previous file)', i, 'th link: "', links[i])
       else:
         links_filtered.append(links[i])
         points_filtered.append(points[i])
         comments_filtered.append(comments[i])
-    print(f'  after filtering non-https, {len(links_filtered)} links')
+    num_of_links = len(links_filtered)
+    num_of_removed_links = len(links) -num_of_links
+    print(num_of_links, 'new links, ', num_of_removed_links, 'duplicate links removed')
     if DEBUG:
         [print('"',i,'"') for i in links_filtered]
     return links_filtered, points_filtered, comments_filtered, is_last_page
@@ -276,25 +278,28 @@ def append_lines(html, sort_order, links, sfx, max_link_cnt, collected_links):
             i += 1
             if i == max_link_cnt:
                 break
-    print(  "appended", i, "links")
+    print(  "    appended top", i, "links")
     return html
 
 
 def create_web_page(links, points, comments, prev_file_path, next_file_path, top_count):
-    html = "<html><head><meta charset='UTF-8'></head><title>Hacker news sort</title>\n<body>Top" + \
+    html = "<html><head><meta charset='UTF-8'></head><title>Hacker news sort</title>\n<body>Top " + \
            f"<a href=\"{HACKER_NEWS_URL}\">{HACKER_NEWS_URL}</a> links &#8198; &#8198; &#8198; &#8198;"
     if prev_file_path is not None:
         html += f"<a href=\"{prev_file_path}\">prev</a> &#8198; &#8198;" + \
                 f"<a href=\"{next_file_path}\">next</a> &#8198; &#8198; &#8198; &#8198;" + \
                 "<a href=\"./top_of_all.html\">top of all</a>"
+    html += '&#8198; &#8198; &#8198; created ' + str(datetime.date.today())
+    print('  append top points')
     html += '<pre> \n' + str(top_count) + ' top points:\n'
     collected_links = []
     html = append_lines(html, points, links, ' points', top_count, collected_links)
 
+    print('  append top comments')
     html += '\n' + str(top_count) + ' top comments:\n'
     html = append_lines(html, comments, links, ' comments', top_count, collected_links)
-    global DEBUG
-    DEBUG = True
+
+    print('  append non-🦜/🪵/📰/💻 points')
     html += '\n' + str(top_count) + ' top non-🦜/🪵/📰/💻 points:\n'
     html = append_lines(html, points, links, '', top_count, collected_links)
 
@@ -339,7 +344,7 @@ def read_all_previous_sorts():
 def write_file(html, file_path):
     with open(file_path, 'w') as f:
         f.write(html)
-    print('Created', file_path, len(html), ' characters')
+    print('Created', file_path, len(html), ' characters\n')
 
 
 def prev_next_dates(month, month_range):
@@ -396,8 +401,8 @@ def date_parameters(month_abr, month_range):
         prev_next_dates(month, month_range)
     prev_day_start = str(prev_day_start).zfill(2)
     next_day_start = str(next_day_start).zfill(2)
-    prev_file_path = f'./{str(prev_month).zfill(2)}_{MONTH_ABBRS[prev_month - 1]}_{prev_day_start}-{prev_day_end}.html'
-    next_file_path = f'./{str(next_month).zfill(2)}_{MONTH_ABBRS[next_month - 1]}_{next_day_start}-{next_day_end}.html'
+    prev_file_path = f'./hacker_news/{str(prev_month).zfill(2)}_{MONTH_ABBRS[prev_month - 1]}_{prev_day_start}-{prev_day_end}.html'
+    next_file_path = f'./hacker_news/{str(next_month).zfill(2)}_{MONTH_ABBRS[next_month - 1]}_{next_day_start}-{next_day_end}.html'
     print(' --file_paths,  current:', file_path, '  prev:', prev_file_path, '  next:', next_file_path)
     year = today.year - 1 if month > today.month else today.year
     return file_path, year, month, day_start, day_end, prev_file_path, next_file_path
@@ -420,7 +425,8 @@ def get_user_input():
 def get_next_month_period():
     files = os.listdir("./hacker_news")
     files = [x for x in files if x[0:2].isdigit()]  # remove unnumbered files
-    files.sort(key=lambda x: x[0:2] + x[7:])  # sort without the month name
+    mod_time  =  [os.path.getmtime("./hacker_news/" + x) for x in files]
+    files = [x for _,x in sorted(zip(mod_time,files))]
     last_month = files[-1][3:6]
     last_start_date = files[-1][7:9]
     print(files[-1], last_month, last_start_date)
@@ -436,30 +442,34 @@ def get_next_month_period():
         if index == len(MONTH_ABBRS):
             index = 0
         month = MONTH_ABBRS[index]
+    print('new month/period: ', month, str(period))
     return month, period
 
 
 def main():
     try:
-        print('started hacker_news.py')
-        # month, period = 'apr', 1   #
-        # month, period = get_user_input()
-        month, period = get_next_month_period()
-        file_path, year, month, day_start, day_end, prev_file_path, next_file_path = \
-            date_parameters(month, period)
-        links, points, comments = \
-            scrape_ycombinator_links(year, month, day_start, day_end, prev_file_path)
-        html = create_web_page(links, points, comments, prev_file_path, next_file_path, top_count=20)
-        write_file(html, file_path)
+        print('Started hacker_news.py')
 
         file_path = './hacker_news/top_of_all.html'
-        print ("Updating", file_path)
+        print ("  1/2 Updating", file_path)
         links, points, comments = \
             read_all_previous_sorts()
         html = create_web_page(links, points, comments, None, None, top_count=40)
         write_file(html, file_path)
         # webbrowser.open_new_tab(file_path)
-        print('done')
+        # month, period = 'apr', 1   #
+        # month, period = get_user_input()
+
+        month, period = get_next_month_period()
+        file_path, year, month, day_start, day_end, prev_file_path, next_file_path = \
+            date_parameters(month, period)
+        print ("  2/2 Updating", file_path)
+        links, points, comments = \
+            scrape_ycombinator_links(year, month, day_start, day_end, prev_file_path)
+        html = create_web_page(links, points, comments, prev_file_path, next_file_path, top_count=20)
+        write_file(html, file_path)
+
+        print('Done')
     except Exception as exc:
         print(exc)
         import traceback

@@ -4,9 +4,9 @@ import webbrowser
 from hacker_news import *
 
 
-def create_html_page(links, points, month, day):
+def create_html_page(links, points, todays_date):
     html = "<html><head><meta charset='UTF-8'></head><title>Hacker news sorted</title>\n<body>Point sorted  " + \
-           f"links of <a href=\"{HACKER_NEWS_URL}\">{HACKER_NEWS_URL}</a>,  date[m/d]: {month}/{day}<pre>"
+           f"links of <a href=\"{HACKER_NEWS_URL}\">{HACKER_NEWS_URL}</a>,   {todays_date}<pre>"
     collected_links = []
     html = append_lines(html, points, links, ' points', 10_000, collected_links)
     html += '\n' + get_url_legend(html)
@@ -26,10 +26,11 @@ def main():
         month = today.month
         year = today.year
         day = int(today.day)
-        print(f'Current year:{year}  month:{month:02d}  day: {day:02d}')
+        todays_date = f'{year}-{month:02d}-{day:02d}'
+        print("Today's date:", todays_date)
         links, points, comments = \
             scrape_ycombinator_links(year, month, day, day, '')
-        html = create_html_page(links, points, month, day)
+        html = create_html_page(links, points, todays_date)
         file_path = './hacker_news/tmp_current_sorted.html'
         write_file(html, file_path)
         print('Created', file_path, '\n  wait ... opening it in browser')
