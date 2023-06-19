@@ -1,4 +1,3 @@
-apps/almanac/sky.html
 apps/browser_check/broweser_check.html
 apps/browser_extensions/popup.html
 apps/culture/cultural_dimensions.txt
@@ -7,12 +6,15 @@ apps/draw/temp2.html
 apps/gps/position.html
 apps/gps/position_test.html
 apps/health/relax-breathing.html
+apps/night-sky/sky.html
 art/audio/classical.html
 art/audio/gospel-ancient.html
 art/audio/pop.html
 art/audio/pop_-from__tree-story_book.html
+art/book-notes/Love_medicine_and_miracles.txt
 art/book-notes/atomic_habits.txt
 art/book-notes/bury_my_heart_at_wounded_knee.txt
+art/book-notes/godel_escher_bach.txt
 art/book-notes/outliers;_story_of_success.txt
 art/book-notes/tipping_point;_little_things_make_big_difference.txt
 art/book-notes/tyranny_of_merit_what_has_become_of_the_common_good.txt
@@ -95,6 +97,7 @@ science/book-notes/crack_in_creation;_gene_editing.txt
 science/book-notes/entangled_life,_how_fungi_make_our_world...txt
 science/book-notes/fever_the_hunt_for_new_killer_virus.txt
 science/book-notes/microbe_hunters.txt
+science/book-notes/naving_glioblastoma.txt
 science/book-notes/sapiens_a_brief_history_of_mankind.txt
 science/book-notes/science_fictions.txt
 science/book-notes/silent_spring.txt
@@ -105,13 +108,17 @@ science/book-notes/thinking,_fast_and_slow.txt
 science/book-notes/tree_story-world_history_in_rings.txt
 science/book-notes/usetttled_what_climate_science_tells_us.txt
 science/covid_-_philosophy,_politics,_psychology,_science.html
+science/health/chemicals_in_water.txt
+science/health/chemicals_toxic.html
+science/health/chemicals_toxic.txt
 science/health/deficits.txt
 science/health/exercise.txt
 science/health/exercise;_brain.txt
+science/health/health_risks.txt
 science/health/information_overload.txt
 science/health/most_common_drugs.txt
-science/health/most_health_risks.txt
 science/health/phone;_sugar;_sleep.txt
+science/health/science_based_medicine.txt
 science/health/social_anxiety.txt
 science/health/water.txt
 science/links/books.html

@@ -1,0 +1,49 @@
+               actual / allowed /goal     range
+Stonehmam:
+  Barium           0.009 / 2   / 2    ppm  0.008 - 0.01   Natural deposits
+  Copper           0.13  / 1.3 / 1.3    m  <.003 - .22    Plumbing & Natural deposits
+  Fluoride         0.7   / 4   / 4      m  0.2   - 0.8    cavity prevention
+  Haloacetic acids 17    / 60  / -      m  4     - 30     water disinfection
+  Lead             8.6   / 15  / 0      B  <.075 - 120    Plumbing & Natural deposits
+  Monochloramine   2     / 4   / 2      m  0     - 4      water disinfection
+  Nitrate          0.8   / 10  / 10     m  0.05  - 0.5    atmosphere, fertilizer, septic tanks
+  Trihalomethanes  19    / 80  / -      m  6     - 35     water disinfection
+
+Lynn:
+  Barium           0.02 / 2   / 2    ppm  NA
+  CaCO3            59   / NA  / NA     m
+  Chlorine         1.2  / 4   / 4      m  0 - 1.2     water disinfection
+  Chlorine dioxide 0.4  / 0.8 / 0.8    m  0 - 1.2     water disinfection
+  Chlorite         0.5  / 1   / 0.8    m  0 - 0.4     water disinfection
+  Co  er           0.1  / 1.3 / 0      m  0.1 - .5
+  Fluoride         0.9  / 2   / NA     m  0.4   - 0.9
+  Haloacetic acids 20   / 60  / 0      m  4     - 30
+  Lead             3    / 15  / 0      B  0 - 6
+  Monochloramine  ?? 2  / 4   / 2      m  0     - 4
+  Nickel           2    / 100 / 0      B  NA
+  Nitrate          0.3  / 10  / 10     m  NA
+  Perchlorate      0.1  / 2   / 0      b
+  PFAs             7    / 20  / 0      T  5 - 7    man-made
+  Radium-226       0.4  / 5   / 0    pCi/l
+  Radium-228       0.6  / 5   / 0    pCi/l
+  Sodium           81   / 20  / NA   ppm  NA
+  Sulfate          25   / NA  / 250    m
+  Trihalomethanes  43   / 80  / -      m  23     - 70
+
+PFAs: Per- and Poly-fluoralkyl
+ PFOA: Perfluoroalkyl acid -  C8HF17O3S
+       Teflon (cookware), firefighting,
+       carpets, textiles, floor wax, stone/wood/thread sealants, food paper,
+       dental floss
+ PFOS: Perfluorooctanesulfonic acid - C8HF15O2
+     3M’s Scotchgard stain repelant
+     similar uses as PFOA
+     phased out in the U.S. - allowed in imports
+ PFNA: Perfluorononanoic acid -   C9HF17O2
+       no uses
+ PFHxS: Perfluorohexanesulfonic acid - C6HF13O3S
+       uses similar to PFOA
+ PFHpA: Perfluoroheptanoic acid - C7HF13O2
+       heat, stain, oil, water resistant
+ PFDA: Perfluordecanoic acid - C10HF19O2
+       wetting agent, flame retardant, cosmetics

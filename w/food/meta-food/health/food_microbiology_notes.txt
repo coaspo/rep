@@ -1,3 +1,6 @@
+Ref:
+  https://aggie-horticulture.tamu.edu/food-technology/food-processing-entrepreneurs/microbiology-of-food/
+  https://www.madaboutscience.com.au/shop/science-extra/post/grow-bacteria-on-homemade-agar-plates
 
 Bacteria
   spherical, straight rods, and spiral rods
@@ -345,7 +348,7 @@ Spoilage prevention
 90% food poisoning caused by:
  Staphylococcus aureus, Salmonella, Clostridium perfringens, Campylobacter,
  Listeria monocytogenes, Vibrio parahaemolyticus, Bacillus cereus,
- and Entero-pathogenic Escherichia coli.
+ and entero-pathogenic Escherichia coli.
 
 
 Prevention:
@@ -357,7 +360,4 @@ Prevention:
 5. Heat canned foods thoroughly before tasting.
 6. When in doubt, throw it out
 
-Ref:
-  https://aggie-horticulture.tamu.edu/food-technology/food-processing-entrepreneurs/microbiology-of-food/
-  https://www.madaboutscience.com.au/shop/science-extra/post/grow-bacteria-on-homemade-agar-plates
 

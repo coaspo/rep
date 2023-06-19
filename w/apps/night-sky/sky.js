@@ -89,7 +89,7 @@ class NorthSky {
     const sunRadiusMax = NorthSky.EQUATOR_RADIUS * Math.cos(sun.declination + Math.PI / 4)
     const sunRadius = sunRadiusMin + Math.abs(.5 * NorthSky.EQUATOR_RADIUS * Math.cos(sun.hourAngle * Math.PI / 180. / 2))
     // .5 is arbitrary
-    updateSunriseSunset(sun)
+    //updateSunriseSunset(sun)
     NorthSky.drawDisc(sun.hourAngle, sunRadius)
     NorthSky.updateNorthSkyCanvas(sun)
   }
@@ -196,7 +196,7 @@ class SouthSky {
     const sunRadiusMax = NorthSky.EQUATOR_RADIUS * Math.cos(sun.declination + Math.PI / 4)
     const sunRadius = sunRadiusMin + Math.abs(.5 * NorthSky.EQUATOR_RADIUS * Math.cos(sun.hourAngle * Math.PI / 180. / 2))
     // .5 is arbitrary
-    updateSunriseSunset(sun)
+    //updateSunriseSunset(sun)
     SouthSky.drawSun(sun.hourAngle, sunRadius)
     SouthSky.updateSouthSkyCanvas(date, sun)
 

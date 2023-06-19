@@ -1,0 +1,153 @@
+Thomas Gruber, neurosurgeon 🗓 2022
+
+1. Glioblastoma
+  Primary brain tumor - starts and stays in brain
+    Glioblastoma multiforme/High-grade glioma (GBM/HGG; grades 4/3)
+    GBM/HGG same treatment, HGG (anaplastic cancer?) is less aggressive
+    Glioma types:
+      1. astrocytoma - resembles astrocytes - most aggressive
+      2. oligodendroglioma - resembles oligodendrocytes (low grade - slow)
+    Grade 3 - anaplastic astrocytoma
+            - anaplastic  oligodendroglioma
+    Grade 4 - glioblastoma
+
+    Symptoms:
+      1. headache (worse in morning)
+      2. seizure (low grade glioma)
+      3. fatigue
+      4. nausea/vomit from pressure in brain
+      5. thinking/speech problems
+      6. weakness/balance
+      7. sensory - numbness/tingling/burning in hands/feet
+      8. mood/personality change
+      9. vision - blurred, peripheral
+      10. blood clots in legs (deep vein) & lungs (pulmonary embolism)
+  Brain areas:
+    1. Frontal lobe (11:00-2:30)
+      behavior/problem/personality/movement/memory/smell
+    2. parietal lob (pariet- ‘wall’; 10:00-11:30)
+      language/reading/sensation
+    3. Occipital lobe (8:00-10:00)
+      vision/color
+    3. temporal lobe (time; 8:00-10:00) ear borders 1/2/3
+      hearing/speech/vision/memory/emotion
+    4. cerebellum (little cerebrum[brain]) base
+      balance, coordination
+
+  Brain 4 cell types: 1. neurons, 2. ependymal cells
+    3. blood vessel cells, 4. glial
+  Molecular test: biomarkers - evolving how useful they are
+    Play gold long enough will get "hole in one" - of get a long term GBM survivor
+
+2. Oncology team:
+  1. Neurosurgeon
+  2. Neuro-oncologist - chemo, immuno therapies
+  3. Radiation oncologist
+  4. Neuro-adiologist: read MRI, CT,  nuclear imaging scans
+  5. Neuro-pathologist: find if GBM, or HGG - handful in country
+  6. Registered (or navigation) nurse: pass info to doctors
+  others:
+    dietitian - stay healthy,
+    genetic counselor - GBM genetic profile - GBM not inheritable
+    patient advocate/navigator - volunteer - possibly cancer survivor
+    financial counselors - navigate insurance
+    family - take notes / emotional support
+
+3. Imaging tests
+  CT - to check for brain bleeding, swelling, injury
+  MRI - get swelling details; infection, multiple sclerosis
+    Only biopsy identifies GBM/HGG
+    Taken every 8 - 16 weeks - check treatment & new growth
+    Contrast MRI: gadolinium/chelating agent
+      in 24 hours >
+      90% passed by kidneys
+      1% retained in bone/brain
+      may cause Nephrogenic (kidney) systemic fibrosis
+      solid & edges of GBM light up
+        Pseudo-progression:
+          scar tissue from surgery/radiation also lights up
+    Measure tumor growth:
+      MRS - magnetic resonance spectroscopy - GBM chemical signature
+      MRP - magnetic resonance perfusion - measure blood flow; GBM has more,
+        radiation treated GBM has less
+    fMRI - functional MRI - patient asked to speak, tap toes/fingers...
+      used to plan surgery
+
+4. Cookbook
+  All cancer centers use NCCN cookbook (National Comprehensive Cancer Network)
+    nccn.org  View 2021 PDF: >Guidelines >Guidelines-for-patients >Brain-cancer
+      (May reach end of NCCN approved recommendations)
+  Karnofsky performance scale 0 --> 100
+    60 (be able to walk, bathe, cook) is the cutoff for using NCCN guidelines
+
+5. Surgery
+  Craniotomy (gross total resection) size of cookie - remove as much as possible
+    1. relieve neurological symptoms
+    2. best way to treat tumor
+    Biopsy only if tumor is in critical area - for example in thalamus
+  Stereotactically surgery:
+    MRI image / computer guided surgery
+  Intra-operative MRI:
+    MRI scanning during surgery; can remove more of the tumor
+    (controversial of how much more)
+  Fluorescence
+    Drink Gleolan (5-aminolevulinic acid [5-ALA]) 6 hours before surgery
+    tumor glows pink - more tumor removed; unknown if it increases longevity
+  Awake craniotomy
+    test speech/motor functions during surgery
+    not all surgeons/anesthesiologists comfortable with this
+  Surgery: 30 min to 15 hours
+  After surgery: acetaminophen or mild narcotic
+    no driving, every day is a Sunday
+
+6. Chemotherapy
+  Most medication that kill cancrs cannot cross the blood-brain barrier
+  Temozolomide (TMZ) (Temodar) cytotoxic; alters tumors DNA, since 2005
+    1 pill/day for 4 to 6 weeks with radiation therapy
+    after radiation,  1 pill/day for 5 days every 28 days
+    if doing well continue for a year
+    Side effects: nausea, vomiting, low blood cell count
+      rare : appetite loss, constipation....
+  Bevacizumab (Avastin) stops cancer from creating blood vessels - starve cancer
+    second line - after Temozolomide is not working
+    IV every 2 weeks
+    side effects: bloddy nose, headache, hypertension
+  Lomustine(CCNU) cytotoxic
+    oral, 6 to 8 week intervals
+    effective if tumor has methylguanine-DNA methyltransferase (MGMT) gene
+    Epigenetic silencing of MGMT gene by methylation decreases an enzyme
+    which may compromise DNA repair
+    Side effects: nausea, vomiting - controlled by other medications
+                  decrease of white blood cells - blood counts closely monitored
+  Bevacizumab Lomustine alone or separate increase progression-free survival
+    (live with the disease but not get worse)
+    they do not increase in overall length of survival
+  KL-50 - cytotoxic solves TMZ resistance
+  Carmustine (BICNU) - nickel size wafer
+    dissolves slowly, true benefit not known
+
+  Genetic markers
+    1. Methylation- methyl group added to cytosine (DNA)
+        epigenetic mechqnism; repairs DNA, switches gene on/off
+        helps detoxification
+        helped by methylation diet:
+          eggs, vegetables, avocado, garlic, fish, eggs, beans
+        methyls from from S-adenosylmethionine (SAM) from folate, methionine, betaine, and vitamin B12
+        Over-methylation: low mood
+      Brain tumor has methylated MGMT promoter gene
+        MGMT DNA repair enzyme: MGMT: O(6)-methylguanine-DNA methyltransferase)
+           silences genes which cause toxicity
+           removes the guanine-alkyl group induced by alkylating agents
+           antagonizes the genotoxic effects of alkylating (chemo drugs)agents
+      MGMT gene:
+        encodes DNA damage repair protein that removes alkylating agents;
+        results to resistance to chemotherapy (temozolomide)
+        temozolomide: becomes potent methylating agent stops DNA replication
+
+
+Ketogenic diet
+  3:1 or 4:1 of fats:non-fats - oil, butter...
+  Better: Medium-Chain Triglyceride (MCT) diet - coconut/palm oil
+    lesser: milk, nuts, avodados, fish, meat
+    https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9504425/pdf/nutrients-14-03851.pdf
+
