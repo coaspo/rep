@@ -1,5 +1,9 @@
 AC efficiency
    R =   ΔΤ / φ         K / W/m2
    R-value: (ft2·°F / BTU/h) 
+           = .0929 m2   1/1.8 K /  .29 W
+           = .178 m2 K / W           
     RSI Value: (m2·K / W)
                = 5.678 * R-value
+    U = 1/R
+    
