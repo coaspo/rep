@@ -2,8 +2,17 @@ AC efficiency
    R =   ΔΤ / φ         K / W/m2
    R-value: (ft2·°F / BTU/h) 
            = .0929 m2   1/1.8 K /  .29 W
-           = .178 m2 K / W           
+           = .178 m2 K / W  
+           = .178 * RSI-value
     RSI Value: (m2·K / W)
                = 5.678 * R-value
     U = 1/R
-    
+        
+λ = 0.03 W / mΚ  for 5cm
+  = Q * L / (A * ΔΤ)     W / (m K)
+  = φ * L / ΔΤ
+  = L / R
+R = L / λ
+  = .05 / (.03  * 0.178)
+  = 9.3
+Expanded polystyrene (EPS) has a k-value of around 0.033 W/(m⋅K) polystyrene (EPS) has a k-value of around 0.033 W/(m⋅K)
