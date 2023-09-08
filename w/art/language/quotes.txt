@@ -30,7 +30,7 @@ Much of academia is governed by a joke from the Soviet Union:
 Twain:
   Never argue with stupid people, they will drag you down to their level and
     then beat you with experience.
-  He who asks is a fool for 5 min, he who does not remains a foll forever.
+  He who asks is a fool for 5 min, he who does not remains a fool forever.
   Politicians and diapers must be changed often, and for the same reason.
   Kindness is the language that deaf can hear and blind can see.
   Good decisions come from experience, experience comes from bad decisions
@@ -84,6 +84,10 @@ Helen Keller, on being blind and deaf
 
 Australian aboriginals
   Those who lose dreaming are lost
+
+Buddhism's Noble Eight-fold:
+  Right: 1. View, 2. Resolve, 3. Speech, 4. Action, 5. Livelihood, 6. Effort,
+         7. Mindfulness, 8. Concentration.
 </pre>
 <br>
 </body>

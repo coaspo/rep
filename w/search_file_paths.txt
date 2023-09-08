@@ -38,6 +38,7 @@ art/visual/movies.txt
 art/visual/photography.html
 art/visual/videos.html
 art/visual/visual_art.html
+art/writing/tools.html
 food/beans/beans_.txt
 food/beans/lentils_.txt
 food/dairy/cottage_cheese_..txt

@@ -13,6 +13,7 @@ Bad
   unfriend   remove from a list of friends
   epic fail  failure that could be easily avoided
   doxing     researching and broadcasting private/identifying information
+  doomscrolling  reading negative news online
 
 Ugly
   troll      deliberately offensive/provocative posting to elicit anger; do not feed the trolls
