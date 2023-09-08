@@ -80,6 +80,7 @@ food/vegetables_/stuffed_vegetables_.txt
 food/vegetables_/vegetable_mix_.txt
 food/vegetables_/wild_plants_.txt
 food/vegetables_/yucca_plaintains.txt
+projects/home_energy.txt
 projects/landscaping.txt
 projects/linux phone.html
 projects/web.html

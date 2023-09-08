@@ -58,7 +58,7 @@ D. create website
        git push
 4. update local:
        git fetch origin {branch}
-       git pull
+       git pull origin {branch}
 
 Misc:
        git status
