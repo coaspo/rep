@@ -101,7 +101,10 @@ function browseUrl(url, name = "_self", txt) {
     text = latitude + '&' + longitude
   } else if (url.includes('/maps/')) {
     text = latitude + ',' + longitude
+  } else if (url.includes('translate.google') && text.charCodeAt(0) > 122) {
+      url = url.replace('sl=en&tl=el', 'sl=el&tl=en')  // greek to english
   }
+  //https://translate.google.com/#view=home&op=translate&sl=en&tl=el&text=zzzz
   url = url.replace('zzzz', text)
   if (text.trim().length == 0) {
     url = url.replace('site:org OR  site:edu', '')
