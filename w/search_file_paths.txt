@@ -3,6 +3,9 @@ apps/browser_extensions/popup.html
 apps/culture/cultural_dimensions.txt
 apps/draw/deck_membrane.html
 apps/draw/temp2.html
+apps/flash-cards/a.html
+apps/flash-cards/flash.html
+apps/flash-cards/λέξεις.html
 apps/gps/position.html
 apps/gps/position_test.html
 apps/health/relax-breathing.html
@@ -21,12 +24,13 @@ art/book-notes/tyranny_of_merit_what_has_become_of_the_common_good.txt
 art/book-notes/when_we_ease_to_understand _the_world.txt
 art/language/etymology_sample.html
 art/language/language_basic_words.html
-art/language/language_food_word.html
-art/language/language_hello_word.html
+art/language/language_food_words.html
+art/language/language_hello_words.html
 art/language/language_oldest_words.html
 art/language/quotes.txt
 art/language/spanish-idioms.txt
 art/language/words;_good,_bad,_ugly.txt
+art/language/words_greek.txt
 art/language/words_internet.txt
 art/language/words_known_by_male_female.txt
 art/language/words_new.txt
@@ -80,9 +84,11 @@ food/vegetables_/stuffed_vegetables_.txt
 food/vegetables_/vegetable_mix_.txt
 food/vegetables_/wild_plants_.txt
 food/vegetables_/yucca_plaintains.txt
+projects/appplied_category_course.txt
 projects/home_energy.txt
 projects/landscaping.txt
 projects/linux phone.html
+projects/nutrition_course_notes.txt
 projects/web.html
 science/20_big_popular_questions_in_science.txt
 science/7_problems_with_science.txt
@@ -136,7 +142,6 @@ science/psychology/hyper-sanity_-_a_different_world_view.txt
 science/psychology/parenting.txt
 science/psychology/psychological_tests.txt
 science/psychology/teens.txt
-tech/ai.html
 tech/future_technologies.txt
 tech/largest_computer_chip.txt
 tech/problems/problems;_other.txt
@@ -151,6 +156,7 @@ tech/programming/tmp.python_data_structures.html
 tech/programming/tmp.python_keywords.html
 tech/programming/tool_links.html
 tech/programming/windows_and_browser_key_shortcuts.txt
+tech/web/ai.html
 tech/web/articles.html
 tech/web/books.html
 tech/web/misc.html

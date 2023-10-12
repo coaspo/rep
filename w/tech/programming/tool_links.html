@@ -38,10 +38,10 @@ Java <a href="https://www.vogella.com/tutorials/java.html">vogella tutorial</a>
      <a href="https://compilejava.net">repl (compilejava.net)</a>
      <a href="https://onlinegdb.com/online_java_compiler">IDE (onlinegdb.com)</a>
 
-<iframe src="https://www.whatismybrowser.com/feature/iframe?capabilities=true&screen=true&bgcolor=aaeaea" height="200" style="border: none;"id="wimb-detection-iframe"></iframe>
+<iframe src="https://www.whatismybrowser.com/feature/iframe?capabilities=true&screen=true&bgcolor=aaeaea" height="200" style="border: none;"id="my-iframe"></iframe>
 
 View source code, example:
- curl 'https://li.netlify.app/w/' \
+ curl 'https://coaspo.github.io/rep/w/index.html' \
   -H 'authority: li.netlify.app' \
   -H 'upgrade-insecure-requests: 1' \
   -H 'user-agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/98.0.4758.87 Safari/537.36' \
@@ -54,3 +54,12 @@ View source code, example:
   -H 'accept-language: en-US,en;q=0.9' \
   -H 'if-none-match: "009af203ce52356ab92a592ac5d97b13-ssl-df"' \
   --compressed
+ <script>
+        var frame = document.getElementById("my-iframe");
+        frame.onload = function() {
+          frame.style.height =
+          frame.contentWindow.document.body.scrollHeight + 'px';
+          frame.style.width  =
+          frame.contentWindow.document.body.scrollWidth+'px';
+        }
+     </script>

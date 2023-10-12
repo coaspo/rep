@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Word and Meaning</title>
+    <style>
+        td {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <button onclick="next()">↓</button>
+    <button onclick="previous()">↑</button>
+    <label id="index"></label>
+    <button onclick="reverseWordMeaning()">⇄</button>
+
+    <table>
+        <tr>
+            <td><textarea name="leftTextArea" rows="7" cols="20" readonly></textarea></td>
+            <td><textarea name="rightTextArea" title="Show" rows="7" cols="20" readonly
+              onclick="fillInRightTextArea()"></textarea></td>
+        </tr>
+    </table>
+
+
+    <script>
+        var w = [
+            ['a', 'aa'],
+            ['b', 'bb'],
+            ['d', 'dd']
+            ['c', 'cc']
+        ];
+        var sort
+        var displayArrayIndex = 0
+        var isWordMeaningReversed = false
+        var wSortedIndexes = sortAndFindIndexes(w)
+        fillInLeftTextArea()
+
+        function sortAndFindIndexes(inputArray) {
+            const sortedArray = [...inputArray];
+            // Sort the cloned array based on the first element of each row
+            sortedArray.sort((a, b) => a[0].localeCompare(b[0]));
+            const indexesArray = [];
+            for (const row of sortedArray) {
+                // Find the index of the row in the original array
+                const index = inputArray.indexOf(row);
+                indexesArray.push(index);
+            }
+            return indexesArray;
+        }
+
+        function reverseWordMeaning() {
+            isWordMeaningReversed = !isWordMeaningReversed;
+            fillInLeftTextArea()
+            fillInRightTextArea()
+        }
+
+        function fillInRightTextArea() {
+            i = isWordMeaningReversed ? 0 : 1;
+            document.getElementsByName("rightTextArea")[0].value = w[displayArrayIndex][i]
+            console.log("right: " + w[displayArrayIndex][i]);
+        }
+
+        function next() {
+            displayArrayIndex += 1;
+            if (displayArrayIndex == w.length) {
+                displayArrayIndex = 0;
+            }
+            fillInLeftTextArea()
+            document.getElementsByName("rightTextArea")[0].value = ''
+        }
+
+        function previous() {
+            displayArrayIndex -= 1;
+            if (displayArrayIndex < 0) {
+                displayArrayIndex = w.length - 1;
+            }
+            fillInLeftTextArea()
+            document.getElementsByName("rightTextArea")[0].value = ''
+        }
+
+        function fillInLeftTextArea() {
+            i = isWordMeaningReversed ? 1 : 0;
+            document.getElementsByName("leftTextArea")[0].value = w[displayArrayIndex][i]
+            var label = document.getElementById("index");
+            label.innerHTML = String(displayArrayIndex + 1) + ' / ' + String(w.length)
+        }
+    </script>
+</body>
+
+</html>

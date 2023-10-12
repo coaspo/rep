@@ -1,0 +1,4 @@
+https://math.ucr.edu/home/baez/act_course/
+book:
+https://math.mit.edu/~dspivak/teaching/sp18/7Sketches.pdf
+
