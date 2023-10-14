@@ -3,6 +3,7 @@ apps/browser_extensions/popup.html
 apps/culture/cultural_dimensions.txt
 apps/draw/deck_membrane.html
 apps/draw/temp2.html
+apps/flash-cards/flash.html
 apps/flash_cards/a.html
 apps/flash_cards/flash.html
 apps/flash_cards/λέξεις.html
