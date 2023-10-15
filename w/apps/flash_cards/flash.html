@@ -4,12 +4,14 @@
 <head>
     <title>Tabbed Page</title>
     <style>
-        /* Style for the tabs */
         .tab {
             display: none;
         }
 
-        /* Style for the tab buttons */
+        div {
+            display: inline;
+        }
+
         .tab-button {
             background-color: #f1f1f1;
             border: none;
@@ -20,77 +22,82 @@
             display: inline-block;
             font-size: 16px;
         }
+
+        .tab-button:hover {
+            background-color: #ddd;
+        }
+
+        .tab-button.active {
+            background-color: #ccc;
+            text-align: center;
+        }
     </style>
 </head>
 
 <body>
-    <!-- Tab buttons -->
-    <button class="tab-button" onclick="openTab(event, 'tab1')">Flash Cards</button>
-    <button class="tab-button" onclick="openTab(event, 'tab2')">Edit</button>
+    <button class="tab-button" onclick="openTab('tab1', this)">Flash Cards</button>
+    <button class="tab-button" onclick="openTab('tab2', this)">Edit</button>
 
-    <!-- Tab content -->
     <div id="tab1" class="tab">&nbsp;
-        <label id="index"></label>&nbsp;&nbsp;
-        <button onclick="next()">↓</button>&nbsp;&nbsp;
-        <button onclick="previous()">↑</button>&nbsp;&nbsp;&nbsp;
-        <button onclick="reverseWordMeaning()">⇄</button>&nbsp;&nbsp;&nbsp;
+        <div id="index"></div>&nbsp;&nbsp;
+        <button onclick="previous()" title="previous">↑</button>&nbsp;&nbsp;&nbsp;
+        <button title='reverse' onclick="reverseWordMeaning()">⇄</button>&nbsp;&nbsp;&nbsp;
         <div id="checkboxContainer">
-            <label>
-                <input type="checkbox" id="sortCheckbox"> Sort
-            </label>
-            <label>
-                <input type="checkbox" id="reviewCheckbox"> Review
-            </label>
-            </id>
-
-            <table>
-                <tr>
-                    <td><textarea name="leftTextArea" rows="7" cols="20" readonly onclick="next()"></textarea></td>
-                    <td><textarea name="rightTextArea" title="click to view" rows="7" cols="20" readonly
-                            onclick="fillInRightTextArea()"></textarea></td>
-                </tr>
-            </table>
+            <input type="checkbox" id="sortCheckbox"> Sort
+            <input type="checkbox" id="reviewCheckbox"> Review
         </div>
 
-        <div id="tab2" class="tab">
-            <label>Edit text then view flash cards.
-                For permanent changes, save html file and edit it.</label><br>
-            <textarea id="text" rows="10" cols="100" wrap="off"></textarea>
-        </div>
+        <table>
+            <tr>
+                <td><textarea name="leftTextArea" title="next" rows="7" cols="20" readonly onclick="next()"></textarea>
+                </td>
+                <td><textarea name="rightTextArea" title="view" rows="7" cols="120" readonly style='width: 100%;'
+                        onclick="fillInRightTextArea()"></textarea></td>
+            </tr>
+        </table>
+    </div>
 
-        <script>
-            // Function to switch between tabs
-            function openTab(evt, tabName) {
-                var i, tab, tabButton;
+    <div id="tab2" class="tab">
+        Edit text then view flash cards. &nbsp;
+        May group them by adding 1,2,3,#,$,%,* before =.<br>
+        For permanent changes, save html file and edit it.<br>
+        <textarea id="flashCardTextArea" rows="55" cols="120" style=' width: 100%;   height: 100%;'
+            onblur="upadateFlashCardText();"></textarea>
+    </div>
 
-                // Hide all tabs and remove the "active" class from tab buttons
-                tab = document.getElementsByClassName("tab");
-                for (i = 0; i < tab.length; i++) {
-                    tab[i].style.display = "none";
-                }
+    <script>
+        // Function to switch between tabs
+        function openTab(tabName, button) {
+            var i, tab, tabButton;
 
-                tabButton = document.getElementsByClassName("tab-button");
-                for (i = 0; i < tabButton.length; i++) {
-                    tabButton[i].className = tabButton[i].className.replace(" active", "");
-                }
-
-                // Show the selected tab and add the "active" class to the button that opened the tab
-                document.getElementById(tabName).style.display = "block";
-                evt.currentTarget.className += " active";
+            // Hide all tabs and remove the "active" class from tab buttons
+            tab = document.getElementsByClassName("tab");
+            for (i = 0; i < tab.length; i++) {
+                tab[i].style.display = "none";
             }
 
-            // Open the first tab by default
-            document.getElementById("tab1").style.display = "block";
+            tabButton = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tabButton.length; i++) {
+                tabButton[i].classList.remove("active");
+            }
 
-            // Add an event listener to the text area to display "left text area" on blur (when leaving)
-            const textArea = document.getElementById("text");
-            textArea.addEventListener("blur", function () {
-                console.log("Left text area");
-            });
-        </script>
+            // Show the selected tab and add the "active" class to the button that opened the tab
+            document.getElementById(tabName).style.display = "block";
+            button.classList.add("active");
+        }
 
-        <script>
-            var flashCardText = `
+        // Open the first tab by default
+        openTab('tab1', document.querySelector('.tab-button:nth-child(1)'));
+
+        // Add an event listener to the text area to display "left text area" on blur (when leaving)
+        const textArea = document.getElementById("flashCardTextArea");
+        textArea.addEventListener("onchange", function () {
+            console.log("Left text area");
+        });
+    </script>
+
+    <script>
+        var flashCardText = `
 συγχύζω      =muddle; εκνευρίζω και στενοχωρώ
 Εκαβη        =Hecuba wife of Priam king of troy
 ασυλληπτο    =inconceivable WRONG - δεν έχουν/μπορούν συλλάβει
@@ -147,7 +154,7 @@
 αναφανδόν      =overtly; εντελώς φανερά ή χωρίς επιφυλάξεις
 αισχύνομαι     =great shame; τρέπομαι
 προβλέπω       =predict; διακρίνω, νιώθω, μαντεύω πριν να συμβεί
-αναβολή        =postponement
+αναβολή        =postponementtext
 απόβλητος      =outcast(rejected by society or a social group) εκδιώχθηκε, που απομακρύνθηκε υποχρεωτικά
 συνοικέσιο     =match; μεσολάβηση που γίνεται για να γνωριστούν ένας άντρας και μία γυναίκα
 μουρντάρης     =libertine; εχει πολλές εξωσυζυγικές σχέσεις (τουρκική murdar - βρομηκος)
@@ -155,7 +162,7 @@
 όψομαι         =επίγνωση του κακού που έκανε(ς) και ας τιμωρηθεί(ς) από το Θεό
 τσιγκογραφείο  =printing press; ψευδάργυρογαφείο; ψευδάργυρος-zinc (fake-silver) (actually lead, antimony, steel, and tin)
 τσιγκος        =λαμαρινα με ψευδάργυρο
-κασσίτερος     =tin  (Sn; stannum - alloy of silver and lead, or tin)
+κασσίτερος     =tin  (Sn; stannum - alloy of silver and lead, ortext tin)
 σαχλος         =ανητος (χωρις μυαλο) και ασοβαρος
 εθελούσιος     =volunteer
 εφάπαξ         =single payment
@@ -186,10 +193,7 @@
 υποχόνδριος    =κατά φαντασίαν ασθενής´ hypochondriac; hypochondrium  just below the lowest
 οίκτος         =λύπη/συμπάθεια για καπιον σε πολύ άσχημη κατάσταση
 οίκτρος        =pitiful''προκαλει το οικτο (pity)
-Άλλαι μεν βουλαί ανθρώπων άλλα δε θεός κελεύει   =Άλλα τα σχέδια των ανθρώπων κι άλλες οι προσταγές του θεού
-Αμφιτρίτη       =σύζυγος θεού Ποσειδώνα
-Νηρηίδα         =νεράιδα; Νύμφh; στην άγρια φύση
-οικονόμος       =housekeeper/butler; μη σπαταλος - υπηρέτης με διαχείριση του σπιτιού
+Άλλαι μεν βουλαί ανupadateFlashCardText()usekeeper/butler; μη σπαταλος - υπηρέτης με διαχείριση του σπιτιού
 ειδύλλιο        =1. ερωτικό ποίημα ή λογοτεχνικό έργο  2. romance
 μέμφομαι        =κατηγορώ  accuse/blame(shame)/reproach(address with disapproval)
 πλασιέ          =πωλητής (French placier)
@@ -201,6 +205,7 @@
 αφελης          =naive; δε σκέφτεται τα πράγματα σε βάθος ; εξαπατάται από άλλους
 απόκληρος       =Disinherited heir; αποκλείεται από την κληρονομικα που του ανήκει (οθτψαστ)
 απόγνωση        =πολύ μεγάλη απελπισία - large despair; απόγνωμενος - desperate
+απρόοπτο        =unforeseen; δεν μπορείς να προβλέψεις
 μείζονα         =major - greater
 έμμηνα          =mense - blood from uterus
 ουδέν κακόν αμιγές καλού   =κανενα κακον ποθ δεν εχει αναμιχθει με καλον
@@ -293,107 +298,171 @@
 δυσφορία       =ελαφράς αδιαθεσίας, αβολίας, εκνευρισμού; disforia: profound sense of unease or dissatisfaction - in depression, anxiety, irritability, and difficulty concentrating
 `;
 
-            var flashCardList;
-            var displayArrayIndex;
-            var sortedIndexes;
+        var flashCardList;
+        var displayArrayIndex;
+        var sortedIndexes;
+        var cardMarkers;
+        var activeCardMarkers;
 
-            function initializeFlashCards() {
-                var linesArray = flashCardText.trim().split('\n');
-                lineCount = linesArray.length
-                linesArray = linesArray.filter(str => str.includes('='));
-                flashCardCount = linesArray.length
-                if (lineCount!=flashCardCount){
-                    console.log((lineCount-flashCardCount)+ ' dropped, did not have "="')
+        function initializeFlashCards() {
+            flashCardText = flashCardText.trim()
+            var linesArray = flashCardText.trim().split('\n');
+            lineCount = linesArray.length
+            linesArray = linesArray.filter(str => str.includes('='));
+            flashCardCount = linesArray.length
+            if (lineCount != flashCardCount) {
+                console.log((lineCount - flashCardCount) + ' dropped, did not have "="')
+            }
+            flashCardList = [];
+            cardMarkers = new Set();
+            activeCardMarkers = new Set();
+            const markCharacters = ['1', '2', '3', '%', '$', '#', '*']
+            for (const line of linesArray) {
+                const values = line.split('=').map(value => value.trim());
+                flashCardList.push(values);
+                for (const char of markCharacters) {
+                    if (values[0].includes(char)) {
+                        cardMarkers.add(char);
+                    }
                 }
-                flashCardList = [];
+            }
+            for (const cardMarker of cardMarkers) {
+                addCheckbox(cardMarker)
+            }
+            sortedIndexes = [];
+            const clonedFlashCardList = flashCardList.slice();
+            clonedFlashCardList.sort((a, b) => a[0].localeCompare(b[0]));
+            for (const row of clonedFlashCardList) {
+                // Find the index of the row in the original array
+                const index = flashCardList.indexOf(row);
+                sortedIndexes.push(index);
+            }
+            var isWordMeaningReversed = false
+            displayArrayIndex = 0
+            fillInTextAreas()
+            console.log('initializeFlashCards() done')
+        }
+
+        function upadateFlashCardText() {
+            for (const cardMarker of cardMarkers) {
+                removeCheckbox(cardMarker)
+            }
+            flashCardText = document.getElementById("flashCardTextArea").value 
+            initializeFlashCards() 
+            console.log('upadateFlashCardText() done')
+        }
+
+        function addCheckbox(marker) {
+            const checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.id = marker
+            const label = document.createElement('label');
+            label.appendChild(checkbox);
+            label.appendChild(document.createTextNode(marker + ' '));
+            const checkboxContainer = document.getElementById("checkboxContainer");
+            checkboxContainer.appendChild(label);
+            checkbox.addEventListener('click', update);
+
+            function update() {
+                if (checkbox.checked) {
+                    console.log('Checkbox ' + marker + ' is checked');
+                    activeCardMarkers.add(marker)
+                } else {
+                    console.log('Checkbox ' + marker + ' is unchecked');
+                    activeCardMarkers.delete(marker)
+                }
                 for (const line of linesArray) {
                     const values = line.split('=').map(value => value.trim());
-                    flashCardList.push(values);
-                }    
-                 sortedIndexes = [];
-                const clonedFlashCardList = flashCardList.slice();
-                clonedFlashCardList.sort((a, b) => a[0].localeCompare(b[0]));
-                for (const row of clonedFlashCardList) {
-                    // Find the index of the row in the original array
-                    const index = flashCardList.indexOf(row);
-                    sortedIndexes.push(index);
+                    for (const activeCardMarker of activeCardMarkers) {
+                        //if (activeCardMarker)
+                    }
                 }
-                var isWordMeaningReversed = false
+            }
+
+        }
+        function removeCheckbox(cardMarker) {
+            const checkbox = document.getElementById(cardMarker);
+            const checkboxContainer = document.getElementById("checkboxContainer");
+            checkboxContainer.removeChild(checkbox.parentElement);
+        }
+
+
+        initializeFlashCards();
+        const flashCardTextArea = document.getElementById("flashCardTextArea")
+        flashCardTextArea.value = flashCardText
+        console.log('set edit text')
+
+
+        var isWordMeaningReversed = false
+        var isReviewMode = false
+        var isSortMode = false
+        const checkbox1 = document.getElementById("sortCheckbox");
+        checkbox1.addEventListener('change', function () {
+            if (checkbox1.checked) {
+                isSortMode = true
                 displayArrayIndex = 0
                 fillInTextAreas()
-            }
-            initializeFlashCards();
-
-            var isWordMeaningReversed = false
-            var isReviewMode = false
-            var isSortMode = false
-            const checkbox1 = document.getElementById("sortCheckbox");
-            checkbox1.addEventListener('change', function () {
-                if (checkbox1.checked) {
-                    isSortMode = true
-                    fillInTextAreas()
-                } else {
-                    isSortMode = false
-                    fillInTextAreas()
-                }flashCards
-            });
-            const checkbox2 = document.getElementById("reviewCheckbox");
-            checkbox2.addEventListener('change', function () {
-                if (checkbox2.checked) {
-                    isReviewMode = true
-                    fillInRightTextArea()
-                } else {
-                    isReviewMode = false
-                    document.getElementsByName("rightTextArea")[0].value = ''
-                }
-            });
-
-
-
-            function reverseWordMeaning() {
-                isWordMeaningReversed = !isWordMeaningReversed;
-                document.getElementsByName("rightTextArea")[0].value = ''
+            } else {
+                isSortMode = false
                 fillInTextAreas()
             }
-            
-            function next() {
-                displayArrayIndex += 1;
-                if (displayArrayIndex == flashCardList.length) {
-                    displayArrayIndex = 0;
-                }
+        });
+        const checkbox2 = document.getElementById("reviewCheckbox");
+        checkbox2.addEventListener('change', function () {
+            if (checkbox2.checked) {
+                isReviewMode = true
+                fillInRightTextArea()
+            } else {
+                isReviewMode = false
                 document.getElementsByName("rightTextArea")[0].value = ''
-                fillInTextAreas()
             }
+        });
 
-            function previous() {
-                displayArrayIndex -= 1;
-                if (displayArrayIndex < 0) {
-                    displayArrayIndex = flashCardList.length - 1;
-                }
+
+
+        function reverseWordMeaning() {
+            isWordMeaningReversed = !isWordMeaningReversed;
+            fillInTextAreas()
+        }
+
+        function next() {
+            displayArrayIndex += 1;
+            if (displayArrayIndex == flashCardList.length) {
+                displayArrayIndex = 0;
+            }
+            fillInTextAreas()
+        }
+
+        function previous() {
+            displayArrayIndex -= 1;
+            if (displayArrayIndex < 0) {
+                displayArrayIndex = flashCardList.length - 1;
+            }
+            fillInTextAreas()
+        }
+
+        function fillInTextAreas() {
+            const j = isWordMeaningReversed ? 1 : 0;
+            const i = isSortMode ? sortedIndexes[displayArrayIndex] : displayArrayIndex;
+            console.log('i=' + i + '  j=' + j)
+            document.getElementsByName("leftTextArea")[0].value = flashCardList[i][j]
+            var label = document.getElementById("index");
+            if (isReviewMode) {
+                fillInRightTextArea()
+            } else {
                 document.getElementsByName("rightTextArea")[0].value = ''
-                fillInTextAreas()
             }
+            label.innerHTML = String(displayArrayIndex + 1) + ' / ' + String(flashCardList.length)
+        }
 
-            function fillInTextAreas() {
-                const j = isWordMeaningReversed ? 1 : 0;
-                const i = isSortMode ? sortedIndexes[displayArrayIndex] : displayArrayIndex;
-                console.log('i=' + i + '  j=' + j)
-                document.getElementsByName("leftTextArea")[0].value = flashCardList[i][j]
-                var label = document.getElementById("index");
-                if (isReviewMode) {
-                    fillInRightTextArea()
-                }
-                label.innerHTML = String(displayArrayIndex + 1) + ' / ' + String(flashCardList.length)
-            }
+        function fillInRightTextArea() {
+            const j = isWordMeaningReversed ? 0 : 1;
+            const i = isSortMode ? sortedIndexes[displayArrayIndex] : displayArrayIndex;
+            document.getElementsByName("rightTextArea")[0].value = flashCardList[i][j]
+            console.log("right: " + flashCardList[displayArrayIndex][i]);
+        }
 
-            function fillInRightTextArea() {
-                const j = isWordMeaningReversed ? 0 : 1;
-                const i = isSortMode ? sortedIndexes[displayArrayIndex] : displayArrayIndex;
-                document.getElementsByName("rightTextArea")[0].value = flashCardList[i][j]
-                console.log("right: " + flashCardList[displayArrayIndex][i]);
-            }
-
-        </script>
+    </script>
 </body>
 
 </html>
