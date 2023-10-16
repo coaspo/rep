@@ -101,20 +101,15 @@
 συγχύζω      =muddle; εκνευρίζω και στενοχωρώ
 Εκαβη        =Hecuba wife of Priam king of troy
 ασυλληπτο    =inconceivable WRONG - δεν έχουν/μπορούν συλλάβει
-μοιραιο      =fatal; αναπόφευκτος
-σουσούδα     =σουσουράδα? - πτηνο/νεαρή κοπέλα που κάνει όλο καμώματα και νάζια
+μοιραιο  #    =fatal; αναπόφευκτος
+σουσούδα     =σουσουράδα? - πτηνο/νεαρή κοπέλα που κάνει όλο καμflashCardLisώματα και νάζια
 περιφρόνηση  =contempt; αδιαφορία σε κάποιον/κάτι που δεν αξίζει το ενδιαφέρον/σεβασμό
 τζουτζε      =γελωτοποιός; τουρκική cüce (vάνος)
-ταπεινοφροσυνη = humble; ANT αλαζονεία
-πφ =??
-καχύποπτος    =suspicious; υποπτεύεται πάντες/πάντα
-γουστο        =taste  <βεν. gusto.
-ξεκάνω        =dispose of; σκοτώνω
-κακεντρεχής   =malicer; επιδιώκει το κακό άλλων + χαίρεται για δυσάρεστα άλλων
+ταπεινοφροσυνη = humble; ANT αλαζονείαflashCardLisυσάρεστα άλλων
 αποποιούμαι   =disclaim (refuse to acknowledge); δεν αποδέχομαι, δε δέχομαι, αρνούμαι
 αναίδεια      =impudence (no respect for another person); έλλειψη ντροπής
 πρόληψη       =prevention; εμποδίσh αρνητικών/βλαπτικών
-όσιος         =faithful; σεβαστός, ευσεβής
+όσιος   #      =faithful; σεβαστός, ευσεβής
 μοσχολίβανον  =Frankincense/myrrh Boswellia/Commiphora trees in Oman/Africa; gold, frankincense, and myrrh
 οιωνός        =omen
 περιβόητος    =notorious
@@ -297,105 +292,132 @@
 απαλλαγώ       =get rid of
 δυσφορία       =ελαφράς αδιαθεσίας, αβολίας, εκνευρισμού; disforia: profound sense of unease or dissatisfaction - in depression, anxiety, irritability, and difficulty concentrating
 `;
+        const flashCardTextArea = document.getElementById("flashCardTextArea")
+        flashCardTextArea.value = flashCardText
 
-        var flashCardList;
-        var displayArrayIndex;
-        var sortedIndexes;
-        var cardMarkers;
+        var flashCardList = createFlashCards(flashCardText);
+        var displayFlashCardList = [...flashCardList];
+
+
+        var cardMarkers = findCardMarkers(flashCardList);
         var activeCardMarkers;
+        addMarkerCheckboxesAndCreateActiveCardMarkersSet(cardMarkers);
+        var sortedIndexes = findSortedIndexes(displayFlashCardList);
+        var displayArrayIndex = 0;
+        var isWordMeaningReversed = false
+        var isReviewMode = false
+        var isSortMode = false
+        fillInTextAreas()
 
-        function initializeFlashCards() {
+        function createFlashCards(flashCardText) {
             flashCardText = flashCardText.trim()
-            var linesArray = flashCardText.trim().split('\n');
-            lineCount = linesArray.length
+            let linesArray = flashCardText.trim().split('\n');
+            let originalLineCount = linesArray.length
             linesArray = linesArray.filter(str => str.includes('='));
-            flashCardCount = linesArray.length
-            if (lineCount != flashCardCount) {
-                console.log((lineCount - flashCardCount) + ' dropped, did not have "="')
+            if (originalLineCount != linesArray.length) {
+                console.log((originalLineCount - linesArray.length) + ' lines dropped, did not have "="')
             }
-            flashCardList = [];
-            cardMarkers = new Set();
-            activeCardMarkers = new Set();
-            const markCharacters = ['1', '2', '3', '%', '$', '#', '*']
+            let flashCardList = [];
             for (const line of linesArray) {
-                const values = line.split('=').map(value => value.trim());
-                flashCardList.push(values);
+                const flashCard = line.split('=').map(value => value.trim());
+                flashCardList.push(flashCard);
+            }
+            console.log('createFlashCards() ' + flashCardList.length + ' flash cards')
+            return flashCardList
+        }
+
+        function filterFlashCards(flashCardList, activeCardMarkers) {
+            let ardMarkers = new Set();
+            const markCharacters = ['1', '2', '3', '%', '$', '#', '*']
+            let filteredFlashCardList = [];
+            for (const flashCard of flashCardList) {
+                for (const char of activeCardMarkers) {
+                    if (flashCard[0].includes(char)) {
+                        filteredFlashCardList.push(flashCard);
+                    }
+                }
+            }
+            console.log('filterFlashCards() ' + filteredFlashCardList.length + ' filtered flash cards')
+            return filteredFlashCardList
+        }
+
+        function findCardMarkers(flashCardList) {
+            let cardMarkers = new Set();
+            const markCharacters = ['1', '2', '3', '%', '$', '#', '*']
+            for (const flashCard of flashCardList) {
                 for (const char of markCharacters) {
-                    if (values[0].includes(char)) {
+                    if (flashCard[0].includes(char)) {
                         cardMarkers.add(char);
                     }
                 }
             }
+            console.log('findCardMarkers()  found:')
+            console.log(...cardMarkers)
+            return cardMarkers
+        }
+
+        function addMarkerCheckboxesAndCreateActiveCardMarkersSet(cardMarkers) {
+            activeCardMarkers = new Set(); // global variable
             for (const cardMarker of cardMarkers) {
-                addCheckbox(cardMarker)
+                const checkbox = document.createElement("input");
+                checkbox.type = "checkbox";
+                checkbox.id = cardMarker
+                const label = document.createElement('label');
+                label.appendChild(checkbox);
+                label.appendChild(document.createTextNode(cardMarker + ' '));
+                const checkboxContainer = document.getElementById("checkboxContainer");
+                checkboxContainer.appendChild(label);
+                checkbox.addEventListener('click', update);
+
+                function update() {
+                    if (checkbox.checked) {
+                        console.log('Checkbox ' + cardMarker + ' is checked');
+                        activeCardMarkers.add(cardMarker)
+                    } else {
+                        console.log('Checkbox ' + cardMarker + ' is unchecked');
+                        activeCardMarkers.delete(cardMarker)
+                    }
+                    displayFlashCardList = filterFlashCards(flashCardList, activeCardMarkers)
+                    displayArrayIndex = 0;
+                    fillInTextAreas()
+                }
             }
-            sortedIndexes = [];
+            console.log('addMarkerCheckboxesAndCreateActiveCardMarkersSet()')
+        }
+
+        function findSortedIndexes(flashCardList) {
+            let sortedIndexes = [];
             const clonedFlashCardList = flashCardList.slice();
             clonedFlashCardList.sort((a, b) => a[0].localeCompare(b[0]));
             for (const row of clonedFlashCardList) {
-                // Find the index of the row in the original array
                 const index = flashCardList.indexOf(row);
                 sortedIndexes.push(index);
             }
-            var isWordMeaningReversed = false
-            displayArrayIndex = 0
-            fillInTextAreas()
-            console.log('initializeFlashCards() done')
+            return sortedIndexes;
         }
+
 
         function upadateFlashCardText() {
             for (const cardMarker of cardMarkers) {
                 removeCheckbox(cardMarker)
             }
-            flashCardText = document.getElementById("flashCardTextArea").value 
-            initializeFlashCards() 
+            flashCardText = document.getElementById("flashCardTextArea").value
+            flashCardList = createFlashCards(flashCardText);
+            displayFlashCardList = [...flashCardList];
+            cardMarkers = findCardMarkers(flashCardList);
+            addMarkerCheckboxesAndCreateActiveCardMarkersSet(cardMarkers);
+            sortedIndexes = findSortedIndexes(displayFlashCardList);
+            displayArrayIndex = 0;
             console.log('upadateFlashCardText() done')
         }
 
-        function addCheckbox(marker) {
-            const checkbox = document.createElement("input");
-            checkbox.type = "checkbox";
-            checkbox.id = marker
-            const label = document.createElement('label');
-            label.appendChild(checkbox);
-            label.appendChild(document.createTextNode(marker + ' '));
-            const checkboxContainer = document.getElementById("checkboxContainer");
-            checkboxContainer.appendChild(label);
-            checkbox.addEventListener('click', update);
 
-            function update() {
-                if (checkbox.checked) {
-                    console.log('Checkbox ' + marker + ' is checked');
-                    activeCardMarkers.add(marker)
-                } else {
-                    console.log('Checkbox ' + marker + ' is unchecked');
-                    activeCardMarkers.delete(marker)
-                }
-                for (const line of linesArray) {
-                    const values = line.split('=').map(value => value.trim());
-                    for (const activeCardMarker of activeCardMarkers) {
-                        //if (activeCardMarker)
-                    }
-                }
-            }
-
-        }
         function removeCheckbox(cardMarker) {
             const checkbox = document.getElementById(cardMarker);
             const checkboxContainer = document.getElementById("checkboxContainer");
             checkboxContainer.removeChild(checkbox.parentElement);
         }
 
-
-        initializeFlashCards();
-        const flashCardTextArea = document.getElementById("flashCardTextArea")
-        flashCardTextArea.value = flashCardText
-        console.log('set edit text')
-
-
-        var isWordMeaningReversed = false
-        var isReviewMode = false
-        var isSortMode = false
         const checkbox1 = document.getElementById("sortCheckbox");
         checkbox1.addEventListener('change', function () {
             if (checkbox1.checked) {
@@ -407,6 +429,7 @@
                 fillInTextAreas()
             }
         });
+
         const checkbox2 = document.getElementById("reviewCheckbox");
         checkbox2.addEventListener('change', function () {
             if (checkbox2.checked) {
@@ -419,7 +442,6 @@
         });
 
 
-
         function reverseWordMeaning() {
             isWordMeaningReversed = !isWordMeaningReversed;
             fillInTextAreas()
@@ -427,7 +449,7 @@
 
         function next() {
             displayArrayIndex += 1;
-            if (displayArrayIndex == flashCardList.length) {
+            if (displayArrayIndex == displayFlashCardList.length) {
                 displayArrayIndex = 0;
             }
             fillInTextAreas()
@@ -436,7 +458,7 @@
         function previous() {
             displayArrayIndex -= 1;
             if (displayArrayIndex < 0) {
-                displayArrayIndex = flashCardList.length - 1;
+                displayArrayIndex = displayFlashCardList.length - 1;
             }
             fillInTextAreas()
         }
@@ -445,21 +467,21 @@
             const j = isWordMeaningReversed ? 1 : 0;
             const i = isSortMode ? sortedIndexes[displayArrayIndex] : displayArrayIndex;
             console.log('i=' + i + '  j=' + j)
-            document.getElementsByName("leftTextArea")[0].value = flashCardList[i][j]
+            document.getElementsByName("leftTextArea")[0].value = displayFlashCardList[i][j]
             var label = document.getElementById("index");
             if (isReviewMode) {
                 fillInRightTextArea()
             } else {
                 document.getElementsByName("rightTextArea")[0].value = ''
             }
-            label.innerHTML = String(displayArrayIndex + 1) + ' / ' + String(flashCardList.length)
+            label.innerHTML = String(displayArrayIndex + 1) + ' / ' + String(displayFlashCardList.length)
         }
 
         function fillInRightTextArea() {
             const j = isWordMeaningReversed ? 0 : 1;
             const i = isSortMode ? sortedIndexes[displayArrayIndex] : displayArrayIndex;
-            document.getElementsByName("rightTextArea")[0].value = flashCardList[i][j]
-            console.log("right: " + flashCardList[displayArrayIndex][i]);
+            document.getElementsByName("rightTextArea")[0].value = displayFlashCardList[i][j]
+            console.log("right: " + displayFlashCardList[displayArrayIndex][i]);
         }
 
     </script>
