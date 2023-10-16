@@ -301,13 +301,34 @@
 
         var cardMarkers = findCardMarkers(flashCardList);
         var activeCardMarkers;
-        addMarkerCheckboxesAndCreateActiveCardMarkersSet(cardMarkers);
         var sortedIndexes = findSortedIndexes(displayFlashCardList);
         var displayArrayIndex = 0;
         var isWordMeaningReversed = false
         var isReviewMode = false
         var isSortMode = false
-        fillInTextAreas()
+        initializeWebPage()
+
+        function initializeWebPage() {
+            addMarkerCheckboxesAndCreateActiveCardMarkersSet(cardMarkers);
+            fillInTextAreas()
+            const checkbox1 = document.getElementById("sortCheckbox");
+            checkbox1.addEventListener('change', function () {
+                isSortMode =checkbox1.checked
+                displayArrayIndex = 0
+                fillInTextAreas()
+            });
+
+            const checkbox2 = document.getElementById("reviewCheckbox");
+            checkbox2.addEventListener('change', function () {
+                isReviewMode = checkbox2.checked
+                if (checkbox2.checked) {
+                    fillInRightTextArea()
+                } else {
+                    document.getElementsByName("rightTextArea")[0].value = ''
+                }
+            });
+
+        }
 
         function createFlashCards(flashCardText) {
             flashCardText = flashCardText.trim()
@@ -378,6 +399,7 @@
                         activeCardMarkers.delete(cardMarker)
                     }
                     displayFlashCardList = filterFlashCards(flashCardList, activeCardMarkers)
+                    sortedIndexes = findSortedIndexes(displayFlashCardList);
                     displayArrayIndex = 0;
                     fillInTextAreas()
                 }
@@ -417,29 +439,6 @@
             const checkboxContainer = document.getElementById("checkboxContainer");
             checkboxContainer.removeChild(checkbox.parentElement);
         }
-
-        const checkbox1 = document.getElementById("sortCheckbox");
-        checkbox1.addEventListener('change', function () {
-            if (checkbox1.checked) {
-                isSortMode = true
-                displayArrayIndex = 0
-                fillInTextAreas()
-            } else {
-                isSortMode = false
-                fillInTextAreas()
-            }
-        });
-
-        const checkbox2 = document.getElementById("reviewCheckbox");
-        checkbox2.addEventListener('change', function () {
-            if (checkbox2.checked) {
-                isReviewMode = true
-                fillInRightTextArea()
-            } else {
-                isReviewMode = false
-                document.getElementsByName("rightTextArea")[0].value = ''
-            }
-        });
 
 
         function reverseWordMeaning() {
