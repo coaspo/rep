@@ -31,6 +31,10 @@
             background-color: #ccc;
             text-align: center;
         }
+
+        input[type="checkbox"]:disabled+label {
+            color: gray;
+        }
     </style>
 </head>
 
@@ -41,10 +45,11 @@
     <div id="tab1" class="tab">&nbsp;
         <div id="index"></div>&nbsp;&nbsp;
         <button onclick="previous()" title="previous">↑</button>&nbsp;&nbsp;&nbsp;
-        <button title='reverse' onclick="reverseWordMeaning()">⇄</button>&nbsp;&nbsp;&nbsp;
+        <button id="reverseButton" title='reverse' onclick="reverseWordMeaning()">⇄</button>&nbsp;&nbsp;&nbsp;
         <div id="checkboxContainer">
-            <input type="checkbox" id="sortCheckbox"> Sort
-            <input type="checkbox" id="reviewCheckbox"> Review
+            <input type="checkbox" id="sortCheckbox"> <label for="sortCheckbox"> Sort</label>
+            <input type="checkbox" id="reviewCheckbox"><label for="reviewCheckbox"> Review</label>
+            <input type="checkbox" id="quizCheckbox"><label for="quizCheckbox"> Quiz</label>
         </div>
 
         <table>
@@ -55,11 +60,13 @@
                         onclick="fillInRightTextArea()"></textarea></td>
             </tr>
         </table>
+        &nbsp;&nbsp;&nbsp;<button id="gradeQuizButton" onclick="gradeQuiz()" disabled>Grade Quiz</button><br>
+        &nbsp;&nbsp;<div id="quizInfo"></div>&nbsp;&nbsp;
     </div>
 
     <div id="tab2" class="tab">
-        Edit text then view flash cards. &nbsp;
-        May group them by adding 1,2,3,#,$,%,* before =.<br>
+        Edit and leave text box to update. &nbsp;
+        Create groups by adding 1,2,3,#,$,%,* before =.<br>
         For permanent changes, save html file and edit it.<br>
         <textarea id="flashCardTextArea" rows="55" cols="120" style=' width: 100%;   height: 100%;'
             onblur="upadateFlashCardText();"></textarea>
@@ -99,8 +106,8 @@
     <script>
         var flashCardText = `
 συγχύζω      =muddle; εκνευρίζω και στενοχωρώ
-Εκαβη        =Hecuba wife of Priam king of troy
-ασυλληπτο    =inconceivable WRONG - δεν έχουν/μπορούν συλλάβει
+Εκαβη      $  =Hecuba wife of Priam king of troy
+ασυλληπτο   $ =inconceivable WRONG - δεν έχουν/μπορούν συλλάβει
 μοιραιο      =fatal; αναπόφευκτος
 σουσούδα     =σουσουράδα? - πτηνο/νεαρή κοπέλα που κάνει όλο καμflashCardLisώματα και νάζια
 περιφρόνηση  =contempt; αδιαφορία σε κάποιον/κάτι που δεν αξίζει το ενδιαφέρον/σεβασμό
@@ -119,13 +126,7 @@
 και ούτω καθεξής   =and so on
 έμεινε στο ράφι   =spinster; αντικείμενα να τοποθετούνται σε ράφια για στολισμό
 απτό    #      =tangible; αρχαία ελληνική φανερός
-υπονοούμενο   =implication;  λέγεται με τρόπο έμμεσο και καλυμμένο (οτι θίγει δυσάρεστο/λεπτό)
-χειραφέτηση #  =emancipation;  απαλλαγή από τη γονική κηδεμονία
-ιδιοτελής  #   =selfish; exaggerated sense of importance; ατομικό μόνο συμφέρον
-εγωκεντρικός  =self centered; concern only for self
-αποκύηση  #    =pregnancy
-αναγούλα  #   =τάση για εμετό, ναυτία :nausea
-θρασύδειλος #  =θράσος όταν δεν αντιμετωπίζει απειλή, υποχωρεί μόλις αντιμετωπίσει κπ. ισχυρότερό
+υπονοούμενο   =implication;  λέγεται με τρόπο έμμεσο και onblurχωρεί μόλις αντιμετωπίσει κπ. ισχυρότερό
 βολιδοσκόπηση # =research; διερεύνηση για πληρέστερης εικόνας, πριν αποφάση/ενεργεια
 οικειότητα  #  =intimacy
 διατροφή      =food; τροφή που χρειάζεται για συντήρηση
@@ -297,6 +298,7 @@
 
         var flashCardList = createFlashCards(flashCardText);
         var displayFlashCardList = [...flashCardList];
+        var flashCardAnswerList;
 
 
         var cardMarkers = findCardMarkers(flashCardList);
@@ -306,29 +308,95 @@
         var isWordMeaningReversed = false
         var isReviewMode = false
         var isSortMode = false
+        var isQuizMode = false
         initializeWebPage()
 
         function initializeWebPage() {
             addMarkerCheckboxesAndCreateActiveCardMarkersSet(cardMarkers);
             fillInTextAreas()
-            const checkbox1 = document.getElementById("sortCheckbox");
-            checkbox1.addEventListener('change', function () {
-                isSortMode =checkbox1.checked
+            const sortCheckbox = document.getElementById("sortCheckbox");
+            sortCheckbox.addEventListener('change', function () {
+                isSortMode = sortCheckbox.checked
                 displayArrayIndex = 0
                 fillInTextAreas()
             });
 
-            const checkbox2 = document.getElementById("reviewCheckbox");
-            checkbox2.addEventListener('change', function () {
-                isReviewMode = checkbox2.checked
-                if (checkbox2.checked) {
-                    fillInRightTextArea()
+            const reviewCheckbox = document.getElementById("reviewCheckbox");
+            reviewCheckbox.addEventListener('change', function () {
+                isReviewMode = reviewCheckbox.checked;
+                fillInRightTextArea();
+            });
+
+            const quizCheckbox = document.getElementById("quizCheckbox");
+            quizCheckbox.addEventListener('change', function () {
+                isQuizMode = quizCheckbox.checked
+                console.log('isQuizMode= ' + isQuizMode)
+                if (isQuizMode) {
+                    isReviewMode = false;
+                    isSortMode = false;
+                    document.getElementById("reviewCheckbox").checked = false
+                    document.getElementById("sortCheckbox").checked = false
+                    flashCardAnswerList = Array(displayFlashCardList.length).fill("");
+                    document.getElementById("quizInfo").innerHTML = "Type one word anwser and go to next card. <br>&nbsp;&nbsp;Correct answer is the first flash card word."
                 } else {
-                    document.getElementsByName("rightTextArea")[0].value = ''
+                    document.getElementById("quizInfo").innerHTML = ""
+                }
+                document.getElementById("reverseButton").disabled = isQuizMode;
+                document.getElementById("reviewCheckbox").disabled = isQuizMode;
+                document.getElementById("sortCheckbox").disabled = isQuizMode;
+                document.getElementsByName("rightTextArea")[0].readOnly = !isQuizMode;
+                for (const cardMarker of cardMarkers) {
+                    document.getElementById(cardMarker).disabled = isQuizMode;
+                }
+                displayArrayIndex = 0
+                fillInTextAreas()
+            });
+
+            const rightTextArea = document.getElementsByName("rightTextArea")[0]
+            console.log('rightTextArea= ' + rightTextArea)
+            rightTextArea.addEventListener('change', function (event) {
+                if (!isQuizMode) {
+                    return
+                }
+                flashCardAnswerList[displayArrayIndex] = rightTextArea.value
+                let haveAllAnswers = true
+                for (const answer of flashCardAnswerList) {
+                    if (answer == '') {
+                        haveAllAnswers = false
+                        break
+                    }
+                }
+                if (haveAllAnswers) {
+                    document.getElementById("gradeQuizButton").disabled = false;
                 }
             });
 
         }
+
+        function gradeQuiz() {
+            document.getElementById("gradeQuizButton").disabled = true;
+            let correctCount = 0
+            for (let i = 0; i < flashCardAnswerList.length; i++) {
+                answer = flashCardAnswerList[i].trim().toLowerCase()
+                const j = isWordMeaningReversed ? 0 : 1;
+                let str = displayFlashCardList[i][j].trim()
+                let words = str.split(/\s+/);
+                correctAnswer = words[0].toLowerCase()
+                isCorrect = answer == correctAnswer
+                correctCount += isCorrect ? 1 : 0
+                let mark = isCorrect ? "✅ " : "❌ "
+                flashCardAnswerList[i] = mark + flashCardAnswerList[i]
+                if (!isCorrect) {
+                    flashCardAnswerList[i] += "\n✅ " + correctAnswer
+                }
+
+            }
+            displayArrayIndex = 0
+            fillInRightTextArea()
+            const score = (100 * correctCount / flashCardAnswerList.length).toFixed(0)
+            document.getElementById("quizInfo").innerHTML = "Quiz score: " + score + '%'
+        }
+
 
         function createFlashCards(flashCardText) {
             flashCardText = flashCardText.trim()
@@ -348,7 +416,6 @@
         }
 
         function filterFlashCards(flashCardList, activeCardMarkers) {
-            let ardMarkers = new Set();
             const markCharacters = ['1', '2', '3', '%', '$', '#', '*']
             let filteredFlashCardList = [];
             for (const flashCard of flashCardList) {
@@ -384,23 +451,22 @@
                 checkbox.type = "checkbox";
                 checkbox.id = cardMarker
                 const label = document.createElement('label');
-                label.appendChild(checkbox);
-                label.appendChild(document.createTextNode(cardMarker + ' '));
+                label.htmlFor = cardMarker;
+                label.appendChild(document.createTextNode(' '+ cardMarker + ' '));
                 const checkboxContainer = document.getElementById("checkboxContainer");
+                checkboxContainer.appendChild(checkbox);
                 checkboxContainer.appendChild(label);
                 checkbox.addEventListener('click', update);
 
                 function update() {
+                    displayArrayIndex = 0
                     if (checkbox.checked) {
-                        console.log('Checkbox ' + cardMarker + ' is checked');
                         activeCardMarkers.add(cardMarker)
                     } else {
-                        console.log('Checkbox ' + cardMarker + ' is unchecked');
                         activeCardMarkers.delete(cardMarker)
                     }
-                    displayFlashCardList = filterFlashCards(flashCardList, activeCardMarkers)
-                    sortedIndexes = findSortedIndexes(displayFlashCardList);
-                    displayArrayIndex = 0;
+                    displayFlashCardList = activeCardMarkers.size == 0 ? flashCardList : filterFlashCards(flashCardList, activeCardMarkers)
+                    console.log('update() a marker Checkbox; activeCardMarkers= ' + Array.from(activeCardMarkers));
                     fillInTextAreas()
                 }
             }
@@ -469,19 +535,23 @@
             console.log('i=' + i + '  j=' + j)
             document.getElementsByName("leftTextArea")[0].value = displayFlashCardList[i][j]
             var label = document.getElementById("index");
-            if (isReviewMode) {
-                fillInRightTextArea()
-            } else {
-                document.getElementsByName("rightTextArea")[0].value = ''
-            }
+            fillInRightTextArea()
             label.innerHTML = String(displayArrayIndex + 1) + ' / ' + String(displayFlashCardList.length)
         }
 
         function fillInRightTextArea() {
-            const j = isWordMeaningReversed ? 0 : 1;
-            const i = isSortMode ? sortedIndexes[displayArrayIndex] : displayArrayIndex;
-            document.getElementsByName("rightTextArea")[0].value = displayFlashCardList[i][j]
-            console.log("right: " + displayFlashCardList[displayArrayIndex][i]);
+            if (isReviewMode) {
+                const j = isWordMeaningReversed ? 0 : 1;
+                const i = isSortMode ? sortedIndexes[displayArrayIndex] : displayArrayIndex;
+                document.getElementsByName("rightTextArea")[0].value = displayFlashCardList[i][j]
+            } else if (isQuizMode) {
+                document.getElementsByName("rightTextArea")[0].value = flashCardAnswerList[displayArrayIndex]
+            } else {
+                document.getElementsByName("rightTextArea")[0].value = ''
+            }
+            console.log("fillInRightTextArea() text: " + document.getElementsByName("rightTextArea")[0].value);
+            console.log("---- enabled = " + document.getElementsByName("rightTextArea")[0].enabled)
+            console.log("---- flashCardAnswerList = " + flashCardAnswerList)
         }
 
     </script>
