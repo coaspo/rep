@@ -13,7 +13,7 @@
         }
 
         .tab-button {
-            background-color: #f1f1f1;
+            background-color:   f1f1f1;
             border: none;
             cursor: pointer;
             padding: 10px 20px;
@@ -24,11 +24,11 @@
         }
 
         .tab-button:hover {
-            background-color: #ddd;
+            background-color:   ddd;
         }
 
         .tab-button.active {
-            background-color: #ccc;
+            background-color:   ccc;
             text-align: center;
         }
 
@@ -47,9 +47,9 @@
         <button onclick="previous()" title="previous">↑</button>&nbsp;&nbsp;&nbsp;
         <button id="reverseButton" title='reverse' onclick="reverseWordMeaning()">⇄</button>&nbsp;&nbsp;&nbsp;
         <div id="checkboxContainer">
-            <input type="checkbox" id="sortCheckbox"> <label for="sortCheckbox"> Sort</label>
-            <input type="checkbox" id="reviewCheckbox"><label for="reviewCheckbox"> Review</label>
-            <input type="checkbox" id="quizCheckbox"><label for="quizCheckbox"> Quiz</label>
+            <input type="checkbox" id="sortCheckbox"><label for="sortCheckbox">Sort </label>
+            <input type="checkbox" id="reviewCheckbox"><label for="reviewCheckbox">Review </label>
+            <input type="checkbox" id="quizCheckbox"><label for="quizCheckbox">Quiz </label>
         </div>
 
         <table>
@@ -65,8 +65,9 @@
     </div>
 
     <div id="tab2" class="tab">
-        Edit and leave text box to update. &nbsp;
-        Create groups by adding 1,2,3,#,$,%,* before =.<br>
+        Edit and leave text box to update.<br>
+        Create groups adding one of the marker charactets: 
+        <div id="markers"></div> before '='<br>
         For permanent changes, save html file and edit it.<br>
         <textarea id="flashCardTextArea" rows="55" cols="120" style=' width: 100%;   height: 100%;'
             onblur="upadateFlashCardText();"></textarea>
@@ -105,93 +106,99 @@
 
     <script>
         var flashCardText = `
-συγχύζω      =muddle; εκνευρίζω και στενοχωρώ
-Εκαβη      $  =Hecuba wife of Priam king of troy
-ασυλληπτο   $ =inconceivable WRONG - δεν έχουν/μπορούν συλλάβει
-μοιραιο      =fatal; αναπόφευκτος
+συγχύζω      =confuse/disturb; εκνευρίζω και στενοχωρώ
+Εκαβη     $  =Hecuba wife of Priam king of troy
+ασυλληπτο    =δεν έχουν/μπορούν συλλάβει
+μοιραιο   $   =fatal; αναπόφευκτος
 σουσούδα     =σουσουράδα? - πτηνο/νεαρή κοπέλα που κάνει όλο καμflashCardLisώματα και νάζια
 περιφρόνηση  =contempt; αδιαφορία σε κάποιον/κάτι που δεν αξίζει το ενδιαφέρον/σεβασμό
 τζουτζε      =γελωτοποιός; τουρκική cüce (vάνος)
-ταπεινοφροσυνη = humble; ANT αλαζονείαflashCardLisυσάρεστα άλλων
-αποποιούμαι #  =disclaim (refuse to acknowledge); δεν αποδέχομαι, δε δέχομαι, αρνούμαι
-αναίδεια #     =impudence rude(no respect for another person); έλλειψη ντροπής
-πρόληψη       =prevention; εμποδίσh αρνητικών/βλαπτικών
-όσιος   #      =faithful; σεβαστός, ευσεβής
+ταπεινοφροσυνη = humility; ANT αλαζονείαflashCardLisυσάρεστα άλλων
+αποποιούμαι  1   =disclaim (refuse to acknowledge); δεν αποδέχομαι, δε δέχομαι, αρνούμαι
+αναίδεια    1    =impudence rude(no respect for another person); έλλειψη ντροπής
+πρόληψη   1    =prevention; εμποδίσh αρνητικών/βλαπτικών
+όσιος           =faithful; σεβαστός, ευσεβής
 μοσχολίβανον  =Frankincense/myrrh Boswellia/Commiphora trees in Oman/Africa; gold, frankincense, and myrrh
-οιωνός   #     =omen
-περιβόητος  #  =notorious, famous
+οιωνός    1      =omen
+περιβόητος   1   =notorious, famous
 υποθήκη       =mortgage
-έσχατος       =final; Τελευταίος, νεότερος, χειρότερος (για δήλωση ταπεινότητας)
-στο πι και φι = πολύ γρήγορα,παλούκι/φουρκα  (αναλοσκοπισμός/αγχόνη) [Impalement/ noose]
-και ούτω καθεξής   =and so on
-έμεινε στο ράφι   =spinster; αντικείμενα να τοποθετούνται σε ράφια για στολισμό
-απτό    #      =tangible; αρχαία ελληνική φανερός
-υπονοούμενο   =implication;  λέγεται με τρόπο έμμεσο και onblurχωρεί μόλις αντιμετωπίσει κπ. ισχυρότερό
-βολιδοσκόπηση # =research; διερεύνηση για πληρέστερης εικόνας, πριν αποφάση/ενεργεια
-οικειότητα  #  =intimacy
+έσχατος   1    =final; Τελευταίος, νεότερος, χειρότερος (για δήλωση ταπεινότητας)
+στο πι και φι #= πολύ γρήγορα,παλούκι/φουρκα  (αναλοσκοπισμός/αγχόνη) [Impalement/ noose]
+και ούτω καθεξής  # =and so on
+έμεινε στο ράφι #  =spinster; αντικείμενα να τοποθετούνται σε ράφια για στολισμό
+απτό          1  =tangible; αρχαία ελληνική φανερός
+υπονοούμενο   =implication;  λέγεται με τρόπο έμμεσο και αποχωρεί μόλις αντιμετωπίσει κπ. ισχυρότερό
+χειραφέτηση   =emancipation;  απαλλαγή από τη γονική κηδεμονία
+ιδιοτελής     =selfish; exaggerated sense of importance; ατομικό μόνο συμφέρον
+εγωκεντρικός  =self centered; concern only for self
+αποκύηση      =pregnancy
+αναγούλα     =τάση για εμετό, ναυτία :nausea
+θρασύδειλος   =θράσος όταν δεν αντιμετωπίζει απειλή, υποχωρεί μόλις αντιμετωπίσει κπ. ισχυρότερό
+βολιδοσκόπηση    =research; διερεύνηση για πληρέστερης εικόνας, πριν αποφάση/ενεργεια
+οικειότητα      =intimacy
 διατροφή      =food; τροφή που χρειάζεται για συντήρηση
-ποδόγυρος   #  =άτω μέρος του υφάσματος των γυναικείων ρούχων, 2 το γυναικείο φύλο,
+ποδόγυρος       =άτω μέρος του υφάσματος των γυναικείων ρούχων, 2 το γυναικείο φύλο,
 μοιχεία       =adultery
-μύχιος    #    =συνείδηση στο εσωτερικό και δεν φαίνεται ούτε εκφράζεται
-μανσόν    #    =κυλίνδρο που οι γυναίκες έβαζαν τα χέρια τους για ειναι ζεστα
-ακατάληπτος #  =unintelligible; δεν είναι δυνατόν να τον καταλάβεις
-εκλιπαρώ  #    =implore(ask earnestly/humbly); παρακαλώ κάποιον με επιμονή και θέρμη
-ικετεύω   #    =beg; παρακαλώ με μεγάλη ένταση και ταπείνωση κάποιον να με λυπηθεί - σε ανοτερο
+μύχιος      1    =συνείδηση στο εσωτερικό και δεν φαίνεται ούτε εκφράζεται
+μανσόν          =κυλίνδρο που οι γυναίκες έβαζαν τα χέρια τους για ειναι ζεστα
+ακατάληπτος  1   =unintelligible; δεν είναι δυνατόν να τον καταλάβεις
+εκλιπαρώ    1    =implore(ask earnestly/humbly); παρακαλώ κάποιον με επιμονή και θέρμη
+ικετεύω     1    =beg; παρακαλώ με μεγάλη ένταση και ταπείνωση κάποιον να με λυπηθεί - σε ανοτερο
 παρακαλώ      =please (ask politely)/ you are welcome; ζητώ ευγενικά
-αναπολώ       =reminise; ξαναφέρνω στη μνήμη μου με νοσταλγία:
-νοσταλγία     =μελαγχολία που προκαλείται από την έντονη επιθυμία να επιστρέψουμε στ
-νόστος        =(no english) επιστροφή στην πατρίδα, ταξίδι με καλό τέλος
-εκμυστηρεύομαι  =confide; αποκαλύπτω προσωπικό μυστικό
-δάγκειος       =Dengue (break-bone fever/virus)
-αλέκτορας      =κόκορας (cock)
-ανοχη          =tolerance
-άτρωτος        =invulnerable
-προτροπή       =prompt (cause/assist);  λόγια ή με τη συμπεριφορά μου ενισχύω τη διάθεση ή την τάση κάποιου να κάνει
+αναπολώ         =reminise; ξαναφέρνω στη μνήμη μου με νοσταλγία:
+νοσταλγία       =μελαγχολία που προκαλείται από την έντονη επιθυμία να επιστρέψουμε στ
+νόστος          =(no english) επιστροφή στην πατρίδα, ταξίδι με καλό τέλος
+εκμυστηρεύομαι    =confide; αποκαλύπτω προσωπικό μυστικό
+δάγκειος    1     =Dengue (break-bone fever/virus)
+αλέκτορας        =κόκορας (cock)
+ανοχη            =tolerance
+άτρωτος          =invulnerable
+προτροπή    1     =prompt (cause/assist);  λόγια ή με τη συμπεριφορά μου ενισχύω τη διάθεση ή την τάση κάποιου να κάνει
 αναφανδόν      =overtly; εντελώς φανερά ή χωρίς επιφυλάξεις
 αισχύνομαι     =great shame; τρέπομαι
-προβλέπω       =predict; διακρίνω, νιώθω, μαντεύω πριν να συμβεί
-αναβολή        =postponementtext
-απόβλητος      =outcast(rejected by society or a social group) εκδιώχθηκε, που απομακρύνθηκε υποχρεωτικά
-συνοικέσιο     =match; μεσολάβηση που γίνεται για να γνωριστούν ένας άντρας και μία γυναίκα
-μουρντάρης     =libertine; εχει πολλές εξωσυζυγικές σχέσεις (τουρκική murdar - βρομηκος)
+προβλέπω    1   =predict; διακρίνω, νιώθω, μαντεύω πριν να συμβεί
+αναβολή        =postponement
+απόβλητος   1   =outcast(rejected by society or a social group) εκδιώχθηκε, που απομακρύνθηκε υποχρεωτικά
+συνοικέσιο  1   =match; μεσολάβηση που γίνεται για να γνωριστούν ένας άντρας και μία γυναίκα
+μουρντάρης  1   =libertine; εχει πολλές εξωσυζυγικές σχέσεις (τουρκική murdar - βρομηκος)
 καλλονή        =καλλονή
-όψομαι         =επίγνωση του κακού που έκανε(ς) και ας τιμωρηθεί(ς) από το Θεό
-τσιγκογραφείο  =printing press; ψευδάργυρογαφείο; ψευδάργυρος-zinc (fake-silver) (actually lead, antimony, steel, and tin)
-τσιγκος        =λαμαρινα με ψευδάργυρο
-κασσίτερος     =tin  (Sn; stannum - alloy of silver and lead, ortext tin)
+όψομαι      1   =επίγνωση του κακού που έκανε(ς) και ας τιμωρηθεί(ς) από το Θεό
+τσιγκογραφείο 1 =printing press; ψευδάργυρογαφείο; ψευδάργυρος-zinc (fake-silver) (actually lead, antimony, steel, and tin)
+τσιγκος      1  =λαμαρινα με ψευδάργυρο (Zn)
+κασσίτερος  1   =tin  (Sn; stannum - alloy of silver and &nbsp; lead), added to copper to make bronze
 σαχλος         =ανητος (χωρις μυαλο) και ασοβαρος
-εθελούσιος     =volunteer
-εφάπαξ         =single payment
+εθελούσιος   1  =volunteer
+εφάπαξ      1   =single payment
 χουβαρντάς     =που δεν τσιγκουνεύεται, κερvαει... τουρκική hovarda (σπάταλος)
 κερνάω         =πληρώνω το λογαριασμό  (αρχαία κιρνάω - προσθέτω νερό στο κρασί)
 μακαντάσης     =στενος φιλος (τουρκική mankadaş)
-μεροληπτικός   =discriminatory; υποστηρίζω πρόσωπο/άποψη με μη αντικειμενικό (objective) τρόπο, υποκινούμενος αποκλειστικά από προσωπικούς λόγους ή συμφέροντα
+μεροληπτικός 1  =discriminatory; υποστηρίζω πρόσωπο/άποψη με μη αντικειμενικό (objective) τρόπο, υποκινούμενος αποκλειστικά από προσωπικούς λόγους ή συμφέροντα
 προκατειλημμένος  =biased προκαταλαμβάνω
 διαθερμία      =heat treatment - diathermy via ultrasound/microwave
-απαράλλαχτος   =immutable (immutable) χορις αλλαγη
+απαράλλαχτος 1  =immutable (immutable) χορις αλλαγη
 ανέκαθεν       =always; απο παντα
 εχινόκοκκος    =echinococcus (sea urchin seed)- 2-7 mm symptomatic, tape worm in humans/cats/dogs/sheeps; Alveolar echinococcosis 1-4 mm - caused tumors; 2 yr treatment - 10 yr follow-up
-κουραφέξαλα    =ανόητα λόγια
-απιδι          =pearαχλάδι
+κουραφέξαλα  1  =ανόητα λόγια
+απιδι        1  =pearαχλάδι
 νταηλίκι       =τουρκικο dayılık rowdiness
 πεσκίρι        =προσόψι, πετσέτα προσώπου
 υπογραμμός     =underscore τύπος και υπογραμμός-υποδειγματικός άνθρωπος
 υπόδειγμα      =model - πρότυπο για μίμηση; υψηλότατο βαθμό τελειότητας
 παράδειγμα     =example-προς μίμηση, πρότυπο, υπόδειγμα
-ευέξαπτος      =temperamental; θυμώνει εύκολα
+ευέξαπτος   1   =temperamental; θυμώνει εύκολα
 μουσαφίρης     =guest - επισκέπτης/ αραβική musāfir, ταξιδιώτης
 νομάτοι        =(νοματαίοι) άνθρωποι
 παντατίφ       =pendant; μενταγιόν
 σεσημασμένος   =έχει συλληφθεί - γνωστός στην αστυνομία
 στρούγκα       =χώρος για άρμεγμα
 πρακτέον       =τη πρέπει να γίνει
-περιττός       =unnecessary
-υποχόνδριος    =κατά φαντασίαν ασθενής´ hypochondriac; hypochondrium  just below the lowest
-οίκτος         =λύπη/συμπάθεια για καπιον σε πολύ άσχημη κατάσταση
-οίκτρος        =pitiful''προκαλει το οικτο (pity)
+περιττός   1    =unnecessary
+υποχόνδριος    =hypochondriac, κατά φαντασίαν ασθενής; hypochondrium  just below the lowest
+οίκτος         =pity λύπη/συμπάθεια για καπιον σε πολύ άσχημη κατάσταση
+οίκτρος        =pitiful  προκαλει το οικτο (pity)
 Άλλαι μεν βουλαί ανupadateFlashCardText()usekeeper/butler; μη σπαταλος - υπηρέτης με διαχείριση του σπιτιού
 ειδύλλιο        =1. ερωτικό ποίημα ή λογοτεχνικό έργο  2. romance
-μέμφομαι        =κατηγορώ  accuse/blame(shame)/reproach(address with disapproval)
+μέμφομαι        =blame κατηγορώ  accuse/blame(shame)/reproach(address with disapproval)
 πλασιέ          =πωλητής (French placier)
 συνουσιάζομαι   =intercourse; έρχομαιtext σε σεξουαλική επαφή
 μπινές          =τουρκ. πούστη
@@ -209,17 +216,18 @@
 σορολόπ         =τεμπελιά, αδιαφορία για κάτι που πρέπει να γίνει (τουρκικη)
 προαλλες        =προηγούμενες ημέρες
 μακαρίζω        =θεωρώ κπ. ευτυχισμένο; μηδένα προ του τέλους* μακάριζε
-μακάριος        =ο ευτυχισμένος, που δεν έχει βάσανα και έγνοιες
-μακαρίτης       =blessed deceased
+μακάριος        =blessed  ευτυχισμένος, δεν έχει βάσανα και έγνοιες
+μακαρίτης       =deceased
 καρωτιδα        =carotid; two main arteries which carry blood to the head (kara) and neck,
 παρονομαστής    =denominator; η κατάσταση στην οποία βρισκόμαστε
-απάντεχα        =αναπάντεχα - unexpectedly; χωρίς να το περιμένει
+απάντεχα        =unexpectedly αναπάντεχα - unexpectedly; χωρίς να το περιμένει
+απρόοπτο        =unexpected 
 απαντέχω        =περιμένω,
 ενδοιασμός      =hesitation δισταγμός, αμφιβολία σχετικά με τη λήψη κάποιας απόφασης
 αναδρομή        =retrospective
 μεντεσές        =hinge (door)
 φείδομαι        =κάνω οικονομία;
-φείδου χρόνου   =μη σπαταλάς το χρόνο σου
+φείδου χρόνου  # =μη σπαταλάς το χρόνο σου
 σκοτοδίνη       =πρόσκαιρη (temporary) ζάλη με στιγμιαία απώλεια της όρασης και ίλιγγο (vertigo/ense of meovement)
 αλλεπάλληλα     =successive
 λαμια           =μυθικό ανθρωποφάγο τέρας με τη μορφή γυναίκας; ghoul -rob graves and feed on dead bodies
@@ -227,7 +235,7 @@
 υποκειμενο      =subject; rare κακής ποιότητας άνθρωπος
 ποταπός         =ηθικά ευτελής (φτηνός), τιποτένιος, μικρός
 προβλήτα        =προεξοχή ενός λιμανιού, εκεί που δένουν τα καράβια; jetty ( pier, that projects into a body of water to influence the current or tide or to protect a harbor or shoreline from storms or erosion)
-λαγός τη φτέρη έσειε, κακό του κεφαλιού του  =κάποιον που ευθύνεται ο ίδιος για τα παθήματά του.
+λαγός τη φτέρη έσειε, κακό του κεφαλιού του # =κάποιον που ευθύνεται ο ίδιος για τα παθήματά του.
 αντιτάσσω      =pit/oppose
 αζημίωτος      =losssless;  δεν ζημιώθηκε,
 κάσκα          =κράνος, μοτοσικλετιστή/ποδηλάτη
@@ -256,7 +264,7 @@
 πρεζάκιας      =ναρκομανής που παίρνει δόση κυρίως ηρωίνης με βελόνα; ρίξε στο φαγητό μια πρέζα αλάτι
 συγκαλά        =πνευματική διαύγεια(clarity) και ισορροπία
 αιμόπτυση      =αίμα στο στόμα αίματος από το αναπνευστικό (hemoptysis - coughing up of blood)
-Ουδέν κρυπτόν υπό τον ήλιον  =There is nothing new under the sun
+Ουδέν κρυπτόν υπό τον ήλιον # =There is nothing new under the sun
 οδυρμός        =θρήνος; λαυθμός και οδυρμός το βράδυ των εκλογών
 άγχος          =anxiety; ψυχοσωματικο - νιώθει πίεση από το βάρος των υποχρεώσεών του, φόβο και ανησυχία
 δυσφορία       =ελαφράς αδιαθεσίας, αβολίας, εκνευρισμού,
@@ -281,7 +289,7 @@
 λιμοκοντόρος   =φτωχού νεαρού, που ντύνεται επιδεικτικά και παριστάνει τον γόη (με χαρη)
 αχιβαδα        =clam, κοχύλι: seashell, μυδι: mussel, όστρακο: κομμάτι από σπασμένο πήλινο/υδρόβιων κάλυμμα
 πρόσφατος      =recently
-αλλόκοτος      =otherworldly; παράξενος στη μορφή ή στη συμπεριφορά
+αλλόκοτος      =otherworldly; παράξενος σunexpectedτη μορφή ή στη συμπεριφορά
 αναφιλητό      =έντονο κλάμα; αρχαία ελληνική ἀναφλύω (κοχλάζω)?
 επιστήθιος     =καλύπτει το στήθος; πολύ αγαπημένος επιστήθιος φίλος
 ενύπνιο        =όνειρο
@@ -300,7 +308,8 @@
         var displayFlashCardList = [...flashCardList];
         var flashCardAnswerList;
 
-
+        const markCharacters = ['1', '2', '3', '%', '$', '#', '*']
+        document.getElementById("markers").innerHTML = markCharacters
         var cardMarkers = findCardMarkers(flashCardList);
         var activeCardMarkers;
         var sortedIndexes = findSortedIndexes(displayFlashCardList);
@@ -312,6 +321,7 @@
         initializeWebPage()
 
         function initializeWebPage() {
+            console.log('cardMarkers='+ Array.from(cardMarkers).toString())
             addMarkerCheckboxesAndCreateActiveCardMarkersSet(cardMarkers);
             fillInTextAreas()
             const sortCheckbox = document.getElementById("sortCheckbox");
@@ -387,15 +397,18 @@
                 let mark = isCorrect ? "✅ " : "❌ "
                 flashCardAnswerList[i] = mark + flashCardAnswerList[i]
                 if (!isCorrect) {
-                    flashCardAnswerList[i] += "\n✅ " + correctAnswer
+                    flashCardAnswerList[i] += "\n✅: " + correctAnswer
                 }
 
             }
             displayArrayIndex = 0
             fillInRightTextArea()
             const score = (100 * correctCount / flashCardAnswerList.length).toFixed(0)
-            document.getElementById("quizInfo").innerHTML = "Quiz score: " + score + '%'
+            const info = score==100? 'Quiz score: <p style="color: darkgreen;">100%</p>': 
+            'Quiz score: <p style="color: red;">' + score + '%</p>';
+            document.getElementById("quizInfo").innerHTML =  info
         }
+
 
 
         function createFlashCards(flashCardText) {
@@ -416,7 +429,6 @@
         }
 
         function filterFlashCards(flashCardList, activeCardMarkers) {
-            const markCharacters = ['1', '2', '3', '%', '$', '#', '*']
             let filteredFlashCardList = [];
             for (const flashCard of flashCardList) {
                 for (const char of activeCardMarkers) {
@@ -431,7 +443,6 @@
 
         function findCardMarkers(flashCardList) {
             let cardMarkers = new Set();
-            const markCharacters = ['1', '2', '3', '%', '$', '#', '*']
             for (const flashCard of flashCardList) {
                 for (const char of markCharacters) {
                     if (flashCard[0].includes(char)) {
@@ -452,7 +463,7 @@
                 checkbox.id = cardMarker
                 const label = document.createElement('label');
                 label.htmlFor = cardMarker;
-                label.appendChild(document.createTextNode(' '+ cardMarker + ' '));
+                label.appendChild(document.createTextNode(cardMarker + ' '));
                 const checkboxContainer = document.getElementById("checkboxContainer");
                 checkboxContainer.appendChild(checkbox);
                 checkboxContainer.appendChild(label);
@@ -550,8 +561,6 @@
                 document.getElementsByName("rightTextArea")[0].value = ''
             }
             console.log("fillInRightTextArea() text: " + document.getElementsByName("rightTextArea")[0].value);
-            console.log("---- enabled = " + document.getElementsByName("rightTextArea")[0].enabled)
-            console.log("---- flashCardAnswerList = " + flashCardAnswerList)
         }
 
     </script>
