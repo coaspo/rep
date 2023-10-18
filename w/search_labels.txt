@@ -1,333 +1,333 @@
-test_search.html$$9$$../../tests/test_search.html
-sky and telescope$$11$$https://skyandtelescope.org/interactive-sky-chart/
-dark sky$$11$$https://www.darkskymap.com/
-star map$$11$$https://stellarium-web.org/
-bach, goldberg variations$$12$$https://www.youtube.com/watch?v=Ah392lnFHxM
-beethoven, moonlight sonata$$12$$https://www.youtube.com/watch?v=4Tr0otuiQuU
-beethoven – symphony no.5 in c minor$$12$$https://music.youtube.com/watch?v=hv-F6LZ1sJk
-beethoven – symphony no.9 in c minor$$12$$https://www.youtube.com/watch?v=t3217H8JppI
-schiller's "ode to joy"$$12$$https://en.wikipedia.org/wiki/Ode_to_Joy
-bernstein, west side story prologue - jet song$$12$$https://www.youtube.com/watch?v=7QR6ytrVRkM
-beethoven, silence$$12$$https://music.youtube.com/watch?v=TJFR3ZUFpaM
-bizet - habanera; <b>tango</b>$$12$$https://music.youtube.com/watch?v=GygeHnfohYk
-chopin, spring waltz$$12$$https://www.youtube.com/watch?v=dN1XUV6QclU
-dvořák: 9. ("from the new world")$$12$$https://www.youtube.com/watch?v=jOofzffyDSA
-galasso, in the mood for love$$12$$https://www.youtube.com/watch?v=gw9fKuymA0I
-jenkins palladio$$12$$https://music.youtube.com/watch?v=8FFVoHYf9jI&list=RDAMVMGygeHnfohYk
-korsakov – flight of the bumblebee$$12$$https://music.youtube.com/watch?v=cQ2Eakg-j5A
-morricone, good bad and ugly$$12$$https://www.youtube.com/watch?v=enuOArEfqGo
-mozart, requiem$$12$$https://www.youtube.com/watch?v=Zi8vJ_lMxQI
-mozart – symphony no.40 in g minor$$12$$https://music.youtube.com/watch?v=JTc1mDieQI8
-mozart – clarinet concerto$$12$$https://music.youtube.com/watch?v=-hgc7ybgi8U&list=RDAMVMGygeHnfohYk
-orf, o fortuna$$12$$https://www.youtube.com/watch?v=GXFSK0ogeg4
-o fortuna medieval poem$$12$$https://en.wikipedia.org/wiki/O_Fortuna
-piazzolla libertango; <b>tango</b>$$12$$https://www.youtube.com/watch?v=kdhTodxH7Gw
-shostakovich, waltz no.2$$12$$https://www.youtube.com/watch?v=LPG_WUgHbis
-rossini barber of seville$$12$$https://music.youtube.com/watch?v=uLDoT5pbNkA
-schubert. serenade$$12$$https://www.youtube.com/watch?v=0bjB-IWEYI0
-vivaldi, four seasons 42 min$$12$$https://www.youtube.com/watch?v=GRxofEmo3HA
-vivaldi, concerto in g minor for violin 3 min$$12$$https://music.youtube.com/watch?v=jzir3rJbJtk&list=RDAMVMGygeHnfohYk
-vivaldi, winter 3.3 min$$12$$https://music.youtube.com/watch?v=UzQMWOFM5wI&list=RDAMVMGygeHnfohYk
-zimmer; time$$12$$https://www.youtube.com/watch?v=va1oiojnGrA
-zimmer; dark knight main theme$$12$$https://www.youtube.com/watch?v=iGx5a1ifSDs
-bbc, top ten in last 75 years:$$12$$http://news.bbc.co.uk/2/hi/entertainment/8432499.stm
-o fortuna$$12$$https://www.youtube.com/watch?v=A-AiAlzpaTY
-fantasia on a theme$$12$$https://www.youtube.com/watch?v=0U6sWqfrnTs
-scheherazade;$$12$$https://www.youtube.com/watch?v=SQNymNaTr-Y
-scheherazade$$12$$https://en.wikipedia.org/wiki/Scheherazade
-the sleeping beauty$$12$$https://www.youtube.com/watch?v=2Sb8WCPjPDs
-romance in f sharp major op 28/2$$12$$https://music.youtube.com/watch?v=GQV95A57gxg
-sylvia (spirit of the wood)$$12$$https://music.youtube.com/watch?v=GV642ci1WgA
-symphony no 2$$12$$https://www.youtube.com/watch?v=SvuitFzDxDg
-the planets$$12$$https://www.youtube.com/watch?v=Isic2Z2e2xs
-the sleeping beauty$$12$$https://www.youtube.com/watch?v=2Sb8WCPjPDs
-symphony no 5$$12$$https://www.youtube.com/watch?v=cdLuvGsjwlA
-guardian, top 25 in 21th century:$$12$$https://www.theguardian.com/music/2019/sep/12/best-classical-music-works-of-the-21st-century
-birds fooled me$$13$$https://www.youtube.com/watch?v=68VkYerWdBM
-tell us charon$$13$$https://www.youtube.com/watch?v=wpwI63NKOoE
-in the bell$$13$$https://www.youtube.com/watch?v=DepGeKTsmlc
-pagonisio$$13$$https://www.youtube.com/watch?v=smCEMa0vEtY
-sacrifice to your will$$13$$https://www.youtube.com/watch?v=SvC55us1L5U
-smiling lad$$13$$https://music.youtube.com/watch?v=yVgTi5TDsJ0&list=RDAMVMyVgTi5TDsJ0
-pearl$$13$$https://www.youtube.com/watch?v=emiE-SaSyGI
-mother$$13$$https://www.youtube.com/watch?v=jZUzaWBAjNM
-witch doctor$$13$$https://music.youtube.com/watch?v=cmjrTcYMqBM&list=RDAMVMTYgOlqinH7A
-monster mash$$13$$https://music.youtube.com/watch?v=bRLML36HnzU&list=RDAMVMbRLML36HnzU
-california dreaming$$13$$https://music.youtube.com/watch?v=oU6uUEwZ8FM&list=RDAMVMoU6uUEwZ8FM
-white rabbit$$13$$https://music.youtube.com/watch?v=vgQ1Y1IFPao&list=RDAMVMoU6uUEwZ8FM
-little prayer$$13$$https://www.youtube.com/watch?v=KtBbyglq37E
-son of a preacher$$13$$https://music.youtube.com/watch?v=ZSEKX8GAEYY&list=RDAMVMoU6uUEwZ8FM
-what is going on$$13$$https://www.youtube.com/watch?v=H-kA3UtBj4M
-ain't no sunshine$$13$$https://music.youtube.com/watch?v=YuKfiH0Scao&list=RDAMVMYuKfiH0Scao
-theme from shaft$$13$$https://music.youtube.com/watch?v=kfdW4687b_w&list=RDAMVMkfdW4687b_w
-papa was a rolling stone$$13$$https://music.youtube.com/watch?v=ZQ1Eu3Z9IHU&list=RDAMVMZQ1Eu3Z9IHU
-hotel california$$13$$https://music.youtube.com/watch?v=vcmjDPDOk7c&list=RDAMVMvcmjDPDOk7c
-visions of johanna$$13$$https://music.youtube.com/watch?v=AwuCF5lYqEE&list=RDAMVMAwuCF5lYqEE
-losing my religion$$13$$https://music.youtube.com/watch?v=Efa6BAWPm9o&list=RDAMVMEfa6BAWPm9o
-leaving on jet plane$$13$$https://music.youtube.com/watch?v=rr1sTloviTQ&list=RDAMVMrr1sTloviTQ
-short people$$13$$https://music.youtube.com/watch?v=v8UVBgUd9GE&list=RDAMVMv8UVBgUd9GE
-thrill is gone$$13$$https://www.youtube.com/watch?v=4fk2prKnYnI
-sweat (a la la la la long)$$13$$https://music.youtube.com/watch?v=Xx0blzRFQRs&list=RDAMVM5M65q33b6hc
-umbrella - 2007 rihana$$13$$https://music.youtube.com/watch?v=x_GqgW94eSg&list=RDAMVMx_GqgW94eSg
-thunderbolt - 2011 björk$$13$$https://www.youtube.com/watch?v=C9Scr7wcqKk
-vivaldi, four seasons$$13$$https://www.youtube.com/watch?v=GRxofEmo3HA
-bach, goldberg variations$$13$$https://www.youtube.com/watch?v=Ah392lnFHxM
-mozart, requiem$$13$$https://www.youtube.com/watch?v=Zi8vJ_lMxQI
-beethoven, moonlight sonata$$13$$https://www.youtube.com/watch?v=4Tr0otuiQuU
-beethoven, silence$$13$$https://www.youtube.com/watch?v=7QR6ytrVRkM
-schubert. serenade$$13$$https://www.youtube.com/watch?v=0bjB-IWEYI0
-orf, o fortuna$$13$$https://www.youtube.com/watch?v=GXFSK0ogeg4
-medieval poem$$13$$https://en.wikipedia.org/wiki/O_Fortuna
-i'm not in love$$13$$https://music.youtube.com/watch?v=rmw-jFFsJLU&list=RDAMVMrmw-jFFsJLU
-shostakovich, waltz no.2$$13$$https://www.youtube.com/watch?v=LPG_WUgHbis
-chopin, spring waltz$$13$$https://www.youtube.com/watch?v=dN1XUV6QclU
-morricone, good bad and ugly$$13$$https://www.youtube.com/watch?v=enuOArEfqGo
-hans zimmer$$13$$https://www.youtube.com/watch?v=YHc5SJlrJig
-agni parthene$$13$$https://www.youtube.com/watch?v=C7vvPXz-Qes
-jesus prayer$$13$$https://www.youtube.com/watch?v=g4W4_EOXRLo
-ave maria$$13$$https://www.youtube.com/watch?v=3d4xXvF2ukY
-our father$$13$$https://www.youtube.com/watch?v=locW-9S00VU
-cherubim$$13$$https://www.youtube.com/watch?v=SZQzW_QfPew
-praise the lord$$13$$https://www.youtube.com/watch?v=MKLwutElZ-s
-miserere mei$$13$$https://www.youtube.com/watch?v=H3v9unphfi0
-amazing grace$$13$$https://music.youtube.com/watch?v=G3G-suuZgK4&list=RDAMVMG3G-suuZgK4
-agni parthene$$13$$https://www.youtube.com/watch?v=i-3h9TQ312c
-o virgin pure$$13$$https://en.wikipedia.org/wiki/Agni_Parthene
-hurrian$$13$$https://www.youtube.com/watch?v=QpxN2VXPMLc
-armenian goddess$$13$$https://en.wikipedia.org/wiki/Hurrian_songs
-apollo$$13$$https://www.youtube.com/watch?v=bydqNRYgbuc
-greek music$$13$$https://www.youtube.com/watch?v=4hOK7bU0S1Y
-birds fooled me$$14$$https://www.youtube.com/watch?v=68VkYerWdBM
-tell us charon$$14$$https://www.youtube.com/watch?v=wpwI63NKOoE
-in the bell$$14$$https://www.youtube.com/watch?v=DepGeKTsmlc
-sacrifice to your will$$14$$https://www.youtube.com/watch?v=SvC55us1L5U
-the smiling lad$$14$$https://music.youtube.com/watch?v=yVgTi5TDsJ0&list=RDAMVMyVgTi5TDsJ0
-the pearl$$14$$https://www.youtube.com/watch?v=emiE-SaSyGI
-mother$$14$$https://www.youtube.com/watch?v=jZUzaWBAjNM
-california dreaming$$14$$https://music.youtube.com/watch?v=oU6uUEwZ8FM&list=RDAMVMoU6uUEwZ8FM
-white rabbit$$14$$https://music.youtube.com/watch?v=vgQ1Y1IFPao&list=RDAMVMoU6uUEwZ8FM
-i say a little prayer$$14$$https://www.youtube.com/watch?v=KtBbyglq37E
-son of a preacher$$14$$https://music.youtube.com/watch?v=ZSEKX8GAEYY&list=RDAMVMoU6uUEwZ8FM
-i love you more today than yesterday$$14$$https://music.youtube.com/watch?v=89eEa3RvCF4
-what is going on$$14$$https://www.youtube.com/watch?v=H-kA3UtBj4M
-ain't no sunshine$$14$$https://music.youtube.com/watch?v=YuKfiH0Scao&list=RDAMVMYuKfiH0Scao
-theme from shaft$$14$$https://music.youtube.com/watch?v=kfdW4687b_w&list=RDAMVMkfdW4687b_w
-papa was a rolling stone$$14$$https://music.youtube.com/watch?v=ZQ1Eu3Z9IHU&list=RDAMVMZQ1Eu3Z9IHU
-brother louie$$14$$https://www.youtube.com/watch?v=C6yLdrkP-Bk
-hotel california$$14$$https://music.youtube.com/watch?v=vcmjDPDOk7c&list=RDAMVMvcmjDPDOk7c
-visions of johanna$$14$$https://music.youtube.com/watch?v=AwuCF5lYqEE&list=RDAMVMAwuCF5lYqEE
-losing my religion$$14$$https://music.youtube.com/watch?v=Efa6BAWPm9o&list=RDAMVMEfa6BAWPm9o
-leaving on jet plane$$14$$https://music.youtube.com/watch?v=rr1sTloviTQ&list=RDAMVMrr1sTloviTQ
-when will i see you again?$$14$$https://www.youtube.com/watch?v=Zr3MZiE2A5w
-i'm not in love$$14$$https://music.youtube.com/watch?v=rmw-jFFsJLU&list=RDAMVMrmw-jFFsJLU
-short people$$14$$https://music.youtube.com/watch?v=v8UVBgUd9GE&list=RDAMVMv8UVBgUd9GE
-the thrill is gone$$14$$https://www.youtube.com/watch?v=4fk2prKnYnI
-sweat (a la la la la long)$$14$$https://music.youtube.com/watch?v=Xx0blzRFQRs&list=RDAMVM5M65q33b6hc
-umbrella$$14$$https://music.youtube.com/watch?v=x_GqgW94eSg&list=RDAMVMx_GqgW94eSg
-white flag$$14$$https://www.youtube.com/watch?v=j-fWDrZSiZs
-just breathe$$14$$https://www.youtube.com/watch?v=ow-Cx9IX4So
-funny (how time slips away)$$14$$https://www.youtube.com/watch?v=j5KtCUHnAFw
-les yeux noirs (dark eyes)$$14$$https://www.youtube.com/watch?v=gfiqW1WaGbw
-$$15$$../../science/book-notes/tree_story-world_history_in_rings.txt
-the wind cries mary$$15$$https://music.youtube.com/watch?v=K2B2nT6pfSE&list=RDAMVMK2B2nT6pfSE
-once upon a time in the west$$15$$https://music.youtube.com/watch?v=HOrCMrwMAGg&list=RDAMVMHOrCMrwMAGg
-after the gold rush$$15$$https://music.youtube.com/watch?v=d6Zf4D1tHdw&list=OLAK5uy_mj-QihFzsNQmflikY4WFm75u7kJWTl6cU
-hey hey, my my (into the black)$$15$$https://music.youtube.com/watch?v=331kyZ9OXMc&list=RDAMVM331kyZ9OXMc
-africa$$15$$https://music.youtube.com/watch?v=QAo_Ycocl1E&list=RDAMVMQAo_Ycocl1E
-it's the end of the world as we know it$$15$$https://music.youtube.com/watch?v=8OyBtMPqpNY&list=RDAMVM8OyBtMPqpNY
-disintegration$$15$$https://music.youtube.com/watch?v=O-J7GF_ivsc&list=OLAK5uy_mVJSLXrczjRedcJsaknnU_PWPPVai3PI8
-wind of change$$15$$https://music.youtube.com/watch?v=Ukh1zoiV304&list=RDAMVMUkh1zoiV304
-fake plastic trees$$15$$https://music.youtube.com/watch?v=6gDhsUWCHrg&list=RDAMVM6gDhsUWCHrg
-99 problems$$15$$https://music.youtube.com/watch?v=31GjRnXfUjo&list=RDAMVM31GjRnXfUjo
-single ladies (put a ring on it)$$15$$https://music.youtube.com/watch?v=4z-bOdAdias&list=RDAMVM4z-bOdAdias
+test_search.html$$7$$../../tests/test_search.html
+sky and telescope$$9$$https://skyandtelescope.org/interactive-sky-chart/
+dark sky$$9$$https://www.darkskymap.com/
+star map$$9$$https://stellarium-web.org/
+bach, goldberg variations$$10$$https://www.youtube.com/watch?v=Ah392lnFHxM
+beethoven, moonlight sonata$$10$$https://www.youtube.com/watch?v=4Tr0otuiQuU
+beethoven – symphony no.5 in c minor$$10$$https://music.youtube.com/watch?v=hv-F6LZ1sJk
+beethoven – symphony no.9 in c minor$$10$$https://www.youtube.com/watch?v=t3217H8JppI
+schiller's "ode to joy"$$10$$https://en.wikipedia.org/wiki/Ode_to_Joy
+bernstein, west side story prologue - jet song$$10$$https://www.youtube.com/watch?v=7QR6ytrVRkM
+beethoven, silence$$10$$https://music.youtube.com/watch?v=TJFR3ZUFpaM
+bizet - habanera; <b>tango</b>$$10$$https://music.youtube.com/watch?v=GygeHnfohYk
+chopin, spring waltz$$10$$https://www.youtube.com/watch?v=dN1XUV6QclU
+dvořák: 9. ("from the new world")$$10$$https://www.youtube.com/watch?v=jOofzffyDSA
+galasso, in the mood for love$$10$$https://www.youtube.com/watch?v=gw9fKuymA0I
+jenkins palladio$$10$$https://music.youtube.com/watch?v=8FFVoHYf9jI&list=RDAMVMGygeHnfohYk
+korsakov – flight of the bumblebee$$10$$https://music.youtube.com/watch?v=cQ2Eakg-j5A
+morricone, good bad and ugly$$10$$https://www.youtube.com/watch?v=enuOArEfqGo
+mozart, requiem$$10$$https://www.youtube.com/watch?v=Zi8vJ_lMxQI
+mozart – symphony no.40 in g minor$$10$$https://music.youtube.com/watch?v=JTc1mDieQI8
+mozart – clarinet concerto$$10$$https://music.youtube.com/watch?v=-hgc7ybgi8U&list=RDAMVMGygeHnfohYk
+orf, o fortuna$$10$$https://www.youtube.com/watch?v=GXFSK0ogeg4
+o fortuna medieval poem$$10$$https://en.wikipedia.org/wiki/O_Fortuna
+piazzolla libertango; <b>tango</b>$$10$$https://www.youtube.com/watch?v=kdhTodxH7Gw
+shostakovich, waltz no.2$$10$$https://www.youtube.com/watch?v=LPG_WUgHbis
+rossini barber of seville$$10$$https://music.youtube.com/watch?v=uLDoT5pbNkA
+schubert. serenade$$10$$https://www.youtube.com/watch?v=0bjB-IWEYI0
+vivaldi, four seasons 42 min$$10$$https://www.youtube.com/watch?v=GRxofEmo3HA
+vivaldi, concerto in g minor for violin 3 min$$10$$https://music.youtube.com/watch?v=jzir3rJbJtk&list=RDAMVMGygeHnfohYk
+vivaldi, winter 3.3 min$$10$$https://music.youtube.com/watch?v=UzQMWOFM5wI&list=RDAMVMGygeHnfohYk
+zimmer; time$$10$$https://www.youtube.com/watch?v=va1oiojnGrA
+zimmer; dark knight main theme$$10$$https://www.youtube.com/watch?v=iGx5a1ifSDs
+bbc, top ten in last 75 years:$$10$$http://news.bbc.co.uk/2/hi/entertainment/8432499.stm
+o fortuna$$10$$https://www.youtube.com/watch?v=A-AiAlzpaTY
+fantasia on a theme$$10$$https://www.youtube.com/watch?v=0U6sWqfrnTs
+scheherazade;$$10$$https://www.youtube.com/watch?v=SQNymNaTr-Y
+scheherazade$$10$$https://en.wikipedia.org/wiki/Scheherazade
+the sleeping beauty$$10$$https://www.youtube.com/watch?v=2Sb8WCPjPDs
+romance in f sharp major op 28/2$$10$$https://music.youtube.com/watch?v=GQV95A57gxg
+sylvia (spirit of the wood)$$10$$https://music.youtube.com/watch?v=GV642ci1WgA
+symphony no 2$$10$$https://www.youtube.com/watch?v=SvuitFzDxDg
+the planets$$10$$https://www.youtube.com/watch?v=Isic2Z2e2xs
+the sleeping beauty$$10$$https://www.youtube.com/watch?v=2Sb8WCPjPDs
+symphony no 5$$10$$https://www.youtube.com/watch?v=cdLuvGsjwlA
+guardian, top 25 in 21th century:$$10$$https://www.theguardian.com/music/2019/sep/12/best-classical-music-works-of-the-21st-century
+birds fooled me$$11$$https://www.youtube.com/watch?v=68VkYerWdBM
+tell us charon$$11$$https://www.youtube.com/watch?v=wpwI63NKOoE
+in the bell$$11$$https://www.youtube.com/watch?v=DepGeKTsmlc
+pagonisio$$11$$https://www.youtube.com/watch?v=smCEMa0vEtY
+sacrifice to your will$$11$$https://www.youtube.com/watch?v=SvC55us1L5U
+smiling lad$$11$$https://music.youtube.com/watch?v=yVgTi5TDsJ0&list=RDAMVMyVgTi5TDsJ0
+pearl$$11$$https://www.youtube.com/watch?v=emiE-SaSyGI
+mother$$11$$https://www.youtube.com/watch?v=jZUzaWBAjNM
+witch doctor$$11$$https://music.youtube.com/watch?v=cmjrTcYMqBM&list=RDAMVMTYgOlqinH7A
+monster mash$$11$$https://music.youtube.com/watch?v=bRLML36HnzU&list=RDAMVMbRLML36HnzU
+california dreaming$$11$$https://music.youtube.com/watch?v=oU6uUEwZ8FM&list=RDAMVMoU6uUEwZ8FM
+white rabbit$$11$$https://music.youtube.com/watch?v=vgQ1Y1IFPao&list=RDAMVMoU6uUEwZ8FM
+little prayer$$11$$https://www.youtube.com/watch?v=KtBbyglq37E
+son of a preacher$$11$$https://music.youtube.com/watch?v=ZSEKX8GAEYY&list=RDAMVMoU6uUEwZ8FM
+what is going on$$11$$https://www.youtube.com/watch?v=H-kA3UtBj4M
+ain't no sunshine$$11$$https://music.youtube.com/watch?v=YuKfiH0Scao&list=RDAMVMYuKfiH0Scao
+theme from shaft$$11$$https://music.youtube.com/watch?v=kfdW4687b_w&list=RDAMVMkfdW4687b_w
+papa was a rolling stone$$11$$https://music.youtube.com/watch?v=ZQ1Eu3Z9IHU&list=RDAMVMZQ1Eu3Z9IHU
+hotel california$$11$$https://music.youtube.com/watch?v=vcmjDPDOk7c&list=RDAMVMvcmjDPDOk7c
+visions of johanna$$11$$https://music.youtube.com/watch?v=AwuCF5lYqEE&list=RDAMVMAwuCF5lYqEE
+losing my religion$$11$$https://music.youtube.com/watch?v=Efa6BAWPm9o&list=RDAMVMEfa6BAWPm9o
+leaving on jet plane$$11$$https://music.youtube.com/watch?v=rr1sTloviTQ&list=RDAMVMrr1sTloviTQ
+short people$$11$$https://music.youtube.com/watch?v=v8UVBgUd9GE&list=RDAMVMv8UVBgUd9GE
+thrill is gone$$11$$https://www.youtube.com/watch?v=4fk2prKnYnI
+sweat (a la la la la long)$$11$$https://music.youtube.com/watch?v=Xx0blzRFQRs&list=RDAMVM5M65q33b6hc
+umbrella - 2007 rihana$$11$$https://music.youtube.com/watch?v=x_GqgW94eSg&list=RDAMVMx_GqgW94eSg
+thunderbolt - 2011 björk$$11$$https://www.youtube.com/watch?v=C9Scr7wcqKk
+vivaldi, four seasons$$11$$https://www.youtube.com/watch?v=GRxofEmo3HA
+bach, goldberg variations$$11$$https://www.youtube.com/watch?v=Ah392lnFHxM
+mozart, requiem$$11$$https://www.youtube.com/watch?v=Zi8vJ_lMxQI
+beethoven, moonlight sonata$$11$$https://www.youtube.com/watch?v=4Tr0otuiQuU
+beethoven, silence$$11$$https://www.youtube.com/watch?v=7QR6ytrVRkM
+schubert. serenade$$11$$https://www.youtube.com/watch?v=0bjB-IWEYI0
+orf, o fortuna$$11$$https://www.youtube.com/watch?v=GXFSK0ogeg4
+medieval poem$$11$$https://en.wikipedia.org/wiki/O_Fortuna
+i'm not in love$$11$$https://music.youtube.com/watch?v=rmw-jFFsJLU&list=RDAMVMrmw-jFFsJLU
+shostakovich, waltz no.2$$11$$https://www.youtube.com/watch?v=LPG_WUgHbis
+chopin, spring waltz$$11$$https://www.youtube.com/watch?v=dN1XUV6QclU
+morricone, good bad and ugly$$11$$https://www.youtube.com/watch?v=enuOArEfqGo
+hans zimmer$$11$$https://www.youtube.com/watch?v=YHc5SJlrJig
+agni parthene$$11$$https://www.youtube.com/watch?v=C7vvPXz-Qes
+jesus prayer$$11$$https://www.youtube.com/watch?v=g4W4_EOXRLo
+ave maria$$11$$https://www.youtube.com/watch?v=3d4xXvF2ukY
+our father$$11$$https://www.youtube.com/watch?v=locW-9S00VU
+cherubim$$11$$https://www.youtube.com/watch?v=SZQzW_QfPew
+praise the lord$$11$$https://www.youtube.com/watch?v=MKLwutElZ-s
+miserere mei$$11$$https://www.youtube.com/watch?v=H3v9unphfi0
+amazing grace$$11$$https://music.youtube.com/watch?v=G3G-suuZgK4&list=RDAMVMG3G-suuZgK4
+agni parthene$$11$$https://www.youtube.com/watch?v=i-3h9TQ312c
+o virgin pure$$11$$https://en.wikipedia.org/wiki/Agni_Parthene
+hurrian$$11$$https://www.youtube.com/watch?v=QpxN2VXPMLc
+armenian goddess$$11$$https://en.wikipedia.org/wiki/Hurrian_songs
+apollo$$11$$https://www.youtube.com/watch?v=bydqNRYgbuc
+greek music$$11$$https://www.youtube.com/watch?v=4hOK7bU0S1Y
+birds fooled me$$12$$https://www.youtube.com/watch?v=68VkYerWdBM
+tell us charon$$12$$https://www.youtube.com/watch?v=wpwI63NKOoE
+in the bell$$12$$https://www.youtube.com/watch?v=DepGeKTsmlc
+sacrifice to your will$$12$$https://www.youtube.com/watch?v=SvC55us1L5U
+the smiling lad$$12$$https://music.youtube.com/watch?v=yVgTi5TDsJ0&list=RDAMVMyVgTi5TDsJ0
+the pearl$$12$$https://www.youtube.com/watch?v=emiE-SaSyGI
+mother$$12$$https://www.youtube.com/watch?v=jZUzaWBAjNM
+california dreaming$$12$$https://music.youtube.com/watch?v=oU6uUEwZ8FM&list=RDAMVMoU6uUEwZ8FM
+white rabbit$$12$$https://music.youtube.com/watch?v=vgQ1Y1IFPao&list=RDAMVMoU6uUEwZ8FM
+i say a little prayer$$12$$https://www.youtube.com/watch?v=KtBbyglq37E
+son of a preacher$$12$$https://music.youtube.com/watch?v=ZSEKX8GAEYY&list=RDAMVMoU6uUEwZ8FM
+i love you more today than yesterday$$12$$https://music.youtube.com/watch?v=89eEa3RvCF4
+what is going on$$12$$https://www.youtube.com/watch?v=H-kA3UtBj4M
+ain't no sunshine$$12$$https://music.youtube.com/watch?v=YuKfiH0Scao&list=RDAMVMYuKfiH0Scao
+theme from shaft$$12$$https://music.youtube.com/watch?v=kfdW4687b_w&list=RDAMVMkfdW4687b_w
+papa was a rolling stone$$12$$https://music.youtube.com/watch?v=ZQ1Eu3Z9IHU&list=RDAMVMZQ1Eu3Z9IHU
+brother louie$$12$$https://www.youtube.com/watch?v=C6yLdrkP-Bk
+hotel california$$12$$https://music.youtube.com/watch?v=vcmjDPDOk7c&list=RDAMVMvcmjDPDOk7c
+visions of johanna$$12$$https://music.youtube.com/watch?v=AwuCF5lYqEE&list=RDAMVMAwuCF5lYqEE
+losing my religion$$12$$https://music.youtube.com/watch?v=Efa6BAWPm9o&list=RDAMVMEfa6BAWPm9o
+leaving on jet plane$$12$$https://music.youtube.com/watch?v=rr1sTloviTQ&list=RDAMVMrr1sTloviTQ
+when will i see you again?$$12$$https://www.youtube.com/watch?v=Zr3MZiE2A5w
+i'm not in love$$12$$https://music.youtube.com/watch?v=rmw-jFFsJLU&list=RDAMVMrmw-jFFsJLU
+short people$$12$$https://music.youtube.com/watch?v=v8UVBgUd9GE&list=RDAMVMv8UVBgUd9GE
+the thrill is gone$$12$$https://www.youtube.com/watch?v=4fk2prKnYnI
+sweat (a la la la la long)$$12$$https://music.youtube.com/watch?v=Xx0blzRFQRs&list=RDAMVM5M65q33b6hc
+umbrella$$12$$https://music.youtube.com/watch?v=x_GqgW94eSg&list=RDAMVMx_GqgW94eSg
+white flag$$12$$https://www.youtube.com/watch?v=j-fWDrZSiZs
+just breathe$$12$$https://www.youtube.com/watch?v=ow-Cx9IX4So
+funny (how time slips away)$$12$$https://www.youtube.com/watch?v=j5KtCUHnAFw
+les yeux noirs (dark eyes)$$12$$https://www.youtube.com/watch?v=gfiqW1WaGbw
+$$13$$../../science/book-notes/tree_story-world_history_in_rings.txt
+the wind cries mary$$13$$https://music.youtube.com/watch?v=K2B2nT6pfSE&list=RDAMVMK2B2nT6pfSE
+once upon a time in the west$$13$$https://music.youtube.com/watch?v=HOrCMrwMAGg&list=RDAMVMHOrCMrwMAGg
+after the gold rush$$13$$https://music.youtube.com/watch?v=d6Zf4D1tHdw&list=OLAK5uy_mj-QihFzsNQmflikY4WFm75u7kJWTl6cU
+hey hey, my my (into the black)$$13$$https://music.youtube.com/watch?v=331kyZ9OXMc&list=RDAMVM331kyZ9OXMc
+africa$$13$$https://music.youtube.com/watch?v=QAo_Ycocl1E&list=RDAMVMQAo_Ycocl1E
+it's the end of the world as we know it$$13$$https://music.youtube.com/watch?v=8OyBtMPqpNY&list=RDAMVM8OyBtMPqpNY
+disintegration$$13$$https://music.youtube.com/watch?v=O-J7GF_ivsc&list=OLAK5uy_mVJSLXrczjRedcJsaknnU_PWPPVai3PI8
+wind of change$$13$$https://music.youtube.com/watch?v=Ukh1zoiV304&list=RDAMVMUkh1zoiV304
+fake plastic trees$$13$$https://music.youtube.com/watch?v=6gDhsUWCHrg&list=RDAMVM6gDhsUWCHrg
+99 problems$$13$$https://music.youtube.com/watch?v=31GjRnXfUjo&list=RDAMVM31GjRnXfUjo
+single ladies (put a ring on it)$$13$$https://music.youtube.com/watch?v=4z-bOdAdias&list=RDAMVM4z-bOdAdias
+wikipedia$$23$$https://en.wikipedia.org/wiki/List_of_languages_by_number_of_native_speakers
+wikipedia$$24$$https://en.wikipedia.org/wiki/List_of_languages_by_number_of_native_speakers
 wikipedia$$25$$https://en.wikipedia.org/wiki/List_of_languages_by_number_of_native_speakers
 wikipedia$$26$$https://en.wikipedia.org/wiki/List_of_languages_by_number_of_native_speakers
-wikipedia$$27$$https://en.wikipedia.org/wiki/List_of_languages_by_number_of_native_speakers
-wikipedia$$28$$https://en.wikipedia.org/wiki/List_of_languages_by_number_of_native_speakers
-living in your head rent-free$$29$$https://www.buzzfeednews.com/article/josephbernstein/living-in-your-head-rent-free-is-the-perfect-insult-of-our
-humorous units of measurement$$39$$https://en.wikipedia.org/wiki/List_of_humorous_units_of_measurement
-confound the science$$39$$https://www.youtube.com/watch?v=IZDYhQ4UAnA
-pink panther$$39$$https://www.youtube.com/watch?v=59lKdaXX6Eo
-pink panther$$39$$https://www.youtube.com/watch?v=4E-rQwZYQ_4
-tom and jerry$$39$$https://www.youtube.com/watch?v=cqyziA30whE
-foghorn leghorn$$39$$https://www.youtube.com/watch?v=kF6qUh3T9KE
-the inspector$$39$$https://www.youtube.com/watch?v=3kFxWss5d2I
-roadrunner vs coyote$$39$$https://www.youtube.com/watch?v=PkBu-mnXOAk
-donald duck / chip and dale$$39$$https://www.youtube.com/watch?v=19aCxfbc7gM
-tom and jerry$$39$$https://www.youtube.com/watch?v=QJmKw33k0mA
-pluto$$39$$https://www.youtube.com/watch?v=Ky9W8Sp6Q0g
-casper the ghost$$39$$https://www.youtube.com/watch?v=mhdo7U_Knhc
-shaun the sheep$$39$$https://www.youtube.com/watch?v=WwGYDA8RYZc
-mr bean$$39$$https://www.youtube.com/watch?v=zw_CgYQtr2U
-zool babies$$39$$https://www.youtube.com/watch?v=bDDnurVUKeQ
-2019 audubon photography awards$$41$$https://www.audubon.org/magazine/summer-2019/the-2019-audubon-photography-awards-winners
-2020  '' '' ''$$41$$https://www.audubon.org/magazine/summer-2020/the-2020-audubon-photography-awards-winners
-2020  '' '' ''$$41$$https://www.audubon.org/magazine/summer-2021/the-2021-audubon-photography-awards-winners-and
-hubble favorites$$41$$https://hubblesite.org/resource-gallery/images?Collection=Hubble%20Favorites
-2018 nasa satellite images$$41$$https://www.nasa.gov/feature/amazing-earth-satellite-images-from-2018
-2019 '' '' ''$$41$$https://www.nasa.gov/feature/amazing-earth-satellite-images-from-2019
-2020 '' '' ''$$41$$https://www.nasa.gov/feature/amazing-earth-satellite-images-from-2010
-national geographic contest winners$$41$$https://www.nationalgeographic.com/photography/article/photo-contest-gallery
-2019 best science photos$$41$$https://www.livescience.com/best-science-photos-of-2019.html
-science photography$$41$$https://www.scienceandart.org/links.html
-art photography$$41$$https://www.scienceandart.org/webdesign.html
-αν το δεις μπορεί να κλάψεις$$42$$https://www.youtube.com/watch?v=GS_sV25kfXY
-πολυαναμενόμενη ευτυχία$$42$$https://www.youtube.com/watch?v=rVVAsLnkZhA
-ballardian video neuronica$$42$$https://vimeo.com/95105838
-10 top natural history moments | bbc earth$$42$$ttps://www.youtube.com/watch?v=FeJKJ5MoCHY
-animals that do not forget their owner after years$$42$$https://www.youtube.com/watch?v=fJBbA3tJ8EA
-the scary door$$42$$https://www.youtube.com/watch?v=PG2ann9x89Q
-in hell i'll be in good company$$42$$https://www.youtube.com/watch?v=B9FzVhw8_bY
-electric edwardians (1901)$$42$$https://www.youtube.com/watch?v=oTf9o_mIE4I
-man with a movie camera (1929)$$42$$https://www.youtube.com/watch?v=cGYZ5847FiI
-agar art$$43$$https://asm.org/Press-Releases/2020/December/Amidst-Global-Pandemic,-Agar-Art-Contest-Proves-Mi
-sistine chapel of the ancients$$43$$https://www.theguardian.com/science/2020/nov/29/sistine-chapel-of-the-ancients-rock-art-discovered-in-remote-amazon-forest
-how to write an essay$$44$$https://docs.google.com/presentation/d/1BT1bvvjZkDpSGNCMr-bh7NgHAZXgfPcvA_XgCaxxEb4/edit#slide=id.g67a1a73c3_0_1
-nih: fructose promotes leaky gut$$71$$https://pubmed.ncbi.nlm.nih.gov/30959577/
-nih: behavioral and neurochemical effects of sugar$$71$$https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2235907/
-hih: all disease begins in the (leaky) gut.$$71$$https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6996528/
-linux smartphone$$89$$https://lotoftech.com/best-linux-smartphone-you-can-buy-right-now/
-github.com/coaspo/rep/ br1$$91$$https://github.com/coaspo/rep/tree/br1
-quizzer$$91$$https://github.com/coaspo/rep/tree/br1/quizzer
-translator$$91$$https://github.com/coaspo/rep/tree/br1/translator
-w(website)$$91$$https://github.com/coaspo/rep/tree/br1/w
-github.com/coaspo/rep/ master$$91$$https://github.com/coaspo/rep/tree/master
-quizzer$$91$$https://github.com*scanContents()/coaspo/rep/tree/master/quizzer
-translator$$91$$https://github.com/coaspo/rep/tree/master/translator
-w(ebsite)$$91$$https://github.com/coaspo/rep/tree/master/w
-app.netlify.com/w$$91$$https://app.netlify.com/w
-li.netlify.com/w/tests/test_search.html$$91$$https://li.netlify.com/w/tests/test_search.html
-localhost:8080/w$$91$$http://localhost:8080/w/
-localhost:8080/w/tests/test_search.html$$91$$http://localhost:8080/w/tests/test_search.html
-freedom of speech and thinking$$117$$#freedom
-coronavirus: from science to politics$$117$$#virus
-contagion math$$117$$#contagion
-dissonance: conflict of truth and illusion$$117$$#dissonance
-government: from utopian to distopian$$117$$#government
-persuasion (of truth or lies)$$117$$#persuasion
-vaccine: from noise to science$$117$$#vaccine
-where year two of the pandemic will take us$$117$$#after
-communication: crew resource management (crm)$$117$$#CRM
-go to top$$117$$#top
-virus$$117
-sensitivity_specificity_predictive_value.txt$$117$$./math/sensitivity_specificity_predictive_value.txt
-go to top$$117$$#top
-flight network$$117$$./flight-network.jpg
-go to top$$117$$#top
-go to top$$117$$#top
-lydian$$117$$https://en.wikipedia.org/wiki/Lydia
-go to top$$117$$#top
-ethos$$117
-logos$$117
-pathos$$117
-go to top$$117$$#top
-mrna$$117
-epistemic transpassing$$117
-ecological fallacy$$117
-go to top$$117$$#top
-go to top$$117$$#top
-go to top$$117$$#top
-the hunt for a new killer virus$$131$$https://www.amazon.com/Hunt-New-Killer-Virus-ebook/dp/B00SLWGZG2/ref=sr_1_1?dchild=1&keywords=fever+virus&qid=1611357564&sr=8-1
-the coming plague: newly emerging diseases$$131$$https://www.amazon.com/dp/0140250913/ref=rdr_ext_tmb
-i contain multitudes... by ed yong$$131$$https://www.amazon.com/Contain-Multitudes-Microbes-Within-Grander/dp/B01FY85L38/ref=sr_1_1?dchild=1&keywords=I+Contain+Multitudes&qid=1589194089&sr=8-1
-the hacking of the american mind by robert h. lustig$$131$$https://www.amazon.com/Hacking-of-American-Mind-audiobook/dp/B0753KYQLN/ref=sr_1_1?dchild=1&keywords=The+Hacking+of+the+American+Mind+by+Robert&qid=1589850091&sr=8-1
-pure, white, and deadly$$131$$https://www.amazon.com/Pure-White-and-Deadly-audiobook/dp/B077DKN9RC/ref=sr_1_1?dchild=1&keywords=Pure%2C+White%2C+and+Deadly&qid=1589850288&sr=8-1
-entangled life: how fungi make our worlds, change our minds & shape our futures$$131$$https://www.amazon.com/Entangled-Life-Worlds-Change-Futures/dp/0525510311/ref=as_li_ss_tl?ie=UTF8&linkCode=sl1&tag=virologyws-20&linkId=595f00a1002b4800c3156aa3c20a9570&language=en_US
-being mortal: medicine and what matters in the end$$131$$https://www.amazon.com/Being-Mortal-Medicine-What-Matters/dp/1250076226?crid=QSDDML7UTHJE&dchild=1&keywords=being+mortal+atul+gawande&qid=1614183021&sprefix=being+mortal,aps,147&sr=8-1&linkCode=sl1&tag=virologyws-20&linkId=95bd4dbced561d5be3174f2f76e3f768&language=en_US&ref_=as_li_ss_tl
-outlaw ocean$$131$$https://www.amazon.com/Outlaw-Ocean-Journeys-Untamed-Frontier/dp/0451492943?&linkCode=sl1&tag=virologyws-20&linkId=0a12a50cdd7720d53ef2b4bdfa999776&language=en_US&ref_=as_li_ss_tl#customerReviews
-the right stuff$$131$$https://www.amazon.com/Right-Stuff-Tom-Wolfe/dp/0312427565/ref=as_li_ss_tl?dchild=1&keywords=the+right+stuff+by+tom+wolfe&qid=1607430497&sr=8-1&linkCode=sl1&tag=virologyws-20&linkId=b956b206c115e3b83a70d3d76fffa930&language=en_US
-army ants$$131$$https://www.amazon.com/Army-Ants-Natures-Ultimate-Hunters/dp/067424155X/ref=as_li_ss_tl?crid=3OXNRQX5XQ8SY&dchild=1&keywords=daniel+kronauer+army+ants&qid=1607010470&sprefix=daniel+kronauer,aps,136&sr=8-1&linkCode=sl1&tag=virologyws-20&linkId=79e26ce1c641fd6c1b20d075395145b1&language=en_US#customerReviews
-immunobiology$$131$$https://www.amazon.com/Janeways-Immunobiology-Kenneth-Murphy/dp/081534550X/ref=as_li_ss_tl?ie=UTF8&linkCode=sl1&tag=virologyws-20&linkId=14856f3bd3e973490b521d762afce691&language=en_US
-food fix$$131$$https://www.amazon.com/Food-Fix-Economy-Communities-Planet-One/dp/031645317X/ref=as_li_ss_tl?crid=2H0WRGAZIH176&keywords=food+fix+mark+hyman&qid=1570040223&s=gateway&sprefix=food+fix,aps,205&sr=8-1&linkCode=sl1&tag=wwwultrametab-20&linkId=123d3d86cc6531c41405532500106007&language=en_US
-merchants of doubt$$131$$https://www.amazon.com/Merchants-Doubt-Handful-Scientists-Obscured/dp/1608193942
-jamie oliver's food escapes$$131$$https://www.amazon.com/Jamie-Olivers-Food-Escapes-Recipes/dp/140132441X#customerReviews
-the overstory$$131$$https://www.amazon.com/Richard-Powers/e/B000APP5PK/ref=dp_byline_cont_pop_book_1
-probability for data science$$131$$https://probability4datascience.com/
-korean cdc interview$$132$$https://www.youtube.com/watch?v=gAk7aX5hksU
-virus course$$132$$https://www.youtube.com/watch?v=lj3NhPgOoX4
-week in virology$$132$$https://www.microbe.tv/twiv/archive/
-cdc - principles of epidemiology in public health practice$$132$$https://www.cdc.gov/csels/dsepd/ss1978/index.html
-addgene.org$$132$$https://www.addgene.org/
-recalls$$132$$https://www.recalls.gov/nhtsa.html
-wolfram$$132$$https://www.wolfram.com/
-worldometers$$132$$https://www.worldometers.info/
-ourworldindata$$132$$https://ourworldindata.org/
-flightradar24$$132$$https://www.flightradar24.com/airport/bos
-merk manual$$132$$https://www.merckmanuals.com/
-data$$132$$https://ourworldindata.org 
-mass maps$$132$$https://massgis.maps.arcgis.com/home/index.html
-sci-hub$$132$$https://sci-hub.se/
-information$$132$$https://www.informationisbeautiful.net/visualizations/the-microbescope-infectious-diseases-in-context/
-probability statistics intro$$132$$https://seeing-theory.brown.edu/basic-probability/index.html
-apod; astronomy picture of the day$$132$$https://apod.nasa.gov/apod/astropix.html
-wind/weather map$$132$$https://www.windy.com
-hacker laws$$132$$https://github.com/dwmkerr/hacker-laws
-quantum computing lectures$$132$$https://www.scottaaronson.com/democritus/default.html
-quantum processing$$132$$https://ocw.tudelft.nl/courses/quantum-information-processing/
-kids health.org$$132$$https://kidshealth.org/
-diogenes$$140
-national social anxiety center.com$$142$$https://nationalsocialanxietycenter.com/liebowitz-sa-scale/
-psychology today.com$$142$$https://www.psychologytoday.com/us/tests
-open psycho metrics.org$$142$$https://openpsychometrics.org/
-darkfactor.org$$142$$https://qst.darkfactor.org/
+living in your head rent-free$$27$$https://www.buzzfeednews.com/article/josephbernstein/living-in-your-head-rent-free-is-the-perfect-insult-of-our
+humorous units of measurement$$37$$https://en.wikipedia.org/wiki/List_of_humorous_units_of_measurement
+confound the science$$37$$https://www.youtube.com/watch?v=IZDYhQ4UAnA
+pink panther$$37$$https://www.youtube.com/watch?v=59lKdaXX6Eo
+pink panther$$37$$https://www.youtube.com/watch?v=4E-rQwZYQ_4
+tom and jerry$$37$$https://www.youtube.com/watch?v=cqyziA30whE
+foghorn leghorn$$37$$https://www.youtube.com/watch?v=kF6qUh3T9KE
+the inspector$$37$$https://www.youtube.com/watch?v=3kFxWss5d2I
+roadrunner vs coyote$$37$$https://www.youtube.com/watch?v=PkBu-mnXOAk
+donald duck / chip and dale$$37$$https://www.youtube.com/watch?v=19aCxfbc7gM
+tom and jerry$$37$$https://www.youtube.com/watch?v=QJmKw33k0mA
+pluto$$37$$https://www.youtube.com/watch?v=Ky9W8Sp6Q0g
+casper the ghost$$37$$https://www.youtube.com/watch?v=mhdo7U_Knhc
+shaun the sheep$$37$$https://www.youtube.com/watch?v=WwGYDA8RYZc
+mr bean$$37$$https://www.youtube.com/watch?v=zw_CgYQtr2U
+zool babies$$37$$https://www.youtube.com/watch?v=bDDnurVUKeQ
+2019 audubon photography awards$$39$$https://www.audubon.org/magazine/summer-2019/the-2019-audubon-photography-awards-winners
+2020  '' '' ''$$39$$https://www.audubon.org/magazine/summer-2020/the-2020-audubon-photography-awards-winners
+2020  '' '' ''$$39$$https://www.audubon.org/magazine/summer-2021/the-2021-audubon-photography-awards-winners-and
+hubble favorites$$39$$https://hubblesite.org/resource-gallery/images?Collection=Hubble%20Favorites
+2018 nasa satellite images$$39$$https://www.nasa.gov/feature/amazing-earth-satellite-images-from-2018
+2019 '' '' ''$$39$$https://www.nasa.gov/feature/amazing-earth-satellite-images-from-2019
+2020 '' '' ''$$39$$https://www.nasa.gov/feature/amazing-earth-satellite-images-from-2010
+national geographic contest winners$$39$$https://www.nationalgeographic.com/photography/article/photo-contest-gallery
+2019 best science photos$$39$$https://www.livescience.com/best-science-photos-of-2019.html
+science photography$$39$$https://www.scienceandart.org/links.html
+art photography$$39$$https://www.scienceandart.org/webdesign.html
+αν το δεις μπορεί να κλάψεις$$40$$https://www.youtube.com/watch?v=GS_sV25kfXY
+πολυαναμενόμενη ευτυχία$$40$$https://www.youtube.com/watch?v=rVVAsLnkZhA
+ballardian video neuronica$$40$$https://vimeo.com/95105838
+10 top natural history moments | bbc earth$$40$$ttps://www.youtube.com/watch?v=FeJKJ5MoCHY
+animals that do not forget their owner after years$$40$$https://www.youtube.com/watch?v=fJBbA3tJ8EA
+the scary door$$40$$https://www.youtube.com/watch?v=PG2ann9x89Q
+in hell i'll be in good company$$40$$https://www.youtube.com/watch?v=B9FzVhw8_bY
+electric edwardians (1901)$$40$$https://www.youtube.com/watch?v=oTf9o_mIE4I
+man with a movie camera (1929)$$40$$https://www.youtube.com/watch?v=cGYZ5847FiI
+agar art$$41$$https://asm.org/Press-Releases/2020/December/Amidst-Global-Pandemic,-Agar-Art-Contest-Proves-Mi
+sistine chapel of the ancients$$41$$https://www.theguardian.com/science/2020/nov/29/sistine-chapel-of-the-ancients-rock-art-discovered-in-remote-amazon-forest
+how to write an essay$$42$$https://docs.google.com/presentation/d/1BT1bvvjZkDpSGNCMr-bh7NgHAZXgfPcvA_XgCaxxEb4/edit#slide=id.g67a1a73c3_0_1
+nih: fructose promotes leaky gut$$69$$https://pubmed.ncbi.nlm.nih.gov/30959577/
+nih: behavioral and neurochemical effects of sugar$$69$$https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2235907/
+hih: all disease begins in the (leaky) gut.$$69$$https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6996528/
+linux smartphone$$87$$https://lotoftech.com/best-linux-smartphone-you-can-buy-right-now/
+github.com/coaspo/rep/ br1$$89$$https://github.com/coaspo/rep/tree/br1
+quizzer$$89$$https://github.com/coaspo/rep/tree/br1/quizzer
+translator$$89$$https://github.com/coaspo/rep/tree/br1/translator
+w(website)$$89$$https://github.com/coaspo/rep/tree/br1/w
+github.com/coaspo/rep/ master$$89$$https://github.com/coaspo/rep/tree/master
+quizzer$$89$$https://github.com*scanContents()/coaspo/rep/tree/master/quizzer
+translator$$89$$https://github.com/coaspo/rep/tree/master/translator
+w(ebsite)$$89$$https://github.com/coaspo/rep/tree/master/w
+app.netlify.com/w$$89$$https://app.netlify.com/w
+li.netlify.com/w/tests/test_search.html$$89$$https://li.netlify.com/w/tests/test_search.html
+localhost:8080/w$$89$$http://localhost:8080/w/
+localhost:8080/w/tests/test_search.html$$89$$http://localhost:8080/w/tests/test_search.html
+freedom of speech and thinking$$115$$#freedom
+coronavirus: from science to politics$$115$$#virus
+contagion math$$115$$#contagion
+dissonance: conflict of truth and illusion$$115$$#dissonance
+government: from utopian to distopian$$115$$#government
+persuasion (of truth or lies)$$115$$#persuasion
+vaccine: from noise to science$$115$$#vaccine
+where year two of the pandemic will take us$$115$$#after
+communication: crew resource management (crm)$$115$$#CRM
+go to top$$115$$#top
+virus$$115
+sensitivity_specificity_predictive_value.txt$$115$$./math/sensitivity_specificity_predictive_value.txt
+go to top$$115$$#top
+flight network$$115$$./flight-network.jpg
+go to top$$115$$#top
+go to top$$115$$#top
+lydian$$115$$https://en.wikipedia.org/wiki/Lydia
+go to top$$115$$#top
+ethos$$115
+logos$$115
+pathos$$115
+go to top$$115$$#top
+mrna$$115
+epistemic transpassing$$115
+ecological fallacy$$115
+go to top$$115$$#top
+go to top$$115$$#top
+go to top$$115$$#top
+the hunt for a new killer virus$$129$$https://www.amazon.com/Hunt-New-Killer-Virus-ebook/dp/B00SLWGZG2/ref=sr_1_1?dchild=1&keywords=fever+virus&qid=1611357564&sr=8-1
+the coming plague: newly emerging diseases$$129$$https://www.amazon.com/dp/0140250913/ref=rdr_ext_tmb
+i contain multitudes... by ed yong$$129$$https://www.amazon.com/Contain-Multitudes-Microbes-Within-Grander/dp/B01FY85L38/ref=sr_1_1?dchild=1&keywords=I+Contain+Multitudes&qid=1589194089&sr=8-1
+the hacking of the american mind by robert h. lustig$$129$$https://www.amazon.com/Hacking-of-American-Mind-audiobook/dp/B0753KYQLN/ref=sr_1_1?dchild=1&keywords=The+Hacking+of+the+American+Mind+by+Robert&qid=1589850091&sr=8-1
+pure, white, and deadly$$129$$https://www.amazon.com/Pure-White-and-Deadly-audiobook/dp/B077DKN9RC/ref=sr_1_1?dchild=1&keywords=Pure%2C+White%2C+and+Deadly&qid=1589850288&sr=8-1
+entangled life: how fungi make our worlds, change our minds & shape our futures$$129$$https://www.amazon.com/Entangled-Life-Worlds-Change-Futures/dp/0525510311/ref=as_li_ss_tl?ie=UTF8&linkCode=sl1&tag=virologyws-20&linkId=595f00a1002b4800c3156aa3c20a9570&language=en_US
+being mortal: medicine and what matters in the end$$129$$https://www.amazon.com/Being-Mortal-Medicine-What-Matters/dp/1250076226?crid=QSDDML7UTHJE&dchild=1&keywords=being+mortal+atul+gawande&qid=1614183021&sprefix=being+mortal,aps,147&sr=8-1&linkCode=sl1&tag=virologyws-20&linkId=95bd4dbced561d5be3174f2f76e3f768&language=en_US&ref_=as_li_ss_tl
+outlaw ocean$$129$$https://www.amazon.com/Outlaw-Ocean-Journeys-Untamed-Frontier/dp/0451492943?&linkCode=sl1&tag=virologyws-20&linkId=0a12a50cdd7720d53ef2b4bdfa999776&language=en_US&ref_=as_li_ss_tl#customerReviews
+the right stuff$$129$$https://www.amazon.com/Right-Stuff-Tom-Wolfe/dp/0312427565/ref=as_li_ss_tl?dchild=1&keywords=the+right+stuff+by+tom+wolfe&qid=1607430497&sr=8-1&linkCode=sl1&tag=virologyws-20&linkId=b956b206c115e3b83a70d3d76fffa930&language=en_US
+army ants$$129$$https://www.amazon.com/Army-Ants-Natures-Ultimate-Hunters/dp/067424155X/ref=as_li_ss_tl?crid=3OXNRQX5XQ8SY&dchild=1&keywords=daniel+kronauer+army+ants&qid=1607010470&sprefix=daniel+kronauer,aps,136&sr=8-1&linkCode=sl1&tag=virologyws-20&linkId=79e26ce1c641fd6c1b20d075395145b1&language=en_US#customerReviews
+immunobiology$$129$$https://www.amazon.com/Janeways-Immunobiology-Kenneth-Murphy/dp/081534550X/ref=as_li_ss_tl?ie=UTF8&linkCode=sl1&tag=virologyws-20&linkId=14856f3bd3e973490b521d762afce691&language=en_US
+food fix$$129$$https://www.amazon.com/Food-Fix-Economy-Communities-Planet-One/dp/031645317X/ref=as_li_ss_tl?crid=2H0WRGAZIH176&keywords=food+fix+mark+hyman&qid=1570040223&s=gateway&sprefix=food+fix,aps,205&sr=8-1&linkCode=sl1&tag=wwwultrametab-20&linkId=123d3d86cc6531c41405532500106007&language=en_US
+merchants of doubt$$129$$https://www.amazon.com/Merchants-Doubt-Handful-Scientists-Obscured/dp/1608193942
+jamie oliver's food escapes$$129$$https://www.amazon.com/Jamie-Olivers-Food-Escapes-Recipes/dp/140132441X#customerReviews
+the overstory$$129$$https://www.amazon.com/Richard-Powers/e/B000APP5PK/ref=dp_byline_cont_pop_book_1
+probability for data science$$129$$https://probability4datascience.com/
+korean cdc interview$$130$$https://www.youtube.com/watch?v=gAk7aX5hksU
+virus course$$130$$https://www.youtube.com/watch?v=lj3NhPgOoX4
+week in virology$$130$$https://www.microbe.tv/twiv/archive/
+cdc - principles of epidemiology in public health practice$$130$$https://www.cdc.gov/csels/dsepd/ss1978/index.html
+addgene.org$$130$$https://www.addgene.org/
+recalls$$130$$https://www.recalls.gov/nhtsa.html
+wolfram$$130$$https://www.wolfram.com/
+worldometers$$130$$https://www.worldometers.info/
+ourworldindata$$130$$https://ourworldindata.org/
+flightradar24$$130$$https://www.flightradar24.com/airport/bos
+merk manual$$130$$https://www.merckmanuals.com/
+data$$130$$https://ourworldindata.org 
+mass maps$$130$$https://massgis.maps.arcgis.com/home/index.html
+sci-hub$$130$$https://sci-hub.se/
+information$$130$$https://www.informationisbeautiful.net/visualizations/the-microbescope-infectious-diseases-in-context/
+probability statistics intro$$130$$https://seeing-theory.brown.edu/basic-probability/index.html
+apod; astronomy picture of the day$$130$$https://apod.nasa.gov/apod/astropix.html
+wind/weather map$$130$$https://www.windy.com
+hacker laws$$130$$https://github.com/dwmkerr/hacker-laws
+quantum computing lectures$$130$$https://www.scottaaronson.com/democritus/default.html
+quantum processing$$130$$https://ocw.tudelft.nl/courses/quantum-information-processing/
+kids health.org$$130$$https://kidshealth.org/
+diogenes$$138
+national social anxiety center.com$$140$$https://nationalsocialanxietycenter.com/liebowitz-sa-scale/
+psychology today.com$$140$$https://www.psychologytoday.com/us/tests
+open psycho metrics.org$$140$$https://openpsychometrics.org/
+darkfactor.org$$140$$https://qst.darkfactor.org/
+python.org$$151$$https://docs.python.org/3/library/functions.html
+python.org$$152$$https://docs.python.org/3/tutorial/datastructures.html
 python.org$$153$$https://docs.python.org/3/library/functions.html
-python.org$$154$$https://docs.python.org/3/tutorial/datastructures.html
-python.org$$155$$https://docs.python.org/3/library/functions.html
-flowchart$$156$$https://creately.com/blog/diagrams/flowchart-guide-flowchart-tutorial/
-whois$$156$$https://whois.whoisxmlapi.com/lookup
-what is my browser$$156$$https://www.whatismybrowser.com/detect/what-http-headers-is-my-browser-sending
-speed test$$156$$https://www.speedcheck.org/
-browser test$$156$$http://acid3.acidtests.org/
-pdf editor$$156$$https://www.pdfescape.com/
-sql format (sqlformat.org)$$156$$https://sqlformat.org/
-sql format (dpriver.com)$$156$$https://www.dpriver.com/pp/sqlformat.htm
-w3.org$$156$$https://validator.w3.org/#validate_by_input
-freeformatter.com$$156$$https://www.freeformatter.com/html-formatter.html
-quackit.com$$156$$https://www.quackit.com/html/online-html-editor/
-htmleditor.in$$156$$http://htmleditor.in/index.html
-html5-editor.net$$156$$https://html5-editor.net/
-algorithms course (coursera.org)$$156$$https://www.coursera.org/learn/algorithms-part1/home/welcome
-edx.org$$156$$httpstable://www.edx.org
-quizlet.com$$156$$https://quizlet.com/
-course.eu$$156$$https://python-course.eu
-repl (python.org)$$156$$https://python.org/shell
-pythonanywhere.com$$156$$https://www.pythonanywhere.com
-vogella tutorial$$156$$https://www.vogella.com/tutorials/java.html
-repl (compilejava.net)$$156$$https://compilejava.net
-ide (onlinegdb.com)$$156$$https://onlinegdb.com/online_java_compiler
-stanford ai index$$158$$https://aiindex.stanford.edu/
-openai chatgpt$$158$$https://chat.openai.com/auth/login
-openai playground$$158$$https://platform.openai.com/playground
-openai dall e$$158$$https://labs.openai.com/
-mid-journey$$158$$https://midjourney.com/
-replica$$158$$https://replika.com/
-stable diffusion$$158$$stablediffusionweb.com/#demo
-quillbot$$158$$https://quillbot.com/
-character$$158$$https://beta.character.ai
-bratgpt$$158$$https://bratgpt.com/
-theatlantic$$159$$https://www.theatlantic.com
-the electric typewriter$$159$$https://tetw.org
-the enemies of writing$$159$$https://www.theatlantic.com/ideas/archive/2020/01/packer-hitchens/605365/
-bloomberg jealousy list$$159$$https://www.bloomberg.com/features/2020-jealousy-list/
-it’s hard to be a moral person. technology is making it harder.$$159$$https://www.vox.com/the-highlight/22585287/technology-smartphones-gmail-attention-morality
-text is all you need$$159$$https://studio.ribbonfarm.com/p/text-is-all-you-need
-internet archive$$160$$https://archive.org
-free books$$160$$https://www.freebookcentre.net/
-google books$$160$$https://books.google.com/books?
-booklistqueen.com$$160$$https://www.booklistqueen.com/five-star-books/
-goodreads.com$$160$$https://www.goodreads.com/shelf/show/international-fiction
-goodreads.com$$160$$https://www.goodreads.com/shelf/show/five-star-fiction
-informationisbeautiful.net$$160$$https://www.informationisbeautiful.net/visualizations/non-fiction-books-everyone-should-read-interactive/
-informationisbeautiful.netl$$160$$https://www.informationisbeautiful.net/visualizations/novels-everyone-should-read-interactive/
-theguardian.com$$160$$https://www.theguardian.com/books/2019/sep/21/best-books-of-the-21st-century
-bbc.com$$160$$https://www.bbc.com/culture/article/20150119-the-21st-centurys-12-best-novels
-bibliocommons.com$$160$$https://princetonlibrary.bibliocommons.com/list/share/1269834197/1743948988
-cloudflare speed test$$161$$https://speed.cloudflare.com/
-ngrams$$161$$https://books.google.com/ngrams
-hoopla$$161$$https://www.hoopladigital.com/
-greek spell checker$$161$$https://www.neurolingo.gr/en/online_tools/speller
-random street-view$$161$$https://randomstreetview.com/
-khan academy$$161$$https://www.khanacademy.org/
-coursera$$161$$https://www.coursera.org/
-edx$$161$$https://www.edx.org/
-national geographic encyclopedia$$161$$https://admin.nationalgeographic.org/education/resource-library/?q=&page=1&per_page=25
+flowchart$$154$$https://creately.com/blog/diagrams/flowchart-guide-flowchart-tutorial/
+whois$$154$$https://whois.whoisxmlapi.com/lookup
+what is my browser$$154$$https://www.whatismybrowser.com/detect/what-http-headers-is-my-browser-sending
+speed test$$154$$https://www.speedcheck.org/
+browser test$$154$$http://acid3.acidtests.org/
+pdf editor$$154$$https://www.pdfescape.com/
+sql format (sqlformat.org)$$154$$https://sqlformat.org/
+sql format (dpriver.com)$$154$$https://www.dpriver.com/pp/sqlformat.htm
+w3.org$$154$$https://validator.w3.org/#validate_by_input
+freeformatter.com$$154$$https://www.freeformatter.com/html-formatter.html
+quackit.com$$154$$https://www.quackit.com/html/online-html-editor/
+htmleditor.in$$154$$http://htmleditor.in/index.html
+html5-editor.net$$154$$https://html5-editor.net/
+algorithms course (coursera.org)$$154$$https://www.coursera.org/learn/algorithms-part1/home/welcome
+edx.org$$154$$httpstable://www.edx.org
+quizlet.com$$154$$https://quizlet.com/
+course.eu$$154$$https://python-course.eu
+repl (python.org)$$154$$https://python.org/shell
+pythonanywhere.com$$154$$https://www.pythonanywhere.com
+vogella tutorial$$154$$https://www.vogella.com/tutorials/java.html
+repl (compilejava.net)$$154$$https://compilejava.net
+ide (onlinegdb.com)$$154$$https://onlinegdb.com/online_java_compiler
+stanford ai index$$156$$https://aiindex.stanford.edu/
+openai chatgpt$$156$$https://chat.openai.com/auth/login
+openai playground$$156$$https://platform.openai.com/playground
+openai dall e$$156$$https://labs.openai.com/
+mid-journey$$156$$https://midjourney.com/
+replica$$156$$https://replika.com/
+stable diffusion$$156$$stablediffusionweb.com/#demo
+quillbot$$156$$https://quillbot.com/
+character$$156$$https://beta.character.ai
+bratgpt$$156$$https://bratgpt.com/
+theatlantic$$157$$https://www.theatlantic.com
+the electric typewriter$$157$$https://tetw.org
+the enemies of writing$$157$$https://www.theatlantic.com/ideas/archive/2020/01/packer-hitchens/605365/
+bloomberg jealousy list$$157$$https://www.bloomberg.com/features/2020-jealousy-list/
+it’s hard to be a moral person. technology is making it harder.$$157$$https://www.vox.com/the-highlight/22585287/technology-smartphones-gmail-attention-morality
+text is all you need$$157$$https://studio.ribbonfarm.com/p/text-is-all-you-need
+internet archive$$158$$https://archive.org
+free books$$158$$https://www.freebookcentre.net/
+google books$$158$$https://books.google.com/books?
+booklistqueen.com$$158$$https://www.booklistqueen.com/five-star-books/
+goodreads.com$$158$$https://www.goodreads.com/shelf/show/international-fiction
+goodreads.com$$158$$https://www.goodreads.com/shelf/show/five-star-fiction
+informationisbeautiful.net$$158$$https://www.informationisbeautiful.net/visualizations/non-fiction-books-everyone-should-read-interactive/
+informationisbeautiful.netl$$158$$https://www.informationisbeautiful.net/visualizations/novels-everyone-should-read-interactive/
+theguardian.com$$158$$https://www.theguardian.com/books/2019/sep/21/best-books-of-the-21st-century
+bbc.com$$158$$https://www.bbc.com/culture/article/20150119-the-21st-centurys-12-best-novels
+bibliocommons.com$$158$$https://princetonlibrary.bibliocommons.com/list/share/1269834197/1743948988
+cloudflare speed test$$159$$https://speed.cloudflare.com/
+ngrams$$159$$https://books.google.com/ngrams
+hoopla$$159$$https://www.hoopladigital.com/
+greek spell checker$$159$$https://www.neurolingo.gr/en/online_tools/speller
+random street-view$$159$$https://randomstreetview.com/
+khan academy$$159$$https://www.khanacademy.org/
+coursera$$159$$https://www.coursera.org/
+edx$$159$$https://www.edx.org/
+national geographic encyclopedia$$159$$https://admin.nationalgeographic.org/education/resource-library/?q=&page=1&per_page=25
