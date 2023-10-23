@@ -227,107 +227,107 @@ ecological fallacy$$115
 go to top$$115$$#top
 go to top$$115$$#top
 go to top$$115$$#top
-the hunt for a new killer virus$$129$$https://www.amazon.com/Hunt-New-Killer-Virus-ebook/dp/B00SLWGZG2/ref=sr_1_1?dchild=1&keywords=fever+virus&qid=1611357564&sr=8-1
-the coming plague: newly emerging diseases$$129$$https://www.amazon.com/dp/0140250913/ref=rdr_ext_tmb
-i contain multitudes... by ed yong$$129$$https://www.amazon.com/Contain-Multitudes-Microbes-Within-Grander/dp/B01FY85L38/ref=sr_1_1?dchild=1&keywords=I+Contain+Multitudes&qid=1589194089&sr=8-1
-the hacking of the american mind by robert h. lustig$$129$$https://www.amazon.com/Hacking-of-American-Mind-audiobook/dp/B0753KYQLN/ref=sr_1_1?dchild=1&keywords=The+Hacking+of+the+American+Mind+by+Robert&qid=1589850091&sr=8-1
-pure, white, and deadly$$129$$https://www.amazon.com/Pure-White-and-Deadly-audiobook/dp/B077DKN9RC/ref=sr_1_1?dchild=1&keywords=Pure%2C+White%2C+and+Deadly&qid=1589850288&sr=8-1
-entangled life: how fungi make our worlds, change our minds & shape our futures$$129$$https://www.amazon.com/Entangled-Life-Worlds-Change-Futures/dp/0525510311/ref=as_li_ss_tl?ie=UTF8&linkCode=sl1&tag=virologyws-20&linkId=595f00a1002b4800c3156aa3c20a9570&language=en_US
-being mortal: medicine and what matters in the end$$129$$https://www.amazon.com/Being-Mortal-Medicine-What-Matters/dp/1250076226?crid=QSDDML7UTHJE&dchild=1&keywords=being+mortal+atul+gawande&qid=1614183021&sprefix=being+mortal,aps,147&sr=8-1&linkCode=sl1&tag=virologyws-20&linkId=95bd4dbced561d5be3174f2f76e3f768&language=en_US&ref_=as_li_ss_tl
-outlaw ocean$$129$$https://www.amazon.com/Outlaw-Ocean-Journeys-Untamed-Frontier/dp/0451492943?&linkCode=sl1&tag=virologyws-20&linkId=0a12a50cdd7720d53ef2b4bdfa999776&language=en_US&ref_=as_li_ss_tl#customerReviews
-the right stuff$$129$$https://www.amazon.com/Right-Stuff-Tom-Wolfe/dp/0312427565/ref=as_li_ss_tl?dchild=1&keywords=the+right+stuff+by+tom+wolfe&qid=1607430497&sr=8-1&linkCode=sl1&tag=virologyws-20&linkId=b956b206c115e3b83a70d3d76fffa930&language=en_US
-army ants$$129$$https://www.amazon.com/Army-Ants-Natures-Ultimate-Hunters/dp/067424155X/ref=as_li_ss_tl?crid=3OXNRQX5XQ8SY&dchild=1&keywords=daniel+kronauer+army+ants&qid=1607010470&sprefix=daniel+kronauer,aps,136&sr=8-1&linkCode=sl1&tag=virologyws-20&linkId=79e26ce1c641fd6c1b20d075395145b1&language=en_US#customerReviews
-immunobiology$$129$$https://www.amazon.com/Janeways-Immunobiology-Kenneth-Murphy/dp/081534550X/ref=as_li_ss_tl?ie=UTF8&linkCode=sl1&tag=virologyws-20&linkId=14856f3bd3e973490b521d762afce691&language=en_US
-food fix$$129$$https://www.amazon.com/Food-Fix-Economy-Communities-Planet-One/dp/031645317X/ref=as_li_ss_tl?crid=2H0WRGAZIH176&keywords=food+fix+mark+hyman&qid=1570040223&s=gateway&sprefix=food+fix,aps,205&sr=8-1&linkCode=sl1&tag=wwwultrametab-20&linkId=123d3d86cc6531c41405532500106007&language=en_US
-merchants of doubt$$129$$https://www.amazon.com/Merchants-Doubt-Handful-Scientists-Obscured/dp/1608193942
-jamie oliver's food escapes$$129$$https://www.amazon.com/Jamie-Olivers-Food-Escapes-Recipes/dp/140132441X#customerReviews
-the overstory$$129$$https://www.amazon.com/Richard-Powers/e/B000APP5PK/ref=dp_byline_cont_pop_book_1
-probability for data science$$129$$https://probability4datascience.com/
-korean cdc interview$$130$$https://www.youtube.com/watch?v=gAk7aX5hksU
-virus course$$130$$https://www.youtube.com/watch?v=lj3NhPgOoX4
-week in virology$$130$$https://www.microbe.tv/twiv/archive/
-cdc - principles of epidemiology in public health practice$$130$$https://www.cdc.gov/csels/dsepd/ss1978/index.html
-addgene.org$$130$$https://www.addgene.org/
-recalls$$130$$https://www.recalls.gov/nhtsa.html
-wolfram$$130$$https://www.wolfram.com/
-worldometers$$130$$https://www.worldometers.info/
-ourworldindata$$130$$https://ourworldindata.org/
-flightradar24$$130$$https://www.flightradar24.com/airport/bos
-merk manual$$130$$https://www.merckmanuals.com/
-data$$130$$https://ourworldindata.org 
-mass maps$$130$$https://massgis.maps.arcgis.com/home/index.html
-sci-hub$$130$$https://sci-hub.se/
-information$$130$$https://www.informationisbeautiful.net/visualizations/the-microbescope-infectious-diseases-in-context/
-probability statistics intro$$130$$https://seeing-theory.brown.edu/basic-probability/index.html
-apod; astronomy picture of the day$$130$$https://apod.nasa.gov/apod/astropix.html
-wind/weather map$$130$$https://www.windy.com
-hacker laws$$130$$https://github.com/dwmkerr/hacker-laws
-quantum computing lectures$$130$$https://www.scottaaronson.com/democritus/default.html
-quantum processing$$130$$https://ocw.tudelft.nl/courses/quantum-information-processing/
-kids health.org$$130$$https://kidshealth.org/
-diogenes$$138
-national social anxiety center.com$$140$$https://nationalsocialanxietycenter.com/liebowitz-sa-scale/
-psychology today.com$$140$$https://www.psychologytoday.com/us/tests
-open psycho metrics.org$$140$$https://openpsychometrics.org/
-darkfactor.org$$140$$https://qst.darkfactor.org/
-python.org$$151$$https://docs.python.org/3/library/functions.html
-python.org$$152$$https://docs.python.org/3/tutorial/datastructures.html
-python.org$$153$$https://docs.python.org/3/library/functions.html
-flowchart$$154$$https://creately.com/blog/diagrams/flowchart-guide-flowchart-tutorial/
-whois$$154$$https://whois.whoisxmlapi.com/lookup
-what is my browser$$154$$https://www.whatismybrowser.com/detect/what-http-headers-is-my-browser-sending
-speed test$$154$$https://www.speedcheck.org/
-browser test$$154$$http://acid3.acidtests.org/
-pdf editor$$154$$https://www.pdfescape.com/
-sql format (sqlformat.org)$$154$$https://sqlformat.org/
-sql format (dpriver.com)$$154$$https://www.dpriver.com/pp/sqlformat.htm
-w3.org$$154$$https://validator.w3.org/#validate_by_input
-freeformatter.com$$154$$https://www.freeformatter.com/html-formatter.html
-quackit.com$$154$$https://www.quackit.com/html/online-html-editor/
-htmleditor.in$$154$$http://htmleditor.in/index.html
-html5-editor.net$$154$$https://html5-editor.net/
-algorithms course (coursera.org)$$154$$https://www.coursera.org/learn/algorithms-part1/home/welcome
-edx.org$$154$$httpstable://www.edx.org
-quizlet.com$$154$$https://quizlet.com/
-course.eu$$154$$https://python-course.eu
-repl (python.org)$$154$$https://python.org/shell
-pythonanywhere.com$$154$$https://www.pythonanywhere.com
-vogella tutorial$$154$$https://www.vogella.com/tutorials/java.html
-repl (compilejava.net)$$154$$https://compilejava.net
-ide (onlinegdb.com)$$154$$https://onlinegdb.com/online_java_compiler
-stanford ai index$$156$$https://aiindex.stanford.edu/
-openai chatgpt$$156$$https://chat.openai.com/auth/login
-openai playground$$156$$https://platform.openai.com/playground
-openai dall e$$156$$https://labs.openai.com/
-mid-journey$$156$$https://midjourney.com/
-replica$$156$$https://replika.com/
-stable diffusion$$156$$stablediffusionweb.com/#demo
-quillbot$$156$$https://quillbot.com/
-character$$156$$https://beta.character.ai
-bratgpt$$156$$https://bratgpt.com/
-theatlantic$$157$$https://www.theatlantic.com
-the electric typewriter$$157$$https://tetw.org
-the enemies of writing$$157$$https://www.theatlantic.com/ideas/archive/2020/01/packer-hitchens/605365/
-bloomberg jealousy list$$157$$https://www.bloomberg.com/features/2020-jealousy-list/
-it’s hard to be a moral person. technology is making it harder.$$157$$https://www.vox.com/the-highlight/22585287/technology-smartphones-gmail-attention-morality
-text is all you need$$157$$https://studio.ribbonfarm.com/p/text-is-all-you-need
-internet archive$$158$$https://archive.org
-free books$$158$$https://www.freebookcentre.net/
-google books$$158$$https://books.google.com/books?
-booklistqueen.com$$158$$https://www.booklistqueen.com/five-star-books/
-goodreads.com$$158$$https://www.goodreads.com/shelf/show/international-fiction
-goodreads.com$$158$$https://www.goodreads.com/shelf/show/five-star-fiction
-informationisbeautiful.net$$158$$https://www.informationisbeautiful.net/visualizations/non-fiction-books-everyone-should-read-interactive/
-informationisbeautiful.netl$$158$$https://www.informationisbeautiful.net/visualizations/novels-everyone-should-read-interactive/
-theguardian.com$$158$$https://www.theguardian.com/books/2019/sep/21/best-books-of-the-21st-century
-bbc.com$$158$$https://www.bbc.com/culture/article/20150119-the-21st-centurys-12-best-novels
-bibliocommons.com$$158$$https://princetonlibrary.bibliocommons.com/list/share/1269834197/1743948988
-cloudflare speed test$$159$$https://speed.cloudflare.com/
-ngrams$$159$$https://books.google.com/ngrams
-hoopla$$159$$https://www.hoopladigital.com/
-greek spell checker$$159$$https://www.neurolingo.gr/en/online_tools/speller
-random street-view$$159$$https://randomstreetview.com/
-khan academy$$159$$https://www.khanacademy.org/
-coursera$$159$$https://www.coursera.org/
-edx$$159$$https://www.edx.org/
-national geographic encyclopedia$$159$$https://admin.nationalgeographic.org/education/resource-library/?q=&page=1&per_page=25
+the hunt for a new killer virus$$130$$https://www.amazon.com/Hunt-New-Killer-Virus-ebook/dp/B00SLWGZG2/ref=sr_1_1?dchild=1&keywords=fever+virus&qid=1611357564&sr=8-1
+the coming plague: newly emerging diseases$$130$$https://www.amazon.com/dp/0140250913/ref=rdr_ext_tmb
+i contain multitudes... by ed yong$$130$$https://www.amazon.com/Contain-Multitudes-Microbes-Within-Grander/dp/B01FY85L38/ref=sr_1_1?dchild=1&keywords=I+Contain+Multitudes&qid=1589194089&sr=8-1
+the hacking of the american mind by robert h. lustig$$130$$https://www.amazon.com/Hacking-of-American-Mind-audiobook/dp/B0753KYQLN/ref=sr_1_1?dchild=1&keywords=The+Hacking+of+the+American+Mind+by+Robert&qid=1589850091&sr=8-1
+pure, white, and deadly$$130$$https://www.amazon.com/Pure-White-and-Deadly-audiobook/dp/B077DKN9RC/ref=sr_1_1?dchild=1&keywords=Pure%2C+White%2C+and+Deadly&qid=1589850288&sr=8-1
+entangled life: how fungi make our worlds, change our minds & shape our futures$$130$$https://www.amazon.com/Entangled-Life-Worlds-Change-Futures/dp/0525510311/ref=as_li_ss_tl?ie=UTF8&linkCode=sl1&tag=virologyws-20&linkId=595f00a1002b4800c3156aa3c20a9570&language=en_US
+being mortal: medicine and what matters in the end$$130$$https://www.amazon.com/Being-Mortal-Medicine-What-Matters/dp/1250076226?crid=QSDDML7UTHJE&dchild=1&keywords=being+mortal+atul+gawande&qid=1614183021&sprefix=being+mortal,aps,147&sr=8-1&linkCode=sl1&tag=virologyws-20&linkId=95bd4dbced561d5be3174f2f76e3f768&language=en_US&ref_=as_li_ss_tl
+outlaw ocean$$130$$https://www.amazon.com/Outlaw-Ocean-Journeys-Untamed-Frontier/dp/0451492943?&linkCode=sl1&tag=virologyws-20&linkId=0a12a50cdd7720d53ef2b4bdfa999776&language=en_US&ref_=as_li_ss_tl#customerReviews
+the right stuff$$130$$https://www.amazon.com/Right-Stuff-Tom-Wolfe/dp/0312427565/ref=as_li_ss_tl?dchild=1&keywords=the+right+stuff+by+tom+wolfe&qid=1607430497&sr=8-1&linkCode=sl1&tag=virologyws-20&linkId=b956b206c115e3b83a70d3d76fffa930&language=en_US
+army ants$$130$$https://www.amazon.com/Army-Ants-Natures-Ultimate-Hunters/dp/067424155X/ref=as_li_ss_tl?crid=3OXNRQX5XQ8SY&dchild=1&keywords=daniel+kronauer+army+ants&qid=1607010470&sprefix=daniel+kronauer,aps,136&sr=8-1&linkCode=sl1&tag=virologyws-20&linkId=79e26ce1c641fd6c1b20d075395145b1&language=en_US#customerReviews
+immunobiology$$130$$https://www.amazon.com/Janeways-Immunobiology-Kenneth-Murphy/dp/081534550X/ref=as_li_ss_tl?ie=UTF8&linkCode=sl1&tag=virologyws-20&linkId=14856f3bd3e973490b521d762afce691&language=en_US
+food fix$$130$$https://www.amazon.com/Food-Fix-Economy-Communities-Planet-One/dp/031645317X/ref=as_li_ss_tl?crid=2H0WRGAZIH176&keywords=food+fix+mark+hyman&qid=1570040223&s=gateway&sprefix=food+fix,aps,205&sr=8-1&linkCode=sl1&tag=wwwultrametab-20&linkId=123d3d86cc6531c41405532500106007&language=en_US
+merchants of doubt$$130$$https://www.amazon.com/Merchants-Doubt-Handful-Scientists-Obscured/dp/1608193942
+jamie oliver's food escapes$$130$$https://www.amazon.com/Jamie-Olivers-Food-Escapes-Recipes/dp/140132441X#customerReviews
+the overstory$$130$$https://www.amazon.com/Richard-Powers/e/B000APP5PK/ref=dp_byline_cont_pop_book_1
+probability for data science$$130$$https://probability4datascience.com/
+korean cdc interview$$131$$https://www.youtube.com/watch?v=gAk7aX5hksU
+virus course$$131$$https://www.youtube.com/watch?v=lj3NhPgOoX4
+week in virology$$131$$https://www.microbe.tv/twiv/archive/
+cdc - principles of epidemiology in public health practice$$131$$https://www.cdc.gov/csels/dsepd/ss1978/index.html
+addgene.org$$131$$https://www.addgene.org/
+recalls$$131$$https://www.recalls.gov/nhtsa.html
+wolfram$$131$$https://www.wolfram.com/
+worldometers$$131$$https://www.worldometers.info/
+ourworldindata$$131$$https://ourworldindata.org/
+flightradar24$$131$$https://www.flightradar24.com/airport/bos
+merk manual$$131$$https://www.merckmanuals.com/
+data$$131$$https://ourworldindata.org 
+mass maps$$131$$https://massgis.maps.arcgis.com/home/index.html
+sci-hub$$131$$https://sci-hub.se/
+information$$131$$https://www.informationisbeautiful.net/visualizations/the-microbescope-infectious-diseases-in-context/
+probability statistics intro$$131$$https://seeing-theory.brown.edu/basic-probability/index.html
+apod; astronomy picture of the day$$131$$https://apod.nasa.gov/apod/astropix.html
+wind/weather map$$131$$https://www.windy.com
+hacker laws$$131$$https://github.com/dwmkerr/hacker-laws
+quantum computing lectures$$131$$https://www.scottaaronson.com/democritus/default.html
+quantum processing$$131$$https://ocw.tudelft.nl/courses/quantum-information-processing/
+kids health.org$$131$$https://kidshealth.org/
+diogenes$$139
+national social anxiety center.com$$141$$https://nationalsocialanxietycenter.com/liebowitz-sa-scale/
+psychology today.com$$141$$https://www.psychologytoday.com/us/tests
+open psycho metrics.org$$141$$https://openpsychometrics.org/
+darkfactor.org$$141$$https://qst.darkfactor.org/
+python.org$$152$$https://docs.python.org/3/library/functions.html
+python.org$$153$$https://docs.python.org/3/tutorial/datastructures.html
+python.org$$154$$https://docs.python.org/3/library/functions.html
+flowchart$$155$$https://creately.com/blog/diagrams/flowchart-guide-flowchart-tutorial/
+whois$$155$$https://whois.whoisxmlapi.com/lookup
+what is my browser$$155$$https://www.whatismybrowser.com/detect/what-http-headers-is-my-browser-sending
+speed test$$155$$https://www.speedcheck.org/
+browser test$$155$$http://acid3.acidtests.org/
+pdf editor$$155$$https://www.pdfescape.com/
+sql format (sqlformat.org)$$155$$https://sqlformat.org/
+sql format (dpriver.com)$$155$$https://www.dpriver.com/pp/sqlformat.htm
+w3.org$$155$$https://validator.w3.org/#validate_by_input
+freeformatter.com$$155$$https://www.freeformatter.com/html-formatter.html
+quackit.com$$155$$https://www.quackit.com/html/online-html-editor/
+htmleditor.in$$155$$http://htmleditor.in/index.html
+html5-editor.net$$155$$https://html5-editor.net/
+algorithms course (coursera.org)$$155$$https://www.coursera.org/learn/algorithms-part1/home/welcome
+edx.org$$155$$httpstable://www.edx.org
+quizlet.com$$155$$https://quizlet.com/
+course.eu$$155$$https://python-course.eu
+repl (python.org)$$155$$https://python.org/shell
+pythonanywhere.com$$155$$https://www.pythonanywhere.com
+vogella tutorial$$155$$https://www.vogella.com/tutorials/java.html
+repl (compilejava.net)$$155$$https://compilejava.net
+ide (onlinegdb.com)$$155$$https://onlinegdb.com/online_java_compiler
+stanford ai index$$157$$https://aiindex.stanford.edu/
+openai chatgpt$$157$$https://chat.openai.com/auth/login
+openai playground$$157$$https://platform.openai.com/playground
+openai dall e$$157$$https://labs.openai.com/
+mid-journey$$157$$https://midjourney.com/
+replica$$157$$https://replika.com/
+stable diffusion$$157$$stablediffusionweb.com/#demo
+quillbot$$157$$https://quillbot.com/
+character$$157$$https://beta.character.ai
+bratgpt$$157$$https://bratgpt.com/
+theatlantic$$158$$https://www.theatlantic.com
+the electric typewriter$$158$$https://tetw.org
+the enemies of writing$$158$$https://www.theatlantic.com/ideas/archive/2020/01/packer-hitchens/605365/
+bloomberg jealousy list$$158$$https://www.bloomberg.com/features/2020-jealousy-list/
+it’s hard to be a moral person. technology is making it harder.$$158$$https://www.vox.com/the-highlight/22585287/technology-smartphones-gmail-attention-morality
+text is all you need$$158$$https://studio.ribbonfarm.com/p/text-is-all-you-need
+internet archive$$159$$https://archive.org
+free books$$159$$https://www.freebookcentre.net/
+google books$$159$$https://books.google.com/books?
+booklistqueen.com$$159$$https://www.booklistqueen.com/five-star-books/
+goodreads.com$$159$$https://www.goodreads.com/shelf/show/international-fiction
+goodreads.com$$159$$https://www.goodreads.com/shelf/show/five-star-fiction
+informationisbeautiful.net$$159$$https://www.informationisbeautiful.net/visualizations/non-fiction-books-everyone-should-read-interactive/
+informationisbeautiful.netl$$159$$https://www.informationisbeautiful.net/visualizations/novels-everyone-should-read-interactive/
+theguardian.com$$159$$https://www.theguardian.com/books/2019/sep/21/best-books-of-the-21st-century
+bbc.com$$159$$https://www.bbc.com/culture/article/20150119-the-21st-centurys-12-best-novels
+bibliocommons.com$$159$$https://princetonlibrary.bibliocommons.com/list/share/1269834197/1743948988
+cloudflare speed test$$160$$https://speed.cloudflare.com/
+ngrams$$160$$https://books.google.com/ngrams
+hoopla$$160$$https://www.hoopladigital.com/
+greek spell checker$$160$$https://www.neurolingo.gr/en/online_tools/speller
+random street-view$$160$$https://randomstreetview.com/
+khan academy$$160$$https://www.khanacademy.org/
+coursera$$160$$https://www.coursera.org/
+edx$$160$$https://www.edx.org/
+national geographic encyclopedia$$160$$https://admin.nationalgeographic.org/education/resource-library/?q=&page=1&per_page=25

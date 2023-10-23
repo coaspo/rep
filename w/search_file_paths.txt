@@ -120,6 +120,7 @@ science/health/chemicals_toxic.txt
 science/health/deficits.txt
 science/health/exercise.txt
 science/health/exercise;_brain.txt
+science/health/happiness.txt
 science/health/health_risks.txt
 science/health/information_overload.txt
 science/health/most_common_drugs.txt
