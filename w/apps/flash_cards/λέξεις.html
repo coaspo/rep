@@ -13,7 +13,7 @@
         }
 
         .tab-button {
-            background-color:   f1f1f1;
+            background-color: f1f1f1;
             border: none;
             cursor: pointer;
             padding: 10px 20px;
@@ -24,11 +24,11 @@
         }
 
         .tab-button:hover {
-            background-color:   ddd;
+            background-color: ddd;
         }
 
         .tab-button.active {
-            background-color:   ccc;
+            background-color: ccc;
             text-align: center;
         }
 
@@ -40,7 +40,8 @@
 
 <body>
     <button class="tab-button" onclick="openTab('tab1', this)">Flash Cards</button>
-    <button class="tab-button" onclick="openTab('tab2', this)">Edit</button>
+    <button class="tab-button" onclick="openTab('tab2', this)">List</button>
+    <button class="tab-button" onclick="openTab('tab3', this)">Edit</button>
 
     <div id="tab1" class="tab">&nbsp;
         <div id="index"></div>&nbsp;&nbsp;
@@ -65,8 +66,12 @@
     </div>
 
     <div id="tab2" class="tab">
+        <pre><label id="nextListTextArea" style=' width: 100%;   height: 100%;' onclick="createNextList();"></label></pre>
+    </div>
+
+    <div id="tab3" class="tab">
         Edit and leave text box to update.<br>
-        Create groups adding one of the marker charactets: 
+        Create groups adding one of the marker charactets:
         <div id="markers"></div> before '='<br>
         For permanent changes, save html file and edit it.<br>
         <textarea id="flashCardTextArea" rows="55" cols="120" style=' width: 100%;   height: 100%;'
@@ -110,13 +115,13 @@
 Εκαβη     $  =Hecuba wife of Priam king of troy
 ασυλληπτο    =δεν έχουν/μπορούν συλλάβει
 μοιραιο   $   =fatal; αναπόφευκτος
-σουσούδα     =σουσουράδα? - πτηνο/νεαρή κοπέλα που κάνει όλο καμflashCardLisώματα και νάζια
+σουσούδα     =σουσουράδα? - πτηνο/νεαρή κοπέλα που κάνει όλο καμώματα και νάζια
 περιφρόνηση  =contempt; αδιαφορία σε κάποιον/κάτι που δεν αξίζει το ενδιαφέρον/σεβασμό
 τζουτζε      =γελωτοποιός; τουρκική cüce (vάνος)
-ταπεινοφροσυνη = humility; ANT αλαζονείαflashCardLisυσάρεστα άλλων
+ταπεινοφροσυνη = humility; ANT αλαζονείαυσάρεστα άλλων
 αποποιούμαι  1   =disclaim (refuse to acknowledge); δεν αποδέχομαι, δε δέχομαι, αρνούμαι
 αναίδεια    1    =impudence rude(no respect for another person); έλλειψη ντροπής
-πρόληψη   1    =prevention; εμποδίσh αρνητικών/βλαπτικών
+πρόληψη   1    =prevention; εμποδίση αρνητικών/βλαπτικών
 όσιος           =faithful; σεβαστός, ευσεβής
 μοσχολίβανον  =Frankincense/myrrh Boswellia/Commiphora trees in Oman/Africa; gold, frankincense, and myrrh
 οιωνός    1      =omen
@@ -161,11 +166,11 @@
 απόβλητος   1   =outcast(rejected by society or a social group) εκδιώχθηκε, που απομακρύνθηκε υποχρεωτικά
 συνοικέσιο  1   =match; μεσολάβηση που γίνεται για να γνωριστούν ένας άντρας και μία γυναίκα
 μουρντάρης  1   =libertine; εχει πολλές εξωσυζυγικές σχέσεις (τουρκική murdar - βρομηκος)
-καλλονή        =καλλονή
+καλλονή        = πολύ όμορφη γυναίκα
 όψομαι      1   =επίγνωση του κακού που έκανε(ς) και ας τιμωρηθεί(ς) από το Θεό
 τσιγκογραφείο 1 =printing press; ψευδάργυρογαφείο; ψευδάργυρος-zinc (fake-silver) (actually lead, antimony, steel, and tin)
 τσιγκος      1  =λαμαρινα με ψευδάργυρο (Zn)
-κασσίτερος  1   =tin  (Sn; stannum - alloy of silver and &nbsp; lead), added to copper to make bronze
+κασσίτερος  1   =tin  (Sn; stannum - alloy of silver and lead), added to copper to make bronze
 σαχλος         =ανητος (χωρις μυαλο) και ασοβαρος
 εθελούσιος   1  =volunteer
 εφάπαξ      1   =single payment
@@ -179,7 +184,7 @@
 ανέκαθεν       =always; απο παντα
 εχινόκοκκος    =echinococcus (sea urchin seed)- 2-7 mm symptomatic, tape worm in humans/cats/dogs/sheeps; Alveolar echinococcosis 1-4 mm - caused tumors; 2 yr treatment - 10 yr follow-up
 κουραφέξαλα  1  =ανόητα λόγια
-απιδι        1  =pearαχλάδι
+απιδι        1  =pear αχλάδι
 νταηλίκι       =τουρκικο dayılık rowdiness
 πεσκίρι        =προσόψι, πετσέτα προσώπου
 υπογραμμός     =underscore τύπος και υπογραμμός-υποδειγματικός άνθρωπος
@@ -200,13 +205,16 @@
 ειδύλλιο        =1. ερωτικό ποίημα ή λογοτεχνικό έργο  2. romance
 μέμφομαι        =blame κατηγορώ  accuse/blame(shame)/reproach(address with disapproval)
 πλασιέ          =πωλητής (French placier)
-συνουσιάζομαι   =intercourse; έρχομαιtext σε σεξουαλική επαφή
+συνουσιάζομαι   =intercourse; έρχομαι σε σεξουαλική επαφή
 μπινές          =τουρκ. πούστη
 καθοίκι         =ουροδοχείο; κακόβουλος και δόλιος, χωρίς αρχές
 αποπνίγω        =suffocate; πνίγω
 αποστομώνω      =silence; να μην μπορεί να απαντήσει
 αφελης          =naive; δε σκέφτεται τα πράγματα σε βάθος ; εξαπατάται από άλλους
-απόκληρος       =Disinherited heir; αποκλείεται από την κληρονομικα που του ανήκει (οθτψαστ)
+απόκληρος       =Disinherited heir; αποκλείεται από την κληρονομικα π    
+    
+    
+    ου του ανήκει (οθτψαστ)
 απόγνωση        =πολύ μεγάλη απελπισία - large despair; απόγνωμενος - desperate
 απρόοπτο        =unforeseen; δεν μπορείς να προβλέψεις
 μείζονα         =major - greater
@@ -240,7 +248,7 @@
 αζημίωτος      =losssless;  δεν ζημιώθηκε,
 κάσκα          =κράνος, μοτοσικλετιστή/ποδηλάτη
 έξαψη          =excitement ερεθίζμα
-συσχετίζω      =correlate''φανερώνω την ύπαρξη μιας σχέσης μεταξύ δύο στοιχείων
+συσχετίζω      =correlate φανερώνω την ύπαρξη μιας σχέσης μεταξύ δύο στοιχείων
 ιστοριοδίφης   =history/document researcher
 επιπόλαιος     =ενεργεί χωρίς σκέψη, δεν σκέπτεται σοβαρά
 θαμώνας        =habitué; συχνάζει σε κάποιο μέρος
@@ -254,7 +262,7 @@
 ναυτία         =seasickness, motion sickness
 έμμονος        =obsessive; έμμονη ιδέα: obsessive thought
 άξεστος        =unpolished; χωρίς καλούς τρόπους
-λοίσθιος       =τελευταίος, ύστατοw
+λοίσθιος       =τελευταίος, ύστατος
 μικροαστός     =little bourgeois (middle class; material interests + tendency toward mediocrity)
 σεμνοτυφία     =υπερβολική και συχνά υποκριτική σεμνότητα; ψευτοσεμνοτυφία
 μπανιστήρι     =voyeurism
@@ -314,6 +322,7 @@
         var activeCardMarkers;
         var sortedIndexes = findSortedIndexes(displayFlashCardList);
         var displayArrayIndex = 0;
+        var displayListIndex = 0;
         var isWordMeaningReversed = false
         var isReviewMode = false
         var isSortMode = false
@@ -321,7 +330,7 @@
         initializeWebPage()
 
         function initializeWebPage() {
-            console.log('cardMarkers='+ Array.from(cardMarkers).toString())
+            console.log('cardMarkers=' + Array.from(cardMarkers).toString())
             addMarkerCheckboxesAndCreateActiveCardMarkersSet(cardMarkers);
             fillInTextAreas()
             const sortCheckbox = document.getElementById("sortCheckbox");
@@ -380,7 +389,7 @@
                     document.getElementById("gradeQuizButton").disabled = false;
                 }
             });
-
+            createNextList();
         }
 
         function gradeQuiz() {
@@ -404,9 +413,9 @@
             displayArrayIndex = 0
             fillInRightTextArea()
             const score = (100 * correctCount / flashCardAnswerList.length).toFixed(0)
-            const info = score==100? 'Quiz score: <p style="color: darkgreen;">100%</p>': 
-            'Quiz score: <p style="color: red;">' + score + '%</p>';
-            document.getElementById("quizInfo").innerHTML =  info
+            const info = score == 100 ? 'Quiz score: <p style="color: darkgreen;">100%</p>' :
+                'Quiz score: <p style="color: red;">' + score + '%</p>';
+            document.getElementById("quizInfo").innerHTML = info
         }
 
 
@@ -496,22 +505,6 @@
         }
 
 
-        function upadateFlashCardText() {
-            for (const cardMarker of cardMarkers) {
-                removeCheckbox(cardMarker)
-            }
-            flashCardText = document.getElementById("flashCardTextArea").value
-            flashCardList = createFlashCards(flashCardText);
-            displayFlashCardList = [...flashCardList];
-            cardMarkers = findCardMarkers(flashCardList);
-            addMarkerCheckboxesAndCreateActiveCardMarkersSet(cardMarkers);
-            sortedIndexes = findSortedIndexes(displayFlashCardList);
-            displayArrayIndex = 0;
-            fillInTextAreas()
-            console.log('upadateFlashCardText() done')
-        }
-
-
         function removeCheckbox(cardMarker) {
             const checkbox = document.getElementById(cardMarker);
             const checkboxContainer = document.getElementById("checkboxContainer");
@@ -561,6 +554,51 @@
                 document.getElementsByName("rightTextArea")[0].value = ''
             }
             console.log("fillInRightTextArea() text: " + document.getElementsByName("rightTextArea")[0].value);
+        }
+        //--------------------------------------------------------------------------------------------
+
+        function upadateFlashCardText() {
+            for (const cardMarker of cardMarkers) {
+                removeCheckbox(cardMarker)
+            }
+            flashCardText = document.getElementById("flashCardTextArea").value
+            flashCardList = createFlashCards(flashCardText);
+            displayFlashCardList = [...flashCardList];
+            cardMarkers = findCardMarkers(flashCardList);
+            addMarkerCheckboxesAndCreateActiveCardMarkersSet(cardMarkers);
+            sortedIndexes = findSortedIndexes(displayFlashCardList);
+            displayArrayIndex = 0;
+            fillInTextAreas()
+            console.log('upadateFlashCardText() done')
+        }
+        //--------------------------------------------------------------------------------------------
+
+        function createNextList() {
+            const i = isSortMode ? sortedIndexes[displayArrayIndex] : displayArrayIndex;
+            let html = ''
+            for (let i = 0; i < 7; i++) {
+                html += '<b>' + displayFlashCardList[displayListIndex][0] + '</b>'
+                let nSpaces = 15 - displayFlashCardList[displayListIndex][0].length
+                html += ''.padStart(nSpaces, ' ')
+                html += colorLatinWordsRed(displayFlashCardList[displayListIndex][1])
+                nSpaces = 25 - displayFlashCardList[displayListIndex][1].length
+                html += ''.padStart(nSpaces, ' ')
+                html += '<br>'.padEnd(50, ' ')
+                html += '<br>';
+                displayListIndex += 1;
+                if (displayListIndex == displayFlashCardList.length) {
+                    displayListIndex = 0;
+                }
+            }
+            document.getElementById("nextListTextArea").innerHTML = html
+            console.log('createNextList() done')
+        }
+        function colorLatinWordsRed(inputString) {
+            var regex = /[^Α-ΩΆΈΉΊΌΎΏα-ωάἀέήίόύώϋΰϊΐ`’!@#\$%\^&\*\(\)_\-\+=\[\]\{\};:'"<>,\./?\\|]+/g;
+            var coloredString = inputString.replace(regex, function (match) {
+                return '<span style="color: red;">' + match + '</span>';
+            });
+            return coloredString;
         }
 
     </script>
