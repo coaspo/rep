@@ -117,7 +117,7 @@
 μοιραιο   $   =fatal; αναπόφευκτος
 σουσούδα     =σουσουράδα? - πτηνο/νεαρή κοπέλα που κάνει όλο καμώματα και νάζια
 περιφρόνηση  =contempt; αδιαφορία σε κάποιον/κάτι που δεν αξίζει το ενδιαφέρον/σεβασμό
-τζουτζε      =γελωτοποιός; τουρκική cüce (vάνος)
+τζουτζε      =γελωτοποιός; τουρκική cüce (νάνος)
 ταπεινοφροσυνη = humility; ANT αλαζονείαυσάρεστα άλλων
 αποποιούμαι  1   =disclaim (refuse to acknowledge); δεν αποδέχομαι, δε δέχομαι, αρνούμαι
 αναίδεια    1    =impudence rude(no respect for another person); έλλειψη ντροπής
@@ -174,7 +174,7 @@
 σαχλος         =ανητος (χωρις μυαλο) και ασοβαρος
 εθελούσιος   1  =volunteer
 εφάπαξ      1   =single payment
-χουβαρντάς     =που δεν τσιγκουνεύεται, κερvαει... τουρκική hovarda (σπάταλος)
+χουβαρντάς     =που δεν τσιγκουνεύεται, κερναει... τουρκική hovarda (σπάταλος)
 κερνάω         =πληρώνω το λογαριασμό  (αρχαία κιρνάω - προσθέτω νερό στο κρασί)
 μακαντάσης     =στενος φιλος (τουρκική mankadaş)
 μεροληπτικός 1  =discriminatory; υποστηρίζω πρόσωπο/άποψη με μη αντικειμενικό (objective) τρόπο, υποκινούμενος αποκλειστικά από προσωπικούς λόγους ή συμφέροντα
@@ -577,10 +577,11 @@
             const i = isSortMode ? sortedIndexes[displayArrayIndex] : displayArrayIndex;
             let html = ''
             for (let i = 0; i < 7; i++) {
-                html += '<b>' + displayFlashCardList[displayListIndex][0] + '</b>'
-                let nSpaces = 15 - displayFlashCardList[displayListIndex][0].length
-                html += ''.padStart(nSpaces, ' ')
-                html += colorLatinWordsRed(displayFlashCardList[displayListIndex][1])
+                var pattern = /[123%$#*]/g;
+                html += '<b>' + displayFlashCardList[displayListIndex][0].replace(pattern, '') 
+                let nSpaces = 18 - displayFlashCardList[displayListIndex][0].length
+                html += '</b>'.padStart(nSpaces, ' ')
+                html += ' '+ colorNonGreekWordsRed(displayFlashCardList[displayListIndex][1])
                 nSpaces = 25 - displayFlashCardList[displayListIndex][1].length
                 html += ''.padStart(nSpaces, ' ')
                 html += '<br>'.padEnd(50, ' ')
@@ -593,7 +594,7 @@
             document.getElementById("nextListTextArea").innerHTML = html
             console.log('createNextList() done')
         }
-        function colorLatinWordsRed(inputString) {
+        function colorNonGreekWordsRed(inputString) {
             var regex = /[^Α-ΩΆΈΉΊΌΎΏα-ωάἀέήίόύώϋΰϊΐ`’!@#\$%\^&\*\(\)_\-\+=\[\]\{\};:'"<>,\./?\\|]+/g;
             var coloredString = inputString.replace(regex, function (match) {
                 return '<span style="color: red;">' + match + '</span>';
