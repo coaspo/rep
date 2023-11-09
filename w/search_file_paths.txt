@@ -53,6 +53,7 @@ food/grains/rice_.txt
 food/meat/eggs_.txt
 food/meat/meatballs_.txt
 food/meta-food/book-notes/fast_food_nation_the_dark_side_of_american_meal.txt
+food/meta-food/book-notes/harvard's_healthy_living_guide.txt
 food/meta-food/book-notes/secret_life_of_groceries;_dark_miracle_of_american_supermarket .txt
 food/meta-food/cooking/1_salt,.txt
 food/meta-food/cooking/2_fat,.txt
