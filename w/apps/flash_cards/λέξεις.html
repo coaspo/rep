@@ -77,14 +77,14 @@
 
     <script>
         var flashCardText = `
-συγχύζω      =confuse/disturb; εκνευρίζω και στενοχωρώ
+συγχύζω 1     =confuse/disturb; εκνευρίζω και στενοχωρώ
 Εκαβη       =Hecuba wife of Priam king of troy
 ασυλληπτο    =δεν έχουν/μπορούν συλλάβει
 μοιραιο      =fatal; αναπόφευκτος
 σουσούδα     =σουσουράδα? - πτηνο/νεαρή κοπέλα που κάνει όλο καμώματα και νάζια
 περιφρόνηση  =contempt; αδιαφορία σε κάποιον/κάτι που δεν αξίζει το ενδιαφέρον/σεβασμό
-τζουτζε      =γελωτοποιός; τουρκική cüce (νάνος)
-ταπεινοφροσυνη = humility; ANT αλαζονείαυσάρεστα άλλων
+τζουτζε  3    =γελωτοποιός; τουρκική cüce (νάνος)
+ταπεινοφροσυνη1 = humility; ANT αλαζονεία 
 αποποιούμαι  1   =disclaim (refuse to acknowledge); δεν αποδέχομαι, δε δέχομαι, αρνούμαι
 αναίδεια    1    =impudence rude(no respect for another person); έλλειψη ντροπής
 πρόληψη   1    =prevention; εμποδίση αρνητικών/βλαπτικών
@@ -288,7 +288,7 @@
         flashCardTextArea.value = flashCardText.trim()
 
         var flashCardList = createFlashCards(flashCardText);
-        var displayFlashCardList = [...flashCardList];
+        var displayFlashCardList = [...flashCardList];addMarkerCheckboxesAndCreateActiveCardMarkersSet
         var flashCardAnswerList;
 
         var groupNumbers = findGroupNumbers(flashCardList);
@@ -469,7 +469,7 @@
 
         function findGroupNumbers(flashCardList) {
             let numbers = new Set();
-            const validNumbers = ['1', '2', '3', '4']
+            const validNumbers = ['1', '2', '3', '4', '5']
             for (const flashCard of flashCardList) {
                 for (const char of validNumbers) {
                     if (flashCard[0].includes(char)) {
@@ -482,15 +482,17 @@
             return numbers
         }
 
-        function addMarkerCheckboxesAndCreateActiveCardMarkersSet(cardMarkers) {
+        function addMarkerCheckboxesAndCreateActiveCardMarkersSet(groupNums) {
+            console.log('====')
+            console.log(...groupNums)
             activeCardMarkers = new Set(); // global variable
-            for (const cardMarker of cardMarkers) {
+            for (const groupNum of groupNums) {
                 const checkbox = document.createElement("input");
                 checkbox.type = "checkbox";
-                checkbox.id = cardMarker
+                checkbox.id = groupNum
                 const label = document.createElement('label');
-                label.htmlFor = cardMarker;
-                label.appendChild(document.createTextNode(cardMarker + ' '));
+                label.htmlFor = groupNum;
+                label.appendChild(document.createTextNode(groupNum + ' '));
                 const checkboxContainer = document.getElementById("checkboxContainer");
                 checkboxContainer.appendChild(checkbox);
                 checkboxContainer.appendChild(label);
@@ -499,9 +501,9 @@
                 function update() {
                     displayArrayIndex = 0
                     if (checkbox.checked) {
-                        activeCardMarkers.add(cardMarker)
+                        activeCardMarkers.add(groupNum)
                     } else {
-                        activeCardMarkers.delete(cardMarker)
+                        activeCardMarkers.delete(groupNum)
                     }
                     displayFlashCardList = activeCardMarkers.size == 0 ? flashCardList : filterFlashCards(flashCardList, activeCardMarkers)
                     console.log('update() a marker Checkbox; activeCardMarkers= ' + Array.from(activeCardMarkers));
