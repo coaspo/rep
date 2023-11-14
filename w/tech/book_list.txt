@@ -1,0 +1,37 @@
+Built : the hidden stories behind our structures / Roma Agrawal.
+The perfectionists : how precision engineers created the modern world / Simon Winchester.
+How infrastructure works : inside the systems that shape our world / Deb Chachra.
+The new way things work / David Macaulay, with Neil Ardley
+Arriving today : from factory to front door--why everything has changed about how and what we buy / Christopher Mims.
+The master switch : the rise and fall of information empires / Tim Wu.
+Flying blind : the 737 MAX tragedy and the fall of Boeing / Peter Robison.
+Chip war : the fight for the world's most critical technology / Chris Miller.
+           let startY;
+
+            const handleStart = (e) => {
+              startY = e.clientY || e.touches[0].clientY;
+            };
+
+            const handleEnd = (e) => {
+              let endY = e.clientY || e.changedTouches[0].clientY;
+
+              // Calculate the difference between start and end Y positions
+              let deltaY = endY - startY;
+
+              // Adjust this threshold as needed
+              let swipeThreshold = 50;
+
+              // Change background color based on swipe direction
+              if (deltaY > swipeThreshold) {
+                document.body.style.backgroundColor = 'green';
+              } else if (deltaY < -swipeThreshold) {
+                document.body.style.backgroundColor = 'red';
+              }
+            };
+
+            document.addEventListener('mousedown', handleStart);
+            document.addEventListener('touchstart', handleStart);
+
+            document.addEventListener('mouseup', handleEnd);
+            document.addEventListener('touchend', handleEnd);
+

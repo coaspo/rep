@@ -270,64 +270,64 @@ national social anxiety center.com$$142$$https://nationalsocialanxietycenter.com
 psychology today.com$$142$$https://www.psychologytoday.com/us/tests
 open psycho metrics.org$$142$$https://openpsychometrics.org/
 darkfactor.org$$142$$https://qst.darkfactor.org/
-python.org$$153$$https://docs.python.org/3/library/functions.html
-python.org$$154$$https://docs.python.org/3/tutorial/datastructures.html
-python.org$$155$$https://docs.python.org/3/library/functions.html
-flowchart$$156$$https://creately.com/blog/diagrams/flowchart-guide-flowchart-tutorial/
-whois$$156$$https://whois.whoisxmlapi.com/lookup
-what is my browser$$156$$https://www.whatismybrowser.com/detect/what-http-headers-is-my-browser-sending
-speed test$$156$$https://www.speedcheck.org/
-browser test$$156$$http://acid3.acidtests.org/
-pdf editor$$156$$https://www.pdfescape.com/
-sql format (sqlformat.org)$$156$$https://sqlformat.org/
-sql format (dpriver.com)$$156$$https://www.dpriver.com/pp/sqlformat.htm
-w3.org$$156$$https://validator.w3.org/#validate_by_input
-freeformatter.com$$156$$https://www.freeformatter.com/html-formatter.html
-quackit.com$$156$$https://www.quackit.com/html/online-html-editor/
-htmleditor.in$$156$$http://htmleditor.in/index.html
-html5-editor.net$$156$$https://html5-editor.net/
-algorithms course (coursera.org)$$156$$https://www.coursera.org/learn/algorithms-part1/home/welcome
-edx.org$$156$$httpstable://www.edx.org
-quizlet.com$$156$$https://quizlet.com/
-course.eu$$156$$https://python-course.eu
-repl (python.org)$$156$$https://python.org/shell
-pythonanywhere.com$$156$$https://www.pythonanywhere.com
-vogella tutorial$$156$$https://www.vogella.com/tutorials/java.html
-repl (compilejava.net)$$156$$https://compilejava.net
-ide (onlinegdb.com)$$156$$https://onlinegdb.com/online_java_compiler
-stanford ai index$$158$$https://aiindex.stanford.edu/
-openai chatgpt$$158$$https://chat.openai.com/auth/login
-openai playground$$158$$https://platform.openai.com/playground
-openai dall e$$158$$https://labs.openai.com/
-mid-journey$$158$$https://midjourney.com/
-replica$$158$$https://replika.com/
-stable diffusion$$158$$stablediffusionweb.com/#demo
-quillbot$$158$$https://quillbot.com/
-character$$158$$https://beta.character.ai
-bratgpt$$158$$https://bratgpt.com/
-theatlantic$$159$$https://www.theatlantic.com
-the electric typewriter$$159$$https://tetw.org
-the enemies of writing$$159$$https://www.theatlantic.com/ideas/archive/2020/01/packer-hitchens/605365/
-bloomberg jealousy list$$159$$https://www.bloomberg.com/features/2020-jealousy-list/
-it’s hard to be a moral person. technology is making it harder.$$159$$https://www.vox.com/the-highlight/22585287/technology-smartphones-gmail-attention-morality
-text is all you need$$159$$https://studio.ribbonfarm.com/p/text-is-all-you-need
-internet archive$$160$$https://archive.org
-free books$$160$$https://www.freebookcentre.net/
-google books$$160$$https://books.google.com/books?
-booklistqueen.com$$160$$https://www.booklistqueen.com/five-star-books/
-goodreads.com$$160$$https://www.goodreads.com/shelf/show/international-fiction
-goodreads.com$$160$$https://www.goodreads.com/shelf/show/five-star-fiction
-informationisbeautiful.net$$160$$https://www.informationisbeautiful.net/visualizations/non-fiction-books-everyone-should-read-interactive/
-informationisbeautiful.netl$$160$$https://www.informationisbeautiful.net/visualizations/novels-everyone-should-read-interactive/
-theguardian.com$$160$$https://www.theguardian.com/books/2019/sep/21/best-books-of-the-21st-century
-bbc.com$$160$$https://www.bbc.com/culture/article/20150119-the-21st-centurys-12-best-novels
-bibliocommons.com$$160$$https://princetonlibrary.bibliocommons.com/list/share/1269834197/1743948988
-cloudflare speed test$$161$$https://speed.cloudflare.com/
-ngrams$$161$$https://books.google.com/ngrams
-hoopla$$161$$https://www.hoopladigital.com/
-greek spell checker$$161$$https://www.neurolingo.gr/en/online_tools/speller
-random street-view$$161$$https://randomstreetview.com/
-khan academy$$161$$https://www.khanacademy.org/
-coursera$$161$$https://www.coursera.org/
-edx$$161$$https://www.edx.org/
-national geographic encyclopedia$$161$$https://admin.nationalgeographic.org/education/resource-library/?q=&page=1&per_page=25
+python.org$$154$$https://docs.python.org/3/library/functions.html
+python.org$$155$$https://docs.python.org/3/tutorial/datastructures.html
+python.org$$156$$https://docs.python.org/3/library/functions.html
+flowchart$$157$$https://creately.com/blog/diagrams/flowchart-guide-flowchart-tutorial/
+whois$$157$$https://whois.whoisxmlapi.com/lookup
+what is my browser$$157$$https://www.whatismybrowser.com/detect/what-http-headers-is-my-browser-sending
+speed test$$157$$https://www.speedcheck.org/
+browser test$$157$$http://acid3.acidtests.org/
+pdf editor$$157$$https://www.pdfescape.com/
+sql format (sqlformat.org)$$157$$https://sqlformat.org/
+sql format (dpriver.com)$$157$$https://www.dpriver.com/pp/sqlformat.htm
+w3.org$$157$$https://validator.w3.org/#validate_by_input
+freeformatter.com$$157$$https://www.freeformatter.com/html-formatter.html
+quackit.com$$157$$https://www.quackit.com/html/online-html-editor/
+htmleditor.in$$157$$http://htmleditor.in/index.html
+html5-editor.net$$157$$https://html5-editor.net/
+algorithms course (coursera.org)$$157$$https://www.coursera.org/learn/algorithms-part1/home/welcome
+edx.org$$157$$httpstable://www.edx.org
+quizlet.com$$157$$https://quizlet.com/
+course.eu$$157$$https://python-course.eu
+repl (python.org)$$157$$https://python.org/shell
+pythonanywhere.com$$157$$https://www.pythonanywhere.com
+vogella tutorial$$157$$https://www.vogella.com/tutorials/java.html
+repl (compilejava.net)$$157$$https://compilejava.net
+ide (onlinegdb.com)$$157$$https://onlinegdb.com/online_java_compiler
+stanford ai index$$159$$https://aiindex.stanford.edu/
+openai chatgpt$$159$$https://chat.openai.com/auth/login
+openai playground$$159$$https://platform.openai.com/playground
+openai dall e$$159$$https://labs.openai.com/
+mid-journey$$159$$https://midjourney.com/
+replica$$159$$https://replika.com/
+stable diffusion$$159$$stablediffusionweb.com/#demo
+quillbot$$159$$https://quillbot.com/
+character$$159$$https://beta.character.ai
+bratgpt$$159$$https://bratgpt.com/
+theatlantic$$160$$https://www.theatlantic.com
+the electric typewriter$$160$$https://tetw.org
+the enemies of writing$$160$$https://www.theatlantic.com/ideas/archive/2020/01/packer-hitchens/605365/
+bloomberg jealousy list$$160$$https://www.bloomberg.com/features/2020-jealousy-list/
+it’s hard to be a moral person. technology is making it harder.$$160$$https://www.vox.com/the-highlight/22585287/technology-smartphones-gmail-attention-morality
+text is all you need$$160$$https://studio.ribbonfarm.com/p/text-is-all-you-need
+internet archive$$161$$https://archive.org
+free books$$161$$https://www.freebookcentre.net/
+google books$$161$$https://books.google.com/books?
+booklistqueen.com$$161$$https://www.booklistqueen.com/five-star-books/
+goodreads.com$$161$$https://www.goodreads.com/shelf/show/international-fiction
+goodreads.com$$161$$https://www.goodreads.com/shelf/show/five-star-fiction
+informationisbeautiful.net$$161$$https://www.informationisbeautiful.net/visualizations/non-fiction-books-everyone-should-read-interactive/
+informationisbeautiful.netl$$161$$https://www.informationisbeautiful.net/visualizations/novels-everyone-should-read-interactive/
+theguardian.com$$161$$https://www.theguardian.com/books/2019/sep/21/best-books-of-the-21st-century
+bbc.com$$161$$https://www.bbc.com/culture/article/20150119-the-21st-centurys-12-best-novels
+bibliocommons.com$$161$$https://princetonlibrary.bibliocommons.com/list/share/1269834197/1743948988
+cloudflare speed test$$162$$https://speed.cloudflare.com/
+ngrams$$162$$https://books.google.com/ngrams
+hoopla$$162$$https://www.hoopladigital.com/
+greek spell checker$$162$$https://www.neurolingo.gr/en/online_tools/speller
+random street-view$$162$$https://randomstreetview.com/
+khan academy$$162$$https://www.khanacademy.org/
+coursera$$162$$https://www.coursera.org/
+edx$$162$$https://www.edx.org/
+national geographic encyclopedia$$162$$https://admin.nationalgeographic.org/education/resource-library/?q=&page=1&per_page=25

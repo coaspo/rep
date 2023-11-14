@@ -142,6 +142,7 @@ science/psychology/hyper-sanity_-_a_different_world_view.txt
 science/psychology/parenting.txt
 science/psychology/psychological_tests.txt
 science/psychology/teens.txt
+tech/book_list.txt
 tech/future_technologies.txt
 tech/largest_computer_chip.txt
 tech/problems/problems;_other.txt
