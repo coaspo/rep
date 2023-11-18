@@ -1,8 +1,6 @@
 apps/browser_check/broweser_check.html
 apps/browser_extensions/popup.html
 apps/culture/cultural_dimensions.txt
-apps/draw/deck_membrane.html
-apps/draw/temp2.html
 apps/flash_cards/λέξεις.html
 apps/gps/position.html
 apps/gps/position_test.html

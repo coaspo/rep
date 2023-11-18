@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <title>Tabbed Page</title>
@@ -54,7 +54,7 @@
             <tr>
                 <td><textarea name="leftTextArea" title="next" rows="7" cols="20" readonly onclick="next();"></textarea>
                 </td>
-                <td><textarea name="rightTextArea" title="view" rows="7" cols="120" readonly style='width: 100%;'
+                <td><textarea name="rightTextArea" title="view" rows="7" cols="120" readonly style='width: 60ch;'
                         onclick="fillInRightTextArea()"></textarea></td>
             </tr>
         </table>
@@ -63,7 +63,7 @@
     </div>
 
     <div id="tab2" class="tab">
-        <pre><label id="nextListTextArea" style=' width: 100%;   height: 100%;' onclick="createList(1);" ></label></pre>
+        <pre><label id="nextListTextArea" style=' width: 60ch; ' onclick="createList(1);" ></label></pre>
     </div>
 
     <div id="tab3" class="tab">
@@ -76,6 +76,7 @@
     </div>
 
     <script>
+        // @ts-check
         var flashCardText = `
 συγχύζω 1     =confuse/disturb; εκνευρίζω και στενοχωρώ
 Εκαβη       =Hecuba wife of Priam king of troy
@@ -84,7 +85,7 @@
 σουσούδα     =σουσουράδα? - πτηνο/νεαρή κοπέλα που κάνει όλο καμώματα και νάζια
 περιφρόνηση  =contempt; αδιαφορία σε κάποιον/κάτι που δεν αξίζει το ενδιαφέρον/σεβασμό
 τζουτζε  3    =γελωτοποιός; τουρκική cüce (νάνος)
-ταπεινοφροσυνη1 = humility; ANT αλαζονεία 
+ταπεινοφροσυνη1 = humility; ANT αλαζονεία
 αποποιούμαι  1   =disclaim (refuse to acknowledge); δεν αποδέχομαι, δε δέχομαι, αρνούμαι
 αναίδεια    1    =impudence rude(no respect for another person); έλλειψη ντροπής
 πρόληψη   1    =prevention; εμποδίση αρνητικών/βλαπτικών
@@ -167,7 +168,7 @@
 αποπνίγω    1    =suffocate; πνίγω
 αποστομώνω   1   =silence; να μην μπορεί να απαντήσει
 αφελης      1    =naive; δε σκέφτεται τα πράγματα σε βάθος ; εξαπατάται από άλλους
-απόκληρος   1    =Disinherited heir; αποκλείεται από την κληρονομικα που του ανήκει (οθτψαστ) 
+απόκληρος   1    =Disinherited heir; αποκλείεται από την κληρονομικα που του ανήκει (οθτψαστ)
 απόγνωση    1    =πολύ μεγάλη απελπισία - large despair; απόγνωμενος - desperate
 απρόοπτο    1    =unforeseen; δεν μπορείς να προβλέψεις
 μείζονα    1     =major - greater
@@ -182,7 +183,7 @@
 καρωτιδα     1   =carotid; two main arteries which carry blood to the head (kara) and neck,
 παρονομαστής 1   =denominator; η κατάσταση στην οποία βρισκόμαστε
 απάντεχα    1    =unexpectedly αναπάντεχα - unexpectedly; χωρίς να το περιμένει
-απρόοπτο   1     =unexpected 
+απρόοπτο   1     =unexpected
 απαντέχω    1    =περιμένω,
 ενδοιασμός  1    =hesitation δισταγμός, αμφιβολία σχετικά με τη λήψη κάποιας απόφασης
 αναδρομή   1     =retrospective
@@ -288,7 +289,7 @@
         flashCardTextArea.value = flashCardText.trim()
 
         var flashCardList = createFlashCards(flashCardText);
-        var displayFlashCardList = [...flashCardList];addMarkerCheckboxesAndCreateActiveCardMarkersSet
+        var displayFlashCardList = [...flashCardList]; addMarkerCheckboxesAndCreateActiveCardMarkersSet
         var flashCardAnswerList;
 
         var groupNumbers = findGroupNumbers(flashCardList);
@@ -375,14 +376,14 @@
 
             const handleStart = (e) => {
                 startY = e.clientY || e.touches[0].clientY;
-                console.log('++++++++' + activeTab)
+                console.log('+++++++handleStart;' + activeTab)
             };
 
             const handleEnd = (e) => {
                 let endY = e.clientY || e.changedTouches[0].clientY;
                 let deltaY = endY - startY;
                 let swipeThreshold = 50;
-                console.log('~~deltaY='+ deltaY)
+                console.log('~~deltaY=' + deltaY)
                 if (deltaY > swipeThreshold) {
                     if (activeTab == 'tab1') {
                         next()
@@ -394,10 +395,19 @@
                     if (activeTab == 'tab1') {
                         previous()
                         console.log('~~dprevious???')
-                    } else if (activeTab == 'tab2'){
+                    } else if (activeTab == 'tab2') {
                         createList(-1)
                     }
                     //document.body.style.backgroundColor = 'red';
+                }
+            };
+
+            const handleClick = (e) => {
+                console.log("===click, e=" + e)
+                if (activeTab == 'tab1') {
+                    next()
+                } else if (activeTab == 'tab2') {
+                    createList(1)
                 }
             };
 
@@ -406,6 +416,7 @@
 
             document.addEventListener('mouseup', handleEnd);
             document.addEventListener('touchend', handleEnd);
+            document.addEventListener('click', handleClick);
             createList(1);
         }
 
@@ -532,23 +543,21 @@
         }
 
         function next() {
-            if (activeTab != 'tab1') {
-                return;
+            if (activeTab == 'tab1') {
+                displayArrayIndex += 1;
+                if (displayArrayIndex == displayFlashCardList.length) {
+                    displayArrayIndex = 0;
+                }
+                fillInTextAreas()
             }
-            displayArrayIndex += 1;
-            if (displayArrayIndex == displayFlashCardList.length) {
-                displayArrayIndex = 0;
-            }
-            fillInTextAreas()
         }
 
         function previous() {
             displayArrayIndex -= 1;
-            console.log('+++++===+'+displayArrayIndex)
             if (displayArrayIndex < 0) {
                 displayArrayIndex = displayFlashCardList.length - 1;
             }
-            console.log('+++++===+'+displayArrayIndex)
+            console.log('=== previous ' + displayArrayIndex)
             fillInTextAreas()
         }
 
@@ -563,16 +572,18 @@
         }
 
         function fillInRightTextArea() {
-            if (isReviewMode) {
-                const j = isWordMeaningReversed ? 0 : 1;
-                const i = isSortMode ? sortedIndexes[displayArrayIndex] : displayArrayIndex;
-                document.getElementsByName("rightTextArea")[0].value = displayFlashCardList[i][j]
-            } else if (isQuizMode) {
-                document.getElementsByName("rightTextArea")[0].value = flashCardAnswerList[displayArrayIndex]
-            } else {
-                document.getElementsByName("rightTextArea")[0].value = ''
+            if (activeTab == 'tab1') {
+                if (isReviewMode) {
+                    const j = isWordMeaningReversed ? 0 : 1;
+                    const i = isSortMode ? sortedIndexes[displayArrayIndex] : displayArrayIndex;
+                    document.getElementsByName("rightTextArea")[0].value = displayFlashCardList[i][j]
+                } else if (isQuizMode) {
+                    document.getElementsByName("rightTextArea")[0].value = flashCardAnswerList[displayArrayIndex]
+                } else {
+                    document.getElementsByName("rightTextArea")[0].value = ''
+                }
+                console.log("fillInRightTextArea() text: " + document.getElementsByName("rightTextArea")[0].value);
             }
-            console.log("fillInRightTextArea() text: " + document.getElementsByName("rightTextArea")[0].value);
         }
         //--------------------------------------------------------------------------------------------
 
@@ -591,28 +602,29 @@
             console.log('upadateFlashCardText() done')
         }
         //--------------------------------------------------------------------------------------------
-        
+
         function createList(increment) {
+
             let html = ''
             if (increment != previousIncrement) {
-                displayListIndex = displayListIndex + 14 *  increment;
+                displayListIndex = displayListIndex + 14 * increment;
             }
-            if (displayListIndex <0) {
-                displayListIndex = displayFlashCardList.length -6
-            } else if (displayListIndex >displayFlashCardList.length) {
+            if (displayListIndex < 0) {
+                displayListIndex = displayFlashCardList.length - 6
+            } else if (displayListIndex > displayFlashCardList.length) {
                 displayListIndex = 0
             }
             let j = 0;
             for (let i = 0; i < 7; i++) {
                 j = i + displayListIndex
-                if (j > (displayFlashCardList.length-1)) {
+                if (j > (displayFlashCardList.length - 1)) {
                     break;
-                }  else if (j < 0) {
+                } else if (j < 0) {
                     break;
-                } 
+                }
                 console.log(j)
                 var pattern = /[1234]/g;
-                html += (j+1) + '  <b>' + displayFlashCardList[j][0].replace(pattern, '')
+                html += (j + 1) + '  <b>' + displayFlashCardList[j][0].replace(pattern, '')
                 let nSpaces = 18 - displayFlashCardList[j][0].length
                 html += '</b>'.padStart(nSpaces, ' ')
                 html += ' ' + colorNonGreekWordsRed(displayFlashCardList[j][1])
@@ -624,7 +636,8 @@
             displayListIndex += 7 * increment;
             previousIncrement = increment
             document.getElementById("nextListTextArea").innerHTML = html
-            console.log('createNextList() done '+increment)
+            console.log('createNextList() done ' + increment)
+
         }
 
 
