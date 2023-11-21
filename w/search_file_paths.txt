@@ -127,7 +127,6 @@ science/health/phone;_sugar;_sleep.txt
 science/health/science_based_medicine.txt
 science/health/social_anxiety.txt
 science/health/water.txt
-science/links/books.html
 science/links/internet_resources.html
 science/math/logic.txt
 science/math/numbers.txt
@@ -157,5 +156,4 @@ tech/programming/tool_links.html
 tech/programming/windows_and_browser_key_shortcuts.txt
 tech/web/ai.html
 tech/web/articles.html
-tech/web/books.html
 tech/web/misc.html
