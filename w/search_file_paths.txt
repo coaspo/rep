@@ -39,34 +39,34 @@ art/visual/photography.html
 art/visual/videos.html
 art/visual/visual_art.html
 art/writing/tools.html
+food/.meta-food/book-notes/fast_food_nation_the_dark_side_of_american_meal.txt
+food/.meta-food/book-notes/harvard's_healthy_living_guide.txt
+food/.meta-food/book-notes/secret_life_of_groceries;_dark_miracle_of_american_supermarket .txt
+food/.meta-food/cooking/1_salt,.txt
+food/.meta-food/cooking/2_fat,.txt
+food/.meta-food/cooking/3_acid,.txt
+food/.meta-food/cooking/4_heat,.txt
+food/.meta-food/cooking/chef_tips_hacks.txt
+food/.meta-food/health/additives.html
+food/.meta-food/health/belly_fat.txt
+food/.meta-food/health/bioengineered_foods.txt
+food/.meta-food/health/brain_foods.txt
+food/.meta-food/health/food_microbiology_notes.txt
+food/.meta-food/health/ingredients.html
+food/.meta-food/health/natural_blood_components.txt
+food/.meta-food/health/oxidative_stress.txt
+food/.meta-food/health/sugar_list.html
 food/beans/beans_.txt
 food/beans/lentils_.txt
-food/dairy/cottage_cheese_..txt
-food/dairy/yogurt..txt
-food/grains/bread_..txt
+food/dairy/cottage_cheese_.txt
+food/dairy/yogurt.txt
+food/grains/bread_.txt
 food/grains/granola_bars..txt
 food/grains/mac-n-cheese_.txt
 food/grains/pizza_..txt
 food/grains/rice_.txt
 food/meat/eggs_.txt
 food/meat/meatballs_.txt
-food/meta-food/book-notes/fast_food_nation_the_dark_side_of_american_meal.txt
-food/meta-food/book-notes/harvard's_healthy_living_guide.txt
-food/meta-food/book-notes/secret_life_of_groceries;_dark_miracle_of_american_supermarket .txt
-food/meta-food/cooking/1_salt,.txt
-food/meta-food/cooking/2_fat,.txt
-food/meta-food/cooking/3_acid,.txt
-food/meta-food/cooking/4_heat,.txt
-food/meta-food/cooking/chef_tips_hacks.txt
-food/meta-food/health/additives.html
-food/meta-food/health/belly_fat.txt
-food/meta-food/health/bioengineered_foods.txt
-food/meta-food/health/brain_foods.txt
-food/meta-food/health/food_microbiology_notes.txt
-food/meta-food/health/ingredients.html
-food/meta-food/health/natural_blood_components.txt
-food/meta-food/health/oxidative_stress.txt
-food/meta-food/health/sugar_list.html
 food/soups/chicken_soup_.txt
 food/sweets/candy_erythritol_.txt
 food/sweets/caramel_popcorn_..txt
@@ -85,6 +85,7 @@ projects/appplied_category_course.txt
 projects/home_energy.txt
 projects/landscaping.txt
 projects/linux phone.html
+projects/ml_course_intro.txt
 projects/nutrition_course_notes.txt
 projects/web.html
 science/20_big_popular_questions_in_science.txt
@@ -113,9 +114,11 @@ science/book-notes/thinking,_fast_and_slow.txt
 science/book-notes/tree_story-world_history_in_rings.txt
 science/book-notes/usetttled_what_climate_science_tells_us.txt
 science/covid_-_philosophy,_politics,_psychology,_science.html
+science/health/blood_test.txt
 science/health/chemicals_in_water.txt
 science/health/chemicals_toxic.html
-science/health/chemicals_toxic.txt
+science/health/chemicals_toxic_work_in_progress.txt
+science/health/deficits (copy).txt
 science/health/deficits.txt
 science/health/exercise.txt
 science/health/exercise;_brain.txt
@@ -123,9 +126,11 @@ science/health/happiness.txt
 science/health/health_risks.txt
 science/health/information_overload.txt
 science/health/most_common_drugs.txt
+science/health/pandemics.txt
 science/health/phone;_sugar;_sleep.txt
 science/health/science_based_medicine.txt
 science/health/social_anxiety.txt
+science/health/vaccine.txt
 science/health/water.txt
 science/links/internet_resources.html
 science/math/logic.txt
@@ -148,6 +153,7 @@ tech/problems/problems_solutions;_python.txt
 tech/problems/problems_solutions;_security.txt
 tech/programming/cmds;_git.txt
 tech/programming/cmds;_ide.txt
+tech/programming/functional programming.txt
 tech/programming/python_features.txt
 tech/programming/tmp.python_built-in_functions.html
 tech/programming/tmp.python_data_structures.html

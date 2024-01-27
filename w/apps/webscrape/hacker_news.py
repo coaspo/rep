@@ -288,9 +288,12 @@ def append_lines(html, sort_order, links, sfx, max_link_cnt, collected_links):
     return html
 
 
+current_date = datetime.datetime.now()
+print(current_date.isoformat())
 def create_web_page(links, points, comments, prev_file_path, next_file_path, top_count):
+    current_date = datetime.datetime.now().isoformat()
     html = "<html><head><meta charset='UTF-8'></head><title>Hacker news sort</title>\n<body>Top " + \
-           f"<a href=\"{HACKER_NEWS_URL}\">{HACKER_NEWS_URL}</a> links &#8198; &#8198; &#8198; &#8198;"
+           f"<a href=\"{HACKER_NEWS_URL}\">{HACKER_NEWS_URL}</a> links \"{current_date}\" &#8198; &#8198; &#8198; &#8198;"
     if prev_file_path is not None:
         html += f"<a href=\"{prev_file_path}\">prev</a> &#8198; &#8198;" + \
                 f"<a href=\"{next_file_path}\">next</a> &#8198; &#8198; &#8198; &#8198;" + \

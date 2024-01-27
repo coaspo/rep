@@ -1,0 +1,31 @@
+Fluzone High-Dose Quadrivalent 0.7 mL Dose by Sanofi
+  egg-based, from allantoic fluid
+  Active Substance: Split influenza virus, inactivated strains:
+  A (H1N1) 60 mcg HA
+  A (H3N2) 60 mcg HA
+  B (Victoria Lineage) 60 mcg HA
+  B (Yamagata Lineage) 60 mcg HA
+  Other:
+  Sodium phosphate-buffered isotonic NaCl solution QSb
+  to appropriate volume
+  Formaldehyde ≤140 mcg  to inactivate virus
+  Octylphenol ethoxylate ≤350 mcg a non-ionic surfactant to make split virus
+  Gelatin None
+    https://www.fda.gov/media/132238/download
+
+RSV (Respiratory Syncytial Virus Vaccine) vaccine by Asrexvy
+  Recominant Adjuvanted
+   1. antigen powder:
+     RSV glycoprotein F stabilized in pre-fusion conformation (RSVPreF3 protein/antigen)
+       lyophilized: frozen and placed under a vacuum
+          also known as freeze drying and cryodesiccation
+          Incas freeze dried potatoes & meat
+        RSVPreF3 protein/antigen expressed by culturing genetically engineered Chinese Hamster Ovary
+          cells in media containing no antibiotics or animal-derived proteins
+    2. AS01E adjuvant
+       3-O-desacyl-4’-monophosphoryl lipid A (MPL) from Salmonella minnesota
+       QS-21, a saponin purified from plant extract Quillaja saponaria Molina,
+         combined in a liposomal formulation
+            Saponins:  triterpene glycosides
+            Liposome: one of the fatty droplets in the cytoplasm of a cell
+    https://www.fda.gov/media/167805/download

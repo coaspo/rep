@@ -1,4 +1,6 @@
 "use strict";
+window.DEBUG=true
+console.log('aaaa')
 // Curron postion; for weather.js and position link
 var latitude = 'lat=42.3587' // Boston
 var longitude = 'lon=-71.0567'
@@ -82,31 +84,33 @@ if (document.URL.startsWith('file')) {
 // Main search button
 function browse(url, name = "_self") {
   if (window.DEBUG) console.log('browse, url=' + url)
-  var text = document.getElementById('inputTextMain').value;
-  browseUrl(url, name, text)
+  var inputText = document.getElementById('inputTextMain').value;
+  browseUrl(url, name, inputText)
 }
 
 // Projects search button
 function browse2(url, name = "_self") {
   if (window.DEBUG) console.log('browse2, url==' + url)
-  var text = document.getElementById('inputTextProj').value;
-  browseUrl(url, name, text)
+  var inputText = document.getElementById('inputTextProj').value;
+  browseUrl(url, name, inputText)
 }
 
 function browseUrl(url, name = "_self", txt) {
-  var text = txt.replace(/  /g, " ")
+  var inputText = txt.replace(/  /g, " ")
   if (url.includes('homedepot')) {
-    text = text.replace(/ /g, "%2520")
+    inputText = inputText.replace(/ /g, "%2520")
   } else if (url.includes('weather')) {
-    text = latitude + '&' + longitude
+    inputText = latitude + '&' + longitude
   } else if (url.includes('/maps/')) {
-    text = latitude + ',' + longitude
-  } else if (url.includes('translate.google') && text.charCodeAt(0) > 122) {
+    inputText = '/'+latitude + ',' + longitude
+  } else if (url.includes('translate.google') && inputText.charCodeAt(0) > 122) {
       url = url.replace('sl=en&tl=el', 'sl=el&tl=en')  // greek to english
   }
-  //https://translate.google.com/#view=home&op=translate&sl=en&tl=el&text=zzzz
-  url = url.replace('zzzz', text)
-  if (text.trim().length == 0) {
+  //https://www.google.com/maps/search/pizza/@42.4804315,-71.086777
+  //https://www.google.com/maps/search/zzzz/
+  //https://translate.google.com/#view=home&op=translate&sl=en&tl=el&inputText=zzzz
+  url = url.replace('zzzz', inputText)
+  if (inputText.trim().length == 0) {
     url = url.replace('site:org OR  site:edu', '')
   }
   console.info('*browse() url= ' + url)

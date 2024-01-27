@@ -71,4 +71,16 @@ Answer: Install KDEConnect in Android and PC
                 select PTP (picture transfer protocol)
         Should see
 
+Recover Ubuntu/Unix
+FIX:
+  sudo fdisk -l
+    list available disks
+  sudo mkdir /mnt/drive
+    make /mnt/drive directory in current drive
+  sudo mount /dev/sda3 /mnt/drive
+    disk /dev/sda3 is target disk listed in first step
+  chroot /mnt/drive
+    ......
+  sudo unmount /mnt/drive
+    when done....
 

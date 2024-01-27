@@ -1,0 +1,291 @@
+5L blood/average-person
+
+complete blood count (CBC) test; overall health
+1 WBC  white blood cells
+  4-11 K/μL
+  low: infection, tumor, lupus, liver, spleen, mononucleosis virus, severe infection
+  high: antibiotics, leukemia, burns, inflammation (allergy/ rheumatoid arthrtis)
+
+2 RBC red blood cell
+  4.5-5.9 M/μL
+  low: bleeding, iron/copper/folate/B6/B12 deficiency, leukemia, over-hydration
+  high: dehydration, heart failure, low oxygen, pulmonary fibrosis
+
+3 Hgb  Hemoglobin
+  13.4-17.5 g/dL
+ platelet count low: bleeding, iron/copper/folate/B6/B12 deficiency, leukemia, over-hydration
+  high: dehydration, congenital heart disease
+
+ 4 HCT Hematocrit number/size of red blood cells vs. white cells/platelets
+    41-53 %
+    low: bleeding, iron/copper/folate/B6/B12 deficiency, leukemia, over over-hydration
+    high: d; white blood cell; check for infectioehydration, congenital heart disease
+
+5 PLT platelets (clotting)
+  150-450 K/μL
+  low: chemotherapy, autoimmune
+  high: iron deficiency, cancer
+
+6 MVC mean corpuscular volume (red blood cell size)
+  80-100 fL
+  low: thalassemia, iron deficiency
+  high: folate/B12 deficiency
+
+7 MCH mean corpuscular hemoglobin; hemoglobin in blood cell
+  27-31 pg
+  low: bleeding, iron deficiency
+  high: folate/B12 deficiency
+
+8 MCHC Mean Corpuscular Hemoglobin Concentration
+  32-36 g/dL
+  low: iron-deficiency anemia
+  high: hemolytic/Macrocytic anemia, liver disease, overactive thyroid
+
+9 RDW Red Cell Distribution Width
+  low: (vary little in size) macro/micro-lytic anemia - no enough but large/small red blood cells
+  high & high MVC: high liver disease, hemolytic anemia
+  high & low MVC: iron deficiency, thalessemia
+  high & normal MVC: B12/folic acid (B9) deficiency
+
+10 MVP mean platelet volume
+  8.4-12
+  low: infection, cancer, aplastic anemia
+  high: cancer, diabetes, heart disease
+
+11 NRBC% nucleated red blood cells
+  0-0.2 %
+  optimal: 0
+  non-zero: leukemia or hypoxia
+
+  12 NRBC#
+    0-0.01 K/μL
+    optimal: 0
+    non-zero: leukemia or hypoxia
+
+
+
+Differential blood test; white blood cells (1% of blood); check for infection
+
+1 Neutrophils (most common white blood cells; eat pathogens)
+  54-62%
+  low: Neutropenia: infection, swelling, autoimmune disease, low B12, folate, copper
+  high: Neutrophilia: infection
+
+  Neutrophils#
+  1.8-7 K/μL
+  high: Infection, inflammation, stress, and vigorous exercise
+  low: bacterial and viral infections, antibiotics
+
+2 Lymphs Lymphocyte (T/B cells; kill infected cells/make antibodies that bind to pathogens)
+  B cell touches pathogen (bacteria/virus/fungus/allergen/venom/toxis)
+  and divides/clone releasing antibodies (immunoglobulins): IgA/D/E/G?M;
+    IgA: saliva,tears, intestines
+    IgD: B cell surface
+    IgE: skin, lungs, mucus, causes mast cells to release histamines
+    IgG: 70-75% of all immunoglobulins; in blood & tissue fluid
+    IgM: in blood & lymph; immune regulation
+  25-33%
+  low: AIDS, Tuberculosis, Viral hepatitis, lupus, chemotherapy
+  high: AIDS, Mononucleosis, leukemia, toxoplasmosis gondii (cat reservoir)
+   (cats main reservoir)
+
+  Lymph#
+  1-4.8 K/μL
+
+
+3 Monos - Monocytes; destroy antigens & infectected cells
+    Dendritic cells: in skin, nose, lung, stomach superficial tissue
+                     collect antigens & release cytokines (increase inflamation)
+    Macrophages: eat germs, dead cells
+  4.7-12% (2-8% cleveland clinic)
+  low: blood infection, Aplastic Anemia
+  high: Monocytosis - infection, cancer, heart disease
+
+  Mono#
+  0.2-1.2 K/μL
+
+4 Eos Eosinophils (has granules stained by eosin fluorescent - eos dawn)
+  0-3%
+  high: asthma, fungus/parasite infection, leukemia
+
+  Eos#
+  .05-.25 K/μL
+
+5 Basos - Basophils one or two day lifespan, contain histamine (vasodilator)
+  help produce IgE - Basophils are few but large
+    histamines released by by Basophils & mast cells
+       mast cells: immune cells along blood vessels, pick up IgE and release histamine
+          cause blood vessles to become leasker allow white blood vessels
+    histamine receptors:
+      H1: smooth muscles, brain cells
+          itchy skin, pain, difficult breathing, heart rate up
+          --> sneezing, nasal congestion, runny nose
+          regulate emotions, temperature, food intake, learning
+          H1 antihistamine drugs:
+             for pollen, pets
+             diphenhydramine (benadryl)- make you sleepy
+             2nd generation loratadine (claritin)is not drowsy
+      H2: stomach wall - release acid
+          --> digestion, hypo-tension, headache, difficult breathing, heart rate up
+          H2 antihistamine drugs:
+            for ulcers, indigestion, gastroesophageal reflux
+            ranitidine (zantac)
+      H3: central nervous system
+          regulate dopamine, norepinephrine and acetylcholine.
+          sleep/wake
+      H4: bone marrow & hematopoietic cells (immature blood cells)
+          allergy
+    corticosteroids inhales
+    epinephrine injeciosn
+    Vitamic C/B6
+  high: hypothyroidism
+
+  Bso#
+  0-0.3 K/μL
+
+6  Granulocytes - neutrophils, eosinophils and basophils
+     neutrophil: consume up to 20 bacteria in its lifetime
+     eosinophil: allergy or parasite response
+     basophil: combat allergic reaction; release histamine & heparin (blood thinner)
+  0-1%
+  high: infection,sepsis, rheumatoid arthritis, cancer, autoimmune, leukemia
+
+
+
+Comprehensive metabolic panel (CMP); metabolism, nutrients, electrolytes, kidneys and liver
+
+1 Sodium  conduct nerve impulses, balance mineralsQwant
+  135-145 mmol/L   1mmol = 23mg
+  low: fluid loss, ketonuria, hypertriglyceridemia
+  high: diarrhea, fluid loss from sweating, cortisoids, ibuprofen
+  500mg/day  6 g salt/teaspoon  (4 g sugar/teaspoon)
+
+2 Potassium  blood pressure, check kidney
+  3.6-5.1 mmol/L
+  low: diarrhea, vomiting,  diuretics,weakness, cramps
+  high: blood transfusion, kidney failure, metabolic acidosis,
+        red blood cell destruction, too much in diet
+
+3 Chloride  cell regulation, digestion
+  98-107 mmol/L
+  low: diarrhea, vom
+   Electrolytes: chloride, sodium, potassium and bicarbonate
+  low: heart failure, emphysema
+  high: dehydration, kidney disease, metabolic acidosis,
+        respiratory alkalosis
+
+4 Carbon dioxide  kidney and lung function
+  22-32 mmol/L
+  low: diarrhea, renal tubular acidosis (kidney not removing acids)
+  high: Congestive heart failure, Dehydration
+
+4 BUN (Blood Urea Nitrogen) check kidney, diabetes, hypertensiion, heart disease
+  6-20 mg/dL
+   urea:CO(NH2)2  neither acid or base, non toxic
+     liver makes it with NH3+ CO2
+     fist life chemical to synthesized
+  low: overhydration, liver disease, low protein diet
+  high: dehydration, high protein diet, aging, stress, heart attack
+
+5 Creatine - in muscles & brain - an energy source
+   from food (meat) or made by liver/pancreas/kidneys (1gr/day)
+  0.6-1.3 mg/dL
+  low: malnutrition (loosing muscle), liver disease
+  high: kidney disease/infection
+
+6 Glucose
+  65-99 mg/dL
+  low: liver/kidney disease, hypotrhyroidism, alcoholism
+  high: diabetes if fasting >125, pancreatiitis, hyperthyroidism
+
+
+7 Albumin - most common protein in blood plasma, egg white, milk
+  3.5-5.2 g/dL
+  made mostly by liver, prevents leakage of blood
+  binds water, Ca2+, Na+ and K+, fatty acids, hormones
+  low: liver/kidney disease, inflammation/infection
+  high: dehydration or severe diarrhea
+
+8 Total Protein  Albumin/globulin
+  6.1-8.1 g/dL
+  Globulins: large global protein, also in plants
+  low: liver/kidney disease,inflammation, infection
+  high: gastrointestinal problem
+
+9 Calcium
+  8.9-9.3 mg/dL
+  low: vitamin D deficiency, kidney failure
+  high: Hyperparathyroidism, cancer, kidney failure, Celiac disease; malabsorption
+
+10 Alk Phos - alkaline phosphatase (enzyme - mostly in liver) age/sex dependant
+  40-130 IU/L  Internation unit- A,D,E hormones, enzymes, vaccines
+               unit for biological activity - relative potency
+  low: malnutrition, zinc deficiency
+  high: liver/bone disease, Mononucleosis (Epstein-Barr virus)
+
+11 Bilirubin - (red bile) yellow skin/eyes
+             breaks down heme waste of old red blood cells
+             its metabolite excrete in bile/urine
+             yellow color of healing bruises, jaundice, & poop
+  0-1.2 mg/dL
+  high: liver/sickle-cell disease, gallstones, virus infection
+        may have Bilirubin in urine
+
+12 AST Aspartate Aminotransferase (SGOT serum glutamic-oxaloacetic transaminase)
+    protein/enzyme made by liver
+    when liver damaged AST leaks into bloodstream
+    Heart, kidneys, brain, and muscles make small amounts of AST
+  15-41 U/L unit is an arbitrary amount agreed upon by scientists and doctors.
+  low: uremia (urinary waste in blood), B6 deficiency
+  high: alcoholism, hepatitis.
+
+13 ALT Alanine transaminase (SGPT serum Glutamic Pyruvic Transaminase)
+  liver enzyme
+  10-50 U/L
+  low: B6 deficiency, Chronic Kidney Disease
+  high: alcoholism, hepatitis.
+
+14 Globulin (globular proteins) made by liver or immune system
+   40% of blood protein in blood (albumin is also common; A/G ratio>1)
+  1.9-4.1 g/dL
+  low: kidney/liver disease
+  high: infection inflammation
+
+15 eGFR (Estimated Glomerular Filtration Rate)
+  60-128 mL/min/1.73m^2    black people have higher rate - more creatinine & muscle mass
+                           declines with age
+  CKD-EPI equation,  GFR = 141 × min(Scr/κ, 1)α × max(Scr/κ, 1)-1.209 × 0.993Age × 1.018 [if female] _ 1.159 [if black]
+  low: kidney failure
+
+16 Anion Gap (pH balance)
+  difference of negative electrolytes (chloride and bicarbonate)
+  and  positive electrolytes (such as sodium)
+  3-17 mmol/L
+  low: kidney/liver/heart disease
+  high: Acidosis --> Dehydration, Diarrhea, diabetes, kidney disease
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,91 @@
+Machine learning
+  Supervised learning
+    learn from right answers
+    in --> out                   Application
+    email --> spam (0/1)         spam filter
+    audio --> text               speech recognition
+    English --> Spanish          machine translation
+    ad+user info --> click(0,1)  online ad
+    image/radar --> car positions  self-driving car
+    phone image --> defect(0,1)    visual inspection
+
+    Regression (eg house prices)
+      predict number from infinitely many possible outputs
+
+    Classification (eg breast cancer)
+      predict categories or classes, input is lump size,
+        small finite set of classes 0,1 or 0,1,2  ...
+        input may be lump size, age...
+      image recognition
+
+  Unsupervised learning
+    find pattern - have x, but not y; take data without labels
+    1. clustering
+        find structure
+        google news
+          example panda gives birth to twin cubs  - cluster of panda & tein
+        DNA micro array
+          genes for set of person
+            cluster of eye: color gene, like broccoli,...  for type 1,2 persons
+            how genes are expressed
+        Grouping customers
+          find market segments to better serve customers
+     2. anomaly detection
+        find unusual data points
+        detect finance fraud
+     3. Conditionality reduction
+        compress data without loosing information
+
+Regression model
+  Linear Regression Model - straight line fit
+      supervised learning - input data is correct
+      regression --> predicts number
+    Classification model - small number of possible outputs
+    Terminology
+      Training set - data used to train model
+        x : "input" variable" or feature
+        y:  :"output"" variable or "target"  variable
+        m:  number of training examples
+        (x,y): a training example
+        (x^(i), y^(i): i-th training sample
+    features, targets --> learning algortithm  --> f  (function, hypothesis)
+    x --> f --> ŷ
+      x feature
+      f model
+      ŷ prediction; y estimate
+        for house data:  size --> f --> price
+
+    f representation: f w,b(x) = w*x + b     of simpler: f(x) = w*x + b
+    One variable (univariate) linear regression
+
+Cost function
+  how well the model is doing
+  w,b: parameters/coefficients/weights
+  Cost function
+    Square error cost function:
+      J(w,b) = 1/2m Sum(ŷ^(i) -y^(i))^2  for i=1..m  2 is for later convenience
+      most common for all regression
+
+Gradient descent
+  minimize cost function J(w,b) by varying w,b
+  J(w1,w2...wn,b)   min J
+  start with guess - w=0 b=0
+  may not have squared error cost
+  stand on a peak and look around and find direction using steepest descent
+  Implementation:
+    w = w - α ∂J/∂w     = assignment operator; store value
+          α learning rate,  between 0 and 1, usually .01
+    b = b - α ∂J/∂b
+       simultaneously u pdate w & b
+    Correct simultaneous updateL
+       temp_w = w - α ∂J/∂w
+       temp_b = b - α ∂J/∂b
+       w = temp_w
+       b = temp_b
+       α too small: slow to find min
+       α too big: diverge away from min
+   Near local min:
+     derivative is small
+     update steps (dw) as smaller
+     can reach min without decreasing α
+
