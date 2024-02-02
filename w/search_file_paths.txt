@@ -40,7 +40,7 @@ art/visual/videos.html
 art/visual/visual_art.html
 art/writing/tools.html
 food/.meta-food/book-notes/fast_food_nation_the_dark_side_of_american_meal.txt
-food/.meta-food/book-notes/harvard's_healthy_living_guide.txt
+food/.meta-food/book-notes/harvards_healthy_living_guide.txt
 food/.meta-food/book-notes/secret_life_of_groceries;_dark_miracle_of_american_supermarket .txt
 food/.meta-food/cooking/1_salt,.txt
 food/.meta-food/cooking/2_fat,.txt
@@ -84,7 +84,7 @@ food/vegetables_/yucca_plaintains.txt
 projects/appplied_category_course.txt
 projects/home_energy.txt
 projects/landscaping.txt
-projects/linux phone.html
+projects/linux_phone.html
 projects/ml_course_intro.txt
 projects/nutrition_course_notes.txt
 projects/web.html
@@ -93,7 +93,7 @@ science/7_problems_with_science.txt
 science/biology/immunology_virus_and_vaccines.txt
 science/biology/microbes.txt
 science/biology/pandemics.txt
-science/book-notes/ahead of the curve - viruses....txt
+science/book-notes/ahead_of_the_curve - viruses....txt
 science/book-notes/ai_2041_ten_visions_of_future.txt
 science/book-notes/algorithms_to_live_by.txt
 science/book-notes/being_mortal.txt
@@ -118,7 +118,6 @@ science/health/blood_test.txt
 science/health/chemicals_in_water.txt
 science/health/chemicals_toxic.html
 science/health/chemicals_toxic_work_in_progress.txt
-science/health/deficits (copy).txt
 science/health/deficits.txt
 science/health/exercise.txt
 science/health/exercise;_brain.txt
@@ -153,7 +152,7 @@ tech/problems/problems_solutions;_python.txt
 tech/problems/problems_solutions;_security.txt
 tech/programming/cmds;_git.txt
 tech/programming/cmds;_ide.txt
-tech/programming/functional programming.txt
+tech/programming/functional_programming.txt
 tech/programming/python_features.txt
 tech/programming/tmp.python_built-in_functions.html
 tech/programming/tmp.python_data_structures.html

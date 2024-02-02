@@ -264,13 +264,25 @@ Comprehensive metabolic panel (CMP); metabolism, nutrients, electrolytes, kidney
   low: kidney/liver/heart disease
   high: Acidosis --> Dehydration, Diarrhea, diabetes, kidney disease
 
+Other
+1. TSH (Thyroid-stimulating hormone) suppressed by thyroid hormone
+   0.35 - 4.94 uIU/mL
+   low: hyperthyroidism; palpitations, anxiety, bulging eyes, diarrhea
+   high: hypothyroidism; (5% of adults)
+         little thyroid hormone - TSH not supressed
+2. PSA (Prostate Specific antigen)
+    0.0 - 4.0 ng/mL
+   PSA: androgen-regulated serine protease
+        from prostate epithelial cells and prostate cancer (PCa)
+          protease:  protein/peptide enzyme
+          antigen: causes immune system to produce antibodies
+3. B12
+   213 - 816 pg/mL
+
+4. METHYLMALONIC ACID,SERUM
 
 
-
-
-
-
-
+https://mylaheychart.org/MyChart/app/test-results/details?pageMode=1&eorderid=WP-24ibHtSui-2B96bSCFgYV7sUNw-3D-3D-246t4wKpuRI5Np3kOTlSpdV5jz5xvUijMxDAKifzwPiH0-3D
 
 
 
