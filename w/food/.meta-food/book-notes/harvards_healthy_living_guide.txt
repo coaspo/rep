@@ -78,16 +78,22 @@ RECIPE
             flip fish over, cook for 30 sec
 
 Anti-Nutrients
-  deactivated by soaking, sprouting, or boiling
+  binding to vitamins,minerals, preventing their uptake, or inhibiting enzymes
+  deactivated by soaking, sprouting, boiling, pressure cooking
 
   1. Lectins or hemagglutinins - carbohydrate binding proteins
-    blocks: calcium, iron, phosphorus, and zinc.
-    in: legumes, whole grains, lentils, peanuts;
-        tomatoes, potatoes, peppers, and eggplant
+    blocks: calcium, iron, phosphorus, and zinc, damages intestines
+            trigger autoimmune response
+    how: stick to intestines and increase permeability --> micro trauma
+         --->Leaky gut syndrome
+    in: grains, legumes (1-3%)(Lentils,Peas,Broad beans,Chickpeas,Soybeans,Beans,Peanuts);
+        potatoes, Nightshades (tomatoes, peppers,  eggplant)
         (low in walnuts, pistachios)
-    remove: soak, cook ,
+    remove: soak, cook ,Protease inhibitors
             baking soda, vinegar
-
+    side effects: inflammation, brain fog, migraines, stomach issues, acne or joint pain
+                  Nightshades: auto immune disease
+    glycoproteins
     cell-cell interactions, signaling pathways, and immune responses
     viable target for targeted drug delivery systems
     bind to cells for long periods of time
@@ -98,23 +104,44 @@ Anti-Nutrients
       increased gut permeability and drive autoimmune diseases
 
 
-  2. Oxalates; C2O4 - from plants incomplete oxidation of saccharides
+  2. Oxalates; C2O4 - oxilic acid
      blocks: iron, zinc, magnesium, and calcium
-     in: spinach, soy, almonds, potatoes, beets, navy
-     remove: steaming 5-53%, boiling 30-87%
-             eat calcium foods for couple of days or weeks
-
+     in:  rhubarb, tea, spinach, parsley, purslane, swiss chard, parsley, collards
+          spinach/kale smoothies (more harm than good), cruciferous, chocolate
+     remove: steaming 5-53%, boiling 30-87%  blanching
+            glycoproteins eat calcium foods for couple of days or weeks
+             drink enough fluids
+             eat calcium rich foods - Oxalates bind to calcium in stomach
+     how: oxalates bind to calcium in your blood -->  oxalic acid
+          --> muscle & kidney pain
+     possible side effects: burning in the eyes, ears, mouth and throat
+                            abdominal pain, muscle weakness, nausea and diarrhea
      C2O4 + calcium --> calcium oxalate; kidney stones
                     CaC2O4, hydate CaC2O4·nH2O
                     CaC2O4 from plants detoxifying calcium (Ca2+)
-
+                    60% of kidney stones: calcium oxalate (CaOx)  acidic urine
+                    10-20%                calcium phosphate (CaP) alkiline
+                    10-20%                uric acid
       Oxalic acid, C2H2O4 uses: rust/inorganic stain removal
                                 laundry rinse
+      from plants incomplete oxidation of saccharides
+      do not eat raw spinach, kale, spices, black pepper
+      reduce kidney stones:
+        DASH (Dietary Approaches to Stop Hypertension) diet:
+          Rich in potassium, calcium, magnesium, fiber and protein.
+          Low in saturated fat.
+          Low in salt.
+             vegetables, fruits, and whole grains.
+             fat-free or low-fat dairy products,
+             fish, poultry,
+             beans, nuts, and vegetable oils
+
+
 
    3. Phytates (phytic acid)  - organophosphorus compound of plants
-      blocks (for large amounts): iron, zinc, magnesium  Chromium Manganese
-
-      in: beans, seeds, nuts, grains
+      blocks (for large amounts): iron, zinc, copper, magnesium,  Chromium, Manganese
+      how: inhibit amylase, trypsin and pepsin
+      in: beans(1-2%), seeds, nuts, grains
            phytin mostly in seed husks
       remove: heat and pressure or with a strong acid
               phytase enzyme;
@@ -124,6 +151,8 @@ Anti-Nutrients
                     grains, legumes
                     gut of ruminant animals (we do not produce it)
                  added to animal feed
+      good: lower cholesterol, slow digestion, and
+            prevent sharp rises in blood sugar.
 
       phytic acid: inositol hexakisphosphate (IP6)
         not all bad; involved in gene regulation
@@ -136,6 +165,7 @@ Anti-Nutrients
    4. Saponis - triterpene glycosides; foaming
       toxic: salivation, diarrhea, vomiting, appetite loss, and paralysis
              effect Alzheimer's/Parkinson's disease, and Huntington's (nerve cell is brain) disease
+
       uses:  decrease blood lipids, lower cancer risks, and lower blood glucose response.
              inhibition of dental caries and platelet aggregation, treat  hypercalciuria,
              lead poisoning  antidote
@@ -166,7 +196,7 @@ Anti-Nutrients
           Blueberries, blackberries, strawberries
           Beer, wine, tea, fruit juices and cider
           cinnamon or curry powder
-      remove: 1/4 tsp.  baking soda in tea - most tannins are acidic
+      remove: 1/4 tsp.  bakamylase, trypsin and pepsining soda in tea - most tannins are acidic
 
       deter eating unripe fruit/seeds
       act as pesticides
@@ -176,7 +206,7 @@ Anti-Nutrients
       puckery feeling from tasking unripened fruit, red wine or tea.
       tannin free feed --> high wight gain, more eggs, low chicken mortality
 
-   6. Glucosinolates
+   6. Glucosinolates (a goitrogen: disrupts thyroid hormones)
        block: idodine;
               disrupt the production of thyroid hormones
               cause goiter; aggravate hypothyroidism
@@ -185,7 +215,7 @@ Anti-Nutrients
               antimicrobial, anticancer
               “turn on” genes that suppress tumors
               shift active estrogen to a weaker form
-       in: Cruciferous vegetables; cabbage, broccoli, kale
+       in: broccoli, cabbage, kale, soy, casava
            mustard, horseradish  Brussels sprouts, watercress, horseradish, capers, and radishes
        remove: stir fry, boil
 
@@ -193,9 +223,74 @@ Anti-Nutrients
       Glucosinolates: secondary metabolites (ecological interaction)
            from glucose and an amino acid - have sulfur & hydrogen
 
-   7. Goitrogens
-      block: same as Glucosinolates
-             brain damage, mental retardation, reproductive failure, and childhood mortality
-      in: same as Glucosinolates, almonds
-      remove: wash, soak, and boil
-              (destroys enzyme that converts progoitrin to goitrin)
+    7. Enzyme inhibitors
+       1. protease (protein/peptide enzyme)
+           trypsin (small intenstine, in legumes), pepsin (stomach)
+           lectins
+       2. lipase: prevent hydrolysis of lipids
+       3. amylase: prevent breaking of carbohydrates, in beans
+
+    8. Gluten
+       in: Wheat, rye, oats, barley and rye
+       side effects: leaky gut --> mental fog, digestive discomfort,
+                     joint pain, poor nutrient absorption
+
+
+
+      Top 4: Lectins, Phytates, Oxalates, gluten
+
+FDA approved health claims:
+   calcium and osteoporosis;
+    sodium and hypertension;
+    fiber-containing grains,fruits and vegetables and cancer;
+    folic acid (B9; for new cells) and neural tube defects (first 3 months of pregnancy)
+      liver converts it to folate (in leafy greens, beans, & fruits)
+    regulated:     “low sodium,” “high fiber,” “reduced fat,” “good source of”
+    not regulated: “natural” or “multigrain”
+
+  Sensitive to heat:
+    Vitamin C, Thiamine (B1) and Pantothenic Acid (B5)
+      B1: cereal grains, beans, nuts, and meat
+      B5: meat, nuts, milk, eggs
+
+  Food allergens:
+     major: Milk, Eggs, Fish, Crustacean Shellfish, Tree Nuts, Peanuts, Wheat, Soy and Sesame
+     other: FD&C Yellow No. 5 (Tartrazine) - dye for wool and silks, a food
+            banned in Norway;
+            Diethylene poison --> FD&C:Federal Food, Drug, and Cosmetic Act 1930's
+
+  5% DV or less: low
+  20% DV or more: high
+
+
+Cravings
+   brain messages, habits, easy access to food.
+   hyperpalatable foods (sweetness, saltiness, or richness)
+     activate neurons in the reward brain region, creating pleasure
+     release metabolic, stress, and appetite hormones;
+       insulin, cortisol, dopamine, leptin, and ghrelin
+   hypothalamus:
+     1%, pea sized: controls cravings, appetite
+     chemicals/hormones  for stress, pleasure, pain, and hunger.
+     dopamine, the “feel good” chemical,
+     Eating certain foods that stimulate the reward -->
+       addictive food behaviors or emotional overeating.
+     eating --> appetite hormones;
+       digestive tract: glucagon-like peptide & cholecystokinin
+          glucagon by pancreas regulates blood sugar
+          peptide: 2-50 amino acid chaind; protein: >=1 polypeptides; types:
+            plant, bacterial/antibiotic, fungal, invertebrate, amphibian/skin,
+            venom, cancer/anticancer, vaccine, immune/inflammatory, brain,
+            endocrine, ingestive, gastrointestinal, cardiovascular, renal,
+            respiratory, opioid, neurotrophic, and blood–brain
+       fat cells: leptin: hormone suppress appetite
+         leptin resistance; inflamation or high triglycerides prevent leptin
+              crossing blood-brain barriers
+           obesity + high leptin = chronic inflammation
+       stomach when empty: ghrelin: increases appetite
+         ghrelin regulates: reward cognition, learning/memory, the sleep-wake cycle,
+                            taste sensation, reward behavior, and glucose metabolism
+              GRowth hormone-RELeasINg peptide
+         Ghrelin cells in: stomach, duodenum, jejunum, lungs, pancreatic islets,[25] gonads, adrenal cortex, placenta, and kidney. It has also been shown that ghrelin is produced locally in the brain
+         GI track: stomach --> duodenum --> small intestine (jejunum-->Ileum)
+             --> large intestine --> rectum

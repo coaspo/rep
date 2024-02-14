@@ -140,11 +140,11 @@ wind of change$$11$$https://music.youtube.com/watch?v=Ukh1zoiV304&list=RDAMVMUkh
 fake plastic trees$$11$$https://music.youtube.com/watch?v=6gDhsUWCHrg&list=RDAMVM6gDhsUWCHrg
 99 problems$$11$$https://music.youtube.com/watch?v=31GjRnXfUjo&list=RDAMVM31GjRnXfUjo
 single ladies (put a ring on it)$$11$$https://music.youtube.com/watch?v=4z-bOdAdias&list=RDAMVM4z-bOdAdias
-wikipedia$$21$$https://en.wikipedia.org/wiki/List_of_languages_by_number_of_native_speakers
-wikipedia$$22$$https://en.wikipedia.org/wiki/List_of_languages_by_number_of_native_speakers
+living in your head rent-free$$21$$https://www.buzzfeednews.com/article/josephbernstein/living-in-your-head-rent-free-is-the-perfect-insult-of-our
 wikipedia$$23$$https://en.wikipedia.org/wiki/List_of_languages_by_number_of_native_speakers
 wikipedia$$24$$https://en.wikipedia.org/wiki/List_of_languages_by_number_of_native_speakers
-living in your head rent-free$$25$$https://www.buzzfeednews.com/article/josephbernstein/living-in-your-head-rent-free-is-the-perfect-insult-of-our
+wikipedia$$27$$https://en.wikipedia.org/wiki/List_of_languages_by_number_of_native_speakers
+wikipedia$$31$$https://en.wikipedia.org/wiki/List_of_languages_by_number_of_native_speakers
 humorous units of measurement$$35$$https://en.wikipedia.org/wiki/List_of_humorous_units_of_measurement
 confound the science$$35$$https://www.youtube.com/watch?v=IZDYhQ4UAnA
 pink panther$$35$$https://www.youtube.com/watch?v=59lKdaXX6Eo
@@ -227,80 +227,80 @@ ecological fallacy$$115
 go to top$$115$$#top
 go to top$$115$$#top
 go to top$$115$$#top
-korean cdc interview$$133$$https://www.youtube.com/watch?v=gAk7aX5hksU
-virus course$$133$$https://www.youtube.com/watch?v=lj3NhPgOoX4
-week in virology$$133$$https://www.microbe.tv/twiv/archive/
-cdc - principles of epidemiology in public health practice$$133$$https://www.cdc.gov/csels/dsepd/ss1978/index.html
-addgene.org$$133$$https://www.addgene.org/
-recalls$$133$$https://www.recalls.gov/nhtsa.html
-wolfram$$133$$https://www.wolfram.com/
-worldometers$$133$$https://www.worldometers.info/
-ourworldindata$$133$$https://ourworldindata.org/
-flightradar24$$133$$https://www.flightradar24.com/airport/bos
-merk manual$$133$$https://www.merckmanuals.com/
-data$$133$$https://ourworldindata.org 
-mass maps$$133$$https://massgis.maps.arcgis.com/home/index.html
-sci-hub$$133$$https://sci-hub.se/
-information$$133$$https://www.informationisbeautiful.net/visualizations/the-microbescope-infectious-diseases-in-context/
-probability statistics intro$$133$$https://seeing-theory.brown.edu/basic-probability/index.html
-apod; astronomy picture of the day$$133$$https://apod.nasa.gov/apod/astropix.html
-wind/weather map$$133$$https://www.windy.com
-hacker laws$$133$$https://github.com/dwmkerr/hacker-laws
-quantum computing lectures$$133$$https://www.scottaaronson.com/democritus/default.html
-quantum processing$$133$$https://ocw.tudelft.nl/courses/quantum-information-processing/
-kids health.org$$133$$https://kidshealth.org/
-diogenes$$141
-national social anxiety center.com$$143$$https://nationalsocialanxietycenter.com/liebowitz-sa-scale/
-psychology today.com$$143$$https://www.psychologytoday.com/us/tests
-open psycho metrics.org$$143$$https://openpsychometrics.org/
-darkfactor.org$$143$$https://qst.darkfactor.org/
-python.org$$156$$https://docs.python.org/3/library/functions.html
-python.org$$157$$https://docs.python.org/3/tutorial/datastructures.html
-python.org$$158$$https://docs.python.org/3/library/functions.html
-flowchart$$159$$https://creately.com/blog/diagrams/flowchart-guide-flowchart-tutorial/
-whois$$159$$https://whois.whoisxmlapi.com/lookup
-what is my browser$$159$$https://www.whatismybrowser.com/detect/what-http-headers-is-my-browser-sending
-speed test$$159$$https://www.speedcheck.org/
-browser test$$159$$http://acid3.acidtests.org/
-pdf editor$$159$$https://www.pdfescape.com/
-sql format (sqlformat.org)$$159$$https://sqlformat.org/
-sql format (dpriver.com)$$159$$https://www.dpriver.com/pp/sqlformat.htm
-w3.org$$159$$https://validator.w3.org/#validate_by_input
-freeformatter.com$$159$$https://www.freeformatter.com/html-formatter.html
-quackit.com$$159$$https://www.quackit.com/html/online-html-editor/
-htmleditor.in$$159$$http://htmleditor.in/index.html
-html5-editor.net$$159$$https://html5-editor.net/
-algorithms course (coursera.org)$$159$$https://www.coursera.org/learn/algorithms-part1/home/welcome
-edx.org$$159$$httpstable://www.edx.org
-quizlet.com$$159$$https://quizlet.com/
-course.eu$$159$$https://python-course.eu
-repl (python.org)$$159$$https://python.org/shell
-pythonanywhere.com$$159$$https://www.pythonanywhere.com
-vogella tutorial$$159$$https://www.vogella.com/tutorials/java.html
-repl (compilejava.net)$$159$$https://compilejava.net
-ide (onlinegdb.com)$$159$$https://onlinegdb.com/online_java_compiler
-stanford ai index$$161$$https://aiindex.stanford.edu/
-openai chatgpt$$161$$https://chat.openai.com/auth/login
-openai playground$$161$$https://platform.openai.com/playground
-openai dall e$$161$$https://labs.openai.com/
-mid-journey$$161$$https://midjourney.com/
-replica$$161$$https://replika.com/
-stable diffusion$$161$$stablediffusionweb.com/#demo
-quillbot$$161$$https://quillbot.com/
-character$$161$$https://beta.character.ai
-bratgpt$$161$$https://bratgpt.com/
-theatlantic$$162$$https://www.theatlantic.com
-the electric typewriter$$162$$https://tetw.org
-the enemies of writing$$162$$https://www.theatlantic.com/ideas/archive/2020/01/packer-hitchens/605365/
-bloomberg jealousy list$$162$$https://www.bloomberg.com/features/2020-jealousy-list/
-it’s hard to be a moral person. technology is making it harder.$$162$$https://www.vox.com/the-highlight/22585287/technology-smartphones-gmail-attention-morality
-text is all you need$$162$$https://studio.ribbonfarm.com/p/text-is-all-you-need
-cloudflare speed test$$163$$https://speed.cloudflare.com/
-ngrams$$163$$https://books.google.com/ngrams
-hoopla$$163$$https://www.hoopladigital.com/
-greek spell checker$$163$$https://www.neurolingo.gr/en/online_tools/speller
-random street-view$$163$$https://randomstreetview.com/
-khan academy$$163$$https://www.khanacademy.org/
-coursera$$163$$https://www.coursera.org/
-edx$$163$$https://www.edx.org/
-national geographic encyclopedia$$163$$https://admin.nationalgeographic.org/education/resource-library/?q=&page=1&per_page=25
+korean cdc interview$$134$$https://www.youtube.com/watch?v=gAk7aX5hksU
+virus course$$134$$https://www.youtube.com/watch?v=lj3NhPgOoX4
+week in virology$$134$$https://www.microbe.tv/twiv/archive/
+cdc - principles of epidemiology in public health practice$$134$$https://www.cdc.gov/csels/dsepd/ss1978/index.html
+addgene.org$$134$$https://www.addgene.org/
+recalls$$134$$https://www.recalls.gov/nhtsa.html
+wolfram$$134$$https://www.wolfram.com/
+worldometers$$134$$https://www.worldometers.info/
+ourworldindata$$134$$https://ourworldindata.org/
+flightradar24$$134$$https://www.flightradar24.com/airport/bos
+merk manual$$134$$https://www.merckmanuals.com/
+data$$134$$https://ourworldindata.org 
+mass maps$$134$$https://massgis.maps.arcgis.com/home/index.html
+sci-hub$$134$$https://sci-hub.se/
+information$$134$$https://www.informationisbeautiful.net/visualizations/the-microbescope-infectious-diseases-in-context/
+probability statistics intro$$134$$https://seeing-theory.brown.edu/basic-probability/index.html
+apod; astronomy picture of the day$$134$$https://apod.nasa.gov/apod/astropix.html
+wind/weather map$$134$$https://www.windy.com
+hacker laws$$134$$https://github.com/dwmkerr/hacker-laws
+quantum computing lectures$$134$$https://www.scottaaronson.com/democritus/default.html
+quantum processing$$134$$https://ocw.tudelft.nl/courses/quantum-information-processing/
+kids health.org$$134$$https://kidshealth.org/
+diogenes$$142
+national social anxiety center.com$$144$$https://nationalsocialanxietycenter.com/liebowitz-sa-scale/
+psychology today.com$$144$$https://www.psychologytoday.com/us/tests
+open psycho metrics.org$$144$$https://openpsychometrics.org/
+darkfactor.org$$144$$https://qst.darkfactor.org/
+python.org$$157$$https://docs.python.org/3/library/functions.html
+python.org$$158$$https://docs.python.org/3/tutorial/datastructures.html
+python.org$$159$$https://docs.python.org/3/library/functions.html
+flowchart$$160$$https://creately.com/blog/diagrams/flowchart-guide-flowchart-tutorial/
+whois$$160$$https://whois.whoisxmlapi.com/lookup
+what is my browser$$160$$https://www.whatismybrowser.com/detect/what-http-headers-is-my-browser-sending
+speed test$$160$$https://www.speedcheck.org/
+browser test$$160$$http://acid3.acidtests.org/
+pdf editor$$160$$https://www.pdfescape.com/
+sql format (sqlformat.org)$$160$$https://sqlformat.org/
+sql format (dpriver.com)$$160$$https://www.dpriver.com/pp/sqlformat.htm
+w3.org$$160$$https://validator.w3.org/#validate_by_input
+freeformatter.com$$160$$https://www.freeformatter.com/html-formatter.html
+quackit.com$$160$$https://www.quackit.com/html/online-html-editor/
+htmleditor.in$$160$$http://htmleditor.in/index.html
+html5-editor.net$$160$$https://html5-editor.net/
+algorithms course (coursera.org)$$160$$https://www.coursera.org/learn/algorithms-part1/home/welcome
+edx.org$$160$$httpstable://www.edx.org
+quizlet.com$$160$$https://quizlet.com/
+course.eu$$160$$https://python-course.eu
+repl (python.org)$$160$$https://python.org/shell
+pythonanywhere.com$$160$$https://www.pythonanywhere.com
+vogella tutorial$$160$$https://www.vogella.com/tutorials/java.html
+repl (compilejava.net)$$160$$https://compilejava.net
+ide (onlinegdb.com)$$160$$https://onlinegdb.com/online_java_compiler
+stanford ai index$$162$$https://aiindex.stanford.edu/
+openai chatgpt$$162$$https://chat.openai.com/auth/login
+openai playground$$162$$https://platform.openai.com/playground
+openai dall e$$162$$https://labs.openai.com/
+mid-journey$$162$$https://midjourney.com/
+replica$$162$$https://replika.com/
+stable diffusion$$162$$stablediffusionweb.com/#demo
+quillbot$$162$$https://quillbot.com/
+character$$162$$https://beta.character.ai
+bratgpt$$162$$https://bratgpt.com/
+theatlantic$$163$$https://www.theatlantic.com
+the electric typewriter$$163$$https://tetw.org
+the enemies of writing$$163$$https://www.theatlantic.com/ideas/archive/2020/01/packer-hitchens/605365/
+bloomberg jealousy list$$163$$https://www.bloomberg.com/features/2020-jealousy-list/
+it’s hard to be a moral person. technology is making it harder.$$163$$https://www.vox.com/the-highlight/22585287/technology-smartphones-gmail-attention-morality
+text is all you need$$163$$https://studio.ribbonfarm.com/p/text-is-all-you-need
+cloudflare speed test$$164$$https://speed.cloudflare.com/
+ngrams$$164$$https://books.google.com/ngrams
+hoopla$$164$$https://www.hoopladigital.com/
+greek spell checker$$164$$https://www.neurolingo.gr/en/online_tools/speller
+random street-view$$164$$https://randomstreetview.com/
+khan academy$$164$$https://www.khanacademy.org/
+coursera$$164$$https://www.coursera.org/
+edx$$164$$https://www.edx.org/
+national geographic encyclopedia$$164$$https://admin.nationalgeographic.org/education/resource-library/?q=&page=1&per_page=25

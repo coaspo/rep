@@ -16,10 +16,10 @@ complete blood count (CBC) test; overall health
  platelet count low: bleeding, iron/copper/folate/B6/B12 deficiency, leukemia, over-hydration
   high: dehydration, congenital heart disease
 
- 4 HCT Hematocrit number/size of red blood cells vs. white cells/platelets
+4 HCT Hematocrit number/size of red blood cells vs. white cells/platelets
     41-53 %
     low: bleeding, iron/copper/folate/B6/B12 deficiency, leukemia, over over-hydration
-    high: d; white blood cell; check for infectioehydration, congenital heart disease
+    high: d; white blood cell; infection, dehydration, congenital heart disease
 
 5 PLT platelets (clotting)
   150-450 K/μL
@@ -203,8 +203,9 @@ Comprehensive metabolic panel (CMP); metabolism, nutrients, electrolytes, kidney
   3.5-5.2 g/dL
   made mostly by liver, prevents leakage of blood
   binds water, Ca2+, Na+ and K+, fatty acids, hormones
-  low: liver/kidney disease, inflammation/infection
-  high: dehydration or severe diarrhea
+  low: liver/kidney disease, inflammation/infection, malnutrition
+  high: dehydration or severe diarrhea, kidney disease, stress
+  made by liver, form colloid pressure; a transport protein
 
 8 Total Protein  Albumin/globulin
   6.1-8.1 g/dL
@@ -229,7 +230,7 @@ Comprehensive metabolic panel (CMP); metabolism, nutrients, electrolytes, kidney
              yellow color of healing bruises, jaundice, & poop
   0-1.2 mg/dL
   high: liver/sickle-cell disease, gallstones, virus infection
-        may have Bilirubin in urine
+        Bilirubin in urine --> liver condition
 
 12 AST Aspartate Aminotransferase (SGOT serum glutamic-oxaloacetic transaminase)
     protein/enzyme made by liver
@@ -270,17 +271,22 @@ Other
    low: hyperthyroidism; palpitations, anxiety, bulging eyes, diarrhea
    high: hypothyroidism; (5% of adults)
          little thyroid hormone - TSH not supressed
+
 2. PSA (Prostate Specific antigen)
     0.0 - 4.0 ng/mL
    PSA: androgen-regulated serine protease
         from prostate epithelial cells and prostate cancer (PCa)
           protease:  protein/peptide enzyme
           antigen: causes immune system to produce antibodies
+   high: cancer, infection, enlarged prostate (not cancer)
+
 3. B12
    213 - 816 pg/mL
+   low: fuzzy thinking, tingling hands/feet, headaches, moodiness
 
-4. METHYLMALONIC ACID,SERUM
-
+4. METHYLMALONIC ACID
+   0.7-0.27 μmol/L
+   high: B12 deficiency
 
 https://mylaheychart.org/MyChart/app/test-results/details?pageMode=1&eorderid=WP-24ibHtSui-2B96bSCFgYV7sUNw-3D-3D-246t4wKpuRI5Np3kOTlSpdV5jz5xvUijMxDAKifzwPiH0-3D
 

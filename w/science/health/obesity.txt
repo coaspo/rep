@@ -1,0 +1,47 @@
+diseases
+  hypothyroidism - TSH blood test (5% of adults)
+  Cushing syndrome - too much cortisol stress hormone (by adrenal glands)
+      moon (fat) face
+      lump between shoulders
+      bruise easily, slow healing
+      causes insulin resistance
+      QUESTION: feel stress then cortisol, or cortisol then feel stress
+      cause: ACTH-producing pituitary adenoma - more common in women
+             Ectopic ACTH-producing tumor - other organ makes ACTH
+             genetic
+      tests: blood/urine/saliva/imaging
+             blood form veins that drain pituitary gland
+      treatment:
+        reduce cortisol
+          eliminate glucocorticoid medicine
+          Surgery
+          Radiation
+          Medications
+            multiple side effects
+
+
+  leptin resistance
+     constantly feeling hungry
+     multiple causes
+       chronic inflammation
+         cause: sleep problems
+                leaky gut
+     test: Enzyme immunoassay (EIA)
+     treatment: soluble fiber  (questionable)
+
+Other tests
+  Differential blood test;
+     autoimmune disease
+     hypothyroidism
+
+  Complete blood count
+    inflammation
+
+  inflammation test:
+    CRP (C-reactive protein)
+    for lupus
+
+
+Prader-Willi syndrome (children)
+      genetic -  constant sense of hunger
+      tests: genetic

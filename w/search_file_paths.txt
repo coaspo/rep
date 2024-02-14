@@ -19,17 +19,17 @@ art/book-notes/tipping_point;_little_things_make_big_difference.txt
 art/book-notes/tyranny_of_merit_what_has_become_of_the_common_good.txt
 art/book-notes/when_we_ease_to_understand _the_world.txt
 art/language/etymology_sample.html
-art/language/language_basic_words.html
-art/language/language_food_words.html
-art/language/language_hello_words.html
-art/language/language_oldest_words.html
 art/language/quotes.txt
 art/language/spanish-idioms.txt
-art/language/words;_good,_bad,_ugly.txt
-art/language/words_greek.txt
-art/language/words_internet.txt
-art/language/words_known_by_male_female.txt
-art/language/words_new.txt
+art/language/words/basic.html
+art/language/words/food.html
+art/language/words/good,_bad,_ugly.txt
+art/language/words/greek.txt
+art/language/words/hello.html
+art/language/words/internet.txt
+art/language/words/known_by_male_female.txt
+art/language/words/new.txt
+art/language/words/oldest.html
 art/notes/how_to_write_think_an_learn_clearly.txt
 art/notes/perverts_guide_to_ideology.txt
 art/notes/web_motes.txt
@@ -125,6 +125,7 @@ science/health/happiness.txt
 science/health/health_risks.txt
 science/health/information_overload.txt
 science/health/most_common_drugs.txt
+science/health/obesity.txt
 science/health/pandemics.txt
 science/health/phone;_sugar;_sleep.txt
 science/health/science_based_medicine.txt
