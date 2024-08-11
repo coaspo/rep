@@ -1,6 +1,6 @@
 Rise of boots and AI hulucinations
    author's job title: "AI and inovations"
-   After Pndora let loose all ills what was left was hope.
+   After Pandora let loose all ills what was left was hope.
 
 1. Rise of bot and hallucinations
    ChatGPT: most successful consumer tech in history - 1 million users in 5 days
@@ -11,7 +11,7 @@ Rise of boots and AI hulucinations
      2016 election: 40 million fake news tweets
      150K fake (Russian) social Brexit infuemedia accounts
    AI head medling
-     ELIZA expert system in 1065 won Turing test - impersonates human
+     ELIZA expert system 1965 won Turing test - impersonates human
      Now talk of "stop the bot", "spot scams & boots"...
      2004 - facebookt & polarization (thinking similar) starts
        to appease Trump Facebook had conservative bias
@@ -42,4 +42,7 @@ Rise of boots and AI hulucinations
     large images fed to image recognition imroves accuracy
     edge (rare, or black swan events) gives inaccuracy
        similar for text recognition, translation, self driving cars
+  Structured vs Unstructured data
+    date/time/GPS verus text/audio/video
+
 
