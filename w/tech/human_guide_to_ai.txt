@@ -10,4 +10,13 @@
    AI head medling
      ELIZA expert system in 1060's won Turing test - impersonates human
      Now talk of "stop the bot", "spot scams & boots"...
-     2004 - facebookt & polarization starts
+     2004 - facebookt & polarization (thinking similar) starts
+       to appease Trump Facebook had conservative bias
+     AI can read/write/create faster than humans
+   Fear index (book)
+     spiral human fear; similar to Westworld, Frankenstein, Matrix
+     AI informs eviated view of reality
+   Hallucinations
+     AI makes a false claims; nor realiable
+     AI based on human brain will hallucinate like the brain
+     the longer the response the more chance for hallucination
