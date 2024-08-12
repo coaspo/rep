@@ -73,6 +73,15 @@ Rise of boots and AI hulucinations
     Wind turbine ~3MW , 2023 world production ~ 1 TW
     2023 data centers used 7.4 GW; 55% annual increase
   Human+AI hybrid systems
+   reCAPTCHA 
+   (Completely Automated Public Turing test to tell Computers and Humans Apart)
+   reverse Turing test; machine to recognize human
+   cost of reCAPTCHA $0.001/use, blue to Google $0.03, $21B free labor to google
+   mTurk - human labor marketplace (20% kept by Amazon)
+     workers get $1 to $6/h
+     used in research
+
+
 
 
 
