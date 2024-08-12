@@ -61,6 +61,21 @@ Rise of boots and AI hulucinations
     text/audio/video input --> new content via probabilist inteconnections
     DETAILS: Wolfram's "what is chatGPT doing and why does it work?"
   AGI - general intelligence
+    openAI claims that has AGI - release a tiny fraction of it.
+    --> more lieasure or permanent underclass permanently useless
+    embed justices into AGI, not so if AGI created by another AGI
+  Conversational AI
+    primitive version: Siri, improved version pi.ai from Infection AI
+  Environmental cost of AI
+    OpenAI solve Rubik's cube thru robotic arm consumed 2.8GWh or electricity
+      $0.21/kWh --> ~3x.2x10^6 = $600K. 
+    Nuclear power plant ~1GW
+    Wind turbine ~3MW , 2023 world production ~ 1 TW
+    2023 data centers used 7.4 GW; 55% annual increase
+  Human+AI hybrid systems
+
+
+
     
 
 
