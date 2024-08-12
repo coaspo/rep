@@ -1,4 +1,4 @@
-toRise of boots and AI hulucinations
+rtoRise of boots and AI hulucinations
    author's job title: "AI and inovations"
    After Pandora let loose all ills what was left was hope.
 
@@ -90,7 +90,18 @@ toRise of boots and AI hulucinations
 
 
 3. AI Jobs displacement
-  
+  travel-agent/realtor/taxi: Expedia/redfin/uber
+  Manufacturing meltdown
+    lower income 2.2/jobs/robot jobloss; higher income ~1
+    globalization
+      low-skill jobs and emissions outsourced to developing nations
+    AI automation
+      low-skill jobs & services outsourced to machines (2/3 jobs in Dev. countries)
+      China spends 2x as US in AI
+      Germany, UK, Canada publish more AI papers than Chine
+      Trusted AI Alliance
+        conform to ethical code(s), country specific
+   
 
 
     
