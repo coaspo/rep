@@ -52,5 +52,15 @@ Rise of boots and AI hulucinations
           examples: find new drug, prevent car accident in unknown conditions
     job safety of editors, copyeditors, truckdrivers
   Neural networks & Deep learning
+    replace neurons with transistors=artifical brain
+    deep layers of neural networks
+    more data-->better performance
+      language tranlation, autonomous driving, fraud detection
+      parallet text of 2 languages --> one model to translate 200 lanuages
+  Generative AI
+    text/audio/video input --> new content via probabilist inteconnections
+    DETAILS: Wolfram's "what is chatGPT doing and why does it work?"
+  AGI - general intelligence
     
+
 
