@@ -44,5 +44,13 @@ Rise of boots and AI hulucinations
        similar for text recognition, translation, self driving cars
   Structured vs Unstructured data
     date/time/GPS verus text/audio/video
-
+    reviews - expert system to rate them or machine learning to notice associations
+  Supervised vs Unsupervised learning
+    humam vs cluster analysis
+      cluster analysis:
+        identify patterns exceeding human cognition
+          examples: find new drug, prevent car accident in unknown conditions
+    job safety of editors, copyeditors, truckdrivers
+  Neural networks & Deep learning
+    
 
