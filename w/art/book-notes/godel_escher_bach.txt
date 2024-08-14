@@ -3,6 +3,7 @@ Godel, Escher, Bach (GEB))  by Douglas Hofstadter   🗓 1970
 NY times: "argument that reality is a system of interconnected braids"
 title: story of mathematician, artist, musician
 in bookstores: in science, philosophy, religion, occult...
+
 author: how animate things come out of inanimate
         likens I/soul to vortex/strange loop of meaningful patterns
         first title: "Godel's theorem and the human brain"
@@ -10,9 +11,11 @@ author: how animate things come out of inanimate
           weird: formal systems built out of meaningless symbols
         language vs formal: fluid vs arid
         math major did physics taught "the mystery of the undecided"
+
 Principia Mathematica: Russell/Whitehead 1910-1913
   avoid paradoxes from self-referencing (the enemy)
   math system talks about itself leads to contradictions
   Godel: cannot do this
+
 Godel: 1930 Godel numbering: map liner arrangement of symbols to huge numbers
   mathematical statement translated into number theory

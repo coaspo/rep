@@ -1,0 +1,39 @@
+$29 9X12 filter sheet
+https://seymoursolar.com/collections/solar-filter-thin-film-sheets#/
+
+$24 8x12  5 optical density
+https://alpineastro.com/collections/astrosolar-viewers-and-film/products/astrosolar%C2%AE-safety-film-od-5-0-eco-size-20x29-100x50-117x117-cm#description
+
+lens projection
+  S = 2f  tan (A/2)
+     S size of projected image
+     A angular size of object
+  S = fA (S,  f in  mm; A in  radians)
+  sun's A ≈ 0.533°.
+  S = 0.0093f (S  in  mm, f in  mm)
+
+projection
+  tan (B/2) = (D/2) / P
+    B angular size of projected image
+      B = A × magnification  = A × (f_telescope/f_eyepiece)
+    D size of projected image
+    P projection distance
+  D = PB (D,  P in  mm; B in  radians)
+    = PA f_telescope/f_eyepiece
+         sun's A ≈ 0.533°;
+         A = 0.533/57.3 = 0.0093
+    = 0.0093 P f_telescope / f_eyepiece
+  P = 107.5 D f_eyepiece / f_telescope  (all mm)
+  sun/walmart funnel:
+    funnel length
+      P ≈ 10 in = 250  mm,
+    funnel diameter
+      D = 5 in (127 mm) ≈ 100 mm
+    f_eyepiece  =  f_telescope / 43
+
+Celestron power seeker 114EQ (Manual German equatorial mount)
+   aperture 114 mm (4.5 in)
+   f = 900 mm (35 in)
+   f_eyepiece  = 900 mm /43
+               = 21 mm
+trichloroethylene

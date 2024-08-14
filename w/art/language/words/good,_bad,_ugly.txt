@@ -10,6 +10,7 @@ GOOD
   sentinel       one employed to watch for anticipated event
   staid          characterized by dignity and propriety
   au fait        well informed; socially competent (to the point)
+  Bildungsroman  (education novel) of formative years or spiritual education
 
 BAD
   beguile        influence by slyness
@@ -19,6 +20,7 @@ BAD
   double bind    situation  of two irreconcilable demands or undesirable choices
   ennui          listlessness dissatisfaction from lack of work/excitement
   fatuous        devoid of intelligence
+  flamboyant     exuberance, confidence, and stylishness for attention (flame)
   flimflam       skillfully manipulate/swindle
   humblebrag     be modest/self-critical to draw attention to something great
   iconoclast     attacks cherished ideas or institutions
@@ -26,13 +28,14 @@ BAD
   moral hazard   lack of incentive to avoid risk - insurance, bank bailout
   ostentatious   showing off money, power, or wealth
   pedant         excessively/ostentatious with precision or learning
+  prevaricate    speak or act in an evasive way
   rout           overwhelming defeat
+  scullion       servant of most menial (no-skill) kitchen tasks
   solipsism      theory: self is all that can be known to exist (psychology/philosophy)
   superannuate   retire (someone) on a pension because of age or infirmity
   thrall         being under the control of another person
-  truther        doubter of general fact; conspiracy theorist
-  flamboyant     exuberance, confidence, and stylishness for attention (flame)
   titular        hold title without real authority
+  truther        doubter of general fact; conspiracy theorist
 
 UGLY
   bluster        act in an arrogant, overly self-assured, or conceited manner
@@ -40,15 +43,15 @@ UGLY
   cynical        distrusting or disparaging the motives of others
   deprave        corrupt morally
   enervate       weaken mentally or morally
-  gaslight       Cause (a person) to doubt his or her sanity
+  gaslight       cause (a person) to doubt his or her sanity
   idiocracy      society governed/populated by idiots
+  lackadaisical  carelessly lazy - alack (regret) the day
   odium          disgrace from hateful behavior
-  perfidy        promise to act in good faith with intention of breaking promise
   perdition      eternal punishment and damnation (Latin destroy)
+  perfidy        promise to act in good faith with intention of breaking promise
   schadenfreude  Harm joy - pleasure felt at someone else's misfortune.
   sycophant      tries to please someone to gain an advantage
-  lackadaisical  carelessly lazy - alack (regret) the day
-
+ `  `
 PRECISE
   assiduous      marked by care and persistent effort
   construe       assign a meaning to

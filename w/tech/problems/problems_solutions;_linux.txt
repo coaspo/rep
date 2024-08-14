@@ -84,3 +84,12 @@ FIX:
   sudo unmount /mnt/drive
     when done....
 
+Broken install, frozen black screen
+FIX:
+  Alt-F2     to login to linux system
+  use one of following:
+  sudo apt --fix-broken install
+       apt install --reinstall
+       apt upgrade
+       apt do-release-upgrade -d
+

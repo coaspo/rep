@@ -1,0 +1,86 @@
+ubuntu 20:
+
+---remove squid
+sudo apt purge squid
+sudo rm -r /var/spool/squid
+sudo rm -r /etc/squid
+
+---install squid
+sudo apt install squid
+
+---enable/disable on startup
+sudo systemctl enable squid
+sudo systemctl disable squid
+
+---start squid
+systemctl restart squid
+
+---check
+systemctl status squid.service
+squid -k check
+sudo cat /var/log/squid/access.log
+
+
+
+start & enable squid at start-up
+sudo systemctl start squid
+sudo systemctl esudo systemctl disable squidnable squid
+tart squid
+sudo systemctl stop
+sudo systemctl disable squid
+
+
+systemctl restart squid
+
+
+
+
+
+
+
+squid -k check
+
+systemctl status squid.service
+
+# needed?:
+sudo systemctl restart NetworkManager.service
+systemctl start squid
+/etc/init.d/squid reloadsudo systemctl disable squid
+
+cat /etc/squid/whitelist.txt
+
+
+https://wiki.squid-cache.org/SquidFaq/InstallingSquid
+
+#verify config
+squid -k parse
+
+squid -k debug
+
+
+squid -k reconfigure : re-read configuration files.
+squid -k rotate      : Rotate log files.
+squid -k shutdown    :  shutdown server. wait time is: shutdown_lifetime options in squid.conf
+squid -k restart     : Restart the server
+squid -k interrupt   : shutdown immediately
+squid -k kill        : Kill proxy server
+squid -k debug       : Run squid in debug mode.
+squid -k check        : checks if actually running
+squid -k parse
+
+verify the service
+sudo systemctl status squid
+
+
+start service:
+sudo systemctl start squid
+
+launch when the system starts:
+sudo systemctl enable squid
+tart squidsquid -k status
+
+stop the service:
+sudo systemctl stop squid
+
+prevent launching at startup:
+sudo systemctl disable squid

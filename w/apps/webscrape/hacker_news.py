@@ -59,7 +59,8 @@ def parse_web_page_text(text: str):
         points.append(points_i)
         if 'comments' in line:
           parts = line.split('|')
-          parts = parts[2].strip().split('comments')
+          i = 1 if len(parts)==2 else 2
+          parts = parts[i].strip().split('comments')
           comments_i = int(parts[0].strip())
         comments.append(comments_i)
       i = line.find('.')

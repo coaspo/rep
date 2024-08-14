@@ -27,7 +27,7 @@ diseases
          cause: sleep problems
                 leaky gut
      test: Enzyme immunoassay (EIA)
-     treatment: soluble fiber  (questionable)
+     treatment: soluble fiber  (??!!)
 
 Other tests
   Differential blood test;

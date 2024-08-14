@@ -2,15 +2,16 @@
 window.DEBUG=true
 console.log('aaaa')
 // Curron postion; for weather.js and position link
-var latitude = 'lat=42.3587' // Boston
-var longitude = 'lon=-71.0567'
+var latitude = 'textField1=42.3587' // Boston lat/lon
+var longitude = 'textField2=-71.0567'
+//textField1=42.4947&textField2=-70.8499
 if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(localPosition);
 }
 
 function localPosition(position) {
-  latitude = 'lat=' + position.coords.latitude
-  longitude = 'lon=' + position.coords.longitude
+  latitude = 'textField1=' + position.coords.latitude
+  longitude = 'textField2=' + position.coords.longitude
 }
 
 // Default search button

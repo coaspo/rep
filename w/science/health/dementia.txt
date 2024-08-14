@@ -1,0 +1,688 @@
+https://mooc.utas.edu.au/course/content/20179-15
+see also aging brain in:
+https://en.wikipedia.org/wiki/Aging_brain#Delaying_the_effects_of_aging
+
+10% of 65+ have dementia
+50% of 95+
+
+dementia starts with cognitive/behavioral then physically
+   terminal; not treatable
+   B12 deficiency is pseudo dementia because it is treatable
+   incurable, shortens life span
+   global effects, not just memory/reasoning
+   live about 5 years after diagnosis
+      Alzheimer's 20, Creutzfeldt-Jacob 6 monhts
+
+central nervous system (CNS):
+   brain,
+   spinal cord
+peripheral nervous system (PNS)
+   nerves/two-way streets to CNS from body, and from the CNS to muscles/organs/glands.
+
+Neuron
+  tennis ball (cell) with 10 km hose (axon; wire)
+  actual axon length <= 1.5 m
+  dendrites
+    receivers
+    short like root of tree
+    connect to other nerves
+  axon terminals
+     one or more at end of axon
+  synapse:
+    communication point; dendrite, tiny gap, terminal
+    electricity in axon
+     --> neurotransmitter in gap binds to a dendrite receptor
+     --> electricity in dendrite
+     --> nerve cell activity
+     memories may be encoded by modification of synaptic strength
+
+Muscle action: minimum of 2 neurons:
+  brain to spinal
+  spinal to muscle
+
+Neuro-plasticity:
+    adaptability of new activity to change & develop synapses
+    taxi drives have larger than average hippocampus(memory)
+  Building up connections creates 'cognitive reserve'
+    which may reduce dementia risk
+  forms of plasticity (learning):
+    long-term potentiation (LTP) - active synapses --> stronger
+        ''    depression (LTD) - inactive    ''    --> weaker
+  functional: move function of damaged area to other area
+  structural: make physical changes
+
+neurotransmitter
+  Glutamate:
+    excitatory (turn on) neurotransmitter (most abundant in brain)
+    anionic of Glutamic acid
+      Glutamic acid in cheese & soy sauce --> umami  (MSG)
+        1.5 million tons/year via aerobic fermentation of sugars and ammonia
+        in meats, poultry, fish, eggs, dairy products
+        is 1/3 of gluten
+    made by nerve cell, stored in thin-walled vesicles (synaptic vesicles) at the axon terminal
+    can bind to 4 diffrent receptors
+    90% of all excitatory functions in brain
+    (most abundant amino acid in the body)
+    memory, cognition, and mood regulation
+    glial cells:
+       convert “used” glutamate to glutamine, which is converted back again into glutamate
+    glioblastoma uses glutamate as an energy source
+    Deficits in orientation (time, place, and person) --> brain disease
+      normal aging may have mild loss of orientation
+  Gamma-aminobutyric acid (GABA):
+    turn off neurotransmitter
+    controls hyperactivity of anxiety, stress and fear, improve sleep
+    inhibits neuron of receiving/creating/sending chemical messages
+    made from glutamate
+    in food; may not cross blood-brain barrier
+    may treat blood pressure, insomnia
+  Glycine:
+    turn off neurotransmitter
+    amino acid in food, most in pork skins, meat
+    made in the body
+      decreases with age
+    also called Aminoacetic acid, glycol
+    antioxidant, anti-inflammatory, cryoprotective, immunomodulatory in peripheral and nervous tissues
+    component of creatine - a muscle energy/size source
+    1/3 to 1/4 of collagen (the most abundant protein)
+      collagen supplements for skin firmness/wrinkles not proven!
+      wrinkles: low collagen
+    stimulate serotonin (feel good) hormone
+    supplements may cause diarrhea, nausea, vomiting
+    inversely related with obesity
+    present in space
+  adrenaline
+    aka Epinephrine
+    both a neurotransmitter & hormone (main role)
+    release by adrenal glands
+    transmits msg across muscle/gland/neuron cells
+    sympathetic nervous system - fight/flight
+  Dopamine
+    made in brain
+      both a neurotransmitter & hormone (vasodialator)
+    feel-good; love drug
+      released during orgasm
+    decreased in Parkison's
+    made from tyrosine (amino acid)
+      tyrosine supplements may improve cognition
+  Acetylcholine
+    learning, attention, arousal and involuntary muscle movement
+    in neuromuscular junction
+    main in parasympathetic (automatic) nervous system
+    decreased in Alzheimer's
+
+Brain
+  1. Cerebral cortex ; outer layer of cerebrum
+      outer wrinkly brain - thoughts/feeling/personality
+      has plasticity - modify connections
+      Lobes
+        1. frontal
+             personality/decision
+        2. parietal (wall)
+             middle top
+             receive/process sensory:
+               pain, touch,heat, cold, body awareness
+        3. temporal (where white hair appears)
+             middle sides
+             has hippocampus inside
+               new memories
+               ships memories for long term storage
+               when we sleep or dream
+        4. occipital (head)
+             rear
+             sight - color, form, motion
+  2. Cerebelum
+      rear below cerebrum
+      muscle control; balance/ movement
+      language processing and memory
+  3. Stem
+      1. Midbrain on top: eye movements
+      2. Pons on middle: facial movements, hearing and balance.
+      3. Medulla one bottom: breathing, heart rhythms, blood pressure and swallowing.
+
+Causes of Dementia (may overlap)
+  Definitive diagnosis via biopsy
+  1. Alzheimer's disease == disconnection (parts of brain) syndrome
+       60-70% of all older people dementia
+       1. insidious onset - difficult first symptoms
+       2. progressive degenerative condition - worse over time
+          faster or slower
+             (same for Frontotemporal & Lewy body)
+       3. specific pathologies (hall marks)
+          cannot form new memories
+            ''   plan or think logically -executive function
+            ''   speak
+            ''   orient in space/time
+          personality changes - introvert to extrovert & vice versa
+          confusion
+        Temporal lobe/hippocampus (memory) atrophies 1st
+          then lobe (intelligence), parietal (language), occipital (sight)
+        Brain regions disconnect from each other
+        Physical changes cerebral cortex
+          1. beta-amyloid (normal protein) plaques (discovered 100 years ago);
+               beta-amyloid forms (abnormal) filaments
+               then plaques
+             plaques not sufficinet for Alzheimer's; need (2)
+             axons in plaques are swollen (dystrophic neurites)
+          2. neurofibrillary tangle.
+               inside neurons made up of hyperphosphorylated tau protein
+               kills neurons
+  2. Frontotemporal dementia (FTD)
+       under 65 age ; can effect teenagers - agitated, self center, eating continuously
+       several diseases (different clumps of proteins in neurons)
+         atrophy in frontal (most advanced) and temporal
+       1. behavior (frontal) - change of personality
+          impaired judgment & planning
+          apathy, no motivation, no empathy, dis-inhibition
+          diet; eat more, prefer sweets
+       2. language (temporal); primary progressive aphasia (lack of speech)
+          cannot understand/produce speech
+
+      Most common aggregate proteins:
+        1. Tau; same as in Alzheimer's, but different shape
+        2. TDP-43; controls genetic material
+           also in motor neuron disease;
+             people with frontotemporal may develop "motor neuron"" and vice versa
+      Aggregates inside neuron supporting glial cells:
+         oligodendrocyte: form myelin sheath around axon
+         astrocytes: nurishment, repair (20-40% or all glia) - start of glioblastoma
+  3. Lewy body disease
+       faster than Alzheimer's - 5 year instead of 20 year survival
+       trouble planning
+       hallucinations (cannot use psychotic drugs)
+       mistaken for Parkinsons, also cognitive similar to Alzheimer's
+       Robin Williams had it
+       Lewy bodies are clumps of alpha-synuclein proteins
+          alpha-synuclein in heart,nerves, & muscles
+       invalid folding of alpha-synuclein causes clumps
+       In Parkinson's Lewy bodies form in sustantia nigra (produces dopamine)
+         dopamine is feel good & production of smooth movement
+  4. Vascular dementia
+       planning, solving problems
+       stokes; hardening of arteries; atherosclerosis
+       step-wise decline
+
+
+Non-dementia:
+  Mild cognitive impairment (MCI):
+     smaller hypothalamus, with normal cortex
+
+Possible dementia:
+  1. Korsakoff syndrome
+    B-1 (Thiamine) deficiency, from alcohol abuse
+    short and long term memory problem; thinking social skills intact
+    make up or confabulate information (they believe it)
+    audio/visual hallucinations
+    25% recover, 25% stay same, 50% get worsee
+  2. AIDS dementia
+      HIV infection in the brain
+      50% recovery rate
+
+
+Risks for dementia
+  1. non-modifiable:
+     aging & genetics
+      apolipoprotein E4 gene: inked to late-onset (over 65) Alzheimer's disease
+        one APOE e4 dubles risk
+      early-onset 5% Down syndrome higher risk, strongly genetic
+  2.potentially modifiable
+      may reduce our risk of dementia, or delay symptoms
+
+
+dementia
+  not a normal part of aging
+  by clinical symptoms
+    1. 1 or more progressive cognitive declines memory or language
+       + behavior/personality changes
+    2. more cognitive decline; speech
+    2. not due top depression (looks like dementia)
+       or delirium (quick medical condition; confusion, hallucination; treatable)
+  Normal aging
+    cognitive decline;  mirrors physical function
+    cross-sectional studies (more common):
+       memory versus age of different people
+       difference maybe due to education
+       decline starts around 30
+    longitudinal study (more powerfull)
+       same person for 10,20,30 years
+       20-30 language improves, then declines
+       reaction speed declines after 25 year
+       get slower but improve language
+       60 expertise does not compensate by experience
+
+    At 70 have more info than at 20.
+    Clinical symptoms
+      drop of memory seen in less than 20% in age group
+      memory less than 10th percentile (90% are better)
+         more likely 2nd percentile(98% are better)
+      daily living; cook toilet
+        early stages is the complex behavior
+    Mild cognitive impairment (MCI)
+      small, but not clinical, cognitive decrease
+      10-40% of MCI will get dementia
+        versus 1-2% of normal aging will get dementia
+      20-40% will improve
+      like smoking - do  not always get cancer
+      is not diagnosis - is a risk factor
+      hormonal imbalance or depression may look like dementia..
+
+Cognitive reserves
+  higher education delays Alzheimer's - more pathology before symptoms
+  higher intelligence delays clinical signs - once they do decline is faster
+  Teachers 3.5x likely with speech/language disorder than Alzheimer's disease
+  sales and retail, nursing, care assistants, crop farmers and livestock producers
+    15% higher chance of developing dementia
+  education, occupation, leisure,
+
+Brain reserve
+  education, occupation, leisure, exercise, socializing, diet
+  education for job and brain reserve
+
+Dementia Domains
+   1. Cognition: Short term memory, time, orientation, reasoning; Alzheimer's
+   2. psychiatric: delusions/hallucinations
+        distorted thinking causing distress;
+         Lewy body: delusions first symptoms
+               distress & larger impact with family
+         70% Alzheimer's have psychiatric
+         --> avoid "bad/cranky" person label
+         critical for families to understand this
+      Depression symptoms
+         inert, withdrawn --> formalize social activities
+   3. behavior: personality changes; Alzheimer's
+   4. function
+   5. physical/mobility; Huntigton's - mobility in early
+   Dementia is global; effects various functions
+     various consequences/interventions
+   Symptoms fluctuate from day to day
+   Change of personality is hard for families to adjust
+   Understanding makes it easier for caretakers
+   Front temporal dementia - personality/behavior change - memory/mobility intact
+
+   Behavior domain: say inappropriate things, bad finance decisions
+   Dysfunction variation in all domains; intensity/consequence
+   Vary from person to person and dementia type
+
+   Dementia progression: more dysfunction in all domains;
+     personality(are), behavior(do), mobility, cognitive, psychiatric
+   common late dysfunction: mobility/swallowing
+   Domain awareness: dementia is about all functions
+
+Diagnosis
+  1. history of person
+  2. speaking to family, carers, neighbors
+  3. how things changed; corroborative history
+  4. tests memory, judgment, mini mental status exam (MMSE);
+       A. orientation, memory, and attention
+       B. verbal, written abilities
+  5. physical - lungs are OK, no infection for recent changes (dementia is not fast)
+  6. neurological; CT/MRI of brain - vascular changes
+  7. basic/routine investigations:
+      thyroid (pseudo dementia)
+      B12 (blood cell formation, nerve function)
+        eggs
+      folate (B9/lack of energy), high folate may mask B12 deficiency; prevent dementia
+        eggs, beans, citrus
+      thiamine (B1 fatigue, tingling arms/legs) WO B1: nerve damage and/or death
+        orange. peanuts
+      enriched bread: (folic acid, thiamine, niacin[B3], riboflavin[B2])
+   With mild dementia, infection more easily causes delirium
+   Rare: Posterior Cortical Atrophy, or PCA: atypical Alzheimer’s (5-15%)
+      trouble interpreting information they see
+   Dementia: clinical diagnosis; history; change over time
+             not one test; no one size fits all
+             corroborative history from family confirm diagnosis
+             cognitive tests
+             brain scan for some
+             physical exam; eliminate delirium
+             more susceptible to delirium
+             difficult to diagnose type of dementia;
+               but this is not significant for care & treatment
+
+   From patronizing to upfront - be in control; do not hide diagnosis
+   Information given depends on dementia & if family is included - give reference
+   general practitioner: time limited & symptom focused; see infection but
+                           not the deteriorating self care
+                         not comfortable diagnosing dementia
+   Diagnosis disclosure: depends on circumstance
+                         recognize person deficits and healthy areas
+
+Early (or younger) onset dementia
+   under 65;  1/10k people; 5-10% of all dementia
+   Alzheimer's most prevalent
+     fronto-temporal second most common
+   rise of alcohol/drugs related dementia
+     could be (???) because of better profiling/awareness
+   3 years to get diagnosis
+   misdiagnosed as depression/anxiety; dementia may be causing depression
+   complex social and psychological impact than with older people
+   big impact on families
+   focused support to sustain social connections
+
+  memory problems not always dementia, but from problems of:
+    depression/anxiety/stress
+    medication side effects
+    sleep
+    eyesight or hearing
+    infections: chest
+                urinary tract
+    constipation
+    thyroid
+    iron/vitamins
+
+Stages of dementia
+   Divide disease to understand it
+   infancy, childhood, teens, adult, (second childhood for some), (old and foolish for some)
+   stage 1 - mild
+     cognition (thinking) effected; memory, judgment, planning, mood (shorter fuse -irritable)
+     might seek diagnosis
+   stage 2 - cognitive
+     more memory, behavior, psychiatry,
+     perception awareness of danger impaired
+     lost when taking a walk & no insight to ask for direction
+     physical able but need support
+     loss of inhibition
+   stage 3 - physical; advance
+     loss of nerve impulses
+     mobility, function; eat, swallow, dress
+     incontinence
+     chew/swallow
+     infections from lack of mobility
+
+Medical management
+    cholinesterase: enzyme for acetylcholine --> choline & acetic acid
+                    allows neuron to return to resting state,
+                    prevents excessive muscle contraction
+    cholinesterase(AChE) inhibitors; benefits 3 out 10 delays disease by 6 months
+      donepezil (Aricept®) - treat all stages; most common
+      rivastigmine(Exelon®); also blocks butyrylcholinesterase,
+         used if donepezil has side effects
+      galantamine: tertiary alkaloid in nature, may cause seizures
+      memantine: blocks effects of glutamate
+        glutamate sends message between neurons, can cause more damage
+        too much in Alzheimers & too little in old patients
+        glutamate sticks to receptors allowing calcium into nerve cell & damaging it
+    Alzheimer's: depletion of acetylcholine neurotransmitter
+    acetylcholine enhancers reduce breakdown of acetylcholine
+      small benefit: 6 month improvement of trajectory
+                     do not reduce nursing home start time
+    sinemet
+      for parkinsons
+      levodopa and carbidopa
+         Levodopa converted to dopamine in the brain
+         carbidopa increases dopamine
+           dopamine gives pleasure controls, memory, mood, sleep, learning
+    medication making dementia worse:
+      (opposite of  cholinesterase inhibitors;
+       deplete acetylcholine)
+      opiates
+      tramadol; forSafety considerations in Stage 2 of dementia  severe pain
+      anti-cholinergic effect
+        cogentin (used for Parkinsons) for movement symptoms
+   non-medical treatements
+     change environment to avoid interpenetration & keep people calm
+   anti-psychotics
+     for dementia symptoms like aggression
+     modest benefits with a lot of side effects; mostly avoided
+     have many side effects; use small doses (1/2 mg)
+     Risperidone(1/2 mg) for schizophrenia; calming - makes you dizzy
+     Olanzapine for schizophrenia - large sedative & addictive; makes you sleepy
+     Haloperidol for schizophrenia hallucinations, blocks dopamine receptors
+     quetiapine for schizophrenia
+     aripiprazole for schizophrenia, makes you sleepy & difficult to sleep
+       all anti-cholinesterasepsychotics may benefits other people not the patient
+       discuss with next of kin
+     behavioral:
+       someone complaining of rain
+       find out why (to pick up kids, now grown, from school)
+       tell them that parents will pick them up
+
+   Temazepam for insomnia; increases  gamma-aminobutyric acid
+     effect mobility
+     increases fall risk for Alzheimer's
+   Non-pill
+     end-of-life:
+       physical touch
+       music exposure
+       interaction of pets
+       family visits
+
+    futile treatments
+      cancer treatment
+      cholesterol medicine
+      pneumonia treatment for the end of life
+    Goal of peaceful/calm death
+      check environment, agitation, anxiety
+logic--> emotion --> spirit
+TV is a sensory assault
+
+Insidious onset
+  Prevent/hide diagnosis: family denial, bereavement, reluctant MD (futility of diagnosis),
+                          non-qualified MD, MD not knowing memory clinics
+
+Common:
+  worry missing early diagnosis
+  fear of future
+  sibling conflict for care
+
+Many care options, important before onset of heavy symptoms
+   home care, respite care (give care takers a break)
+   palliative (cloak symptoms) care; includes bereavement
+
+Personal accounts
+  People saying to dementia patient that they forget is hurtful
+  I have dementia and may say hurtful things
+  Need  spirit-to-spirit communication
+  Others can help reconstruct memories; create a word picture
+  hanging onto a high cliff, above a lurking black hole
+  May interpret thing different than other
+      have periods of confusion & lucidity
+      sometimes not recognize people well
+      frustrated with people struggling to understand them
+      not able to communicate fear/anxiety
+  Live with unpredictability & surprised with time
+  Emotions are intact - laugh & cry about same things
+
+Carer accounts
+  physical, psychological, financial, social and emotional demands
+  Clock test: could draw only  half the numbers
+  Questioned diagnosis because of moments of clarity
+  Outsides add to problem because they do not see any problem
+  (dementia patients retain social skills)
+  Outsiders do not see the small things;
+    used to make tea, but now does not know where are the cups
+    standing still not knowing why
+    one black/brown shoe
+  Eternal vigilance is exhausting; not abnormal for both
+  Cannot have patience all the time
+  Loss of companion; looks the same but is not the same (annoyance)
+  annoyed on having to take up role of companion
+  I did not sign up for this
+  there is not manual for the job
+  society expects to do job, but
+   stress and anxiety tests the limit of what it is to be human
+  Sundowner; OK during the day but after 4:00 some things not OK
+  Support group: affinity & sense of relief for "I just want to scream"
+                 understand 'how it really is'
+  Respite (daycare; carer rests from unpleasant) keeps me sane
+  Paradoxes what is lost & retained 'nothing nice, partner is a stranger,
+     still fascinated by changes'
+  Having insight into his condition (caring ans sorry) rapidly changes
+    into 'awful strange person'
+  Accepted that I do not do a good job (being human)- if I could resign I would.
+  Do like lying, but do whatever works - not for managing but for surviving;
+
+Dementia and behaviors
+  Changes of behavior: BPSD - behavioral and psychological symptoms of dementia
+   'challenging', 'problem', 'difficult', and 'concerning' is for others
+    not the patient
+  Behavior is not about changes in the brain -
+    may not be able to ask for something but will become upset on not being able.
+  Wondering could be something that a person enjoys
+  or maybe is aimless if one just starts walking
+    it could be medicine side effect, away to alliviate pain or constipation
+    or the brain changes
+  Problems need exploration.
+  Behavior from pathology versus controllable external factors
+  Walking can be normal not wondering
+  Can all behavior problematic after knowing its impact
+
+  Anxiety - unease, dread,
+    being less capable can cause anxiety
+    find cause, need to know history
+    with dementia hard navigation can cause anxiety
+      do not expect person to do things
+    tradionally looked at medical solutions instead of looking fro causes
+    see are they happy nervous...
+    easier to scape goat dementia than finding other factors
+    Aggression verbal/physical
+      know the person and look for a cause;
+        frustration, pain when dressing them
+        need to know what hurts - reaction can be violence
+      very rare that a peaceful person becomes violent with dementia
+    Interaction of dementia with environment
+      dementia changes behavior but other factor do it
+    Withdrawl - other side, causes:
+      depression - treatable
+      having an environment that you can go to
+      dementia causes apathy
+      opportunities to be involved
+   Anxiety common to dementia and non-dementia
+     source can be ability loss, or stressful environment
+   Pain may trigger violence
+   Apathy is over looked
+     maybe medical & treatable
+     helpful to initiate activities
+
+   Resistance to care
+     people loose insight
+     reminding people they are not capable --> argument & upsetting
+     be highly aware what is upsetting
+     know the person and what works for them
+     for anger genuine apology or taking blame works very well
+     not adversarial but being human
+     avoid arguments & validating persons feelings
+     be mindful and control body language (say disgust by incontinence)
+        facial expressions, tone of voice
+   Sun-downing late afternoon or evening restlessness
+      could be light, did not go outside
+   any sudden change could be delirium, infection
+
+   Resistance to care
+     due to lack of dignity comfort
+   Avoiding arguments
+     apologizing can be very effective
+   Sun-downing can be modified
+   Sudden changes should be investigated
+
+   Can not attribute all to dementia
+     have to see our behavior
+       infantilizing (talk as if talking to a baby) is very upsetting
+       adult to adult with simple clear language - give me x instead of give me that
+       do not ask more than ones abilities
+   Be mindful that people with dementia still have preferences
+     reminding mistakes creates humiliatinp
+   Be mindful of body language
+     example being disgusted of exasperated by incontinence
+   Think of who people are as human beings.
+   I they have dementia, make their life as easy as possible.
+
+   Recognize our role and know how to modify our behavior to be helpful.
+   Clear concise non-patronizing communication
+   Recognize strenght & limitation of patients and engage
+   Focusing on mistakes/losses is unproctive
+
+Pain and dementia
+  MRI scans show pain brain activity is same in dementia patients - ethics workaround?
+  pain types:
+    psychological (distress from dementia) /
+    physical pain (independent of dementia)
+    Observe pain during or after movement
+  Abbey Pain Scale - during movement
+       Absent (0)   Mild (1)   Moderate (2)   Severe (3)
+    1. Vocalisation
+       eg: whimpering, groaning, crying
+    2. ----Facial Expression----
+       eg: looking tense, frowning, grimacing, looking frightened.
+    3. ----Body Language---
+       eg: fidgeting, rocking, guarding part of body, withdrawn
+    4. Behavioural Change.
+       eg: increased confusion, refusing to eat, alteration in usual patterns.
+    5. Physiological Change
+       eg: temperature, pulse or blood pressure outside normal limits.
+    6. Physical Changes
+        eg: skin tears, pressure areas, arthritis, contractures, previous injuries.
+    0-2 No pain
+    3-7  Mild
+    8-13 Moderate
+    14+ Severe
+    Pain: getting older;
+       arthritic, headache
+       Circulation pain
+         PVD (Peripheral vascular disease; atherosclerosis) over 50,
+         diabetes, cure: lifestyle
+       Diabetic neuropathy
+         mostly legs & feet, also digestion, urinary, heart
+         50% of diabetic people
+           Peripheral neuropathy
+             tingling, muscle weakness
+           Autonomic neuropathy
+             not aware of hypoglycemia, bladder problem, swallow difficulty
+           Proximal neuropathy
+             abdominal and chest area; chest, hip, thigh pain
+           Mononeuropathy
+             double vision, face paralysis, shin/foot pain
+       sitting too long, contracture (shortening and hardening of muscles, tendons)
+       stiffness - lack of moving - care facility set up.
+    Cannot express acute pain; fracture discovered after a week
+    Acetaminophen (Tylenol) and paracetamol (Panadol)
+    How to ask:
+      1. mild
+         not do you have pain?, but are you sore, hurting,  uncomfortable..?
+      2. cognitive (mild to moderate)
+         use pain thermometer - veral pain rating scale...
+      3. severe stage:
+         observational tools - Abbey pain scale
+         DOLOPLUS - somatic, psychomotor and psychosocial reactions to pain
+            grimaces, drawn, atonic, fixed gaze, empty gaze, absent, tears
+         PAINAD  Pain Assessment in Advanced Dementia - observe bathing, turning, transferring
+     Dementia patients get less pain medicine
+       causes
+         1. myth that with dementia feel no pain
+         2. cannot differentiate distress & pain
+         3. prejudice - its dementia not pain
+         4. lack of education/motivation -
+             GPs educated be specialized nurses
+         5. dementia difficulty - not it might be pain
+       need better management,
+         Last dose syndrome
+           people hesitant to use morphine...
+           patches improve it a bit
+           GPs not educated
+      Company, music, massage
+      hygiene care:
+        gentle bath, individual approach
+      make pain the 5th vial sign - no doubt will die with pain
+      need to have pain management
+        give panadol, or ...
+
+    Pain with dementia not widely understood
+    Pain communication is difficult
+    Things that cause pain are independent of dementia
+    Aging, prolonged immobility pain in advanced dementia
+
+    Asses pain: simple questions, visual scales, observation techniques
+        methods depend on stage of dementia
+    Advanced dementia: asses pain on movement
+    Distinguishing pain from distress --> appropriate response
+
+    People with dementia get less analgesia
+      due to 1. myth that those people do not feed pain
+             2. difficult to tell distress from pain
+             3. lack of skills or education
+             4. seeing dementia as the problem than the pain
+             5. fear of using analgesics
+
+    Find alternatives for activity that contributes to pain - less hygiene
+
+Advanced dementia symptoms & management

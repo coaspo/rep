@@ -1,0 +1,121 @@
+Outlive - the science and art of longevity by Peter Attia MD  born 1978  © 2023
+
+Intro
+  Author has dream of catching falling eggs
+  eggs are the pancreatic cancer surgery; book is about eliminating the egg source.
+
+1. The long game - from fast to slow death
+   Gods gave Tithonus eternal life but not eternal youth - body continued to decay
+   fast death: risk behavior /infection; medicine is good at preventing
+   slow death: 1.heart 2. cancer 3. neuro-degenerative 4. metabolic
+   Longevity parts: 1. lifespan
+                       health-span - free 0f disease
+                    2. mental/physical function
+   A1C test: hemoglobin A1C, HbA1c, glycated hemoglobin, or glycohemoglobin test.
+     glucose level of past 3 months
+     pre diabetes if 5.7% - 6.4%; < 140 mg/dL --> exercise & diet wrong
+   good/bad chelestore is oversimplified/usele3ss
+   Non-alcoholic fatty liver disease (NAFLD) - most common liver disease
+   PROTEIN-critical for aging well
+   Exercise: best longevity drug
+   Emotional health: make longevity meaningful
+   proactive instead preventative medicine
+
+2. Medicine 3.0 - rethink medicine in age of chronic disease
+   "first do no harm" - BS - handle risk - may do harm in helping
+   Medicine 1.0: Hippocrates - observation and guesses
+     walk for exercise, "food can have good or bad medicine"
+     disease caused by nature not gods
+     invalid notion of humors
+   Medicine 2.0: germ theory  ~1850 - instead of bad air of miasma
+     Pasteur, Lister, Koch
+     Semmelweis: proposed germ theory, ridiculed, died in insane asylum
+     1628: Francis Bacon father of empiricism - scientific theory
+       inductive; from specific to general
+       observe + form hypothesis (guess)
+     eradicate smallpox & polio, HIV, AIDS(advanced HIV), hepatitis C virus
+       contaminated blood (Humans is reservoir)
+     Small change of Mortality rate -8 infectious disease(antibiotics) in last 100 years
+
+3.   Medicine 3.0: prevent chronic disease
+     not technology but mindset - health-span/quality of life
+     Titanic on being warned of ice-field:"keep out; shut up"
+     Hyperbolic Discounting: choose smaller/immediate over larger/later rewards
+     Sun Tzu: asymmetric warfare;
+     "tactics without strategy is noise before defeat"
+     objective --> strategy --> tactics
+        Ali had strategy to tire opponent, used take abuse tactics
+     Strategy:
+       plan for the hard things - not for sun burn
+       Health span deterioration:
+         1. cognitive decline - speed, memory, problem solving, Sentience
+         2. physical body - muscle, bone density,  stamina, balance
+         3. emotional - age independent - can take a hit at any age
+            happiness nadir (lowest) is 47 - love, purpose
+     Tactics:
+       life interwoven; 1. exercise - more important than 2.
+                             strength, stability, aerobic efficiency/capacity
+                        2. nutrition
+                             eat less
+                        3. sleep - more important than 2.
+                        4. emotional health
+                            no hard data, but very important
+                            not worth to live longer and be unhappy
+                        5.drugs/hormones/supplements
+                            cholesterol lowering
+    Evidence informed strategy
+      1. centenarians
+      2. animal models
+      3. studies of 1.heart 2. cancer 3. neuro-degenerative 4. metabolic
+      4. molecular/cellular studies
+    Mendelian randomization; use gene variation to find causal effect of an exposure
+      fill gap between randomized tests & epidemiology (causal/non-causal)
+      example: epidemiology: lower cholesterol --> higher cancer
+      randomized proxy: genes that result to how/medium/high cholesterol
+        --> cholesterol does not effect cancer but does effect cardio disease
+
+4 Centenarians
+  Jeane Calment: rode bike until 100, smoked until 117, died 122
+  Others: beer/bacon/Bourbon/cigar/3-eggs (Bourbon County, Kentucky)
+  Genes responsible for ~25% of longevity variation
+  Long lived siblings or (2nd) parents --> importance of family history
+    can we mimic the good genes if we do not have them?
+    20% get cancer by 72, 20% Centenarians get cancer by 100
+  Centenarian genes not obvious - maybe thousands
+    many paths to longevity;
+    longevity is not result of natural selection
+    few genes for cholesterol, glucose metabolism & Alzheimer
+  After age of reproduction, natural selection is irrelevant
+  Baldness/Alzheimer's genes activate after reproduction
+  "Antagonistic Pleiotropy":  aging is a side effect of fertility genes
+  Alzheimer's gene: APOE (apoliprotein E)  - makes lipoproteins to pkg cholesterol
+    25% of people have APOE4, and 2 to 3% have two copies
+    e3 is most common, e2/e4 is Alzheimer's protection/risk
+  FOXO3: cardiomyocytes: autophagy, proliferation, size/survival
+  gene expression influenced by environment & behavior
+  strategy:
+    1. disease specific prevention
+    2. general prevention
+
+5. Eat less, live longer
+   Rapamycin (sirolimus)
+     anifungal by  Streptomyces hygroscopicus, in soil from Rapa Nui commonly known as Easter Island
+     for transplants & longevity (non-approved)
+     its drug analog used for kidney cancer
+     slows down cell growth - blocks mTOR
+   mTOR (mechanistic target of rapamycin) protein complex in cells
+     controls growth,  plenty food --> mTOR activated
+   2009 experiment: old mice longevity ~+10% with rapacycin
+     reproduced in 3 labs
+     similar with yeast, worms, fruit flies
+     (2006 resveratrol [in grapes] longevity not reproduced)
+   Consistent with food reduction increasing longevity since Hippocrates
+   Alvise Coprnaro (died 1565)
+     sick from too many feasts
+     reduced food (with 2 glasses wine) to get well, wrote "Discourses on sober life"
+     best diet book
+   CR
+     caloric restriction wo malnutrition
+     mice/rats lived 15% to 45% longer
+     similar for yeast, flies, fish, dogs, spiders
+     not recommended - frailty may offset gains
