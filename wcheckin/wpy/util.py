@@ -63,8 +63,8 @@ class Util:
         ('coursera- free course', 'https://www.coursera.org/')
         """
         link = link.replace('href= ', 'href=')
+        link = link.replace('HREF', 'href')
         quote = '"' if link.find('href="') > -1 else "'"
-        print(quote, '=====', link)
         try:
             i = link.index('href=' + quote) + 6
             i2 = link.index(quote, i)
@@ -75,7 +75,7 @@ class Util:
             attrs = (label, url)
             return attrs
         except Exception as ex:
-            print('for', link, 'got:\n', ex)
+            print('link:', link, 'quote:','got:\n', ex)
             logging.exception(ex)
             raise ex
 

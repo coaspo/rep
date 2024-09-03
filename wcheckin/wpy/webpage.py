@@ -20,7 +20,7 @@ class WebPage:
             lines = WebPage._read_file(file_path)
             self.__page_count = WebPage._find_page_count(file_path, lines)
             if 'test_' not in file_path:
-                self.__search_indexes = WebPage._find_indexes(lines)
+                self.__search_indexes = WebPage._find_indexes(lines, file_path)
                 self.__date_range = WebPage._find_date_range(lines)
         self.__kb_size = round(os.path.getsize(file_path) / 1000, 1)
         logging.debug(file_path)
@@ -65,14 +65,15 @@ class WebPage:
         return s
 
     @staticmethod
-    def _find_indexes(lines):
+    def _find_indexes(lines, file_path):
         indexes = []
         for line in lines:
             # search for anchors:
             i = line.find('<a ')
             if i > -1:
                 if line.find('</a>', i) < 1:
-                    raise Exception('ERR missing </a> in line:\n\t' + line)
+                    raise Exception('ERR missing </a> in line:\n\t' + line
+                                   +'    in file:' + file_path )
                 ii = line.index('</a>', i) + 4
                 link = line[i:ii]
                 if 'name=' not in link:
