@@ -1,9 +1,0 @@
-Welcome to AI - a human guide to AI  David L Shrier 2023
-Shrier: Oxford business school professor
-
-1. AI Bots & Hallucinations
-   Open AI: 1 million ChatGPT users in 5 days
-     test preparation company stocy fell 48%
-     IBM paused new hiring
-   60% of jobs today did not exist in in 1940
-   150K fake Russian Iranian social account bots supported Brexit
