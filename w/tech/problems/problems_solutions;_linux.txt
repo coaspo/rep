@@ -57,7 +57,8 @@ Answer: In desktop: sudo snap install scrcpy
   Telephone screen should be displayed in desktop.
 
 Run python script with a double click
-Answer: Hit Alt+F2, type dc/sbin/ifconfig -aonf-editor and hit ``Enter.
+Answer: Hit Alt+F2,
+ and hit ``Enter.
     In dconfg-editor goto: org ➤ gnome ➤ nautilus ➤ preferences
     select/highlight "executable-text-activation",  right click on 'display' and select 'ask'
     To debug, open the terminal, >preferences >Unnamed >Command-tab, When commands exits 'Hold terminal open'
@@ -92,4 +93,14 @@ FIX:
        apt install --reinstall
        apt upgrade
        apt do-release-upgrade -d
+
+Open close toggle virtual terminal
+Answer: CTL ALT F3 to open
+        CTL ALT F2 to close
+
+Cannot open terminal
+FIX: ALT-F2  gnome-terminal
+
+Ubuntu starts in virtual terminal
+FIX: sudo apt intall ubuntu-desktop
 
