@@ -4,8 +4,7 @@ peepul / bo tree / bodhi (enlightment,knowledge) tree:
 
 gulmohur   flame tree; Madagascar;  fern leaves orange/red flowers
 jacaranda  (fragrant); subtropical America : fern leaves, purple flower
-jack tree  (jaca) southern India: 55kg/90cm long fruit:
-            national fruit of Sri Lankka/Bangladesh
+jack tree  (jaca) southern India: 55kg/90cm long fruit: national fruit of Sri Lankka/Bangladesh
 
 saunter     walk slow
 
@@ -20,11 +19,10 @@ conure      south American parrot
 mangabey    African monkey
 tapir       pig like, Central America
 gnu         or wilderbeest Africanox/antelope
-poison ivy  most common in east/midwest US, on every continent, sensitive to CO2
-            more CO2 more urushiol, related to mangoes
+poison ivy  most common in east/midwest US, on every continent, sensitive to CO2  more CO2 more urushiol, related to mangoes
 mettle      ability to handle difficulty
 eldritch    strange/unnatural that inspires fear; AI is an eldritch new force
 
 fait accompli  (accomplished fact) thing already done
 faux pas       (false step) social blunder
-
+affordance  design that suggest interactions
