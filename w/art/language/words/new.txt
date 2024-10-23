@@ -26,3 +26,320 @@ eldritch    strange/unnatural that inspires fear; AI is an eldritch new force
 fait accompli  (accomplished fact) thing already done
 faux pas       (false step) social blunder
 affordance  design that suggest interactions
+Zugzwang    move compulsion when it is to one's disadvantage
+
+<!DOCTYPE html>
+<head>
+<style>
+table, td, th {
+  border: 1px solid black;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+td {
+  text-align: top;
+}
+</style>
+</head>
+
+<pre><table><tr><td>Contents
+Part 1 - Refugees
+     2 - Future
+     3 - Tyranny
+     4 - Cure
+     5 - Palliate
+     6 - Philosophical
+     7 - Emulation
+     8 - Isolation
+     9 - Dog story
+     10 - Cat story
+     11 - Carrot
+     12 - Questions
+</td><td>aa</td></tr><tr><td>Prologue
+  Set of ideas made words;
+  like a house made bricks.
+  Easy to judge/validate a house,
+  not so for ideas.
+
+  Word salad;
+    palatable reality,
+    illusion of understanding.
+
+  Experimental understanding of:
+    dogs, cats, humans,
+    and broken things.
+</td><td></td></tr><tr><td>Part 1 - Refugees
+  Cool summer morning
+  under a blue sky
+  on the mountain side.
+  Grandfather with his three grandchildren
+  playing cards.
+  All had the same name;
+    Lack of imagination,
+    ignorance - shadows in the cave,
+    shackled and shackling minds,
+    behind the smokescreen custom
+      part of social security
+      like money in bank
+      subservience is someones benefit
+  Name problem and solution was too obvious;
+  he gave them nicknames.
+  End result:
+  his illusion made them political refugees.
+</td><td></td></tr><tr><td>Part 2 - Future
+    Mantle above the card table
+    with card sized pictures.
+    Large black and white picture
+    alone on the light green wall:
+      Grandfather's brother,
+      formally dressed with a bow-tie
+      in San Francisco
+      holding small dog.
+
+      Americans love dogs more than people;
+        poverty glasses filter
+        isolation and loneliness.
+      did not matter
+      future was black and white on the wall.
+</td><td></td></tr><tr><td>Part 3 - Tyranny
+  Cat got the sardines
+  instead of the mouse?
+  Whatever it was it was serious,
+    cat tied and whipped.
+    Ugly;
+    tyranny;
+    brute power;
+    and family rated?
+    ?
+  No isolation, no loneliness.
+</td><td></td></tr><tr><td>Part 4 - Cure
+  Clear cool sunny summer day
+  family with a cat
+  under bright green canopy in the woods;
+  breathing was magical.
+  Cat to cure
+  loneliness, isolation, guilt, exile ...
+  Nobody knows.
+  Sunny days come to an end.
+  Cat disappeared in the night;
+  a coyote provided a
+  quick peaceful death.
+  An angel cured him;
+  cat treatment no longer needed.
+
+</td><td></td></tr><tr><td>Part 5 - Palliate
+  Crime was a serious faux pas (false step)
+  worst than taboo.
+  Ostracization instead of public trial.
+  The self sentence was worse,
+  isolation.
+  Tragedies are goat collisions.
+  Palliate cats eased the pain,
+  death still came.
+  He should have known
+  there are worse ways to
+  die.
+</td><td></td></tr><tr><td>Part 6 - Philosophical
+  Anonymous:
+    "all diseases are
+     psychological,
+     untreated they kill"
+  "Psychological" abstraction is not real
+  just another map.
+  "Psychological" --> (pick one or more)
+    from:
+      spiritual poverty,
+      lack of god,
+      lack of love,
+      evil,
+      bad emotions,
+      irrational thoughts,
+      guilt,
+      pathological psychology,
+      unbalanced neurotransmitters,
+      misguided priorities,
+      ingratitude,
+      bad influence,
+      no influence,
+      poor judgment.
+</td><td></td></tr><tr><td>Part 7 - Emulation
+  America (economic Shangri-La).
+  Freedom, cowboys, self destiny, eternal youth;
+    Self deity,
+    no illusions,
+    no mythology.
+
+      Dog in baby carriage on the sidewalk.
+      Eyes see:
+        small dog that cannot walk far.
+      Mind knows:
+        Old dogs have arthritis.
+
+      Dog in baby carriage in Thessaloniki.
+        Emulation package comes with:
+          Isolation, social media, depression, surveillance phones ...
+          Symptoms, diseases follow.
+
+  Future on the wall
+    now in screen monitors.
+
+    Same illusions different mythology.
+      Cope, pretend, and lie to
+      self
+      see isolation when it is too
+      late;
+      when the trip is almost
+      over.
+    Economic servitude (career).
+</td><td></td></tr><tr><td>Part 8 - Isolation
+  Double speak.
+    American:
+      isolation is privacy.
+    Greek:
+      isolation is serenity.
+</td><td></td></tr><tr><td>Part 9 - Dog story
+  On seeing a person,
+  Dog runs, jumps, and barks.
+  Petting, the medication for dog anxiety,
+  restores public peace.
+
+    Discussion about
+    dog being human-like
+    usually follows.
+      The discussions that do not follow:
+        dogs training people,
+        persons being dog-like,
+        how many persons does a dog replace,
+        why only people "bite",
+        dog treatment side effects and trade offs.
+
+    Play with the dog,
+    remain a carnivore?
+      No need to think:
+        "I do not eat dogs."
+
+  Dog medicine for
+    emotional,
+    psychological,
+    and physical health.
+    (Who needs people?)
+</td><td></td></tr><tr><td>Part 10 - Cat story
+
+  Like a baby from the hospital,
+  kitten
+  came home.
+    It was out-worldly:
+      Talked to it in
+      high pitch voice.
+      Entertained it with
+      cat toys.
+
+  Cat bored with toys;
+    getting old,
+    life is too easy.
+  Celebrated at birthday.
+
+    Cat trains humans:
+      Lies still
+      under new sheets when one fixes the bed.
+
+      Spreads out in middle of stairs
+      waits
+      for caresses.
+
+      Drops on floor
+      with a thump sound
+      waits
+      for caresses.
+
+      Looks into your eyes
+      talks soft meows
+      waits.
+
+      Looks at the door so you will open it
+      so you will go out.
+
+      Mews to express the need.
+      Caresses till the end of time.
+
+    Happy to oblige;
+      baby talk is fun,
+      have a purpose,
+      cats do not talk back.
+
+    Cat pandiculation
+    (yawn with body strech)
+    more common than
+    human pandiculation.
+</td><td></td></tr><tr><td> Part 11 - Carrot
+    A policeman and family friend told told me this:
+      We were looking for person
+      suspected of rabbit abuse.
+      Message on police radio:
+       Suspect last seen with
+       a carrot.
+    Dog/cat fill in - the blank - abuse.
+    Emotional slavery more common.
+</td><td></td></tr><tr><td>Part 12 - Questions
+
+  Dogs/cats are catalysts for human-human interaction.
+    Non-human <--> human interaction
+    maps to
+    non-survival <--> survival?
+
+    Dog/cat interaction
+    helps us to forget
+    the scary survival interaction?
+
+  Dogs/cats are medicine.
+    Is palliative care worth the side effects?
+    What side effects?
+    Cure instead of palliative care? -
+      humans to disease
+      as antibiotics to germs?
+
+  How many human carcasses do people give and take?
+    Why dogs/cats take orders of magnitude more
+    without giving any?
+
+    Part 9 -
+
+  Law of being less human
+    Machines
+    more human-like.
+    Humans
+    more machine-like,
+    less human.
+    More time with machines,
+    more time with dogs/cats,
+    less time with people.
+
+
+
+</td><td></td></tr><tr><td>
+Epilogue
+  As of 19-9-2024:
+    Writing it was like drawing a
+    map.
+
+    This is edited version,
+    it misses some things from
+    a write-only version.
+
+    Impossible not to write some bull----.
+    Way worse to unknowingly read bull----.
+
+  As of 15-10-2024:
+    Added material gained on insight and/or illusion.
+    Removed redundant material and identifiable names.
+    Reorganized - short is sweet.
+    </td><td></td></tr>
+    </table>
+</pre>
+
+
+
+

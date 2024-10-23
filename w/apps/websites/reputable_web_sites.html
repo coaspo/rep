@@ -29,10 +29,10 @@
 <body>
 
 <div class="button-container">
-  <button class="button" onclick="nextUrl()" >⬇️</button>
-  <button class="button" onclick="previousUrl()">⬆️</button>
-  <button class="button" onclick="randomUrl()">Random</button>
-  <button class="button" onclick="allUrls()">All</button>
+  <button class="button" onclick="displayUrl(di=1)" >⬇️</button>
+  <button class="button" onclick="displayUrl(di=-1)">⬆️</button>
+  <button class="button" onclick="displayRandomUrl()">Random</button>
+  <button class="button" onclick="displayAllUrls()">All</button>
 </div>
 <br>
    <div id="url"> </div>
@@ -40,57 +40,56 @@
 
     <script>
         // @ts-check
-        var urlsText = `
-<a href="https://abcnews.go.com/">ABC News</a><!-- -->
-<a href="https://www.afp.com/en">Agence France-Presse</a><!-- -->
-<a href="https://www.aljazeera.com/">Al Jazeera</a><!-- -->
-<a href="https://www.amnesty.org/en/">Amnesty International</a><!-- -->
-<a href="https://www.adl.org/">Anti-Defamation League</a><!-- -->
-<a href="https://www.aon.com/en/">Aon; Business of Better Decisions</a><!-- -->
-<a href="https://arstechnica.com/">Ars Technica</a><!-- -->
-<a href="https://apnews.com/">Associated Press</a><!-- -->
-<a href="https://www.atlasobscura.com/">Atlas Obscura articles</a><!-- -->
-<a href="https://www.axios.com/">Axios</a><!-- -->
-<a href="https://www.bbc.com/">BBC</a><!-- -->
-<a href="https://www.behindthevoiceactors.com/">Behind the Voice Actors</a><!-- -->
-<a href="https://www.bellingcat.com/">Bellingcat investigations</a><!-- -->
-<a href="https://www.bloomberg.com/">Bloomberg</a><!-- -->
-<a href="https://www.burkespeerage.com/">Burke"s Peerage genealogy of historical families</a><!-- -->
-<a href="https://www.buzzfeednews.com/">BuzzFeed News</a><!-- -->
-<a href="https://climatefeedback.org/">Climate Feedback / climate change</a><!-- -->
-<a href="https://www.cnet.com/">CNET (pre–October 2020)</a><!-- -->
-<a href="https://www.cnn.com/">CNN</a><!-- -->
-<a href="https://www.codastory.com/">Coda Media; ongoing crisis</a><!-- -->
-<a href="https://www.commonsensemedia.org/">Common Sense Media; family entertainment</a><!-- -->
-<a href="https://deadline.com/">Deadline Hollywood</a><!-- -->
-<a href="https://debretts.com/">Debrett"s  British society</a><!-- -->
-<a href="https://www.spiegel.de/international/">Der Spiegel</a><!-- -->
-<a href="https://www.deseret.com/">Deseret News Utah/west</a><!-- -->
-<a href="https://www.dw.com/en">Deutsche Welle</a><!-- -->
-<a href="https://www.digitalspy.com/">Digital Spy; TV/movies</a><!-- -->
-<a href="Encyclopædia Iranica">Encyclopædia Iranica</a><!-- -->
-<a href="https://www.engadget.com/">Engadget</a><!-- -->
-<a href="https://ew.com/">Entertainment Weekly</a><!-- -->
-<a href="https://www.ft.com/">Financial Times</a><!-- -->
-<a href="https://www.forbes.com/">Forbes</a><!-- -->
-<a href="https://www.gamedeveloper.com/">Game Developer</a><!-- -->
-<a href="https://www.gameinformer.com/">Game Informer</a><!-- -->
-<a href="https://wyborcza.pl/">Gazeta Wyborcza; Poland</a><!-- -->
-<a href="https://gizmodo.com/">Gizmodo</a><!-- -->
-<a href="https://www.usgs.gov/tools/geographic-names-information-system-gnis">gnis-coord</a><!-- -->
-<a href="https://www.gq.com/">GQ men;"s fashion</a><!-- -->
-<a href="https://www.haaretz.com/">Haaretz; Israel</a><!-- -->
-<a href="https://www.huffpost.com/">HuffPost</a><!-- -->
-<a href="https://www.idolator.com/">Idolator; music</a><!-- -->
-<a href="https://www.ign.com/">IGN video games</a><!-- -->
-<a href="https://www.businessinsider.com/culture">Insider (culture)</a><!-- -->
-<a href="https://www.poynter.org/ifcn/">International Fact-Checking Network</a><!-- -->
-<a href="https://www.ipsnews.net/">Inter Press Service</a><!-- -->
-<a href="https://jacobin.com/">Jacobin</a><!-- -->
-<a href="https://jamanetwork.com/">JAMA</a><!-- -->
-<a href="https://www.kirkusreviews.com/">Kirkus Reviews; book reviews</a><!-- -->
-<a href="https://www.kommersant.ru/">Kommersant; Russian</a><!-- -->
-<a href="https://mondediplo.com/">Le Monde diplomatique</a><!-- -->
+        var urlsTextList = `
+<a href="https://abcnews.go.com/">ABC News</a><!--news -->
+<a href="https://www.afp.com/en">Agence France-Presse</a><!--journalism France-->
+<a href="https://www.aljazeera.com/">Al Jazeera</a><!--news  Qatar-->
+<a href="https://www.amnesty.org/en/">Amnesty International</a><!--politics-->
+<a href="https://www.adl.org/">Anti-Defamation League</a><!--politics -->
+<a href="https://www.aon.com/en/">Aon; Business Decisions </a><!--business -->
+<a href="https://arstechnica.com/">Ars Technica</a><!--technology -->
+<a href="https://apnews.com/">Associated Press</a><!--news *-->
+<a href="https://www.atlasobscura.com/">Atlas Obscura</a><!--travel -->
+<a href="https://www.axios.com/">Axios</a><!--news *-->
+<a href="https://www.bbc.com/">BBC</a><!--news *-->
+<a href="https://www.behindthevoiceactors.com/">Behind the Voice Actors</a><!--entertainment -->
+<a href="https://www.bellingcat.com/">Bellingcat investigations</a><!--politics -->
+<a href="https://www.bloomberg.com/">Bloomberg</a><!--subscription news -->
+<a href="https://www.burkespeerage.com/">Burke's historical genealogy</a><!--society -->
+<a href="https://www.buzzfeednews.com/">BuzzFeed News</a><!--entertainment -->
+<a href="https://climatefeedback.org/">Climate Feedback / climate change</a><!--environment -->
+<a href="https://www.cnet.com/">CNET </a><!--technology -->
+<a href="https://www.cnn.com/">CNN</a><!--news -->
+<a href="https://www.codastory.com/">Coda Media; ongoing crisis</a><!--commentary -->
+<a href="https://www.commonsensemedia.org/">Common Sense Media; Movie reviews</a><!--entertainment -->
+<a href="https://deadline.com/">Deadline Hollywood</a><!-- entertainment-->
+<a href="https://debretts.com/">Debrett's  British royals & etiquette</a><!--culture -->
+<a href="https://www.spiegel.de/international/">Der Spiegel</a><!--magazine *-->
+<a href="https://www.deseret.com/">Deseret News Utah/west</a><!--news culture -->
+<a href="https://www.dw.com/en">Deutsche Welle</a><!--news Germany -->
+<a href="https://www.digitalspy.com/">Digital Spy; TV/movies</a><!--entertainment -->
+<a href="https://www.iranicaonline.org/">Encyclopædia Iranica</a><!--culture -->
+<a href="https://www.engadget.com/">Engadget</a><!--technology buying guide-->
+<a href="https://ew.com/">Entertainment Weekly</a><!--entertainment -->
+<a href="https://www.ft.com/">Financial Times</a><!--news -->
+<a href="https://www.forbes.com/">Forbes</a><!--news -->
+<a href="https://www.gamedeveloper.com/">Game Developer</a><!--games -->
+<a href="https://wyborcza.pl/">Gazeta Wyborcza; Poland</a><!--news -->
+<a href="https://gizmodo.com/">Gizmodo</a><!--*magazine -->
+<a href="https://www.usgs.gov/tools/geographic-names-information-system-gnis">geographical names</a><!--environment -->
+<a href="https://www.gq.com/">GQ men's fashion</a><!--culture -->
+<a href="https://www.haaretz.com/">Haaretz; Israel</a><!-- news -->
+<a href="https://www.huffpost.com/">HuffPost</a><!--news * -->
+<a href="https://www.idolator.com/">Idolator; music</a><!-- entertainment-->
+<a href="https://www.ign.com/">IGN video games</a><!--games-->
+<a href="https://www.businessinsider.com/culture">Business Insider (culture)</a><!--culture -->
+<a href="https://www.poynter.org/ifcn/">International Fact-Checking Network</a><!--journalism -->
+<a href="https://www.ipsnews.net/">Inter Press Service</a><!--news -->
+<a href="https://jacobin.com/">Jacobin</a><!--magazine -->
+<a href="https://jamanetwork.com/">JAMA</a><!--medicine -->
+<a href="https://www.kirkusreviews.com/">Kirkus Reviews; book reviews</a><!--entertainment -->
+<a href="https://www.kommersant.ru/">Kommersant; Russian</a><!--news -->
+<a href="https://mondediplo.com/">Le Monde diplomatique</a><!--magazine -->
 <a href="https://www.latimes.com/">Los Angeles Times</a><!-- -->
 <a href="https://mg.co.za/">Mail &amp; Guardian; South Africa"</a><!-- -->
 <a href="https://www.metacritic.com/">Metacritic; movie reviews</a><!-- -->
@@ -99,13 +98,13 @@
 <a href="https://www.nationalgeographic.com/">National Geographic</a><!-- -->
 <a href="https://www.nbcnews.com/">NBC News</a><!-- -->
 <a href="https://www.newslaundry.com/">Newslaundry</a><!-- -->
-<a href="https://www.newsweek.com/">Newsweek</a><!-- -->
+<a href="https://www.newsweek.com/">Newsweek</a><!--news -->
 <a href="https://nymag.com/">New York Magazine</a><!-- -->
 <a href="https://www.nydailynews.com/">New York Daily News</a><!-- -->
-<a href="https://www.nme.com/">NME; music</a><!-- -->
-<a href="https://www.npr.org/">NPR</a><!-- -->
+<a href="https://www.nme.com/">NME; music</a><!-- -->https://www.iranicaonline.org/
+<a href="https://www.npr.org/">NPR</a><!--news -->
 <a href="https://people.com/">People</a><!-- -->
-<a href="https://www.youtube.com/@PeopleMakeGames">People Make Games</a><!-- -->
+<a href="https://www.youtube.com/@PeopleMakeGames">People Make Games</a><!--games -->
 <a href="https://www.pewresearch.org/">Pew Research Center</a><!-- -->
 <a href="https://www.politico.com/">Politico</a><!-- -->
 <a href="https://www.politifact.com/">PolitiFact</a><!-- -->
@@ -113,7 +112,7 @@
 <a href="https://www.propublica.org/">ProPublica</a><!-- -->
 <a href="https://qz.com/">Quartz</a><!-- -->
 <a href="https://www.rfa.org/english">Radio Free Asia</a><!-- -->
-<a href="https://www.rappler.com/">Rappler / Phillipines</a><!-- -->
+<a href="https://www.rappler.com/"snide>Rappler / Phillipines</a><!-- -->
 <a href="https://reason.com/">Reason</a><!-- -->
 <a href="https://religionnews.com/">Religion News Service</a><!-- -->
 <a href="https://www.reuters.com/">Reuters</a><!-- -->
@@ -147,96 +146,108 @@
 <a href="https://theintercept.com/">The Intercept</a><!-- -->
 <a href="https://www.thejc.com/">The Jewish Chronicle</a><!-- -->
 <a href="https://www.themarysue.com/">The Mary Sue; pop culture</a><!-- -->
-<a href="">The Nation</a><!-- -->
-<a href="">The New Republic</a><!-- -->
-<a href="">The New Yorker</a><!-- -->
-<a href="">The New York Times</a><!-- -->
-<a href="">The New Zealand Herald</a><!-- -->
-<a href="">The Register</a><!-- -->
-<a href="">The Sydney Morning Herald</a><!-- -->
-<a href="">The Times</a><!-- -->
-<a href="">The Verge</a><!-- -->
-<a href="">The Wall Street Journal</a><!-- -->
-<a href="">The Washington Post</a><!-- -->
-<a href="">The Weekly Standard</a><!-- -->
-<a href="">The Wire India</a><!-- -->
+<a href="https://www.thenation.com/">The Nation</a><!-- -->
+<a href="https://newrepublic.com/">The New Republic</a><!-- -->
+<a href="https://www.newyorker.com/">The New Yorker</a><!-- -->
+<a href="https://www.nytimes.com/">The New York Times</a><!-- -->
+<a href="https://www.nzherald.co.nz/">The New Zealand Herald</a><!-- -->
+<a href="https://www.theregister.com/">The Register</a><!-- -->
+<a href="https://www.smh.com.au/">The Sydney Morning Herald</a><!-- -->
+<a href="https://www.thetimes.com/">The Times</a><!-- -->
+<a href="https://www.theverge.com/">The Verge</a><!-- -->
+<a href="https://www.wsj.com/">The Wall Street Journal</a><!-- -->
+<a href="https://www.washingtonpost.com/">The Washington Post</a><!-- -->
+<a href="https://thewire.in/">The Wire India</a><!-- -->
 <a href="https://www.thewrap.com/">TheWrap; moviews</a><!-- -->
-<a href="">Time</a><!-- -->
-<a href="">TorrentFreak</a><!-- -->
-<a href="">TV Guide</a><!-- -->
-<a href="">USA Today</a><!-- -->
-<a href="">U.S. News &amp; World Report</a><!-- -->
-<a href="">Vanity Fair</a><!-- -->
-<a href="">Variety</a><!-- -->
-<a href="">VentureBeat</a><!-- -->
-<a href="">Vogue</a><!-- -->
-<a href="">Voice of America</a><!-- -->
-<a href="">Vox</a><!-- -->
-<a href="">Wired</a><!-- -->
+<a href="https://time.com/">Time</a><!-- -->
+<a href="https://torrentfreak.com/">TorrentFreak</a><!-- -->
+<a href="https://www.tvguide.com/">TV Guide</a><!-- -->
+<a href="https://www.usatoday.com/">USA Today</a><!-- -->
+<a href="https://www.usnews.com/">U.S. News &amp; World Report</a><!-- -->
+<a href="https://www.vanityfair.com/">Vanity Fair</a><!-- -->
+<a href="https://variety.com/">Variety</a><!-- -->
+<a href="https://venturebeat.com/">VentureBeat</a><!-- -->
+<a href="https://www.vogue.com/">Vogue</a><!-- -->
+<a href="https://www.voanews.com/">Voice of America</a><!-- -->
+<a href="https://www.vox.com/">Vox</a><!-- -->
+<a href="https://www.wired.com/">Wired</a><!-- -->
 <a href="https://news.yahoo.com/">Yahoo News</a><!-- -->
-<a href="">ZDNet</a><!-- -->`;
+<a href="https://www.zdnet.com/">ZDNet</a><!-- -->`;
 var urls
-var day
+var index = 0
 initilize()
-displayUrl()
+
 
 function initilize(){
-  urls = urlsText.trim().split('\n');
-  let now = new Date();
-  let start = new Date(now.getFullYear(), 0, 0);
-  let diff = now - start;
-  let oneDay = 1000 * 60 * 60 * 24;
-  day = Math.floor(diff / oneDay);
-  if (day > urls.length) {
-    day = day - urls.length
-    if (day > urls.length) {
-      day = day - urls.length
+  urls = urlsTextList.trim().split('\n');
+  let html = window.localStorage.getItem("html")
+  if (html === undefined || html === '') {
+    console.log('--1--')
+    displayUrl(1)
+  } else {
+    console.log('--2--')
+    document.getElementById("url").innerHTML = html
+    index = parseInt(window.localStorage.getItem("index"))
+    if (index === undefined) {
+      index = 0
     }
   }
-  day = day -1
 }
 
-function validateUrl(isIncrement) {
-  if (urls[day]) {
-  }
-}
 
-function displayUrl(){
-  console.log('day='+day+ ' max='+ (urls.length-1))
-  console.log('url='+urls[day])
-  document.getElementById("url").innerHTML = '  #' + (day+1) + '   ' + urls[day] + '</div>'
-}
-
-function nextUrl(){
-  day = day + 1
-  if (day >= urls.length) {
-    day =0
-  }
-  displayUrl()
-}
-
-function previousUrl(){
-  day = day + 1
-  if (day < 0) {
-    day = urls.length -1
-  }
-  displayUrl()
-}
-
-function randomUrl(){
-  day = Math.floor(Math.random() * urls.length)
-  displayUrl()
-}
-
-function allUrls(){
-  html = ""
-  for (let i=0; i < urls.length; i++) {
-    html += (i+1) + ' ' + urls[i] + '<br>'
+function displayUrl(di){
+  html = "<table>"
+  console.log('di 1=' + di)
+  for (let i=0; i < 7; i++) {
+    if (di > 0 && index >= urls.length) {
+      index = 0
+    } else if (di < 0 && index <0 ) {
+      index = urls.length -1
+    }
+    html += '<tr><td>' + (index+1) + '</td><td>' + urls[index] +
+    '</td><td>' + comment(urls[index]) + '</td></tr>'
+    index += di
   }
   console.log('html=' + html)
-
   document.getElementById("url").innerHTML = html
+  window.localStorage.setItem('html', html)
+  window.localStorage.setItem('index', index.toString())
 }
+
+
+
+function displayRandomUrl(){
+  html = "<table>"
+  for (let i=0; i < 7; i++) {
+    let ind = Math.floor(Math.random() * (urls.length-7))
+    html += '<tr><td>' + (ind+1) + '</td><td>' + urls[ind] +
+    '</td><td>' + comment(urls[ind]) + '</td></tr>'
+  }
+  document.getElementById("url").innerHTML = html
+  window.localStorage.setItem('html', html)
+}
+
+
+function displayAllUrls(){
+  window.localStorage.setItem('isAll', true)
+  html = "<table>"
+  for (let i=0; i < urls.length; i++) {
+    html += '<tr><td>' + (i+1) + '</td><td>' + urls[i] +
+    '</td><td>' + comment(urls[i]) + '</td></tr>'
+  }
+  console.log('html=' + html)
+  document.getElementById("url").innerHTML = html
+  window.localStorage.setItem('html', html)
+  window.localStorage.setItem('index', '0')
+}
+
+
+function comment(url){
+    i_start = url.indexOf('<!--') +4
+    i_end = url.indexOf('-->')
+    return (url.substring(i_start, i_end))
+}
+
     </script>
 </body>
 

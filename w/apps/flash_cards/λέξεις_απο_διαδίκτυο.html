@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Tabbed Page</title>
+    <style>
+        body {
+           min-height: 100vh;
+        }
+        .tab {
+            display: none;
+        }
+
+        div {
+            display: inline;
+        }
+
+        .tab-button {
+            background-color: #eee;
+            border: none;
+            cursor: pointer;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+
+        .tab-button:hover {
+            background-color: #ddd;
+        }
+
+        .tab-button.active {
+            background-color: #ccc;
+        }
+
+        input[type="checkbox"]:disabled+label {
+            color: gray;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="tab-button" onclick="openTab('tab1', this)">Flash Cards</button>
+    <button class="tab-button" onclick="openTab('tab2', this)">List</button>
+    <button class="tab-button" onclick="openTab('tab3', this)">Edit</button>
+
+    <div id="tab1" class="tab">&nbsp;
+        <div id="index"></div>&nbsp;&nbsp;
+        <div id="checkboxContainer">
+            <input type="checkbox" id="reverseCheckbox"><label for="reverseCheckbox">Reverse </label>
+            <input type="checkbox" id="sortCheckbox"><label for="sortCheckbox">Sort </label>
+            <input type="checkbox" id="reviewCheckbox"><label for="reviewCheckbox">Review </label>
+            <input type="checkbox" id="quizCheckbox"><label for="quizCheckbox">Quiz </label>
+        </div>
+        <table>
+            <tr>
+                <td><textarea name="leftTextArea" title="next" rows="7" cols="20" readonly onclick="next();"></textarea>
+                </td>
+                <td><textarea name="rightTextArea" title="view" rows="7" cols="120" readonly style='width: 60ch;'
+                        onclick="fillInRightTextArea()"></textarea></td>
+            </tr>
+        </table>
+        &nbsp;&nbsp;&nbsp;<button id="gradeQuizButton" onclick="gradeQuiz()" disabled>Grade Quiz</button><br>
+        &nbsp;&nbsp;<div id="quizInfo"></div>&nbsp;&nbsp;
+    </div>
+
+    <div id="tab2" class="tab">
+        <pre><label id="nextListTextArea" style=' width: 60ch; ' onclick="createList(1);" ></label></pre>
+    </div>
+
+    <div id="tab3" class="tab">
+        Edit and leave text box to update.<br>
+        Create groups adding: 1, 2, 3, 4
+        <div id="groupcharacters"></div> before '='<br>
+        For permanent changes, save html file and edit it.<br>
+        <textarea id="flashCardTextArea" rows="55" cols="120" style=' width: 100%;   height: 100%;'
+            onblur="upadateFlashCardText();"></textarea>
+    </div>
+
+    <script>
+        // @ts-check
+        var flashCardText = `
+αφίσα   =  poster (affiche; κολλώ)
+κουλης  = low-wage labourer (coolie) ημερομίσθιος εργάτης
+παροχή = provision, amenity, facility  - όγκος του ρευστού,υγρού ή αέριου
+ρουσφέτι  = bribe; ύνοιας κάποιων ατόμων εις βάρος άλλων rüşvet «δωροδοκία»
+ξεφτίλα = disgrace
+γύπα  = vulture
+ορνιο = vulture είδος γύπα'' Gyps fulvus
+αθερίνα = smelt; Mediterranean sand smelt
+συγκατάβαση = consent (permission to happen) κάποιος ή κτ. αντιμετωπίζεται με ηπιότητα, κατανόηση
+πατρονάρισμα = condescension - patronizing superiority; disdain (internet συγκατάβαση is condescension!)
+λαμόγιο  = pretends to be a buyer  συνεργάτες των παπατζήδων la moglie  wife
+κόσμιος  = decent well-behaved; συμφωνεί με τους κανόνες
+Τελεφερίκ  = cable car; téléphérique
+αντίσκηνο  = tent
+Φαίδων = Phaedo; Socrates's student; On The Soul; «λαμπερός, φωτεινός»
+κουσούρι = flaw, defect, hang-up  ελάττωμα του χαρακτήρα, μειονέκτημα (kusur)
+`;
+        // Function to switch between tabs
+        var activeTab
+        function openTab(tabName, button) {
+            activeTab = tabName
+            var i, tab, tabButton;
+            tab = document.getElementsByClassName("tab");
+            for (i = 0; i < tab.length; i++) {
+                tab[i].style.display = "none";
+            }
+            tabButton = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tabButton.length; i++) {
+                tabButton[i].classList.remove("active");
+            }
+            document.getElementById(tabName).style.display = "block";
+            button.classList.add("active");
+        }
+
+        // Open the first tab by default
+        openTab('tab1', document.querySelector('.tab-button:nth-child(1)'));
+
+        // Add an event listener to the text area to display "left text area" on blur (when leaving)
+        const textArea = document.getElementById("flashCardTextArea");
+        textArea.addEventListener("onchange", function () {
+            console.log("Left text area");
+        });
+
+
+        const flashCardTextArea = document.getElementById("flashCardTextArea")
+        flashCardTextArea.value = flashCardText.trim()
+
+        var flashCardList = createFlashCards(flashCardText);
+        var displayFlashCardList = [...flashCardList]; addMarkerCheckboxesAndCreateActiveCardMarkersSet
+        var flashCardAnswerList;
+
+        var groupNumbers = findGroupNumbers(flashCardList);
+        var activeCardMarkers;
+        var sortedIndexes = findSortedIndexes(displayFlashCardList);
+        var displayArrayIndex = 0;
+        var displayListIndex = 0;
+        var isWordMeaningReversed = false
+        var isReviewMode = false
+        var isSortMode = false
+        var isQuizMode = false
+        var startY;
+        var previousIncrement = 1
+
+        initializeWebPage()
+
+        function initializeWebPage() {
+            console.log('initializeWebPage()')
+            addMarkerCheckboxesAndCreateActiveCardMarkersSet(groupNumbers);
+            fillInTextAreas()
+            const reverseCheckbox = document.getElementById("reverseCheckbox");
+            reverseCheckbox.addEventListener('change', function () {
+                isWordMeaningReversed = reverseCheckbox.checked
+                fillInTextAreas()
+            });
+
+            const sortCheckbox = document.getElementById("sortCheckbox");
+            sortCheckbox.addEventListener('change', function () {
+                isSortMode = sortCheckbox.checked
+                displayArrayIndex = 0
+                fillInTextAreas()
+            });
+
+            const reviewCheckbox = document.getElementById("reviewCheckbox");
+            reviewCheckbox.addEventListener('change', function () {
+                isReviewMode = reviewCheckbox.checked;
+                fillInRightTextArea();
+            });
+
+            const quizCheckbox = document.getElementById("quizCheckbox");
+            quizCheckbox.addEventListener('change', function () {
+                isQuizMode = quizCheckbox.checked
+                console.log('isQuizMode= ' + isQuizMode)
+                if (isQuizMode) {
+                    isReviewMode = false;
+                    isSortMode = false;
+                    document.getElementById("reviewCheckbox").checked = false
+                    document.getElementById("sortCheckbox").checked = false
+                    flashCardAnswerList = Array(displayFlashCardList.length).fill("");
+                    document.getElementById("quizInfo").innerHTML = "Type one word anwser and go to next card. <br>&nbsp;&nbsp;Correct answer is the first flash card word."
+                } else {
+                    document.getElementById("quizInfo").innerHTML = ""
+                }
+                document.getElementById("").disabled = isQuizMode;
+                document.getElementById("reviewCheckbox").disabled = isQuizMode;
+                document.getElementById("sortCheckbox").disabled = isQuizMode;
+                document.getElementsByName("rightTextArea")[0].readOnly = !isQuizMode;
+                for (const groupNumber of groupNumbers) {
+                    document.getElementById(groupNumber).disabled = isQuizMode;
+                }
+                displayArrayIndex = 0
+                fillInTextAreas()
+            });
+
+            const rightTextArea = document.getElementsByName("rightTextArea")[0]
+            console.log('rightTextArea= ' + rightTextArea)
+            rightTextArea.addEventListener('change', function (event) {
+                if (!isQuizMode) {
+                    return
+                }
+                flashCardAnswerList[displayArrayIndex] = rightTextArea.value
+                let haveAllAnswers = true
+                for (const answer of flashCardAnswerList) {
+                    if (answer == '') {
+                        haveAllAnswers = false
+                        break
+                    }
+                }
+                if (haveAllAnswers) {
+                    document.getElementById("gradeQuizButton").disabled = false;
+                }
+            });
+
+
+            const handleStart = (e) => {
+                startY = e.clientY || e.touches[0].clientY;
+                console.log('+++++++handleStart;' + activeTab)
+            };
+
+            const handleEnd = (e) => {
+                let endY = e.clientY || e.changedTouches[0].clientY;
+                let deltaY = endY - startY;
+                let swipeThreshold = 50;
+                console.log('~~deltaY=' + deltaY)
+                if (deltaY > swipeThreshold) {
+                    if (activeTab == 'tab1') {
+                        next()
+                    } else if (activeTab == 'tab2') {
+                        createList(1)
+                    }
+                    //document.body.style.backgroundColor = 'green';
+                } else if (deltaY < -swipeThreshold) {
+                    if (activeTab == 'tab1') {
+                        previous()
+                        console.log('~~dprevious???')
+                    } else if (activeTab == 'tab2') {
+                        createList(-1)
+                    }
+                    //document.body.style.backgroundColor = 'red';
+                }
+            };
+
+            const handleClick = (e) => {
+                console.log("===click, e=" + e)
+                if (activeTab == 'tab1') {
+                    next()
+                } else if (activeTab == 'tab2') {
+                    createList(1)
+                }
+            };
+
+            document.addEventListener('mousedown', handleStart);
+            document.addEventListener('touchstart', handleStart);
+
+            document.addEventListener('mouseup', handleEnd);
+            document.addEventListener('touchend', handleEnd);
+            document.addEventListener('click', handleClick);
+            createList(1);
+        }
+
+        function gradeQuiz() {
+            document.getElementById("gradeQuizButton").disabled = true;
+            let correctCount = 0
+            for (let i = 0; i < flashCardAnswerList.length; i++) {
+                answer = flashCardAnswerList[i].trim().toLowerCase()
+                const j = isWordMeaningReversed ? 0 : 1;
+                let str = displayFlashCardList[i][j].trim()
+                let words = str.split(/\s+/);
+                correctAnswer = words[0].toLowerCase()
+                isCorrect = answer == correctAnswer
+                correctCount += isCorrect ? 1 : 0
+                let mark = isCorrect ? "✅ " : "❌ "
+                flashCardAnswerList[i] = mark + flashCardAnswerList[i]
+                if (!isCorrect) {
+                    flashCardAnswerList[i] += "\n✅: " + correctAnswer
+                }
+
+            }
+            displayArrayIndex = 0
+            fillInRightTextArea()
+            const score = (100 * correctCount / flashCardAnswerList.length).toFixed(0)
+            const info = score == 100 ? 'Quiz score: <p style="color: darkgreen;">100%</p>' :
+                'Quiz score: <p style="color: red;">' + score + '%</p>';
+            document.getElementById("quizInfo").innerHTML = info
+        }
+
+
+
+        function createFlashCards(flashCardText) {
+            flashCardText = flashCardText.trim()
+            let linesArray = flashCardText.trim().split('\n');
+            let originalLineCount = linesArray.length
+            linesArray = linesArray.filter(str => str.includes('='));
+            if (originalLineCount != linesArray.length) {
+                console.log((originalLineCount - linesArray.length) + ' lines dropped, did not have "="')
+            }
+            let flashCardList = [];
+            for (const line of linesArray) {
+                const flashCard = line.split('=').map(value => value.trim());
+                flashCardList.push(flashCard);
+            }
+            console.log('createFlashCards() ' + flashCardList.length + ' flash cards')
+            return flashCardList
+        }
+
+        function filterFlashCards(flashCardList, activeCardMarkers) {
+            let filteredFlashCardList = [];
+            for (const flashCard of flashCardList) {
+                for (const char of activeCardMarkers) {
+                    if (flashCard[0].includes(char)) {
+                        filteredFlashCardList.push(flashCard);
+                    }
+                }
+            }
+            console.log('filterFlashCards() ' + filteredFlashCardList.length + ' filtered flash cards')
+            return filteredFlashCardList
+        }
+
+        function findGroupNumbers(flashCardList) {
+            let numbers = new Set();
+            const validNumbers = ['1', '2', '3', '4', '5']
+            for (const flashCard of flashCardList) {
+                for (const char of validNumbers) {
+                    if (flashCard[0].includes(char)) {
+                        numbers.add(char);
+                    }
+                }
+            }
+            console.log('findCardMarkers()  found:')
+            console.log(...numbers)
+            return numbers
+        }
+
+        function addMarkerCheckboxesAndCreateActiveCardMarkersSet(groupNums) {
+            console.log('====')
+            console.log(...groupNums)
+            activeCardMarkers = new Set(); // global variable
+            for (const groupNum of groupNums) {
+                const checkbox = document.createElement("input");
+                checkbox.type = "checkbox";
+                checkbox.id = groupNum
+                const label = document.createElement('label');
+                label.htmlFor = groupNum;
+                label.appendChild(document.createTextNode(groupNum + ' '));
+                const checkboxContainer = document.getElementById("checkboxContainer");
+                checkboxContainer.appendChild(checkbox);
+                checkboxContainer.appendChild(label);
+                checkbox.addEventListener('click', update);
+
+                function update() {
+                    displayArrayIndex = 0
+                    if (checkbox.checked) {
+                        activeCardMarkers.add(groupNum)
+                    } else {
+                        activeCardMarkers.delete(groupNum)
+                    }
+                    displayFlashCardList = activeCardMarkers.size == 0 ? flashCardList : filterFlashCards(flashCardList, activeCardMarkers)
+                    console.log('update() a marker Checkbox; activeCardMarkers= ' + Array.from(activeCardMarkers));
+                    fillInTextAreas()
+                }
+            }
+            console.log('addMarkerCheckboxesAndCreateActiveCardMarkersSet()')
+        }
+
+        function findSortedIndexes(flashCardList) {
+            let sortedIndexes = [];
+            const clonedFlashCardList = flashCardList.slice();
+            clonedFlashCardList.sort((a, b) => a[0].localeCompare(b[0]));
+            for (const row of clonedFlashCardList) {
+                const index = flashCardList.indexOf(row);
+                sortedIndexes.push(index);
+            }
+            return sortedIndexes;
+        }
+
+
+        function removeCheckbox(cardMarker) {
+            const checkbox = document.getElementById(cardMarker);
+            const checkboxContainer = document.getElementById("checkboxContainer");
+            checkboxContainer.removeChild(checkbox.parentElement);
+        }
+
+        function next() {
+            if (activeTab == 'tab1') {
+                displayArrayIndex += 1;
+                if (displayArrayIndex == displayFlashCardList.length) {
+                    displayArrayIndex = 0;
+                }
+                fillInTextAreas()
+            }
+        }
+
+        function previous() {
+            displayArrayIndex -= 1;
+            if (displayArrayIndex < 0) {
+                displayArrayIndex = displayFlashCardList.length - 1;
+            }
+            console.log('=== previous ' + displayArrayIndex)
+            fillInTextAreas()
+        }
+
+        function fillInTextAreas() {
+            const j = isWordMeaningReversed ? 1 : 0;
+            const i = isSortMode ? sortedIndexes[displayArrayIndex] : displayArrayIndex;
+            console.log('i=' + i + '  j=' + j)
+            document.getElementsByName("leftTextArea")[0].value = displayFlashCardList[i][j]
+            var label = document.getElementById("index");
+            fillInRightTextArea()
+            label.innerHTML = String(displayArrayIndex + 1) + ' / ' + String(displayFlashCardList.length)
+        }
+
+        function fillInRightTextArea() {
+            if (activeTab == 'tab1') {
+                if (isReviewMode) {
+                    const j = isWordMeaningReversed ? 0 : 1;
+                    const i = isSortMode ? sortedIndexes[displayArrayIndex] : displayArrayIndex;
+                    document.getElementsByName("rightTextArea")[0].value = displayFlashCardList[i][j]
+                } else if (isQuizMode) {
+                    document.getElementsByName("rightTextArea")[0].value = flashCardAnswerList[displayArrayIndex]
+                } else {
+                    document.getElementsByName("rightTextArea")[0].value = ''
+                }
+                console.log("fillInRightTextArea() text: " + document.getElementsByName("rightTextArea")[0].value);
+            }
+        }
+        //--------------------------------------------------------------------------------------------
+
+        function upadateFlashCardText() {
+            for (const groupNumber of groupNumbers) {
+                removeCheckbox(groupNumber)
+            }
+            flashCardText = document.getElementById("flashCardTextArea").value
+            flashCardList = createFlashCards(flashCardText);
+            displayFlashCardList = [...flashCardList];
+            groupNumbers = findGroupNumbers(flashCardList);
+            addMarkerCheckboxesAndCreateActiveCardMarkersSet(groupNumbers);
+            sortedIndexes = findSortedIndexes(displayFlashCardList);
+            displayArrayIndex = 0;
+            fillInTextAreas()
+            console.log('upadateFlashCardText() done')
+        }
+        //--------------------------------------------------------------------------------------------
+
+        function createList(increment) {
+
+            let html = ''
+            if (increment != previousIncrement) {
+                displayListIndex = displayListIndex + 14 * increment;
+            }
+            if (displayListIndex < 0) {
+                displayListIndex = displayFlashCardList.length - 6
+            } else if (displayListIndex > displayFlashCardList.length) {
+                displayListIndex = 0
+            }
+            let j = 0;
+            for (let i = 0; i < 7; i++) {
+                j = i + displayListIndex
+                if (j > (displayFlashCardList.length - 1)) {
+                    break;
+                } else if (j < 0) {
+                    break;
+                }
+                console.log(j)
+                var pattern = /[1234]/g;
+                html += (j + 1) + '  <b>' + displayFlashCardList[j][0].replace(pattern, '')
+                let nSpaces = 18 - displayFlashCardList[j][0].length
+                html += '</b>'.padStart(nSpaces, ' ')
+                html += ' ' + colorNonGreekWordsRed(displayFlashCardList[j][1])
+                nSpaces = 25 - displayFlashCardList[j][1].length
+                html += ''.padStart(nSpaces, ' ')
+                html += '<br>'.padEnd(50, ' ')
+                html += '<br>';
+            }
+            displayListIndex += 7 * increment;
+            previousIncrement = increment
+            document.getElementById("nextListTextArea").innerHTML = html
+            console.log('createNextList() done ' + increment)
+
+        }
+
+
+        function colorNonGreekWordsRed(inputString) {
+            var regex = /[^Α-ΩΆΈΉΊΌΎΏα-ωάἀέήίόύώϋΰϊΐ`’!@#\$%\^&\*\(\)_\-\+=\[\]\{\};:'"<>,\./?\\|]+/g;
+            var coloredString = inputString.replace(regex, function (match) {
+                return '<span style="color: red;">' + match + '</span>';
+            });
+            return coloredString;
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,7 +1,9 @@
 apps/browser_check/broweser_check.html
 apps/browser_extensions/popup.html
 apps/culture/cultural_dimensions.txt
-apps/flash_cards/λέξεις.html
+apps/flash_cards/λέξεις (copy).html
+apps/flash_cards/λέξεις_απο_βιβλια.html
+apps/flash_cards/λέξεις_απο_διαδίκτυο.html
 apps/gps/position.html
 apps/gps/position_test.html
 apps/health/relax-breathing.html
@@ -86,11 +88,13 @@ food/meta-food/health/oxidative_stress.txt
 food/meta-food/health/sugar_list.html
 food/meta-food/wild_plants_.txt
 projects/appplied_category_course.txt
-projects/home_energy.txt
-projects/landscaping.txt
+projects/construction/home_energy.txt
+projects/construction/landscaping.txt
 projects/linux_phone.html
 projects/ml_course_intro.txt
+projects/my_art/cats_dogs.html
 projects/nutrition_course_notes.txt
+projects/paper_pushing/taxes.html
 projects/solar_eclipse.txt
 projects/web.html
 science/-book-notes/ahead_of_the_curve - viruses....txt

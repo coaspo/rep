@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Tabbed Page</title>
+    <style>
+        body {
+           min-height: 100vh;
+        }
+        .tab {
+            display: none;
+        }
+
+        div {
+            display: inline;
+        }
+
+        .tab-button {
+            background-color: #eee;
+            border: none;
+            cursor: pointer;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+        }
+
+        .tab-button:hover {
+            background-color: #ddd;
+        }
+
+        .tab-button.active {
+            background-color: #ccc;
+        }
+
+        input[type="checkbox"]:disabled+label {
+            color: gray;
+        }
+    </style>
+</head>
+
+<body>
+    <button class="tab-button" onclick="openTab('tab1', this)">Flash Cards</button>
+    <button class="tab-button" onclick="openTab('tab2', this)">List</button>
+    <button class="tab-button" onclick="openTab('tab3', this)">Edit</button>
+
+    <div id="tab1" class="tab">&nbsp;
+        <div id="index"></div>&nbsp;&nbsp;
+        <div id="checkboxContainer">
+            <input type="checkbox" id="reverseCheckbox"><label for="reverseCheckbox">Reverse </label>
+            <input type="checkbox" id="sortCheckbox"><label for="sortCheckbox">Sort </label>
+            <input type="checkbox" id="reviewCheckbox"><label for="reviewCheckbox">Review </label>
+            <input type="checkbox" id="quizCheckbox"><label for="quizCheckbox">Quiz </label>
+        </div>
+        <table>
+            <tr>
+                <td><textarea name="leftTextArea" title="next" rows="7" cols="20" readonly onclick="next();"></textarea>
+                </td>
+                <td><textarea name="rightTextArea" title="view" rows="7" cols="120" readonly style='width: 60ch;'
+                        onclick="fillInRightTextArea()"></textarea></td>
+            </tr>
+        </table>
+        &nbsp;&nbsp;&nbsp;<button id="gradeQuizButton" onclick="gradeQuiz()" disabled>Grade Quiz</button><br>
+        &nbsp;&nbsp;<div id="quizInfo"></div>&nbsp;&nbsp;
+    </div>
+
+    <div id="tab2" class="tab">
+        <pre><label id="nextListTextArea" style=' width: 60ch; ' onclick="createList(1);" ></label></pre>
+    </div>
+
+    <div id="tab3" class="tab">
+        Edit and leave text box to update.<br>
+        Create groups adding: 1, 2, 3, 4
+        <div id="groupcharacters"></div> before '='<br>
+        For permanent changes, save html file and edit it.<br>
+        <textarea id="flashCardTextArea" rows="55" cols="120" style=' width: 100%;   height: 100%;'
+            onblur="upadateFlashCardText();"></textarea>
+    </div>
+
+    <script>
+        // @ts-check
+        var flashCardText = `
+ανάπαυλα      = respite; rest from difficult or unpleasant
+συγχύζω 1     =confuse/disturb; εκνευρίζω και στενοχωρώ
+Εκαβη       =Hecuba wife of Priam king of troy
+ασυλληπτο    =δεν έχουν/μπορούν συλλάβει
+μοιραιο      =fatal; αναπόφευκτος
+σουσούδα     =σουσουράδα? - πτηνο/νεαρή κοπέλα που κάνει όλο καμώματα και νάζια
+περιφρόνηση  =contempt; αδιαφορία σε κάποιον/κάτι που δεν αξίζει το ενδιαφέρον/σεβασμό
+τζουτζε  3    =γελωτοποιός; τουρκική cüce (νάνος)
+ταπεινοφροσυνη1 = humility; ANT αλαζονεία
+αποποιούμαι  1   =disclaim (refuse to acknowledge); δεν αποδέχομαι, δε δέχομαι, αρνούμαι
+αναίδεια    1    =impudence rude(no respect for another person); έλλειψη ντροπής
+πρόληψη   1    =prevention; εμποδίση αρνητικών/βλαπτικών
+όσιος           =faithful; σεβαστός, ευσεβής
+μοσχολίβανον  =Frankincense/myrrh Boswellia/Commiphora trees in Oman/Africa; gold, frankincense, and myrrh
+οιωνός    1      =omen
+περιβόητος   1   =notorious, famous
+υποθήκη       =mortgage
+έσχατος   1    =final; Τελευταίος, νεότερος, χειρότερος (για δήλωση ταπεινότητας)
+στο πι και φι 2= πολύ γρήγορα,παλούκι/φουρκα  (αναλοσκοπισμός/αγχόνη) [Impalement/ noose]
+και ούτω καθεξής  2 =and so on
+έμεινε στο ράφι 2  =spinster; αντικείμενα να τοποθετούνται σε ράφια για στολισμό
+απτό          1  =tangible; αρχαία ελληνική φανερός
+υπονοούμενο   =implication;  λέγεται με τρόπο έμμεσο και αποχωρεί μόλις αντιμετωπίσει κπ. ισχυρότερό
+χειραφέτηση 1  =emancipation;  απαλλαγή από τη γονική κηδεμονία
+ιδιοτελής   1  =selfish; exaggerated sense of importance; ατομικό μόνο συμφέρον
+εγωκεντρικός 1 =self centered; concern only for self
+αποκύηση   1   =pregnancy
+αναγούλα   1  =τάση για εμετό, ναυτία :nausea
+θρασύδειλος 1  =θράσος όταν δεν αντιμετωπίζει απειλή, υποχωρεί μόλις αντιμετωπίσει κπ. ισχυρότερό
+βολιδοσκόπηση 1   =research; διερεύνηση για πληρέστερης εικόνας, πριν αποφάση/ενεργεια
+οικειότητα  1    =intimacy
+διατροφή      =food; τροφή που χρειάζεται για συντήρηση
+ποδόγυρος   1    =άτω μέρος του υφάσματος των γυναικείων ρούχων, 2 το γυναικείο φύλο,
+μοιχεία       =adultery
+μύχιος      1    =συνείδηση στο εσωτερικό και δεν φαίνεται ούτε εκφράζεται
+μανσόν          =κυλίνδρο που οι γυναίκες έβαζαν τα χέρια τους για ειναι ζεστα
+ακατάληπτος  1   =unintelligible; δεν είναι δυνατόν να τον καταλάβεις
+εκλιπαρώ    1    =implore(ask earnestly/humbly            ια ή με τη συμπεριφορά μου ενισχύω τη διάθεση ή την τάση κάποιου να κάνει
+αναφανδόν   1   =overtly; εντελώς φανερά ή χωρίς επιφυλάξεις
+αισχύνομαι  1   =great shame; τρέπομαι
+προβλέπω    1   =predict; διακρίνω, νιώθω, μαντεύω πριν να συμβεί
+αναβολή        =postponement
+απόβλητος   1   =outcast(rejected by society or a social group) εκδιώχθηκε, που απομακρύνθηκε υποχρεωτικά
+συνοικέσιο  1   =match; μεσολάβηση που γίνεται για να γνωριστούν ένας άντρας και μία γυναίκα
+μουρντάρης  1   =libertine; εχει πολλές εξωσυζυγικές σχέσεις (τουρκική murdar - βρομηκος)
+καλλονή        = πολύ όμορφη γυναίκα
+όψομαι      1   =επίγνωση του κακού που έκανε(ς) και ας τιμωρηθεί(ς) από το Θεό
+τσιγκογραφείο 1 =printing press; ψευδάργυρογαφείο; ψευδάργυρος-zinc (fake-silver) (actually lead, antimony, steel, and tin)
+τσιγκος      1  =λαμαρινα με ψευδάργυρο (Zn)
+κασσίτερος  1   =tin  (Sn; stannum - alloy of silver and lead), added to copper to make bronze
+σαχλος         =ανητος (χωρις μυαλο) και ασοβαρος
+εθελούσιος   1  =volunteer
+εφάπαξ      1   =single payment
+χουβαρντάς     =που δεν τσιγκουνεύεται, κερναει... τουρκική hovarda (σπάταλος)
+κερνάω         =πληρώνω το λογαριασμό  (αρχαία κιρνάω - προσθέτω νερό στο κρασί)
+μακαντάσης  3   =στενος φιλος (τουρκική mankadaş)
+μεροληπτικός 1  =discriminatory; υποστηρίζω πρόσωπο/άποψη με μη αντικειμενικό (objective) τρόπο, υποκινούμενος αποκλειστικά από προσωπικούς λόγους ή συμφέροντα
+προκατειλημμένος 1 =biased προκαταλαμβάνω
+διαθερμία   1   =heat treatment - diathermy via ultrasound/microwave
+απαράλλαχτος 1  =immutable (immutable) χορις αλλαγη
+ανέκαθεν       =always; απο παντα
+εχινόκοκκος  4  =echinococcus (sea urchin seed)- 2-7 mm symptomatic, tape worm in humans/cats/dogs/sheeps; Alveolar echinococcosis 1-4 mm - caused tumors; 2 yr treatment - 10 yr follow-up
+κουραφέξαλα  1  =ανόητα λόγια
+απιδι        1  =pear αχλάδι
+νταηλίκι     3  =τουρκικο dayılık rowdiness
+πεσκίρι      3  =προσόψι, πετσέτα προσώπου
+υπογραμμός     =underscore τύπος και υπογραμμός-υποδειγματικός άνθρωπος
+υπόδειγμα    1  =model - πρότυπο για μίμηση; υψηλότατο βαθμό τελειότητας
+παράδειγμα     =example-προς μίμηση, πρότυπο, υπόδειγμα
+ευέξαπτος   1   =temperamental; θυμώνει εύκολα
+μουσαφίρης  3   =guest - επισκέπτης/ αραβική musāfir, ταξιδιώτης
+νομάτοι        =(νοματαίοι) άνθρωποι
+παντατίφ       =pendant; μενταγιόν
+σεσημασμένος 1  =έχει συλληφθεί - γνωστός στην αστυνομία
+στρούγκα    3   =χώρος για άρμεγμα
+πρακτέον    1   =τη πρέπει να γίνει
+περιττός   1    =unnecessary
+υποχόνδριος    =hypochondriac, κατά φαντασίαν ασθενής; hypochondrium  just below the lowest
+οίκτος     1    =pity λύπη/συμπάθεια για καπιον σε πολύ άσχημη κατάσταση
+οίκτρος     1   =pitiful  προκαλει το οικτο (pity)
+Άλλαι μεν βουλαί ανθρώπων άλλα δε θεός κελεύε 4 =  Άλλα τα σχέδια των ανθρώπων κι άλλες οι προσταγές του θεού
+οικονομος    1   = housekeeper/butler; μη σπαταλος - υπηρέτης με διαχείριση του σπιτιού
+ειδύλλιο    1    =1. ερωτικό ποίημα ή λογοτεχνικό έργο  2. romance
+μέμφομαι    1    =blame κατηγορώ  accuse/blame(shame)/reproach(address with disapproval)
+πλασιέ      3    =πωλητής (French placier)
+συνουσιάζομαι  1 =intercourse; έρχομαι σε σεξουαλική επαφή
+μπινές      3    =τουρκ. πούστη
+καθοίκι    1     =ουροδοχείο; κακόβουλος και δόλιος, χωρίς αρχές
+αποπνίγω    1    =suffocate; πνίγω
+αποστομώνω   1   =silence; να μην μπορεί να απαντήσει
+αφελης      1    =naive; δε σκέφτεται τα πράγματα σε βάθος ; εξαπατάται από άλλους
+απόκληρος   1    =Disinherited heir; αποκλείεται από την κληρονομικα που του ανήκει (οθτψαστ)
+απόγνωση    1    =πολύ μεγάλη απελπισία - large despair; απόγνωμενος - desperate
+απρόοπτο    1    =unforeseen; δεν μπορείς να προβλέψεις
+μείζονα    1     =major - greater
+έμμηνα      1    =mense - blood from uterus
+ουδέν κακόν αμιγές καλού  4 =κανενα κακον ποθ δεν εχει αναμιχθει με καλον
+παράδοξο        =σύγκρουση με την κοινή λογική, λογική πρόταση που ενώ είναι φανερά λάθος στηρίζεται λογικά
+σορολόπ    3     =τεμπελιά, αδιαφορία για κάτι που πρέπει να γίνει (τουρκικη)
+προαλλες    1    =προηγούμενες ημέρες
+μακαρίζω    1    =θεωρώ κπ. ευτυχισμένο; μηδένα προ του τέλους* μακάριζε
+μακάριος    1    =blessed  ευτυχισμένος, δεν έχει βάσανα και έγνοιες
+μακαρίτης    1   =deceased
+καρωτιδα     1   =carotid; two main arteries which carry blood to the head (kara) and neck,
+παρονομαστής 1   =denominator; η κατάσταση στην οποία βρισκόμαστε
+απάντεχα    1    =unexpectedly αναπάντεχα - unexpectedly; χωρίς να το περιμένει
+απρόοπτο   1     =unexpected
+απαντέχω    1    =περιμένω,
+ενδοιασμός  1    =hesitation δισταγμός, αμφιβολία σχετικά με τη λήψη κάποιας απόφασης
+αναδρομή   1     =retrospective
+μεντεσές    3    =hinge (door)
+φείδομαι    1    =κάνω οικονομία;
+φείδου χρόνου  4 =μη σπαταλάς το χρόνο σου
+σκοτοδίνη   1    =πρόσκαιρη (temporary) ζάλη με στιγμιαία απώλεια της όρασης και ίλιγγο (vertigo/ense of meovement)
+αλλεπάλληλα  1   =successive
+λαμια       1    =μυθικό ανθρωποφάγο τέρας με τη μορφή γυναίκας; ghoul -rob graves and feed on dead bodies
+διαύγεια   1     =clarity; καθαρο, πνευματική καθαρότητα
+υποκειμενο  1    =subject; rare κακής ποιότητας άνθρωπος
+ποταπός     1    =ηθικά ευτελής (φτηνός), τιποτένιος, μικρός
+προβλήτα   1     =προεξοχή ενός λιμανιού, εκεί που δένουν τα καράβια; jetty ( pier, that projects into a body of water to influence the current or tide or to protect a harbor or shoreline from storms or erosion)
+λαγός τη φτέρη έσειε, κακό του κεφαλιού του 4 =κάποιον που ευθύνεται ο ίδιος για τα παθήματά του.
+αντιτάσσω   1   =pit/oppose
+αζημίωτος   1   =losssless;  δεν ζημιώθηκε,
+κάσκα       3   =κράνος, μοτοσικλετιστή/ποδηλάτη
+έξαψη      1    =excitement ερεθίζμα
+συσχετίζω  1    =correlate φανερώνω την ύπαρξη μιας σχέσης μεταξύ δύο στοιχείων
+ιστοριοδίφης 1  =history/document researcher
+επιπόλαιος   1  =ενεργεί χωρίς σκέψη, δεν σκέπτεται σοβαρά
+θαμώνας     1   =habitué; συχνάζει σε κάποιο μέρος
+πλερέζα    3    =μαύρο τούλι καλύπτει το πρόσωπο που πενθούν
+τσατίζω    3    =piss off; εκνευρίζω (turkish)
+συνωστισμός 1   =crowding/pushing
+επωδός    1    =μέρος ποιήματος ή τραγουδιού που επαναλαμβάνεται
+εύθυμος     1   =merry; που έχει καλή διάθεσηmarkcharactersυς
+λοίσθιος   1    =τελευταίος, ύστατος
+μικροαστός 1    =little bourgeois (middle class; material interests + tendency toward mediocrity)
+σεμνοτυφία  1   =υπερβολική και συχνά υποκριτική σεμνότητα; ψευτοσεμνοτυφία
+μπανιστήρι 1    =voyeurism
+αχαμνά         =groin
+τουναντίον  1   =on the contrary; αντιθέτως
+νωχελικός  1    =nonchalant; αποφεύγει κάθε πνευματική ή σωματική προσπάθεια λόγω αδιαφορίας ή ανίας (δυσάρεστη ψυχική κατάσταση)
+πρεζάκιας  3   =ναρκομανής που παίρνει δόση κυρίως ηρωίνης με βελόνα; ρίξε στο φαγητό μια πρέζα αλάτι
+συγκαλά   1     =πνευματική διαύγεια(clarity) και ισορροπία
+αιμόπτυση  1    =αίμα στο στόμα αίματος από το αναπνευστικό (hemoptysis - coughing up of blood)
+Ουδέν κρυπτόν υπό τον ήλιον 4 =There is nothing new under the sun
+οδυρμός   1    =θρήνος; λαυθμός και οδυρμός το βράδυ των εκλογών
+άγχος     1     =anxiety; ψυχοσωματικο - νιώθει πίεση από το βάρος των υποχρεώσεών του, φόβο και ανησυχία
+δυσφορία  1     =ελαφράς αδιαθεσίας, αβολίας, εκνευρισμού,
+σπόντα    1     =κουβέντα που λέγεται για κάποιον και υπονοεί (άσχημα) πράγματα γι’ αυτόν αλλά και τον ενοχλεί
+μνησικακία  1   =grudge
+εξευμενίζω  1   =placate; κάνω κάτι σε κάποιον που έχω εκνευρίσει για να τον ηρεμήσω
+βαυκαλίζομαι 1  =[βαυκαλίζω (νανουρίζω)] παραμυθιάζομαι, εξαπατώ ή καθησυχάζω τον εαυτό μου με ψεύτικες προσδοκίες
+προσδοκία  1    =expectation
+μπουρτζόβλαχος 3 =μπούρτζι (πύργος) wandering shepherd
+χουζούρι    3   =ξεκουράζεται κάποιος τεμπελιάζοντας και να απολαμβάνει την κατάσταση αυτή; τουρκική huzur (ξεκούραση)
+υστεροβουλία 1  =ulterior(hidden) motive - concealed meaning or intention behind saying or doing something
+δουλικό     1   =υπηρέτρια, άσχημη γυναίκα
+παστρικός   1   =καθαρος
+τσιράκι     3   =βοηθός μάστορα/ακολουθεί δουλικά και αναξιοπρεπώς κάποιον που θεωρείται ανώτερός του -minion - sycophant - obsequious (obedient or attentive to an excessive or servile degree)
+καταγμα     1   =fracture
+νάρθηκας    1   =χώρος στην είσοδο των χριστιανικών ναών
+βάρδα      3    =Απομακρύνσου, κάνε στην άκρη, φεύγα; vardar: απομακρύνομαι
+ατελιέ     3    =εργαστήριο καλλιτέχνου
+ακαλαίσθητος 1  =δεν έχει αίσθηση του ωραίου/καλό γούστο - inelegant views
+χαμηλόκωλος    =εντύπωση ότι ο πισινός έχει χαμηλή θέση
+αμανάτι    3    =οτιδήποτε εμπιστεύεται κανείς να του το φυλάξει άλλος
+λιμοκοντόρος 1  =φτωχού νεαρού, που ντύνεται επιδεικτικά και παριστάνει τον γόη (με χαρη)
+αχιβαδα    1    =clam, κοχύλι: seashell, μυδι: mussel, όστρακο: κομμάτι από σπασμένο πήλινο/υδρόβιων κάλυμμα
+πρόσφατος  1    =recently
+αλλόκοτος   1   =otherworldly; παράξενος σunexpectedτη μορφή ή στη συμπεριφορά
+αναφιλητό   1   =έντονο κλάμα; αρχαία ελληνική ἀναφλύω (κοχλάζω)?
+επιστήθιος  1   =καλύπτει το στήθος; πολύ αγαπημένος επιστήθιος φίλος
+ενύπνιο    1    =όνειρο
+αγιόκλημα  1    =honeysuckle
+χαριτόβρυτος 1  =graceful
+χαϊρι      3    =προκοπή
+ανέχομαι    1   =tolerate; δέχομαι χωρίς αντίδραση κάτι που μ’ ενοχλεί
+εμβλημα      1  =συμβολικό διακριτικό σχήμα; emblem: object/figure suggesting obj./idea - thumbs up
+απαλλαγώ       =get rid of
+δυσφορία    1   =ελαφράς αδιαθεσίας, αβολίας, εκνευρισμού; disforia: profound sense of unease or dissatisfaction - in depression, anxiety, irritability, and difficulty concentrating
+`;
+        // Function to switch between tabs
+        var activeTab
+        function openTab(tabName, button) {
+            activeTab = tabName
+            var i, tab, tabButton;
+            tab = document.getElementsByClassName("tab");
+            for (i = 0; i < tab.length; i++) {
+                tab[i].style.display = "none";
+            }
+            tabButton = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tabButton.length; i++) {
+                tabButton[i].classList.remove("active");
+            }
+            document.getElementById(tabName).style.display = "block";
+            button.classList.add("active");
+        }
+
+        // Open the first tab by default
+        openTab('tab1', document.querySelector('.tab-button:nth-child(1)'));
+
+        // Add an event listener to the text area to display "left text area" on blur (when leaving)
+        const textArea = document.getElementById("flashCardTextArea");
+        textArea.addEventListener("onchange", function () {
+            console.log("Left text area");
+        });
+
+
+        const flashCardTextArea = document.getElementById("flashCardTextArea")
+        flashCardTextArea.value = flashCardText.trim()
+
+        var flashCardList = createFlashCards(flashCardText);
+        var displayFlashCardList = [...flashCardList]; addMarkerCheckboxesAndCreateActiveCardMarkersSet
+        var flashCardAnswerList;
+
+        var groupNumbers = findGroupNumbers(flashCardList);
+        var activeCardMarkers;
+        var sortedIndexes = findSortedIndexes(displayFlashCardList);
+        var displayArrayIndex = 0;
+        var displayListIndex = 0;
+        var isWordMeaningReversed = false
+        var isReviewMode = false
+        var isSortMode = false
+        var isQuizMode = false
+        var startY;
+        var previousIncrement = 1
+
+        initializeWebPage()
+
+        function initializeWebPage() {
+            console.log('initializeWebPage()')
+            addMarkerCheckboxesAndCreateActiveCardMarkersSet(groupNumbers);
+            fillInTextAreas()
+            const reverseCheckbox = document.getElementById("reverseCheckbox");
+            reverseCheckbox.addEventListener('change', function () {
+                isWordMeaningReversed = reverseCheckbox.checked
+                fillInTextAreas()
+            });
+
+            const sortCheckbox = document.getElementById("sortCheckbox");
+            sortCheckbox.addEventListener('change', function () {
+                isSortMode = sortCheckbox.checked
+                displayArrayIndex = 0
+                fillInTextAreas()
+            });
+
+            const reviewCheckbox = document.getElementById("reviewCheckbox");
+            reviewCheckbox.addEventListener('change', function () {
+                isReviewMode = reviewCheckbox.checked;
+                fillInRightTextArea();
+            });
+
+            const quizCheckbox = document.getElementById("quizCheckbox");
+            quizCheckbox.addEventListener('change', function () {
+                isQuizMode = quizCheckbox.checked
+                console.log('isQuizMode= ' + isQuizMode)
+                if (isQuizMode) {
+                    isReviewMode = false;
+                    isSortMode = false;
+                    document.getElementById("reviewCheckbox").checked = false
+                    document.getElementById("sortCheckbox").checked = false
+                    flashCardAnswerList = Array(displayFlashCardList.length).fill("");
+                    document.getElementById("quizInfo").innerHTML = "Type one word anwser and go to next card. <br>&nbsp;&nbsp;Correct answer is the first flash card word."
+                } else {
+                    document.getElementById("quizInfo").innerHTML = ""
+                }
+                document.getElementById("").disabled = isQuizMode;
+                document.getElementById("reviewCheckbox").disabled = isQuizMode;
+                document.getElementById("sortCheckbox").disabled = isQuizMode;
+                document.getElementsByName("rightTextArea")[0].readOnly = !isQuizMode;
+                for (const groupNumber of groupNumbers) {
+                    document.getElementById(groupNumber).disabled = isQuizMode;
+                }
+                displayArrayIndex = 0
+                fillInTextAreas()
+            });
+
+            const rightTextArea = document.getElementsByName("rightTextArea")[0]
+            console.log('rightTextArea= ' + rightTextArea)
+            rightTextArea.addEventListener('change', function (event) {
+                if (!isQuizMode) {
+                    return
+                }
+                flashCardAnswerList[displayArrayIndex] = rightTextArea.value
+                let haveAllAnswers = true
+                for (const answer of flashCardAnswerList) {
+                    if (answer == '') {
+                        haveAllAnswers = false
+                        break
+                    }
+                }
+                if (haveAllAnswers) {
+                    document.getElementById("gradeQuizButton").disabled = false;
+                }
+            });
+
+
+            const handleStart = (e) => {
+                startY = e.clientY || e.touches[0].clientY;
+                console.log('+++++++handleStart;' + activeTab)
+            };
+
+            const handleEnd = (e) => {
+                let endY = e.clientY || e.changedTouches[0].clientY;
+                let deltaY = endY - startY;
+                let swipeThreshold = 50;
+                console.log('~~deltaY=' + deltaY)
+                if (deltaY > swipeThreshold) {
+                    if (activeTab == 'tab1') {
+                        next()
+                    } else if (activeTab == 'tab2') {
+                        createList(1)
+                    }
+                    //document.body.style.backgroundColor = 'green';
+                } else if (deltaY < -swipeThreshold) {
+                    if (activeTab == 'tab1') {
+                        previous()
+                        console.log('~~dprevious???')
+                    } else if (activeTab == 'tab2') {
+                        createList(-1)
+                    }
+                    //document.body.style.backgroundColor = 'red';
+                }
+            };
+
+            const handleClick = (e) => {
+                console.log("===click, e=" + e)
+                if (activeTab == 'tab1') {
+                    next()
+                } else if (activeTab == 'tab2') {
+                    createList(1)
+                }
+            };
+
+            document.addEventListener('mousedown', handleStart);
+            document.addEventListener('touchstart', handleStart);
+
+            document.addEventListener('mouseup', handleEnd);
+            document.addEventListener('touchend', handleEnd);
+            document.addEventListener('click', handleClick);
+            createList(1);
+        }
+
+        function gradeQuiz() {
+            document.getElementById("gradeQuizButton").disabled = true;
+            let correctCount = 0
+            for (let i = 0; i < flashCardAnswerList.length; i++) {
+                answer = flashCardAnswerList[i].trim().toLowerCase()
+                const j = isWordMeaningReversed ? 0 : 1;
+                let str = displayFlashCardList[i][j].trim()
+                let words = str.split(/\s+/);
+                correctAnswer = words[0].toLowerCase()
+                isCorrect = answer == correctAnswer
+                correctCount += isCorrect ? 1 : 0
+                let mark = isCorrect ? "✅ " : "❌ "
+                flashCardAnswerList[i] = mark + flashCardAnswerList[i]
+                if (!isCorrect) {
+                    flashCardAnswerList[i] += "\n✅: " + correctAnswer
+                }
+
+            }
+            displayArrayIndex = 0
+            fillInRightTextArea()
+            const score = (100 * correctCount / flashCardAnswerList.length).toFixed(0)
+            const info = score == 100 ? 'Quiz score: <p style="color: darkgreen;">100%</p>' :
+                'Quiz score: <p style="color: red;">' + score + '%</p>';
+            document.getElementById("quizInfo").innerHTML = info
+        }
+
+
+
+        function createFlashCards(flashCardText) {
+            flashCardText = flashCardText.trim()
+            let linesArray = flashCardText.trim().split('\n');
+            let originalLineCount = linesArray.length
+            linesArray = linesArray.filter(str => str.includes('='));
+            if (originalLineCount != linesArray.length) {
+                console.log((originalLineCount - linesArray.length) + ' lines dropped, did not have "="')
+            }
+            let flashCardList = [];
+            for (const line of linesArray) {
+                const flashCard = line.split('=').map(value => value.trim());
+                flashCardList.push(flashCard);
+            }
+            console.log('createFlashCards() ' + flashCardList.length + ' flash cards')
+            return flashCardList
+        }
+
+        function filterFlashCards(flashCardList, activeCardMarkers) {
+            let filteredFlashCardList = [];
+            for (const flashCard of flashCardList) {
+                for (const char of activeCardMarkers) {
+                    if (flashCard[0].includes(char)) {
+                        filteredFlashCardList.push(flashCard);
+                    }
+                }
+            }
+            console.log('filterFlashCards() ' + filteredFlashCardList.length + ' filtered flash cards')
+            return filteredFlashCardList
+        }
+
+        function findGroupNumbers(flashCardList) {
+            let numbers = new Set();
+            const validNumbers = ['1', '2', '3', '4', '5']
+            for (const flashCard of flashCardList) {
+                for (const char of validNumbers) {
+                    if (flashCard[0].includes(char)) {
+                        numbers.add(char);
+                    }
+                }
+            }
+            console.log('findCardMarkers()  found:')
+            console.log(...numbers)
+            return numbers
+        }
+
+        function addMarkerCheckboxesAndCreateActiveCardMarkersSet(groupNums) {
+            console.log('====')
+            console.log(...groupNums)
+            activeCardMarkers = new Set(); // global variable
+            for (const groupNum of groupNums) {
+                const checkbox = document.createElement("input");
+                checkbox.type = "checkbox";
+                checkbox.id = groupNum
+                const label = document.createElement('label');
+                label.htmlFor = groupNum;
+                label.appendChild(document.createTextNode(groupNum + ' '));
+                const checkboxContainer = document.getElementById("checkboxContainer");
+                checkboxContainer.appendChild(checkbox);
+                checkboxContainer.appendChild(label);
+                checkbox.addEventListener('click', update);
+
+                function update() {
+                    displayArrayIndex = 0
+                    if (checkbox.checked) {
+                        activeCardMarkers.add(groupNum)
+                    } else {
+                        activeCardMarkers.delete(groupNum)
+                    }
+                    displayFlashCardList = activeCardMarkers.size == 0 ? flashCardList : filterFlashCards(flashCardList, activeCardMarkers)
+                    console.log('update() a marker Checkbox; activeCardMarkers= ' + Array.from(activeCardMarkers));
+                    fillInTextAreas()
+                }
+            }
+            console.log('addMarkerCheckboxesAndCreateActiveCardMarkersSet()')
+        }
+
+        function findSortedIndexes(flashCardList) {
+            let sortedIndexes = [];
+            const clonedFlashCardList = flashCardList.slice();
+            clonedFlashCardList.sort((a, b) => a[0].localeCompare(b[0]));
+            for (const row of clonedFlashCardList) {
+                const index = flashCardList.indexOf(row);
+                sortedIndexes.push(index);
+            }
+            return sortedIndexes;
+        }
+
+
+        function removeCheckbox(cardMarker) {
+            const checkbox = document.getElementById(cardMarker);
+            const checkboxContainer = document.getElementById("checkboxContainer");
+            checkboxContainer.removeChild(checkbox.parentElement);
+        }
+
+        function next() {
+            if (activeTab == 'tab1') {
+                displayArrayIndex += 1;
+                if (displayArrayIndex == displayFlashCardList.length) {
+                    displayArrayIndex = 0;
+                }
+                fillInTextAreas()
+            }
+        }
+
+        function previous() {
+            displayArrayIndex -= 1;
+            if (displayArrayIndex < 0) {
+                displayArrayIndex = displayFlashCardList.length - 1;
+            }
+            console.log('=== previous ' + displayArrayIndex)
+            fillInTextAreas()
+        }
+
+        function fillInTextAreas() {
+            const j = isWordMeaningReversed ? 1 : 0;
+            const i = isSortMode ? sortedIndexes[displayArrayIndex] : displayArrayIndex;
+            console.log('i=' + i + '  j=' + j)
+            document.getElementsByName("leftTextArea")[0].value = displayFlashCardList[i][j]
+            var label = document.getElementById("index");
+            fillInRightTextArea()
+            label.innerHTML = String(displayArrayIndex + 1) + ' / ' + String(displayFlashCardList.length)
+        }
+
+        function fillInRightTextArea() {
+            if (activeTab == 'tab1') {
+                if (isReviewMode) {
+                    const j = isWordMeaningReversed ? 0 : 1;
+                    const i = isSortMode ? sortedIndexes[displayArrayIndex] : displayArrayIndex;
+                    document.getElementsByName("rightTextArea")[0].value = displayFlashCardList[i][j]
+                } else if (isQuizMode) {
+                    document.getElementsByName("rightTextArea")[0].value = flashCardAnswerList[displayArrayIndex]
+                } else {
+                    document.getElementsByName("rightTextArea")[0].value = ''
+                }
+                console.log("fillInRightTextArea() text: " + document.getElementsByName("rightTextArea")[0].value);
+            }
+        }
+        //--------------------------------------------------------------------------------------------
+
+        function upadateFlashCardText() {
+            for (const groupNumber of groupNumbers) {
+                removeCheckbox(groupNumber)
+            }
+            flashCardText = document.getElementById("flashCardTextArea").value
+            flashCardList = createFlashCards(flashCardText);
+            displayFlashCardList = [...flashCardList];
+            groupNumbers = findGroupNumbers(flashCardList);
+            addMarkerCheckboxesAndCreateActiveCardMarkersSet(groupNumbers);
+            sortedIndexes = findSortedIndexes(displayFlashCardList);
+            displayArrayIndex = 0;
+            fillInTextAreas()
+            console.log('upadateFlashCardText() done')
+        }
+        //--------------------------------------------------------------------------------------------
+
+        function createList(increment) {
+
+            let html = ''
+            if (increment != previousIncrement) {
+                displayListIndex = displayListIndex + 14 * increment;
+            }
+            if (displayListIndex < 0) {
+                displayListIndex = displayFlashCardList.length - 6
+            } else if (displayListIndex > displayFlashCardList.length) {
+                displayListIndex = 0
+            }
+            let j = 0;
+            for (let i = 0; i < 7; i++) {
+                j = i + displayListIndex
+                if (j > (displayFlashCardList.length - 1)) {
+                    break;
+                } else if (j < 0) {
+                    break;
+                }
+                console.log(j)
+                var pattern = /[1234]/g;
+                html += (j + 1) + '  <b>' + displayFlashCardList[j][0].replace(pattern, '')
+                let nSpaces = 18 - displayFlashCardList[j][0].length
+                html += '</b>'.padStart(nSpaces, ' ')
+                html += ' ' + colorNonGreekWordsRed(displayFlashCardList[j][1])
+                nSpaces = 25 - displayFlashCardList[j][1].length
+                html += ''.padStart(nSpaces, ' ')
+                html += '<br>'.padEnd(50, ' ')
+                html += '<br>';
+            }
+            displayListIndex += 7 * increment;
+            previousIncrement = increment
+            document.getElementById("nextListTextArea").innerHTML = html
+            console.log('createNextList() done ' + increment)
+
+        }
+
+
+        function colorNonGreekWordsRed(inputString) {
+            var regex = /[^Α-ΩΆΈΉΊΌΎΏα-ωάἀέήίόύώϋΰϊΐ`’!@#\$%\^&\*\(\)_\-\+=\[\]\{\};:'"<>,\./?\\|]+/g;
+            var coloredString = inputString.replace(regex, function (match) {
+                return '<span style="color: red;">' + match + '</span>';
+            });
+            return coloredString;
+        }
+
+    </script>
+</body>
+
+</html>
