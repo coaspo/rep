@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 import pathlib
 import textwrap
 
@@ -23,5 +24,5 @@ def main():
   print('done')
 
 main()
-PATH=”$PATH:/usr/bin/python”
-sudo ln -s /usr/bin/python3.12 /usr/bin/python
+#PATH='$PATH:/usr/bin/python''
+#sudo ln -s /usr/bin/python3.12 /usr/bin/python
