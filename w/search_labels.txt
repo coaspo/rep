@@ -296,19 +296,19 @@ prologue$$95$$#p
 political refugees$$95$$#1
 on the wall$$95$$#2
 ineffable$$95$$#3
-guilt$$95$$#3
-angel$$95$$#4
-palliate cats$$95$$#5
-musing$$95$$#6
-definition of isolation$$95$$#7
-dog story$$95$$#8
-cat story$$95$$#9
-slaves$$95$$#10
-royalty$$95$$#11
-carrot$$95$$#12
-side effects$$95$$#13
-broken$$95$$#14
-social outcasts/misfits$$95$$#15
+guilt$$95$$#4
+angel$$95$$#5
+palliate cats$$95$$#6
+musing$$95$$#7
+definition of isolation$$95$$#8
+dog story$$95$$#9
+cat story$$95$$#10
+slaves$$95$$#11
+royalty$$95$$#12
+carrot$$95$$#13
+side effects$$95$$#14
+broken$$95$$#15
+social outcasts/misfits$$95$$#16
 epilogue$$95$$#epi
 top$$95$$#top
 top$$95$$#top
