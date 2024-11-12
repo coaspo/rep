@@ -304,12 +304,12 @@ definition of isolation$$95$$#8
 dog story$$95$$#9
 cat story$$95$$#10
 best story$$95$$#11
-slaves$$95$$#11
-royalty$$95$$#12
-carrot$$95$$#13
-side effects$$95$$#14
-broken$$95$$#15
-social outcasts/misfits$$95$$#16
+slaves$$95$$#12
+royalty$$95$$#13
+carrot$$95$$#14
+side effects$$95$$#15
+broken$$95$$#16
+social outcasts/misfits$$95$$#17
 epilogue$$95$$#epi
 top$$95$$#top
 top$$95$$#top
@@ -332,6 +332,7 @@ top$$95$$#top
 top$$95$$#top
 deepl.com - translator$$95$$https://www.deepl.com/en/translator
 greek-language.gr - ελληνικό λεξικό$$95$$https://www.greek-language.gr/
+kahneman(princeton behavioral economics): thinking, fast and slow$$95$$https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow
 prologue$$96$$#p
 political refugees$$96$$#1
 on the wall$$96$$#2
@@ -344,12 +345,12 @@ definition of isolation$$96$$#8
 dog story$$96$$#9
 cat story$$96$$#10
 best story$$96$$#11
-slaves$$96$$#11
-royalty$$96$$#12
-carrot$$96$$#13
-side effects$$96$$#14
-broken$$96$$#15
-social outcasts/misfits$$96$$#16
+slaves$$96$$#12
+royalty$$96$$#13
+carrot$$96$$#14
+side effects$$96$$#15
+broken$$96$$#16
+social outcasts/misfits$$96$$#17
 epilogue$$96$$#epi
 top$$96$$#top
 top$$96$$#top
@@ -372,6 +373,7 @@ top$$96$$#top
 top$$96$$#top
 deepl.com - translator$$96$$https://www.deepl.com/en/translator
 greek-language.gr - ελληνικό λεξικό$$96$$https://www.greek-language.gr/
+kahneman(princeton behavioral economics): thinking, fast and slow$$96$$https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow
 ai help$$97$$https://www.gov.gr/en/
 how to get afm (αφμ) tax id.$$97$$https://www.gov.gr/en/upourgeia/oloi-foreis/anexartete-arkhe-demosion-esodon-aade/apodose-arithmou-phorologikou-metroou-aphm-kai-kleidarithmou-se-phusiko-prosopo
 aaade.gr$$97$$https://www.aade.gr/en

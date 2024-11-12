@@ -16,7 +16,7 @@ def main():
                lang = language(text)
                if 'greek' in lang:
                  greek_line_count += 1
-                 new_line = to_str(greek_line_count)+ line
+                 #new_line = to_str(greek_line_count)+ 'g'+ line
                elif 'english' in lang:
                  englist_line_count += 1
                  new_line = to_str(englist_line_count)+ line
