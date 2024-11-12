@@ -94,6 +94,7 @@ projects/courses/ml_course_intro.txt
 projects/courses/nutrition_course_notes.txt
 projects/linux_phone.html
 projects/my_art/cats_dogs.html
+projects/my_art/tmp.html
 projects/paper_pushing/greek_irs.html
 projects/paper_pushing/φόροι_taxes.html
 projects/solar_eclipse.txt

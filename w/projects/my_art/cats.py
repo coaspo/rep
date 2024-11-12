@@ -1,6 +1,6 @@
 def main():
   print('start')
-  with open("cats and humans.html", "r") as infile, open('cats and humans2.html', 'w') as outfile:
+  with open("cats_dogs_humans.tmp", "r") as infile, open('tmp.html', 'w') as outfile:
       # Iterate through each line in the file
       isContent = False
       englist_line_count = 0
