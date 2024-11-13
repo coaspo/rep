@@ -311,6 +311,7 @@ side effects$$95$$#15
 broken$$95$$#16
 social outcasts/misfits$$95$$#17
 epilogue$$95$$#epi
+reference$$95$$#ref
 top$$95$$#top
 top$$95$$#top
 top$$95$$#top
@@ -331,8 +332,21 @@ top$$95$$#top
 top$$95$$#top
 top$$95$$#top
 deepl.com - translator$$95$$https://www.deepl.com/en/translator
-greek-language.gr - ελληνικό λεξικό$$95$$https://www.greek-language.gr/
-kahneman(princeton behavioral economics): thinking, fast and slow$$95$$https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow
+greek-language.gr - greek dictionary$$95$$https://www.greek-language.gr/
+kahneman(behavioral economics): thinking, fast and slow$$95$$https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow
+heuristic$$95$$https://www.merriam-webster.com/dictionary/heuristic
+ineffable$$95$$https://www.merriam-webster.com/dictionary/ineffable
+palliate$$95$$https://www.merriam-webster.com/dictionary/palliate
+nemesis$$95$$https://www.merriam-webster.com/dictionary/nemesis
+evil$$95$$https://www.merriam-webster.com/dictionary/evil
+obfuscate$$95$$https://www.merriam-webster.com/dictionary/obfuscate
+depraved$$95$$https://www.merriam-webster.com/dictionary/depraved
+ευρετικός$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ευρετικός
+ανείπωτα$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ανείπωτα
+ανακουφιστικό$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ανακουφιστικό
+νέμεσις$$95$$https://en.wiktionary.org/wiki/https://en.wiktionary.org/wiki/Νέμεσις
+συσκοτίζω$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=συσκοτίζω
+διεφθαρμένος$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=διαφθείρω
 prologue$$96$$#p
 political refugees$$96$$#1
 on the wall$$96$$#2
@@ -352,6 +366,7 @@ side effects$$96$$#15
 broken$$96$$#16
 social outcasts/misfits$$96$$#17
 epilogue$$96$$#epi
+reference$$96$$#ref
 top$$96$$#top
 top$$96$$#top
 top$$96$$#top
@@ -372,8 +387,21 @@ top$$96$$#top
 top$$96$$#top
 top$$96$$#top
 deepl.com - translator$$96$$https://www.deepl.com/en/translator
-greek-language.gr - ελληνικό λεξικό$$96$$https://www.greek-language.gr/
-kahneman(princeton behavioral economics): thinking, fast and slow$$96$$https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow
+greek-language.gr - greek dictionary$$96$$https://www.greek-language.gr/
+kahneman(behavioral economics): thinking, fast and slow$$96$$https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow
+heuristic$$96$$https://www.merriam-webster.com/dictionary/heuristic
+ineffable$$96$$https://www.merriam-webster.com/dictionary/ineffable
+palliate$$96$$https://www.merriam-webster.com/dictionary/palliate
+nemesis$$96$$https://www.merriam-webster.com/dictionary/nemesis
+evil$$96$$https://www.merriam-webster.com/dictionary/evil
+obfuscate$$96$$https://www.merriam-webster.com/dictionary/obfuscate
+depraved$$96$$https://www.merriam-webster.com/dictionary/depraved
+ευρετικός$$96$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ευρετικός
+ανείπωτα$$96$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ανείπωτα
+ανακουφιστικό$$96$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ανακουφιστικό
+νέμεσις$$96$$https://en.wiktionary.org/wiki/https://en.wiktionary.org/wiki/Νέμεσις
+συσκοτίζω$$96$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=συσκοτίζω
+διεφθαρμένος$$96$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=διαφθείρω
 ai help$$97$$https://www.gov.gr/en/
 how to get afm (αφμ) tax id.$$97$$https://www.gov.gr/en/upourgeia/oloi-foreis/anexartete-arkhe-demosion-esodon-aade/apodose-arithmou-phorologikou-metroou-aphm-kai-kleidarithmou-se-phusiko-prosopo
 aaade.gr$$97$$https://www.aade.gr/en
