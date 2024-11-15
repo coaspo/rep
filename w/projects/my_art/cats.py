@@ -11,7 +11,7 @@ def main():
         if '<!-- -->' in line:
           isContent= True
         if isContent:
-           if len(text) > 0 and text[0] != '<':
+           if len(text) > 0 and text[0] != '<' and text[0] != '[':
              if len(text) > 0 and text[0] !='<':
                lang = language(text)
                if 'greek' in lang:
