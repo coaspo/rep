@@ -303,9 +303,9 @@ musing$$95$$#7
 definition of isolation$$95$$#8
 dog story$$95$$#9
 cat story$$95$$#10
-best story$$95$$#11
+donkey story$$95$$#11
 slaves$$95$$#12
-royalty$$95$$#13
+royal$$95$$#13
 carrot$$95$$#14
 side effects$$95$$#15
 broken$$95$$#16
@@ -313,64 +313,57 @@ social outcasts/misfits$$95$$#17
 epilogue$$95$$#epi
 reference$$95$$#ref
 top$$95$$#top
-[he]$$95$$#he
+heuristic$$95$$https://www.merriam-webster.com/dictionary/heuristic
+ευρετική$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ευρετικός
 top$$95$$#top
-[th]$$95$$#th
+thoughtful$$95$$https://www.merriam-webster.com/dictionary/thoughtful
+cave with the shadows$$95$$https://en.wikipedia.org/wiki/Allegory_of_the_cave
+μῆτις$$95$$https://en.wiktionary.org/wiki/https://en.wiktionary.org/wiki/μῆτις
+σπηλιά με τις σκιές;$$95$$https://el.wikipedia.org/wiki/%CE%91%CE%BB%CE%BB%CE%B7%CE%B3%CE%BF%CF%81%CE%AF%CE%B1_%CF%84%CE%BF%CF%85_%CE%A3%CF%80%CE%B7%CE%BB%CE%B1%CE%AF%CE%BF%CF%85
 top$$95$$#top
-[de]$$95$$#de
-[in]$$95$$#in
+deprave$$95$$https://www.merriam-webster.com/dictionary/depraved
+διαφθείρει.$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=διαφθείρω
+ιneffable$$95$$https://www.merriam-webster.com/dictionary/ineffable
+aνείπωτα$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ανείπωτα
 top$$95$$#top
-[co]$$95$$#co
+coerced$$95$$https://www.merriam-webster.com/dictionary/coerce
+καταναγκάστηκαν$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=καταναγκάζω
 top$$95$$#top
-[pa]$$95$$#pa
+palliate$$95$$https://www.merriam-webster.com/dictionary/palliate
+ανακουφιστικό$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ανακουφιστικό
 top$$95$$#top
-[ne]$$95$$#ne
-[ev]$$95$$#ev
-[ju]$$95$$#ju
+nemesis$$95$$https://www.merriam-webster.com/dictionary/nemesis
+evil$$95$$https://www.merriam-webster.com/dictionary/evil
+judgment$$95$$https://www.merriam-webster.com/dictionary/judgment
+νέμεσις$$95$$https://en.wiktionary.org/wiki/https://en.wiktionary.org/wiki/Νέμεσις
+πονηρό$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=πονηρός
+απόφαση;$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=απόφαση
 top$$95$$#top
-[pr]$$95$$#pr
+privacy$$95$$https://www.merriam-webster.com/dictionary/privacy
+ιδιωτικότητα;$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ιδιωτικότητα
 top$$95$$#top
-[tr]$$95$$#tr
+trade-offs$$95$$https://www.merriam-webster.com/dictionary/trade-off
+συμβιβασμός;$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=συμβιβασμός
 top$$95$$#top
-[pa]$$95$$#pa
-top$$95$$#top
-top$$95$$#top
-top$$95$$#top
-top$$95$$#top
-top$$95$$#top
+pandiculation$$95$$https://www.merriam-webster.com/dictionary/pandiculation
+ανακλάδισμα$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ανακλάδισμα
 top$$95$$#top
 top$$95$$#top
-[tu]$$95$$#tr
 top$$95$$#top
+top$$95$$#top
+top$$95$$#top
+top$$95$$#top
+top$$95$$#top
+trumps$$95$$https://www.merriam-webster.com/dictionary/trump
+ατού$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ατού
+top$$95$$#top
+kahneman(behavioral economics): thinking, fast and slow$$95$$https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow
+σκέψη, αργή και γρήγορη συμπεριφορική οικονομική$$95$$https://www.public.gr/product/books/greek-books/economics/economics/skepsi-argi-kai-grigori/0759965
 deepl.com - translator$$95$$https://www.deepl.com/en/translator
 greek-language.gr - greek dictionary$$95$$https://www.greek-language.gr/
-kahneman(behavioral economics): thinking, fast and slow$$95$$https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow
-heuristic$$95$$https://www.merriam-webster.com/dictionary/heuristic
-thoughtful$$95$$https://www.merriam-webster.com/dictionary/thoughtful
+wordreference.com- english-greek dictionary$$95$$https://www.wordreference.com/engr/
 depraved$$95$$https://www.merriam-webster.com/dictionary/depraved
-ineffable$$95$$https://www.merriam-webster.com/dictionary/ineffable
-palliate$$95$$https://www.merriam-webster.com/dictionary/palliate
-evil$$95$$https://www.merriam-webster.com/dictionary/palliate
-nemesis$$95$$https://www.merriam-webster.com/dictionary/nemesis
-judgment$$95$$https://www.merriam-webster.com/dictionary/ineffable
-privacy$$95$$https://www.merriam-webster.com/dictionary/privacy
-trade-off$$95$$https://www.merriam-webster.com/dictionary/trade-off
-pandiculation$$95$$https://www.merriam-webster.com/dictionary/pandiculation
-trump$$95$$https://www.merriam-webster.com/dictionary/trump
-coerce$$95$$https://www.merriam-webster.com/dictionary/coerce
-ευρετικός$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ευρετικός
-μῆτις$$95$$https://en.wiktionary.org/wiki/https://en.wiktionary.org/wiki/μῆτις
-διεφθαρμένος$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=διαφθείρω
-ανείπωτα$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ανείπωτα
-ανακουφιστικό$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ανακουφιστικό
-πονηρό$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=πονηρός
-νέμεσις$$95$$https://en.wiktionary.org/wiki/https://en.wiktionary.org/wiki/Νέμεσις
-απόφαση$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=απόφαση
-ιδιωτικότητα$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ιδιωτικότητα
-συμβιβασμός$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=συμβιβασμός
-ανακλάδισμα$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ανακλάδισμα
-ατού$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ατού
-καταναγκάζω$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=καταναγκάζω
+βικιλεξικό$$95$$https://el.wiktionary.org/wiki
 prologue$$96$$#p
 political refugees$$96$$#1
 on the wall$$96$$#2
@@ -382,9 +375,9 @@ musing$$96$$#7
 definition of isolation$$96$$#8
 dog story$$96$$#9
 cat story$$96$$#10
-best story$$96$$#11
+donkey story$$96$$#11
 slaves$$96$$#12
-royalty$$96$$#13
+royal$$96$$#13
 carrot$$96$$#14
 side effects$$96$$#15
 broken$$96$$#16
@@ -392,64 +385,57 @@ social outcasts/misfits$$96$$#17
 epilogue$$96$$#epi
 reference$$96$$#ref
 top$$96$$#top
-[he]$$96$$#he
+heuristic$$96$$https://www.merriam-webster.com/dictionary/heuristic
+ευρετική$$96$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ευρετικός
 top$$96$$#top
-[th]$$96$$#th
+thoughtful$$96$$https://www.merriam-webster.com/dictionary/thoughtful
+cave with the shadows$$96$$https://en.wikipedia.org/wiki/Allegory_of_the_cave
+μῆτις$$96$$https://en.wiktionary.org/wiki/https://en.wiktionary.org/wiki/μῆτις
+σπηλιά με τις σκιές;$$96$$https://el.wikipedia.org/wiki/%CE%91%CE%BB%CE%BB%CE%B7%CE%B3%CE%BF%CF%81%CE%AF%CE%B1_%CF%84%CE%BF%CF%85_%CE%A3%CF%80%CE%B7%CE%BB%CE%B1%CE%AF%CE%BF%CF%85
 top$$96$$#top
-[de]$$96$$#de
-[in]$$96$$#in
+deprave$$96$$https://www.merriam-webster.com/dictionary/depraved
+διαφθείρει.$$96$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=διαφθείρω
+ιneffable$$96$$https://www.merriam-webster.com/dictionary/ineffable
+aνείπωτα$$96$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ανείπωτα
 top$$96$$#top
-[co]$$96$$#co
+coerced$$96$$https://www.merriam-webster.com/dictionary/coerce
+καταναγκάστηκαν$$96$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=καταναγκάζω
 top$$96$$#top
-[pa]$$96$$#pa
+palliate$$96$$https://www.merriam-webster.com/dictionary/palliate
+ανακουφιστικό$$96$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ανακουφιστικό
 top$$96$$#top
-[ne]$$96$$#ne
-[ev]$$96$$#ev
-[ju]$$96$$#ju
+nemesis$$96$$https://www.merriam-webster.com/dictionary/nemesis
+evil$$96$$https://www.merriam-webster.com/dictionary/evil
+judgment$$96$$https://www.merriam-webster.com/dictionary/judgment
+νέμεσις$$96$$https://en.wiktionary.org/wiki/https://en.wiktionary.org/wiki/Νέμεσις
+πονηρό$$96$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=πονηρός
+απόφαση;$$96$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=απόφαση
 top$$96$$#top
-[pr]$$96$$#pr
+privacy$$96$$https://www.merriam-webster.com/dictionary/privacy
+ιδιωτικότητα;$$96$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ιδιωτικότητα
 top$$96$$#top
-[tr]$$96$$#tr
+trade-offs$$96$$https://www.merriam-webster.com/dictionary/trade-off
+συμβιβασμός;$$96$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=συμβιβασμός
 top$$96$$#top
-[pa]$$96$$#pa
-top$$96$$#top
-top$$96$$#top
-top$$96$$#top
-top$$96$$#top
-top$$96$$#top
+pandiculation$$96$$https://www.merriam-webster.com/dictionary/pandiculation
+ανακλάδισμα$$96$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ανακλάδισμα
 top$$96$$#top
 top$$96$$#top
-[tu]$$96$$#tr
 top$$96$$#top
+top$$96$$#top
+top$$96$$#top
+top$$96$$#top
+top$$96$$#top
+trumps$$96$$https://www.merriam-webster.com/dictionary/trump
+ατού$$96$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ατού
+top$$96$$#top
+kahneman(behavioral economics): thinking, fast and slow$$96$$https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow
+σκέψη, αργή και γρήγορη συμπεριφορική οικονομική$$96$$https://www.public.gr/product/books/greek-books/economics/economics/skepsi-argi-kai-grigori/0759965
 deepl.com - translator$$96$$https://www.deepl.com/en/translator
 greek-language.gr - greek dictionary$$96$$https://www.greek-language.gr/
-kahneman(behavioral economics): thinking, fast and slow$$96$$https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow
-heuristic$$96$$https://www.merriam-webster.com/dictionary/heuristic
-thoughtful$$96$$https://www.merriam-webster.com/dictionary/thoughtful
+wordreference.com- english-greek dictionary$$96$$https://www.wordreference.com/engr/
 depraved$$96$$https://www.merriam-webster.com/dictionary/depraved
-ineffable$$96$$https://www.merriam-webster.com/dictionary/ineffable
-palliate$$96$$https://www.merriam-webster.com/dictionary/palliate
-evil$$96$$https://www.merriam-webster.com/dictionary/palliate
-nemesis$$96$$https://www.merriam-webster.com/dictionary/nemesis
-judgment$$96$$https://www.merriam-webster.com/dictionary/ineffable
-privacy$$96$$https://www.merriam-webster.com/dictionary/privacy
-trade-off$$96$$https://www.merriam-webster.com/dictionary/trade-off
-pandiculation$$96$$https://www.merriam-webster.com/dictionary/pandiculation
-trump$$96$$https://www.merriam-webster.com/dictionary/trump
-coerce$$96$$https://www.merriam-webster.com/dictionary/coerce
-ευρετικός$$96$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ευρετικός
-μῆτις$$96$$https://en.wiktionary.org/wiki/https://en.wiktionary.org/wiki/μῆτις
-διεφθαρμένος$$96$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=διαφθείρω
-ανείπωτα$$96$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ανείπωτα
-ανακουφιστικό$$96$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ανακουφιστικό
-πονηρό$$96$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=πονηρός
-νέμεσις$$96$$https://en.wiktionary.org/wiki/https://en.wiktionary.org/wiki/Νέμεσις
-απόφαση$$96$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=απόφαση
-ιδιωτικότητα$$96$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ιδιωτικότητα
-συμβιβασμός$$96$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=συμβιβασμός
-ανακλάδισμα$$96$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ανακλάδισμα
-ατού$$96$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ατού
-καταναγκάζω$$96$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=καταναγκάζω
+βικιλεξικό$$96$$https://el.wiktionary.org/wiki
 ai help$$97$$https://www.gov.gr/en/
 how to get afm (αφμ) tax id.$$97$$https://www.gov.gr/en/upourgeia/oloi-foreis/anexartete-arkhe-demosion-esodon-aade/apodose-arithmou-phorologikou-metroou-aphm-kai-kleidarithmou-se-phusiko-prosopo
 aaade.gr$$97$$https://www.aade.gr/en
