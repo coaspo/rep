@@ -323,7 +323,8 @@ cave with the shadows$$95$$https://en.wikipedia.org/wiki/Allegory_of_the_cave
 σπηλιά με τις σκιές;$$95$$https://el.wikipedia.org/wiki/%CE%91%CE%BB%CE%BB%CE%B7%CE%B3%CE%BF%CF%81%CE%AF%CE%B1_%CF%84%CE%BF%CF%85_%CE%A3%CF%80%CE%B7%CE%BB%CE%B1%CE%AF%CE%BF%CF%85
 top$$95$$#top
 deprave$$95$$https://www.merriam-webster.com/dictionary/depraved
-διαφθείρει.$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=διαφθείρω
+διαφθείρει$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=διαφθείρω
+ανέντιμος;$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ανέντιμος
 ιneffable$$95$$https://www.merriam-webster.com/dictionary/ineffable
 aνείπωτα$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ανείπωτα
 top$$95$$#top
@@ -338,7 +339,7 @@ evil$$95$$https://www.merriam-webster.com/dictionary/evil
 judgment$$95$$https://www.merriam-webster.com/dictionary/judgment
 νέμεσις$$95$$https://en.wiktionary.org/wiki/https://en.wiktionary.org/wiki/Νέμεσις
 πονηρό$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=πονηρός
-απόφαση;$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=απόφαση
+απόφαση$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=απόφαση
 top$$95$$#top
 privacy$$95$$https://www.merriam-webster.com/dictionary/privacy
 ιδιωτικότητα;$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ιδιωτικότητα
@@ -399,7 +400,8 @@ cave with the shadows$$96$$https://en.wikipedia.org/wiki/Allegory_of_the_cave
 σπηλιά με τις σκιές;$$96$$https://el.wikipedia.org/wiki/%CE%91%CE%BB%CE%BB%CE%B7%CE%B3%CE%BF%CF%81%CE%AF%CE%B1_%CF%84%CE%BF%CF%85_%CE%A3%CF%80%CE%B7%CE%BB%CE%B1%CE%AF%CE%BF%CF%85
 top$$96$$#top
 deprave$$96$$https://www.merriam-webster.com/dictionary/depraved
-διαφθείρει.$$96$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=διαφθείρω
+διαφθείρει$$96$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=διαφθείρω
+ανέντιμος;$$96$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ανέντιμος
 ιneffable$$96$$https://www.merriam-webster.com/dictionary/ineffable
 aνείπωτα$$96$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ανείπωτα
 top$$96$$#top
@@ -414,7 +416,7 @@ evil$$96$$https://www.merriam-webster.com/dictionary/evil
 judgment$$96$$https://www.merriam-webster.com/dictionary/judgment
 νέμεσις$$96$$https://en.wiktionary.org/wiki/https://en.wiktionary.org/wiki/Νέμεσις
 πονηρό$$96$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=πονηρός
-απόφαση;$$96$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=απόφαση
+απόφαση$$96$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=απόφαση
 top$$96$$#top
 privacy$$96$$https://www.merriam-webster.com/dictionary/privacy
 ιδιωτικότητα;$$96$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ιδιωτικότητα
