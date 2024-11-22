@@ -310,6 +310,7 @@ carrot$$95$$#14
 side effects$$95$$#15
 broken$$95$$#16
 social outcasts/misfits$$95$$#17
+eudaimonia$$95$$#18
 epilogue$$95$$#epi
 reference$$95$$#ref
 top$$95$$#top
@@ -356,6 +357,9 @@ top$$95$$#top
 top$$95$$#top
 trumps$$95$$https://www.merriam-webster.com/dictionary/trump
 ατού$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ατού
+eudaimonia$$95$$https://en.wikipedia.org/wiki/Eudaimonia
+eudaimonia$$95$$https://www.britannica.com/topic/eudaimonia
+ευδαιμονία$$95$$https://el.wikipedia.org/wiki/Ευδαιμονία
 top$$95$$#top
 kahneman(behavioral economics): thinking, fast and slow$$95$$https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow
 σκέψη, αργή και γρήγορη συμπεριφορική οικονομική$$95$$https://www.public.gr/product/books/greek-books/economics/economics/skepsi-argi-kai-grigori/0759965
@@ -382,6 +386,7 @@ carrot$$96$$#14
 side effects$$96$$#15
 broken$$96$$#16
 social outcasts/misfits$$96$$#17
+eudaimonia$$96$$#18
 epilogue$$96$$#epi
 reference$$96$$#ref
 top$$96$$#top
@@ -428,6 +433,9 @@ top$$96$$#top
 top$$96$$#top
 trumps$$96$$https://www.merriam-webster.com/dictionary/trump
 ατού$$96$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ατού
+eudaimonia$$96$$https://en.wikipedia.org/wiki/Eudaimonia
+eudaimonia$$96$$https://www.britannica.com/topic/eudaimonia
+ευδαιμονία$$96$$https://el.wikipedia.org/wiki/Ευδαιμονία
 top$$96$$#top
 kahneman(behavioral economics): thinking, fast and slow$$96$$https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow
 σκέψη, αργή και γρήγορη συμπεριφορική οικονομική$$96$$https://www.public.gr/product/books/greek-books/economics/economics/skepsi-argi-kai-grigori/0759965
