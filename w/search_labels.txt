@@ -446,282 +446,282 @@ greek-language.gr - greek dictionary$$96$$https://www.greek-language.gr/
 wordreference.com- english-greek dictionary$$96$$https://www.wordreference.com/engr/
 depraved$$96$$https://www.merriam-webster.com/dictionary/depraved
 βικιλεξικό$$96$$https://el.wiktionary.org/wiki
-ai help$$97$$https://www.gov.gr/en/
-how to get afm (αφμ) tax id.$$97$$https://www.gov.gr/en/upourgeia/oloi-foreis/anexartete-arkhe-demosion-esodon-aade/apodose-arithmou-phorologikou-metroou-aphm-kai-kleidarithmou-se-phusiko-prosopo
-aaade.gr$$97$$https://www.aade.gr/en
-gsis.gr$$97$$https://www.gsis.gr/en
-taxisnet login$$97$$https://login.gsis.gr/mylogin/login.jsp
-ενημερςσης φορολογικον$$97$$https://www.taxheaven.gr/
 ai help$$98$$https://www.gov.gr/en/
 how to get afm (αφμ) tax id.$$98$$https://www.gov.gr/en/upourgeia/oloi-foreis/anexartete-arkhe-demosion-esodon-aade/apodose-arithmou-phorologikou-metroou-aphm-kai-kleidarithmou-se-phusiko-prosopo
 aaade.gr$$98$$https://www.aade.gr/en
 gsis.gr$$98$$https://www.gsis.gr/en
 taxisnet login$$98$$https://login.gsis.gr/mylogin/login.jsp
 ενημερςσης φορολογικον$$98$$https://www.taxheaven.gr/
-github.com/coaspo/rep/ br1$$100$$https://github.com/coaspo/rep/tree/br1
-quizzer$$100$$https://github.com/coaspo/rep/tree/br1/quizzer
-translator$$100$$https://github.com/coaspo/rep/tree/br1/translator
-w(website)$$100$$https://github.com/coaspo/rep/tree/br1/w
-github.com/coaspo/rep/ master$$100$$https://github.com/coaspo/rep/tree/master
-quizzer$$100$$https://github.com*scanContents()/coaspo/rep/tree/master/quizzer
-translator$$100$$https://github.com/coaspo/rep/tree/master/translator
-w(ebsite)$$100$$https://github.com/coaspo/rep/tree/master/w
-app.netlify.com/w$$100$$https://app.netlify.com/w
-li.netlify.com/w/tests/test_search.html$$100$$https://li.netlify.com/w/tests/test_search.html
-localhost:8080/w$$100$$http://localhost:8080/w/
-localhost:8080/w/tests/test_search.html$$100$$http://localhost:8080/w/tests/test_search.html
-freedom of speech and thinking$$127$$#freedom
-coronavirus: from science to politics$$127$$#virus
-contagion math$$127$$#contagion
-dissonance: conflict of truth and illusion$$127$$#dissonance
-government: from utopian to distopian$$127$$#government
-persuasion (of truth or lies)$$127$$#persuasion
-vaccine: from noise to science$$127$$#vaccine
-where year two of the pandemic will take us$$127$$#after
-communication: crew resource management (crm)$$127$$#CRM
-go to top$$127$$#top
-virus$$127
-sensitivity_specificity_predictive_value.txt$$127$$./math/sensitivity_specificity_predictive_value.txt
-go to top$$127$$#top
-flight network$$127$$./flight-network.jpg
-go to top$$127$$#top
-go to top$$127$$#top
-lydian$$127$$https://en.wikipedia.org/wiki/Lydia
-go to top$$127$$#top
-ethos$$127
-logos$$127
-pathos$$127
-go to top$$127$$#top
-mrna$$127
-epistemic transpassing$$127
-ecological fallacy$$127
-go to top$$127$$#top
-go to top$$127$$#top
-go to top$$127$$#top
-korean cdc interview$$148$$https://www.youtube.com/watch?v=gAk7aX5hksU
-virus course$$148$$https://www.youtube.com/watch?v=lj3NhPgOoX4
-week in virology$$148$$https://www.microbe.tv/twiv/archive/
-cdc - principles of epidemiology in public health practice$$148$$https://www.cdc.gov/csels/dsepd/ss1978/index.html
-addgene.org$$148$$https://www.addgene.org/
-recalls$$148$$https://www.recalls.gov/nhtsa.html
-wolfram$$148$$https://www.wolfram.com/
-worldometers$$148$$https://www.worldometers.info/
-ourworldindata$$148$$https://ourworldindata.org/
-flightradar24$$148$$https://www.flightradar24.com/airport/bos
-merk manual$$148$$https://www.merckmanuals.com/
-data$$148$$https://ourworldindata.org 
-mass maps$$148$$https://massgis.maps.arcgis.com/home/index.html
-sci-hub$$148$$https://sci-hub.se/
-information$$148$$https://www.informationisbeautiful.net/visualizations/the-microbescope-infectious-diseases-in-context/
-probability statistics intro$$148$$https://seeing-theory.brown.edu/basic-probability/index.html
-apod; astronomy picture of the day$$148$$https://apod.nasa.gov/apod/astropix.html
-wind/weather map$$148$$https://www.windy.com
-hacker laws$$148$$https://github.com/dwmkerr/hacker-laws
-quantum computing lectures$$148$$https://www.scottaaronson.com/democritus/default.html
-quantum processing$$148$$https://ocw.tudelft.nl/courses/quantum-information-processing/
-kids health.org$$148$$https://kidshealth.org/
-diogenes$$156
-national social anxiety center.com$$158$$https://nationalsocialanxietycenter.com/liebowitz-sa-scale/
-psychology today.com$$158$$https://www.psychologytoday.com/us/tests
-open psycho metrics.org$$158$$https://openpsychometrics.org/
-darkfactor.org$$158$$https://qst.darkfactor.org/
-qatar$$162$$https://www.cia.gov/the-world-factbook/countries/qatar/
-singapore$$162$$https://www.cia.gov/the-world-factbook/countries/singapore/
-bahrain$$162$$https://www.cia.gov/the-world-factbook/countries/bahrain/
-united arab emirates$$162$$https://www.cia.gov/the-world-factbook/countries/united-arab-emirates/
-brunei$$162$$https://www.cia.gov/the-world-factbook/countries/brunei/
-canada$$162$$https://www.cia.gov/the-world-factbook/countries/canada/
-kuwait$$162$$https://www.cia.gov/the-world-factbook/countries/kuwait/
-norway$$162$$https://www.cia.gov/the-world-factbook/countries/norway/
-turkmenistan$$162$$https://www.cia.gov/the-world-factbook/countries/turkmenistan/
-luxembourg$$162$$https://www.cia.gov/the-world-factbook/countries/luxembourg/
-usa$$162$$https://www.cia.gov/the-world-factbook/countries/united-states/
-saudi arabia$$162$$https://www.cia.gov/the-world-factbook/countries/saudi-arabia/
-japan$$162$$https://www.cia.gov/the-world-factbook/countries/japan/
-greece$$162$$https://www.cia.gov/the-world-factbook/countries/greece/
-somalia$$162$$https://www.cia.gov/the-world-factbook/countries/somalia/
-python.org$$174$$https://docs.python.org/3/library/functions.html
-python.org$$175$$https://docs.python.org/3/tutorial/datastructures.html
-python.org$$176$$https://docs.python.org/3/library/functions.html
-flowchart$$177$$https://creately.com/blog/diagrams/flowchart-guide-flowchart-tutorial/
-whois$$177$$https://whois.whoisxmlapi.com/lookup
-what is my browser$$177$$https://www.whatismybrowser.com/detect/what-http-headers-is-my-browser-sending
-speed test$$177$$https://www.speedcheck.org/
-browser test$$177$$http://acid3.acidtests.org/
-pdf editor$$177$$https://www.pdfescape.com/
-sql format (sqlformat.org)$$177$$https://sqlformat.org/
-sql format (dpriver.com)$$177$$https://www.dpriver.com/pp/sqlformat.htm
-w3.org$$177$$https://validator.w3.org/#validate_by_input
-freeformatter.com$$177$$https://www.freeformatter.com/html-formatter.html
-quackit.com$$177$$https://www.quackit.com/html/online-html-editor/
-htmleditor.in$$177$$http://htmleditor.in/index.html
-html5-editor.net$$177$$https://html5-editor.net/
-algorithms course (coursera.org)$$177$$https://www.coursera.org/learn/algorithms-part1/home/welcome
-edx.org$$177$$httpstable://www.edx.org
-quizlet.com$$177$$https://quizlet.com/
-course.eu$$177$$https://python-course.eu
-repl (python.org)$$177$$https://python.org/shell
-pythonanywhere.com$$177$$https://www.pythonanywhere.com
-vogella tutorial$$177$$https://www.vogella.com/tutorials/java.html
-repl (compilejava.net)$$177$$https://compilejava.net
-ide (onlinegdb.com)$$177$$https://onlinegdb.com/online_java_compiler
-abc news$$179$$https://abcnews.go.com/
-agence france-presse$$179$$https://www.afp.com/en
-al jazeera$$179$$https://www.aljazeera.com/
-amnesty international$$179$$https://www.amnesty.org/en/
-anti-defamation league$$179$$https://www.adl.org/
-aon; business of better decisions$$179$$https://www.aon.com/en/
-ars technica$$179$$https://arstechnica.com/
-associated press$$179$$https://apnews.com/
-atlas obscura articles$$179$$https://www.atlasobscura.com/
-axios$$179$$https://www.axios.com/
-bbc$$179$$https://www.bbc.com/
-behind the voice actors$$179$$https://www.behindthevoiceactors.com/
-bellingcat investigations$$179$$https://www.bellingcat.com/
-bloomberg$$179$$https://www.bloomberg.com/
-burke"s peerage genealogy of historical families$$179$$https://www.burkespeerage.com/
-buzzfeed news$$179$$https://www.buzzfeednews.com/
-climate feedback / climate change$$179$$https://climatefeedback.org/
-cnet (pre–october 2020)$$179$$https://www.cnet.com/
-cnn$$179$$https://www.cnn.com/
-coda media; ongoing crisis$$179$$https://www.codastory.com/
-common sense media; family entertainment$$179$$https://www.commonsensemedia.org/
-deadline hollywood$$179$$https://deadline.com/
-debrett"s  british society$$179$$https://debretts.com/
-der spiegel$$179$$https://www.spiegel.de/international/
-deseret news utah/west$$179$$https://www.deseret.com/
-deutsche welle$$179$$https://www.dw.com/en
-digital spy; tv/movies$$179$$https://www.digitalspy.com/
-encyclopædia iranica$$179$$Encyclopædia Iranica
-engadget$$179$$https://www.engadget.com/
-entertainment weekly$$179$$https://ew.com/
-financial times$$179$$https://www.ft.com/
-forbes$$179$$https://www.forbes.com/
-game developer$$179$$https://www.gamedeveloper.com/
-game informer$$179$$https://www.gameinformer.com/
-gazeta wyborcza; poland$$179$$https://wyborcza.pl/
-gizmodo$$179$$https://gizmodo.com/
-gnis-coord$$179$$https://www.usgs.gov/tools/geographic-names-information-system-gnis
-gq men;"s fashion$$179$$https://www.gq.com/
-haaretz; israel$$179$$https://www.haaretz.com/
-huffpost$$179$$https://www.huffpost.com/
-idolator; music$$179$$https://www.idolator.com/
-ign video games$$179$$https://www.ign.com/
-insider (culture)$$179$$https://www.businessinsider.com/culture
-international fact-checking network$$179$$https://www.poynter.org/ifcn/
-inter press service$$179$$https://www.ipsnews.net/
-jacobin$$179$$https://jacobin.com/
-jama$$179$$https://jamanetwork.com/
-kirkus reviews; book reviews$$179$$https://www.kirkusreviews.com/
-kommersant; russian$$179$$https://www.kommersant.ru/
-le monde diplomatique$$179$$https://mondediplo.com/
-los angeles times$$179$$https://www.latimes.com/
-mail &amp; guardian; south africa"$$179$$https://mg.co.za/
-metacritic; movie reviews$$179$$https://www.metacritic.com/
-mother jones$$179$$https://www.motherjones.com/
-msnbc$$179$$https://www.msnbc.com/
-national geographic$$179$$
-nbc news$$179$$
-newslaundry$$179$$
-newsweek (pre-2013)$$179$$
-new york$$179$$
-new york daily news$$179$$
-nme; music$$179$$https://www.nme.com/
-npr$$179$$
-people$$179$$
-people make games$$179$$
-pew research center$$179$$https://www.pewresearch.org/
-politico$$179$$Politico
-politifact$$179$$
-polygon; gaming$$179$$https://www.polygon.com/
-propublica$$179$$
-quartz$$179$$
-radio free asia$$179$$
-rappler / phillipines$$179$$https://www.rappler.com/
-reason$$179$$https://reason.com/
-religion news service$$179$$https://religionnews.com/
-reuters$$179$$
-rolling stone$$179$$
-rotten tomatoes$$179$$
-rté irish news$$179$$https://www.rte.ie/
-science-based medicine$$179$$https://sciencebasedmedicine.org/
-scientific american$$179$$
-scmp south china morning post$$179$$https://www.scmp.com/
-scotusblog; supreme court news$$179$$https://www.scotusblog.com/
-sixth tone; china$$179$$https://www.sixthtone.com/
-sky news uk$$179$$
-snopes$$179$$
-southern poverty law center$$179$$
-space.com$$179$$
-the age; australia$$179$$https://www.theage.com.au/
-the atlantic$$179$$
-the australian$$179$$
-the a.v. club; pop culture$$179$$https://www.avclub.com/
-the christian science monitor$$179$$
-the conversation$$179$$
-the daily telegraph$$179$$
-the diplomat$$179$$
-the economist$$179$$
-the globe and mail$$179$$
-the guardian$$179$$
-the hill$$179$$
-the hindu$$179$$
-the hollywood reporter$$179$$
-the independent$$179$$
-the indian express$$179$$
-the intercept$$179$$https://theintercept.com/
-the jewish chronicle$$179$$https://www.thejc.com/
-the mary sue; pop culture$$179$$https://www.themarysue.com/
-the nation$$179$$https://www.thenation.com/
-the new republic$$179$$https://newrepublic.com/
-the new yorker$$179$$https://www.newyorker.com/
-the new york times$$179$$https://www.nytimes.com/
-the new zealand herald$$179$$https://www.nzherald.co.nz/
-the register$$179$$https://www.theregister.com/
-the sydney morning herald$$179$$https://www.smh.com.au/
-the nytimes$$179$$The Times
-the verge$$179$$https://www.theverge.com/
-the wall street journal$$179$$https://www.wsj.com/
-the washington post$$179$$https://www.washingtonpost.com/
-the wire india$$179$$https://thewire.in/
-thewrap; moviews$$179$$https://www.thewrap.com/
-time$$179$$https://time.com/
-torrentfreak$$179$$https://torrentfreak.com/
-tv guide$$179$$https://www.tvguide.com/
-usa today$$179$$https://www.usatoday.com/
-u.s. news &amp; world report$$179$$https://www.usnews.com/
-vanity fair$$179$$https://www.vanityfair.com/
-variety$$179$$https://variety.com/
-venturebeat$$179$$https://venturebeat.com/
-vogue$$179$$https://www.vogue.com/
-voice of america$$179$$https://www.voanews.com/
-vox$$179$$https://www.vox.com/
-wired$$179$$https://www.wired.com/
-yahoo news$$179$$https://news.yahoo.com/
-zdnet$$179$$https://www.zdnet.com/
-stanford ai index$$180$$https://aiindex.stanford.edu/
-openai chatgpt$$180$$https://chat.openai.com/auth/login
-inflection ai  - personal/non-private a$$180$$https://pi.ai/
-openai playground$$180$$https://platform.openai.com/playground
-openai dall e$$180$$https://labs.openai.com/
-mid-journey$$180$$https://midjourney.com/
-replica$$180$$https://replika.com/
-stable diffusion$$180$$stablediffusionweb.com/#demo
-quillbot$$180$$https://quillbot.com/
-character$$180$$https://beta.character.ai
-bratgpt$$180$$https://bratgpt.com/
-theatlantic$$181$$https://www.theatlantic.com
-the electric typewriter$$181$$https://tetw.org
-the enemies of writing$$181$$https://www.theatlantic.com/ideas/archive/2020/01/packer-hitchens/605365/
-bloomberg jealousy list$$181$$https://www.bloomberg.com/features/2020-jealousy-list/
-it’s hard to be a moral person. technology is making it harder.$$181$$https://www.vox.com/the-highlight/22585287/technology-smartphones-gmail-attention-morality
-text is all you need$$181$$https://studio.ribbonfarm.com/p/text-is-all-you-need
-cloudflare speed test$$182$$https://speed.cloudflare.com/
-ngrams$$182$$https://books.google.com/ngrams
-hoopla$$182$$https://www.hoopladigital.com/
-greek spell checker$$182$$https://www.neurolingo.gr/en/online_tools/speller
-random street-view$$182$$https://randomstreetview.com/
-khan academy$$182$$https://www.khanacademy.org/
-coursera$$182$$https://www.coursera.org/
-edx$$182$$https://www.edx.org/
-national geographic encyclopedia$$182$$https://admin.nationalgeographic.org/education/resource-library/?q=&page=1&per_page=25
+ai help$$99$$https://www.gov.gr/en/
+how to get afm (αφμ) tax id.$$99$$https://www.gov.gr/en/upourgeia/oloi-foreis/anexartete-arkhe-demosion-esodon-aade/apodose-arithmou-phorologikou-metroou-aphm-kai-kleidarithmou-se-phusiko-prosopo
+aaade.gr$$99$$https://www.aade.gr/en
+gsis.gr$$99$$https://www.gsis.gr/en
+taxisnet login$$99$$https://login.gsis.gr/mylogin/login.jsp
+ενημερςσης φορολογικον$$99$$https://www.taxheaven.gr/
+github.com/coaspo/rep/ br1$$101$$https://github.com/coaspo/rep/tree/br1
+quizzer$$101$$https://github.com/coaspo/rep/tree/br1/quizzer
+translator$$101$$https://github.com/coaspo/rep/tree/br1/translator
+w(website)$$101$$https://github.com/coaspo/rep/tree/br1/w
+github.com/coaspo/rep/ master$$101$$https://github.com/coaspo/rep/tree/master
+quizzer$$101$$https://github.com*scanContents()/coaspo/rep/tree/master/quizzer
+translator$$101$$https://github.com/coaspo/rep/tree/master/translator
+w(ebsite)$$101$$https://github.com/coaspo/rep/tree/master/w
+app.netlify.com/w$$101$$https://app.netlify.com/w
+li.netlify.com/w/tests/test_search.html$$101$$https://li.netlify.com/w/tests/test_search.html
+localhost:8080/w$$101$$http://localhost:8080/w/
+localhost:8080/w/tests/test_search.html$$101$$http://localhost:8080/w/tests/test_search.html
+freedom of speech and thinking$$128$$#freedom
+coronavirus: from science to politics$$128$$#virus
+contagion math$$128$$#contagion
+dissonance: conflict of truth and illusion$$128$$#dissonance
+government: from utopian to distopian$$128$$#government
+persuasion (of truth or lies)$$128$$#persuasion
+vaccine: from noise to science$$128$$#vaccine
+where year two of the pandemic will take us$$128$$#after
+communication: crew resource management (crm)$$128$$#CRM
+go to top$$128$$#top
+virus$$128
+sensitivity_specificity_predictive_value.txt$$128$$./math/sensitivity_specificity_predictive_value.txt
+go to top$$128$$#top
+flight network$$128$$./flight-network.jpg
+go to top$$128$$#top
+go to top$$128$$#top
+lydian$$128$$https://en.wikipedia.org/wiki/Lydia
+go to top$$128$$#top
+ethos$$128
+logos$$128
+pathos$$128
+go to top$$128$$#top
+mrna$$128
+epistemic transpassing$$128
+ecological fallacy$$128
+go to top$$128$$#top
+go to top$$128$$#top
+go to top$$128$$#top
+korean cdc interview$$149$$https://www.youtube.com/watch?v=gAk7aX5hksU
+virus course$$149$$https://www.youtube.com/watch?v=lj3NhPgOoX4
+week in virology$$149$$https://www.microbe.tv/twiv/archive/
+cdc - principles of epidemiology in public health practice$$149$$https://www.cdc.gov/csels/dsepd/ss1978/index.html
+addgene.org$$149$$https://www.addgene.org/
+recalls$$149$$https://www.recalls.gov/nhtsa.html
+wolfram$$149$$https://www.wolfram.com/
+worldometers$$149$$https://www.worldometers.info/
+ourworldindata$$149$$https://ourworldindata.org/
+flightradar24$$149$$https://www.flightradar24.com/airport/bos
+merk manual$$149$$https://www.merckmanuals.com/
+data$$149$$https://ourworldindata.org 
+mass maps$$149$$https://massgis.maps.arcgis.com/home/index.html
+sci-hub$$149$$https://sci-hub.se/
+information$$149$$https://www.informationisbeautiful.net/visualizations/the-microbescope-infectious-diseases-in-context/
+probability statistics intro$$149$$https://seeing-theory.brown.edu/basic-probability/index.html
+apod; astronomy picture of the day$$149$$https://apod.nasa.gov/apod/astropix.html
+wind/weather map$$149$$https://www.windy.com
+hacker laws$$149$$https://github.com/dwmkerr/hacker-laws
+quantum computing lectures$$149$$https://www.scottaaronson.com/democritus/default.html
+quantum processing$$149$$https://ocw.tudelft.nl/courses/quantum-information-processing/
+kids health.org$$149$$https://kidshealth.org/
+diogenes$$157
+national social anxiety center.com$$159$$https://nationalsocialanxietycenter.com/liebowitz-sa-scale/
+psychology today.com$$159$$https://www.psychologytoday.com/us/tests
+open psycho metrics.org$$159$$https://openpsychometrics.org/
+darkfactor.org$$159$$https://qst.darkfactor.org/
+qatar$$163$$https://www.cia.gov/the-world-factbook/countries/qatar/
+singapore$$163$$https://www.cia.gov/the-world-factbook/countries/singapore/
+bahrain$$163$$https://www.cia.gov/the-world-factbook/countries/bahrain/
+united arab emirates$$163$$https://www.cia.gov/the-world-factbook/countries/united-arab-emirates/
+brunei$$163$$https://www.cia.gov/the-world-factbook/countries/brunei/
+canada$$163$$https://www.cia.gov/the-world-factbook/countries/canada/
+kuwait$$163$$https://www.cia.gov/the-world-factbook/countries/kuwait/
+norway$$163$$https://www.cia.gov/the-world-factbook/countries/norway/
+turkmenistan$$163$$https://www.cia.gov/the-world-factbook/countries/turkmenistan/
+luxembourg$$163$$https://www.cia.gov/the-world-factbook/countries/luxembourg/
+usa$$163$$https://www.cia.gov/the-world-factbook/countries/united-states/
+saudi arabia$$163$$https://www.cia.gov/the-world-factbook/countries/saudi-arabia/
+japan$$163$$https://www.cia.gov/the-world-factbook/countries/japan/
+greece$$163$$https://www.cia.gov/the-world-factbook/countries/greece/
+somalia$$163$$https://www.cia.gov/the-world-factbook/countries/somalia/
+python.org$$175$$https://docs.python.org/3/library/functions.html
+python.org$$176$$https://docs.python.org/3/tutorial/datastructures.html
+python.org$$177$$https://docs.python.org/3/library/functions.html
+flowchart$$178$$https://creately.com/blog/diagrams/flowchart-guide-flowchart-tutorial/
+whois$$178$$https://whois.whoisxmlapi.com/lookup
+what is my browser$$178$$https://www.whatismybrowser.com/detect/what-http-headers-is-my-browser-sending
+speed test$$178$$https://www.speedcheck.org/
+browser test$$178$$http://acid3.acidtests.org/
+pdf editor$$178$$https://www.pdfescape.com/
+sql format (sqlformat.org)$$178$$https://sqlformat.org/
+sql format (dpriver.com)$$178$$https://www.dpriver.com/pp/sqlformat.htm
+w3.org$$178$$https://validator.w3.org/#validate_by_input
+freeformatter.com$$178$$https://www.freeformatter.com/html-formatter.html
+quackit.com$$178$$https://www.quackit.com/html/online-html-editor/
+htmleditor.in$$178$$http://htmleditor.in/index.html
+html5-editor.net$$178$$https://html5-editor.net/
+algorithms course (coursera.org)$$178$$https://www.coursera.org/learn/algorithms-part1/home/welcome
+edx.org$$178$$httpstable://www.edx.org
+quizlet.com$$178$$https://quizlet.com/
+course.eu$$178$$https://python-course.eu
+repl (python.org)$$178$$https://python.org/shell
+pythonanywhere.com$$178$$https://www.pythonanywhere.com
+vogella tutorial$$178$$https://www.vogella.com/tutorials/java.html
+repl (compilejava.net)$$178$$https://compilejava.net
+ide (onlinegdb.com)$$178$$https://onlinegdb.com/online_java_compiler
+abc news$$180$$https://abcnews.go.com/
+agence france-presse$$180$$https://www.afp.com/en
+al jazeera$$180$$https://www.aljazeera.com/
+amnesty international$$180$$https://www.amnesty.org/en/
+anti-defamation league$$180$$https://www.adl.org/
+aon; business of better decisions$$180$$https://www.aon.com/en/
+ars technica$$180$$https://arstechnica.com/
+associated press$$180$$https://apnews.com/
+atlas obscura articles$$180$$https://www.atlasobscura.com/
+axios$$180$$https://www.axios.com/
+bbc$$180$$https://www.bbc.com/
+behind the voice actors$$180$$https://www.behindthevoiceactors.com/
+bellingcat investigations$$180$$https://www.bellingcat.com/
+bloomberg$$180$$https://www.bloomberg.com/
+burke"s peerage genealogy of historical families$$180$$https://www.burkespeerage.com/
+buzzfeed news$$180$$https://www.buzzfeednews.com/
+climate feedback / climate change$$180$$https://climatefeedback.org/
+cnet (pre–october 2020)$$180$$https://www.cnet.com/
+cnn$$180$$https://www.cnn.com/
+coda media; ongoing crisis$$180$$https://www.codastory.com/
+common sense media; family entertainment$$180$$https://www.commonsensemedia.org/
+deadline hollywood$$180$$https://deadline.com/
+debrett"s  british society$$180$$https://debretts.com/
+der spiegel$$180$$https://www.spiegel.de/international/
+deseret news utah/west$$180$$https://www.deseret.com/
+deutsche welle$$180$$https://www.dw.com/en
+digital spy; tv/movies$$180$$https://www.digitalspy.com/
+encyclopædia iranica$$180$$Encyclopædia Iranica
+engadget$$180$$https://www.engadget.com/
+entertainment weekly$$180$$https://ew.com/
+financial times$$180$$https://www.ft.com/
+forbes$$180$$https://www.forbes.com/
+game developer$$180$$https://www.gamedeveloper.com/
+game informer$$180$$https://www.gameinformer.com/
+gazeta wyborcza; poland$$180$$https://wyborcza.pl/
+gizmodo$$180$$https://gizmodo.com/
+gnis-coord$$180$$https://www.usgs.gov/tools/geographic-names-information-system-gnis
+gq men;"s fashion$$180$$https://www.gq.com/
+haaretz; israel$$180$$https://www.haaretz.com/
+huffpost$$180$$https://www.huffpost.com/
+idolator; music$$180$$https://www.idolator.com/
+ign video games$$180$$https://www.ign.com/
+insider (culture)$$180$$https://www.businessinsider.com/culture
+international fact-checking network$$180$$https://www.poynter.org/ifcn/
+inter press service$$180$$https://www.ipsnews.net/
+jacobin$$180$$https://jacobin.com/
+jama$$180$$https://jamanetwork.com/
+kirkus reviews; book reviews$$180$$https://www.kirkusreviews.com/
+kommersant; russian$$180$$https://www.kommersant.ru/
+le monde diplomatique$$180$$https://mondediplo.com/
+los angeles times$$180$$https://www.latimes.com/
+mail &amp; guardian; south africa"$$180$$https://mg.co.za/
+metacritic; movie reviews$$180$$https://www.metacritic.com/
+mother jones$$180$$https://www.motherjones.com/
+msnbc$$180$$https://www.msnbc.com/
+national geographic$$180$$
+nbc news$$180$$
+newslaundry$$180$$
+newsweek (pre-2013)$$180$$
+new york$$180$$
+new york daily news$$180$$
+nme; music$$180$$https://www.nme.com/
+npr$$180$$
+people$$180$$
+people make games$$180$$
+pew research center$$180$$https://www.pewresearch.org/
+politico$$180$$Politico
+politifact$$180$$
+polygon; gaming$$180$$https://www.polygon.com/
+propublica$$180$$
+quartz$$180$$
+radio free asia$$180$$
+rappler / phillipines$$180$$https://www.rappler.com/
+reason$$180$$https://reason.com/
+religion news service$$180$$https://religionnews.com/
+reuters$$180$$
+rolling stone$$180$$
+rotten tomatoes$$180$$
+rté irish news$$180$$https://www.rte.ie/
+science-based medicine$$180$$https://sciencebasedmedicine.org/
+scientific american$$180$$
+scmp south china morning post$$180$$https://www.scmp.com/
+scotusblog; supreme court news$$180$$https://www.scotusblog.com/
+sixth tone; china$$180$$https://www.sixthtone.com/
+sky news uk$$180$$
+snopes$$180$$
+southern poverty law center$$180$$
+space.com$$180$$
+the age; australia$$180$$https://www.theage.com.au/
+the atlantic$$180$$
+the australian$$180$$
+the a.v. club; pop culture$$180$$https://www.avclub.com/
+the christian science monitor$$180$$
+the conversation$$180$$
+the daily telegraph$$180$$
+the diplomat$$180$$
+the economist$$180$$
+the globe and mail$$180$$
+the guardian$$180$$
+the hill$$180$$
+the hindu$$180$$
+the hollywood reporter$$180$$
+the independent$$180$$
+the indian express$$180$$
+the intercept$$180$$https://theintercept.com/
+the jewish chronicle$$180$$https://www.thejc.com/
+the mary sue; pop culture$$180$$https://www.themarysue.com/
+the nation$$180$$https://www.thenation.com/
+the new republic$$180$$https://newrepublic.com/
+the new yorker$$180$$https://www.newyorker.com/
+the new york times$$180$$https://www.nytimes.com/
+the new zealand herald$$180$$https://www.nzherald.co.nz/
+the register$$180$$https://www.theregister.com/
+the sydney morning herald$$180$$https://www.smh.com.au/
+the nytimes$$180$$The Times
+the verge$$180$$https://www.theverge.com/
+the wall street journal$$180$$https://www.wsj.com/
+the washington post$$180$$https://www.washingtonpost.com/
+the wire india$$180$$https://thewire.in/
+thewrap; moviews$$180$$https://www.thewrap.com/
+time$$180$$https://time.com/
+torrentfreak$$180$$https://torrentfreak.com/
+tv guide$$180$$https://www.tvguide.com/
+usa today$$180$$https://www.usatoday.com/
+u.s. news &amp; world report$$180$$https://www.usnews.com/
+vanity fair$$180$$https://www.vanityfair.com/
+variety$$180$$https://variety.com/
+venturebeat$$180$$https://venturebeat.com/
+vogue$$180$$https://www.vogue.com/
+voice of america$$180$$https://www.voanews.com/
+vox$$180$$https://www.vox.com/
+wired$$180$$https://www.wired.com/
+yahoo news$$180$$https://news.yahoo.com/
+zdnet$$180$$https://www.zdnet.com/
+stanford ai index$$181$$https://aiindex.stanford.edu/
+openai chatgpt$$181$$https://chat.openai.com/auth/login
+inflection ai  - personal/non-private a$$181$$https://pi.ai/
+openai playground$$181$$https://platform.openai.com/playground
+openai dall e$$181$$https://labs.openai.com/
+mid-journey$$181$$https://midjourney.com/
+replica$$181$$https://replika.com/
+stable diffusion$$181$$stablediffusionweb.com/#demo
+quillbot$$181$$https://quillbot.com/
+character$$181$$https://beta.character.ai
+bratgpt$$181$$https://bratgpt.com/
+theatlantic$$182$$https://www.theatlantic.com
+the electric typewriter$$182$$https://tetw.org
+the enemies of writing$$182$$https://www.theatlantic.com/ideas/archive/2020/01/packer-hitchens/605365/
+bloomberg jealousy list$$182$$https://www.bloomberg.com/features/2020-jealousy-list/
+it’s hard to be a moral person. technology is making it harder.$$182$$https://www.vox.com/the-highlight/22585287/technology-smartphones-gmail-attention-morality
+text is all you need$$182$$https://studio.ribbonfarm.com/p/text-is-all-you-need
+cloudflare speed test$$183$$https://speed.cloudflare.com/
+ngrams$$183$$https://books.google.com/ngrams
+hoopla$$183$$https://www.hoopladigital.com/
+greek spell checker$$183$$https://www.neurolingo.gr/en/online_tools/speller
+random street-view$$183$$https://randomstreetview.com/
+khan academy$$183$$https://www.khanacademy.org/
+coursera$$183$$https://www.coursera.org/
+edx$$183$$https://www.edx.org/
+national geographic encyclopedia$$183$$https://admin.nationalgeographic.org/education/resource-library/?q=&page=1&per_page=25
