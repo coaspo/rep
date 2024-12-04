@@ -2,7 +2,7 @@
 import pathlib
 import textwrap
 
-import google.generativeai as gencai
+import google.generativeai as gen
 
 # Used to securely store your API key
 #from IPython.display import display
@@ -14,11 +14,11 @@ def to_markdown(text):
   return Markdown(textwrap.indent(text, '> ', predicate=lambda _: True))
 
 def main():
-  genai.configure(api_key='AIzaSyBUdjeBbvThPHaFVYyTmcppzUyNxOfTPgw')
-  for m in genai.list_models():
+  gen.configure(api_key='AIzaSyBUdjeBbvThPHaFVYyTmcppzUyNxOfTPgw')
+  for m in gen.list_models():
     if 'generateContent' in m.supported_generation_methods:
       print(m.name)
-  model = genai.GenerativeModel('gemini-pro')
+  model = gen.GenerativeModel('gemini-pro')
   response = model.generate_content("What is the meaning of life?")
   print(response)
   print('done')
