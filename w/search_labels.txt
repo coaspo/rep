@@ -299,7 +299,7 @@ guilt$$95$$#4
 algorithm$$95$$#5
 angel$$95$$#6
 palliate cats$$95$$#7
-musing$$95$$#8
+causes$$95$$#8
 definition of isolation$$95$$#9
 dog story$$95$$#10
 cat story$$95$$#11
@@ -320,15 +320,15 @@ top$$95$$#top
 thoughtful$$95$$https://www.merriam-webster.com/dictionary/thoughtful
 cave with the shadows$$95$$https://en.wikipedia.org/wiki/Allegory_of_the_cave
 φιλότιμο$$95$$https://en.wikipedia.org/wiki/Philotimo
-σπηλιά με τις σκιές;$$95$$https://el.wikipedia.org/wiki/Αλληγορία_του_Σπηλαίου
+σπηλιά με τις σκιές$$95$$https://el.wikipedia.org/wiki/Αλληγορία_του_Σπηλαίου
 top$$95$$#top
-deprave$$95$$https://www.merriam-webster.com/dictionary/depraved
+[de]$$95$$#de
 διαφθείρει$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=διαφθείρω
 ανέντιμος;$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ανέντιμος
 ιneffable$$95$$https://www.merriam-webster.com/dictionary/ineffable
 aνείπωτα$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ανείπωτα
 top$$95$$#top
-coerced$$95$$https://www.merriam-webster.com/dictionary/coerce
+[co]$$95$$#co
 καταναγκάστηκαν$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=καταναγκάζω
 top$$95$$#top
 top$$95$$#top
@@ -341,7 +341,7 @@ evil$$95$$https://www.merriam-webster.com/dictionary/evil
 judgment$$95$$https://www.merriam-webster.com/dictionary/judgment
 νέμεσις$$95$$https://en.wiktionary.org/wiki/https://en.wiktionary.org/wiki/Νέμεσις
 πονηρό$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=πονηρός
-απόφαση$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=απόφαση
+διακριτικότητα$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=διακριτικότητα
 top$$95$$#top
 privacy$$95$$https://www.merriam-webster.com/dictionary/privacy
 ιδιωτικότητα;$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ιδιωτικότητα
@@ -368,8 +368,8 @@ kahneman(behavioral economics): thinking, fast and slow$$95$$https://en.wikipedi
 σκέψη, αργή και γρήγορη συμπεριφορική οικονομική$$95$$https://www.public.gr/product/books/greek-books/economics/economics/skepsi-argi-kai-grigori/0759965
 deepl.com - translator$$95$$https://www.deepl.com/en/translator
 greek-language.gr - greek dictionary$$95$$https://www.greek-language.gr/
-wordreference.com- english-greek dictionary$$95$$https://www.wordreference.com/engr/
 depraved$$95$$https://www.merriam-webster.com/dictionary/depraved
+coerced$$95$$https://www.merriam-webster.com/dictionary/coerced
 βικιλεξικό$$95$$https://el.wiktionary.org/wiki
 prologue$$96$$#p
 political refugees$$96$$#1
@@ -379,7 +379,7 @@ guilt$$96$$#4
 algorithm$$96$$#5
 angel$$96$$#6
 palliate cats$$96$$#7
-musing$$96$$#8
+causes$$96$$#8
 definition of isolation$$96$$#9
 dog story$$96$$#10
 cat story$$96$$#11
@@ -400,15 +400,15 @@ top$$96$$#top
 thoughtful$$96$$https://www.merriam-webster.com/dictionary/thoughtful
 cave with the shadows$$96$$https://en.wikipedia.org/wiki/Allegory_of_the_cave
 φιλότιμο$$96$$https://en.wikipedia.org/wiki/Philotimo
-σπηλιά με τις σκιές;$$96$$https://el.wikipedia.org/wiki/Αλληγορία_του_Σπηλαίου
+σπηλιά με τις σκιές$$96$$https://el.wikipedia.org/wiki/Αλληγορία_του_Σπηλαίου
 top$$96$$#top
-deprave$$96$$https://www.merriam-webster.com/dictionary/depraved
+[de]$$96$$#de
 διαφθείρει$$96$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=διαφθείρω
 ανέντιμος;$$96$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ανέντιμος
 ιneffable$$96$$https://www.merriam-webster.com/dictionary/ineffable
 aνείπωτα$$96$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ανείπωτα
 top$$96$$#top
-coerced$$96$$https://www.merriam-webster.com/dictionary/coerce
+[co]$$96$$#co
 καταναγκάστηκαν$$96$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=καταναγκάζω
 top$$96$$#top
 top$$96$$#top
@@ -421,7 +421,7 @@ evil$$96$$https://www.merriam-webster.com/dictionary/evil
 judgment$$96$$https://www.merriam-webster.com/dictionary/judgment
 νέμεσις$$96$$https://en.wiktionary.org/wiki/https://en.wiktionary.org/wiki/Νέμεσις
 πονηρό$$96$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=πονηρός
-απόφαση$$96$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=απόφαση
+διακριτικότητα$$96$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=διακριτικότητα
 top$$96$$#top
 privacy$$96$$https://www.merriam-webster.com/dictionary/privacy
 ιδιωτικότητα;$$96$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ιδιωτικότητα
@@ -448,8 +448,8 @@ kahneman(behavioral economics): thinking, fast and slow$$96$$https://en.wikipedi
 σκέψη, αργή και γρήγορη συμπεριφορική οικονομική$$96$$https://www.public.gr/product/books/greek-books/economics/economics/skepsi-argi-kai-grigori/0759965
 deepl.com - translator$$96$$https://www.deepl.com/en/translator
 greek-language.gr - greek dictionary$$96$$https://www.greek-language.gr/
-wordreference.com- english-greek dictionary$$96$$https://www.wordreference.com/engr/
 depraved$$96$$https://www.merriam-webster.com/dictionary/depraved
+coerced$$96$$https://www.merriam-webster.com/dictionary/coerced
 βικιλεξικό$$96$$https://el.wiktionary.org/wiki
 statueofliberty.org$$97$$https://heritage.statueofliberty.org
 archives.gov$$97$$https://www.archives.gov/research/databases
