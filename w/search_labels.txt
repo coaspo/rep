@@ -296,7 +296,7 @@ political refugees$$95$$#1
 on the wall$$95$$#2
 ineffable$$95$$#3
 guilt$$95$$#4
-algorithm$$95$$#5
+what was it$$95$$#5
 angel$$95$$#6
 palliate cats$$95$$#7
 causes$$95$$#8
@@ -324,9 +324,8 @@ cave with the shadows$$95$$https://en.wikipedia.org/wiki/Allegory_of_the_cave
 top$$95$$#top
 [de]$$95$$#de
 διαφθείρει$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=διαφθείρω
-ανέντιμος;$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ανέντιμος
 ιneffable$$95$$https://www.merriam-webster.com/dictionary/ineffable
-aνείπωτα$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ανείπωτα
+aνείπωτo$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ανείπωτα
 top$$95$$#top
 [co]$$95$$#co
 καταναγκάστηκαν$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=καταναγκάζω
@@ -367,16 +366,18 @@ top$$95$$#top
 kahneman(behavioral economics): thinking, fast and slow$$95$$https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow
 σκέψη, αργή και γρήγορη συμπεριφορική οικονομική$$95$$https://www.public.gr/product/books/greek-books/economics/economics/skepsi-argi-kai-grigori/0759965
 deepl.com - translator$$95$$https://www.deepl.com/en/translator
-greek-language.gr - greek dictionary$$95$$https://www.greek-language.gr/
+systransoft.com - translator$$95$$https://www.systransoft.com/translate/
 depraved$$95$$https://www.merriam-webster.com/dictionary/depraved
 coerced$$95$$https://www.merriam-webster.com/dictionary/coerced
 βικιλεξικό$$95$$https://el.wiktionary.org/wiki
+greek-language.gr - ελληνικό λεξικό$$95$$https://www.greek-language.gr/
+ανέντιμος$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ανέντιμος;
 prologue$$96$$#p
 political refugees$$96$$#1
 on the wall$$96$$#2
 ineffable$$96$$#3
 guilt$$96$$#4
-algorithm$$96$$#5
+what was it$$96$$#5
 angel$$96$$#6
 palliate cats$$96$$#7
 causes$$96$$#8
@@ -404,9 +405,8 @@ cave with the shadows$$96$$https://en.wikipedia.org/wiki/Allegory_of_the_cave
 top$$96$$#top
 [de]$$96$$#de
 διαφθείρει$$96$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=διαφθείρω
-ανέντιμος;$$96$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ανέντιμος
 ιneffable$$96$$https://www.merriam-webster.com/dictionary/ineffable
-aνείπωτα$$96$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ανείπωτα
+aνείπωτo$$96$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ανείπωτα
 top$$96$$#top
 [co]$$96$$#co
 καταναγκάστηκαν$$96$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=καταναγκάζω
@@ -447,10 +447,12 @@ top$$96$$#top
 kahneman(behavioral economics): thinking, fast and slow$$96$$https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow
 σκέψη, αργή και γρήγορη συμπεριφορική οικονομική$$96$$https://www.public.gr/product/books/greek-books/economics/economics/skepsi-argi-kai-grigori/0759965
 deepl.com - translator$$96$$https://www.deepl.com/en/translator
-greek-language.gr - greek dictionary$$96$$https://www.greek-language.gr/
+systransoft.com - translator$$96$$https://www.systransoft.com/translate/
 depraved$$96$$https://www.merriam-webster.com/dictionary/depraved
 coerced$$96$$https://www.merriam-webster.com/dictionary/coerced
 βικιλεξικό$$96$$https://el.wiktionary.org/wiki
+greek-language.gr - ελληνικό λεξικό$$96$$https://www.greek-language.gr/
+ανέντιμος$$96$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ανέντιμος;
 statueofliberty.org$$97$$https://heritage.statueofliberty.org
 archives.gov$$97$$https://www.archives.gov/research/databases
 ai help$$98$$https://www.gov.gr/en/
