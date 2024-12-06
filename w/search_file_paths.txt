@@ -1,14 +1,12 @@
 apps/browser_check/broweser_check.html
 apps/browser_extensions/popup.html
 apps/culture/cultural_dimensions.txt
-apps/flash_cards/λέξεις (copy).html
 apps/flash_cards/λέξεις_απο_βιβλια.html
 apps/flash_cards/λέξεις_απο_διαδίκτυο.html
 apps/gps/position.html
 apps/gps/position_test.html
 apps/health/relax-breathing.html
 apps/night-sky/sky.html
-apps/online/links.html
 apps/text_editor/text_editor.html
 apps/websites/reputable_web_sites.html
 art/audio/classical.html

@@ -1,17 +1,218 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expanding and Shrinking Circle</title>
+    <style>
+        /* Basic page styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+            overflow: hidden;
+        }
+
+        /* Circle style */
+        .circle {
+            width: 100px;
+            height: 100px;
+            background-color: lightgreen;
+            border-radius: 50%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            left: 50%;
+            top: 50%;
+            transition: width 2s, height 2s;
+        }
+
+        .expanded {
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .shrunk {
+            width: 100px;
+            height: 100px;
+        }
+
+        /* Form styling */
+        .form-container {
+            width: 100px;
+            height:330px;
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            background-color: white;
+            padding: 5px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+        }
+
+        .form-container h2 {
+            margin-bottom: 10px;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 5px;
+        }
+
+        label {
+            font-size: 14px;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        input[type="number"] {
+            width: 80%;
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-group button {
+            width: 100%;
+            padding: 5px;
+            font-size: 16px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .form-group button:hover {
+            background-color: #2980b9;
+        }
+
+        .stop-button {
+            background-color: #e74c3c;
+        }
+
+        .stop-button:hover {
+            background-color: #c0392b;
+        }
+
+        .reset-button {
+            background-color: #2ecc71;
+        }
+
+        .reset-button:hover {
+            background-color: #27ae60;
+        }
+    </style>
+      <title>Breathing</title>
+      <link rel='icon' type='image/png' rel='noopener' target='_blank' href='../../ε.png'></head>
+</head>
 <body>
 
-<canvas id="myCanvas" width="200" height="100" style="border:1px solid #d3d3d3;">
-Your browser does not support the HTML canvas tag.</canvas>
+    <!-- Circle Element -->
+    <div class="circle" id="circle"></div>
 
-<script>
-var c = document.getElementById("myCanvas");
-var ctx = c.getContext("2d");
-ctx.moveTo(0,0);
-ctx.lineTo(200,100);
-ctx.stroke();
-</script>
+    <!-- Input Form -->
+    <div class="form-container">
+        <h2>Breathing</h2>
+        <form id="inputForm">
+            <div class="form-group">
+                <label for="x">Inhale (sec.)</label>  <input type="number" id="x" name="x" required min="0" value="1">
+            </div>
+            <div class="form-group">
+                <label for="y">Wait (sec.)</label> <input type="number" id="y" name="y" required min="0" value="5">
+            </div>
+            <div class="form-group">
+                <label for="z">Exhale (sec.)</label>  <input type="number" id="z" name="z" required min="0" value="8">
+            </div>
+            <div class="form-group">
+                <button type="submit" title="wait after clicking">Start </button>
+            </div>
+            <div class="form-group">
+                <button type="button" class="stop-button" id="stopButton">Stop</button>
+            </div>
+            <div class="form-group">
+                <button type="button" class="reset-button" id="resetButton">Reset</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Get the circle, form, stop button, and reset button elements
+        const circle = document.getElementById('circle');
+        const form = document.getElementById('inputForm');
+        const stopButton = document.getElementById('stopButton');
+        const resetButton = document.getElementById('resetButton');
+
+        let animationInterval;
+
+        // Function to start the animation
+        function startAnimation(x, y, z) {
+            // Set transition for the expanding step
+            circle.style.transition = `width ${x}s, height ${x}s`;
+
+            // Add the "expanded" class to the circle for expanding
+            circle.classList.add('expanded');
+            circle.classList.remove('shrunk');
+
+            // Wait for the specified time (y seconds) before shrinking
+            setTimeout(() => {
+                // Set transition for the shrinking step
+                circle.style.transition = `width ${z}s, height ${z}s`;
+
+                // Add the "shrunk" class to the circle for shrinking
+                circle.classList.add('shrunk');
+                circle.classList.remove('expanded');
+            }, (x + y) * 1000);  // Wait for the expand time + wait time before shrinking
+        }
+
+        // Function to loop the animation
+        function loopAnimation(x, y, z) {
+            // Start the animation and repeat it
+            animationInterval = setInterval(() => {
+                startAnimation(x, y, z);
+            }, (x + y + z) * 1000);  // Repeat after the full cycle (expand + wait + shrink)
+        }
+
+        // Form submit event listener
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();  // Prevent form submission
+
+            // Get values from the form
+            const x = parseFloat(document.getElementById('x').value);
+            const y = parseFloat(document.getElementById('y').value);
+            const z = parseFloat(document.getElementById('z').value);
+
+            // Start the animation loop
+            loopAnimation(x, y, z);
+        });
+
+        // Stop button event listener
+        stopButton.addEventListener('click', function() {
+            // Stop the animation loop
+            clearInterval(animationInterval);
+        });
+
+        // Reset button event listener
+        resetButton.addEventListener('click', function() {
+            // Stop the animation loop
+            clearInterval(animationInterval);
+
+            // Remove both classes (expanded and shrunk)
+            circle.classList.remove('expanded', 'shrunk');
+
+            // Reset the circle's size to its original state
+            circle.classList.add('shrunk');
+
+            // Clear the form inputs
+            form.reset();
+        });
+    </script>
 
 </body>
 </html>
