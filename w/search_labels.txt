@@ -361,14 +361,19 @@ eudaimonia$$93$$https://www.britannica.com/topic/eudaimonia
 ευδαιμονία$$93$$https://el.wikipedia.org/wiki/Ευδαιμονία
 top$$93$$#top
 kahneman(behavioral economics): thinking, fast and slow$$93$$https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow
+reference$$93$$#ref
 σκέψη, αργή και γρήγορη συμπεριφορική οικονομική$$93$$https://www.public.gr/product/books/greek-books/economics/economics/skepsi-argi-kai-grigori/0759965
+αναφορά$$93$$#ref
 deepl.com - translator$$93$$https://www.deepl.com/en/translator
 systransoft.com - translator$$93$$https://www.systransoft.com/translate/
 depraved$$93$$https://www.merriam-webster.com/dictionary/depraved
 coerced$$93$$https://www.merriam-webster.com/dictionary/coerced
-βικιλεξικό$$93$$https://el.wiktionary.org/wiki
-greek-language.gr - ελληνικό λεξικό$$93$$https://www.greek-language.gr/
-ανέντιμος$$93$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ανέντιμος;
+nikos gatsos$$93$$https://en.wikipedia.org/wiki/Nikos_Gatsos
+deepl.com - translator$$93$$https://www.deepl.com/en/translator
+systransoft.com - translator$$93$$https://www.systransoft.com/translate/
+depraved$$93$$https://www.merriam-webster.com/dictionary/depraved
+coerced$$93$$https://www.merriam-webster.com/dictionary/coerced
+νίκος γκάτσος$$93$$https://el.wikipedia.org/wiki/Νίκος_Γκάτσος
 prologue$$94$$#p
 political refugees$$94$$#1
 on the wall$$94$$#2
@@ -442,14 +447,19 @@ eudaimonia$$94$$https://www.britannica.com/topic/eudaimonia
 ευδαιμονία$$94$$https://el.wikipedia.org/wiki/Ευδαιμονία
 top$$94$$#top
 kahneman(behavioral economics): thinking, fast and slow$$94$$https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow
+reference$$94$$#ref
 σκέψη, αργή και γρήγορη συμπεριφορική οικονομική$$94$$https://www.public.gr/product/books/greek-books/economics/economics/skepsi-argi-kai-grigori/0759965
+αναφορά$$94$$#ref
 deepl.com - translator$$94$$https://www.deepl.com/en/translator
 systransoft.com - translator$$94$$https://www.systransoft.com/translate/
 depraved$$94$$https://www.merriam-webster.com/dictionary/depraved
 coerced$$94$$https://www.merriam-webster.com/dictionary/coerced
-βικιλεξικό$$94$$https://el.wiktionary.org/wiki
-greek-language.gr - ελληνικό λεξικό$$94$$https://www.greek-language.gr/
-ανέντιμος$$94$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ανέντιμος;
+nikos gatsos$$94$$https://en.wikipedia.org/wiki/Nikos_Gatsos
+deepl.com - translator$$94$$https://www.deepl.com/en/translator
+systransoft.com - translator$$94$$https://www.systransoft.com/translate/
+depraved$$94$$https://www.merriam-webster.com/dictionary/depraved
+coerced$$94$$https://www.merriam-webster.com/dictionary/coerced
+νίκος γκάτσος$$94$$https://el.wikipedia.org/wiki/Νίκος_Γκάτσος
 statueofliberty.org$$95$$https://heritage.statueofliberty.org
 archives.gov$$95$$https://www.archives.gov/research/databases
 ai help$$96$$https://www.gov.gr/en/
