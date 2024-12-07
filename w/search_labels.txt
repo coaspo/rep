@@ -328,7 +328,6 @@ top$$93$$#top
 καταναγκάστηκαν$$93$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=καταναγκάζω
 top$$93$$#top
 top$$93$$#top
-top$$93$$#top
 palliate$$93$$https://www.merriam-webster.com/dictionary/palliate
 ανακουφιστικό$$93$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ανακουφιστικό
 top$$93$$#top
@@ -361,9 +360,7 @@ eudaimonia$$93$$https://www.britannica.com/topic/eudaimonia
 ευδαιμονία$$93$$https://el.wikipedia.org/wiki/Ευδαιμονία
 top$$93$$#top
 kahneman(behavioral economics): thinking, fast and slow$$93$$https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow
-reference$$93$$#ref
 σκέψη, αργή και γρήγορη συμπεριφορική οικονομική$$93$$https://www.public.gr/product/books/greek-books/economics/economics/skepsi-argi-kai-grigori/0759965
-αναφορά$$93$$#ref
 deepl.com - translator$$93$$https://www.deepl.com/en/translator
 systransoft.com - translator$$93$$https://www.systransoft.com/translate/
 depraved$$93$$https://www.merriam-webster.com/dictionary/depraved
@@ -414,7 +411,6 @@ top$$94$$#top
 καταναγκάστηκαν$$94$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=καταναγκάζω
 top$$94$$#top
 top$$94$$#top
-top$$94$$#top
 palliate$$94$$https://www.merriam-webster.com/dictionary/palliate
 ανακουφιστικό$$94$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ανακουφιστικό
 top$$94$$#top
@@ -447,9 +443,7 @@ eudaimonia$$94$$https://www.britannica.com/topic/eudaimonia
 ευδαιμονία$$94$$https://el.wikipedia.org/wiki/Ευδαιμονία
 top$$94$$#top
 kahneman(behavioral economics): thinking, fast and slow$$94$$https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow
-reference$$94$$#ref
 σκέψη, αργή και γρήγορη συμπεριφορική οικονομική$$94$$https://www.public.gr/product/books/greek-books/economics/economics/skepsi-argi-kai-grigori/0759965
-αναφορά$$94$$#ref
 deepl.com - translator$$94$$https://www.deepl.com/en/translator
 systransoft.com - translator$$94$$https://www.systransoft.com/translate/
 depraved$$94$$https://www.merriam-webster.com/dictionary/depraved
