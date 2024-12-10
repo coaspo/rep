@@ -301,13 +301,11 @@ definition of isolation$$93$$#9
 dog story$$93$$#10
 cat story$$93$$#11
 donkey story$$93$$#12
-slaves$$93$$#13
-royal$$93$$#14
 carrot$$93$$#15
 side effects$$93$$#16
 broken$$93$$#17
-social outcasts/misfits$$93$$#18
-eudaimonia$$93$$#19
+social outcasts-misfits$$93$$#18
+song of the ashes$$93$$#19
 epilogue$$93$$#epi
 reference$$93$$#ref
 top$$93$$#top
@@ -344,10 +342,6 @@ top$$93$$#top
 trade-offs$$93$$https://www.merriam-webster.com/dictionary/trade-off
 συμβιβασμός;$$93$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=συμβιβασμός
 top$$93$$#top
-pandiculation$$93$$https://www.merriam-webster.com/dictionary/pandiculation
-ανακλάδισμα$$93$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ανακλάδισμα
-top$$93$$#top
-top$$93$$#top
 top$$93$$#top
 top$$93$$#top
 top$$93$$#top
@@ -355,9 +349,8 @@ top$$93$$#top
 top$$93$$#top
 trumps$$93$$https://www.merriam-webster.com/dictionary/trump
 ατού$$93$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ατού
-eudaimonia$$93$$https://en.wikipedia.org/wiki/Eudaimonia
+top$$93$$#top
 eudaimonia$$93$$https://www.britannica.com/topic/eudaimonia
-ευδαιμονία$$93$$https://el.wikipedia.org/wiki/Ευδαιμονία
 top$$93$$#top
 kahneman(behavioral economics): thinking, fast and slow$$93$$https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow
 σκέψη, αργή και γρήγορη συμπεριφορική οικονομική$$93$$https://www.public.gr/product/books/greek-books/economics/economics/skepsi-argi-kai-grigori/0759965
@@ -384,13 +377,11 @@ definition of isolation$$94$$#9
 dog story$$94$$#10
 cat story$$94$$#11
 donkey story$$94$$#12
-slaves$$94$$#13
-royal$$94$$#14
 carrot$$94$$#15
 side effects$$94$$#16
 broken$$94$$#17
-social outcasts/misfits$$94$$#18
-eudaimonia$$94$$#19
+social outcasts-misfits$$94$$#18
+song of the ashes$$94$$#19
 epilogue$$94$$#epi
 reference$$94$$#ref
 top$$94$$#top
@@ -427,10 +418,6 @@ top$$94$$#top
 trade-offs$$94$$https://www.merriam-webster.com/dictionary/trade-off
 συμβιβασμός;$$94$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=συμβιβασμός
 top$$94$$#top
-pandiculation$$94$$https://www.merriam-webster.com/dictionary/pandiculation
-ανακλάδισμα$$94$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ανακλάδισμα
-top$$94$$#top
-top$$94$$#top
 top$$94$$#top
 top$$94$$#top
 top$$94$$#top
@@ -438,9 +425,8 @@ top$$94$$#top
 top$$94$$#top
 trumps$$94$$https://www.merriam-webster.com/dictionary/trump
 ατού$$94$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ατού
-eudaimonia$$94$$https://en.wikipedia.org/wiki/Eudaimonia
+top$$94$$#top
 eudaimonia$$94$$https://www.britannica.com/topic/eudaimonia
-ευδαιμονία$$94$$https://el.wikipedia.org/wiki/Ευδαιμονία
 top$$94$$#top
 kahneman(behavioral economics): thinking, fast and slow$$94$$https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow
 σκέψη, αργή και γρήγορη συμπεριφορική οικονομική$$94$$https://www.public.gr/product/books/greek-books/economics/economics/skepsi-argi-kai-grigori/0759965
