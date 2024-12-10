@@ -1,6 +1,8 @@
 apps/browser_check/broweser_check.html
 apps/browser_extensions/popup.html
 apps/culture/cultural_dimensions.txt
+apps/flash_cards/12_ancient_grrek_words.html
+apps/flash_cards/words_to_σε_λέξεις.html
 apps/flash_cards/λέξεις_απο_βιβλια.html
 apps/flash_cards/λέξεις_απο_διαδίκτυο.html
 apps/gps/position.html
