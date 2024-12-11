@@ -52,7 +52,6 @@
             <input type="checkbox" id="reverseCheckbox"><label for="reverseCheckbox">Reverse </label>
             <input type="checkbox" id="sortCheckbox"><label for="sortCheckbox">Sort </label>
             <input type="checkbox" id="reviewCheckbox" checked><label for="reviewCheckbox">Review </label>
-            <input type="checkbox" id="quizCheckbox"><label for="quizCheckbox">Quiz </label>
         </div>
         <table>
             <tr>
@@ -62,8 +61,7 @@
                         onclick="fillInRightTextArea()"></textarea></td>
             </tr>
         </table>
-        &nbsp;&nbsp;&nbsp;<button id="gradeQuizButton" onclick="gradeQuiz()" disabled>Grade Quiz</button><br>
-        &nbsp;&nbsp;<div id="quizInfo"></div>&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;<a href="https://classicalwisdom.substack.com/p/12-ancient-greek-terms-that-should">12 ancient greek words</a>
     </div>
 
     <div id="tab2" class="tab">
@@ -169,32 +167,7 @@ emotion that a rich person might feel in the presence of the impoverished, undes
                 fillInRightTextArea();
             });
 
-            const quizCheckbox = document.getElementById("quizCheckbox");
-            quizCheckbox.addEventListener('change', function () {
-                isQuizMode = quizCheckbox.checked
-                console.log('isQuizMode= ' + isQuizMode)
-                if (isQuizMode) {
-                    isReviewMode = false;
-                    isSortMode = false;
-                    document.getElementById("reviewCheckbox").checked = false
-                    document.getElementById("sortCheckbox").checked = false
-                    flashCardAnswerList = Array(displayFlashCardList.length).fill("");
-                    document.getElementById("quizInfo").innerHTML = "Type one word anwser and go to next card. <br>&nbsp;&nbsp;Correct answer is the first flash card word."
-                } else {
-                    document.getElementById("quizInfo").innerHTML = ""
-                }
-                document.getElementById("").disabled = isQuizMode;
-                document.getElementById("reviewCheckbox").disabled = isQuizMode;
-                document.getElementById("sortCheckbox").disabled = isQuizMode;
-                document.getElementsByName("rightTextArea")[0].readOnly = !isQuizMode;
-                for (const groupNumber of groupNumbers) {
-                    document.getElementById(groupNumber).disabled = isQuizMode;
-                }
-                displayArrayIndex = 0
-                fillInTextAreas()
-            });
-
-            const rightTextArea = document.getElementsByName("rightTextArea")[0]
+             const rightTextArea = document.getElementsByName("rightTextArea")[0]
             console.log('rightTextArea= ' + rightTextArea)
             rightTextArea.addEventListener('change', function (event) {
                 if (!isQuizMode) {

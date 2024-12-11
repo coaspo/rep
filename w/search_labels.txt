@@ -1,3 +1,4 @@
+12 ancient greek words$$3$$https://classicalwisdom.substack.com/p/12-ancient-greek-terms-that-should
 test_search.html$$8$$../../tests/test_search.html
 sky and telescope$$10$$https://skyandtelescope.org/interactive-sky-chart/
 dark sky$$10$$https://www.darkskymap.com/
@@ -325,7 +326,6 @@ top$$95$$#top
 top$$95$$#top
 top$$95$$#top
 palliate$$95$$https://www.merriam-webster.com/dictionary/palliate
-ανακουφιστικό$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ανακουφιστικό
 top$$95$$#top
 nemesis$$95$$https://www.merriam-webster.com/dictionary/nemesis
 evil$$95$$https://www.merriam-webster.com/dictionary/evil
@@ -357,7 +357,7 @@ systransoft.com - translator$$95$$https://www.systransoft.com/translate/
 nikos gatsos$$95$$https://en.wikipedia.org/wiki/Nikos_Gatsos
 greek-language.gρ - λεξικό$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.htmλ
 wiktionary.org - βικιλεξικό$$95$$https://el.wiktionary.org/wiki
-αγκλικές λέξεις$$95$$../../apps/flash_cards/words_to_σε_λέξεις.html
+λέξεις με αμφισβητούμενη ελληνική μετάφραση.$$95$$../../apps/flash_cards/words_to_σε_λέξεις.html
 νίκος γκάτσος$$95$$https://el.wikipedia.org/wiki/Νίκος_Γκάτσος
 prologue$$96$$#p
 political refugees$$96$$#1
