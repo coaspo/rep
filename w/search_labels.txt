@@ -318,7 +318,7 @@ cave with the shadows$$95$$https://en.wikipedia.org/wiki/Allegory_of_the_cave
 φιλότιμο$$95$$https://en.wikipedia.org/wiki/Philotimo
 σπηλιά με τις σκιές$$95$$https://el.wikipedia.org/wiki/Αλληγορία_του_Σπηλαίου
 top$$95$$#top
-διαφθείρουν$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=διαφθείρω
+deprave$$95$$https://www.merriam-webster.com/dictionary/deprave
 ιneffable$$95$$https://www.merriam-webster.com/dictionary/ineffable
 aνείπωτo$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ανείπωτα
 top$$95$$#top
@@ -348,17 +348,21 @@ top$$95$$#top
 trumps$$95$$https://www.merriam-webster.com/dictionary/trump
 ατού$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ατού
 top$$95$$#top
-eudaimonia$$95$$https://www.britannica.com/topic/eudaimonia
+<i>eudaimonic</i>$$95$$https://www.britannica.com/topic/eudaimonia
+eudaimonic$$95
+ευδαιμονό$$95
 top$$95$$#top
 kahneman(behavioral economics): thinking, fast and slow$$95$$https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow
 σκέψη, αργή και γρήγορη συμπεριφορική οικονομική$$95$$https://www.public.gr/product/books/greek-books/economics/economics/skepsi-argi-kai-grigori/0759965
 deepl.com - translator$$95$$https://www.deepl.com/en/translator
 systransoft.com - translator$$95$$https://www.systransoft.com/translate/
-nikos gatsos$$95$$https://en.wikipedia.org/wiki/Nikos_Gatsos
+12 ancient greek terms that should make a comeback (eudemonia)$$95$$https://classicalwisdom.substack.com/p/12-ancient-greek-terms-that-should
+νίκος γκάτσος (γεωργίου)$$95$$https://el.wikipedia.org/wiki/Νίκος_Γκάτσος
 greek-language.gρ - λεξικό$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.htmλ
 wiktionary.org - βικιλεξικό$$95$$https://el.wiktionary.org/wiki
 λέξεις με αμφισβητούμενη ελληνική μετάφραση.$$95$$../../apps/flash_cards/words_to_σε_λέξεις.html
-νίκος γκάτσος$$95$$https://el.wikipedia.org/wiki/Νίκος_Γκάτσος
+12 αρχαιοελληνικοί λέξεις που θα πρέπει να επιστρέψουν (ευδαιμονία)$$95$$https://classicalwisdom.substack.com/p/12-ancient-greek-terms-that-should
+nikos gatsos (georgiou)$$95$$https://en.wikipedia.org/wiki/Nikos_Gatsos
 prologue$$96$$#p
 political refugees$$96$$#1
 on the wall$$96$$#2
