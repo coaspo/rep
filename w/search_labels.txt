@@ -291,7 +291,7 @@ nih: behavioral and neurochemical effects of sugar$$88$$https://www.ncbi.nlm.nih
 hih: all disease begins in the (leaky) gut.$$88$$https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6996528/
 prologue$$95$$#p
 political refugees$$95$$#1
-on the wall$$95$$#2
+future$$95$$#2
 ineffable$$95$$#3
 guilt$$95$$#4
 what was it$$95$$#5
@@ -302,57 +302,60 @@ definition of isolation$$95$$#9
 dog story$$95$$#10
 cat story$$95$$#11
 donkey story$$95$$#12
-carrot$$95$$#15
-side effects$$95$$#16
-broken$$95$$#17
-social outcasts-misfits$$95$$#18
-song of the ashes$$95$$#19
+carrot$$95$$#13
+side effects$$95$$#14
+broken$$95$$#15
+social outcasts-misfits$$95$$#16
+song of the ashes$$95$$#17
 epilogue$$95$$#epi
 reference$$95$$#ref
-top$$95$$#top
+contents$$95$$#top
 heuristic$$95$$https://www.merriam-webster.com/dictionary/heuristic
 ευρετική$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ευρετικός
-top$$95$$#top
+contents$$95$$#top
 thoughtful$$95$$https://www.merriam-webster.com/dictionary/thoughtful
 cave with the shadows$$95$$https://en.wikipedia.org/wiki/Allegory_of_the_cave
 φιλότιμο$$95$$https://en.wikipedia.org/wiki/Philotimo
 σπηλιά με τις σκιές$$95$$https://el.wikipedia.org/wiki/Αλληγορία_του_Σπηλαίου
-top$$95$$#top
+contents$$95$$#top
+coping$$95$$https://en.wikipedia.org/wiki/Coping
 deprave$$95$$https://www.merriam-webster.com/dictionary/deprave
 ιneffable$$95$$https://www.merriam-webster.com/dictionary/ineffable
 aνείπωτo$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ανείπωτα
-top$$95$$#top
+contents$$95$$#top
 καταναγκάστηκαν$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=καταναγκάζω
-top$$95$$#top
-top$$95$$#top
+contents$$95$$#top
+contents$$95$$#top
 palliate$$95$$https://www.merriam-webster.com/dictionary/palliate
-top$$95$$#top
-nemesis$$95$$https://www.merriam-webster.com/dictionary/nemesis
+contents$$95$$#top
+guess$$95$$https://www.merriam-webster.com/dictionary/guess
 evil$$95$$https://www.merriam-webster.com/dictionary/evil
+nemesis$$95$$https://www.merriam-webster.com/dictionary/nemesis
 judgment$$95$$https://www.merriam-webster.com/dictionary/judgment
-νέμεσις$$95$$https://en.wiktionary.org/wiki/https://en.wiktionary.org/wiki/Νέμεσις
 πονηρό$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=πονηρός
+νέμεσις$$95$$https://en.wiktionary.org/wiki/https://en.wiktionary.org/wiki/Νέμεσις
 διακριτικότητα$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=διακριτικότητα
-top$$95$$#top
+contents$$95$$#top
 privacy$$95$$https://www.merriam-webster.com/dictionary/privacy
 ιδιωτικότητα;$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ιδιωτικότητα
-top$$95$$#top
+contents$$95$$#top
 trade-offs$$95$$https://www.merriam-webster.com/dictionary/trade-off
 συμβιβασμός;$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=συμβιβασμός
-top$$95$$#top
-top$$95$$#top
-top$$95$$#top
-top$$95$$#top
-top$$95$$#top
-top$$95$$#top
+contents$$95$$#top
+contents$$95$$#top
+contents$$95$$#top
+contents$$95$$#top
+contents$$95$$#top
+contents$$95$$#top
 trumps$$95$$https://www.merriam-webster.com/dictionary/trump
 ατού$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ατού
-top$$95$$#top
+contents$$95$$#top
 <i>eudaimonic</i>$$95$$https://www.britannica.com/topic/eudaimonia
 eudaimonic$$95
 ευδαιμονό$$95
-top$$95$$#top
+contents$$95$$#top
 kahneman(behavioral economics): thinking, fast and slow$$95$$https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow
+understatement$$95$$https://www.merriam-webster.com/dictionary/understatement
 σκέψη, αργή και γρήγορη συμπεριφορική οικονομική$$95$$https://www.public.gr/product/books/greek-books/economics/economics/skepsi-argi-kai-grigori/0759965
 deepl.com - translator$$95$$https://www.deepl.com/en/translator
 systransoft.com - translator$$95$$https://www.systransoft.com/translate/
