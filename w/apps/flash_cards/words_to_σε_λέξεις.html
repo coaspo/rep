@@ -3,7 +3,7 @@
 
 <head>
     <title>Tabbed Page</title>
-    <link rel='icon' type='image/png' rel='noopener' target='_blank' href='../../ε.png'></head>
+     <link rel="icon" href="../a.png"></head>
     <style>
         body {
            min-height: 100vh;
@@ -42,8 +42,8 @@
 </head>
 
 <body>
-    <button class="tab-button" onclick="openTab('tab1', this)">Flash Cards</button>
     <button class="tab-button" onclick="openTab('tab2', this)">List</button>
+    <button class="tab-button" onclick="openTab('tab1', this)">Flash Cards</button>
     <button class="tab-button" onclick="openTab('tab3', this)">Edit</button>
 
     <div id="tab1" class="tab">&nbsp;
@@ -67,7 +67,7 @@
     </div>
 
     <div id="tab2" class="tab">
-        <pre><label id="nextListTextArea" style=' width: 60ch; ' onclick="createList(1);" ></label></pre>
+        <label id="nextListTextArea" style=' width: 60ch; ' onclick="createList(1);" ></label>
     </div>
 
     <div id="tab3" class="tab">
@@ -91,7 +91,6 @@ deprave διεφθηρω= Make (someone) immoral or wicked. Να κάνετε (�
 discriminate διακρίνω = Make an unjust or prejudicial distinction. Να κάνετε μια άδικη ή επιζήμια διάκριση.
 Eudaimonia Ευδαιμονία = Fulfilling and rich life. Γεμάτη και πλούσια ζωή.
 evil κακό = Profoundly immoral and wicked.  Βαθύτατα ανήθικο και μοχθηρό.
-fascist φασίστας= Cruel, unscrupulous (no moral principles), arrogant. Σκληρός, αδίστακτος (χωρίς ηθικές αρχές), αλαζόνας
 fury οργή = Wild or violent anger. Άγριος ή βίαιος θυμός.
 heuristic ευρετική =  Mental shortcut to make fast decisions. Διανοητική συντόμευση για τη λήψη γρήγορων αποφάσεων.
 junkie πρεζόνι= Person addicted to drugs or heroin. Άτομο εθισμένο στα ναρκωτικά ή στην ηρωίνη.
@@ -124,7 +123,7 @@ compromise συμβιβασμός= Agree by giving something up. Συμφωνή�
         }
 
         // Open the first tab by default
-        openTab('tab1', document.querySelector('.tab-button:nth-child(1)'));
+        openTab('tab2', document.querySelector('.tab-button:nth-child(1)'));
 
         // Add an event listener to the text area to display "left text area" on blur (when leaving)
         const textArea = document.getElementById("flashCardTextArea");
@@ -439,7 +438,7 @@ compromise συμβιβασμός= Agree by giving something up. Συμφωνή�
                 displayListIndex = 0
             }
             let j = 0;
-            for (let i = 0; i < 7; i++) {
+            for (let i = 0; i < 10; i++) {
                 j = i + displayListIndex
                 if (j > (displayFlashCardList.length - 1)) {
                     break;
@@ -448,7 +447,9 @@ compromise συμβιβασμός= Agree by giving something up. Συμφωνή�
                 }
                 console.log(j)
                 var pattern = /[1234]/g;
-                html += (j + 1) + '  <b>' + displayFlashCardList[j][0].replace(pattern, '')
+                let words = displayFlashCardList[j][0].replace(pattern, '')
+                words = colorNonGreekWordsRed(words)
+                html += (j + 1) + '  <b>' + words
                 let nSpaces = 18 - displayFlashCardList[j][0].length
                 html += '</b>'.padStart(nSpaces, ' ')
                 html += ' ' + colorNonGreekWordsRed(displayFlashCardList[j][1])

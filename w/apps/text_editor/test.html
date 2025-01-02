@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,
+                   initial-scale=1.0">
+    <title>JavaScript closest()</title>
+</head>
+
+<body>
+    <center>
+        <h1>GeeksforGeeks</h1>
+        <h3>
+            First Click the Set storage
+            button to set the storage and
+            then Get storage button to get it.
+        </h3>
+        <p id="result"></p>
+        <button id="setBtn">
+            Set Local Storage
+        </button>
+        <button id="getBtn">
+            Get Local Storage
+        </button>
+        <button id="deleteBtn">
+            Delete Local Storage
+        </button>
+    </center>
+
+    <script>
+        const result = document.getElementById('result');
+        const setBtn = document.getElementById('setBtn');
+        const getBtn = document.getElementById('getBtn');
+        const deleteBtn = document.getElementById('deleteBtn');
+
+        function setStorage() {
+            if(localStorage.getItem("Username") !== null){
+                result.innerHTML =
+                  `Storage is already settled!!`;
+            }
+            else{
+                localStorage.setItem("Username", "Emrit Singh");
+            }
+
+        }
+
+        function getStorage(){
+            if(localStorage.getItem("Username") !== null){
+                result.innerHTML =
+                  `Storage: <b>${localStorage.getItem("Username")}</b>`;
+            }
+            else{
+                result.innerHTML =
+                  `Please set the storage first!!`;
+            }
+        }
+
+        function delStorage(){
+            if(localStorage.getItem("Username") !== null){
+                localStorage.clear();
+            }
+            else{
+                result.innerHTML =
+                  `No storage available to delete!!`;
+            }
+        }
+
+        setBtn.addEventListener('click', setStorage);
+        getBtn.addEventListener('click', getStorage);
+        deleteBtn.addEventListener('click', delStorage);
+    </script>
+</body>
+
+</html>

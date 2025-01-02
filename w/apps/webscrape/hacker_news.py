@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """#>>> create_web_page(['l3', '<li>', '<a href="l2">l2</a>'], [10, 100, 50], [5, 10, 3], 2) '<html><head><meta
-charset='UTF-8'></head><title>Hacker news sort</title>\\n<body>Top <a
+charset='UTF-8'><link rel="icon" href="../../a.png"></head><title>Hacker news sort</title>\\n<body>Top <a
 href="https://news.ycombinator.com/">https://news.ycombinator.com/</a> links\\n2 top points:\\n<li>, 100 points \\n<a
 href="l2">l2</a>, 50 points \\n\\n2 top comments:\\nl3, 5 comments \\n\\n2 top points*comments:\\n\\n2 top point
 non-🦜/\U0001fab5/📰:\\n\\n🦜 twitter/facebook   \U0001fab5 BLOG   📰 news</pre></body></html>' """
