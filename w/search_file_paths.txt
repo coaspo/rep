@@ -9,7 +9,7 @@ apps/gps/position.html
 apps/gps/position_test.html
 apps/health/relax-breathing.html
 apps/night-sky/sky.html
-apps/text_editor/test.html
+apps/text_editor/t_t.html
 apps/text_editor/text_editor.html
 apps/websites/reputable_web_sites.html
 art/audio/classical.html
