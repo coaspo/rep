@@ -36,20 +36,20 @@
         const deleteBtn = document.getElementById('deleteBtn');
 
         function setStorage() {
-            if(localStorage.getItem("Username") !== null){
+            if(localStorage.getItem("aa") !== null){
                 result.innerHTML =
                   `Storage is already settled!!`;
             }
             else{
-                localStorage.setItem("Username", "Emrit Singh");
+                localStorage.setItem("aa", "Emrit Singh");
             }
 
         }
 
         function getStorage(){
-            if(localStorage.getItem("Username") !== null){
+            if(localStorage.getItem("aa") !== null){
                 result.innerHTML =
-                  `Storage: <b>${localStorage.getItem("Username")}</b>`;
+                  `Storage: <b>${localStorage.getItem("aa")}</b>`;
             }
             else{
                 result.innerHTML =

@@ -330,17 +330,17 @@ guilt$$94$$#4
 what was it$$94$$#5
 angel$$94$$#6
 palliate cats$$94$$#7
-causes$$94$$#8
-definition of isolation$$94$$#9
-dog story$$94$$#10
-cat story$$94$$#11
-donkey story$$94$$#12
-carrot$$94$$#13
-side effects$$94$$#14
-broken$$94$$#15
-social outcasts-misfits$$94$$#16
-song of the ashes$$94$$#17
+carrot$$94$$#8
+broken$$94$$#9
+definition of isolation$$94$$#10
+causes$$94$$#11
+dog story$$94$$#12
+cat story$$94$$#13
+dog-cat side effect$$94$$#14
+social outcasts-misfits$$94$$#15
+song of the ashes$$94$$#16
 crack$$94$$#17
+donkey story$$94$$#18
 epilogue$$94$$#epi
 reference$$94$$#ref
 contents$$94$$#top
@@ -362,6 +362,11 @@ contents$$94$$#top
 contents$$94$$#top
 palliate$$94$$https://www.merriam-webster.com/dictionary/palliate
 contents$$94$$#top
+contents$$94$$#top
+contents$$94$$#top
+privacy$$94$$https://www.merriam-webster.com/dictionary/privacy
+ιδιωτικότητα;$$94$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ιδιωτικότητα
+contents$$94$$#top
 guess$$94$$https://www.merriam-webster.com/dictionary/guess
 evil$$94$$https://www.merriam-webster.com/dictionary/evil
 nemesis$$94$$https://www.merriam-webster.com/dictionary/nemesis
@@ -370,14 +375,8 @@ judgment$$94$$https://www.merriam-webster.com/dictionary/judgment
 νέμεσις$$94$$https://en.wiktionary.org/wiki/https://en.wiktionary.org/wiki/Νέμεσις
 διακριτικότητα$$94$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=διακριτικότητα
 contents$$94$$#top
-privacy$$94$$https://www.merriam-webster.com/dictionary/privacy
-ιδιωτικότητα;$$94$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ιδιωτικότητα
-contents$$94$$#top
 trade-offs$$94$$https://www.merriam-webster.com/dictionary/trade-off
 συμβιβασμός;$$94$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=συμβιβασμός
-contents$$94$$#top
-contents$$94$$#top
-contents$$94$$#top
 contents$$94$$#top
 contents$$94$$#top
 contents$$94$$#top
@@ -387,6 +386,7 @@ contents$$94$$#top
 <i>eudaimonic</i>$$94$$https://www.britannica.com/topic/eudaimonia
 eudaimonic$$94
 ευδαιμονό$$94
+contents$$94$$#top
 contents$$94$$#top
 contents$$94$$#top
 kahneman(behavioral economics): thinking, fast and slow$$94$$https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow
