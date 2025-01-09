@@ -85,14 +85,15 @@ food/meta-food/health/natural_blood_components.txt
 food/meta-food/health/oxidative_stress.txt
 food/meta-food/health/sugar_list.html
 food/meta-food/wild_plants_.txt
+projects/art/cats_dogs.html
+projects/art/fuga.html
+projects/art/tmp.html
 projects/books.html
 projects/construction/home_energy.html
 projects/construction/landscaping.html
 projects/courses/appplied_category_course.html
 projects/courses/ml_course_intro.html
 projects/courses/nutrition_course_notes.html
-projects/my-art/cats_dogs.html
-projects/my-art/tmp.html
 projects/paper-pushing/elis_island.html
 projects/paper-pushing/greek_irs.html
 projects/paper-pushing/φόροι_taxes.html
