@@ -86,7 +86,6 @@ food/meta-food/health/oxidative_stress.txt
 food/meta-food/health/sugar_list.html
 food/meta-food/wild_plants_.txt
 projects/art/cats_dogs.html
-projects/art/fuga.html
 projects/art/tmp.html
 projects/books.html
 projects/construction/home_energy.html
