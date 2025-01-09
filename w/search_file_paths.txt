@@ -9,8 +9,7 @@ apps/gps/position.html
 apps/gps/position_test.html
 apps/health/relax-breathing.html
 apps/night-sky/sky.html
-apps/text_editor/t_t.html
-apps/text_editor/text_editor.html
+apps/text_editor/notes.html
 apps/websites/reputable_web_sites.html
 art/audio/classical.html
 art/audio/gospel-ancient.html
@@ -144,6 +143,7 @@ science/health/phone;_sugar;_sleep.txt
 science/health/science_based_medicine.txt
 science/health/social_anxiety.txt
 science/health/urinalysis.txt
+science/health/urine_test.txt
 science/health/vaccine.txt
 science/health/water.txt
 science/links/internet_resources.html

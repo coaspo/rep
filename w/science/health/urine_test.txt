@@ -1,0 +1,41 @@
+1. acinetobacter baumannii   Normal reference: 19.961 - 24.689 ppm
+
+2. citrobacter freundii.    23.000 - 31.881
+
+3. enterobacter aerogenes, cloacae.    23.000 - 31.535
+
+4. enterococcus faecalis, faecium.    26.000 - 31.575
+
+5. escherichia coli.    23.000 - 28.500
+
+6. klebsiella pneumoniae, oxytoca.    23.000 - 30.500
+
+7. morganella morganii.    19.961 - 24.689
+
+8. proteus mirabilis, vulgaris.    23.000 - 28.500
+
+9. pseudomonas aeruginosa.    23.000 - 28.500
+
+
+10. staphylococcus aureus.    26.000 - 30.902
+
+11. streptococcus agalactiae (group B strep).    26.000 - 32.222
+
+
+12. candida albicans, parapsilosis, tropicalis.    19.961 - 30.770
+
+13. candida glabrata (nakaseomyces glabratus).    23.000 - 32.138
+
+
+14. candida krusei (pichia kudriavzevii).    23.000 - 32.271
+
+
+15. serratia marcescens.    23.000 - 31.204
+
+16. streptococcus pyogenes (group A strep).    19.961 - 24.689
+
+
+17. staphylococcus saprophyticus.    19.961 - 24.689
+
+18. staphylococcus epidermidis, haemolyticus, lugdunensis.    19.961 - 24.689
+

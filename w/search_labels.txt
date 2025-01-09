@@ -3,536 +3,537 @@ test_search.html$$8$$../../tests/test_search.html
 sky and telescope$$10$$https://skyandtelescope.org/interactive-sky-chart/
 dark sky$$10$$https://www.darkskymap.com/
 star map$$10$$https://stellarium-web.org/
-abc news$$13$$https://abcnews.go.com/
-agence france-presse$$13$$https://www.afp.com/en
-al jazeera$$13$$https://www.aljazeera.com/
-amnesty international$$13$$https://www.amnesty.org/en/
-anti-defamation league$$13$$https://www.adl.org/
-aon; business decisions$$13$$https://www.aon.com/en/
-ars technica$$13$$https://arstechnica.com/
-associated press$$13$$https://apnews.com/
-atlas obscura$$13$$https://www.atlasobscura.com/
-axios$$13$$https://www.axios.com/
-bbc$$13$$https://www.bbc.com/
-behind the voice actors$$13$$https://www.behindthevoiceactors.com/
-bellingcat investigations$$13$$https://www.bellingcat.com/
-bloomberg$$13$$https://www.bloomberg.com/
-burke's historical genealogy$$13$$https://www.burkespeerage.com/
-buzzfeed news$$13$$https://www.buzzfeednews.com/
-climate feedback / climate change$$13$$https://climatefeedback.org/
-cnet$$13$$https://www.cnet.com/
-cnn$$13$$https://www.cnn.com/
-coda media; ongoing crisis$$13$$https://www.codastory.com/
-common sense media; movie reviews$$13$$https://www.commonsensemedia.org/
-deadline hollywood$$13$$https://deadline.com/
-debrett's  british royals & etiquette$$13$$https://debretts.com/
-der spiegel$$13$$https://www.spiegel.de/international/
-deseret news utah/west$$13$$https://www.deseret.com/
-deutsche welle$$13$$https://www.dw.com/en
-digital spy; tv/movies$$13$$https://www.digitalspy.com/
-encyclopædia iranica$$13$$https://www.iranicaonline.org/
-engadget$$13$$https://www.engadget.com/
-entertainment weekly$$13$$https://ew.com/
-financial times$$13$$https://www.ft.com/
-forbes$$13$$https://www.forbes.com/
-game developer$$13$$https://www.gamedeveloper.com/
-gazeta wyborcza; poland$$13$$https://wyborcza.pl/
-gizmodo$$13$$https://gizmodo.com/
-geographical names$$13$$https://www.usgs.gov/tools/geographic-names-information-system-gnis
-gq men's fashion$$13$$https://www.gq.com/
-haaretz; israel$$13$$https://www.haaretz.com/
-huffpost$$13$$https://www.huffpost.com/
-idolator; music$$13$$https://www.idolator.com/
-ign video games$$13$$https://www.ign.com/
-business insider (culture)$$13$$https://www.businessinsider.com/culture
-international fact-checking network$$13$$https://www.poynter.org/ifcn/
-inter press service$$13$$https://www.ipsnews.net/
-jacobin$$13$$https://jacobin.com/
-jama$$13$$https://jamanetwork.com/
-kirkus reviews; book reviews$$13$$https://www.kirkusreviews.com/
-kommersant; russian$$13$$https://www.kommersant.ru/
-le monde diplomatique$$13$$https://mondediplo.com/
-los angeles times$$13$$https://www.latimes.com/
-mail &amp; guardian; south africa"$$13$$https://mg.co.za/
-metacritic; movie reviews$$13$$https://www.metacritic.com/
-mother jones$$13$$https://www.motherjones.com/
-msnbc$$13$$https://www.msnbc.com/
-national geographic$$13$$https://www.nationalgeographic.com/
-nbc news$$13$$https://www.nbcnews.com/
-newslaundry$$13$$https://www.newslaundry.com/
-newsweek$$13$$https://www.newsweek.com/
-new york magazine$$13$$https://nymag.com/
-new york daily news$$13$$https://www.nydailynews.com/
-nme; music$$13$$https://www.nme.com/
-npr$$13$$https://www.npr.org/
-people$$13$$https://people.com/
-people make games$$13$$https://www.youtube.com/@PeopleMakeGames
-pew research center$$13$$https://www.pewresearch.org/
-politico$$13$$https://www.politico.com/
-politifact$$13$$https://www.politifact.com/
-polygon; gaming$$13$$https://www.polygon.com/
-propublica$$13$$https://www.propublica.org/
-quartz$$13$$https://qz.com/
-radio free asia$$13$$https://www.rfa.org/english
-rappler / phillipines$$13$$https://www.rappler.com/
-reason$$13$$https://reason.com/
-religion news service$$13$$https://religionnews.com/
-reuters$$13$$https://www.reuters.com/
-rolling stone$$13$$https://www.rollingstone.com/
-rotten tomatoes$$13$$https://www.rottentomatoes.com/
-rté irish news$$13$$https://www.rte.ie/
-science-based medicine$$13$$https://sciencebasedmedicine.org/
-scientific american$$13$$https://www.scientificamerican.com/
-scmp south china morning post$$13$$https://www.scmp.com/
-scotusblog; supreme court news$$13$$https://www.scotusblog.com/
-sixth tone; china$$13$$https://www.sixthtone.com/
-sky news uk$$13$$https://news.sky.com/
-snopes$$13$$https://www.snopes.com/
-southern poverty law center$$13$$https://www.splcenter.org/
-space.com$$13$$https://www.space.com/
-the age; australia$$13$$https://www.theage.com.au/
-the atlantic$$13$$https://www.theatlantic.com/
-the australian$$13$$https://www.theaustralian.com.au/
-the a.v. club; pop culture$$13$$https://www.avclub.com/
-the christian science monitor$$13$$https://www.csmonitor.com/
-the conversation$$13$$https://theconversation.com/us
-the diplomat$$13$$https://thediplomat.com/
-the economist$$13$$https://www.economist.com/
-the globe and mail$$13$$https://www.theglobeandmail.com/
-the guardian$$13$$https://www.theguardian.com/us
-the hill$$13$$https://thehill.com/
-the hindu$$13$$https://www.thehindu.com/
-the hollywood reporter$$13$$https://www.hollywoodreporter.com/
-the independent$$13$$https://www.the-independent.com/
-the indian express$$13$$https://indianexpress.com/international/
-the intercept$$13$$https://theintercept.com/
-the jewish chronicle$$13$$https://www.thejc.com/
-the mary sue; pop culture$$13$$https://www.themarysue.com/
-the nation$$13$$https://www.thenation.com/
-the new republic$$13$$https://newrepublic.com/
-the new yorker$$13$$https://www.newyorker.com/
-the new york times$$13$$https://www.nytimes.com/
-the new zealand herald$$13$$https://www.nzherald.co.nz/
-the register$$13$$https://www.theregister.com/
-the sydney morning herald$$13$$https://www.smh.com.au/
-the times$$13$$https://www.thetimes.com/
-the verge$$13$$https://www.theverge.com/
-the wall street journal$$13$$https://www.wsj.com/
-the washington post$$13$$https://www.washingtonpost.com/
-the wire india$$13$$https://thewire.in/
-thewrap; moviews$$13$$https://www.thewrap.com/
-time$$13$$https://time.com/
-torrentfreak$$13$$https://torrentfreak.com/
-tv guide$$13$$https://www.tvguide.com/
-usa today$$13$$https://www.usatoday.com/
-u.s. news &amp; world report$$13$$https://www.usnews.com/
-vanity fair$$13$$https://www.vanityfair.com/
-variety$$13$$https://variety.com/
-venturebeat$$13$$https://venturebeat.com/
-vogue$$13$$https://www.vogue.com/
-voice of america$$13$$https://www.voanews.com/
-vox$$13$$https://www.vox.com/
-wired$$13$$https://www.wired.com/
-yahoo news$$13$$https://news.yahoo.com/
-zdnet$$13$$https://www.zdnet.com/
-bach, goldberg variations$$14$$https://www.youtube.com/watch?v=Ah392lnFHxM
-beethoven, moonlight sonata$$14$$https://www.youtube.com/watch?v=4Tr0otuiQuU
-beethoven – symphony no.5 in c minor$$14$$https://music.youtube.com/watch?v=hv-F6LZ1sJk
-beethoven – symphony no.9 in c minor$$14$$https://www.youtube.com/watch?v=t3217H8JppI
-schiller's "ode to joy"$$14$$https://en.wikipedia.org/wiki/Ode_to_Joy
-bernstein, west side story prologue - jet song$$14$$https://www.youtube.com/watch?v=7QR6ytrVRkM
-beethoven, silence$$14$$https://music.youtube.com/watch?v=TJFR3ZUFpaM
-bizet - habanera; <b>tango</b>$$14$$https://music.youtube.com/watch?v=GygeHnfohYk
-chopin, spring waltz$$14$$https://www.youtube.com/watch?v=dN1XUV6QclU
-dvořák: 9. ("from the new world")$$14$$https://www.youtube.com/watch?v=jOofzffyDSA
-galasso, in the mood for love$$14$$https://www.youtube.com/watch?v=gw9fKuymA0I
-jenkins palladio$$14$$https://music.youtube.com/watch?v=8FFVoHYf9jI&list=RDAMVMGygeHnfohYk
-korsakov – flight of the bumblebee$$14$$https://music.youtube.com/watch?v=cQ2Eakg-j5A
-morricone, good bad and ugly$$14$$https://www.youtube.com/watch?v=enuOArEfqGo
-mozart, requiem 9 min$$14$$https://www.youtube.com/watch?v=Zi8vJ_lMxQI
-mozart, requiem 51 min$$14$$https://www.youtube.com/watch?v=Dp2SJN4UiE4
-mozart – symphony no.40 in g minor$$14$$https://music.youtube.com/watch?v=JTc1mDieQI8
-mozart – clarinet concerto$$14$$https://music.youtube.com/watch?v=-hgc7ybgi8U&list=RDAMVMGygeHnfohYk
-orf, o fortuna$$14$$https://www.youtube.com/watch?v=GXFSK0ogeg4
-o fortuna medieval poem$$14$$https://en.wikipedia.org/wiki/O_Fortuna
-piazzolla libertango; <b>tango</b>$$14$$https://www.youtube.com/watch?v=kdhTodxH7Gw
-shostakovich, waltz no.2$$14$$https://www.youtube.com/watch?v=LPG_WUgHbis
-rossini barber of seville$$14$$https://music.youtube.com/watch?v=uLDoT5pbNkA
-schubert. serenade$$14$$https://www.youtube.com/watch?v=0bjB-IWEYI0
-vivaldi, four seasons 42 min$$14$$https://www.youtube.com/watch?v=GRxofEmo3HA
-vivaldi, concerto in g minor for violin 3 min$$14$$https://music.youtube.com/watch?v=jzir3rJbJtk&list=RDAMVMGygeHnfohYk
-vivaldi, winter 3.3 min$$14$$https://music.youtube.com/watch?v=UzQMWOFM5wI&list=RDAMVMGygeHnfohYk
-samuel barber's adagio; platoon$$14$$https://www.youtube.com/watch?v=pOsWUA7cK50
-zimmer; time inception, video; 5 min$$14$$https://www.youtube.com/watch?v=va1oiojnGrA
-zimmer; time inception; 1hr$$14$$https://music.youtube.com/watch?v=eD2uecOlPvQ
-gioachino rossini - the barber of seville - overture$$14$$https://www.youtube.com/watch?v=mdGtyQnCMtI
-bbc, top ten in last 75 years:$$14$$http://news.bbc.co.uk/2/hi/entertainment/8432499.stm
-o fortuna$$14$$https://www.youtube.com/watch?v=A-AiAlzpaTY
-fantasia on a theme$$14$$https://www.youtube.com/watch?v=0U6sWqfrnTs
-scheherazade;$$14$$https://www.youtube.com/watch?v=SQNymNaTr-Y
-scheherazade$$14$$https://en.wikipedia.org/wiki/Scheherazade
-the sleeping beauty$$14$$https://www.youtube.com/watch?v=2Sb8WCPjPDs
-romance in f sharp major op 28/2$$14$$https://music.youtube.com/watch?v=GQV95A57gxg
-sylvia (spirit of the wood)$$14$$https://music.youtube.com/watch?v=GV642ci1WgA
-symphony no 2$$14$$https://www.youtube.com/watch?v=SvuitFzDxDg
-the planets$$14$$https://www.youtube.com/watch?v=Isic2Z2e2xs
-the sleeping beauty$$14$$https://www.youtube.com/watch?v=2Sb8WCPjPDs
-symphony no 5$$14$$https://www.youtube.com/watch?v=cdLuvGsjwlA
-guardian, top 25 in 21th century:$$14$$https://www.theguardian.com/music/2019/sep/12/best-classical-music-works-of-the-21st-century
-let me tell you$$14$$https://music.youtube.com/watch?v=wjyY2fBWO7c
-agni parthene$$15$$https://www.youtube.com/watch?v=C7vvPXz-Qes
-ave maria$$15$$https://www.youtube.com/watch?v=3d4xXvF2ukY
-our father$$15$$https://www.youtube.com/watch?v=locW-9S00VU
-cherubim$$15$$https://www.youtube.com/watch?v=SZQzW_QfPew
-praise the lord$$15$$https://www.youtube.com/watch?v=MKLwutElZ-s
-miserere mei$$15$$https://www.youtube.com/watch?v=H3v9unphfi0
-amazing grace$$15$$https://music.youtube.com/watch?v=G3G-suuZgK4&list=RDAMVMG3G-suuZgK4
-δος μοι τούτον τον ξένον$$15$$https://aparchi.gr/2021/04/30/ton-ilion-kripsanta/
-νοερά προσευχή$$15$$https://www.youtube.com/watch?v=g4W4_EOXRLo
-αγνή παρθένε$$15$$https://www.youtube.com/watch?v=i-3h9TQ312c
-o virgin pure$$15$$https://en.wikipedia.org/wiki/Agni_Parthene
-hurrian$$15$$https://www.youtube.com/watch?v=QpxN2VXPMLc
-armenian goddess$$15$$https://en.wikipedia.org/wiki/Hurrian_songs
-apollo$$15$$https://www.youtube.com/watch?v=bydqNRYgbuc
-greek music$$15$$https://www.youtube.com/watch?v=4hOK7bU0S1Y
-birds fooled me$$16$$https://www.youtube.com/watch?v=68VkYerWdBM
-tell us charon$$16$$https://www.youtube.com/watch?v=wpwI63NKOoE
-in the bell$$16$$https://www.youtube.com/watch?v=DepGeKTsmlc
-sacrifice to your will$$16$$https://www.youtube.com/watch?v=SvC55us1L5U
-the smiling lad$$16$$https://music.youtube.com/watch?v=yVgTi5TDsJ0&list=RDAMVMyVgTi5TDsJ0
-the pearl$$16$$https://www.youtube.com/watch?v=emiE-SaSyGI
-mother$$16$$https://www.youtube.com/watch?v=jZUzaWBAjNM
-california dreaming$$16$$https://music.youtube.com/watch?v=oU6uUEwZ8FM&list=RDAMVMoU6uUEwZ8FM
-both sides now$$16$$https://www.youtube.com/watch?v=gfiqW1WaGbw
-white rabbit$$16$$https://music.youtube.com/watch?v=vgQ1Y1IFPao&list=RDAMVMoU6uUEwZ8FM
-i say a little prayer$$16$$https://www.youtube.com/watch?v=KtBbyglq37E
-son of a preacher$$16$$https://music.youtube.com/watch?v=ZSEKX8GAEYY&list=RDAMVMoU6uUEwZ8FM
-i love you more today than yesterday$$16$$https://music.youtube.com/watch?v=89eEa3RvCF4
-leaving on jet plane$$16$$https://music.youtube.com/watch?v=rr1sTloviTQ&list=RDAMVMrr1sTloviTQ
-what is going on$$16$$https://www.youtube.com/watch?v=H-kA3UtBj4M
-ain't no sunshine$$16$$https://music.youtube.com/watch?v=YuKfiH0Scao&list=RDAMVMYuKfiH0Scao
-theme from shaft$$16$$https://music.youtube.com/watch?v=kfdW4687b_w&list=RDAMVMkfdW4687b_w
-papa was a rolling stone$$16$$https://music.youtube.com/watch?v=ZQ1Eu3Z9IHU&list=RDAMVMZQ1Eu3Z9IHU
-brother louie$$16$$https://www.youtube.com/watch?v=C6yLdrkP-Bk
-hotel california$$16$$https://music.youtube.com/watch?v=vcmjDPDOk7c&list=RDAMVMvcmjDPDOk7c
-visions of johanna$$16$$https://music.youtube.com/watch?v=AwuCF5lYqEE&list=RDAMVMAwuCF5lYqEE
-losing my religion$$16$$https://music.youtube.com/watch?v=Efa6BAWPm9o&list=RDAMVMEfa6BAWPm9o
-when will i see you again?$$16$$https://www.youtube.com/watch?v=Zr3MZiE2A5w
-i'm not in love$$16$$https://music.youtube.com/watch?v=rmw-jFFsJLU&list=RDAMVMrmw-jFFsJLU
-short people$$16$$https://music.youtube.com/watch?v=v8UVBgUd9GE&list=RDAMVMv8UVBgUd9GE
-the thrill is gone$$16$$https://www.youtube.com/watch?v=4fk2prKnYnI
-sweat (a la la la la long)$$16$$https://music.youtube.com/watch?v=Xx0blzRFQRs&list=RDAMVM5M65q33b6hc
-umbrella$$16$$https://music.youtube.com/watch?v=x_GqgW94eSg&list=RDAMVMx_GqgW94eSg
-white flag$$16$$https://www.youtube.com/watch?v=j-fWDrZSiZs
-just breathe$$16$$https://www.youtube.com/watch?v=ow-Cx9IX4So
-funny (how time slips away)$$16$$https://www.youtube.com/watch?v=j5KtCUHnAFw
-just breathe$$16$$https://music.youtube.com/watch?v=7m_t3_1vbX8
-$$17$$../../science/book-notes/tree_story-world_history_in_rings.txt
-the wind cries mary$$17$$https://music.youtube.com/watch?v=K2B2nT6pfSE&list=RDAMVMK2B2nT6pfSE
-once upon a time in the west$$17$$https://music.youtube.com/watch?v=HOrCMrwMAGg&list=RDAMVMHOrCMrwMAGg
-after the gold rush$$17$$https://music.youtube.com/watch?v=d6Zf4D1tHdw&list=OLAK5uy_mj-QihFzsNQmflikY4WFm75u7kJWTl6cU
-hey hey, my my (into the black)$$17$$https://music.youtube.com/watch?v=331kyZ9OXMc&list=RDAMVM331kyZ9OXMc
-africa$$17$$https://music.youtube.com/watch?v=QAo_Ycocl1E&list=RDAMVMQAo_Ycocl1E
-it's the end of the world as we know it$$17$$https://music.youtube.com/watch?v=8OyBtMPqpNY&list=RDAMVM8OyBtMPqpNY
-disintegration$$17$$https://music.youtube.com/watch?v=O-J7GF_ivsc&list=OLAK5uy_mVJSLXrczjRedcJsaknnU_PWPPVai3PI8
-wind of change$$17$$https://music.youtube.com/watch?v=Ukh1zoiV304&list=RDAMVMUkh1zoiV304
-fake plastic trees$$17$$https://music.youtube.com/watch?v=6gDhsUWCHrg&list=RDAMVM6gDhsUWCHrg
-99 problems$$17$$https://music.youtube.com/watch?v=31GjRnXfUjo&list=RDAMVM31GjRnXfUjo
-single ladies (put a ring on it)$$17$$https://music.youtube.com/watch?v=4z-bOdAdias&list=RDAMVM4z-bOdAdias
-living in your head rent-free$$30$$https://www.buzzfeednews.com/article/josephbernstein/living-in-your-head-rent-free-is-the-perfect-insult-of-our
-how to write an essay$$32$$https://docs.google.com/presentation/d/1BT1bvvjZkDpSGNCMr-bh7NgHAZXgfPcvA_XgCaxxEb4/edit#slide=id.g67a1a73c3_0_1
+abc news$$12$$https://abcnews.go.com/
+agence france-presse$$12$$https://www.afp.com/en
+al jazeera$$12$$https://www.aljazeera.com/
+amnesty international$$12$$https://www.amnesty.org/en/
+anti-defamation league$$12$$https://www.adl.org/
+aon; business decisions$$12$$https://www.aon.com/en/
+ars technica$$12$$https://arstechnica.com/
+associated press$$12$$https://apnews.com/
+atlas obscura$$12$$https://www.atlasobscura.com/
+axios$$12$$https://www.axios.com/
+bbc$$12$$https://www.bbc.com/
+behind the voice actors$$12$$https://www.behindthevoiceactors.com/
+bellingcat investigations$$12$$https://www.bellingcat.com/
+bloomberg$$12$$https://www.bloomberg.com/
+burke's historical genealogy$$12$$https://www.burkespeerage.com/
+buzzfeed news$$12$$https://www.buzzfeednews.com/
+climate feedback / climate change$$12$$https://climatefeedback.org/
+cnet$$12$$https://www.cnet.com/
+cnn$$12$$https://www.cnn.com/
+coda media; ongoing crisis$$12$$https://www.codastory.com/
+common sense media; movie reviews$$12$$https://www.commonsensemedia.org/
+deadline hollywood$$12$$https://deadline.com/
+debrett's  british royals & etiquette$$12$$https://debretts.com/
+der spiegel$$12$$https://www.spiegel.de/international/
+deseret news utah/west$$12$$https://www.deseret.com/
+deutsche welle$$12$$https://www.dw.com/en
+digital spy; tv/movies$$12$$https://www.digitalspy.com/
+encyclopædia iranica$$12$$https://www.iranicaonline.org/
+engadget$$12$$https://www.engadget.com/
+entertainment weekly$$12$$https://ew.com/
+financial times$$12$$https://www.ft.com/
+forbes$$12$$https://www.forbes.com/
+game developer$$12$$https://www.gamedeveloper.com/
+gazeta wyborcza; poland$$12$$https://wyborcza.pl/
+gizmodo$$12$$https://gizmodo.com/
+geographical names$$12$$https://www.usgs.gov/tools/geographic-names-information-system-gnis
+gq men's fashion$$12$$https://www.gq.com/
+haaretz; israel$$12$$https://www.haaretz.com/
+huffpost$$12$$https://www.huffpost.com/
+idolator; music$$12$$https://www.idolator.com/
+ign video games$$12$$https://www.ign.com/
+business insider (culture)$$12$$https://www.businessinsider.com/culture
+international fact-checking network$$12$$https://www.poynter.org/ifcn/
+inter press service$$12$$https://www.ipsnews.net/
+jacobin$$12$$https://jacobin.com/
+jama$$12$$https://jamanetwork.com/
+kirkus reviews; book reviews$$12$$https://www.kirkusreviews.com/
+kommersant; russian$$12$$https://www.kommersant.ru/
+le monde diplomatique$$12$$https://mondediplo.com/
+los angeles times$$12$$https://www.latimes.com/
+mail &amp; guardian; south africa"$$12$$https://mg.co.za/
+metacritic; movie reviews$$12$$https://www.metacritic.com/
+mother jones$$12$$https://www.motherjones.com/
+msnbc$$12$$https://www.msnbc.com/
+national geographic$$12$$https://www.nationalgeographic.com/
+nbc news$$12$$https://www.nbcnews.com/
+newslaundry$$12$$https://www.newslaundry.com/
+newsweek$$12$$https://www.newsweek.com/
+new york magazine$$12$$https://nymag.com/
+new york daily news$$12$$https://www.nydailynews.com/
+nme; music$$12$$https://www.nme.com/
+npr$$12$$https://www.npr.org/
+people$$12$$https://people.com/
+people make games$$12$$https://www.youtube.com/@PeopleMakeGames
+pew research center$$12$$https://www.pewresearch.org/
+politico$$12$$https://www.politico.com/
+politifact$$12$$https://www.politifact.com/
+polygon; gaming$$12$$https://www.polygon.com/
+propublica$$12$$https://www.propublica.org/
+quartz$$12$$https://qz.com/
+radio free asia$$12$$https://www.rfa.org/english
+rappler / phillipines$$12$$https://www.rappler.com/
+reason$$12$$https://reason.com/
+religion news service$$12$$https://religionnews.com/
+reuters$$12$$https://www.reuters.com/
+rolling stone$$12$$https://www.rollingstone.com/
+rotten tomatoes$$12$$https://www.rottentomatoes.com/
+rté irish news$$12$$https://www.rte.ie/
+science-based medicine$$12$$https://sciencebasedmedicine.org/
+scientific american$$12$$https://www.scientificamerican.com/
+scmp south china morning post$$12$$https://www.scmp.com/
+scotusblog; supreme court news$$12$$https://www.scotusblog.com/
+sixth tone; china$$12$$https://www.sixthtone.com/
+sky news uk$$12$$https://news.sky.com/
+snopes$$12$$https://www.snopes.com/
+southern poverty law center$$12$$https://www.splcenter.org/
+space.com$$12$$https://www.space.com/
+the age; australia$$12$$https://www.theage.com.au/
+the atlantic$$12$$https://www.theatlantic.com/
+the australian$$12$$https://www.theaustralian.com.au/
+the a.v. club; pop culture$$12$$https://www.avclub.com/
+the christian science monitor$$12$$https://www.csmonitor.com/
+the conversation$$12$$https://theconversation.com/us
+the diplomat$$12$$https://thediplomat.com/
+the economist$$12$$https://www.economist.com/
+the globe and mail$$12$$https://www.theglobeandmail.com/
+the guardian$$12$$https://www.theguardian.com/us
+the hill$$12$$https://thehill.com/
+the hindu$$12$$https://www.thehindu.com/
+the hollywood reporter$$12$$https://www.hollywoodreporter.com/
+the independent$$12$$https://www.the-independent.com/
+the indian express$$12$$https://indianexpress.com/international/
+the intercept$$12$$https://theintercept.com/
+the jewish chronicle$$12$$https://www.thejc.com/
+the mary sue; pop culture$$12$$https://www.themarysue.com/
+the nation$$12$$https://www.thenation.com/
+the new republic$$12$$https://newrepublic.com/
+the new yorker$$12$$https://www.newyorker.com/
+the new york times$$12$$https://www.nytimes.com/
+the new zealand herald$$12$$https://www.nzherald.co.nz/
+the register$$12$$https://www.theregister.com/
+the sydney morning herald$$12$$https://www.smh.com.au/
+the times$$12$$https://www.thetimes.com/
+the verge$$12$$https://www.theverge.com/
+the wall street journal$$12$$https://www.wsj.com/
+the washington post$$12$$https://www.washingtonpost.com/
+the wire india$$12$$https://thewire.in/
+thewrap; moviews$$12$$https://www.thewrap.com/
+time$$12$$https://time.com/
+torrentfreak$$12$$https://torrentfreak.com/
+tv guide$$12$$https://www.tvguide.com/
+usa today$$12$$https://www.usatoday.com/
+u.s. news &amp; world report$$12$$https://www.usnews.com/
+vanity fair$$12$$https://www.vanityfair.com/
+variety$$12$$https://variety.com/
+venturebeat$$12$$https://venturebeat.com/
+vogue$$12$$https://www.vogue.com/
+voice of america$$12$$https://www.voanews.com/
+vox$$12$$https://www.vox.com/
+wired$$12$$https://www.wired.com/
+yahoo news$$12$$https://news.yahoo.com/
+zdnet$$12$$https://www.zdnet.com/
+bach, goldberg variations$$13$$https://www.youtube.com/watch?v=Ah392lnFHxM
+beethoven, moonlight sonata$$13$$https://www.youtube.com/watch?v=4Tr0otuiQuU
+beethoven – symphony no.5 in c minor$$13$$https://music.youtube.com/watch?v=hv-F6LZ1sJk
+beethoven – symphony no.9 in c minor$$13$$https://www.youtube.com/watch?v=t3217H8JppI
+schiller's "ode to joy"$$13$$https://en.wikipedia.org/wiki/Ode_to_Joy
+bernstein, west side story prologue - jet song$$13$$https://www.youtube.com/watch?v=7QR6ytrVRkM
+beethoven, silence$$13$$https://music.youtube.com/watch?v=TJFR3ZUFpaM
+bizet - habanera; <b>tango</b>$$13$$https://music.youtube.com/watch?v=GygeHnfohYk
+chopin, spring waltz$$13$$https://www.youtube.com/watch?v=dN1XUV6QclU
+dvořák: 9. ("from the new world")$$13$$https://www.youtube.com/watch?v=jOofzffyDSA
+galasso, in the mood for love$$13$$https://www.youtube.com/watch?v=gw9fKuymA0I
+jenkins palladio$$13$$https://music.youtube.com/watch?v=8FFVoHYf9jI&list=RDAMVMGygeHnfohYk
+korsakov – flight of the bumblebee$$13$$https://music.youtube.com/watch?v=cQ2Eakg-j5A
+morricone, good bad and ugly$$13$$https://www.youtube.com/watch?v=enuOArEfqGo
+mozart, requiem 9 min$$13$$https://www.youtube.com/watch?v=Zi8vJ_lMxQI
+mozart, requiem 51 min$$13$$https://www.youtube.com/watch?v=Dp2SJN4UiE4
+mozart – symphony no.40 in g minor$$13$$https://music.youtube.com/watch?v=JTc1mDieQI8
+mozart – clarinet concerto$$13$$https://music.youtube.com/watch?v=-hgc7ybgi8U&list=RDAMVMGygeHnfohYk
+orf, o fortuna$$13$$https://www.youtube.com/watch?v=GXFSK0ogeg4
+o fortuna medieval poem$$13$$https://en.wikipedia.org/wiki/O_Fortuna
+piazzolla libertango; <b>tango</b>$$13$$https://www.youtube.com/watch?v=kdhTodxH7Gw
+shostakovich, waltz no.2$$13$$https://www.youtube.com/watch?v=LPG_WUgHbis
+rossini barber of seville$$13$$https://music.youtube.com/watch?v=uLDoT5pbNkA
+schubert. serenade$$13$$https://www.youtube.com/watch?v=0bjB-IWEYI0
+vivaldi, four seasons 42 min$$13$$https://www.youtube.com/watch?v=GRxofEmo3HA
+vivaldi, concerto in g minor for violin 3 min$$13$$https://music.youtube.com/watch?v=jzir3rJbJtk&list=RDAMVMGygeHnfohYk
+vivaldi, winter 3.3 min$$13$$https://music.youtube.com/watch?v=UzQMWOFM5wI&list=RDAMVMGygeHnfohYk
+samuel barber's adagio; platoon$$13$$https://www.youtube.com/watch?v=pOsWUA7cK50
+zimmer; time inception, video; 5 min$$13$$https://www.youtube.com/watch?v=va1oiojnGrA
+zimmer; time inception; 1hr$$13$$https://music.youtube.com/watch?v=eD2uecOlPvQ
+gioachino rossini - the barber of seville - overture$$13$$https://www.youtube.com/watch?v=mdGtyQnCMtI
+bbc, top ten in last 75 years:$$13$$http://news.bbc.co.uk/2/hi/entertainment/8432499.stm
+o fortuna$$13$$https://www.youtube.com/watch?v=A-AiAlzpaTY
+fantasia on a theme$$13$$https://www.youtube.com/watch?v=0U6sWqfrnTs
+scheherazade;$$13$$https://www.youtube.com/watch?v=SQNymNaTr-Y
+scheherazade$$13$$https://en.wikipedia.org/wiki/Scheherazade
+the sleeping beauty$$13$$https://www.youtube.com/watch?v=2Sb8WCPjPDs
+romance in f sharp major op 28/2$$13$$https://music.youtube.com/watch?v=GQV95A57gxg
+sylvia (spirit of the wood)$$13$$https://music.youtube.com/watch?v=GV642ci1WgA
+symphony no 2$$13$$https://www.youtube.com/watch?v=SvuitFzDxDg
+the planets$$13$$https://www.youtube.com/watch?v=Isic2Z2e2xs
+the sleeping beauty$$13$$https://www.youtube.com/watch?v=2Sb8WCPjPDs
+symphony no 5$$13$$https://www.youtube.com/watch?v=cdLuvGsjwlA
+guardian, top 25 in 21th century:$$13$$https://www.theguardian.com/music/2019/sep/12/best-classical-music-works-of-the-21st-century
+let me tell you$$13$$https://music.youtube.com/watch?v=wjyY2fBWO7c
+agni parthene$$14$$https://www.youtube.com/watch?v=C7vvPXz-Qes
+ave maria$$14$$https://www.youtube.com/watch?v=3d4xXvF2ukY
+our father$$14$$https://www.youtube.com/watch?v=locW-9S00VU
+cherubim$$14$$https://www.youtube.com/watch?v=SZQzW_QfPew
+praise the lord$$14$$https://www.youtube.com/watch?v=MKLwutElZ-s
+miserere mei$$14$$https://www.youtube.com/watch?v=H3v9unphfi0
+amazing grace$$14$$https://music.youtube.com/watch?v=G3G-suuZgK4&list=RDAMVMG3G-suuZgK4
+δος μοι τούτον τον ξένον$$14$$https://aparchi.gr/2021/04/30/ton-ilion-kripsanta/
+νοερά προσευχή$$14$$https://www.youtube.com/watch?v=g4W4_EOXRLo
+αγνή παρθένε$$14$$https://www.youtube.com/watch?v=i-3h9TQ312c
+o virgin pure$$14$$https://en.wikipedia.org/wiki/Agni_Parthene
+hurrian$$14$$https://www.youtube.com/watch?v=QpxN2VXPMLc
+armenian goddess$$14$$https://en.wikipedia.org/wiki/Hurrian_songs
+apollo$$14$$https://www.youtube.com/watch?v=bydqNRYgbuc
+greek music$$14$$https://www.youtube.com/watch?v=4hOK7bU0S1Y
+birds fooled me$$15$$https://www.youtube.com/watch?v=68VkYerWdBM
+tell us charon$$15$$https://www.youtube.com/watch?v=wpwI63NKOoE
+in the bell$$15$$https://www.youtube.com/watch?v=DepGeKTsmlc
+sacrifice to your will$$15$$https://www.youtube.com/watch?v=SvC55us1L5U
+the smiling lad$$15$$https://music.youtube.com/watch?v=yVgTi5TDsJ0&list=RDAMVMyVgTi5TDsJ0
+the pearl$$15$$https://www.youtube.com/watch?v=emiE-SaSyGI
+mother$$15$$https://www.youtube.com/watch?v=jZUzaWBAjNM
+california dreaming$$15$$https://music.youtube.com/watch?v=oU6uUEwZ8FM&list=RDAMVMoU6uUEwZ8FM
+both sides now$$15$$https://www.youtube.com/watch?v=gfiqW1WaGbw
+white rabbit$$15$$https://music.youtube.com/watch?v=vgQ1Y1IFPao&list=RDAMVMoU6uUEwZ8FM
+i say a little prayer$$15$$https://www.youtube.com/watch?v=KtBbyglq37E
+son of a preacher$$15$$https://music.youtube.com/watch?v=ZSEKX8GAEYY&list=RDAMVMoU6uUEwZ8FM
+i love you more today than yesterday$$15$$https://music.youtube.com/watch?v=89eEa3RvCF4
+leaving on jet plane$$15$$https://music.youtube.com/watch?v=rr1sTloviTQ&list=RDAMVMrr1sTloviTQ
+what is going on$$15$$https://www.youtube.com/watch?v=H-kA3UtBj4M
+ain't no sunshine$$15$$https://music.youtube.com/watch?v=YuKfiH0Scao&list=RDAMVMYuKfiH0Scao
+theme from shaft$$15$$https://music.youtube.com/watch?v=kfdW4687b_w&list=RDAMVMkfdW4687b_w
+papa was a rolling stone$$15$$https://music.youtube.com/watch?v=ZQ1Eu3Z9IHU&list=RDAMVMZQ1Eu3Z9IHU
+brother louie$$15$$https://www.youtube.com/watch?v=C6yLdrkP-Bk
+hotel california$$15$$https://music.youtube.com/watch?v=vcmjDPDOk7c&list=RDAMVMvcmjDPDOk7c
+visions of johanna$$15$$https://music.youtube.com/watch?v=AwuCF5lYqEE&list=RDAMVMAwuCF5lYqEE
+losing my religion$$15$$https://music.youtube.com/watch?v=Efa6BAWPm9o&list=RDAMVMEfa6BAWPm9o
+when will i see you again?$$15$$https://www.youtube.com/watch?v=Zr3MZiE2A5w
+i'm not in love$$15$$https://music.youtube.com/watch?v=rmw-jFFsJLU&list=RDAMVMrmw-jFFsJLU
+short people$$15$$https://music.youtube.com/watch?v=v8UVBgUd9GE&list=RDAMVMv8UVBgUd9GE
+the thrill is gone$$15$$https://www.youtube.com/watch?v=4fk2prKnYnI
+sweat (a la la la la long)$$15$$https://music.youtube.com/watch?v=Xx0blzRFQRs&list=RDAMVM5M65q33b6hc
+umbrella$$15$$https://music.youtube.com/watch?v=x_GqgW94eSg&list=RDAMVMx_GqgW94eSg
+white flag$$15$$https://www.youtube.com/watch?v=j-fWDrZSiZs
+just breathe$$15$$https://www.youtube.com/watch?v=ow-Cx9IX4So
+funny (how time slips away)$$15$$https://www.youtube.com/watch?v=j5KtCUHnAFw
+just breathe$$15$$https://music.youtube.com/watch?v=7m_t3_1vbX8
+$$16$$../../science/book-notes/tree_story-world_history_in_rings.txt
+the wind cries mary$$16$$https://music.youtube.com/watch?v=K2B2nT6pfSE&list=RDAMVMK2B2nT6pfSE
+once upon a time in the west$$16$$https://music.youtube.com/watch?v=HOrCMrwMAGg&list=RDAMVMHOrCMrwMAGg
+after the gold rush$$16$$https://music.youtube.com/watch?v=d6Zf4D1tHdw&list=OLAK5uy_mj-QihFzsNQmflikY4WFm75u7kJWTl6cU
+hey hey, my my (into the black)$$16$$https://music.youtube.com/watch?v=331kyZ9OXMc&list=RDAMVM331kyZ9OXMc
+africa$$16$$https://music.youtube.com/watch?v=QAo_Ycocl1E&list=RDAMVMQAo_Ycocl1E
+it's the end of the world as we know it$$16$$https://music.youtube.com/watch?v=8OyBtMPqpNY&list=RDAMVM8OyBtMPqpNY
+disintegration$$16$$https://music.youtube.com/watch?v=O-J7GF_ivsc&list=OLAK5uy_mVJSLXrczjRedcJsaknnU_PWPPVai3PI8
+wind of change$$16$$https://music.youtube.com/watch?v=Ukh1zoiV304&list=RDAMVMUkh1zoiV304
+fake plastic trees$$16$$https://music.youtube.com/watch?v=6gDhsUWCHrg&list=RDAMVM6gDhsUWCHrg
+99 problems$$16$$https://music.youtube.com/watch?v=31GjRnXfUjo&list=RDAMVM31GjRnXfUjo
+single ladies (put a ring on it)$$16$$https://music.youtube.com/watch?v=4z-bOdAdias&list=RDAMVM4z-bOdAdias
+living in your head rent-free$$29$$https://www.buzzfeednews.com/article/josephbernstein/living-in-your-head-rent-free-is-the-perfect-insult-of-our
+how to write an essay$$31$$https://docs.google.com/presentation/d/1BT1bvvjZkDpSGNCMr-bh7NgHAZXgfPcvA_XgCaxxEb4/edit#slide=id.g67a1a73c3_0_1
+wikipedia$$35$$https://en.wikipedia.org/wiki/List_of_languages_by_number_of_native_speakers
 wikipedia$$36$$https://en.wikipedia.org/wiki/List_of_languages_by_number_of_native_speakers
 wikipedia$$37$$https://en.wikipedia.org/wiki/List_of_languages_by_number_of_native_speakers
 wikipedia$$38$$https://en.wikipedia.org/wiki/List_of_languages_by_number_of_native_speakers
-wikipedia$$39$$https://en.wikipedia.org/wiki/List_of_languages_by_number_of_native_speakers
-greek-language.gr$$41$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html
-wiktionary$$41$$https://el.wiktionary.org/wiki/
-humorous units of measurement$$44$$https://en.wikipedia.org/wiki/List_of_humorous_units_of_measurement
-confound the science$$44$$https://www.youtube.com/watch?v=IZDYhQ4UAnA
-pink panther$$44$$https://www.youtube.com/watch?v=59lKdaXX6Eo
-pink panther$$44$$https://www.youtube.com/watch?v=4E-rQwZYQ_4
-tom and jerry$$44$$https://www.youtube.com/watch?v=cqyziA30whE
-foghorn leghorn$$44$$https://www.youtube.com/watch?v=kF6qUh3T9KE
-the inspector$$44$$https://www.youtube.com/watch?v=3kFxWss5d2I
-roadrunner vs coyote$$44$$https://www.youtube.com/watch?v=PkBu-mnXOAk
-donald duck / chip and dale$$44$$https://www.youtube.com/watch?v=19aCxfbc7gM
-tom and jerry$$44$$https://www.youtube.com/watch?v=QJmKw33k0mA
-pluto$$44$$https://www.youtube.com/watch?v=Ky9W8Sp6Q0g
-casper the ghost$$44$$https://www.youtube.com/watch?v=mhdo7U_Knhc
-shaun the sheep$$44$$https://www.youtube.com/watch?v=WwGYDA8RYZc
-mr bean$$44$$https://www.youtube.com/watch?v=zw_CgYQtr2U
-zool babies$$44$$https://www.youtube.com/watch?v=bDDnurVUKeQ
-2019 audubon photography awards$$46$$https://www.audubon.org/magazine/summer-2019/the-2019-audubon-photography-awards-winners
-2020  '' '' ''$$46$$https://www.audubon.org/magazine/summer-2020/the-2020-audubon-photography-awards-winners
-2020  '' '' ''$$46$$https://www.audubon.org/magazine/summer-2021/the-2021-audubon-photography-awards-winners-and
-national geographic contest winners$$46$$https://www.nationalgeographic.com/photography/article/photo-contest-gallery
-hubble favorites$$46$$https://hubblesite.org/resource-gallery/images?Collection=Hubble%20Favorites
-2018 nasa satellite images$$46$$https://www.nasa.gov/feature/amazing-earth-satellite-images-from-2018
-2019 best science photos$$46$$https://www.livescience.com/best-science-photos-of-2019.html
-science photography$$46$$https://www.scienceandart.org/links.html
-art photography$$46$$https://www.scienceandart.org/webdesign.html
-agar art$$46$$https://asm.org/Press-Releases/2020/December/Amidst-Global-Pandemic,-Agar-Art-Contest-Proves-Mi
-amazon sistine chapel$$46$$https://www.theguardian.com/science/2020/nov/29/sistine-chapel-of-the-ancients-rock-art-discovered-in-remote-amazon-forest
-ακαδημία πλάτωνος$$47$$https://www.dailymotion.com/video/x8j9cqh
-ταξίδι στα κύθηρα$$47$$https://archive.org/details/voyage-to-cythera-1984-blu-ray
-το βλέμμα του οδυσσέα$$47$$https://archive.org/details/vlemma-tou-odyssea-ulysses-gaze-1995-theodoros-angelopoulos
-μια αιωνιότητα και μια μέρα$$47$$https://archive.org/details/eternity-and-a-day-1998
-ρεμπετικο$$47$$https://www.youtube.com/watch?v=GZXSjtZ0P1I
-αγελαστη πετρα$$47$$https://vimeo.com/81020017
-ballardian video neuronica$$47$$https://vimeo.com/95105838
-10 top natural history moments | bbc earth$$47$$ttps://www.youtube.com/watch?v=FeJKJ5MoCHY
-animals that do not forget their owner after years$$47$$https://www.youtube.com/watch?v=fJBbA3tJ8EA
-the scary door$$47$$https://www.youtube.com/watch?v=B5oGJTUpbpA
-in hell i'll be in good company$$47$$https://www.youtube.com/watch?v=B9FzVhw8_bY
-electric edwardians (1901)$$47$$https://www.youtube.com/watch?v=oTf9o_mIE4I
-man with a movie camera (1929)$$47$$https://www.youtube.com/watch?v=cGYZ5847FiI
-lmfao - sorry for party rocking$$47$$https://www.youtube.com/watch?v=SkTt9k4Y-a8
-espy kids 4: all the time in the world (2011)$$47$$https://www.youtube.com/watch?v=M2eCwHuTdKU
-nih: fructose promotes leaky gut$$86$$https://pubmed.ncbi.nlm.nih.gov/30959577/
-nih: behavioral and neurochemical effects of sugar$$86$$https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2235907/
-hih: all disease begins in the (leaky) gut.$$86$$https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6996528/
-the hunt for a new killer virus$$88$$https://www.amazon.com/Hunt-New-Killer-Virus-ebook/dp/B00SLWGZG2/ref=sr_1_1?dchild=1&keywords=fever+virus&qid=1611357564&sr=8-1
-the coming plague: newly emerging diseases$$88$$https://www.amazon.com/dp/0140250913/ref=rdr_ext_tmb
-i contain multitudes... by ed yong$$88$$https://www.amazon.com/Contain-Multitudes-Microbes-Within-Grander/dp/B01FY85L38/ref=sr_1_1?dchild=1&keywords=I+Contain+Multitudes&qid=1589194089&sr=8-1
-the hacking of the american mind by robert h. lustig$$88$$https://www.amazon.com/Hacking-of-American-Mind-audiobook/dp/B0753KYQLN/ref=sr_1_1?dchild=1&keywords=The+Hacking+of+the+American+Mind+by+Robert&qid=1589850091&sr=8-1
-pure, white, and deadly$$88$$https://www.amazon.com/Pure-White-and-Deadly-audiobook/dp/B077DKN9RC/ref=sr_1_1?dchild=1&keywords=Pure%2C+White%2C+and+Deadly&qid=1589850288&sr=8-1
-entangled life: how fungi make our worlds, change our minds & shape our futures$$88$$https://www.amazon.com/Entangled-Life-Worlds-Change-Futures/dp/0525510311/ref=as_li_ss_tl?ie=UTF8&linkCode=sl1&tag=virologyws-20&linkId=595f00a1002b4800c3156aa3c20a9570&language=en_US
-being mortal: medicine and what matters in the end$$88$$https://www.amazon.com/Being-Mortal-Medicine-What-Matters/dp/1250076226?crid=QSDDML7UTHJE&dchild=1&keywords=being+mortal+atul+gawande&qid=1614183021&sprefix=being+mortal,aps,147&sr=8-1&linkCode=sl1&tag=virologyws-20&linkId=95bd4dbced561d5be3174f2f76e3f768&language=en_US&ref_=as_li_ss_tl
-outlaw ocean$$88$$https://www.amazon.com/Outlaw-Ocean-Journeys-Untamed-Frontier/dp/0451492943?&linkCode=sl1&tag=virologyws-20&linkId=0a12a50cdd7720d53ef2b4bdfa999776&language=en_US&ref_=as_li_ss_tl#customerReviews
-the right stuff$$88$$https://www.amazon.com/Right-Stuff-Tom-Wolfe/dp/0312427565/ref=as_li_ss_tl?dchild=1&keywords=the+right+stuff+by+tom+wolfe&qid=1607430497&sr=8-1&linkCode=sl1&tag=virologyws-20&linkId=b956b206c115e3b83a70d3d76fffa930&language=en_US
-army ants$$88$$https://www.amazon.com/Army-Ants-Natures-Ultimate-Hunters/dp/067424155X/ref=as_li_ss_tl?crid=3OXNRQX5XQ8SY&dchild=1&keywords=daniel+kronauer+army+ants&qid=1607010470&sprefix=daniel+kronauer,aps,136&sr=8-1&linkCode=sl1&tag=virologyws-20&linkId=79e26ce1c641fd6c1b20d075395145b1&language=en_US#customerReviews
-immunobiology$$88$$https://www.amazon.com/Janeways-Immunobiology-Kenneth-Murphy/dp/081534550X/ref=as_li_ss_tl?ie=UTF8&linkCode=sl1&tag=virologyws-20&linkId=14856f3bd3e973490b521d762afce691&language=en_US
-food fix$$88$$https://www.amazon.com/Food-Fix-Economy-Communities-Planet-One/dp/031645317X/ref=as_li_ss_tl?crid=2H0WRGAZIH176&keywords=food+fix+mark+hyman&qid=1570040223&s=gateway&sprefix=food+fix,aps,205&sr=8-1&linkCode=sl1&tag=wwwultrametab-20&linkId=123d3d86cc6531c41405532500106007&language=en_US
-merchants of doubt$$88$$https://www.amazon.com/Merchants-Doubt-Handful-Scientists-Obscured/dp/1608193942
-jamie oliver's food escapes$$88$$https://www.amazon.com/Jamie-Olivers-Food-Escapes-Recipes/dp/140132441X#customerReviews
-the overstory$$88$$https://www.amazon.com/Richard-Powers/e/B000APP5PK/ref=dp_byline_cont_pop_book_1
-probability for data science$$88$$https://probability4datascience.com/
-internet archive$$88$$https://archive.org
-free books$$88$$https://www.freebookcentre.net/
-google books$$88$$https://books.google.com/books?
-libretexts.orgs$$88$$https://libretexts.org/platforms/libraries/
-thegreatestbooks.org$$88$$https://thegreatestbooks.org/
-booklistqueen.com$$88$$https://www.booklistqueen.com/five-star-books/
-goodreads.com$$88$$https://www.goodreads.com/shelf/show/international-fiction
-goodreads.com$$88$$https://www.goodreads.com/shelf/show/five-star-fiction
-informationisbeautiful.net$$88$$https://www.informationisbeautiful.net/visualizations/non-fiction-books-everyone-should-read-interactive/
-informationisbeautiful.netl$$88$$https://www.informationisbeautiful.net/visualizations/novels-everyone-should-read-interactive/
-theguardian.com$$88$$https://www.theguardian.com/books/2019/sep/21/best-books-of-the-21st-century
-bbc.com$$88$$https://www.bbc.com/culture/article/20150119-the-21st-centurys-12-best-novels
-bibliocommons.com$$88$$https://princetonlibrary.bibliocommons.com/list/share/1269834197/1743948988
-applied category theory course$$91$$https://math.ucr.edu/home/baez/act_course/
-book$$91$$https://math.mit.edu/~dspivak/teaching/sp18/7Sketches.pdf
+greek-language.gr$$40$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html
+wiktionary$$40$$https://el.wiktionary.org/wiki/
+humorous units of measurement$$43$$https://en.wikipedia.org/wiki/List_of_humorous_units_of_measurement
+confound the science$$43$$https://www.youtube.com/watch?v=IZDYhQ4UAnA
+pink panther$$43$$https://www.youtube.com/watch?v=59lKdaXX6Eo
+pink panther$$43$$https://www.youtube.com/watch?v=4E-rQwZYQ_4
+tom and jerry$$43$$https://www.youtube.com/watch?v=cqyziA30whE
+foghorn leghorn$$43$$https://www.youtube.com/watch?v=kF6qUh3T9KE
+the inspector$$43$$https://www.youtube.com/watch?v=3kFxWss5d2I
+roadrunner vs coyote$$43$$https://www.youtube.com/watch?v=PkBu-mnXOAk
+donald duck / chip and dale$$43$$https://www.youtube.com/watch?v=19aCxfbc7gM
+tom and jerry$$43$$https://www.youtube.com/watch?v=QJmKw33k0mA
+pluto$$43$$https://www.youtube.com/watch?v=Ky9W8Sp6Q0g
+casper the ghost$$43$$https://www.youtube.com/watch?v=mhdo7U_Knhc
+shaun the sheep$$43$$https://www.youtube.com/watch?v=WwGYDA8RYZc
+mr bean$$43$$https://www.youtube.com/watch?v=zw_CgYQtr2U
+zool babies$$43$$https://www.youtube.com/watch?v=bDDnurVUKeQ
+2019 audubon photography awards$$45$$https://www.audubon.org/magazine/summer-2019/the-2019-audubon-photography-awards-winners
+2020  '' '' ''$$45$$https://www.audubon.org/magazine/summer-2020/the-2020-audubon-photography-awards-winners
+2020  '' '' ''$$45$$https://www.audubon.org/magazine/summer-2021/the-2021-audubon-photography-awards-winners-and
+national geographic contest winners$$45$$https://www.nationalgeographic.com/photography/article/photo-contest-gallery
+hubble favorites$$45$$https://hubblesite.org/resource-gallery/images?Collection=Hubble%20Favorites
+2018 nasa satellite images$$45$$https://www.nasa.gov/feature/amazing-earth-satellite-images-from-2018
+2019 best science photos$$45$$https://www.livescience.com/best-science-photos-of-2019.html
+science photography$$45$$https://www.scienceandart.org/links.html
+art photography$$45$$https://www.scienceandart.org/webdesign.html
+agar art$$45$$https://asm.org/Press-Releases/2020/December/Amidst-Global-Pandemic,-Agar-Art-Contest-Proves-Mi
+amazon sistine chapel$$45$$https://www.theguardian.com/science/2020/nov/29/sistine-chapel-of-the-ancients-rock-art-discovered-in-remote-amazon-forest
+ακαδημία πλάτωνος$$46$$https://www.dailymotion.com/video/x8j9cqh
+ταξίδι στα κύθηρα$$46$$https://archive.org/details/voyage-to-cythera-1984-blu-ray
+το βλέμμα του οδυσσέα$$46$$https://archive.org/details/vlemma-tou-odyssea-ulysses-gaze-1995-theodoros-angelopoulos
+μια αιωνιότητα και μια μέρα$$46$$https://archive.org/details/eternity-and-a-day-1998
+ρεμπετικο$$46$$https://www.youtube.com/watch?v=GZXSjtZ0P1I
+αγελαστη πετρα$$46$$https://vimeo.com/81020017
+ballardian video neuronica$$46$$https://vimeo.com/95105838
+10 top natural history moments | bbc earth$$46$$ttps://www.youtube.com/watch?v=FeJKJ5MoCHY
+animals that do not forget their owner after years$$46$$https://www.youtube.com/watch?v=fJBbA3tJ8EA
+the scary door$$46$$https://www.youtube.com/watch?v=B5oGJTUpbpA
+in hell i'll be in good company$$46$$https://www.youtube.com/watch?v=B9FzVhw8_bY
+electric edwardians (1901)$$46$$https://www.youtube.com/watch?v=oTf9o_mIE4I
+man with a movie camera (1929)$$46$$https://www.youtube.com/watch?v=cGYZ5847FiI
+lmfao - sorry for party rocking$$46$$https://www.youtube.com/watch?v=SkTt9k4Y-a8
+espy kids 4: all the time in the world (2011)$$46$$https://www.youtube.com/watch?v=M2eCwHuTdKU
+nih: fructose promotes leaky gut$$85$$https://pubmed.ncbi.nlm.nih.gov/30959577/
+nih: behavioral and neurochemical effects of sugar$$85$$https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2235907/
+hih: all disease begins in the (leaky) gut.$$85$$https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6996528/
+the hunt for a new killer virus$$87$$https://www.amazon.com/Hunt-New-Killer-Virus-ebook/dp/B00SLWGZG2/ref=sr_1_1?dchild=1&keywords=fever+virus&qid=1611357564&sr=8-1
+the coming plague: newly emerging diseases$$87$$https://www.amazon.com/dp/0140250913/ref=rdr_ext_tmb
+i contain multitudes... by ed yong$$87$$https://www.amazon.com/Contain-Multitudes-Microbes-Within-Grander/dp/B01FY85L38/ref=sr_1_1?dchild=1&keywords=I+Contain+Multitudes&qid=1589194089&sr=8-1
+the hacking of the american mind by robert h. lustig$$87$$https://www.amazon.com/Hacking-of-American-Mind-audiobook/dp/B0753KYQLN/ref=sr_1_1?dchild=1&keywords=The+Hacking+of+the+American+Mind+by+Robert&qid=1589850091&sr=8-1
+pure, white, and deadly$$87$$https://www.amazon.com/Pure-White-and-Deadly-audiobook/dp/B077DKN9RC/ref=sr_1_1?dchild=1&keywords=Pure%2C+White%2C+and+Deadly&qid=1589850288&sr=8-1
+entangled life: how fungi make our worlds, change our minds & shape our futures$$87$$https://www.amazon.com/Entangled-Life-Worlds-Change-Futures/dp/0525510311/ref=as_li_ss_tl?ie=UTF8&linkCode=sl1&tag=virologyws-20&linkId=595f00a1002b4800c3156aa3c20a9570&language=en_US
+being mortal: medicine and what matters in the end$$87$$https://www.amazon.com/Being-Mortal-Medicine-What-Matters/dp/1250076226?crid=QSDDML7UTHJE&dchild=1&keywords=being+mortal+atul+gawande&qid=1614183021&sprefix=being+mortal,aps,147&sr=8-1&linkCode=sl1&tag=virologyws-20&linkId=95bd4dbced561d5be3174f2f76e3f768&language=en_US&ref_=as_li_ss_tl
+outlaw ocean$$87$$https://www.amazon.com/Outlaw-Ocean-Journeys-Untamed-Frontier/dp/0451492943?&linkCode=sl1&tag=virologyws-20&linkId=0a12a50cdd7720d53ef2b4bdfa999776&language=en_US&ref_=as_li_ss_tl#customerReviews
+the right stuff$$87$$https://www.amazon.com/Right-Stuff-Tom-Wolfe/dp/0312427565/ref=as_li_ss_tl?dchild=1&keywords=the+right+stuff+by+tom+wolfe&qid=1607430497&sr=8-1&linkCode=sl1&tag=virologyws-20&linkId=b956b206c115e3b83a70d3d76fffa930&language=en_US
+army ants$$87$$https://www.amazon.com/Army-Ants-Natures-Ultimate-Hunters/dp/067424155X/ref=as_li_ss_tl?crid=3OXNRQX5XQ8SY&dchild=1&keywords=daniel+kronauer+army+ants&qid=1607010470&sprefix=daniel+kronauer,aps,136&sr=8-1&linkCode=sl1&tag=virologyws-20&linkId=79e26ce1c641fd6c1b20d075395145b1&language=en_US#customerReviews
+immunobiology$$87$$https://www.amazon.com/Janeways-Immunobiology-Kenneth-Murphy/dp/081534550X/ref=as_li_ss_tl?ie=UTF8&linkCode=sl1&tag=virologyws-20&linkId=14856f3bd3e973490b521d762afce691&language=en_US
+food fix$$87$$https://www.amazon.com/Food-Fix-Economy-Communities-Planet-One/dp/031645317X/ref=as_li_ss_tl?crid=2H0WRGAZIH176&keywords=food+fix+mark+hyman&qid=1570040223&s=gateway&sprefix=food+fix,aps,205&sr=8-1&linkCode=sl1&tag=wwwultrametab-20&linkId=123d3d86cc6531c41405532500106007&language=en_US
+merchants of doubt$$87$$https://www.amazon.com/Merchants-Doubt-Handful-Scientists-Obscured/dp/1608193942
+jamie oliver's food escapes$$87$$https://www.amazon.com/Jamie-Olivers-Food-Escapes-Recipes/dp/140132441X#customerReviews
+the overstory$$87$$https://www.amazon.com/Richard-Powers/e/B000APP5PK/ref=dp_byline_cont_pop_book_1
+probability for data science$$87$$https://probability4datascience.com/
+internet archive$$87$$https://archive.org
+free books$$87$$https://www.freebookcentre.net/
+google books$$87$$https://books.google.com/books?
+libretexts.orgs$$87$$https://libretexts.org/platforms/libraries/
+thegreatestbooks.org$$87$$https://thegreatestbooks.org/
+booklistqueen.com$$87$$https://www.booklistqueen.com/five-star-books/
+goodreads.com$$87$$https://www.goodreads.com/shelf/show/international-fiction
+goodreads.com$$87$$https://www.goodreads.com/shelf/show/five-star-fiction
+informationisbeautiful.net$$87$$https://www.informationisbeautiful.net/visualizations/non-fiction-books-everyone-should-read-interactive/
+informationisbeautiful.netl$$87$$https://www.informationisbeautiful.net/visualizations/novels-everyone-should-read-interactive/
+theguardian.com$$87$$https://www.theguardian.com/books/2019/sep/21/best-books-of-the-21st-century
+bbc.com$$87$$https://www.bbc.com/culture/article/20150119-the-21st-centurys-12-best-novels
+bibliocommons.com$$87$$https://princetonlibrary.bibliocommons.com/list/share/1269834197/1743948988
+applied category theory course$$90$$https://math.ucr.edu/home/baez/act_course/
+book$$90$$https://math.mit.edu/~dspivak/teaching/sp18/7Sketches.pdf
+prologue$$93$$#p
+political refugees$$93$$#1
+future$$93$$#2
+ineffable$$93$$#3
+guilt$$93$$#4
+what was it$$93$$#5
+angel$$93$$#6
+palliate cats$$93$$#7
+carrot$$93$$#8
+broken$$93$$#9
+definition of isolation$$93$$#10
+causes$$93$$#11
+dog story$$93$$#12
+cat story$$93$$#13
+dog-cat side effect$$93$$#14
+social misfits-outcasts$$93$$#15
+song of the ashes$$93$$#16
+nudge your mind$$93$$#17
+prayer$$93$$#18
+non broken$$93$$#19
+epilogue$$93$$#epi
+reference$$93$$#ref
+contents$$93$$#top
+heuristic$$93$$https://www.merriam-webster.com/dictionary/heuristic
+ευρετική$$93$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ευρετικός
+contents$$93$$#top
+thoughtful$$93$$https://www.merriam-webster.com/dictionary/thoughtful
+cave with the shadows$$93$$https://en.wikipedia.org/wiki/Allegory_of_the_cave
+φιλότιμο$$93$$https://en.wikipedia.org/wiki/Philotimo
+σπηλιά με τις σκιές$$93$$https://el.wikipedia.org/wiki/Αλληγορία_του_Σπηλαίου
+contents$$93$$#top
+coping$$93$$https://en.wikipedia.org/wiki/Coping
+deprave$$93$$https://www.merriam-webster.com/dictionary/deprave
+ιneffable$$93$$https://www.merriam-webster.com/dictionary/ineffable
+aνείπωτo$$93$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ανείπωτα
+contents$$93$$#top
+καταναγκάστηκαν$$93$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=καταναγκάζω
+contents$$93$$#top
+contents$$93$$#top
+palliate$$93$$https://www.merriam-webster.com/dictionary/palliate
+contents$$93$$#top
+contents$$93$$#top
+contents$$93$$#top
+privacy$$93$$https://www.merriam-webster.com/dictionary/privacy
+ιδιωτικότητα;$$93$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ιδιωτικότητα
+contents$$93$$#top
+guess$$93$$https://www.merriam-webster.com/dictionary/guess
+evil$$93$$https://www.merriam-webster.com/dictionary/evil
+nemesis$$93$$https://www.merriam-webster.com/dictionary/nemesis
+judgment$$93$$https://www.merriam-webster.com/dictionary/judgment
+πονηρό$$93$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=πονηρός
+νέμεσις$$93$$https://en.wiktionary.org/wiki/https://en.wiktionary.org/wiki/Νέμεσις
+διακριτικότητα$$93$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=διακριτικότητα
+contents$$93$$#top
+trade-offs$$93$$https://www.merriam-webster.com/dictionary/trade-off
+συμβιβασμός;$$93$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=συμβιβασμός
+contents$$93$$#top
+contents$$93$$#top
+contents$$93$$#top
+trumps$$93$$https://www.merriam-webster.com/dictionary/trump
+ατού$$93$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ατού
+contents$$93$$#top
+<i>eudaimonic</i>$$93$$https://www.britannica.com/topic/eudaimonia
+eudaimonic$$93
+ευδαιμονό$$93
+nudge$$93$$https://www.merriam-webster.com/dictionary/nudge
+contents$$93$$#top
+contents$$93$$#top
+contents$$93$$#top
+kahneman(behavioral economics): thinking, fast and slow$$93$$https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow
+understatement$$93$$https://www.merriam-webster.com/dictionary/understatement
+σκέψη, αργή και γρήγορη συμπεριφορική οικονομική$$93$$https://www.public.gr/product/books/greek-books/economics/economics/skepsi-argi-kai-grigori/0759965
+contents$$93$$#top
+deepl.com - translator$$93$$https://www.deepl.com/en/translator
+systransoft.com - translator$$93$$https://www.systransoft.com/translate/
+12 ancient greek terms that should make a comeback (eudemonia)$$93$$https://classicalwisdom.substack.com/p/12-ancient-greek-terms-that-should
+νίκος γκάτσος (γεωργίου)$$93$$https://el.wikipedia.org/wiki/Νίκος_Γκάτσος
+greek-language.gρ - λεξικό$$93$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.htmλ
+wiktionary.org - βικιλεξικό$$93$$https://el.wiktionary.org/wiki
+λέξεις με αμφισβητούμενη ελληνική μετάφραση.$$93$$../../apps/flash_cards/words_to_σε_λέξεις.html
+nikos gatsos (georgiou)$$93$$https://en.wikipedia.org/wiki/Nikos_Gatsos
 prologue$$94$$#p
 political refugees$$94$$#1
-future$$94$$#2
+on the wall$$94$$#2
 ineffable$$94$$#3
 guilt$$94$$#4
 what was it$$94$$#5
 angel$$94$$#6
 palliate cats$$94$$#7
-carrot$$94$$#8
-broken$$94$$#9
-definition of isolation$$94$$#10
-causes$$94$$#11
-dog story$$94$$#12
-cat story$$94$$#13
-dog-cat side effect$$94$$#14
-social outcasts-misfits$$94$$#15
-song of the ashes$$94$$#16
-crack$$94$$#17
-donkey story$$94$$#18
+causes$$94$$#8
+definition of isolation$$94$$#9
+dog story$$94$$#10
+cat story$$94$$#11
+donkey story$$94$$#12
+carrot$$94$$#15
+side effects$$94$$#16
+broken$$94$$#17
+social outcasts-misfits$$94$$#18
+song of the ashes$$94$$#19
 epilogue$$94$$#epi
 reference$$94$$#ref
-contents$$94$$#top
+top$$94$$#top
 heuristic$$94$$https://www.merriam-webster.com/dictionary/heuristic
 ευρετική$$94$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ευρετικός
-contents$$94$$#top
+top$$94$$#top
 thoughtful$$94$$https://www.merriam-webster.com/dictionary/thoughtful
 cave with the shadows$$94$$https://en.wikipedia.org/wiki/Allegory_of_the_cave
 φιλότιμο$$94$$https://en.wikipedia.org/wiki/Philotimo
 σπηλιά με τις σκιές$$94$$https://el.wikipedia.org/wiki/Αλληγορία_του_Σπηλαίου
-contents$$94$$#top
-coping$$94$$https://en.wikipedia.org/wiki/Coping
-deprave$$94$$https://www.merriam-webster.com/dictionary/deprave
+top$$94$$#top
+[de]$$94$$#de
+διαφθείρει$$94$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=διαφθείρω
 ιneffable$$94$$https://www.merriam-webster.com/dictionary/ineffable
 aνείπωτo$$94$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ανείπωτα
-contents$$94$$#top
+top$$94$$#top
+[co]$$94$$#co
 καταναγκάστηκαν$$94$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=καταναγκάζω
-contents$$94$$#top
-contents$$94$$#top
+top$$94$$#top
+top$$94$$#top
 palliate$$94$$https://www.merriam-webster.com/dictionary/palliate
-contents$$94$$#top
-contents$$94$$#top
-contents$$94$$#top
+ανακουφιστικό$$94$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ανακουφιστικό
+top$$94$$#top
+nemesis$$94$$https://www.merriam-webster.com/dictionary/nemesis
+evil$$94$$https://www.merriam-webster.com/dictionary/evil
+judgment$$94$$https://www.merriam-webster.com/dictionary/judgment
+νέμεσις$$94$$https://en.wiktionary.org/wiki/https://en.wiktionary.org/wiki/Νέμεσις
+πονηρό$$94$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=πονηρός
+διακριτικότητα$$94$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=διακριτικότητα
+top$$94$$#top
 privacy$$94$$https://www.merriam-webster.com/dictionary/privacy
 ιδιωτικότητα;$$94$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ιδιωτικότητα
-contents$$94$$#top
-guess$$94$$https://www.merriam-webster.com/dictionary/guess
-evil$$94$$https://www.merriam-webster.com/dictionary/evil
-nemesis$$94$$https://www.merriam-webster.com/dictionary/nemesis
-judgment$$94$$https://www.merriam-webster.com/dictionary/judgment
-πονηρό$$94$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=πονηρός
-νέμεσις$$94$$https://en.wiktionary.org/wiki/https://en.wiktionary.org/wiki/Νέμεσις
-διακριτικότητα$$94$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=διακριτικότητα
-contents$$94$$#top
+top$$94$$#top
 trade-offs$$94$$https://www.merriam-webster.com/dictionary/trade-off
 συμβιβασμός;$$94$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=συμβιβασμός
-contents$$94$$#top
-contents$$94$$#top
-contents$$94$$#top
+top$$94$$#top
+top$$94$$#top
+top$$94$$#top
+top$$94$$#top
+top$$94$$#top
+top$$94$$#top
 trumps$$94$$https://www.merriam-webster.com/dictionary/trump
 ατού$$94$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ατού
-contents$$94$$#top
-<i>eudaimonic</i>$$94$$https://www.britannica.com/topic/eudaimonia
-eudaimonic$$94
-ευδαιμονό$$94
-contents$$94$$#top
-contents$$94$$#top
-contents$$94$$#top
+top$$94$$#top
+eudaimonia$$94$$https://www.britannica.com/topic/eudaimonia
+top$$94$$#top
 kahneman(behavioral economics): thinking, fast and slow$$94$$https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow
-understatement$$94$$https://www.merriam-webster.com/dictionary/understatement
 σκέψη, αργή και γρήγορη συμπεριφορική οικονομική$$94$$https://www.public.gr/product/books/greek-books/economics/economics/skepsi-argi-kai-grigori/0759965
-contents$$94$$#top
 deepl.com - translator$$94$$https://www.deepl.com/en/translator
 systransoft.com - translator$$94$$https://www.systransoft.com/translate/
-12 ancient greek terms that should make a comeback (eudemonia)$$94$$https://classicalwisdom.substack.com/p/12-ancient-greek-terms-that-should
-νίκος γκάτσος (γεωργίου)$$94$$https://el.wikipedia.org/wiki/Νίκος_Γκάτσος
-greek-language.gρ - λεξικό$$94$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.htmλ
-wiktionary.org - βικιλεξικό$$94$$https://el.wiktionary.org/wiki
-λέξεις με αμφισβητούμενη ελληνική μετάφραση.$$94$$../../apps/flash_cards/words_to_σε_λέξεις.html
-12 αρχαιοελληνικοί λέξεις που θα πρέπει να επιστρέψουν (ευδαιμονία)$$94$$https://classicalwisdom.substack.com/p/12-ancient-greek-terms-that-should
-nikos gatsos (georgiou)$$94$$https://en.wikipedia.org/wiki/Nikos_Gatsos
-prologue$$95$$#p
-political refugees$$95$$#1
-on the wall$$95$$#2
-ineffable$$95$$#3
-guilt$$95$$#4
-what was it$$95$$#5
-angel$$95$$#6
-palliate cats$$95$$#7
-causes$$95$$#8
-definition of isolation$$95$$#9
-dog story$$95$$#10
-cat story$$95$$#11
-donkey story$$95$$#12
-carrot$$95$$#15
-side effects$$95$$#16
-broken$$95$$#17
-social outcasts-misfits$$95$$#18
-song of the ashes$$95$$#19
-epilogue$$95$$#epi
-reference$$95$$#ref
-top$$95$$#top
-heuristic$$95$$https://www.merriam-webster.com/dictionary/heuristic
-ευρετική$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ευρετικός
-top$$95$$#top
-thoughtful$$95$$https://www.merriam-webster.com/dictionary/thoughtful
-cave with the shadows$$95$$https://en.wikipedia.org/wiki/Allegory_of_the_cave
-φιλότιμο$$95$$https://en.wikipedia.org/wiki/Philotimo
-σπηλιά με τις σκιές$$95$$https://el.wikipedia.org/wiki/Αλληγορία_του_Σπηλαίου
-top$$95$$#top
-[de]$$95$$#de
-διαφθείρει$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=διαφθείρω
-ιneffable$$95$$https://www.merriam-webster.com/dictionary/ineffable
-aνείπωτo$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ανείπωτα
-top$$95$$#top
-[co]$$95$$#co
-καταναγκάστηκαν$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=καταναγκάζω
-top$$95$$#top
-top$$95$$#top
-palliate$$95$$https://www.merriam-webster.com/dictionary/palliate
-ανακουφιστικό$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ανακουφιστικό
-top$$95$$#top
-nemesis$$95$$https://www.merriam-webster.com/dictionary/nemesis
-evil$$95$$https://www.merriam-webster.com/dictionary/evil
-judgment$$95$$https://www.merriam-webster.com/dictionary/judgment
-νέμεσις$$95$$https://en.wiktionary.org/wiki/https://en.wiktionary.org/wiki/Νέμεσις
-πονηρό$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=πονηρός
-διακριτικότητα$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=διακριτικότητα
-top$$95$$#top
-privacy$$95$$https://www.merriam-webster.com/dictionary/privacy
-ιδιωτικότητα;$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ιδιωτικότητα
-top$$95$$#top
-trade-offs$$95$$https://www.merriam-webster.com/dictionary/trade-off
-συμβιβασμός;$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=συμβιβασμός
-top$$95$$#top
-top$$95$$#top
-top$$95$$#top
-top$$95$$#top
-top$$95$$#top
-top$$95$$#top
-trumps$$95$$https://www.merriam-webster.com/dictionary/trump
-ατού$$95$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ατού
-top$$95$$#top
-eudaimonia$$95$$https://www.britannica.com/topic/eudaimonia
-top$$95$$#top
-kahneman(behavioral economics): thinking, fast and slow$$95$$https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow
-σκέψη, αργή και γρήγορη συμπεριφορική οικονομική$$95$$https://www.public.gr/product/books/greek-books/economics/economics/skepsi-argi-kai-grigori/0759965
-deepl.com - translator$$95$$https://www.deepl.com/en/translator
-systransoft.com - translator$$95$$https://www.systransoft.com/translate/
-depraved$$95$$https://www.merriam-webster.com/dictionary/depraved
-coerced$$95$$https://www.merriam-webster.com/dictionary/coerced
-nikos gatsos$$95$$https://en.wikipedia.org/wiki/Nikos_Gatsos
-deepl.com - translator$$95$$https://www.deepl.com/en/translator
-systransoft.com - translator$$95$$https://www.systransoft.com/translate/
-depraved$$95$$https://www.merriam-webster.com/dictionary/depraved
-coerced$$95$$https://www.merriam-webster.com/dictionary/coerced
-νίκος γκάτσος$$95$$https://el.wikipedia.org/wiki/Νίκος_Γκάτσος
-statueofliberty.org$$96$$https://heritage.statueofliberty.org
-archives.gov$$96$$https://www.archives.gov/research/databases
+depraved$$94$$https://www.merriam-webster.com/dictionary/depraved
+coerced$$94$$https://www.merriam-webster.com/dictionary/coerced
+nikos gatsos$$94$$https://en.wikipedia.org/wiki/Nikos_Gatsos
+deepl.com - translator$$94$$https://www.deepl.com/en/translator
+systransoft.com - translator$$94$$https://www.systransoft.com/translate/
+depraved$$94$$https://www.merriam-webster.com/dictionary/depraved
+coerced$$94$$https://www.merriam-webster.com/dictionary/coerced
+νίκος γκάτσος$$94$$https://el.wikipedia.org/wiki/Νίκος_Γκάτσος
+statueofliberty.org$$95$$https://heritage.statueofliberty.org
+archives.gov$$95$$https://www.archives.gov/research/databases
+ai help$$96$$https://www.gov.gr/en/
+how to get afm (αφμ) tax id.$$96$$https://www.gov.gr/en/upourgeia/oloi-foreis/anexartete-arkhe-demosion-esodon-aade/apodose-arithmou-phorologikou-metroou-aphm-kai-kleidarithmou-se-phusiko-prosopo
+aaade.gr$$96$$https://www.aade.gr/en
+gsis.gr$$96$$https://www.gsis.gr/en
+taxisnet login$$96$$https://login.gsis.gr/mylogin/login.jsp
+ενημερςσης φορολογικον$$96$$https://www.taxheaven.gr/
 ai help$$97$$https://www.gov.gr/en/
 how to get afm (αφμ) tax id.$$97$$https://www.gov.gr/en/upourgeia/oloi-foreis/anexartete-arkhe-demosion-esodon-aade/apodose-arithmou-phorologikou-metroou-aphm-kai-kleidarithmou-se-phusiko-prosopo
 aaade.gr$$97$$https://www.aade.gr/en
 gsis.gr$$97$$https://www.gsis.gr/en
 taxisnet login$$97$$https://login.gsis.gr/mylogin/login.jsp
 ενημερςσης φορολογικον$$97$$https://www.taxheaven.gr/
-ai help$$98$$https://www.gov.gr/en/
-how to get afm (αφμ) tax id.$$98$$https://www.gov.gr/en/upourgeia/oloi-foreis/anexartete-arkhe-demosion-esodon-aade/apodose-arithmou-phorologikou-metroou-aphm-kai-kleidarithmou-se-phusiko-prosopo
-aaade.gr$$98$$https://www.aade.gr/en
-gsis.gr$$98$$https://www.gsis.gr/en
-taxisnet login$$98$$https://login.gsis.gr/mylogin/login.jsp
-ενημερςσης φορολογικον$$98$$https://www.taxheaven.gr/
-github.com/coaspo/rep/ br1$$100$$https://github.com/coaspo/rep/tree/br1
-quizzer$$100$$https://github.com/coaspo/rep/tree/br1/quizzer
-translator$$100$$https://github.com/coaspo/rep/tree/br1/translator
-w(website)$$100$$https://github.com/coaspo/rep/tree/br1/w
-github.com/coaspo/rep/ master$$100$$https://github.com/coaspo/rep/tree/master
-quizzer$$100$$https://github.com*scanContents()/coaspo/rep/tree/master/quizzer
-translator$$100$$https://github.com/coaspo/rep/tree/master/translator
-w(ebsite)$$100$$https://github.com/coaspo/rep/tree/master/w
-app.netlify.com/w$$100$$https://app.netlify.com/w
-li.netlify.com/w/tests/test_search.html$$100$$https://li.netlify.com/w/tests/test_search.html
-localhost:8080/w$$100$$http://localhost:8080/w/
-localhost:8080/w/tests/test_search.html$$100$$http://localhost:8080/w/tests/test_search.html
-linux smartphone$$101$$https://lotoftech.com/best-linux-smartphone-you-can-buy-right-now/
-freedom of speech and thinking$$129$$#freedom
-coronavirus: from science to politics$$129$$#virus
-contagion math$$129$$#contagion
-dissonance: conflict of truth and illusion$$129$$#dissonance
-government: from utopian to distopian$$129$$#government
-persuasion (of truth or lies)$$129$$#persuasion
-vaccine: from noise to science$$129$$#vaccine
-where year two of the pandemic will take us$$129$$#after
-communication: crew resource management (crm)$$129$$#CRM
-go to top$$129$$#top
-virus$$129
-sensitivity_specificity_predictive_value.txt$$129$$./math/sensitivity_specificity_predictive_value.txt
-go to top$$129$$#top
-flight network$$129$$./flight-network.jpg
-go to top$$129$$#top
-go to top$$129$$#top
-lydian$$129$$https://en.wikipedia.org/wiki/Lydia
-go to top$$129$$#top
-ethos$$129
-logos$$129
-pathos$$129
-go to top$$129$$#top
-mrna$$129
-epistemic transpassing$$129
-ecological fallacy$$129
-go to top$$129$$#top
-go to top$$129$$#top
-go to top$$129$$#top
+github.com/coaspo/rep/ br1$$99$$https://github.com/coaspo/rep/tree/br1
+quizzer$$99$$https://github.com/coaspo/rep/tree/br1/quizzer
+translator$$99$$https://github.com/coaspo/rep/tree/br1/translator
+w(website)$$99$$https://github.com/coaspo/rep/tree/br1/w
+github.com/coaspo/rep/ master$$99$$https://github.com/coaspo/rep/tree/master
+quizzer$$99$$https://github.com*scanContents()/coaspo/rep/tree/master/quizzer
+translator$$99$$https://github.com/coaspo/rep/tree/master/translator
+w(ebsite)$$99$$https://github.com/coaspo/rep/tree/master/w
+app.netlify.com/w$$99$$https://app.netlify.com/w
+li.netlify.com/w/tests/test_search.html$$99$$https://li.netlify.com/w/tests/test_search.html
+localhost:8080/w$$99$$http://localhost:8080/w/
+localhost:8080/w/tests/test_search.html$$99$$http://localhost:8080/w/tests/test_search.html
+linux smartphone$$100$$https://lotoftech.com/best-linux-smartphone-you-can-buy-right-now/
+freedom of speech and thinking$$128$$#freedom
+coronavirus: from science to politics$$128$$#virus
+contagion math$$128$$#contagion
+dissonance: conflict of truth and illusion$$128$$#dissonance
+government: from utopian to distopian$$128$$#government
+persuasion (of truth or lies)$$128$$#persuasion
+vaccine: from noise to science$$128$$#vaccine
+where year two of the pandemic will take us$$128$$#after
+communication: crew resource management (crm)$$128$$#CRM
+go to top$$128$$#top
+virus$$128
+sensitivity_specificity_predictive_value.txt$$128$$./math/sensitivity_specificity_predictive_value.txt
+go to top$$128$$#top
+flight network$$128$$./flight-network.jpg
+go to top$$128$$#top
+go to top$$128$$#top
+lydian$$128$$https://en.wikipedia.org/wiki/Lydia
+go to top$$128$$#top
+ethos$$128
+logos$$128
+pathos$$128
+go to top$$128$$#top
+mrna$$128
+epistemic transpassing$$128
+ecological fallacy$$128
+go to top$$128$$#top
+go to top$$128$$#top
+go to top$$128$$#top
 korean cdc interview$$148$$https://www.youtube.com/watch?v=gAk7aX5hksU
 virus course$$148$$https://www.youtube.com/watch?v=lj3NhPgOoX4
 week in virology$$148$$https://www.microbe.tv/twiv/archive/
