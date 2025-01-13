@@ -373,8 +373,6 @@ greek-language.gρ - λεξικό$$87$$https://www.greek-language.gr/greekLang/m
 wiktionary.org - βικιλεξικό$$87$$https://el.wiktionary.org/wiki
 λέξεις με αμφισβητούμενη ελληνική μετάφραση.$$87$$../../apps/flash_cards/words_to_σε_λέξεις.html
 nikos gatsos (georgiou)$$87$$https://en.wikipedia.org/wiki/Nikos_Gatsos
-contents$$89$$#top
-contents$$89$$#top
 the hunt for a new killer virus$$92$$https://www.amazon.com/Hunt-New-Killer-Virus-ebook/dp/B00SLWGZG2/ref=sr_1_1?dchild=1&keywords=fever+virus&qid=1611357564&sr=8-1
 the coming plague: newly emerging diseases$$92$$https://www.amazon.com/dp/0140250913/ref=rdr_ext_tmb
 i contain multitudes... by ed yong$$92$$https://www.amazon.com/Contain-Multitudes-Microbes-Within-Grander/dp/B01FY85L38/ref=sr_1_1?dchild=1&keywords=I+Contain+Multitudes&qid=1589194089&sr=8-1
