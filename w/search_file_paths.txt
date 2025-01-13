@@ -87,6 +87,7 @@ food/meta-food/health/sugar_list.html
 food/meta-food/wild_plants_.txt
 projects/art/cats_dogs.html
 projects/art/fuga.html
+projects/art/odyssey.html
 projects/art/stavros.html
 projects/art/why.html
 projects/books.html
