@@ -1,0 +1,220 @@
+1.  flu
+    RNA in Orthomyxovirus family
+    Lipip envelope (hemagglutinin & Neuraminidase)/ capsid / RNA
+       hemagglutinin: glycoprotein binds to sialic acid on host cells
+         causes red blood cells to clump together
+           sialic acid in immune cells, red blood cells, epithelial cells, and neurons
+       Neuraminidase: enzyme helps virus leave host cell
+         removes sialic acid, detach from host cell
+         antigenic
+         target of oseltamivir (Tamiflu) and zanamivir (Relenza)
+       capsid: structural support
+      epithelial cells in the upper respiratory tract;
+         nose, sinuses, pharynx, and larynx
+      neuroinflammation, neurodegeneration; attacks central nervous system  &brain cells
+      Primary reservoir: birds
+
+2. RSV Respiratory syncytial virus
+   nose, throat, and lungs;  cough, sneeze, or kiss
+   humans only reservoir
+   single-stranded RNA virus in the Paramyxoviridae family
+  Lipip envelope + attachment(G), fusion(F), small hydrophobic protein/ matrix protein/ RNA
+  Ciliated epithelial cells in  trachea and bronchial tubes
+
+3. COVID
+   Coronaviruses MERS, SARS
+   Alveolar epithelial cell type II (in lungs)
+   protein envelope +spike glycoprotein/RNA
+   reservoir horseshoe bats?
+
+4. norovirus
+    non-enveloped, icosahedral structure single-stranded RNA virus
+    Capsid protein
+   humans only reservoir
+   contaminated food/water or contact with an infected person.
+   vomiting, diarrhea, abdominal cramps, nausea, and low-grade fever
+   infects intestinal epithelial cells (IECs) and immune cells in the gut, including macrophages, dendritic cells, T cells, and B cells
+
+---------------------------------------------------------------------------------
+
+
+Respiratory viruses
+  Respiratory upper or lower parts of your respiratory tract.
+
+  Common symptoms of a respiratory viral disease include:
+
+  runny or stuffy nose
+  coughing or sneezing
+  fever
+  body aches
+  Examples
+  Examples of respiratory diseases include:
+
+  flu
+  common cold
+  respiratory syncytial virus infection
+  adenovirus infection
+  parainfluenza virus infection
+  severe acute respiratory syndrome (SARS)
+
+  Transmission
+  droplets generated through coughing or sneezing talking.
+  touch your nose or eyes, you could develop a disease.
+
+  nasal decongestants, cough suppressants, and pain relievers, reduce symptoms.
+
+
+Gastrointestinal viral diseases
+  gastroenteritis; stomach flu.
+  abdominal cramps, diarrhea, vomiting
+
+  norovirus
+  rotavirus
+  some adenovirus
+  astrovirus
+
+  Food or water by feces contamination
+  sharing utensils or personal objects.
+
+  drink plenty of fluids
+
+  Prevention
+   washing your hands after bathroom. Wiping down contaminated surfaces
+   not sharing personal items or eating utensils.
+
+
+Exanthematous
+  skin rashes.
+
+  highly contagious.
+
+  measles
+  rubella
+  chickenpox/shingles
+  roseola
+  smallpox
+  fifth disease
+  chikungunya
+
+  cough or sneeze talk
+
+  chickenpox and smallpox, can be transmitted by contacting skin lesions.
+  Shingles: reactivation of the varicella-zoster (chickenpox)virus in your cells.
+  Chikungunya through a mosquito bite, not person to person.
+
+  Fever-reducing medications,  acetaminophen.
+  acyclovir  for chickenpox or shingles.
+
+  Measles, rubella, chickenpox, shingles, and smallpox vaccination.
+
+viral hepatitis
+  inflammation of the liver, most common hepatitis A, B, and C.
+
+  hepatitis A
+  hepatitis B
+  hepatitis C
+  hepatitis D
+  hepatitis E
+  cytomegalovirus
+  yellow fever virus
+
+
+  Hepatitis B, C through bodily fluids. needles or razors
+  Hepatitis B can be spread through sexual contact.
+  hepatitis A, E by consuming food or water from human feces.
+  Can get hepatitis D if you have hepatitis B virus.
+
+  hepatitis B, C, and D focus on managing symptoms, or antiviral drugs.
+  hepatitis A and E: rest, drinking fluids, and avoiding alcohol.
+  vaccines hepatitis A, B, E(not available in the U.S.)
+
+  not sharing needles or razors, practicing safe sex
+  avoiding contaminated food or drinks that may be contaminated by feces.
+
+Cutaneous viral diseases
+  lesions or papules on the skin.  maybe for a long time or come back.
+
+  warts, including genital warts
+  oral herpes
+  genital herpes
+  molluscum contagiosum
+
+
+  contagious via close physical contact with someone or touching a towel or faucet handle.
+
+  warts or molluscum contagiosum often go away,  or cryotherapy.
+  herpes - acyclovir to shorten or prevent outbreaks.
+
+  avoiding the sharing of personal items, and
+  avoiding close contact with people who have lesions.
+
+Hemorrhagic virues
+  Damage to your circulatory system.
+
+  high fever
+  body aches
+  weakness
+  bleeding under the skin
+  bleeding from the mouth or ears
+  bleeding in internal organs
+
+  Ebola
+  Lassa fever
+  dengue fever
+  yellow fever
+  Marburg hemorrhagic fever
+  Crimean-Congo hemorrhagic fever
+
+  dengue fever and yellow fever, via insect bite
+
+  Others, such as Ebola, are spread to other people through contact with the blood or other bodily fluid of someone with the virus. Lassa fever is spread through inhaling or consuming the dried feces or urine of a rodent with the virus.
+
+  Treatment
+  There’s no specific treatment for hemorrhagic viral diseases.
+
+  It’s important to stay hydrated if you have a viral hemorrhagic disease. Some people may need intravenous (IV) fluids to maintain electrolyte balance. Supportive care to maintain hydration and electrolyte balance is essential. In some cases, the antiviral drug ribavirin may be given.
+
+  Prevention
+  Researchers are in the process of developing vaccines for several hemorrhagic viruses. A yellow fever vaccine is currently available for people traveling to areas where yellow fever is common.
+
+  If you live or work in an area where viral hemorrhagic diseases are common, you can do the following to reduce your risk:
+
+  Use proper protection, such as gloves, glasses, or a face shield, when working around people who have a virus.
+  Avoid being bitten by insects, especially mosquitos and ticks, by wearing protective clothing or using insect repellent.
+  Protect against rodent infestation by keeping food covered, removing garbage often, and making sure windows and doors are secured properly.
+
+Neurologic viral diseases
+  Some viruses can infect the brain and surrounding tissues, causing neurologic viral diseases. This can result in a range of symptoms, including:
+
+  fever
+  confusion
+  drowsiness
+  seizures
+  coordination problems
+  Examples
+  Examples of neurologic viral diseases include:
+
+  polio
+  viral meningitis
+  viral encephalitis
+  rabies
+  Transmission
+  Many neurologic viruses are spread through the bite of an infected animal or bug, such as a mosquito or tick.
+
+  Other viruses, such poliovirus and other enteroviruses, are quite contagious and spread through close contact with someone with the virus. Contaminated objects can also contribute to the spread of these viruses.
+
+  Treatment
+  There’s no specific treatment for people with mild viral meningitis or encephalitis. Getting plenty of rest, staying hydrated, and taking OTC anti-inflammatories to ease pain or headaches can all help. In some cases, antiviral medication may be prescribed.
+
+  Polio or severe cases of meningitis or encephalitis may require additional treatment, such as breathing assistance or IV fluids.
+
+  If an animal that’s suspected to have the rabies virus bites you, you’ll be given a series of shots to help prevent the rabies virus from infecting you.
+
+  Prevention
+  There’s a vaccine for both poliovirus and the mumps virus, which can cause meningitis and encephalitis.
+
+  Practicing good hygiene, avoiding close contact with those who have the virus, and protecting against insect bites can all help to reduce the spread of encephalitis and meningitis.
+
+  To reduce the risk of spreading rabies, keep your pets vaccinated and avoid approaching wild animals.
+
+

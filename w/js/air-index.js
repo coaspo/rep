@@ -11,18 +11,22 @@ fetch(apiUrl)
         const parameterNames = [];
         const aqiValues = [];
         var reportingArea
+        var hourObserved='--'
         // Iterate over the data and extract the ParameterName and AQI
         data.forEach(item => {
             if (item.ParameterName && item.AQI !== undefined) {
                 parameterNames.push(item.ParameterName);
                 aqiValues.push(item.AQI);
                 reportingArea = item.ReportingArea
+               // hourObserved = item.HourObserved
             }
         });
-        let html =  reportingArea
+        let txt =  reportingArea
         for (let i = 0; i < parameterNames.length; i++) {
-           html += ' '+ parameterNames[i]+ ': '+ colorCoded(aqiValues[i])
+           txt += ' '+ parameterNames[i]+ ': '+ colorCoded(aqiValues[i])
         }
+        html = " &nbsp; &nbsp; <a title='<50 (.054 PPM)' " + hourObserved + ':00'
+         "href='https://www.airnow.gov/?city=Lynn&state=MA&country=USA'>" + txt + "</a>"
         document.getElementById("airIndex").innerHTML = html;
     })
     .catch(error => {

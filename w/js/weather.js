@@ -8,7 +8,7 @@ function getWeather() {
     const url1 = weatherPeriod(0, w.properties.periods)
     const url2 = weatherPeriod(1, w.properties.periods)
     const url3 = weatherPeriod(2, w.properties.periods)
-    const html = ' &nbsp; &nbsp; '+ url1 + ' &nbsp; &nbsp; +12hr: ' + url2 + ' &nbsp; &nbsp; +24hr: ' + url3
+    const html = ' &nbsp; &nbsp; '+ url1 + ' &nbsp; &nbsp;' + url2 + ' &nbsp; &nbsp;' + url3
     return html
   } catch (err) {
     console.log('ERR1 ' + err.message)
@@ -67,6 +67,8 @@ function weatherPeriod(i, periods) {
   }
   if (f.includes('windy') || f.includes('gusts')) {
     fore += '🌬️ '
+
+
   }
   if (f.includes('hurricane')) {
     fore += '🌀 '
@@ -74,13 +76,19 @@ function weatherPeriod(i, periods) {
   if (f.includes('snow')) {
     fore += '❄️ '
   }
-  let detailed
+  if (i==1){
+     fore = '+12hr: ' + fore
+  } else if (i==2){
+     fore = '+24hr: ' + fore
+  }
+  let t_C = 5* (parseInt(t)-32)/9
+  let detailed = t_C.toFixed(1) +  'C  '
   if (i == 0) {
-    detailed = 'Current 12-hr period:  '
+    detailed += 'Current 12-hr period:  '
   } else if (i == 1) {
-    detailed = '12-hr period after 12 hrs:  '
+    detailed += '12-hr period after 12 hrs:  '
   } else if (i == 2) {
-    detailed = '12-hr period after 24 hrs:  '
+    detailed += '12-hr period after 24 hrs:  '
   }
   detailed += periods[i]['detailedForecast']
   const url = '<a href="https://forecast.weather.gov/MapClick.php?lat=42.482&lon=-71.0973&lg=english&&FcstType=text&bw=1" title="' +

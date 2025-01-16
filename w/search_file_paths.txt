@@ -148,6 +148,7 @@ science/health/social_anxiety.txt
 science/health/urinalysis.txt
 science/health/urine_test.txt
 science/health/vaccine.txt
+science/health/viruses.txt
 science/health/water.txt
 science/links/internet_resources.html
 science/math/logic.txt
