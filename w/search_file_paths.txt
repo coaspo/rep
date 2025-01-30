@@ -87,11 +87,12 @@ food/meta-food/health/sugar_list.html
 food/meta-food/wild_plants_.txt
 projects/art/arnisi.html
 projects/art/cats_dogs.html
-projects/art/dispa.html
+projects/art/dipsa.html
 projects/art/fuga.html
 projects/art/odyssey.html
 projects/art/stavros.html
 projects/art/tmp.html
+projects/art/πυθαγορικὰ_χρυσᾶ_ἔπη.html
 projects/books.html
 projects/construction/home_energy.html
 projects/construction/landscaping.html
