@@ -90,9 +90,9 @@ projects/art/cats_dogs.html
 projects/art/dipsa.html
 projects/art/fuga.html
 projects/art/odyssey.html
+projects/art/pithagorica_hrisa_epi.html
 projects/art/stavros.html
 projects/art/tmp.html
-projects/art/πυθαγορικὰ_χρυσᾶ_ἔπη.html
 projects/books.html
 projects/construction/home_energy.html
 projects/construction/landscaping.html

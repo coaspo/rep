@@ -374,9 +374,9 @@ greek-language.gρ - λεξικό$$88$$https://www.greek-language.gr/greekLang/m
 wiktionary.org - βικιλεξικό$$88$$https://el.wiktionary.org/wiki
 λέξεις με αμφισβητούμενη ελληνική μετάφραση.$$88$$../../apps/flash_cards/words_to_σε_λέξεις.html
 nikos gatsos (georgiou)$$88$$https://en.wikipedia.org/wiki/Nikos_Gatsos
-bibliotheca augustana$$94$$https://www.hs-augsburg.de/~harsch/graeca/Chronologia/S_ante04/CarmenAureum/aur_carm.html
-forgotem books$$94$$https://people.math.harvard.edu/~knill/various/eterosego/pythagoras_verses.pdf
-deepseek$$94$$https://chat.deepseek.com/
+bibliotheca augustana$$92$$https://www.hs-augsburg.de/~harsch/graeca/Chronologia/S_ante04/CarmenAureum/aur_carm.html
+forgotem books$$92$$https://people.math.harvard.edu/~knill/various/eterosego/pythagoras_verses.pdf
+deepseek$$92$$https://chat.deepseek.com/
 the hunt for a new killer virus$$95$$https://www.amazon.com/Hunt-New-Killer-Virus-ebook/dp/B00SLWGZG2/ref=sr_1_1?dchild=1&keywords=fever+virus&qid=1611357564&sr=8-1
 the coming plague: newly emerging diseases$$95$$https://www.amazon.com/dp/0140250913/ref=rdr_ext_tmb
 i contain multitudes... by ed yong$$95$$https://www.amazon.com/Contain-Multitudes-Microbes-Within-Grander/dp/B01FY85L38/ref=sr_1_1?dchild=1&keywords=I+Contain+Multitudes&qid=1589194089&sr=8-1
