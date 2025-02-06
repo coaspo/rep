@@ -192,74 +192,53 @@
 
             // Update status text to "inhale"
             currentPhase = 'inhale';
-            updateStatusText(currentPhase, elapsedSeconds);
+            updateStatusText(currentPhase, elapsedSeconds, inhaleSec);
 
             // Increment elapsed seconds during inhale
             const inhaleInterval = setInterval(() => {
                 elapsedSeconds++;
-                updateStatusText(currentPhase, elapsedSeconds);
+                updateStatusText(currentPhase, elapsedSeconds, inhaleSec);
             }, 1000);
 
             // Wait for the specified time (inhaleSec seconds) before transitioning to "wait"
             setTimeout(() => {
                 clearInterval(inhaleInterval); // Stop the inhale timer
+                currentPhase = 'wait';
+                elapsedSeconds = 0; // Reset elapsed seconds for the wait phase
+                updateStatusText(currentPhase, elapsedSeconds);
 
-                // Display the final value for inhale
-                updateStatusText(currentPhase, inhaleSec);
+                // Increment elapsed seconds during wait
+                const waitInterval = setInterval(() => {
+                    elapsedSeconds++;
+                    updateStatusText(currentPhase, elapsedSeconds);
+                }, 1000);
 
-                // Wait for 1 second before transitioning to "wait"
+                // Wait for the specified time (waitSec seconds) before transitioning to "exhale"
                 setTimeout(() => {
-                    currentPhase = 'wait';
-                    elapsedSeconds = 0; // Reset elapsed seconds for the wait phase
+                    clearInterval(waitInterval); // Stop the wait timer
+                    currentPhase = 'exhale';
+                    elapsedSeconds = 0; // Reset elapsed seconds for the exhale phase
                     updateStatusText(currentPhase, elapsedSeconds);
 
-                    // Increment elapsed seconds during wait
-                    const waitInterval = setInterval(() => {
+                    // Set transition for the shrinking step
+                    circle.style.transition = `width ${exhaleSec}s, height ${exhaleSec}s`;
+
+                    // Add the "shrunk" class to the circle for shrinking
+                    circle.classList.add('shrunk');
+                    circle.classList.remove('expanded');
+
+                    // Increment elapsed seconds during exhale
+                    const exhaleInterval = setInterval(() => {
                         elapsedSeconds++;
                         updateStatusText(currentPhase, elapsedSeconds);
                     }, 1000);
 
-                    // Wait for the specified time (waitSec seconds) before transitioning to "exhale"
+                    // Wait for the specified time (exhaleSec seconds) before restarting the cycle
                     setTimeout(() => {
-                        clearInterval(waitInterval); // Stop the wait timer
-
-                        // Display the final value for wait
-                        updateStatusText(currentPhase, waitSec);
-
-                        // Wait for 1 second before transitioning to "exhale"
-                        setTimeout(() => {
-                            currentPhase = 'exhale';
-                            elapsedSeconds = 0; // Reset elapsed seconds for the exhale phase
-                            updateStatusText(currentPhase, elapsedSeconds);
-
-                            // Set transition for the shrinking step
-                            circle.style.transition = `width ${exhaleSec}s, height ${exhaleSec}s`;
-
-                            // Add the "shrunk" class to the circle for shrinking
-                            circle.classList.add('shrunk');
-                            circle.classList.remove('expanded');
-
-                            // Increment elapsed seconds during exhale
-                            const exhaleInterval = setInterval(() => {
-                                elapsedSeconds++;
-                                updateStatusText(currentPhase, elapsedSeconds);
-                            }, 1000);
-
-                            // Wait for the specified time (exhaleSec seconds) before restarting the cycle
-                            setTimeout(() => {
-                                clearInterval(exhaleInterval); // Stop the exhale timer
-
-                                // Display the final value for exhale
-                                updateStatusText(currentPhase, exhaleSec);
-
-                                // Wait for 1 second before restarting the cycle
-                                setTimeout(() => {
-                                    startAnimation(inhaleSec, waitSec, exhaleSec); // Restart the cycle
-                                }, 1000);
-                            }, exhaleSec * 1000);
-                        }, 1000);
-                    }, waitSec * 1000);
-                }, 1000);
+                        clearInterval(exhaleInterval); // Stop the exhale timer
+                        startAnimation(inhaleSec, waitSec, exhaleSec); // Restart the cycle
+                    }, exhaleSec * 1000);
+                }, waitSec * 1000);
             }, inhaleSec * 1000);
         }
 

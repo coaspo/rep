@@ -298,20 +298,19 @@ future$$88$$#2
 ineffable$$88$$#3
 guilt$$88$$#4
 what was it$$88$$#5
-angel$$88$$#6
-palliate cats$$88$$#7
-carrot$$88$$#8
-broken$$88$$#9
-definition of isolation$$88$$#10
-causes$$88$$#11
-dog story$$88$$#12
-cat story$$88$$#13
-dog-cat side effect$$88$$#14
-social misfits-outcasts$$88$$#15
-song of the ashes$$88$$#16
-nudge your mind$$88$$#17
-prayer$$88$$#18
-nothing broken$$88$$#19
+cat/dog vacuum$$88$$#6
+angel$$88$$#7
+palliate cats$$88$$#8
+carrot$$88$$#9
+broken$$88$$#10
+definition of isolation$$88$$#11
+causes$$88$$#12
+dog story$$88$$#13
+cat story$$88$$#14
+dog-cat side effect$$88$$#15
+social misfits-outcasts$$88$$#16
+song of the ashes$$88$$#17
+nothing broken$$88$$#18
 epilogue$$88$$#epi
 reference$$88$$#ref
 contents$$88$$#top
@@ -329,6 +328,7 @@ deprave$$88$$https://www.merriam-webster.com/dictionary/deprave
 aνείπωτo$$88$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=ανείπωτα
 contents$$88$$#top
 καταναγκάστηκαν$$88$$https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=καταναγκάζω
+contents$$88$$#top
 contents$$88$$#top
 contents$$88$$#top
 palliate$$88$$https://www.merriam-webster.com/dictionary/palliate
@@ -357,8 +357,6 @@ contents$$88$$#top
 <i>eudaimonic</i>$$88$$https://www.britannica.com/topic/eudaimonia
 eudaimonic$$88
 ευδαιμονό$$88
-nudge$$88$$https://www.merriam-webster.com/dictionary/nudge
-contents$$88$$#top
 contents$$88$$#top
 contents$$88$$#top
 kahneman(behavioral economics): thinking, fast and slow$$88$$https://en.wikipedia.org/wiki/Thinking,_Fast_and_Slow
