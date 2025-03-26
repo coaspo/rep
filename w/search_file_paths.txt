@@ -27,6 +27,7 @@ art/book-notes/tyranny_of_merit_what_has_become_of_the_common_good.html
 art/book-notes/when_we_ease_to_understand _the_world.html
 art/language/etymology_sample.html
 art/language/how_to_write_think_an_learn_clearly.html
+art/language/language_wars.html
 art/language/quotes.html
 art/language/spanish-idioms.html
 art/language/tools.html
@@ -85,6 +86,7 @@ food/meta-food/health/natural_blood_components.txt
 food/meta-food/health/oxidative_stress.txt
 food/meta-food/health/sugar_list.html
 food/meta-food/wild_plants_.txt
+projects/ai_course/intro.html
 projects/art/arnisi.html
 projects/art/cats_dogs.html
 projects/art/dipsa.html
@@ -96,6 +98,7 @@ projects/art/tmp.html
 projects/books.html
 projects/construction/home_energy.html
 projects/construction/landscaping.html
+projects/courses/ai_module1.html
 projects/courses/appplied_category_course.html
 projects/courses/ml_course_intro.html
 projects/courses/nutrition_course_notes.html
@@ -165,6 +168,7 @@ science/psychology/hyper-sanity_-_a_different_world_view.txt
 science/psychology/parenting.txt
 science/psychology/psychological_tests.txt
 science/psychology/teens.txt
+tech/ai/deep_seek_example.html
 tech/book-notes/book_list.txt
 tech/book-notes/human_guide_to_ai.txt
 tech/electricity_stats.html
@@ -183,6 +187,7 @@ tech/programming/tmp.python_built-in_functions.html
 tech/programming/tmp.python_data_structures.html
 tech/programming/tmp.python_keywords.html
 tech/programming/tool_links.html
+tech/programming/white_list_urls.html
 tech/programming/windows_and_browser_key_shortcuts.txt
 tech/trustworthy_web_sites.html
 tech/web/ai.html
