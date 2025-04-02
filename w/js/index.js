@@ -18,7 +18,7 @@ function localPosition(position) {
 document.getElementById('inputTextMain').addEventListener('keypress', function (e) {
   const key = e.which || e.keyCode;
   if (key === 13) { // 13 is enter
-    browse('https://duckduckgo.com/?q=zzzz  site:org');
+    browse('https://search.brave.com/search?q=zzzz');
   }
 });
 

@@ -51,7 +51,7 @@
       padding: 5px 0px;
       transition: 0.3s;
       font-size: 36px;
-      width: 105px;
+      width: 85px;
       font-weight: bold;
       border-bottom-style: none;
       border-radius: 0px;
@@ -88,11 +88,11 @@
       margin: 12px;
       padding: 0px;
       border-radius: 10px;
-      border: none;
+      border: 2px solid black;
     }
 
     button:hover {
-      background: #ddhomedddd;
+      background: #dddddd;
     }
 
     .tiptext {
@@ -136,9 +136,6 @@
     margin: 0;
   }
 
-
-
-
     </style>
     <script src="js/util.js"></script>
     <script src="js/link-preview.js"></script>
@@ -153,14 +150,14 @@
 
 <body onkeydown="showTestLinks(event)" onbeforeunload="return saveScrollPosition('index')" onload="return restoreScrollPosition('index')">
 <div class="tab">
-    <button class="tablink" onclick="opencontName(event, 'Main')" id="tMain">Main</button>
-    <button class="tablink" onclick="opencontName(event, 'Projects')" id="tProjects">Proj</button>
-    <button class="tablink" onclick="opencontName(event, 'Tech')" id="tTech">Tek</button>
-    <button class="tablink" onclick="opencontName(event, 'Food')" id="tFood">Food</button>
-    <button class="tablink" onclick="opencontName(event, 'Arts')" id="tArts">Art</button>
-    <button class="tablink" onclick="opencontName(event, 'Science')" id="tScience">Scie</button>
-    <button class="tablink" onclick="opencontName(event, 'Apps')" id="tApps">App</button>
-</div>
+    <button class="tablink" onclick="opencontName(event, 'Main')" id="tMain">Mai</button>
+    <button class="tablink" onclick="opencontName(event, 'Projects')" id="tProjects">Pro</button>
+    <button class="tablink" onclick="opencontName(event, 'Tech')" id="tTech" title="Technology/computers" >🤖</button>
+    <button class="tablink" onclick="opencontName(event, 'Food')" id="tFood" title="Food" >🍅</button>
+    <button class="tablink" onclick="opencontName(event, 'Arts')" id="tArts" title="Arts" >🎨</button>
+    <button class="tablink" onclick="opencontName(event, 'Science')" id="tScience" title="Science">🧬</button>
+    <button class="tablink" onclick="opencontName(event, 'Apps')" id="tApps" title="Web aapplications">App</button>
+    <button class="tablink" onclick="opencontName(event, 'br')" id="tbr" title="Web links">🕸️</button></div>
 
 <!--=================================== Main tab =================================-->
 <div id="Main" class="tabcontent">
@@ -172,23 +169,21 @@
                 <br><br>
                 <!--voice--><a href="https://voicetotext.org/speech-to-text">voice ➔ text</a><br><br>
                 <!--duolingo--><a href="https://www.duolingo.com/?isLoggingIn=true">duolingo</a><br><br>
-                <!--popular--><a href="https://www.theatlantic.com/most-popular/">The Atlantic</a><br><br>
-                <!--virology--><a href="https://www.microbe.tv/twiv/archive/">Virology</a><br><br>
-                <!--humor--><a href="https://xkcd.com">Humor</a><br><br>
-                <!--news--><a href="https://news.ycombinator.com">News</a><br><br>
-                <!--mitpress--><a href="https://thereader.mitpress.mit.edu/">MIT press</a><br><br>
-                <!--documentary--><a href="https://ihavenotv.com/">documentary</a><br><br>
-                <!--Λεξικά--><a href="https://www.lexilogos.com/english/greek_modern_dictionary.htm">Λεξικά</a><br><br>
-                <!--contents--><a href="./contents.html">Contents</a>&nbsp;&nbsp;&nbsp;<br><br>
+                <!--Λεξικό--><a href="https://www.deepl.com/en/translator#en/el/greek">deepl 🇬🇧 ⇔ 🇬🇷</a><br><br>
+                <!--Recipes--><a href="https://fnec.cornell.edu/for-participants/recipe-table/">Recipes</a><br><br>
+                <!--coursera--><a href="https://www.coursera.org/?authMode=login">coursera.org</a><br><br>
+               <!--coursera--><a href="https://gutenberg.org">gutenberg Books</a><br><br>
+                <!--contents--><a href="./contents.html">Contents</a>&nbsp;&nbsp;&nbsp;<br><br><br>
+                <a href='./../w/apps/text_editor/notes.html' title="write notes in browser">📝 App</a>
             </td>
             <td><br>
                 <input type="text" id="inputTextMain"
                        style="width:655px; font-size:36px; border-radius: 0px;"
-                       placeholder='Enter text, 🦆🦆 default'>
-                <br><br>&emsp;<button onclick="browse('https://www.google.com/search?q=zzzz  site:org OR  site:edu');">
+                       placeholder='Enter text, brave search default'>
+                <br><br>&emsp;<button onclick="browse('https://www.google.com/search?q=zzzz  site:org OR  site:edu');" title=".org &.edu google">
                     10<sup>100</sup></button>
-                <button onclick="browse('https://duckduckgo.com/?q=zzzz  site:org');"> 🦆 🦆</button>
-                <button onclick="browse('https://search.marginalia.nu/search?query=zzzz');"> 10<sup>-100</sup></button>
+                <button onclick="browse('https://bing.com/search?q=zzzz ');"> bing</button>
+                <button onclick="browse('https://search.marginalia.nu/search?query=zzzz');" title="mostly text websites search"> 10<sup>-100</sup></button>
                 <br><br>&emsp;<button onclick="browse('https://en.wikipedia.org/wiki/zzzz');">
                     Wikipedia
                 </button>
@@ -196,6 +191,8 @@
                         onclick="browse('https://melrose.noblenet.org/eg/opac/results?query=zzzz&qtype=keyword&fi%3Asearch_format=&locg=1');"
                 >Library
                 </button>
+               
+                
                 <br>&emsp;<button onclick="browse('https://www.mayoclinic.org/search/search-results?q=zzzz');"> ⚕️ Mayo
                     C
                 </button>
@@ -204,34 +201,28 @@
                     ⚕️
                     💊 NIH
                 </button>
-                <br>&emsp;<button onclick="browse('https://www.thefreedictionary.com/zzzz?s=t');"
+                <br>&emsp;<button onclick="browse('https://www.merriam-webster.com/dictionary/zzzz');" style="background-color: #aaffff;"
                 >Dictionary
                 </button>
-                <button onclick="browse('https://www.acronymfinder.com/zzzz.html');">Acronym
+                <button onclick="browse('https://www.acronymfinder.com/zzzz.html');" style="background-color: #aaffff;">Acronym
                 </button>
-                <br>&emsp;<button onclick="browse('https://www.truepeoplesearch.com/resultphone?phoneno=zzzz');"
-                                  title='truepeoplesearch.com'>Telephone️
+                <br>&emsp;<button onclick="browse('https://www.greek-language.gr/greekLang/modern_greek/tools/lexica/search.html?lq=zzzz');"
+                style="background-color: #aaffff;">Λεξικό
                 </button>
-                <button onclick="browse('https://www.truepeoplesearch.com/results?name=zzzz');"
-                        title='truepeoplesearch.com'>People
+                <button onclick="browse('https://el.wiktionary.org/w/index.php?search=zzzz');" style="background-color: #aaffff;">Βικιλεξικό
                 </button>
+                <button onclick="browse('https://translate.google.com/#view=home&op=translate&sl=en&tl=el&text=zzzz');" style="background-color: #aaffff;">
+                  🇬🇧 ⇔
+                  🇬🇷
+              </button>
                 <br>&emsp;<button onclick="browse('https://www.urlvoid.com/scan/zzzz/');"
                                   title="urlvoid.com; enter base URL">Site
                     reput.
                 </button>
                 <button onclick="browse('https://www.google.com/maps/search/zzzz/');"> 🗺️ Map</button>
-                <br>&emsp;<button
-                        onclick="browse('https://translate.google.com/#view=home&op=translate&sl=es&tl=en&text=zzzz');">
-                    🇪🇸 ➜Loading...
-                    🇬🇧️
-                </button>
-                <button onclick="browse('https://translate.google.com/#view=home&op=translate&sl=en&tl=el&text=zzzz');">
-                    🇬🇧 ⇔
-                    🇬🇷
-                </button>
-                <br><br>&emsp;<button onclick="scanContents();">Contents</button>
-                <button onclick="window.location.href='./../w/apps/text_editor/text_editor.html';">Editor</button>
-            </td>
+
+                <br><br>&emsp;<button onclick="scanContents();" style="background-color: #ffffff; border: 4px solid black;" title="Contents search">🔎</button>
+             </td>
         </tr>
     </table>
     <pre id="search-results" style="background-color:#FFFFDD; font-size:16px;"></pre>
@@ -290,7 +281,9 @@ science<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a href='./../w/projects/science/solar_eclipse.html'>Solar eclipse</a><br>
 web<br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a href='./../w/projects/web/ai.py'>Ai.py</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href='./../w/projects/web/dnsmasq.conf-whitelist.txt'>Dnsmasq.conf-whitelist</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a href='./../w/projects/web/github.html'>Github</a><br>
+&nbsp;&nbsp;&nbsp;&nbsp;<a href='./../w/projects/web/how_to_whitelist.html'>How to whitelist</a><br>
 &nbsp;&nbsp;&nbsp;&nbsp;<a href='./../w/projects/web/linux_phone.html'>Linux phone</a><br>
 
 <!--*/END-->
@@ -602,7 +595,56 @@ websites<br>
 
 <!--*/END-->
 </div>
-
+<!--=================================== br tab =================================-->
+<div id="br" class="tabcontent">
+  <table>
+    <TR>
+      <TD></TD>
+      <TD></TD>
+    </TR> 
+    <TR>
+      <TD><a href="https://news.ycombinator.com">ycombinator, Tech news</a> </TD>
+      <TD><a href="https://www.theguardian.com/">guardian</a></TD>
+      <TD><a href="https://.deepseek.com">deepseek </a></TD>
+    </TR> 
+    <TR>
+      <TD><a href="https://thereader.mitpress.mit.edu/">MIT press</a></TD>
+      <TD><a href="https://foxnews.com/">foxnews</a></TD>
+      <TD><a href="https://claude.ai/">claude </a></TD>
+    </TR> 
+    <TR>
+      <TD><a href="https://xkcd.com">xkcd  humor</a></TD>
+      <TD><a href="https://nytimes.com/">nytimes</a></TD>
+      <TD><a href="https://openai.com/">openai </a></TD>
+    </TR> 
+    <TR>
+      <TD><a href="https://ihavenotv.com/">i have no tv, Documentaries &nbsp;&nbsp; &nbsp;&nbsp;</a></TD>
+      <TD><a href="https://bbc.com/">BBC</a></TD>
+      <TD><a href="https://meta.ai/">meta</a></TD>
+    </TR> 
+    <TR>
+      <TD><a href="https://science.org">science.org </a></TD>
+      <TD><a href="https://www.theatlantic.com/most-popular/">theatlantic </a></TD>
+      <TD><a href="https://gemini.google.com">gemini</a></TD>
+    </TR> 
+    <TR>
+      <TD><a href="https://pbs.org/">PBS</a></TD>
+      <TD><a href="https://npr.org/">npr</a></TD>
+    </TR> 
+     <TR>
+      <TD><a href="https://nature.com/">nature.com </a></TD>
+      <TD><a href="https://nationalreview.com/">national review </a></TD>
+    </TR> 
+    <TR>
+      <TD><a href="https://www.microbe.tv/twiv/archive/">Virology</a></TD>
+      <TD><a href="https://theamericanconservative.com/">american conservative </a></TD>
+    </TR> 
+    <TR>
+      <TD><a href="https://www.lexilogos.com/english/greek_modern_dictionary.htm">Greek Dictionaries</a></TD>
+      <TD><a href=""></a></TD>
+    </TR> 
+   </table>
+</div>
 <!--======================== weather & content search ============================-->
 <div class="footer"> &nbsp;
     <button class="buttonlink" onclick="browse('https://www.google.com/maps/@zzzz');" title="map location"> 📍</button>

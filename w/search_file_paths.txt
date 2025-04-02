@@ -106,7 +106,9 @@ projects/paper-pushing/elis_island.html
 projects/paper-pushing/greek_irs.html
 projects/paper-pushing/φόροι_taxes.html
 projects/science/solar_eclipse.html
+projects/web/dnsmasq.conf-whitelist.txt
 projects/web/github.html
+projects/web/how_to_whitelist.html
 projects/web/linux_phone.html
 science/-book-notes/ahead_of_the_curve - viruses....txt
 science/-book-notes/ai_2041_ten_visions_of_future.txt

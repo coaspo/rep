@@ -1,0 +1,35 @@
+<head>
+<link rel="icon" href="../δ.png"><pre>
+Ubuntu (linux):
+   <b>sudo apt-get install dnsmasq
+
+   sudo nano /etc/dnsmasq.conf</b>
+     to whitlist a.com enter:
+         <b>server=/a.com/8.8.8.8
+         address=/#/127.0.0.1
+
+   sudo systemctl restart dnsmasq</b>
+
+   Ask AI for help if needed.
+
+   <a href='./dnsmasq.conf-whitelist.txt'>dnsmasq.conf example</a>
+
+Android:
+   (Good luck in finding it practical)
+
+   Create free account on <b>nextdns.io</b> and login.
+
+   In <b>Setup</b> tab, scroll to:
+     <B>Setup Guide</B></B>
+     and follow instructions to change phone:
+       <b>Setting - Network - Advanced - Private DNS...</b>
+
+
+   In <b>Security</b> tab, scroll to:
+     <B>Block Top-Level Domains (TLDs)</B>
+     and click <b>ADD A TLD</b>
+       Click <b>ADD</b> button next <b>.com</b>
+
+   In <b>Allowlist</b> tab, type whitelist URLs,
+   for example:
+      <b>abc.com</b>

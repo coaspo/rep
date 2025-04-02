@@ -18,7 +18,7 @@ function getBaseUrl() {
     const i_base = url.indexOf('/w/') + 2;
     const baseUrl = url.substr(0, i_base);
     if (window.DEBUG) console.log('*_getBaseUrl() baseUrl= ' + baseUrl)
-    return baseUrlbrowse
+    return baseUrl
 }
 
 function getFileUrls(baseUrl, filePathsFilePath) {
