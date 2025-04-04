@@ -1,6 +1,5 @@
 "use strict";
 window.DEBUG=true
-console.log('aaaa')
 // Curron postion; for weather.js and position link
 var latitude = 'textField1=42.3587' // Boston lat/lon
 var longitude = 'textField2=-71.0567'

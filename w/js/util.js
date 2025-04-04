@@ -40,7 +40,7 @@ function getFileUrls(baseUrl, filePathsFilePath) {
 function getSearchLabels(baseUrl, labelsFilePath) {
     const url = baseUrl + labelsFilePath
     if (window.DEBUG) console.log('*_getSearchLabels() url= ' + url);
-    const labelText = readText(browseurl);
+    const labelText = readText(url);
 
     const lines = labelText.trim().split('\n');
     var labels = [];

@@ -28,7 +28,6 @@ fetch(apiUrl)
         html = " &nbsp; &nbsp; <a title='<50 (.054 PPM)' " + hourObserved + ':00' +
          "href='https://www.airnow.gov/?city=Lynn&state=MA&country=USA'>" + txt + "</a>"
         document.getElementById("airIndex").innerHTML = html;
-        console.log('--------'+html)
     })
     .catch(error => {
         const tableBody = document.querySelector('#aqTable tbody');

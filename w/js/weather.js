@@ -3,7 +3,6 @@ function getWeather() {
   try {
     const js = readText('https://api.weather.gov/gridpoints/BOX/68,81/forecast')
     const w = JSON.parse(js)
-    console.log(w)
     // 0/1/2 is for current/next/next 12 hours
     const url1 = weatherPeriod(0, w.properties.periods)
     const url2 = weatherPeriod(1, w.properties.periods)
