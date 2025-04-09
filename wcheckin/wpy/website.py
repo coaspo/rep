@@ -51,7 +51,7 @@ class WebSite:
             sub_dirs = []
             file_paths = WebSite._get_search_file_paths(target_dir)
             for file_path in file_paths:
-                if not file_path.endswith('.js'):
+                if not file_path.endswith('.png'):
                     # if file_path.endswith('.html') or file_path.endswith('.txt'):
                     page = WebPage(file_path)
                     total_kb_size += page.kb_size
