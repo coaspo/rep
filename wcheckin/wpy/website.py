@@ -17,7 +17,8 @@ class WebSite:
             for subdir, dirs, files in os.walk(target_dir):
                 for file in files:
                     if (file.endswith('.html') or file.endswith('.txt')) and \
-                         'webscrape' not in subdir and 'test' not in subdir:
+                         'webscrape' not in subdir and 'test' not in subdir and \
+                         not file.endswith('.png'):
                         p = subdir + '/' + file
                         file_path_structures.append([p, os.path.getmtime(p)])
         file_path_structures.sort(key=lambda x: x[0])
