@@ -105,6 +105,7 @@ class Util:
         if len(sub_sub_dir) > 0:
             txt += 4 * '&nbsp;' + sub_sub_dir + '<br>\n'
         if page is not None:
+            print('/////////////////link=',link)
             sfx = ' ' * (75 - len(link.split('>')[1].split('<')[0]) - link_indent)
             link += sfx
             date = page.date_range

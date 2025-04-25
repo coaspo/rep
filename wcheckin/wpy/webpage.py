@@ -46,11 +46,10 @@ class WebPage:
             i_end = len(file_path)
         file_name = file_path[i_start:i_end].replace('_', ' ')
         file_name = file_name[0].upper() + file_name[1:]
-        if file_path.endswith('test.html') or 'test_' in file_path or 'tmp' in file_path:
-            style = ' class="test" style="font-size:0px;"'
+        if 'tmp' in file_path:
+            link = file_name
         else:
-            style = ''
-        link = '<a href=\'./' + file_path + '\'' + style + '>' + file_name + '</a>'
+            link = "<a href='./" + file_path + "'>" + file_name + "</a>"
         return link
 
     @staticmethod
