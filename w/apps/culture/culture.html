@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Country Comparison</title>
+    <style>
+        body { font-family: sans-serif; display: flex; margin: 20px; }
+        #countryList { width: 200px; margin-right: 20px; }
+        #countryList select { width: 100%; height: 300px; }
+        #controls { margin-bottom: 10px; }
+        #comparisonCanvas { border: 1px solid #ccc; }
+    </style>
+</head>
+<body>
+    <div id="countryList">
+        <h3>Select Countries</h3>
+        <select id="selectedCountries" multiple>
+        </select>
+        
+        <div id="controls">
+            <br>
+            <button onclick="compareCountries()">Compare</button>
+        </div>
+    </div>
+    <div>
+        <canvas id="comparisonCanvas" width="1000" height="400"></canvas>
+        <br>Ref: <a href="https://www.vice.com/en/article/pkp7y7/human-culture-to-increasingly-come-from-unexplainable-ai-sociologists-find">World culture</a>
+    </div>
+     <script>
+        const countryData = [
+        { country: 'Argentina', powerDistance: 49, individualism: 46, masculinity: 56, uncertaintyAvoidance: 86, longTermOrientation: 0 },
+            { country: 'Australia', powerDistance: 36, individualism: 90, masculinity: 61, uncertaintyAvoidance: 51, longTermOrientation: 31 },
+            { country: 'Austria', powerDistance: 11, individualism: 55, masculinity: 79, uncertaintyAvoidance: 70, longTermOrientation: 0 },
+            { country: 'Belgium', powerDistance: 65, individualism: 75, masculinity: 54, uncertaintyAvoidance: 94, longTermOrientation: 0 },
+            { country: 'Brazil', powerDistance: 69, individualism: 38, masculinity: 49, uncertaintyAvoidance: 76, longTermOrientation: 65 },
+            { country: 'Chile', powerDistance: 63, individualism: 23, masculinity: 28, uncertaintyAvoidance: 86, longTermOrientation: 0 },
+            { country: 'China', powerDistance: 80, individualism: 20, masculinity: 66, uncertaintyAvoidance: 40, longTermOrientation: 118 },
+            { country: 'Colombia', powerDistance: 67, individualism: 13, masculinity: 64, uncertaintyAvoidance: 80, longTermOrientation: 0 },
+            { country: 'Costa-Rica', powerDistance: 35, individualism: 15, masculinity: 21, uncertaintyAvoidance: 86, longTermOrientation: 0 },
+            { country: 'Czech-Republic', powerDistance: 57, individualism: 58, masculinity: 57, uncertaintyAvoidance: 74, longTermOrientation: 0 },
+            { country: 'Denmark', powerDistance: 18, individualism: 74, masculinity: 16, uncertaintyAvoidance: 23, longTermOrientation: 0 },
+            { country: 'Ecuador', powerDistance: 78, individualism: 8, masculinity: 63, uncertaintyAvoidance: 67, longTermOrientation: 0 },
+            { country: 'Egypt', powerDistance: 80, individualism: 38, masculinity: 52, uncertaintyAvoidance: 68, longTermOrientation: 0 },
+            { country: 'El-Salvador', powerDistance: 66, individualism: 19, masculinity: 40, uncertaintyAvoidance: 94, longTermOrientation: 0 },
+            { country: 'Ethiopia', powerDistance: 64, individualism: 27, masculinity: 41, uncertaintyAvoidance: 52, longTermOrientation: 25 },
+            { country: 'Finland', powerDistance: 33, individualism: 63, masculinity: 26, uncertaintyAvoidance: 59, longTermOrientation: 0 },
+            { country: 'France', powerDistance: 68, individualism: 71, masculinity: 43, uncertaintyAvoidance: 86, longTermOrientation: 0 },
+            { country: 'Germany', powerDistance: 35, individualism: 67, masculinity: 66, uncertaintyAvoidance: 65, longTermOrientation: 31 },
+            { country: 'Ghana', powerDistance: 77, individualism: 20, masculinity: 46, uncertaintyAvoidance: 54, longTermOrientation: 16 },
+            { country: 'Greece', powerDistance: 60, individualism: 35, masculinity: 57, uncertaintyAvoidance: 112, longTermOrientation: 0 },
+            { country: 'Guatemala', powerDistance: 95, individualism: 6, masculinity: 37, uncertaintyAvoidance: 101, longTermOrientation: 0 },
+            { country: 'Hong-Kong', powerDistance: 68, individualism: 25, masculinity: 57, uncertaintyAvoidance: 29, longTermOrientation: 96 },
+            { country: 'Hungary', powerDistance: 46, individualism: 55, masculinity: 88, uncertaintyAvoidance: 82, longTermOrientation: 0 },
+            { country: 'India', powerDistance: 77, individualism: 48, masculinity: 56, uncertaintyAvoidance: 40, longTermOrientation: 61 },
+            { country: 'Indonesia', powerDistance: 78, individualism: 14, masculinity: 46, uncertaintyAvoidance: 48, longTermOrientation: 0 },
+            { country: 'Iran', powerDistance: 58, individualism: 41, masculinity: 43, uncertaintyAvoidance: 59, longTermOrientation: 0 },
+            { country: 'Iraq', powerDistance: 80, individualism: 38, masculinity: 52, uncertaintyAvoidance: 68, longTermOrientation: 0 },
+            { country: 'Ireland', powerDistance: 28, individualism: 70, masculinity: 68, uncertaintyAvoidance: 35, longTermOrientation: 0 },
+            { country: 'Israel', powerDistance: 13, individualism: 54, masculinity: 47, uncertaintyAvoidance: 81, longTermOrientation: 0 },
+            { country: 'Italy', powerDistance: 50, individualism: 76, masculinity: 70, uncertaintyAvoidance: 75, longTermOrientation: 0 },
+            { country: 'Jamaica', powerDistance: 45, individualism: 39, masculinity: 68, uncertaintyAvoidance: 13, longTermOrientation: 0 },
+            { country: 'Japan', powerDistance: 54, individualism: 46, masculinity: 95, uncertaintyAvoidance: 92, longTermOrientation: 80 },
+            { country: 'Kenya', powerDistance: 64, individualism: 27, masculinity: 41, uncertaintyAvoidance: 52, longTermOrientation: 25 },
+            { country: 'Kuwait', powerDistance: 80, individualism: 38, masculinity: 52, uncertaintyAvoidance: 68, longTermOrientation: 0 },
+            { country: 'Lebanon', powerDistance: 80, individualism: 38, masculinity: 52, uncertaintyAvoidance: 68, longTermOrientation: 0 },
+            { country: 'Libya', powerDistance: 80, individualism: 38, masculinity: 52, uncertaintyAvoidance: 68, longTermOrientation: 0 },
+            { country: 'Malaysia', powerDistance: 104, individualism: 26, masculinity: 50, uncertaintyAvoidance: 36, longTermOrientation: 0 },
+            { country: 'Mexico', powerDistance: 81, individualism: 30, masculinity: 69, uncertaintyAvoidance: 82, longTermOrientation: 0 },
+            { country: 'Netherlands', powerDistance: 38, individualism: 80, masculinity: 14, uncertaintyAvoidance: 53, longTermOrientation: 44 },
+            { country: 'New-Zealand', powerDistance: 22, individualism: 79, masculinity: 58, uncertaintyAvoidance: 49, longTermOrientation: 30 },
+            { country: 'Nigeria', powerDistance: 77, individualism: 20, masculinity: 46, uncertaintyAvoidance: 54, longTermOrientation: 16 },
+            { country: 'Norway', powerDistance: 31, individualism: 69, masculinity: 8, uncertaintyAvoidance: 50, longTermOrientation: 20 },
+            { country: 'Pakistan', powerDistance: 55, individualism: 14, masculinity: 50, uncertaintyAvoidance: 70, longTermOrientation: 0 },
+            { country: 'Panama', powerDistance: 95, individualism: 11, masculinity: 44, uncertaintyAvoidance: 86, longTermOrientation: 0 },
+            { country: 'Peru', powerDistance: 64, individualism: 16, masculinity: 42, uncertaintyAvoidance: 87, longTermOrientation: 0 },
+            { country: 'Philippines', powerDistance: 94, individualism: 32, masculinity: 64, uncertaintyAvoidance: 44, longTermOrientation: 19 },
+            { country: 'Poland', powerDistance: 68, individualism: 60, masculinity: 64, uncertaintyAvoidance: 93, longTermOrientation: 0 },
+            { country: 'Portugal', powerDistance: 63, individualism: 27, masculinity: 31, uncertaintyAvoidance: 104, longTermOrientation: 0 },
+            { country: 'Saudi-Arabia', powerDistance: 80, individualism: 38, masculinity: 52, uncertaintyAvoidance: 68, longTermOrientation: 0 },
+            { country: 'Sierra-Leone', powerDistance: 77, individualism: 20, masculinity: 46, uncertaintyAvoidance: 54, longTermOrientation: 16 },
+            { country: 'Singapore', powerDistance: 74, individualism: 20, masculinity: 48, uncertaintyAvoidance: 8, longTermOrientation: 48 },
+            { country: 'South-Africa', powerDistance: 49, individualism: 65, masculinity: 63, uncertaintyAvoidance: 49, longTermOrientation: 0 },
+            { country: 'South-Korea', powerDistance: 60, individualism: 18, masculinity: 39, uncertaintyAvoidance: 85, longTermOrientation: 75 },
+            { country: 'Spain', powerDistance: 57, individualism: 51, masculinity: 42, uncertaintyAvoidance: 86, longTermOrientation: 0 },
+            { country: 'Sweden', powerDistance: 31, individualism: 71, masculinity: 5, uncertaintyAvoidance: 29, longTermOrientation: 33 },
+            { country: 'Switzerland', powerDistance: 34, individualism: 68, masculinity: 70, uncertaintyAvoidance: 58, longTermOrientation: 0 },
+            { country: 'Taiwan', powerDistance: 58, individualism: 17, masculinity: 45, uncertaintyAvoidance: 69, longTermOrientation: 87 },
+            { country: 'Tanzania', powerDistance: 64, individualism: 27, masculinity: 41, uncertaintyAvoidance: 52, longTermOrientation: 25 },
+            { country: 'Thailand', powerDistance: 64, individualism: 20, masculinity: 34, uncertaintyAvoidance: 64, longTermOrientation: 56 },
+            { country: 'Turkey', powerDistance: 66, individualism: 37, masculinity: 45, uncertaintyAvoidance: 85, longTermOrientation: 0 },
+            { country: 'United-Arab-Emirates', powerDistance: 80, individualism: 38, masculinity: 52, uncertaintyAvoidance: 68, longTermOrientation: 0 },
+            { country: 'United-Kingdom', powerDistance: 35, individualism: 89, masculinity: 66, uncertaintyAvoidance: 35, longTermOrientation: 25 },
+            { country: 'United-States', powerDistance: 40, individualism: 91, masculinity: 62, uncertaintyAvoidance: 46, longTermOrientation: 29 },
+            { country: 'Uruguay', powerDistance: 61, individualism: 36, masculinity: 38, uncertaintyAvoidance: 100, longTermOrientation: 0 },
+            { country: 'Venezuela', powerDistance: 81, individualism: 12, masculinity: 73, uncertaintyAvoidance: 76, longTermOrientation: 0 },
+            { country: 'Zambia', powerDistance: 64, individualism: 27, masculinity: 41, uncertaintyAvoidance: 52, longTermOrientation: 25 }
+        ];
+
+        const dimensionKeys = ['powerDistance', 'individualism', 'masculinity', 'uncertaintyAvoidance', 'longTermOrientation'];
+        const dimensionLabels = ['Power-Distance-Index', 'Individualism', 'Masculinity', 'Uncertainty-Avoidance', 'Long-Term-Orientation'];
+        const colors = ['#e41a1c', '#377eb8', '#4daf4a', '#984ea3', '#ff7f00', '#ffff33', '#a65628', '#f781bf', '#999999', '#66c2a5', '#fc8d62', '#8da0cb', '#e78ac3', '#a6d854', '#ffd92f', '#1b9e77', '#d95f02', '#7570b3', '#e6ab02', '#66a61e', '#d95d49', '#75a3df', '#ea6153', '#67b863', '#e7298a', '#a6761d', '#6a3d9a', '#b15928', '#fbb4ae', '#b3cde3', '#ccebc5', '#decbe4', '#fed9a6', '#ffffcc', '#e5d8bd', '#fddaec', '#f2f2f2', '#b3e2cd', '#fdcdac', '#cbd5e8', '#f4cae4', '#e6f5c9', '#fff2ae', '#a1d76a', '#e31a1c', '#1f78b4', '#b2df8a', '#33a02c', '#fb9a99', '#e31a1c', '#fdbf6f', '#ff7f00', '#cab2d6', '#6a3d9a', '#ffff99', '#b15928'];
+
+        function populateCountryList() {
+            const selectElement = document.getElementById('selectedCountries');
+            countryData.forEach((countryInfo, index) => {
+                const option = document.createElement('option');
+                option.value = index;
+                option.textContent = countryInfo.country;
+                selectElement.appendChild(option);
+            });
+        }
+
+        function compareCountries() {
+            const selectElement = document.getElementById('selectedCountries');
+            const canvas = document.getElementById('comparisonCanvas');
+            const ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            const selectedIndices = Array.from(selectElement.selectedOptions).map(option => parseInt(option.value));
+            const selectedCountries = selectedIndices.map(index => countryData[index]);
+
+            if (selectedCountries.length === 0) {
+                ctx.fillText('Please select at least one country to compare.', 50, 50);
+                return;
+            }
+
+            const numDimensions = dimensionKeys.length;
+            const numSelectedCountries = selectedCountries.length;
+            var barWidth = 30;
+            var groupSpacing = 60;
+            var barSpacing = 10;
+            const startX = 50;
+            const maxY = Math.max(...countryData.flatMap(country => dimensionKeys.map(key => country[key]))) * 1; // Scale Y-axis slightly
+            const scaleY = canvas.height / maxY;
+            const bottomPadding = 50;
+            const graphHeight = canvas.height - bottomPadding;
+            const groupWidth = (barWidth * numSelectedCountries) + (barSpacing * (numSelectedCountries - 1)) + groupSpacing;
+            const startY = graphHeight;
+
+            // Adjust bar width and spacing if needed to fit
+            const availableWidth = canvas.width - 2 * startX;
+            const totalGroupWidth = groupWidth * numDimensions;
+
+            if (totalGroupWidth > availableWidth) {
+                const ratio = availableWidth / totalGroupWidth;
+                barWidth *= ratio;
+                barSpacing *= ratio;
+                groupSpacing *= ratio;
+            }
+
+            let currentX = startX;
+            const totalBarWidth = (barWidth * numSelectedCountries) + (barSpacing * (numSelectedCountries - 1));
+
+            for (let i = 0; i < numDimensions; i++) {
+                const dimensionKey = dimensionKeys[i];
+                const dimensionLabel = dimensionLabels[i];
+
+                for (let j = 0; j < numSelectedCountries; j++) {
+                    const country = selectedCountries[j];
+                    const value = country[dimensionKey];
+                    const barHeight = value * scaleY;
+                    const barY = startY - barHeight;
+                    const barX = currentX + (j * (barWidth + barSpacing));
+
+                    ctx.fillStyle = colors[selectedIndices[j] % colors.length];
+                    ctx.fillRect(barX, barY, barWidth, barHeight);
+
+                    // Label the bar with the country name (try to fit)
+                    ctx.fillStyle = 'black';
+                    ctx.font = '10px sans-serif';
+                    ctx.textAlign = 'center';
+                    const textWidth = ctx.measureText(country.country).width;
+                    const textX = barX + (barWidth / 2);
+                    const textY = startY + 15;
+
+                    if (textWidth <= barWidth * 1.5) {
+                        ctx.fillText(country.country, textX, textY);
+                    } else if (numSelectedCountries < 5) {
+                        // If fewer countries, try a shorter label
+                        ctx.fillText(country.country.split('-').pop(), textX, textY);
+                    }
+                }
+
+                // Label the group
+                ctx.fillStyle = 'black';
+                ctx.font = '12px bold sans-serif';
+                ctx.textAlign = 'center';
+                ctx.fillText(dimensionLabel, currentX + (totalBarWidth / 2), startY + 30 + (numSelectedCountries > 0 ? 15 : 0)); // Adjust Y position based on country labels
+
+                currentX += groupWidth;
+            }
+
+            // Draw Y-axis labels (approximate)
+            ctx.fillStyle = 'black';
+            ctx.font = '10px sans-serif';
+            ctx.textAlign = 'right';
+            for (let y = 0; y <= maxY; y += Math.ceil(maxY / 5)) {
+                const yPos = startY - (y * scaleY);
+                ctx.fillText(y, startX - 15, yPos + 3);
+            }
+
+            // Draw Y-axis line
+            ctx.beginPath();
+            ctx.moveTo(startX - 10, startY);
+            ctx.lineTo(startX - 10, startY - (maxY * scaleY));
+            ctx.stroke();
+        }
+
+        populateCountryList();
+    </script>
+</body>
+</html>

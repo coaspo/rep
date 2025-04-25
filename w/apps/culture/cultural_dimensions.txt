@@ -1,4 +1,4 @@
-Country  Power-Distance-Index  Individualism  Masculinity  Uncertainty-Avoidance  Long-Term  Orientation
+Country  Power-Distance-Index  Individualism  Masculinity  Uncertainty-Avoidance  Long-Term-Orientation
 Japan  54  46  95  92  80
 Hungary  46  55  88  82  0
 Austria  11  55  79  70  0

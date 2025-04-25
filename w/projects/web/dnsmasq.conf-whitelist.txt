@@ -1,15 +1,19 @@
-# Whitelist rules (force DNS resolution)
 #ref=======================================ref
 #search
 server=/google.com/8.8.8.8
+server=/googleusercontent.com/8.8.8.8
+server=/googleapis.com/8.8.8.8
+server=/gstatic.com/8.8.8.8
 server=/bing.com/8.8.8.8
 server=/marginalia-search.com/8.8.8.8
 server=/duckduckgo.com/8.8.8.8
 server=/brave.com/8.8.8.8
+server=/marginalia.nu/8.8.8.8
 
 #library
 server=/noblenet.org/8.8.8.8
 server=/ebsco.com/8.8.8.8
+server=/melrosepubliclibrary.org/8.8.8.8
 
 #dictionaries
 server=/merriam-webster.com/8.8.8.8
@@ -19,6 +23,7 @@ server=/acronymfinder.com/8.8.8.8
 server=/lexilogos.com/8.8.8.8
 server=/greek-language.gr/8.8.8.8
 server=/deepl.com/8.8.8.8
+server=/bing.com/8.8.8.8
 
 server=/wikipedia.org/8.8.8.8
 server=/gutenberg.org/8.8.8.8
@@ -45,8 +50,12 @@ server=/microsoft.com/8.8.8.8
 #util ======================================== util
 server=/github.io/8.8.8.8
 server=/github.com/8.8.8.8
+server=/w3schools.com/8.8.8.8
+server=/www.google.ca/8.8.8.8
 
 server=/coursera.org/8.8.8.8
+server=/cloudfront.net/8.8.8.8
+server=/reactjs.org/8.8.8.8
 server=/sentry-cdn.com/8.8.8.8
 server=/googletagmanager.com/8.8.8.8
 server=/arkoselabs.com/8.8.8.8
@@ -65,5 +74,39 @@ server=/urlvoid.com/8.8.8.8
 
 server=/emojipedia.org/8.8.8.8
 
-# Block everything else =============================
-server=//8.8.8.8
+#email
+server=/live.com/8.8.8.8
+server=/live.net/8.8.8.8
+server=/office.net/8.8.8.8
+server=/msauth.net/8.8.8.8
+server=/msftauth.net/8.8.8.8
+server=/azureedge.net/8.8.8.8
+server=/azure.com/8.8.8.8
+server=/microsoftonline.com/8.8.8.8
+server=/office365.com/8.8.8.8
+server=/static.microsoft/8.8.8.8
+server=/adnxs.com/8.8.8.8
+server=/azureedge.net/8.8.8.8
+
+#ai
+server=/chatgpt.com/8.8.8.8
+server=/claude.ai/8.8.8.8
+server=/deepseek.com/8.8.8.8
+server=/llama.com/8.8.8.8
+server=/amazon.com/8.8.8.8
+server=/qwen.ai/8.8.8.8
+
+#greece
+server=/nbg.gr/8.8.8.8
+server=/eydap.gr/8.8.8.8
+server=/jsdelivr.net/8.8.8.8
+server=/gsis.gr/8.8.8.8
+server=/cloudflare.com/8.8.8.8
+server=/com.gr/8.8.8.8
+server=/mastercard.com/8.8.8.8
+server=/rsa3dsauth.com/8.8.8.8
+
+#------------- block all
+server=/#/0.0.0.0
+#--------------allow all
+#server=8.8.8.8

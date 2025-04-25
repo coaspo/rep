@@ -1,9 +1,9 @@
 #!/bin/bash
-'Sensitivity' = TP / TP + FN 96%
-'Specificity' = TN / TN + FP 90%
+'Sensitivity' = TP / (TP + FN) 96% with disease will be correct positieves 
+'Specificity' = TN / (TN + FP) 90% WO disease will br correct negatives
    positive: +, negative: -
    TP = true + , FN = false -, ...
-'Accuracy' = TP + TN / TP + TN + FN + FP
+'Accuracy' = TP + TN / (TP + TN + FN + FP)
 
 Covid IgG testing: 96% sensitivity, 90% specificity
                    1,000 population
@@ -13,24 +13,26 @@ Covid IgG testing: 96% sensitivity, 90% specificity
 Truth        50         950        1000      800          200         1000
 (+) result  :50*.96=48  950-855=95  143     :800*.96=768  200-180=20  788
 (-) result   50-48=2   :950*.9=855  857      800-760=40  :200*.9=180  220
-
+            TP=50 FN=2   TN=950 FP=95 
 from: 'COVID IgG Sensitivity, specificity, and predictive value.'
        https://www.youtube.com/watch?v=x5FfTjJtV3E
 
-Sensitivity  50 / 50 + 2 = 96%
-Specificity  950 / 950 + 95 = 90%
-Accuracy     1,000 / 1,000 + 2 +95 = 91 %
+Sensitivity  50 / (50 + 2) = 96%
+Specificity  950 / (950 + 95) = 90%
+Accuracy     1,000 / (1,000 + 2 + 95) = 91 %
 
-'PPV'/NPV: Positive/Negative predictive value
+'PPV'/NPV: Positive/Negative predictive value  used by doctors
 
-PPV           48/143  = 34%                   760/780 = 97%
-NPV           855/857 = 99%                   180/220 = 81%
-P(sick)       5%                              80%
-P(healthy)    1 - P(sick) = 95%               10%
-P(positive)   143/1000 = 14.3%                788/1000 = 79%
-P(negative)   857/1000 = 85.7%                220/1000 = 22%
-P(accurate)   accuracy = 1,000/(1,000+2+855)  1,000/(1,000+40+20)
+PPV=TP/(TP+FP)  48/143  = 34%                   760/780 = 97%  how good is positive
+NPV=TN/(TN+FN)  855/857 = 99%                   180/220 = 81%  how good is negative
+P(sick)         5%                              80%
+P(healthy)      1 - P(sick) = 95%               10%
+P(positive)     143/1000 = 14.3%                788/1000 = 79%
+P(negative)     857/1000 = 85.7%                220/1000 = 22%
+P(accurate)     accuracy = 1,000/(1,000+2+855)  1,000/(1,000+40+20)
                        = 54%                  =94%
+
+Mammography 15% false positieves
 
 
 'Conditional probability', Bayes theorem:
