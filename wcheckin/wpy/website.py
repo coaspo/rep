@@ -13,7 +13,7 @@ class WebSite:
     @staticmethod
     def _get_search_file_path_structures(target_dirs):
         file_path_structures = []
-        for target_dir in target_dirs:
+        for target_dir in target_dirs: 
             for subdir, dirs, files in os.walk(target_dir):
                 for file in files:
                     if (file.endswith('.html') or file.endswith('.txt')) and \
