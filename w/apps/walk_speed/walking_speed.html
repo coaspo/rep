@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GPS Speed Tracker</title>
+      <style>
+    body {
+      display: flex; /* Make the body a flex container */
+      justify-content: center; /* Center horizontally */
+      align-items: center; /* Center vertically */
+      height: 100vh; /* Make body take full viewport height */
+      margin: 0; /* Remove default body margin */
+    }
+  </style>
+</head>
+<body><pre>
+    <label>GPS Speed [m/s], % accuracy</label>
+    <input type="text" id="speed" readonly>
+    <input type="text" id="accuracy" readonly>
+
+    Accelerometer speed, drop phone a short distance to reset
+    x,y,z
+            <input type="text" id="speed-x" readonly >
+            <input type="text" id="speed-y" readonly >
+            <input type="text" id="speed-z" readonly >
+    radial
+            <input type="text" id="radial-speed" readonly >
+
+age          woman              man average walking speeds
+-------------------------------------------
+40-49   1.39 m/s (4.6ft/s),    1.43 m/s (4.7ft/s)
+
+50-59,  1.31 m/s (4.3ft/s)    1.43 m/s (4.7ft/s)
+
+60-69   1.24 m/s (4.1ft/s)     1.43 m/s (4.7ft/s).
+
+70-79   1.13 m/s (3.7ft/s)     1.26 m/s (4.16ft/s)
+
+80-89   0.94 m/s (3.1ft)       0.97 m/s (3.2ft/s)
+
+    <script>
+        const speedInput = document.getElementById('speed');
+        const accuracyInput = document.getElementById('accuracy');
+        let watchId = null;
+
+        function startTracking() {
+            if (navigator.geolocation) {
+                watchId = navigator.geolocation.watchPosition( ///---GPS
+                    position => {
+                        const speed = position.coords.speed !== null ? position.coords.speed.toFixed(2) : '0.00';
+                        const accuracy = position.coords.accuracy !== null ? (100 - position.coords.accuracy).toFixed(0) : '0';
+
+                        speedInput.value = speed;
+                        accuracyInput.value = accuracy + '%';
+                    },
+                    error => {
+                        speedInput.value = 'Error';
+                        accuracyInput.value = 'Error';
+                    },
+                    { enableHighAccuracy: true, maximumAge: 0, timeout: 5000 }
+                );
+            } else {
+                speedInput.value = 'Not supported';
+                accuracyInput.value = 'N/A';
+            }
+        }
+
+        startTracking();
+
+        //------------------------------------------------------------------------------------------------------------------------------
+        //--------------------------------------------------------------------------ACCELROMETER
+        // Check for permission API on iOS 13+
+         // Check for permission API on iOS 13+
+        if (typeof DeviceMotionEvent.requestPermission === 'function') {
+            const permissionButton = document.createElement('button');
+            permissionButton.textContent = 'Grant Sensor Access';
+            document.body.prepend(permissionButton);
+
+            permissionButton.addEventListener('click', async () => {
+                const permissionState = await DeviceMotionEvent.requestPermission();
+                if (permissionState === 'granted') {
+                    window.addEventListener('devicemotion', handleMotion);
+                    permissionButton.remove();
+                }
+            });
+        } else {
+            // Browser doesn't need permission, start listening directly
+            window.addEventListener('devicemotion', handleMotion);
+        }
+
+        // Initialize velocity variables for integration
+        let velocity = { x: 0, y: 0, z: 0 };
+
+        // Define a low acceleration threshold for resetting speed (indicates a drop)
+        const DROP_THRESHOLD = 2; // m/s^2
+
+        /**
+         * Event handler for the devicemotion event.
+         * @param {DeviceMotionEvent} event The motion event object.
+         */
+        function handleMotion(event) {
+            // Get acceleration values, excluding gravity
+            const acceleration = event.acceleration;
+
+            // Check if acceleration data exists
+            if (acceleration) {
+                // Calculate the magnitude of the acceleration vector
+                const accelMagnitude = Math.sqrt(
+                    acceleration.x * acceleration.x +
+                    acceleration.y * acceleration.y +
+                    acceleration.z * acceleration.z
+                );
+
+                // Reset speed if a drop (low acceleration) is detected
+                if (accelMagnitude < DROP_THRESHOLD) {
+                    velocity = { x: 0, y: 0, z: 0 };
+                }
+
+                // Get the time interval between updates
+                const timeInterval = event.interval / 1000; // Convert to seconds
+
+                // Only perform integration if a valid interval is available
+                if (timeInterval > 0) {
+                    // Simple integration to calculate speed (highly inaccurate)
+                    velocity.x += acceleration.x * timeInterval;
+                    velocity.y += acceleration.y * timeInterval;
+                    velocity.z += acceleration.z * timeInterval;
+
+                    // Calculate radial speed (magnitude of velocity vector)
+                    const radialSpeed = Math.sqrt(
+                        velocity.x * velocity.x +
+                        velocity.y * velocity.y +
+                        velocity.z * velocity.z
+                    );
+
+                    // Display speed data in the input fields
+                    document.getElementById('speed-x').value = velocity.x.toFixed(2);
+                    document.getElementById('speed-y').value = velocity.y.toFixed(2);
+                    document.getElementById('speed-z').value = velocity.z.toFixed(2);
+                    document.getElementById('radial-speed').value = radialSpeed.toFixed(2);
+                }
+            }
+        }
+    </script>
+</body>
+</html>
