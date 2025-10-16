@@ -2,6 +2,7 @@ tmp/**
 __pycache__/**
 .idea/**
 tmp*
+no-check-in*
 
 .idea
 .geany
