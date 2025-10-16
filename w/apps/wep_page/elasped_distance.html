@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GPS Tracker</title>
+    <style>
+        body { margin: 0; font-family: Arial; }
+        #canvas { display: block; background: #f0f0f0; }
+        #disp { position: absolute; top: 10px; left: 10px; background: white; padding: 10px; }
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <div id="disp">
+        <button id="startBtn">Start</button>
+        <button id="stopBtn">Stop</button>
+        <p>Distance: <span id="dist">0.0</span> miles</p>
+        <p>Time: <span id="time">0.0</span> min</p>
+    </div>
+
+    <script>
+        let cnv = document.getElementById('canvas');
+        let ctx = cnv.getContext('2d');
+        let start = document.getElementById('startBtn');
+        let stop = document.getElementById('stopBtn');
+        let distEl = document.getElementById('dist');
+        let timeEl = document.getElementById('time');
+
+        let wid = window.innerWidth, hgt = window.innerHeight;
+        cnv.width = wid; cnv.height = hgt;
+
+        let points = [], totDist = 0, startTime = 0, timer, watch, lastResize = 0;
+
+        function rad(deg) { return deg * Math.PI / 180; }
+
+        function calcDist(pt1, pt2) {
+            let R = 3958.8;
+            let dLat = rad(pt2.lat - pt1.lat);
+            let dLon = rad(pt2.lon - pt1.lon);
+            let a = Math.sin(dLat/2) * Math.sin(dLat/2) +
+                    Math.cos(rad(pt1.lat)) * Math.cos(rad(pt2.lat)) *
+                    Math.sin(dLon/2) * Math.sin(dLon/2);
+            return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        }
+
+        function drawMap() {
+            ctx.clearRect(0, 0, wid, hgt);
+            if (points.length < 2) return;
+
+            let minX = Math.min(...points.map(p => p.x));
+            let maxX = Math.max(...points.map(p => p.x));
+            let minY = Math.min(...points.map(p => p.y));
+            let maxY = Math.max(...points.map(p => p.y));
+
+            let padX = (maxX - minX) * 0.05;
+            let padY = (maxY - minY) * 0.05;
+
+            let scaleX = wid / (maxX - minX + 2 * padX);
+            let scaleY = hgt / (maxY - minY + 2 * padY);
+            let scale = Math.min(scaleX, scaleY);
+
+            ctx.beginPath();
+            for (let i = 0; i < points.length; i++) {
+                let x = (points[i].x - minX + padX) * scale;
+                let y = hgt - (points[i].y - minY + padY) * scale;
+                if (i === 0) ctx.moveTo(x, y);
+                else ctx.lineTo(x, y);
+            }
+            ctx.stroke();
+        }
+
+        function update() {
+            if (points.length > 1) {
+                let incDist = calcDist(points[points.length-2], points[points.length-1]);
+                totDist += incDist;
+                distEl.textContent = totDist.toFixed(1);
+            }
+            let elapsed = (Date.now() - startTime) / 60000;
+            timeEl.textContent = elapsed.toFixed(1);
+
+            if (Date.now() - lastResize > 60000) {
+                lastResize = Date.now();
+                drawMap();
+            }
+        }
+
+        start.onclick = function() {
+            if (watch) return;
+            startTime = Date.now();
+            lastResize = startTime;
+            totDist = 0;
+            points = [];
+            distEl.textContent = '0.0';
+            timeEl.textContent = '0.0';
+
+            watch = navigator.geolocation.watchPosition(
+                function(pos) {
+                    let lat = pos.coords.latitude;
+                    let lon = pos.coords.longitude;
+                    points.push({lat, lon, x: lon, y: lat});
+                    update();
+                },
+                function(err) { console.error(err); },
+                { enableHighAccuracy: true, maximumAge: 3000, timeout: 5000 }
+            );
+
+            timer = setInterval(update, 5000);
+        };
+
+        stop.onclick = function() {
+            if (watch) {
+                navigator.geolocation.clearWatch(watch);
+                watch = null;
+            }
+            clearInterval(timer);
+        };
+    </script>
+</body>
+</html>
