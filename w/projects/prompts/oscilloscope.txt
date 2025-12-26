@@ -1,0 +1,42 @@
+Can you create an oscilloscope python application as follows
+
+Create a plotting area 400 pixel high and 500 pixel wide.
+Add 3 text fields:
+  1. near the y axis minimum,
+  2. near the y axis maximum,
+  2. near the x axis maximum
+and call them y_min, y_max, x_max respectively.
+Set their default values 0, 3.3 , 50 respectively.
+Add a button labeled and named "update" just below the x-axis.
+Set the x axis minimum/maximum to x_min/x_max (0, 3.3 V).
+Set the y axis minimum/maximum to 0/y_max (0,50 sec).
+
+set i=0, dt=0.0, and plot points color variable to blue.
+Create t[500], v0[500], and v1[500] arrays
+for wraparound storage and plotting.
+Start loop:
+  Remove from plot points t[i], v0[i] and t[i], v1[i]
+  Read three decimals into t_i, v0[i], v1[i] from serial port /dev/ttyUSB0
+  let t[i]=t_i-dt
+  Plot points t[i], v0[i] and t[i],v1[i].
+  increment i
+  If i==500
+    set i=0 and dt=t[499]
+    if plot points color is blue change it to red,
+    else change it to blue.
+
+If the Update update is clicked do the following:
+   Create new plot.
+   Set the x axis minimum, maximum to y_min and y_max.
+   Set the y axis minimum, maximum to 0, x_max.
+   plot points color variable to blue.
+   Plot all v0, v1 points, and set i zero
+   set dt to the maximum of the t array.
+   Go to "Start loop"
+
+Make the python application very concise,
+Use an API that is fastest to draw consecutive plot points,
+may use Tkinter if it is the fastest.
+Tell me token cost
+of the input and output and respective dollar amount.
+Please make your reply concise.
