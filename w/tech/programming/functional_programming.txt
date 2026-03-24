@@ -1,0 +1,86 @@
+https://brandonspark.github.io/150/
+
+state is bad
+   fun double (n : int ) : int = n + n
+   val favoriteCourseNumber : int = 150
+   statement: 1. reduces  2. loops forever  3. raises exception
+   invalid type statement never runs
+1. Types
+   base types:
+     int
+     real
+     bool    true, false
+     string  "", "A"
+     char    #"a"
+
+   tuples
+      (1,2): int*int     this is tuple or product type
+      (1,"a"): int*string
+      if e1 : t1, e2 : t2, ..., en
+         (e1 ,  ... , en ) : t1 * ... * tn
+      (1,2,3)  != (1,(2,3))    t1! = t2
+
+2. functions
+   type constructors:
+     int*int              * is constructor of tuple types
+     bouble int -> int    -> is constructor of function types
+   lamda expression (anonymous functions); is a value does not reduce to anything
+     fn(n:int) -> n+n      need to bind it:
+     (fn(n:int) -> n+n) 2
+   functions are values
+     fun double(n:int):int = n+n               ********************
+         or
+     val double = fn(n:int):int -> n+n         ********************
+     can bind functions to variable
+gaudy
+   fact(0)=1
+   fact(n) = n*fact(n-1)  cannot used lamda it cannot call itself
+   Application
+     e1 e2    e1 is applied to e2
+       1. eval e1 to val
+       2. eval e2 to val
+       3. step into e1's val
+     example
+       (fn(xLint*int)->150) (1+1, 3*4)
+       =-> (fn(xLint*int)->150) (2, 3*4)   def of +
+       =-> (fn(xLint*int)->150) (2, 12)    def of *
+       =-> 150                             function application
+
+3. Binding & scope
+   val x:int=2
+     binds 2 to variable x     x is always 2  - not an assignment
+   Environment in program =-> collection of active bindings
+     expression    ---> environment
+                (---> == results in)
+     val x:int=2   ---> [2/x]
+     val y:int=x+x ---> [2/x, 4/y]
+     val:x:int=4   ---> [4/x, 4/y]  4/x shadows 2/x
+                 shadowing == new bindings replace old ones
+     fun foo(n:int)int = n+x [4/x, <fn(n:int)int -> n+x, [4/x]>/foo]
+     val x:int=2   ---> [2/x, <fn(n:int)int -> n+x, [4/x]>/foo]
+     code is modular; function once defined never changes
+
+    val x : int = 2
+    fun foo (y : int) : int = x + y
+    function binding:
+       1) lamda expr.
+       2) environment:  [2/x] and fn(n:int)int -> n+x
+       1&2 is closure
+     function is like elephant, it remembers everything
+
+4. Pattern matching
+   unpack tuples
+     instead of  val x:int*int=(1,2)
+     use         val (x,y):int*int=(1,2)      enviroment [1x.2y]
+     x+2  gives 3
+     pattern way to describe the form of a value  - value may match to a pattern
+   val _:int=2   matches but produces no binding
+     _ is wildcard no binding, for writing clean code
+     (x,_):int*int =(1,2)    do not care for value 2
+     (_,x,2)
+     2:int=2;   matches but no binding
+     val <pattern> : <type> = <expression>
+
+     fun isEven(h:int):bool=
+     if n mod 2 =o then true
+     else false

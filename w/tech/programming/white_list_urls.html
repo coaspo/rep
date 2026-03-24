@@ -1,0 +1,67 @@
+<pre>How To WhiteList URL in Linux?
+Namra Ramani in IT Administration
+March 28, 2022 3 mins read
+
+Why do we need a whitelist url?
+  The Velocity server allows administrators to regulate the accessibility of web
+  addresses for devices that use the browser by utilizing a white list. By creating
+  a white list, you’re constructing a set of addresses. Users may utilize this
+  addresses to carry out their everyday tasks.
+
+  Whitelisting is useful for systems that aren’t open to the public. Imagine, you
+  have an application that only a few of your company’s employees require access
+  to, you might whitelist their computers’ IP addresses while blocking all other
+  IP addresses from accessing the app.
+
+  Whitelisting is also beneficial when you wish to limit the activities that an
+  application or service may do and prevent it from doing anything else. You may
+  do this by adding specific types of behaviour on a whitelist. You may, for example,
+  have a computer that you solely use for one specific activity. For example, in a
+  hotel lobby, you may have a computer where guests can log in. You may add the
+  hotel’s website to a whitelist, making it the only one that guests can view on
+  the device. Another example is a policy that enables a microservice to use a given
+  amount of resources or operate on a certain server while shutting it down if it
+  tries to consume more resources or run on a different host.
+
+  Because the number of conceivable behaviours that you don’t want your programme
+  to execute is too large, blacklisting would not be practicable. You can’t foresee
+  everything the programme will do, but if you only want it to perform a few things,
+  you can describe what you want it to accomplish.
+
+How to Whitelist urls?
+  Install dnsmasq and For installing that run command
+    sudo apt-get install dnsmasq.
+
+  Need to stop systemd-resolved service using the following command.
+    sudo systemctl stop systemd-resolved
+
+    sudo systemctl disable systemd-resolved
+
+    sudo systemctl mask systemd-resolved
+
+  Add the following line in /etc/dnsmasq.conf for whitelisting urls.
+    address=/#/127.0.0.1
+
+    server=/customurl.com/8.8.8.8
+
+  Reload the daemon using following command
+    sudo systemctl daemon-reload
+
+  Restart the dnsmasq service
+    sudo service dnsmasq restart
+
+  Now you can check in the browser that the url is whitelisted.
+
+How to remove Whitelist urls?
+  Stop dnsmasq service
+    sudo service dnsmasq stop
+
+  #stop systemd-resolved service
+    sudo systemctl unmask systemd-resolved
+
+    sudo systemctl enable systemd-resolved
+
+    sudo systemctl start systemd-resolved
+
+  #Reload the daemon using following command
+    sudo systemctl daemon-reload

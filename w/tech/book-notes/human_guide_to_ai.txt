@@ -1,0 +1,239 @@
+Welcome to AI - a human guide to AI  David L Shrier 2023
+  Shrier: Oxford business school professor; author's job title: "AI and inovations"
+  After Pandora let loose all ills what was left was hope.
+
+1. Rise of bot and hallucinations
+   ChatGPT: most successful consumer tech in history - 1 million users in 5 days
+      will get job evolution not job displacement;
+         60% of jobs now did not exist in 1940; hottest is prompt engineer
+   When boots attack
+     + angry voters --> tipping point to get Trump & Brexit
+     2016 election: 40 million fake news tweets
+     150K fake (Russian) social Brexit infuemedia accounts
+   AI head medling
+     ELIZA expert system 1965 won Turing test - impersonates human
+     Now talk of "stop the bot", "spot scams & boots"...
+     2004 - facebookt & polarization (thinking similar) starts
+       to appease Trump Facebook had conservative bias
+     AI can read/write/create faster than humans
+   Fear index (book)
+     spiral human fear; similar to Westworld, Frankenstein, Matrix
+     AI informs eviated view of reality
+   Hallucinations
+     AI makes a false claims; nor realiable
+     AI based on human brain will hallucinate like the brain
+     the longer the response the more chance for hallucination
+  underspicification: training data cannot be representative of current data
+
+
+2. Defining AI
+  Expert systems
+    rule base; if A then B
+    ELIZA worked so well because of the specific Rogerian therapy
+    limited viabilty:
+      depend on: narrowness of questions, architecture design, experts,
+                 IT professional
+    Removal of AI professional: enabled off-site & offshore;
+      twinned with globalization
+    limited in scope of human mind
+    useless for large data
+  Machine learning
+    started when large internet data was available
+    large images fed to image recognition imroves accuracy
+    edge (rare, or black swan events) gives inaccuracy
+       similar for text recognition, translation, self driving cars
+  Structured vs Unstructured data
+    date/time/GPS verus text/audio/video
+    reviews - expert system to rate them or machine learning to notice associations
+  Supervised vs Unsupervised learning
+    humam vs cluster analysis
+      cluster analysis:
+        identify patterns exceeding human cognition
+          examples: find new drug, prevent car accident in unknown conditions
+    job safety of editors, copyeditors, truckdrivers
+  Neural networks & Deep learning
+    replace neurons with transistors=artifical brain
+    deep layers of neural networks
+    more data-->better performance
+      language tranlation, autonomous driving, fraud detection
+      parallet text of 2 languages --> one model to translate 200 lanuages
+  Generative AI
+    text/audio/video input --> new content via probabilist inteconnections
+    DETAILS: Wolfram's "what is chatGPT doing and why does it work?"
+  AGI - general intelligence
+    openAI claims that has AGI - release a tiny fraction of it.
+    --> more lieasure or permanent underclass permanently useless
+    embed justices into AGI, not so if AGI created by another AGI
+  Conversational AI
+    primitive version: Siri, improved version pi.ai from Infection AI
+  Environmental cost of AI
+    OpenAI solve Rubik's cube thru robotic arm consumed 2.8GWh or electricity
+      $0.21/kWh --> ~3x.2x10^6 = $600K.
+    Nuclear power plant ~1GW
+    1 Wind turbine ~3MW , 2023 world production ~ 1 TW
+    2023 data centers used 7.4 GW; 55% annual increase
+  Human+AI hybrid systems
+   reCAPTCHA
+   (Completely Automated Public Turing test to tell Computers and Humans Apart)
+   reverse Turing test; machine to recognize human
+   cost of reCAPTCHA $0.001/use, worth to Google $0.03, $21B free labor to google
+   mTurk - human labor marketplace (20% kept by Amazon)
+     workers get $1 to $6/h
+     used in research
+     crowdsourcing of "human intelligence tasks"
+     $2/hour average, max $6/hour + need of break..
+ Breeding Centaurs
+   half human half machine
+   chess, prediction markets
+   new ways of human interactions
+   or upheaval similar to 1800's early 1900's
+
+
+3. AI Jobs displacement
+  travel-agent/realtor/taxi: Expedia/redfin/uber
+  Manufacturing meltdown
+    lower income 2.2/jobs/robot jobloss; higher income ~1
+    globalization
+      low-skill jobs and emissions outsourced to developing nations
+    AI automation
+      low-skill jobs & services outsourced to machines (2/3 jobs in Dev. countries)
+      China spends 2x as US in AI
+      Germany, UK, Canada publish more AI papers than Chine
+      Trusted AI Alliance
+        conform to ethical code(s), country specific
+  Bridging the productivity gap: working up the pyramid
+    the gap
+      1948-2019 US GDP +3%. 2005-2019 +1.4%
+    AI may fix it?
+      most...least: legal, finance, education ...construction,moving,cleaning
+  Predicting next target
+    Using patent filing:
+      parking attends, locomotive engineers, water plant operators,
+      chemical engineers
+      least risk: teachers, podiatrists
+  Lawyers
+    A mountain of Debt and child's sand shovel
+    law firms:
+      discovery: review documents
+        automation:
+          OCR. semantic analysis, deep learning...
+        billable hours will disappear
+    2019: average lawyer 142K debt & less job opportunities
+    Signapore adapts legal education to AI
+    Computation Law project
+      focus on extended intelligence (human-AI)
+      litigation-->AI/AI resolution
+  Media
+    TV, film early adopters; backlash from workers
+    Print media no so --> out of business
+      advertising hit
+      journalist --> algorithm
+        average user: 13.2 meters/day  3 miles/year
+        algorithms leverage
+          provocative false info better than old accurate info
+          reality cannot compete with imagination
+    Machines determine opinions & thoughts
+  Jobs
+    47% US jobs replace by AI by 2030
+    lowest risk: creative social intelligence jobs
+  Uberization of workforce
+    Retail jobs could similar to taxi industry
+      outsourced, rating based --> more profits, for workers:
+         no job security, no collective bargaining
+  Elevator asset business (accounting, banking)
+  Digital computers --> computers
+    AI --> I (includes human)
+
+
+4. Cognitive flexibility
+     get new knowledge; effective in dynamic business
+     learn faster in context to work
+     tutorial system
+       130 years old
+       Oxford+Cambridge; finish assignment then meet with partners & professor
+       independent and critical thought, analytical and problem-solving,
+          written and oral communication and argument skills
+       not cost effective
+   education problem
+     reward conformity, punish outsiders
+     squash innate cognitive flexibility
+     what/how/how-fst...
+     fixed event
+   Remake your brain
+     1. practice
+        innovation: new/useful/in-practice
+        frameworks (scaffolding):
+          mental model for long term knowledge
+          & examples & out of class activities (real learning)
+     2. reflection
+        anti-cramming, anti-block-classes
+        education industry's conflict of interest
+        new info --> short term memory
+          important info --> long info (consolidation; physical changes)
+          (hippocampus --> neocortex)
+        sleep - replenish neurotransmitters
+                lower cortisol
+                memory housekeeping
+          keep learn journal before & after sleep
+    3. sustained & gradual change
+       change learning habits
+         little at a time
+         patient & disciplined
+         30 minutes instead of 2 hours..
+       new discipline
+         intro & repeated focus
+         positive feedback - celebrate
+    4. peer learning
+       medical education: watch/do/teach; one on one, or max one to four
+       not sage on stage
+       MIT experiment
+         best teams had high emotional IQ, not IQ
+           diversity
+    5. creative exploration
+       (serious play; mind of child)
+       AI future: faster, accurate, scalable analytic/quantitative solutions
+       marshmallow challenge:
+         highest structure with spaghetti & marshmallows
+         5 year olds best - just in - try things
+         MBAs the worst - search for best answer
+       creative collaboration, not solo geniuses
+       weak tie theory:
+         casual acquaintances more beneficial than strong ties
+           networks outside own circle
+           valuable insights
+           diverse information
+       exercise:
+         draw, write, mindfulness
+       AI max q;
+         aeronautics: maximum dynamic pressure q = 1/2 ρv^2
+              energy density of the air with respect to the vehicle
+     6. Future proofing
+        what not to study
+          computer languages, block-chain, accounting, actuarial, pre-law
+          window cleaning, welding...
+        Credo quia absurdum est
+          "I believe because it is absurd"
+          Tertullian's dictum or paradox
+          impossible proposition motivates belief in it, especially in theology
+          ex.: new life out of death; glory via the cross;
+              become ourselves when deny ourselves; joy in suffering
+              paradox: God is one, and yet God is three.
+                 solution: give it a name: three is holy trinity
+          philosophy: asses facts with keener eye
+                      enable AI
+        creativity spark
+          AI art lack empathy
+          AI design may lack aesthetics
+          jobs in AI-human interface
+        human touch
+          patients trusting doctors --> better health outcomes
+        art of mind
+          AI cannot replace therapists
+        prepare for unknown
+          feed data to brain
+          facebook effect: avoid uncomfortable info
+          education reversal: semi vocational training,
+                              liberal arts instead engineering
+        emotional intelligence
+
+

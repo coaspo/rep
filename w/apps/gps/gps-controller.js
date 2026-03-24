@@ -9,7 +9,7 @@ function getLocation() {
     document.getElementById("info").innerHTML = "Geolocation is not supported by this browser.";
   }
 }
-
+swef fib(n):
 
 function showPosition(position) {
   try {

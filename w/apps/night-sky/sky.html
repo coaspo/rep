@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1 charset=utf-8">
+   <link rel="icon" href="../a.png">
+  <style>
+    .parent {
+      position: absolute;
+      top: 0px;
+      left: 295px;
+    }
+
+    .cntrl {
+      position: absolute;
+      top: 0px;
+      left: 10px;
+    }
+
+    .parent2 {
+      position: absolute;
+      top: 530px;
+      left: 5px;
+    }
+
+    .image1 {
+      position: relative;
+      top: 10px;
+      left: 10px;
+      border-radius: 50%;
+    }
+
+    button {
+      font-size: 18px;
+      width: 40px;
+      text-align: center;
+      margin: -5px;
+    }
+
+    .backCanvas {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      background-color: rgba(0, 0, 0, 0);
+    }
+
+    .backCanvas2 {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      background-color: rgba(100, 0, 0, 0);
+    }
+
+    div {
+      display: inline;
+    }
+  </style>
+  <title>Night sky</title>
+  <link rel='icon' type='image/png' rel='noopener' target='_blank' href='../../ε.png'></head>
+</head>
+
+<body>
+  <div class="parent">
+    <img class="image1" src="./sky-stars.jpg" id="stars" onclick="nextHour(1);" alt="sky-stars.jpg" />
+    <canvas class="backCanvas" id="backgrd" width="525" height="525"></canvas>
+  </div>
+
+  <div class="cntrl">
+    <br>
+    <pre style="font-size: 18px;"> <span style="color:blue;  width: 1550px; font-size: 16px;" id="date"></span>
+
+  <span id="sunrisea"  style="font-size: 18px;">aaa</span>   <span id="sunseta"  style="font-size: 18px;">bbb</span>                                                            <div id="sunrise">1111111</div>
+
+
+  Month  <button onmousedown="startWorker('month',1);" onmouseup="stopWorker();">+</button>   <button onmousedown="startWorker('month',-1);" onmouseup="stopWorker();">-</button>                                                             <div id="sunset"></div>
+
+  Day    <button onmousedown="startWorker('day',1);" onmouseup="stopWorker();">+</button>   <button onmousedown="startWorker('day',-1);" onmouseup="stopWorker();">-</button>                                                             <div id="line4">4</div>
+
+  Hour   <button onmousedown="startWorker('hour',1);" onmouseup="stopWorker();">+</button>   <button onmousedown="startWorker('hour',-1);" onmouseup="stopWorker();">-</button>                                                             <div id="line5">5</div>
+
+  Minute <button onmousedown="startWorker('minute',1);" onmouseup="stopWorker();">+</button>   <button onmousedown="startWorker('minute',-1);" onmouseup="stopWorker();">-</button>                                                             <div id="line6">6</div>
+
+                                                                               <div id="line7">7</div>
+  <a href="https://skyandtelescope.org/interactive-sky-chart/">sky and telescope</a>                                                            <div id="line8">8</div>
+
+  <a href="https://www.darkskymap.com/">dark sky</a>
+  <a href="https://stellarium-web.org/">Star map</a>
+<span style="font-size: 128px">🚧</span>
+</pre>
+    <div class="parent2">
+      <img class="image2" src="./sky-stars-equator.jpg" id="stars2" alt="sky-stars-equator.jpg" />
+      <canvas class="backCanvas2" id="backgrd2" width="1104" height="375"></canvas>
+      <canvas id="starWindow" width="1104" height="375"></canvas>
+    </div>
+
+
+
+    <script src="sky.js"></script>
+    <script src="tides-moon.js"></script>
+    <script src="main.js"></script>
+
+</body>
+
+</html>

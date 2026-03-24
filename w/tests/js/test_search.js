@@ -11,14 +11,14 @@ function testSearchMain(baseUrl, searchFileUrls, searchLabels) {
 }
 
 function searchContentsMainTest1(baseUrl, filePathsFilePath, labelsFilePath, searchFileUrls, searchLabels) {
-   document.getElementById('inputText').value = '  '
+   document.getElementById('inputTextMain').value = '  '
    searchContentsMain(baseUrl, filePathsFilePath, labelsFilePath, searchFileUrls, searchLabels)
    let actual = document.getElementById("search-results").innerHTML
    validate('1.1 search.js:searchContentsMain1()  innerHTML ', '', actual);
 }
 
 function searchContentsMainTest2(baseUrl, filePathsFilePath, labelsFilePath, searchFileUrls, searchLabels) {
-   document.getElementById('inputText').value = 'xyz'
+   document.getElementById('inputTextMain').value = 'xyz'
    searchContentsMain(baseUrl, filePathsFilePath, labelsFilePath, searchFileUrls, searchLabels)
    let expected = 'Did not find: "xyz"'
    let actual = document.getElementById("search-results").innerHTML
@@ -26,7 +26,7 @@ function searchContentsMainTest2(baseUrl, filePathsFilePath, labelsFilePath, sea
 }
 
 function searchContentsMainTest(baseUrl, filePathsFilePath, labelsFilePath, searchFileUrls, searchLabels) {
-   document.getElementById('inputText').value = 'egg'
+   document.getElementById('inputTextMain').value = 'egg'
    searchContentsMain(baseUrl, filePathsFilePath, labelsFilePath, searchFileUrls, searchLabels);
    let expected = '<a href="' + baseUrl + `/tests/search-files/food/egg_.txt">tests/search-files/food/<id style="color:red">egg</id>_.txt</a>
 <a href="` + baseUrl + `/tests/search-files/food/eggs_.txt">tests/search-files/food/<id style="color:red">egg</id>s_.txt</a>`

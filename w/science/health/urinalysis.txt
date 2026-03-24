@@ -1,0 +1,29 @@
+Urinalysis:
+  visual, chemical and microscopic aspects of your urine, chemical and microscopic aspects of your urine
+
+Visual:
+  normal: pale yellow to deep amber
+  red: beets, blood
+  cloudy: sperm/skin cells (normal)
+          dehydration
+          urinary tract infection (UTI)
+          sexually transmitted infection
+          kidney stones
+          diabetes
+
+Chemical:
+   via dipsticks - change color
+   1. protein
+        random: 0 to 14 mg/dL
+        24 hr: less than 80 mg/dL
+          mountsinai: 3.5 to 5.0 g/dL
+        albumin - kidney disease, heart failure, dehydration
+        Urine protein electrophoresis
+           albumin, globulins:
+              alpha-1 globulin
+                3.5 to 5.0 g/dL or 35 to 50 g/L
+              alpha-2 globulin
+              beta globulin
+              gamma globulin
+   2. pH
+

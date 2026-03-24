@@ -1,9 +1,10 @@
 w (web site)
 ============
-The 'w' is a static web site project.
-It is like a dynamic searchable book.
+The 'w', https://coaspo.github.io/rep/w/index.html,
+is a static web site project.
+It is like a dynamic searchable e-book.
 
-See `<./contents.html>`__ for more details
+Files listed in:  https://coaspo.github.io/rep/w/contents.html.
 
 .. contents:: Contents:
 

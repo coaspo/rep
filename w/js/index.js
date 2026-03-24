@@ -1,9 +1,23 @@
 "use strict";
+window.DEBUG=true
+// Curron postion; for weather.js and position link
+var latitude = 'textField1=42.3587' // Boston lat/lon
+var longitude = 'textField2=-71.0567'
+//textField1=42.4947&textField2=-70.8499
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(localPosition);
+}
+
+function localPosition(position) {
+  latitude = 'textField1=' + position.coords.latitude
+  longitude = 'textField2=' + position.coords.longitude
+}
+
 // Default search button
-document.getElementById('inputText').addEventListener('keypress', function (e) {
+document.getElementById('inputTextMain').addEventListener('keypress', function (e) {
   const key = e.which || e.keyCode;
   if (key === 13) { // 13 is enter
-    browse('https://duckduckgo.com/?q=zzzz  site:org');
+    browse('https://search.brave.com/search?q=zzzz');
   }
 });
 
@@ -51,8 +65,8 @@ function opencontName(evt, tabName) {
     // Display a random set of recipes;  see cook.js
     document.getElementById("recipes").innerHTML = getRecipes(3)
   }
-  var inputText = document.getElementById('inputText');
-  var inputText2 = document.getElementById('inputText2');
+  var inputText = document.getElementById('inputTextMain');
+  var inputText2 = document.getElementById('inputTextProj');
   if (tabName == 'Projects' && inputText2.value == '') {
     // use Main input in Projects tab
     inputText2.value = inputText.value
@@ -66,42 +80,39 @@ if (document.URL.startsWith('file')) {
   //document.body.style.background = "lightyellow" // indicates server not running
 }
 
-// Curron postion; for weather.js and position link
-var latitude = 'lat=42.3587' // Boston
-var longitude = 'lon=-71.0567'
-if (navigator.geolocation) {
-  navigator.geolocation.getCurrentPosition(localPosition);
-}
-
-function localPosition(position) {
-  latitude = 'lat=' + position.coords.latitude
-  longitude = 'lon=' + position.coords.longitude
-}
 
 // Main search button
 function browse(url, name = "_self") {
   if (window.DEBUG) console.log('browse, url=' + url)
-  var text = document.getElementById('inputText').value;
-  browseUrl(url, name, text)
+  var inputText = document.getElementById('inputTextMain').value;
+  browseUrl(url, name, inputText)
 }
 
 // Projects search button
 function browse2(url, name = "_self") {
   if (window.DEBUG) console.log('browse2, url==' + url)
-  var text = document.getElementById('inputText2').value;
-  browseUrl(url, name, text)
+  var inputText = document.getElementById('inputTextProj').value;
+  browseUrl(url, name, inputText)
 }
 
 function browseUrl(url, name = "_self", txt) {
-  var text = txt.replace(/  /g, " ")
+  var inputText = txt.replace(/  /g, " ")
   if (url.includes('homedepot')) {
-    text = text.replace(/ /g, "%2520")
+    inputText = inputText.replace(/ /g, "%2520")
   } else if (url.includes('weather')) {
-    text = latitude + '&' + longitude
+    inputText = latitude + '&' + longitude
   } else if (url.includes('/maps/')) {
-    text = latitude + ',' + longitude
+    inputText = '/'+latitude + ',' + longitude
+  } else if (url.includes('translate.google') && inputText.charCodeAt(0) > 122) {
+      url = url.replace('sl=en&tl=el', 'sl=el&tl=en')  // greek to english
   }
-  url = url.replace('zzzz', text)
+  //https://www.google.com/maps/search/pizza/@42.4804315,-71.086777
+  //https://www.google.com/maps/search/zzzz/
+  //https://translate.google.com/#view=home&op=translate&sl=en&tl=el&inputText=zzzz
+  url = url.replace('zzzz', inputText)
+  if (inputText.trim().length == 0) {
+    url = url.replace('site:org OR  site:edu', '')
+  }
   console.info('*browse() url= ' + url)
   const win = window.open(url, name);
   win.focus();

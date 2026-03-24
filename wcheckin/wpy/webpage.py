@@ -9,7 +9,7 @@ class WebPage:
     def __init__(self, file_path: str):
         self.__file_path = file_path
         self.__link = WebPage._create_link(file_path)
-        self.__topic, self.__sub_dir, self.__file_name = WebPage._find_topic(file_path)
+        self.__topic, self.__sub_dir, self.__sub_sub_dir, self.__file_name = WebPage._find_topic(file_path)
         update_ts = os.path.getmtime(file_path)
 
         self.__modification_date = str(datetime.utcfromtimestamp(update_ts))[:10]
@@ -20,7 +20,7 @@ class WebPage:
             lines = WebPage._read_file(file_path)
             self.__page_count = WebPage._find_page_count(file_path, lines)
             if 'test_' not in file_path:
-                self.__search_indexes = WebPage._find_indexes(lines)
+                self.__search_indexes = WebPage._find_indexes(lines, file_path)
                 self.__date_range = WebPage._find_date_range(lines)
         self.__kb_size = round(os.path.getsize(file_path) / 1000, 1)
         logging.debug(file_path)
@@ -46,11 +46,10 @@ class WebPage:
             i_end = len(file_path)
         file_name = file_path[i_start:i_end].replace('_', ' ')
         file_name = file_name[0].upper() + file_name[1:]
-        if file_path.endswith('test.html') or 'test_' in file_path or 'tmp' in file_path:
-            style = ' class="test" style="font-size:0px;"'
+        if 'tmp' in file_path:
+            link = file_name
         else:
-            style = ''
-        link = '<a href=\'./' + file_path + '\'' + style + '>' + file_name + '</a>'
+            link = "<a href='./" + file_path + "'>" + file_name + "</a>"
         return link
 
     @staticmethod
@@ -65,14 +64,15 @@ class WebPage:
         return s
 
     @staticmethod
-    def _find_indexes(lines):
+    def _find_indexes(lines, file_path):
         indexes = []
         for line in lines:
             # search for anchors:
             i = line.find('<a ')
             if i > -1:
                 if line.find('</a>', i) < 1:
-                    raise Exception('ERR missing </a> in line:\n\t' + line)
+                    raise Exception('ERR missing </a> in line:\n\t' + line
+                                   +'    in file:' + file_path )
                 ii = line.index('</a>', i) + 4
                 link = line[i:ii]
                 if 'name=' not in link:
@@ -138,24 +138,20 @@ class WebPage:
     @staticmethod
     def _find_topic(file_path):
         """
+        >>> WebPage._find_topic('/w/a/b/c/f.html')
+        ('a', 'b', 'c', 'f')
         >>> WebPage._find_topic('/w/a/b/f.html')
-        ('a', 'b', 'f')
+        ('a', 'b', '', 'f')
         >>> WebPage._find_topic('/w/a/f.html')
-        ('a', '', 'f')
+        ('a', '', '', 'f')
         """
-        i_start = file_path.index('/w/') + 3
-        i_end = file_path.index('/', i_start)
-        topic = file_path[i_start:i_end]
-
-        sub_path = file_path[i_end + 1:]
-        sub_dir = ''
-        if sub_path.find("/") > 0:
-            i_end = sub_path.index('/')
-            sub_dir = sub_path[:i_end]
-        i_start = file_path.rfind('/') + 1
-        i_end = len(file_path) if file_path.endswith('.jpg') else file_path.rfind('.')
-        file_name = file_path[i_start:i_end]
-        return topic, sub_dir, file_name
+        layers = file_path.split('/')
+        topic = layers[2]
+        n_layers = len(layers)
+        file_name = layers[n_layers-1]
+        sub_dir = layers[3] if n_layers > 4 else ''
+        sub_sub_dir = layers[4] if n_layers > 5 else ''
+        return topic, sub_dir, sub_sub_dir, file_name
 
     @property
     def file_path(self) -> str:
@@ -196,6 +192,10 @@ class WebPage:
     @property
     def sub_dir(self) -> str:
         return self.__sub_dir
+
+    @property
+    def sub_sub_dir(self) -> str:
+        return self.__sub_sub_dir
 
     def __str__(self) -> str:
         return f'WebPage: file_path = {self.file_path}, link = {self.link}, ' + \

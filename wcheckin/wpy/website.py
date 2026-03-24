@@ -13,10 +13,12 @@ class WebSite:
     @staticmethod
     def _get_search_file_path_structures(target_dirs):
         file_path_structures = []
-        for target_dir in target_dirs:
+        for target_dir in target_dirs: 
             for subdir, dirs, files in os.walk(target_dir):
                 for file in files:
-                    if file.endswith('.html') or file.endswith('.txt'):
+                    if (file.endswith('.html') or file.endswith('.txt')) and \
+                         'webscrape' not in subdir and 'test' not in subdir and \
+                         not 'tmp' not in file:
                         p = subdir + '/' + file
                         file_path_structures.append([p, os.path.getmtime(p)])
         file_path_structures.sort(key=lambda x: x[0])
@@ -49,7 +51,8 @@ class WebSite:
             sub_dirs = []
             file_paths = WebSite._get_search_file_paths(target_dir)
             for file_path in file_paths:
-                if not file_path.endswith('.js'):
+                if not file_path.endswith('.png')  and not  file_path.endswith('test.html') \
+                   and not 'test_' in file_path and not 'tmp' in file_path:
                     # if file_path.endswith('.html') or file_path.endswith('.txt'):
                     page = WebPage(file_path)
                     total_kb_size += page.kb_size

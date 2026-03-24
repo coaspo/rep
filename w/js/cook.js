@@ -1,8 +1,8 @@
 "use strict";
-window.COOK_THEORY_FILE_SFX = ',.txt'
-window.LENGHTY_RECIPE_FILE_SFX = '..txt'
-window.DESSERT_FILE_SFX = ';.txt'
-window.MEAL_FILE_SFX = '_.txt'
+window.COOK_THEORY_FILE_SFX = ',.html'
+window.LENGHTY_RECIPE_FILE_SFX = '..html'
+window.DESSERT_FILE_SFX = ';.html'
+window.MEAL_FILE_SFX = '_.html'
 
 function getRecipes(numOfMeals) {
   const baseUrl = getBaseUrl()

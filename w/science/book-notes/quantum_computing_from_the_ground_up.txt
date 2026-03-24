@@ -1,4 +1,0 @@
-CH 1. Intro
-  Quantum computing: superposition & entanglement --> exponential parallelism
-  lectures at:
-

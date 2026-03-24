@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="../a.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        /* Basic page styles */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f0f0f0;
+            overflow: hidden;
+        }
+
+        /* Circle style */
+        .circle {
+            width: 100px;
+            height: 100px;
+            background-color: lightgreen;
+            border-radius: 50%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            left: 50%;
+            top: 50%;
+            transition: width 2s, height 2s;
+        }
+
+        .expanded {
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .shrunk {
+            width: 100px;
+            height: 100px;
+        }
+
+        /* Text display */
+        #status-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            font-weight: bold;
+            color: #000;
+            text-align: center;
+            z-index: 100;
+        }
+
+        /* Form styling */
+        .form-container {
+            width: 100px;
+            height: 330px;
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            background-color: white;
+            padding: 5px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 10;
+        }
+
+        .form-container h2 {
+            margin-bottom: 10px;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 5px;
+        }
+
+        label {
+            font-size: 14px;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        input[type="number"] {
+            width: 80%;
+            padding: 8px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .form-group button {
+            width: 100%;
+            padding: 5px;
+            font-size: 16px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .form-group button:hover {
+            background-color: #2980b9;
+        }
+
+        .stop-button {
+            background-color: #e74c3c;
+        }
+
+        .stop-button:hover {
+            background-color: #c0392b;
+        }
+
+        .reset-button {
+            background-color: #2ecc71;
+        }
+
+        .reset-button:hover {
+            background-color: #27ae60;
+        }
+    </style>
+    <title>Breathing</title>
+    <link rel='icon' type='image/png' rel='noopener' target='_blank' href='../../ε.png'>
+</head>
+<body>
+
+    <!-- Circle Element -->
+    <div class="circle" id="circle"></div>
+
+    <!-- Status Text -->
+    <div id="status-text">inhale</div>
+
+    <!-- Input Form -->
+    <div class="form-container">
+        <h2>Breathing</h2>
+        <form id="inputForm">
+            <div class="form-group">
+                <label for="inhale_sec">Inhale (sec.)</label>
+                <input type="number" id="inhale_sec" name="inhale_sec" required min="0" value="1">
+            </div>
+            <div class="form-group">
+                <label for="wait_sec">Wait (sec.)</label>
+                <input type="number" id="wait_sec" name="wait_sec" required min="0" value="5">
+            </div>
+            <div class="form-group">
+                <label for="exhale_sec">Exhale (sec.)</label>
+                <input type="number" id="exhale_sec" name="exhale_sec" required min="0" value="8">
+            </div>
+            <div class="form-group">
+                <button type="submit" title="wait after clicking">Start</button>
+            </div>
+            <div class="form-group">
+                <button type="button" class="stop-button" id="stopButton">Stop</button>
+            </div>
+            <div class="form-group">
+                <button type="button" class="reset-button" id="resetButton">Reset</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        // Get the circle, form, stop button, reset button, and status text elements
+        const circle = document.getElementById('circle');
+        const form = document.getElementById('inputForm');
+        const stopButton = document.getElementById('stopButton');
+        const resetButton = document.getElementById('resetButton');
+        const statusText = document.getElementById('status-text');
+
+        let animationInterval;
+        let elapsedSeconds = 0;
+        let currentPhase = 'inhale'; // Current phase: inhale, wait, exhale
+
+        // Function to update the status text and elapsed seconds
+        function updateStatusText(phase, seconds) {
+            statusText.textContent = `${phase}\n${seconds}s`;
+        }
+
+        // Function to start the animation
+        function startAnimation(inhaleSec, waitSec, exhaleSec) {
+            // Reset elapsed seconds
+            elapsedSeconds = 0;
+
+            // Set transition for the expanding step
+            circle.style.transition = `width ${inhaleSec}s, height ${inhaleSec}s`;
+
+            // Add the "expanded" class to the circle for expanding
+            circle.classList.add('expanded');
+            circle.classList.remove('shrunk');
+
+            // Update status text to "inhale"
+            currentPhase = 'inhale';
+            updateStatusText(currentPhase, elapsedSeconds, inhaleSec);
+
+            // Increment elapsed seconds during inhale
+            const inhaleInterval = setInterval(() => {
+                elapsedSeconds++;
+                updateStatusText(currentPhase, elapsedSeconds, inhaleSec);
+            }, 1000);
+
+            // Wait for the specified time (inhaleSec seconds) before transitioning to "wait"
+            setTimeout(() => {
+                clearInterval(inhaleInterval); // Stop the inhale timer
+                currentPhase = 'wait';
+                elapsedSeconds = 0; // Reset elapsed seconds for the wait phase
+                updateStatusText(currentPhase, elapsedSeconds);
+
+                // Increment elapsed seconds during wait
+                const waitInterval = setInterval(() => {
+                    elapsedSeconds++;
+                    updateStatusText(currentPhase, elapsedSeconds);
+                }, 1000);
+
+                // Wait for the specified time (waitSec seconds) before transitioning to "exhale"
+                setTimeout(() => {
+                    clearInterval(waitInterval); // Stop the wait timer
+                    currentPhase = 'exhale';
+                    elapsedSeconds = 0; // Reset elapsed seconds for the exhale phase
+                    updateStatusText(currentPhase, elapsedSeconds);
+
+                    // Set transition for the shrinking step
+                    circle.style.transition = `width ${exhaleSec}s, height ${exhaleSec}s`;
+
+                    // Add the "shrunk" class to the circle for shrinking
+                    circle.classList.add('shrunk');
+                    circle.classList.remove('expanded');
+
+                    // Increment elapsed seconds during exhale
+                    const exhaleInterval = setInterval(() => {
+                        elapsedSeconds++;
+                        updateStatusText(currentPhase, elapsedSeconds);
+                    }, 1000);
+
+                    // Wait for the specified time (exhaleSec seconds) before restarting the cycle
+                    setTimeout(() => {
+                        clearInterval(exhaleInterval); // Stop the exhale timer
+                        startAnimation(inhaleSec, waitSec, exhaleSec); // Restart the cycle
+                    }, exhaleSec * 1000);
+                }, waitSec * 1000);
+            }, inhaleSec * 1000);
+        }
+
+        // Function to loop the animation
+        function loopAnimation(inhaleSec, waitSec, exhaleSec) {
+            // Start the animation
+            startAnimation(inhaleSec, waitSec, exhaleSec);
+        }
+
+        // Form submit event listener
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Get values from the form
+            const inhaleSec = parseFloat(document.getElementById('inhale_sec').value);
+            const waitSec = parseFloat(document.getElementById('wait_sec').value);
+            const exhaleSec = parseFloat(document.getElementById('exhale_sec').value);
+
+            // Start the animation loop
+            loopAnimation(inhaleSec, waitSec, exhaleSec);
+        });
+
+        // Stop button event listener
+        stopButton.addEventListener('click', function() {
+            // Stop the animation loop
+            clearInterval(animationInterval);
+            statusText.textContent = 'Stopped';
+        });
+
+        // Reset button event listener
+        resetButton.addEventListener('click', function() {
+            // Stop the animation loop
+            clearInterval(animationInterval);
+
+            // Remove both classes (expanded and shrunk)
+            circle.classList.remove('expanded', 'shrunk');
+
+            // Reset the circle's size to its original state
+            circle.classList.add('shrunk');
+
+            // Clear the form inputs
+            form.reset();
+
+            // Reset the status text
+            statusText.textContent = 'inhale';
+        });
+    </script>
+</body>
+</html>
