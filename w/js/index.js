@@ -49,6 +49,9 @@ function scanContents() {
 
 // Switch tab
 function opencontName(evt, tabName) {
+  console.log("[[[[[]")
+  console.log(tabName)
+  console.log(evt)
   sessionStorage.setItem("tabName_index", 't'+tabName);
   var tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
@@ -58,6 +61,7 @@ function opencontName(evt, tabName) {
   tablinks = document.getElementsByClassName("tablink");
   for (let i = 0; i < tablinks.length; i++) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");
+    console.log(tablinks[i].className )
   }
   document.getElementById(tabName).style.display = "block";
   evt.currentTarget.className += " active";

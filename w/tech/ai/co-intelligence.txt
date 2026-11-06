@@ -1,0 +1,148 @@
+Co-intelligence, Living and working with AI  Athan Mollick management prof 2024
+
+1. Alien Minds =================================================================
+================================================================================
+
+GPT Novemeber 2022
+You will be my negotiation teacher.  You will simulate a detailed senario in which
+I have to engage in a negotiation.  You will fill the role of one party, I will
+fill the role of the other.  You will ask for my response in each step of the
+scenario and wait until you receive it.  After getting my response, you will give
+me details of what the other party does and says. You will give grade my response
+and give me detailed feedback about what to do better using the scheme of negotiation.
+You will give me a harder scenario if I do well, and an easier if I fail.
+
+One paragraph = months work
+AI = Alien Intelligence,
+     GPT (general purpose tech.)
+        steam, or internet (adoption in 30 years)
+        smart phone to social media (50 years)
+
+steam: 18-22% productivity improvement
+AI: 20-80%  improvement
+computers: questionable
+
+prediction systems: machine learning (algorithms)
+   social media, voice recognition, translations
+   (not intelligent)
+   with AI: statistical analysis, minimize variance, more accurate
+     amazon: 2010s supply chains, warehouse layout, delivery (people)
+       Kiva robots
+
+Google 2017 paper: "Attention is all you need" - transformer architecture
+  focus on the most relevant text (vs formulaic statistical)
+
+Pre training - read vast amount of text, extract weights
+  ========== tera = 10^12, peta=10^15, exa=10^18 (quabtuillion)
+  lasts for months - 200B – 1.8T+ weights for frontier model
+  60 trillion (terra) characters - 3,000 wikipedias  (720 TB are all english books)
+  All Books:
+      English: 210 Tera-characters (~35 million unique titles)
+      Chinese: 120 Tera-characters (~20 million unique titles)
+      German: 60 Tera-characters (~10 million unique titles)
+      French: 54 Tera-characters (~9 million unique titles)
+      Spanish: 48 Tera-characters (~8 million unique titles)
+      Japanese: 42 Tera-characters (~7 million unique titles)
+      Russian: 36 Tera-characters (~6 million unique titles)
+      Turkish: 4.8 Tera-characters (~800,000 unique titles all time)
+      Greek: 1.8 Tera-characters (~300,000 unique titles for all time)
+  Internet:
+      English: 5.0 Peta-characters (~41% of web text, ~25 billion pages/posts)
+      Russian: 800 Tera-characters (~6.7% of web text, ~4 billion pages/posts)
+      German: 700 Tera-characters (~5.8% of web text, ~3.5 billion pages/posts)
+      Japanese: 620 Tera-characters (~5.2% of web text, ~3 billion pages/posts)
+      French: 560 Tera-characters (~4.7% of web text, ~2.8 billion pages/posts)
+      Spanish: 540 Tera-characters (~4.5% of web text, ~2.7 billion pages/posts)
+      Chinese: 420 Tera-characters (~3.5% of web text, ~2.1 billion pages/posts)
+      Italian: 300 Tera-characters (~2.5% of web text, ~1.5 billion pages/posts)
+      Portuguese: 300 Tera-characters (~2.5% of web text, ~1.5 billion pages/posts)
+      Polish: 240 Tera-characters (~2.0% of web text, ~1.2 billion pages/posts)
+      Turkish: 140 Tera-characters (~1.2% of web text, ~800 million  web pages/posts)
+      Greek: 65 Tera-characters (~0.55% of web text, ~350 million pages/posts)
+  High quality - articles and on-line books exhausted by 2026
+
+To be determined if LLM post training can work - like chess playing.
+  Pretraining includes errors, biases, false=hoods
+
+Fine tunnig - bring humans into the process
+   RLHF - Reinforcement learning from human feedback.
+
+Image forward diffusion (training): pixel to text weights
+  HunyuanImage 80 billion parameters
+  2 billion and 5 billion image-text pairs
+  200 to 500 Terabyte images
+  (all internet images: 15 to 30 exabytes)
+
+
+Attribute            Large Language Models (LLMs)       Diffusion Models (Text-to-Image)
+Primary Connection   Words → Words Words →              Spatial Pixels
+Core Mechanism       Self-Attention                     Cross-Attention
+                    (How does this word relate to the   (How does this patch of pixels
+                      other words in the sentence?)     relate to the words in the prompt?)
+Analogy             Novelist choosing the next perfect  courtroom sketch artist  translating
+                    word based on the plot so far.     verbal description into brushstrokes
+
+multimodel LLMs: take a sketch, describe it, and create a picture.
+
+emerence; model scale, at certain size ability jumps
+   Multi-step logic and reasoning
+   In-context learning
+   Coding and translation
+   Multi-Agent Systems
+
+Scaling --> highly dangerous, unforeseeable capabilities
+
+2. Align the alien =============================================================
+================================================================================
+AI helps instead of hurts
+AGI same as human, ASI - humans are obsolete
+Existential debate hides the immediate choices
+
+Artificial ethics for alien minds
+  Ai companies did not get permission from creators
+               keep training data secret
+  Japan: AI training can use anything
+  If training is legal it may not be ethical
+     copy artists style -human is obsolete
+  Training decided by AI companies/english speaking
+    generated judge is male white 97%, in reality it is 60%
+
+  Before human training, AI gives instructions to kill people
+    people traumatized when training AI to avoid this.
+  AI can create phising email
+
+2. 4 rules for co-intelligence =================================================
+================================================================================
+1. Use AI for everything
+     understand its value & limits
+     easy to generate ideas, hard to do math
+     trial & error --> innovation
+     figure how to make AI useful
+     be an innovating user
+     bias==stuck in your mind
+       AI can break the bias
+    AI can motivate and persuade
+       help decision making
+       alien but helpful perspective
+       REMOVE BIAS
+       Thought diversity
+    Example: I was thinkg of doing X, but I am very buzy and do not think I want
+             to make such a large commitment.  Can you reframe may failure to do X
+             as a loss rather as default option. Make the frame vivid.
+
+    Concerns: data privacy
+              decison making dependency
+
+2. Be the human in the loop
+     (do not give all human judgement to AIs)
+      AI optimized to make you happy, less to be accurate
+        do not know everything
+        they confabulate - honest lying
+        if you spot halucination, AI is good to justify it.
+        You halucinate that AI is a person
+        Give AI an obsession, it will be obsessive. <<<<<<<<<<<<<<<<<<<<<<
+
+
+
+
+

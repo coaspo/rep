@@ -1,0 +1,231 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Email Organizer</title>
+
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 30px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-top: 16px;
+        }
+
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background: #f2f2f2;
+        }
+
+        .reason {
+            cursor: help;
+            text-decoration: underline dotted;
+        }
+
+        button {
+            margin: 10px 8px 10px 0;
+            padding: 8px 14px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Email Organizer</h1>
+    <label for="instruction">What should I do with your emails?</label>
+
+<label for="emailAddress">Email account:</label>
+<input
+    type="email"
+    id="emailAddress"
+    placeholder="you@gmail.com or you@outlook.com" value= "a@gmail.com">
+<p id="providerResult"></p>
+
+<textarea id="instruction" rows="3" cols="70"
+    placeholder="Example: Move purchase receipts into the Receipts folder.">move receipt to b</textarea>
+<br>
+<button id="findCandiateEmails"><b>Find candidate emails</b></button>
+<span id="instructionResult"></span>
+
+
+    <h2>Candidate emails</h2>
+
+    <button id="selectAll">Select all</button>
+    <button id="deselectAll">Deselect all</button>  <span id="activeAccount">No active email account.</span>
+
+
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th>Sender</th>
+                <th>Send date</th>
+                <th>Subject</th>
+                <th>Reason (hover to read email)</th>
+            </tr>
+        </thead>
+        <tbody id="emailList"></tbody>
+    </table>
+
+    <button id="makeEmailChanges" disabled><b>Make email changes</b></button>
+    <p id="result"></p>
+
+    <script>
+
+document.getElementById("findCandiateEmails").onclick = async () => {
+    const instruction =  document.getElementById("instruction").value.trim();
+    const resultElement =  document.getElementById("instructionResult");
+    if (!instruction) {
+        resultElement.textContent = "Please enter an instruction.";
+        return;
+    }
+
+    resultElement.textContent = "Finding candidate emails...";
+
+    try {
+        const response = await fetch("/api/findCandiateEmails", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({
+                instruction: instruction,
+                emailAddress: document.getElementById("emailAddress").value.trim()
+            })
+        });
+
+        const result = await response.json();
+
+        if (!response.ok) {
+            resultElement.textContent = "";
+            document.getElementById("providerResult").textContent =
+                result.error || "Candidate search failed.";
+            return;
+        }
+
+        console.log("Candidates returned:", result.candidates);/////////////////
+
+        const activeEmail = document.getElementById("emailAddress").value.trim();
+        document.getElementById("activeAccount").textContent =
+           "Active account: " + activeEmail;
+
+        displayCandidates(result.candidates); //========================
+
+        resultElement.textContent =
+            "Found " + result.candidates.length +
+            " candidate email(s).";
+
+    } catch (error) {
+        resultElement.textContent = "Could not contact the server.";
+        console.error(error);
+    }
+};
+
+
+
+document.getElementById("makeEmailChanges").onclick = () => {
+    const selected = document.querySelectorAll(
+        ".candidate-checkbox:checked"
+    );
+
+    const selectedIds = Array.from(selected).map(
+        checkbox => checkbox.value
+    );
+
+
+    const message =
+        selectedIds.length + " email(s):\n" +
+        selectedIds.join(", ");
+
+    if (!window.confirm(message)) {
+        document.getElementById("instructionResult").textContent =
+            "Operation cancelled. No email changes have been made.";
+        return;
+    }
+
+    document.getElementById("instructionResult").textContent =
+        "Confirmed for testing. No email changes have been made.";
+};
+
+
+function displayCandidates(emails) {
+    const tbody = document.getElementById("emailList");
+    tbody.innerHTML = "";
+
+    emails.forEach(email => {
+        const row = document.createElement("tr");
+
+        const checkboxCell = document.createElement("td");
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.className = "candidate-checkbox";
+        checkbox.addEventListener("change", updateMakeChangesButton);
+        checkbox.value = email.id;
+        checkboxCell.appendChild(checkbox);
+
+        const sender = document.createElement("td");
+        sender.textContent = email.sender;
+
+        const date = document.createElement("td");
+        date.textContent = email.date;
+
+        const subject = document.createElement("td");
+        subject.textContent = email.subject;
+
+        const reason = document.createElement("td");
+        reason.textContent = email.reason;
+        reason.title = email.body || "";
+
+        row.append(
+            checkboxCell,
+            sender,
+            date,
+            subject,
+            reason
+        );
+
+        tbody.appendChild(row);
+    });
+    updateMakeChangesButton();
+}
+
+function updateMakeChangesButton() {
+    const selected = document.querySelectorAll(
+        ".candidate-checkbox:checked"
+    );
+
+    document.getElementById("makeEmailChanges").disabled =
+        selected.length === 0;
+}
+
+document.getElementById("selectAll").onclick = () => {
+    document.querySelectorAll(
+        "#emailList .candidate-checkbox"
+    ).forEach(checkbox => {
+        checkbox.checked = true;
+    });
+
+    updateMakeChangesButton();
+};
+
+document.getElementById("deselectAll").onclick = () => {
+    document.querySelectorAll(
+        "#emailList .candidate-checkbox"
+    ).forEach(checkbox => {
+        checkbox.checked = false;
+    });
+
+    updateMakeChangesButton();
+};
+    </script>
+</body>
+</html>
