@@ -1,5 +1,5 @@
 Download files
-    into a new folder, for example: ai-extension
+    into a new folder, for example: ai-prompt-browser-extension
 
 Install this extension to Brave (or Chrome?):
     open:
@@ -30,16 +30,16 @@ To run, click:
 
 
 NOTES:
-  Goal is to control AI on your terms
+  Goal is to control AI on your terms.
 
   When you finish typing an AI prompt, press Alt-Shift-1
-    then press "Insert"
+    then press "Insert".
 
-  Note AI link on the popup lower right.
+  Note "AI-links" link on the popup lower right.
 
-  To test different AIs, press Alt-Shift-2
-    then press "Insert"....
+  To test an AI, press Alt-Shift-2
+    then press "Insert".
 
-  Alt-Shift-2 3 maybe of interest
+  Alt-Shift-2 3 maybe of interest.
 
-  Any popup adits are available after browser restart
+  Popup edits are available after browser restart.
