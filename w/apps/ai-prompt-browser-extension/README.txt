@@ -1,3 +1,6 @@
+Download files
+    into a new folder, for example: ai-extension
+
 Install this extension to Brave (or Chrome?):
     open:
        brave://extensions/
@@ -23,4 +26,20 @@ Install to Firefox:
 
 
 To run, click:
-    Alt - 1
+    Alt-Shift-1
+
+
+NOTES:
+  Goal is to control AI on your terms
+
+  When you finish typing an AI prompt, press Alt-Shift-1
+    then press "Insert"
+
+  Note AI link on the popup lower right.
+
+  To test different AIs, press Alt-Shift-2
+    then press "Insert"....
+
+  Alt-Shift-2 3 maybe of interest
+
+  Any popup adits are available after browser restart
