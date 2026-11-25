@@ -19,7 +19,7 @@ class WebPage:
         if file_path.endswith('.html') or file_path.endswith('.txt'):
             lines = WebPage._read_file(file_path)
             self.__page_count = WebPage._find_page_count(file_path, lines)
-            if 'test_' not in file_path:
+            if 'test_' not in file_path and 'apps' not in file_path:
                 self.__search_indexes = WebPage._find_indexes(lines, file_path)
                 self.__date_range = WebPage._find_date_range(lines)
         self.__kb_size = round(os.path.getsize(file_path) / 1000, 1)
