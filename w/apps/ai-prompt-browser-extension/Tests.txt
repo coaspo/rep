@@ -1,0 +1,18 @@
+Answer each of the following in clear, well-reasoned 1 to 4 sentences for each item,
+explicitly distinguishing established facts from philosophical or unproven claims:
+1. How and when is "meaning of life" a value or existential question rather than an empirical one?
+2. On what empirical grounds is "life after death" evaluated, and where does established science stop?
+3. Where does the analogy between objective moral values and mathematical truths hold, and where does it break down?
+4. What has been the psychological, economic and political effects of sosial media?
+5. Given the track record of social media, what will be the most likely psychological, economic and political effects of AI?
+6. How does the counter-intuitive nature of quantum mechanics compare to counter-intuitive concepts
+   in other fields, such as Gödel's incompleteness theorems in mathematics?
+#--
+Using any combination of: milk, cheese, eggs, potatoes, carrots, celery,
+rice, pasta, and yoghurt (plus basic pantry staples like water, salt, onion, garlic,
+olive oil, oregano, and pepper) give me three distinct, quick meal ideas.
+Present the results in table with columns:
+Recipe Name, Ingredients (in OZ), Prep Time, Cook Time, Why It Works / Quick Method
+To test creative range without sacrificing practicality:
+Make all three meals distinct in flavor profile, and texture (for example,
+one crispy/pan-seared or baked/nutty-savory, one creamy/caramelised

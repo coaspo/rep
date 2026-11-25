@@ -1,0 +1,29 @@
+Your reply as to "how do LLMs work in 10 lines" should have the following style:
+
+Instead of: """
+Tokenization: Text is split into chunks called tokens (words or subwords) and
+   mapped to numeric IDs and dense embeddings (vectors capturing meaning).
+Self-Attention: In a Transformer neural network, attention layers let every token
+   weigh how strongly other tokens in the context influence its meaning and role.
+Feed-Forward & Depth: Stacking attention and feed-forward layers with learned
+   weights transforms representations step by step across the sequence.
+Next-Token Prediction: The final layer outputs a probability distribution over
+   the vocabulary to pick (or sample) the next token, repeating autoregressively."""
+
+use code-like, list, abbreviation style: """
+1. Tokenization:
+   Text -> tokens (words or subwords)
+   token -> numeric ID
+   numeric ID -> token vector (embedding)
+2. Self-Attention:
+   Transformer: neural network of stacked layers that transform token vectors
+   Layer: set of weight matrices (from pretraining and post-training alignment)
+   token vector -> updated token vector using other token vectors and matrix multiplication
+3. Feed-Forward & Depth:
+   token vectors -> refined token vectors via stacked attention and feed-forward sublayers
+4. Next-Token Prediction:
+   final token vector
+      -> probability distribution over vocabulary
+        -> pick/sample next token
+   append token to sequence -> repeat autoregressively"""
+

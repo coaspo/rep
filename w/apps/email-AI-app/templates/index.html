@@ -1,231 +1,188 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Email Organizer</title>
-
     <style>
-        body {
-            font-family: sans-serif;
-            margin: 30px;
-        }
-
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            margin-top: 16px;
-        }
-
-        th, td {
-            border: 1px solid #ccc;
-            padding: 10px;
-            text-align: left;
-        }
-
-        th {
-            background: #f2f2f2;
-        }
-
-        .reason {
-            cursor: help;
-            text-decoration: underline dotted;
-        }
-
-        button {
-            margin: 10px 8px 10px 0;
-            padding: 8px 14px;
-            cursor: pointer;
-        }
+        body { font-family: sans-serif; margin: 30px; background: #f9f9f9; color: #333; }
+        table { border-collapse: collapse; width: 100%; margin-top: 16px; background: white; }
+        th, td { border: 1px solid #ccc; padding: 10px; text-align: left; }
+        th { background: #f2f2f2; }
+        button { margin: 10px 8px 10px 0; padding: 8px 14px; cursor: pointer; font-weight: bold; }
+        textarea { width: 100%; max-width: 600px; padding: 10px; margin-top: 5px; font-size: 14px; }
+        .form-group { margin-bottom: 15px; }
+        #statusMessage { font-weight: bold; margin-left: 10px; color: #555; }
     </style>
 </head>
-
 <body>
-    <h1>Email Organizer</h1>
-    <label for="instruction">What should I do with your emails?</label>
+    <h1>✉️ Email Organizer</h1>
 
-<label for="emailAddress">Email account:</label>
-<input
-    type="email"
-    id="emailAddress"
-    placeholder="you@gmail.com or you@outlook.com" value= "a@gmail.com">
-<p id="providerResult"></p>
+    <div class="form-group">
+        <label for="instruction"><b>Enter request in plain English</b></label><br>
+        <textarea id="instruction" rows="3" placeholder="Example: show my last 5 emails, delete these, move these to Archive..." list="past-entries">>show my last 5 emails</textarea>
+    </div>
 
-<textarea id="instruction" rows="3" cols="70"
-    placeholder="Example: Move purchase receipts into the Receipts folder.">move receipt to b</textarea>
-<br>
-<button id="findCandiateEmails"><b>Find candidate emails</b></button>
-<span id="instructionResult"></span>
-
-
-    <h2>Candidate emails</h2>
+    <div style="display: flex; align-items: center; margin-bottom: 20px;">
+        <button id="submitPrompt">Submit</button>
+        <span id="statusMessage"></span>
+    </div>
 
     <button id="selectAll">Select all</button>
-    <button id="deselectAll">Deselect all</button>  <span id="activeAccount">No active email account.</span>
-
+    <button id="deselectAll">Deselect all</button>
 
     <table>
         <thead>
             <tr>
-                <th></th>
+                <th style="width: 20px;"></th>
+                <th>Date</th>
                 <th>Sender</th>
-                <th>Send date</th>
                 <th>Subject</th>
-                <th>Reason (hover to read email)</th>
+                <th>Preview</th>
             </tr>
         </thead>
-        <tbody id="emailList"></tbody>
+        <tbody id="emailList">
+            <tr><td colspan="4" style="text-align: center; color: #666;">No emails loaded. Enter a request above to start.</td></tr>
+        </tbody>
     </table>
 
-    <button id="makeEmailChanges" disabled><b>Make email changes</b></button>
-    <p id="result"></p>
-
     <script>
+        let pendingConfirmation = false;
+        const instructionInput = document.getElementById("instruction");
+        const statusMessage = document.getElementById("statusMessage");
 
-document.getElementById("findCandiateEmails").onclick = async () => {
-    const instruction =  document.getElementById("instruction").value.trim();
-    const resultElement =  document.getElementById("instructionResult");
-    if (!instruction) {
-        resultElement.textContent = "Please enter an instruction.";
-        return;
-    }
-
-    resultElement.textContent = "Finding candidate emails...";
-
-    try {
-        const response = await fetch("/api/findCandiateEmails", {
-            method: "POST",
-            headers: {"Content-Type": "application/json"},
-            body: JSON.stringify({
-                instruction: instruction,
-                emailAddress: document.getElementById("emailAddress").value.trim()
-            })
+        // Reset confirmation state if the user edits their prompt text
+        instructionInput.addEventListener("input", () => {
+            if (pendingConfirmation) {
+                pendingConfirmation = false;
+                statusMessage.textContent = "";
+                statusMessage.style.color = "#555";
+            }
         });
 
-        const result = await response.json();
+        document.getElementById("submitPrompt").onclick = async () => {
+            const rawInstruction = instructionInput.value.trim();
+            if (!rawInstruction) {
+                statusMessage.style.color = "#d9534f";
+                statusMessage.textContent = "Please enter an instruction.";
+                return;
+            }
 
-        if (!response.ok) {
-            resultElement.textContent = "";
-            document.getElementById("providerResult").textContent =
-                result.error || "Candidate search failed.";
-            return;
+            const checkedBoxes = document.querySelectorAll(".email-checkbox:checked");
+            const selectedIds = Array.from(checkedBoxes).map(cb => cb.value);
+
+            // Detect if the prompt intends to modify, move, or delete messages
+            const lowerInstruction = rawInstruction.toLowerCase();
+            const actionKeywords = ["delete", "move", "mark", "archive", "remove", "trash", "purge", "copy"];
+            const isMutation = actionKeywords.some(word => lowerInstruction.includes(word));
+
+            // Guardrail: Require a second click on Submit for destructive/modifying actions
+            if (isMutation && !pendingConfirmation) {
+                pendingConfirmation = true;
+                statusMessage.style.color = "#d97706"; // Warning amber color
+                statusMessage.textContent = "Warning: This action will modify your mailbox. Click Submit again to continue.";
+                return;
+            }
+
+            // Reset warning state now that user confirmed
+            pendingConfirmation = false;
+            statusMessage.style.color = "#555";
+
+            // Append selected message IDs if rows are checked
+            let finalPrompt = rawInstruction;
+            if (selectedIds.length > 0 && isMutation) {
+                finalPrompt = `${rawInstruction} (target message IDs: ${selectedIds.join(", ")})`;
+            }
+
+            statusMessage.textContent = "Processing...";
+
+            try {
+                const response = await fetch("/api/submit", {
+                    method: "POST",
+                    headers: {"Content-Type": "application/json"},
+                    body: JSON.stringify({ prompt: finalPrompt })
+                });
+
+                const data = await response.json();
+
+                if (!response.ok) {
+                    statusMessage.style.color = "#d9534f";
+                    statusMessage.textContent = "Error: " + (data.error || "Execution failed.");
+                    return;
+                }
+
+                // Dim checked rows if a modification action was applied
+                if (data.action_applied) {
+                    statusMessage.style.color = "#2e7d32";
+                    statusMessage.textContent = "Changes applied successfully!";
+                    checkedBoxes.forEach(cb => {
+                        const row = cb.closest("tr");
+                        row.style.opacity = "0.3";
+                        cb.disabled = true;
+                        cb.checked = false;
+                    });
+                    return;
+                }
+
+                // Populate table with fetched emails
+                const loadedEmails = data.emails || [];
+                displayEmails(loadedEmails);
+                statusMessage.style.color = "#555";
+                statusMessage.textContent = `found ${loadedEmails.length} emails`;
+
+            } catch (error) {
+                statusMessage.style.color = "#d9534f";
+                statusMessage.textContent = "Could not contact the server.";
+                console.error(error);
+            }
+        };
+
+        function displayEmails(emails) {
+            const tbody = document.getElementById("emailList");
+            tbody.innerHTML = "";
+
+            if (emails.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="4" style="text-align: center; color: #666;">No matching emails found.</td></tr>';
+                return;
+            }
+
+            emails.forEach(email => {
+                const row = document.createElement("tr");
+
+                const checkboxCell = document.createElement("td");
+                const checkbox = document.createElement("input");
+                checkbox.type = "checkbox";
+                checkbox.className = "email-checkbox";
+                checkbox.value = email.id;
+                checkbox.addEventListener("change", () => { pendingConfirmation = false; });
+                checkboxCell.appendChild(checkbox);
+
+                const date = document.createElement("td");
+                date.textContent = email.date;
+
+                const sender = document.createElement("td");
+                sender.textContent = email.sender;
+
+                const subject = document.createElement("td");
+                subject.textContent = email.subject;
+
+                const context = document.createElement("td");
+                context.textContent = email.context || "Retrieved from inbox";
+
+                row.append(checkboxCell, date, sender, subject, context);
+                tbody.appendChild(row);
+            });
         }
 
-        console.log("Candidates returned:", result.candidates);/////////////////
+        document.getElementById("selectAll").onclick = () => {
+            document.querySelectorAll("#emailList .email-checkbox:not(:disabled)").forEach(cb => cb.checked = true);
+            pendingConfirmation = false;
+        };
 
-        const activeEmail = document.getElementById("emailAddress").value.trim();
-        document.getElementById("activeAccount").textContent =
-           "Active account: " + activeEmail;
-
-        displayCandidates(result.candidates); //========================
-
-        resultElement.textContent =
-            "Found " + result.candidates.length +
-            " candidate email(s).";
-
-    } catch (error) {
-        resultElement.textContent = "Could not contact the server.";
-        console.error(error);
-    }
-};
-
-
-
-document.getElementById("makeEmailChanges").onclick = () => {
-    const selected = document.querySelectorAll(
-        ".candidate-checkbox:checked"
-    );
-
-    const selectedIds = Array.from(selected).map(
-        checkbox => checkbox.value
-    );
-
-
-    const message =
-        selectedIds.length + " email(s):\n" +
-        selectedIds.join(", ");
-
-    if (!window.confirm(message)) {
-        document.getElementById("instructionResult").textContent =
-            "Operation cancelled. No email changes have been made.";
-        return;
-    }
-
-    document.getElementById("instructionResult").textContent =
-        "Confirmed for testing. No email changes have been made.";
-};
-
-
-function displayCandidates(emails) {
-    const tbody = document.getElementById("emailList");
-    tbody.innerHTML = "";
-
-    emails.forEach(email => {
-        const row = document.createElement("tr");
-
-        const checkboxCell = document.createElement("td");
-        const checkbox = document.createElement("input");
-        checkbox.type = "checkbox";
-        checkbox.className = "candidate-checkbox";
-        checkbox.addEventListener("change", updateMakeChangesButton);
-        checkbox.value = email.id;
-        checkboxCell.appendChild(checkbox);
-
-        const sender = document.createElement("td");
-        sender.textContent = email.sender;
-
-        const date = document.createElement("td");
-        date.textContent = email.date;
-
-        const subject = document.createElement("td");
-        subject.textContent = email.subject;
-
-        const reason = document.createElement("td");
-        reason.textContent = email.reason;
-        reason.title = email.body || "";
-
-        row.append(
-            checkboxCell,
-            sender,
-            date,
-            subject,
-            reason
-        );
-
-        tbody.appendChild(row);
-    });
-    updateMakeChangesButton();
-}
-
-function updateMakeChangesButton() {
-    const selected = document.querySelectorAll(
-        ".candidate-checkbox:checked"
-    );
-
-    document.getElementById("makeEmailChanges").disabled =
-        selected.length === 0;
-}
-
-document.getElementById("selectAll").onclick = () => {
-    document.querySelectorAll(
-        "#emailList .candidate-checkbox"
-    ).forEach(checkbox => {
-        checkbox.checked = true;
-    });
-
-    updateMakeChangesButton();
-};
-
-document.getElementById("deselectAll").onclick = () => {
-    document.querySelectorAll(
-        "#emailList .candidate-checkbox"
-    ).forEach(checkbox => {
-        checkbox.checked = false;
-    });
-
-    updateMakeChangesButton();
-};
+        document.getElementById("deselectAll").onclick = () => {
+            document.querySelectorAll("#emailList .email-checkbox").forEach(cb => cb.checked = false);
+            pendingConfirmation = false;
+        };
     </script>
 </body>
 </html>

@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "Snippet Popup Launcher",
+  "version": "3.0",
+  "description": "Press Alt+A to edit and insert multi-line snippets at the cursor with persistent storage.",
+  "permissions": ["storage"],
+  "icons": {
+    "16": "AI.png",
+    "48": "AI.png",
+    "128": "AI.png"
+  },
+  "action": {
+    "default_icon": {
+      "16": "AI.png",
+      "32": "AI.png",
+      "48": "AI.png",
+      "128": "AI.png"
+    },
+    "default_title": "Snippet Popup Launcher"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["Constitutions.txt", "Tests.txt", "Style.txt", "Scratchpad.txt", "ai-links.html"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["prompt.js"]
+    }
+  ]
+}

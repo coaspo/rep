@@ -1,0 +1,18 @@
+Following are initial prompts to get AI to create a constitution.
+
+you are expert in writing ai constitutions.  My goal is to write a concise 
+consitiution so that the replies are easier, concise, accurate, easy to foolow, 
+and focused. Get AI to validate a prompt for clarity before giving a reply.  
+I expect about 5 10 lines to do this.  This is my first attempt to do this:
+"Use a technical type of communication.
+Use replies that are concise and not be longer than a broser window.
+If a prompt is not clear ask for clarification.
+Optimize your replies for accuracy, not crativity.
+If a prompt starts with "what", "explain", or "why" your reply should be 4 lines or less"
+
+you are expert in writing ai constitutions.  My goal is to write a concise 
+consitiution so that the replies are easier, concise, accurate, creative, 
+easy to foolow, and focused. Get AI to validate a prompt for clarity before giving a reply.  
+if the pervious constitution was analogous to math, this is analogous to art. 
+I plane to use in regrds to cooking, decorating, human communicatgion.  
+I expect about 5 10 lines to do this. 
