@@ -2,7 +2,7 @@ Download files
     into a new folder, for example: ai-prompt-browser-extension
 
 Install this extension to Brave
-   (for Chrome ask AI how to do it):
+   (and Chrome, or ask AI how to do it):
     open:
        brave://extensions/
     turn on:

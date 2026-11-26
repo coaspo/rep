@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Snippet Popup Launcher",
   "version": "3.0",
-  "description": "Press Alt+A to edit and insert multi-line snippets at the cursor with persistent storage.",
+  "description": "Press Alt+Shift-1 to insert prompt or edit with persistent storage.",
   "permissions": ["storage"],
   "icons": {
     "16": "AI.png",

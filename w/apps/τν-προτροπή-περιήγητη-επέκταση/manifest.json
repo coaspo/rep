@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "Snippet Popup Launcher",
+  "version": "3.0",
+  "description": "Πάτα Alt+Shift+1 για εισαγάγεις προτροπής ή επεξεργασία με μόνιμη αποθήκευση..",
+  "permissions": ["storage"],
+  "icons": {
+    "16": "ΤΝ.png",
+    "48": "ΤΝ.png",
+    "128": "ΤΝ.png"
+  },
+  "action": {
+    "default_icon": {
+      "16": "ΤΝ.png",
+      "32": "ΤΝ.png",
+      "48": "ΤΝ.png",
+      "128": "ΤΝ.png"
+    },
+    "default_title": "Snippet Popup Launcher"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["Συντάγματα.txt", "Δοκιμές.txt", "Στυλ.txt", "Προχείρο.txt", "τν-σύνδεσμοi.html"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["προτροπή.js"]
+    }
+  ]
+}
